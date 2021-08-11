@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Off to the Races](https://research.swtch.com/gorace)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Russ Cox</span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -26,8 +24,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -37,8 +34,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Data races explained
-========================
+# Go: Data races explained
 
 A **data race** happens when two goroutines access the same variable concur­rently, and at least one of the accesses is a write.
 
@@ -70,16 +66,15 @@ The name "data race" is somewhat misleading. Not only is the scheduling of diffe
 
 > Within a single goroutine, reads and writes must behave as if they executed in the order specified by the program. That is, compilers and processors may reorder the reads and writes executed within a single goroutine only when the reordering does not change the behavior within that goroutine as defined by the language specification. Because of this reordering, the execution order observed by one goroutine may differ from the order perceived by another. For example, if one goroutine executes `a = 1; b = 2;`, another might observe the updated value of `b` before the updated value of `a`. <a href="https://golang.org/ref/mem" class="quote-source">The Go Memory Model: Happens Before</a>
 
-In addition to this type of instruction reordering, a thread is allowed to **cache** previously read values until the next synchronization point. This means for instance that a snippet like `for !done { }` (that never synchronizes) may continue looping for ever, even if another thread sets `done` to `true`.
+In addition to this type of instruction reordering, a thread is allowed to **cache** previously read values until the next synchronization point. This means for instance that a snippet like `for !done { }` (that never synchronizes) may continue looping for ever, even if another thread sets `done` to `true`.
 
 It gets worse. Reads and writes of values larger than a single machine word behave as multiple machine-word-sized operations. This means that a thread could read a variable and, if unlucky, observe a value that has never been written to that variable.
 
 While the above gives rise to surprising behaviors in multithreaded programs, it allows for optimizations and more efficient execution of individual threads.
 
-**Conclusion**: it's *very* hard to reason about programs with data races.
+**Conclusion**: it's _very_ hard to reason about programs with data races.
 
-How to avoid data races
------------------------
+## How to avoid data races
 
 The only way to avoid data races is to synchronize access to all mutable data that is shared between threads. There are several ways to achieve this. In Go, you would normally use a **channel** or a **lock**. (Lower-lever mechanisms are available in the [`sync`](https://golang.org/pkg/sync/) and [`sync/atomic`](https://golang.org/pkg/sync/atomic/) packages.)
 
@@ -99,8 +94,8 @@ The preferred way to handle concurrent data access in Go is to use a channel to 
 
 In this code the channel does double duty:
 
--   it passes the data from one goroutine to another,
--   and it acts as a point of synchronization.
+- it passes the data from one goroutine to another,
+- and it acts as a point of synchronization.
 
 The sending goroutine will wait for the other goroutine to receive the data and the receiving goroutine will wait for the other goroutine to send the data.
 
@@ -124,8 +119,7 @@ Next »
 
 Detect data races
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

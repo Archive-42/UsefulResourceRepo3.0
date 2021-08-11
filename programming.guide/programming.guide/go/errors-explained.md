@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Why does Go not have exceptions?](https://golang.org/doc/faq#exceptions)  
 <span style="color: grey; font-style: italic; font-size: smaller">Go FAQ</span>
 
-Error handling
---------------
+## Error handling
 
 1.  Errors explained
 2.  [Create a custom error](create-error.html)
@@ -17,8 +15,7 @@ Error handling
 4.  [Recover from a panic](recover-from-panic.html)
 5.  [Stack traces](stack-trace.html)
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +27,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,8 +37,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Errors explained
-====================
+# Go: Errors explained
 
 Go typically uses return values to indicate errors. Multivalued returns makes it easy to return an error value alongside the normal return value.
 
@@ -72,8 +67,7 @@ To create a simple string-only `error` you can use [`errors.New`](https://golang
             return errors.New("Houston, we have a problem")
     }
 
-Panic
------
+## Panic
 
 In unrecovorable conditions, due to for instance programming errors, the program can call `panic(err)`. When the program panics, it starts to unwind the call stack. This continues until the stack is empty (at which point the program crashes) or until the `recover` function is called. Calling `panic` is similar to throwing an exception in Java or C++, but instead of try/catch blocks, Go uses deferred methods and the `recover` method.
 
@@ -91,8 +85,7 @@ Next »
 
 Create a custom error
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

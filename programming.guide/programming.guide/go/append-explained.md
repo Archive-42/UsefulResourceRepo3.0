@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Related
 [Copy function explained](copy-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,13 +38,12 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Append function explained
-=============================
+# Go: Append function explained
 
 The built-in [`append`](https://golang.org/ref/spec#Appending_and_copying_slices) function appends elements to the end of a slice:
 
--   if there is enough capacity, the underlying array is reused;
--   if not, a new underlying array is allocated and the data is copied over.
+- if there is enough capacity, the underlying array is reused;
+- if not, a new underlying array is allocated and the data is copied over.
 
 Append returns the updated slice. Therefore you need to store the result of an append, often in the variable holding the slice itself:
 
@@ -56,15 +52,13 @@ Append returns the updated slice. Therefore you need to store the result of an a
 
 Appending a single element takes constant amortized time. The article [Amortized time complexity](../amortized-time-complexity-analysis.html) explains this in detail.
 
-Special case
-------------
+## Special case
 
 It is legal to append a string to a byte slice:
 
     slice = append([]byte("hello "), "world"...)
 
-Examples
---------
+## Examples
 
 **Example:** Append an element to a slice:
 
@@ -82,8 +76,7 @@ Examples
     a := []int{1, 2}
     a = append(a, a...) // a == [1 2 1 2]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

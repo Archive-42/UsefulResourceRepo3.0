@@ -12,25 +12,23 @@
 
 <img src="https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format" alt="A crosswalk signal asking pedestrians to wait." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/3XqfQyjjfxEw8T3azz0W.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#using-asynchronous-web-apis-from-webassembly" class="w-toc__header--link">Using asynchronous web APIs from WebAssembly</a>
-------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#using-asynchronous-web-apis-from-webassembly" class="w-toc__header--link">Using asynchronous web APIs from WebAssembly</a>
 
--   [I/O in system languages](#io-in-system-languages)
--   [Asynchronous model of the web](#asynchronous-model-of-the-web)
--   [Bridging the gap with Asyncify](#bridging-the-gap-with-asyncify)
--   [Usage in C / C++ with Emscripten](#usage-in-c-c++-with-emscripten)
--   [Usage from other languages](#usage-from-other-languages)
--   [How does this all work under the hood?](#how-does-this-all-work-under-the-hood)
--   [Transformation costs](#transformation-costs)
--   [Real-world demos](#real-world-demos)
+- [I/O in system languages](#io-in-system-languages)
+- [Asynchronous model of the web](#asynchronous-model-of-the-web)
+- [Bridging the gap with Asyncify](#bridging-the-gap-with-asyncify)
+- [Usage in C / C++ with Emscripten](#usage-in-c-c++-with-emscripten)
+- [Usage from other languages](#usage-from-other-languages)
+- [How does this all work under the hood?](#how-does-this-all-work-under-the-hood)
+- [Transformation costs](#transformation-costs)
+- [Real-world demos](#real-world-demos)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Using asynchronous web APIs from WebAssembly
-============================================
+# Using asynchronous web APIs from WebAssembly
 
 Apr 26, 2021
 
@@ -38,14 +36,13 @@ Apr 26, 2021
 
 <a href="/authors/rreverser/" class="w-author__name-link">Ingvar Stepanyan</a>
 
--   <a href="https://twitter.com/RReverser" class="w-author__link">Twitter</a>
--   <a href="https://github.com/RReverser" class="w-author__link">GitHub</a>
--   <a href="https://rreverser.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/RReverser" class="w-author__link">Twitter</a>
+- <a href="https://github.com/RReverser" class="w-author__link">GitHub</a>
+- <a href="https://rreverser.com/" class="w-author__link">Blog</a>
 
 The I/O APIs on the web are asynchronous, but they're synchronous in most system languages. When compiling code to WebAssembly, you need to bridge one kind of APIs to another—and this bridge is Asyncify. In this post, you'll learn when and how to use Asyncify and how it works under the hood.
 
-I/O in system languages <a href="#io-in-system-languages" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------
+## I/O in system languages <a href="#io-in-system-languages" class="w-headline-link">#</a>
 
 I'll start with a simple example in C. Say, you want to read the user's name from a file, and greet them with a "Hello, (username)!" message:
 
@@ -67,9 +64,9 @@ To read the name from C, you need at least two crucial I/O calls: `fopen`, to op
 
 Those functions look quite simple at first glance and you don't have to think twice about the machinery involved to read or write data. However, depending on the environment, there can be quite a lot going on inside:
 
--   If the input file is located on a local drive, the application needs to perform a series of memory and disk accesses to locate the file, check permissions, open it for reading, and then read block by block until the requested number of bytes is retrieved. This can be pretty slow, depending on the speed of your disk and the requested size.
--   Or, the input file might be located on a mounted network location, in which case, the network stack will now be involved too, increasing the complexity, latency and number of potential retries for each operation.
--   Finally, even `printf` is not guaranteed to print things to the console and might be redirected to a file or a network location, in which case it would have to go via the same steps above.
+- If the input file is located on a local drive, the application needs to perform a series of memory and disk accesses to locate the file, check permissions, open it for reading, and then read block by block until the requested number of bytes is retrieved. This can be pretty slow, depending on the speed of your disk and the requested size.
+- Or, the input file might be located on a mounted network location, in which case, the network stack will now be involved too, increasing the complexity, latency and number of potential retries for each operation.
+- Finally, even `printf` is not guaranteed to print things to the console and might be redirected to a file or a network location, in which case it would have to go via the same steps above.
 
 Long story short, I/O can be slow and you can't predict how long a particular call will take by a quick glance at the code. While that operation is running, your whole application will appear frozen and unresponsive to the user.
 
@@ -82,8 +79,7 @@ This is not limited to C or C++ either. Most system languages present all the I/
 
 But what happens when you try to compile any of those samples to WebAssembly and translate them to the web? Or, to provide a specific example, what could "file read" operation translate to? It would need to read data from some storage.
 
-Asynchronous model of the web <a href="#asynchronous-model-of-the-web" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Asynchronous model of the web <a href="#asynchronous-model-of-the-web" class="w-headline-link">#</a>
 
 The web has a variety of different storage options you could map to, such as in-memory storage (JS objects), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), server-side storage, and a new [File System Access API](https://web.dev/file-system-access/).
 
@@ -145,8 +141,7 @@ Instead, a more idiomatic version of "sleep" in JavaScript would involve calling
 
 What's common to all these examples and APIs? In each case, the idiomatic code in the original systems language uses a blocking API for the I/O, whereas an equivalent example for the web uses an asynchronous API instead. When compiling to the web, you need to somehow transform between those two execution models, and WebAssembly has no built-in ability to do so just yet.
 
-Bridging the gap with Asyncify <a href="#bridging-the-gap-with-asyncify" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Bridging the gap with Asyncify <a href="#bridging-the-gap-with-asyncify" class="w-headline-link">#</a>
 
 This is where [Asyncify](https://emscripten.org/docs/porting/asyncify.html) comes in. Asyncify is a compile-time feature supported by Emscripten that allows pausing the entire program and asynchronously resuming it later.
 
@@ -316,8 +311,7 @@ This isn't ideal, but in many cases acceptable when the alternative is not havin
 
 Make sure to always enable optimizations for the final builds to avoid it going even higher. You can also check [Asyncify-specific optimization options](https://emscripten.org/docs/porting/asyncify.html#optimizing) to reduce the overhead by limiting transforms only to specified functions and/or only direct function calls. There is also a minor cost to runtime performance, but it's limited to the async calls themselves. However, compared to the cost of the actual work, it's usually negligible.
 
-Real-world demos <a href="#real-world-demos" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Real-world demos <a href="#real-world-demos" class="w-headline-link">#</a>
 
 Now that you've looked at the simple examples, I'll move on to more complicated scenarios.
 
@@ -347,35 +341,35 @@ Those examples demonstrate just how powerful Asyncify can be for bridging the ga
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -12,33 +12,31 @@
 
 <img src="https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format" alt="Man lying on the floor covered in post-it notes with empty checkboxes and messages such as off line, overthink, $, chill, take a break, and zzzz." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/avB7jubYxhJr1dHQzl6c.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#aria:-poison-or-antidote" class="w-toc__header--link">ARIA: poison or antidote?</a>
----------------------------------------------------------------------------------------------
+## <a href="#aria:-poison-or-antidote" class="w-toc__header--link">ARIA: poison or antidote?</a>
 
--   [What is ARIA?](#what-is-aria)
--   [What isn't ARIA?](#what-isn't-aria)
--   [How does ARIA work?](#how-does-aria-work)
--   [Why ARIA?](#why-aria)
--   [Menu bar example](#menu-bar-example)
--   [Supporting mouse clicker people](#supporting-mouse-clicker-people)
--   [Making our menu bar keyboard accessible](#making-our-menu-bar-keyboard-accessible)
--   [Screen reader access to our menu bar](#screen-reader-access-to-our-menu-bar)
--   [Dealing with bugs](#dealing-with-bugs)
--   [Keyboard bugs (HTML!)](#keyboard-bugs-(html!))
--   [ARIA bugs: why are there so many?](#aria-bugs:-why-are-there-so-many)
--   [Summary](#summary)
--   [Addendum 1: Additional Resources](#addendum-1:-additional-resources)
--   [Hybrid reference with keyboard info and code examples](#hybrid-reference-with-keyboard-info-and-code-examples)
--   [Addendum 2: What is ARIA most used for?](#addendum-2:-what-is-aria-most-used-for)
--   [Addendum 3: What's an Accessibility API?](#addendum-3:-what's-an-accessibility-api)
+- [What is ARIA?](#what-is-aria)
+- [What isn't ARIA?](#what-isn't-aria)
+- [How does ARIA work?](#how-does-aria-work)
+- [Why ARIA?](#why-aria)
+- [Menu bar example](#menu-bar-example)
+- [Supporting mouse clicker people](#supporting-mouse-clicker-people)
+- [Making our menu bar keyboard accessible](#making-our-menu-bar-keyboard-accessible)
+- [Screen reader access to our menu bar](#screen-reader-access-to-our-menu-bar)
+- [Dealing with bugs](#dealing-with-bugs)
+- [Keyboard bugs (HTML!)](<#keyboard-bugs-(html!)>)
+- [ARIA bugs: why are there so many?](#aria-bugs:-why-are-there-so-many)
+- [Summary](#summary)
+- [Addendum 1: Additional Resources](#addendum-1:-additional-resources)
+- [Hybrid reference with keyboard info and code examples](#hybrid-reference-with-keyboard-info-and-code-examples)
+- [Addendum 2: What is ARIA most used for?](#addendum-2:-what-is-aria-most-used-for)
+- [Addendum 3: What's an Accessibility API?](#addendum-3:-what's-an-accessibility-api)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-ARIA: poison or antidote?
-=========================
+# ARIA: poison or antidote?
 
 How lying to screen readers cures accessibility, when it doesn't rub salt in it!
 
@@ -48,10 +46,9 @@ Aug 18, 2020
 
 <a href="/authors/aaronleventhal/" class="w-author__name-link">Aaron Leventhal</a>
 
--   <a href="https://twitter.com/aaronlev" class="w-author__link">Twitter</a>
+- <a href="https://twitter.com/aaronlev" class="w-author__link">Twitter</a>
 
-What is ARIA? <a href="#what-is-aria" class="w-headline-link">#</a>
--------------------------------------------------------------------
+## What is ARIA? <a href="#what-is-aria" class="w-headline-link">#</a>
 
 ARIA lets web authors create an alternative reality, seen only by screen readers 🤥
 
@@ -61,20 +58,17 @@ Whenever a magical sticky note exists, it either overrides our belief about what
 
 The web equivalent to this is to take a plain box element (a div) with an image inside of it, and use ARIA to say it's a slider at value 30 out of 100.
 
-What isn't ARIA? <a href="#what-isn&#39;t-aria" class="w-headline-link">#</a>
------------------------------------------------------------------------------
+## What isn't ARIA? <a href="#what-isn&#39;t-aria" class="w-headline-link">#</a>
 
 ARIA does not affect the appearance of a web page, or the behavior for a mouse or keyboard user. Only users of assistive technologies will notice any difference from ARIA. Web developers can add any arbitrary ARIA without affecting users that aren't running an assistive technology.
 
 You read it right: ARIA doesn't actually do anything to keyboard focus or tab order. That's all done in HTML, sometimes tweaked with bits of JavaScript.
 
-How does ARIA work? <a href="#how-does-aria-work" class="w-headline-link">#</a>
--------------------------------------------------------------------------------
+## How does ARIA work? <a href="#how-does-aria-work" class="w-headline-link">#</a>
 
 Browsers are asked by a screen reader or other assistive technology for information about each element. When ARIA is present on an element, the browser takes in the information and changes what it tells the screen reader about that element.
 
-Why ARIA? <a href="#why-aria" class="w-headline-link">#</a>
------------------------------------------------------------
+## Why ARIA? <a href="#why-aria" class="w-headline-link">#</a>
 
 Why would we ever want to lie to our users!?
 
@@ -82,8 +76,7 @@ Let's say the local web store doesn't sell all the widgets we need. But, we are 
 
 Sometimes, rather than using ARIA to the max, we just use it as an enhancement. It can be useful to sprinkle a little ARIA on some HTML that already basically works. For example, we might want a form control to point to an error message alert that relates to some invalid input. Or we might want to indicate that a textbox is for searching. These little tweaks can make ordinary websites more usable with a screen reader.
 
-Menu bar example <a href="#menu-bar-example" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Menu bar example <a href="#menu-bar-example" class="w-headline-link">#</a>
 
 ### Supporting mouse clicker people <a href="#supporting-mouse-clicker-people" class="w-headline-link">#</a>
 
@@ -101,9 +94,9 @@ As a first step toward accessibility, let's add keyboard accessibility. This par
 
 Just like a web page can respond to the mouse, it can also respond to the keyboard. Our JavaScript will listen to all keystrokes that occur and decide if the keypress is useful. If not, it throws it back to the page like a fish that's too small to eat. Our rules are something like:
 
--   If the user presses an arrow key, let's look at our own internal menu bar blueprints and decide what the new active menu item should be. We will clear any current highlights and highlight the new menu item so the sighted user visually knows where they are. The web page should then call `event.preventDefault()` to prevent the browser from performing the usual action (scrolling the page, in this case).
--   If the user presses the Enter key, we can treat it just like a click, and perform the appropriate action (or even open another menu).
--   If the user presses a key that should do something else, don't eat that! Throw it back to the page as nature intended. For example, our menu bar doesn't need the Tab key, so throw it back! This is hard to get right, and authors often mess it up. For example, the menu bar needs arrow keys, but not Alt+Arrow or Command+Arrow. Those are shortcuts for moving to the previous/next page in the web history of your browser tab. If the author isn't careful, the menu bar will eat those. This kind of bug happens a lot, and we haven't even started with ARIA yet!
+- If the user presses an arrow key, let's look at our own internal menu bar blueprints and decide what the new active menu item should be. We will clear any current highlights and highlight the new menu item so the sighted user visually knows where they are. The web page should then call `event.preventDefault()` to prevent the browser from performing the usual action (scrolling the page, in this case).
+- If the user presses the Enter key, we can treat it just like a click, and perform the appropriate action (or even open another menu).
+- If the user presses a key that should do something else, don't eat that! Throw it back to the page as nature intended. For example, our menu bar doesn't need the Tab key, so throw it back! This is hard to get right, and authors often mess it up. For example, the menu bar needs arrow keys, but not Alt+Arrow or Command+Arrow. Those are shortcuts for moving to the previous/next page in the web history of your browser tab. If the author isn't careful, the menu bar will eat those. This kind of bug happens a lot, and we haven't even started with ARIA yet!
 
 ### Screen reader access to our menu bar <a href="#screen-reader-access-to-our-menu-bar" class="w-headline-link">#</a>
 
@@ -115,8 +108,7 @@ ARIA to the rescue. ARIA lets us pretend to the screen reader that focus is in a
 
 Our first, ahem, ARIA lie, is to use the `aria-activedescendant` attribute, and set it to the ID of the currently active menuitem, being careful to update it whenever it changes. For example, `aria-activedescendant="settings-menuitem"`. This little white lie causes the screen reader to consider our ARIA active item as the focus, which is read aloud or shown on a Braille display.
 
-Explanation of *ancestor*, *parent*, and *descendant*
------------------------------------------------------
+## Explanation of _ancestor_, _parent_, and _descendant_
 
 The term descendant refers to the fact that an item is contained somewhere inside of another. The opposite term is ancestor, which is to say an item is contained by ancestors. For the next container up/down, these may use the more specific terms parent/child. For example, imagine a document with a paragraph that has a link inside. The link's parent is a paragraph, but it also has the document as an ancestor. Conversely, the document may have many paragraph children, each with links. The links are all descendants of the grandparent document.
 
@@ -124,8 +116,7 @@ Back to `aria-activedescendant`. By using it to point from the focused menu bar 
 
 And what if the menuitem can lead to a child menu? The user needs to know that right? For a sighted user, there might be a little picture of a triangle at the end of the menu, but the screen reader doesn't know how to automatically read images, at least at this point. We can add `aria-expanded="false"` on each expandable menuitem to indicate that 1) there is something that can be expanded, and 2) it currently is not expanded. As an added touch the author should put `role="none"` on the img triangle to indicate it's for prettification purposes only. This prevents the screen reader from saying anything about the image that would be redundant at best and possibly annoying.
 
-Dealing with bugs <a href="#dealing-with-bugs" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Dealing with bugs <a href="#dealing-with-bugs" class="w-headline-link">#</a>
 
 ### Keyboard bugs (HTML!) <a href="#keyboard-bugs-(html!)" class="w-headline-link">#</a>
 
@@ -133,9 +124,9 @@ Although keyboard access is a part of core HTML, authors mess it up all the time
 
 Examples of bugs:
 
--   A checkbox uses spacebar to toggle, but the author forgot to call `preventDefault()`. Now the spacebar will both toggle the checkbox and page down, which is the default browser behavior for spacebar.
--   An ARIA modal dialog wants to trap tab navigation inside of it, and the author forgets to specifically allow Control+Tab through to the browser. Now, Control+Tab just navigates within their dialog, and doesn't switch tabs in the browser as it should. Ugh.
--   An author creates a selection list, and implements up/down, but does not implement home/end/pageup/pagedown or first letter navigation.
+- A checkbox uses spacebar to toggle, but the author forgot to call `preventDefault()`. Now the spacebar will both toggle the checkbox and page down, which is the default browser behavior for spacebar.
+- An ARIA modal dialog wants to trap tab navigation inside of it, and the author forgets to specifically allow Control+Tab through to the browser. Now, Control+Tab just navigates within their dialog, and doesn't switch tabs in the browser as it should. Ugh.
+- An author creates a selection list, and implements up/down, but does not implement home/end/pageup/pagedown or first letter navigation.
 
 Authors should follow known patterns. Check out the [Resources](#resources) section for more information.
 
@@ -153,40 +144,36 @@ And this is just menu bars. Think of how many kinds of widgets there are. Glance
 
 In other words, it is 100 percent necessary for actual screen reader users to try ARIA widgets before they're considered shippable. There's too much nuance. Ideally everything would be tried with several different browser-screen reader combinations, because of the numerous implementation quirks, in addition to a few incomplete implementations.
 
-Summary <a href="#summary" class="w-headline-link">#</a>
---------------------------------------------------------
+## Summary <a href="#summary" class="w-headline-link">#</a>
 
 In summary, ARIA magic can be used to override or add to anything and everything that the HTML says. It can be used to do little fine changes to the accessibility presentation, or to create an entire experience. This is why ARIA is both incredibly powerful and yet dangerous in the hands of our friendly local web authors who don't generally use screen readers themselves.
 
 ARIA is just a dumb truth override markup layer. When a screen reader asks what's happening, if ARIA exists, they get the ARIA version of the truth instead of the real underlying truth.
 
-Addendum 1: Additional Resources <a href="#addendum-1:-additional-resources" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## Addendum 1: Additional Resources <a href="#addendum-1:-additional-resources" class="w-headline-link">#</a>
 
 ### Hybrid reference with keyboard info and code examples <a href="#hybrid-reference-with-keyboard-info-and-code-examples" class="w-headline-link">#</a>
 
--   [W3C's ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/): this documents the important keyboard navigation characteristics of each example and provides working JS/CSS/ARIA code. The examples are focused on what works today, and do not cover mobile.
+- [W3C's ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/): this documents the important keyboard navigation characteristics of each example and provides working JS/CSS/ARIA code. The examples are focused on what works today, and do not cover mobile.
 
-Addendum 2: What is ARIA most used for? <a href="#addendum-2:-what-is-aria-most-used-for" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------
+## Addendum 2: What is ARIA most used for? <a href="#addendum-2:-what-is-aria-most-used-for" class="w-headline-link">#</a>
 
 Because ARIA can replace or supplement small or large truths, generally useful for saying stuff that the screen reader cares about.
 
 Here are some common uses of ARIA.
 
--   Special widgets that don't exist in HTML, like a menu bar, autocomplete, tree, or spreadsheet
--   Widgets that exist in HTML, but the author invented their own anyway, possibly because they needed to tweak the behavior or appearance of the normal widget. For example, an HTML `<input type="range">` element is basically a slider, but authors want to make it look different. For most things, CSS can be used, but for `input type="range"`, CSS is awkward. An author can make their own slider, and use `role="slider"` on it with `aria-valuenow` to say what the current value is.
--   Live regions tell screen readers "in this area of the page, anything that changes is worth telling the user about."
--   Landmarks (HTML has equivalents now). These are somewhat like headings, in that they help screen reader users find what they want faster. However, they're different in that they contain the entire related area. Like, "this container is the main area of the page" and "this container over here is a navigation panel".
+- Special widgets that don't exist in HTML, like a menu bar, autocomplete, tree, or spreadsheet
+- Widgets that exist in HTML, but the author invented their own anyway, possibly because they needed to tweak the behavior or appearance of the normal widget. For example, an HTML `<input type="range">` element is basically a slider, but authors want to make it look different. For most things, CSS can be used, but for `input type="range"`, CSS is awkward. An author can make their own slider, and use `role="slider"` on it with `aria-valuenow` to say what the current value is.
+- Live regions tell screen readers "in this area of the page, anything that changes is worth telling the user about."
+- Landmarks (HTML has equivalents now). These are somewhat like headings, in that they help screen reader users find what they want faster. However, they're different in that they contain the entire related area. Like, "this container is the main area of the page" and "this container over here is a navigation panel".
 
-Addendum 3: What's an Accessibility API? <a href="#addendum-3:-what&#39;s-an-accessibility-api" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------
+## Addendum 3: What's an Accessibility API? <a href="#addendum-3:-what&#39;s-an-accessibility-api" class="w-headline-link">#</a>
 
 An accessibility API is how a screen reader or other AT knows what's in the page and what's happening right now. Examples include MSAA, IA2, and UIA. And that's just Windows! There are two parts to an accessibility API:
 
--   A "tree" of objects that represents a container hierarchy. These are like Russian nesting dolls, but each doll can contain multiple other dolls. For example, a document can contain a bunch of paragraphs, and a paragraph can have text, images, links, boldface, etc. Each item in the object tree can have properties like a role (what am I?), a name/label, a user-entered value, a description, as well as boolean states like focusable, focused, required, checked. ARIA can override any of these properties.  
-    The screen reader uses the tree to help the user navigate in virtual buffer mode, like "go to the next heading please".
--   A series of events that occur describing changes to the tree, like "focus is now over here!". The screen reader uses the events to tell the user what has just happened. When important HTML or ARIA markup changes, an event is fired to tell the screen reader that something changed.
+- A "tree" of objects that represents a container hierarchy. These are like Russian nesting dolls, but each doll can contain multiple other dolls. For example, a document can contain a bunch of paragraphs, and a paragraph can have text, images, links, boldface, etc. Each item in the object tree can have properties like a role (what am I?), a name/label, a user-entered value, a description, as well as boolean states like focusable, focused, required, checked. ARIA can override any of these properties.  
+  The screen reader uses the tree to help the user navigate in virtual buffer mode, like "go to the next heading please".
+- A series of events that occur describing changes to the tree, like "focus is now over here!". The screen reader uses the events to tell the user what has just happened. When important HTML or ARIA markup changes, an event is fired to tell the screen reader that something changed.
 
 Usually authors just use HTML, which maps nicely to these accessibility APIs. When HTML is not enough, ARIA is used and the browser overrides the HTML semantics before sending the object tree or events to the screen reader.
 
@@ -196,35 +183,35 @@ Usually authors just use HTML, which maps nicely to these accessibility APIs. Wh
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

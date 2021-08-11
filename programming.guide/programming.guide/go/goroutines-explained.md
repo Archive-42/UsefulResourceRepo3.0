@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  Goroutines explained
 2.  [Channels explained](channels-explained.html)
@@ -20,8 +19,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Goroutines explained
-====================
+# Goroutines explained
 
 The **go** statement runs a function in a separate thread of execution: a **goroutine**.
 
@@ -40,7 +37,7 @@ The **go** statement runs a function in a separate thread of execution: a **goro
 
 All goroutines in a single program share the same address space.
 
-The following program will print "Hello from main goroutine". It *might* also print "Hello from another goroutine", depending on which of the two goroutines finish first.
+The following program will print "Hello from main goroutine". It _might_ also print "Hello from another goroutine", depending on which of the two goroutines finish first.
 
     func main() {
             go fmt.Println("Hello from another goroutine")
@@ -91,8 +88,7 @@ The program will, most likely, print the following three lines, in the given ord
 
 In general it’s not possible to arrange for threads to wait for each other by sleeping. Go’s main method for synchronization is to use [channels](channels-explained.html).
 
-Implementation
---------------
+## Implementation
 
 Goroutines are lightweight, costing little more than the allocation of stack space. The stacks start small and grow by allocating and freeing heap storage as required. Internally goroutines act like coroutines that are multiplexed among multiple operating system threads.
 
@@ -110,8 +106,7 @@ Next »
 
 Channels explained
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

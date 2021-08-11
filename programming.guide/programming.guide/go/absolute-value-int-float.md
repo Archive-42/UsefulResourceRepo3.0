@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Compute min and max](max-min-function.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,11 +29,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Compute absolute values
-===========================
+# Go: Compute absolute values
 
-Integers
---------
+## Integers
 
 Go has no built-in library function for computing the absolute value of an integer. It's simple to write your own.
 
@@ -49,8 +44,8 @@ Go has no built-in library function for computing the absolute value of an integ
 
 **Warning:** The smallest value of a signed integer type doesn't have a corresponding positive value. For example
 
--   `math.MinInt32` equals -214748364**8**, while
--   `math.MaxInt32` equals 214748364**7**.
+- `math.MinInt32` equals -214748364**8**, while
+- `math.MaxInt32` equals 214748364**7**.
 
 There's no good way to deal with this. In fact, `Abs` returns a **negative value** in this case:
 
@@ -58,8 +53,7 @@ There's no good way to deal with this. In fact, `Abs` returns a **negative value
 
 The C and Java standard libraries also behave like this.
 
-Floats
-------
+## Floats
 
 Use [`math.Abs`](https://golang.org/pkg/math/#Abs) to compute the absolute value of a floating-point number:
 
@@ -71,8 +65,7 @@ Note the special cases:
     Abs(±Inf) = +Inf
     Abs(NaN) = NaN
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

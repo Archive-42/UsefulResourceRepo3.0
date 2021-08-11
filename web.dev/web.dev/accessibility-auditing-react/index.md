@@ -12,18 +12,16 @@
 
 <img src="https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/CYDdWUK4iah3Xe8yEfoR.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#accessibility-auditing-with-react-axe-and-eslint-plugin-jsx-a11y" class="w-toc__header--link">Accessibility auditing with react-axe and eslint-plugin-jsx-a11y</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#accessibility-auditing-with-react-axe-and-eslint-plugin-jsx-a11y" class="w-toc__header--link">Accessibility auditing with react-axe and eslint-plugin-jsx-a11y</a>
 
--   [Why is this useful?](#why-is-this-useful)
--   [Use eslint-plugin-jsx-a11y](#use-eslint-plugin-jsx-a11y)
--   [Use react-axe](#use-react-axe)
--   [Conclusion](#conclusion)
+- [Why is this useful?](#why-is-this-useful)
+- [Use eslint-plugin-jsx-a11y](#use-eslint-plugin-jsx-a11y)
+- [Use react-axe](#use-react-axe)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Accessibility auditing with react-axe and eslint-plugin-jsx-a11y
-================================================================
+# Accessibility auditing with react-axe and eslint-plugin-jsx-a11y
 
 Your React site is not progressive if it's not accessible. Auditing during development can help you spot any issues.
 
@@ -35,10 +33,10 @@ Apr 29, 2019 <span class="w-author__separator">•</span> Updated Jul 16, 2020
 
 <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a>
 
--   <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
--   <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
--   <a href="https://houssein.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
+- <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
+- <a href="https://houssein.me/" class="w-author__link">Blog</a>
 
 If you would like to learn about the basic concepts behind accessibility in web pages, refer to the [What is accessibility](/what-is-accessibility) guide first.
 
@@ -46,13 +44,11 @@ If you would like to learn about the basic concepts behind accessibility in web 
 
 [`eslint-plugin-jsx-a11y`](https://github.com/evcohen/eslint-plugin-jsx-a11y) is an ESLint plugin that identifies and enforces a number of accessibility rules directly in your JSX. Using this in combination with a tool that tests the final rendered DOM, such as `react-axe`, can help you find and fix any accessibility concerns on your site.
 
-Why is this useful? <a href="#why-is-this-useful" class="w-headline-link">#</a>
--------------------------------------------------------------------------------
+## Why is this useful? <a href="#why-is-this-useful" class="w-headline-link">#</a>
 
 It is crucial to build web sites that provide every user, regardless of their impairment or restriction, the capability to access its content. Using auditing libraries such as `react-axe` and `eslint-plugin-jsx-a11y` during the development of your React application will automatically surface any accessibility issues as they pop up.
 
-Use eslint-plugin-jsx-a11y <a href="#use-eslint-plugin-jsx-a11y" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Use eslint-plugin-jsx-a11y <a href="#use-eslint-plugin-jsx-a11y" class="w-headline-link">#</a>
 
 React already supports writing accessible HTML elements within JSX syntax. For example, you only need to use the `htmlFor` attribute instead of `for` to link a label to a specific form element within a React component.
 
@@ -94,8 +90,7 @@ If you would like an even stricter subset of rules, switch to strict mode:
 
 The project [documentation](https://github.com/evcohen/eslint-plugin-jsx-a11y#difference-between-recommended-and-strict-mode) provides information on the differences between recommended and strict mode.
 
-Use react-axe <a href="#use-react-axe" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Use react-axe <a href="#use-react-axe" class="w-headline-link">#</a>
 
 `eslint-plugin-jsx-a11y` can help you easily pinpoint any accessibility issues in your JSX, but it does not test any of the final HTML output. **`react-axe`** is a library that does exactly this by providing a React wrapper around the [`axe-core`](https://github.com/dequelabs/axe-core) testing tool by Deque Labs.
 
@@ -122,15 +117,14 @@ Now when you run the application during development, issues are surfaced directl
 
 A severity level is also assigned for each violation. These levels are:
 
--   Minor
--   Moderate
--   Serious
--   Critical
+- Minor
+- Moderate
+- Serious
+- Critical
 
 If you would like to include accessibility testing in your unit testing workflow, take a look at the [Jest and axe integration example](https://github.com/dequelabs/axe-core/tree/develop/doc/examples/jest_react) to understand how.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 1.  If you are building a site with React, include accessibility auditing into your workflow early to catch problems as you build your components.
 2.  Use `eslint-plugin-jsx-a11y` to add accessibility checks into your linting workflow. CRA already comes with it included, but switch to either the recommended or strict mode.
@@ -140,35 +134,35 @@ Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 <a href="/react" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

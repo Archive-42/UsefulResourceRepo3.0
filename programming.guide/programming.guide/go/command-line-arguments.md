@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Write a command-line (CLI) application](write-command-line-application.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Command-line arguments
-==========================
+# Go: Command-line arguments
 
 The [`os.Args`](https://golang.org/pkg/os/#pkg-variables) variable holds the command-line arguments, starting with the program name:
 
@@ -51,8 +47,7 @@ The [`os.Args`](https://golang.org/pkg/os/#pkg-variables) variable holds the com
     $ ./grep
     Usage: ./grep PATTERN FILE
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

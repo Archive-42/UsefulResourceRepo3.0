@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Get year, month, day from time](day-month-year-from-time.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -26,8 +25,7 @@ Further Reading
 [iota](iota.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -39,8 +37,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -50,8 +47,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Day of week
-===============
+# Go: Day of week
 
 The [`Weekday`](https://golang.org/pkg/time/#Time.Weekday) function returns returns the day of the week of a [`time.Time`](https://golang.org/pkg/time/#Time).
 
@@ -63,8 +59,7 @@ In use:
     fmt.Println(weekday)      // "Tuesday"
     fmt.Println(int(weekday)) // "2"
 
-Type Weekday
-------------
+## Type Weekday
 
 The [`time.Weekday`](https://golang.org/pkg/time/#Weekday) type specifies a day of the week (Sunday = 0, …).
 
@@ -80,8 +75,7 @@ The [`time.Weekday`](https://golang.org/pkg/time/#Weekday) type specifies a day 
             Saturday
     )
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

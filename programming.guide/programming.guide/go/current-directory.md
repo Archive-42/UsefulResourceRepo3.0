@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,12 +24,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Current working directory
-=============================
+# Go: Current working directory
 
--   Use [`os.Executable`](https://golang.org/pkg/os/#Executable) to find the path name for the executable that started the current process.
+- Use [`os.Executable`](https://golang.org/pkg/os/#Executable) to find the path name for the executable that started the current process.
 
--   Use [`filepath.Dir`](https://golang.org/pkg/path/filepath/#Dir) in package [`path/filepath`](https://golang.org/pkg/path/filepath/) to extract the path's directory.
+- Use [`filepath.Dir`](https://golang.org/pkg/path/filepath/#Dir) in package [`path/filepath`](https://golang.org/pkg/path/filepath/) to extract the path's directory.
 
 <!-- -->
 
@@ -45,8 +42,7 @@ Go: Current working directory
 
 **Warning:** There is no guarantee that the path is still pointing to the correct executable. If a symlink was used to start the process, depending on the operating system, the result might be the symlink or the path it pointed to. If a stable result is needed, [`path/filepath.EvalSymlinks`](https://golang.org/pkg/path/filepath/#EvalSymlinks) might help.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

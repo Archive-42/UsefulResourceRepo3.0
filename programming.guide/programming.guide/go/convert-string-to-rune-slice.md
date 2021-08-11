@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [String handling cheat sheet](string-functions-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Strings, bytes, runes and characters in Go](https://blog.golang.org/strings)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Convert string to rune slice (array)
-========================================
+# Go: Convert string to rune slice (array)
 
 Converting a string to a slice of runes yields a slice whose elements are the Unicode code points of the string.
 
@@ -48,8 +44,7 @@ Converting a string to a slice of runes yields a slice whose elements are the Un
     // [97 98 99 26085]
     // [U+0061 U+0062 U+0063 U+65E5]
 
-Comments (1)
-------------
+## Comments (1)
 
 ![User avatar](https://www.gravatar.com/avatar/f95508db25875bb30c3aeab289863043?d=mp)
 

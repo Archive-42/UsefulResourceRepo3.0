@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Error handling and Go](https://blog.golang.org/error-handling-and-go)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Error handling
---------------
+## Error handling
 
 1.  [Errors explained](errors-explained.html)
 2.  Create a custom error
@@ -17,8 +15,7 @@ Error handling
 4.  [Recover from a panic](recover-from-panic.html)
 5.  [Stack traces](stack-trace.html)
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +27,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,8 +37,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Create a custom error
-=========================
+# Go: Create a custom error
 
 First, two out-of-the-box options:
 
@@ -52,8 +47,7 @@ First, two out-of-the-box options:
     // With formatting:
     err2 := fmt.Errorf("%d errors, %d warnings", errCount, warnCount)
 
-Custom errors with data
------------------------
+## Custom errors with data
 
 All you need to do is satisfy the predeclared [`error`](https://golang.org/ref/spec/#Errors) interface:
 
@@ -92,8 +86,7 @@ Let's do another one:
             return fmt.Sprintf("parse %v: internal error", e.Path)
     }
 
-Handling the errors
--------------------
+## Handling the errors
 
 Suppose `RiskyFunction` may return a `SyntaxError` or an `InternalError`. Here's how you would handle the two cases:
 
@@ -128,8 +121,7 @@ Next »
 
 Panic explained
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

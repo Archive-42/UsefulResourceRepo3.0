@@ -10,21 +10,19 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#why-are-some-animations-slow" class="w-toc__header--link">Why are some animations slow?</a>
------------------------------------------------------------------------------------------------------
+## <a href="#why-are-some-animations-slow" class="w-toc__header--link">Why are some animations slow?</a>
 
--   [Animation performance and frame rate](#fps)
--   [The rendering pipeline](#pipeline)
--   [Animating layout properties](#layout)
--   [Animating paint properties](#paint)
--   [Animating composite properties](#composite)
--   [What is a layer?](#layers)
--   [CSS vs JavaScript performance](#css-js)
+- [Animation performance and frame rate](#fps)
+- [The rendering pipeline](#pipeline)
+- [Animating layout properties](#layout)
+- [Animating paint properties](#paint)
+- [Animating composite properties](#composite)
+- [What is a layer?](#layers)
+- [CSS vs JavaScript performance](#css-js)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Why are some animations slow?
-=============================
+# Why are some animations slow?
 
 Oct 6, 2020
 
@@ -34,20 +32,18 @@ Oct 6, 2020
 
 <a href="/authors/rachelandrew/" class="w-author__name-link">Rachel Andrew</a>
 
--   <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
--   <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
+- <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
 
 Modern browsers can animate two CSS properties cheaply: `transform` and `opacity`. If you animate anything else, the chances are you're not going to hit a silky smooth 60 frames per second (FPS). This post explains why this is the case.
 
-Animation performance and frame rate <a href="#fps" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## Animation performance and frame rate <a href="#fps" class="w-headline-link">#</a>
 
 It is widely accepted that a frame rate of 60 FPS is the target when animating anything on the web. This frame rate will ensure that your animations look smooth. On the web a frame is the time that it takes to do all of the work required to update and repaint the screen. If each frame does not complete within 16.7ms (1000ms / 60 ≈ 16.7), then users will perceive the delay.
 
-The rendering pipeline <a href="#pipeline" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## The rendering pipeline <a href="#pipeline" class="w-headline-link">#</a>
 
 To display something on a webpage the browser has to go through the following sequential steps:
 
@@ -84,8 +80,7 @@ This is why the `opacity` property is included in the list of things which are c
 
 For an in-depth look at compositing see the article [GPU Animation: Doing It Right](https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/)
 
-What is a layer? <a href="#layers" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## What is a layer? <a href="#layers" class="w-headline-link">#</a>
 
 By placing the things that will be animated or transitioned onto a new layer, the browser only needs to repaint those items and not everything else. You may be familiar with Photoshop's concept of a layer which contains a bunch of elements that can be moved together. Browser rendering layers are similar to that idea.
 
@@ -93,12 +88,11 @@ While the browser does a good job of making decisions about what elements should
 
 You can read a good explanation of layers, and how to create them in [Layers and how to force them](https://dassur.ma/things/forcing-layers/).
 
-CSS vs JavaScript performance <a href="#css-js" class="w-headline-link">#</a>
------------------------------------------------------------------------------
+## CSS vs JavaScript performance <a href="#css-js" class="w-headline-link">#</a>
 
 You might wonder: is it better from a performance perspective to use CSS or JavaScript for animations?
 
-CSS-based animations, and [Web Animations](/web-animations/) (in the browsers that support the API), are typically handled on a thread known as the *compositor thread*. This is different from the browser's *main thread*, where styling, layout, painting, and JavaScript are executed. This means that if the browser is running some expensive tasks on the main thread, these animations can keep going without being interrupted.
+CSS-based animations, and [Web Animations](/web-animations/) (in the browsers that support the API), are typically handled on a thread known as the _compositor thread_. This is different from the browser's _main thread_, where styling, layout, painting, and JavaScript are executed. This means that if the browser is running some expensive tasks on the main thread, these animations can keep going without being interrupted.
 
 As explained in this article, other changes to transforms and opacity can, in many cases, also be handled by the compositor thread.
 
@@ -110,35 +104,35 @@ If any animation triggers paint, layout, or both, the main thread will be requir
 
 <a href="/animations" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

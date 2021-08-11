@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Empty slice vs. nil slice](nil-slice-vs-empty-slice.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Clear a slice
-=================
+# Go: Clear a slice
 
 To remove all elements, set the slice to `nil`:
 
@@ -48,12 +44,11 @@ This will release the underlying array to the garbage collector (assuming there 
 
 Note that nil slices and empty slices are very similar:
 
--   they look the same when printed,
--   they have zero length and capacity,
--   they can be used with the same effect in for loops and append functions.
+- they look the same when printed,
+- they have zero length and capacity,
+- they can be used with the same effect in for loops and append functions.
 
-Keep allocated memory
----------------------
+## Keep allocated memory
 
 To keep the underlying array, slice the slice to zero length:
 
@@ -65,8 +60,7 @@ If the slice is extended again, the original data reappears:
 
     fmt.Println(a[:2]) // [A B]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

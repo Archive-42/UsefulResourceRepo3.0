@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [String handling cheat sheet](string-functions-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Strings, bytes, runes and characters in Go](https://blog.golang.org/strings)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Convert byte slice (array) to string
-========================================
+# Go: Convert byte slice (array) to string
 
 Converting a slice of bytes to a string yields a string whose bytes are the elements of the slice:
 
@@ -45,15 +41,13 @@ Converting a slice of bytes to a string yields a string whose bytes are the elem
     fmt.Println(s)
     // Output: abc日
 
-Arrays
-------
+## Arrays
 
 If `b` is an array, slice it first using `b[:]`:
 
     s := string(b[:])
 
-Comments (2)
-------------
+## Comments (2)
 
 ![User avatar](https://www.gravatar.com/avatar/018d61a7452fce6ca7801c083f8d9517?d=mp)
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Append function explained](append-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Copy function explained
-===========================
+# Go: Copy function explained
 
 The built-in [`copy`](https://golang.org/ref/spec#Appending_and_copying_slices) function copies elements into a destination slice `dst` from a source slice `src`:
 
@@ -46,15 +42,13 @@ It returns the number of elements copied, which will be the minimum of `len(dst)
 
 The result does not depend on whether the arguments overlap.
 
-Special case
-------------
+## Special case
 
 It is legal to copy bytes from a string to a slice of bytes:
 
     copy(dst []byte, src string) int
 
-Examples
---------
+## Examples
 
 **Example:** Copy from one slice to another:
 
@@ -71,8 +65,7 @@ Examples
     var b = make([]byte, 5)
     copy(b, "Hello, world!") // b == []byte("Hello")
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,24 +24,22 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Concurrent programming
-==========================
+# Go: Concurrent programming
 
 This tutorial covers
 
--   concurrent threads of execution (goroutines),
--   basic synchronization techniques (channels and locks),
--   basic concurrency patterns in Go,
--   deadlock and data races,
--   waitgroups, timers and tickers,
--   parallel computation.
+- concurrent threads of execution (goroutines),
+- basic synchronization techniques (channels and locks),
+- basic concurrency patterns in Go,
+- deadlock and data races,
+- waitgroups, timers and tickers,
+- parallel computation.
 
 Before you start, you need to know how to write basic Go programs. The resources in [Go: Get started](getting-started-hello-world.html) will help you come up to speed quickly with Go.
 
 <a href="goroutines-explained.html" class="button">Start here</a>
 
-Table of contents
------------------
+## Table of contents
 
 1.  [Goroutines explained](goroutines-explained.html)
     A goroutine is a lightweight thread of execution.

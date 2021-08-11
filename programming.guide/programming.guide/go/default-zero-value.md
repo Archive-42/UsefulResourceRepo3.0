@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [The zero value](https://golang.org/ref/spec#The_zero_value)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,16 +29,15 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Default value of struct, string, slice, map
-===============================================
+# Go: Default value of struct, string, slice, map
 
 Variables declared without an explicit initial value are set to their **zero values**:
 
--   `false` for booleans,
--   `0` for integers,
--   `0.0` for floats,
--   `""` for strings, and
--   `nil` for pointers, functions, interfaces, slices, channels, and maps.
+- `false` for booleans,
+- `0` for integers,
+- `0.0` for floats,
+- `""` for strings, and
+- `nil` for pointers, functions, interfaces, slices, channels, and maps.
 
 This initialization is done recursively; for example each element of an array of structs will have its fields zeroed if no value is specified.
 
@@ -54,8 +50,7 @@ This initialization is done recursively; for example each element of an array of
     }
     t := new(T) // t.n == 0, t.f == 0.0 and t.next == nil
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

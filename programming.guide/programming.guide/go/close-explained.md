@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Channels explained](channels-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Broadcast a signal on a channel](broadcast-channel.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Close a channel
-===================
+# Go: Close a channel
 
 The [close](https://golang.org/ref/spec#Close) function records that no more values will be sent on a channel. (Sending to or closing a closed channel causes a run-time panic.)
 
@@ -52,8 +48,7 @@ After calling `close`, and after any previously sent values have been received, 
     fmt.Println(<-ch)  // once again prints ""
     v, ok := <-ch      // v is "", ok is false
 
-Read until closed
------------------
+## Read until closed
 
 A `for` statement with a `range` clause reads successive values sent on a channel until the channel is closed.
 
@@ -74,8 +69,7 @@ A `for` statement with a `range` clause reads successive values sent on a channe
         return ch
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

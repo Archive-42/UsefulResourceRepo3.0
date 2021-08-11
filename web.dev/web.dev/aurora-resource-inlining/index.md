@@ -12,21 +12,19 @@
 
 <img src="https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format" alt="A labyrinth." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/S838B7UEsdXmwrD8q5gvNlWTHHP2/yXASsFeUg39y0K7aFJIY.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#resource-inlining-in-javascript-frameworks" class="w-toc__header--link">Resource inlining in JavaScript frameworks</a>
---------------------------------------------------------------------------------------------------------------------------------
+## <a href="#resource-inlining-in-javascript-frameworks" class="w-toc__header--link">Resource inlining in JavaScript frameworks</a>
 
--   [Font inlining](#font-inlining)
--   [Font inlining is now available in Next.js and Angular](#font-inlining-is-now-available-in-next.js-and-angular)
--   [Inlining critical CSS](#inlining-critical-css)
--   [Conclusions](#conclusions)
+- [Font inlining](#font-inlining)
+- [Font inlining is now available in Next.js and Angular](#font-inlining-is-now-available-in-next.js-and-angular)
+- [Inlining critical CSS](#inlining-critical-css)
+- [Conclusions](#conclusions)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Resource inlining in JavaScript frameworks
-==========================================
+# Resource inlining in JavaScript frameworks
 
 Improving Largest Contentful Paint across the JavaScript ecosystem.
 
@@ -36,15 +34,14 @@ Jun 28, 2021
 
 <a href="/authors/mgechev/" class="w-author__name-link">Minko Gechev</a>
 
--   <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
--   <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
+- <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
 
 As part of project [Aurora](/introducing-aurora/), Google has been working with popular web frameworks to ensure they perform well according to [Core Web Vitals](/vitals). Angular and Next.js have already landed font inlining, which is explained in the first part of this article. The second optimization we will cover is critical CSS inlining which is now enabled by default in Angular CLI and has a work in progress implementation in Nuxt.js.
 
-Font inlining <a href="#font-inlining" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Font inlining <a href="#font-inlining" class="w-headline-link">#</a>
 
 After analyzing hundreds of applications, the Aurora team found that developers often include fonts in their applications by referencing them in the `<head>` element of `index.html`. Here's an example of how this would look like when including Material Icons:
 
@@ -94,8 +91,7 @@ This improvement is enabled by default from Next.js v10.2 and Angular v11. Both 
 
 You can find the implementation of [font inlining in Next.js on GitHub](https://github.com/vercel/next.js/pull/14746), and check out the [video explaining this optimization in the context of Angular](https://www.youtube.com/watch?v=yOpy9UMQG-Y).
 
-Inlining critical CSS <a href="#inlining-critical-css" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Inlining critical CSS <a href="#inlining-critical-css" class="w-headline-link">#</a>
 
 Another enhancement involves improving the [First Contentful Paint (FCP)](/fcp) and [Largest Contentful Paint (LCP)](/lcp) metrics by inlining critical CSS. The critical CSS of a page includes all of the styles used at its initial rendering. To learn more about the topic, check out [Defer non-critical CSS](/defer-non-critical-css/).
 
@@ -160,8 +156,7 @@ Critical CSS inlining is now available in Angular and enabled by default in v12.
 
 Enabling the critical CSS and font inlining on angular.io improved the Lighthouse score by 27 points on a slow 3G network.
 
-Conclusions <a href="#conclusions" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Conclusions <a href="#conclusions" class="w-headline-link">#</a>
 
 In this post we touched on some of the collaboration between Chrome and web frameworks. If you're a framework author and recognize some of the problems we tackled in your technology, we hope our findings inspire you to apply similar performance optimizations.
 
@@ -173,35 +168,35 @@ Find out more about the improvements at [web.dev/aurora](/aurora). You can find 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

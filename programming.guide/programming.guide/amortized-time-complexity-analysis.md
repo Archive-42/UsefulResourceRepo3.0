@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Time complexity explained](time-complexity-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Related
 [Go: Append function explained](go/append-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -27,8 +25,7 @@ Top Algorithm Articles
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -38,8 +35,7 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Amortized time complexity
-=========================
+# Amortized time complexity
 
 Amortized analysis is used for algorithms that have **expensive operations** that happen **rarely**.
 
@@ -47,8 +43,7 @@ Amortized analysis is used for algorithms that have **expensive operations** tha
 
 **Definition:** Let T<sub>1</sub>, T<sub>2</sub>, …, T<sub>k</sub> be the complexities of a sequence of operations on a data structuture. The **amortized complexity** of a single operation in this sequence is (T<sub>1</sub> + T<sub>2</sub> + …+ T<sub>k</sub>) / k.
 
-Example
--------
+## Example
 
     Algorithm append(arr, x):
         if arr.size == arr.capacity
@@ -59,24 +54,23 @@ Example
 
 Let's start by looking at the worst case:
 
-The worst-case time complexity for appending an element to an array of length *n* using this algorithm is Θ(*n*):
+The worst-case time complexity for appending an element to an array of length *n* using this algorithm is Θ(_n_):
 
--   if the array is full, the algorithm allocates a new array of length 2*n*,
--   and then copies the elements from the old array into the new one.
+- if the array is full, the algorithm allocates a new array of length 2*n*,
+- and then copies the elements from the old array into the new one.
 
 Cleary, this result is overly pessimistic. The following *n* append operations will be much cheaper: each of them will run in constant time since the newly allocated array has room for all of the new elements.
 
 An amortized time analysis gives a better understanding of the algorithm:
 
-Consider a sequence of *n* append operations, where we start with an array of length 1. A careful analysis shows that the total time of these operations is only Θ(*n*):
+Consider a sequence of *n* append operations, where we start with an array of length 1. A careful analysis shows that the total time of these operations is only Θ(_n_):
 
--   There will be a total of *n* constant-time assignment and increment operations.
--   The resizing will happen only at operation 1, 2, 4, …, 2<sup>k</sup>, for a total of 1 + 2 + 4 + …+ 2<sup>k</sup> = 2·2<sup>k</sup> - 1 constant-time element copy operations. Since 2<sup>k</sup> ≤ *n*, this is at most 2*n* - 1.
+- There will be a total of _n_ constant-time assignment and increment operations.
+- The resizing will happen only at operation 1, 2, 4, …, 2<sup>k</sup>, for a total of 1 + 2 + 4 + …+ 2<sup>k</sup> = 2·2<sup>k</sup> - 1 constant-time element copy operations. Since 2<sup>k</sup> ≤ *n*, this is at most 2*n* - 1.
 
 Hence, the amortized time complexity for a single append operation is Θ(1).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

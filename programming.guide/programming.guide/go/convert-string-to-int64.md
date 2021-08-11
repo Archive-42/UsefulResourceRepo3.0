@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,8 +24,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Convert string to int64
-===========================
+# Go: Convert string to int64
 
 Use [`strconv.ParseInt`](https://golang.org/pkg/strconv/#ParseInt) to convert a decimal string (base `10`) and check that it fits into a `64`-bit signed integer.
 
@@ -38,8 +35,7 @@ Use [`strconv.ParseInt`](https://golang.org/pkg/strconv/#ParseInt) to convert a 
     }
     // Output: 123 of type int64
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

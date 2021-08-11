@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Day of week](day-of-week-int.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -26,8 +25,7 @@ Further Reading
 [iota](iota.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -39,8 +37,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -50,8 +47,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Get year, month, day from time
-==================================
+# Go: Get year, month, day from time
 
 The [`Date`](https://golang.org/pkg/time/#Time.Date) function returns the year, month and day of a [`time.Time`](https://golang.org/pkg/time/#Time).
 
@@ -89,8 +85,7 @@ The [`time.Month`](https://golang.org/pkg/time/#Month) type specifies a month of
             December
     )
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

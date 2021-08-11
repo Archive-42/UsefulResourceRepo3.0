@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  Dynamic programming vs memoization vs tabulation
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -15,8 +14,7 @@ Top Algorithm Articles
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -26,13 +24,11 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Dynamic programming vs memoization vs tabulation
-================================================
+# Dynamic programming vs memoization vs tabulation
 
 Dynamic programming is a technique for solving problems recursively. It can be implemented by **memoization** or **tabulation**.
 
-Dynamic programming
--------------------
+## Dynamic programming
 
 Dynamic programming, DP for short, can be used when the computations of subproblems overlap.
 
@@ -44,14 +40,13 @@ With a more clever DP implementation, the tree could be collapsed into a graph (
 
 fib(3) fib(2) fib(1) fib(0)
 
-It doesn’t look very impressive in this example, but it’s in fact enough to bring down the complexity from *O*(2<sup>*n*</sup>) to *O*(*n*). Here’s a better illustration that compares the full call tree of `fib(7)` (left) to the corresponding collapsed DAG:
+It doesn’t look very impressive in this example, but it’s in fact enough to bring down the complexity from _O_(2<sup>_n_</sup>) to _O_(_n_). Here’s a better illustration that compares the full call tree of `fib(7)` (left) to the corresponding collapsed DAG:
 
 -716.40625 fib(1) fib(0) fib(2) fib(1) fib(3) fib(1) fib(0) fib(2) fib(4) fib(1) fib(0) fib(2) fib(1) fib(3) fib(5) fib(1) fib(0) fib(2) fib(1) fib(3) fib(1) fib(0) fib(2) fib(4) fib(6) fib(1) fib(0) fib(2) fib(1) fib(3) fib(1) fib(0) fib(2) fib(4) fib(1) fib(0) fib(2) fib(1) fib(3) fib(5) fib(7) -716.40625 fib(8) fib(7) fib(6) fib(5) fib(4) fib(3) fib(2) fib(1) fib(0)
 
 This improvement in complexity is achieved regardles of which DP technique (memoization or tabulation) is used.
 
-Memoization
------------
+## Memoization
 
 Memoization refers to the technique of caching and reusing previously computed results. Here’s a comparison of a `square` function and the memoized version:
 
@@ -85,8 +80,7 @@ This is enough to cause the tree to collapse into a graph as shown in the figure
 
 This approach is **top-down** since the original problem, `fib_mem(4)`, is at the top in the above computation.
 
-Tabulation
-----------
+## Tabulation
 
 Tabulation is similar in the sense that it builds up a cache, but the approach is different. A tabulation algorithm focuses on filling the entries of the cache, until the target value has been reached.
 
@@ -114,15 +108,13 @@ As opposed to the memoization technique, this computation is **bottom-up** since
 
 **Complexity Bonus:** The complexity of recursive algorithms can be hard to analyze. With a tabulation based implentation however, you get the complexity analysis for free! Tabulation based solutions always boils down to filling in values in a vector (or matrix) using for loops, and each value is typically computed in constant time.
 
-Should I use tabulation or memoization?
----------------------------------------
+## Should I use tabulation or memoization?
 
 If the original problem requires all subproblems to be solved, tabulation usually outperformes memoization by a constant factor. This is because tabulation has no overhead for recursion and can use a preallocated array rather than, say, a hash map.
 
 If only some of the subproblems need to be solved for the original problem to be solved, then memoization is preferrable since the subproblems are solved lazily, i.e. precisely the computations that are needed are carried out.
 
-Comments (7)
-------------
+## Comments (7)
 
 ![User avatar](https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp)
 
@@ -158,9 +150,9 @@ Could you please comment on the time complexity of both of approaches. Does memo
 
 ![User avatar](https://www.gravatar.com/avatar/99e100243aaa8b1469b1ed4e8bbecb06?d=mp)
 
-Both algorithms are O(*n*), but I understand your confusion since `fib_mem` is being called more than *n* times. There are however two important things to note:
+Both algorithms are O(_n_), but I understand your confusion since `fib_mem` is being called more than _n_ times. There are however two important things to note:
 
-1.  We are in fact not *always* making the recursive calls. Even if `fib_mem(5)` is called more than once, it will only recurse into `fib_mem(4)` and `fib_mem(3)` the first time it's called.
+1.  We are in fact not _always_ making the recursive calls. Even if `fib_mem(5)` is called more than once, it will only recurse into `fib_mem(4)` and `fib_mem(3)` the first time it's called.
 
 2.  One must keep in mind what's being analyzed. In algorithms like these, it's typically arithmetic operations, such as number of additions, that's being analyzed. A call to `fib_mem(2)` incurs zero cost if the value has already been computed.
 

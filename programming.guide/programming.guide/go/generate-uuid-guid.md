@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [UUID package for Go language](https://github.com/satori/go.uuid)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Maxim Bublis</span>
@@ -17,8 +16,7 @@ Further Reading
 [Cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)  
 <span style="color: grey; font-style: italic; font-size: smaller">Wikipedia</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,8 +38,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Generate a random UUID (GUID)
-=================================
+# Go: Generate a random UUID (GUID)
 
 Use the [`rand.Read`](https://golang.org/pkg/crypto/rand/#Read) function from package [`crypto/rand`](https://golang.org/pkg/crypto/rand/) to generate a [universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier):
 
@@ -55,10 +51,9 @@ Use the [`rand.Read`](https://golang.org/pkg/crypto/rand/#Read) function from pa
 
 Note that his UUID doesn't conform to [RFC 4122](https://tools.ietf.org/html/rfc4122). In particular, it doesn't contain any version or variant numbers.
 
-The `rand.Read` call returns an error if the underlying system call fails. For instance if the runtime can't read `/dev/urandom` on a \*nix system or if [`CryptAcquireContext`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379886(v=vs.85).aspx) fails on a Windows system.
+The `rand.Read` call returns an error if the underlying system call fails. For instance if the runtime can't read `/dev/urandom` on a \*nix system or if [`CryptAcquireContext`](<https://msdn.microsoft.com/en-us/library/windows/desktop/aa379886(v=vs.85).aspx>) fails on a Windows system.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

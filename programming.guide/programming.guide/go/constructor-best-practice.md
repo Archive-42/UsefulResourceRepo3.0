@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Inheritance and object-oriented programming](inheritance-object-oriented.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further Reading
 [Constructors and composite literals](https://golang.org/doc/effective_go.html#composite_literals)  
 <span style="color: grey; font-style: italic; font-size: smaller">Effective Go</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,13 +38,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Constructors
-================
+# Go: Constructors
 
 Go doesn't have explicit constructors. The idiomatic way to set up new data structures is to use proper **zero values** coupled with **factory functions**.
 
-Zero value
-----------
+## Zero value
 
 Try to make the default [**zero value**](default-zero-value.html) useful and document its behavior. Sometimes this is all that's needed:
 
@@ -59,23 +54,21 @@ Try to make the default [**zero value**](default-zero-value.html) useful and doc
             running bool
     }
 
--   `StopWatch` takes advantage of the useful zero values of `time.Time`, `time.Duration` and `bool`.
--   In turn, users of `StopWatch` can benefit from *its* useful zero value.
+- `StopWatch` takes advantage of the useful zero values of `time.Time`, `time.Duration` and `bool`.
+- In turn, users of `StopWatch` can benefit from _its_ useful zero value.
 
 <!-- -->
 
     var clock StopWatch // Ready to use, no initialization needed.
 
-Factory
--------
+## Factory
 
 If the zero value doesn't suffice, use factory functions named `NewFoo` or just `New`:
 
     scanner := bufio.NewScanner(os.Stdin)
     err := errors.New("Houston, we have a problem")
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

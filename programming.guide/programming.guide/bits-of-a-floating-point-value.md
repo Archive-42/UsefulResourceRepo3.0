@@ -2,15 +2,13 @@
 
 <span class="underline"></span>
 
-Floating Point Values
----------------------
+## Floating Point Values
 
 1.  Bits of a Floating Point Value
 2.  [Normal vs Subnormal Floats](normal-vs-subnormal-floats.html)
 3.  [Why is it called Floating Point? And what is Fixed Point?](why-is-it-called-floating-point-and-what-is-fixed-point.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -22,8 +20,7 @@ Top Algorithm Articles
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -33,8 +30,7 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Bits of a Floating Point Value
-==============================
+# Bits of a Floating Point Value
 
 The IEEE 754 representation of a floating point value:
 
@@ -50,9 +46,9 @@ Double Precision bit representation
 
 63 1 bit sign 62 52 11 bits exponent 51 0 52 bits significand
 
--   <span style="color: #22e">Sign bit</span> is 0 for positive and 1 for negative.
--   <span style="color: #e22">The exponent</span> is stored with an offset. +127 for single precision and +1023 for double precision.
--   <span style="color: #0c0">The significand</span> implicitly starts with a 1 followed by the binary point.
+- <span style="color: #22e">Sign bit</span> is 0 for positive and 1 for negative.
+- <span style="color: #e22">The exponent</span> is stored with an offset. +127 for single precision and +1023 for double precision.
+- <span style="color: #0c0">The significand</span> implicitly starts with a 1 followed by the binary point.
 
 The value represented is:
 
@@ -62,19 +58,17 @@ The value represented is:
 
 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1. 1 1 0 0 0 0 0 1 0 1 means negative convert to base 10 add implicit 1. 130 adjust offset, −127 3 − × 2 3 = −1010.01 convert to base 10 −10.25
 
-Special Cases
--------------
+## Special Cases
 
--   If all the exponent bits are zero, then −126 (or −1023 for a double) is the actual exponent, and the implicit leading bit of the significand is 0 (instead of 1). See [Normal vs Subnormal Floats](normal-vs-subnormal-floats.html).
+- If all the exponent bits are zero, then −126 (or −1023 for a double) is the actual exponent, and the implicit leading bit of the significand is 0 (instead of 1). See [Normal vs Subnormal Floats](normal-vs-subnormal-floats.html).
 
--   If all the exponent bits are ones, then the value is infinity (if all the significand bits are zero) and NaN (if any significand bit is one).
+- If all the exponent bits are ones, then the value is infinity (if all the significand bits are zero) and NaN (if any significand bit is one).
 
--   The sign of a zero value is ignored by all comparison operations (but may still have significance in other situations).
+- The sign of a zero value is ignored by all comparison operations (but may still have significance in other situations).
 
--   For NaN the sign bit is always ignored.
+- For NaN the sign bit is always ignored.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [For loops explained](for-loop.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Iterator pattern](iterator-generator-pattern.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,8 +35,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: do-while loop
-=================
+# Go: do-while loop
 
 To emulate the C/Java **do-while** loop
 
@@ -60,8 +56,7 @@ use one of the following equivalent Go alternatives:
             }
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

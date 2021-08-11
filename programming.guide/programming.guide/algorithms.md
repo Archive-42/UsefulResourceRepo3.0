@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -13,8 +12,7 @@ Top Algorithm Articles
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -24,13 +22,11 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Algorithms
-==========
+# Algorithms
 
 All articles on algorithms / general computing on Programming.Guide:
 
-Hash Tables
------------
+## Hash Tables
 
 1.  [Hash Tables](hash-tables.html)
 2.  [Hash Tables: Complexity](hash-tables-complexity.html)
@@ -47,8 +43,7 @@ Hash Tables
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
 
-Misc articles on Algorithm & Data Structures
---------------------------------------------
+## Misc articles on Algorithm & Data Structures
 
 1.  [Big O notation explained](big-o-notation-explained.html)
 2.  [Worst-case time complexity](worst-case-time-complexity.html)

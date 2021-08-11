@@ -10,25 +10,23 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#how-to-create-high-performance-css-animations" class="w-toc__header--link">How to create high-performance CSS animations</a>
---------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#how-to-create-high-performance-css-animations" class="w-toc__header--link">How to create high-performance CSS animations</a>
 
--   [Browser compatibility](#browser-compatibility)
--   [Move an element](#move)
--   [Resize an element](#resize)
--   [Change an element's visibility](#visibility)
--   [Avoid properties that trigger layout or paint](#triggers)
--   [Force layer creation](#force)
--   [Debug slow or janky animations](#debug)
--   [Check if an animation triggers layout](#layout)
--   [Check if an animation is dropping frames](#fps)
--   [Check if an animation triggers paint](#paint)
--   [Conclusion](#conclusion)
+- [Browser compatibility](#browser-compatibility)
+- [Move an element](#move)
+- [Resize an element](#resize)
+- [Change an element's visibility](#visibility)
+- [Avoid properties that trigger layout or paint](#triggers)
+- [Force layer creation](#force)
+- [Debug slow or janky animations](#debug)
+- [Check if an animation triggers layout](#layout)
+- [Check if an animation is dropping frames](#fps)
+- [Check if an animation triggers paint](#paint)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-How to create high-performance CSS animations
-=============================================
+# How to create high-performance CSS animations
 
 Oct 6, 2020
 
@@ -38,35 +36,33 @@ Oct 6, 2020
 
 <a href="/authors/rachelandrew/" class="w-author__name-link">Rachel Andrew</a>
 
--   <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
--   <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
+- <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/7GdPR4YDRHSS6llepBOd.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Kayce Basques" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/7GdPR4YDRHSS6llepBOd.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/7GdPR4YDRHSS6llepBOd.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/7GdPR4YDRHSS6llepBOd.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/7GdPR4YDRHSS6llepBOd.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/7GdPR4YDRHSS6llepBOd.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/kaycebasques/)
 
 <a href="/authors/kaycebasques/" class="w-author__name-link">Kayce Basques</a>
 
--   <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
--   <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
--   <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
+- <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
+- <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
 
 This guide teaches you how to create high-performance CSS animations.
 
 See [Why are some animations slow?](/animations-overview/) to learn the theory behind these recommendations.
 
-Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
 
 All of the CSS properties that this guide recommends have good cross-browser support.
 
--   [`transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform#Browser_compatibility)
--   [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity#Browser_compatibility)
--   [`will-change`](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change#Browser_compatibility)
+- [`transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform#Browser_compatibility)
+- [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity#Browser_compatibility)
+- [`will-change`](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change#Browser_compatibility)
 
-Move an element <a href="#move" class="w-headline-link">#</a>
--------------------------------------------------------------
+## Move an element <a href="#move" class="w-headline-link">#</a>
 
 To move an element, use the `translate` or `rotation` keyword values of the [`transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform) property.
 
@@ -100,8 +96,7 @@ Items can also be rotated, in the example below 360 degrees.
       }
     }
 
-Resize an element <a href="#resize" class="w-headline-link">#</a>
------------------------------------------------------------------
+## Resize an element <a href="#resize" class="w-headline-link">#</a>
 
 To resize an element, use the `scale` keyword value of the [`transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform) property.
 
@@ -118,8 +113,7 @@ To resize an element, use the `scale` keyword value of the [`transform`](https:/
       }
     }
 
-Change an element's visibility <a href="#visibility" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Change an element's visibility <a href="#visibility" class="w-headline-link">#</a>
 
 To show or hide an element, use [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity).
 
@@ -141,15 +135,13 @@ To show or hide an element, use [`opacity`](https://developer.mozilla.org/en-US/
 
 Find copy and paste examples of various animations at [Animista](https://animista.net/).
 
-Avoid properties that trigger layout or paint <a href="#triggers" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------
+## Avoid properties that trigger layout or paint <a href="#triggers" class="w-headline-link">#</a>
 
 Before using any CSS property for animation (other than `transform` and `opacity`), go to [CSS Triggers](https://csstriggers.com/) to determine the property's impact on the [rendering pipeline](/animations-overview/#pipeline). Avoid any property that triggers layout or paint unless absolutely necessary.
 
 <figure><img src="https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/lo6imreXGzuZzsHVWUFf.jpg?auto=format&amp;w=1600 1600w" width="800" height="432" /></figure>**Warning**: If you must use a property that triggers layout or paint, it is unlikely that you will be able to make the animation smooth and high-performance.
 
-Force layer creation <a href="#force" class="w-headline-link">#</a>
--------------------------------------------------------------------
+## Force layer creation <a href="#force" class="w-headline-link">#</a>
 
 As explained in [Why are some animations slow?](/animations-overview), by placing elements on a new layer they can be repainted without also requiring the rest of the layout to be repainted.
 
@@ -169,8 +161,7 @@ For more information and examples of correct use of `will-change` read [Everythi
 
 If you need a way to force layer creation in one of the rare browsers that doesn't support `will-change` (most likely Internet Explorer at this point), you can set `transform: translateZ(0)`.
 
-Debug slow or janky animations <a href="#debug" class="w-headline-link">#</a>
------------------------------------------------------------------------------
+## Debug slow or janky animations <a href="#debug" class="w-headline-link">#</a>
 
 Chrome DevTools and Firefox DevTools have lots of tools to help you figure out why your animations are slow or janky.
 
@@ -211,8 +202,8 @@ Do
 
 You can test this in the following two Glitch examples, and explore performance using DevTools.
 
--   [Before](https://glitch.com/~animation-with-top-left).
--   [After](https://glitch.com/~animation-with-transform).
+- [Before](https://glitch.com/~animation-with-top-left).
+- [After](https://glitch.com/~animation-with-transform).
 
 #### Chrome DevTools <a href="#layout-chrome" class="w-headline-link">#</a>
 
@@ -261,8 +252,7 @@ If you need to dig into whether a particular property is causing performance iss
 1.  Open **Settings** and add a Toolbox button for [Toggle paint flashing](https://developer.mozilla.org/en-US/docs/Tools/Paint_Flashing_Tool).
 2.  On the page you want to inspect, toggle the button on and move your mouse or scroll to see highlighted areas.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Where possible restrict animations to `opacity` and `transform` in order to keep animations on the compositing stage of the rendering path. Use DevTools to check which stage of the path is being affected by your animations.
 
@@ -276,35 +266,35 @@ Use the `will-change` property sparingly, and only if you encounter a performanc
 
 <a href="/animations" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

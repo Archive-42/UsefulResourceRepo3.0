@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Public vs. private](public-private.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [The Laws of Reflection](https://blog.golang.org/laws-of-reflection)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,13 +32,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Access private fields using reflection
-==========================================
+# Go: Access private fields using reflection
 
 Using reflection, it's possible to read (but not write) unexported fields of a struct defined in another package.
 
-Example
--------
+## Example
 
 The `List` struct in package [`container/list`](https://golang.org/pkg/container/list/) has an unexported field `len`:
 
@@ -88,8 +83,7 @@ This code reads the value of `len` using reflection:
     main.main()
             ../main.go:18 +0x280
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

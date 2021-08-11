@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Days in a month](last-day-month-date.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -20,8 +19,7 @@ Further Reading
 [Measure execution time](measure-execution-time.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +41,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Days between two dates
-==========================
+# Go: Days between two dates
 
     func main() {
             // The leap year 2000 had 366 days.
@@ -59,8 +55,7 @@ Go: Days between two dates
             return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

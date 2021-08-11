@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -20,8 +19,7 @@ Further Reading
 [Default value of struct, string, slice, map](default-zero-value.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,13 +41,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Delete an element from a slice
-==================================
+# Go: Delete an element from a slice
 
 Here's how to remove the element at index `i` from a slice.
 
-Fast version (changes order of elements):
------------------------------------------
+## Fast version (changes order of elements):
 
     a := []string{"A", "B", "C", "D", "E"}
     i := 2
@@ -63,8 +58,7 @@ Fast version (changes order of elements):
 
 This is fast: the code copies a single element and runs in **constant time**.
 
-Slow version (maintains order of elements):
--------------------------------------------
+## Slow version (maintains order of elements):
 
     a := []string{"A", "B", "C", "D", "E"}
     i := 2
@@ -77,8 +71,7 @@ Slow version (maintains order of elements):
 
 This could be slow: the code copies len(a) − i − 1 elements and runs in **linear time**.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

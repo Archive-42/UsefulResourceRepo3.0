@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Cryptographically secure random numbers](crypto-rand-int.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Generate a random UUID (GUID)](generate-uuid-guid.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,11 +32,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Generate a random string (password, booking reference)
-==========================================================
+# Go: Generate a random string (password, booking reference)
 
-Random Unicode string
----------------------
+## Random Unicode string
 
     rand.Seed(time.Now().UnixNano())
     chars := []rune("ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ" +
@@ -52,8 +47,7 @@ Random Unicode string
     }
     str := string(buf)
 
-Random ASCII string with at least 1 digit and 1 special character
------------------------------------------------------------------
+## Random ASCII string with at least 1 digit and 1 special character
 
 If all characters can be represented by a single byte, e.g. ASCII characters, you can use `[]byte` instead of `[]rune`.
 
@@ -78,8 +72,7 @@ If all characters can be represented by a single byte, e.g. ASCII characters, yo
 
 **Warning:** If you're building a password generator, consider using a string generation algorithm from a high-quality cryptographic library. If you're running your own, and you probably shouldn't, package [`crypto/rand`](https://golang.org/pkg/crypto/rand/) offers a cryptographically secure pseudorandom number generator.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

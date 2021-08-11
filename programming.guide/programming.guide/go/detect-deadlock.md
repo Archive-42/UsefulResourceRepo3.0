@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -20,8 +19,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Deadlock
-============
+# Go: Deadlock
 
 A **deadlock** happens when a group of goroutines are waiting for each other and none of them is able to proceed.
 
@@ -52,20 +49,19 @@ The program will get stuck on the channel send operation waiting forever for som
     main.main()
             .../deadlock.go:7 +0x6c
 
-Debugging tips
---------------
+## Debugging tips
 
 A goroutine can get stuck
 
--   either because it's waiting for a **channel** or
+- either because it's waiting for a **channel** or
 
--   because it is waiting for one of the **locks** in the [sync](https://golang.org/pkg/sync/) package.
+- because it is waiting for one of the **locks** in the [sync](https://golang.org/pkg/sync/) package.
 
 Typical reasons are:
 
--   No other goroutine has access to the channel or the lock, or
+- No other goroutine has access to the channel or the lock, or
 
--   A group of goroutines are waiting for each other and none of them is able to proceed. (This is the formal defintion of **deadlock**.)
+- A group of goroutines are waiting for each other and none of them is able to proceed. (This is the formal defintion of **deadlock**.)
 
 Currently Go only detects when the program as a whole freezes, not when a subset of goroutines get stuck.
 
@@ -91,8 +87,7 @@ Next »
 
 Wait for goroutines
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

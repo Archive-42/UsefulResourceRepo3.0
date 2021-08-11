@@ -10,21 +10,19 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#examples-of-high-performance-css-animations" class="w-toc__header--link">Examples of high-performance CSS animations</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## <a href="#examples-of-high-performance-css-animations" class="w-toc__header--link">Examples of high-performance CSS animations</a>
 
--   [Wizard loading animation](#wizard-loading-animation)
--   [Inspect the animation with Chrome DevTools](#inspect-the-animation-with-chrome-devtools)
--   [How it works](#how-it-works)
--   [Pulsating Circle](#pulsating-circle)
--   [Inspect the animation with Firefox DevTools](#inspect-the-animation-with-firefox-devtools)
--   [Pure CSS 3D Sphere](#pure-css-3d-sphere)
--   [Conclusion](#conclusion)
+- [Wizard loading animation](#wizard-loading-animation)
+- [Inspect the animation with Chrome DevTools](#inspect-the-animation-with-chrome-devtools)
+- [How it works](#how-it-works)
+- [Pulsating Circle](#pulsating-circle)
+- [Inspect the animation with Firefox DevTools](#inspect-the-animation-with-firefox-devtools)
+- [Pure CSS 3D Sphere](#pure-css-3d-sphere)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Examples of high-performance CSS animations
-===========================================
+# Examples of high-performance CSS animations
 
 Oct 23, 2020
 
@@ -34,17 +32,16 @@ Oct 23, 2020
 
 <a href="/authors/rachelandrew/" class="w-author__name-link">Rachel Andrew</a>
 
--   <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
--   <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
+- <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
 
 In this post find out how some popular animations found on CodePen have been created. These animations all use the performant techniques discussed in other articles in this section.
 
 See [Why are some animations slow?](/animations-overview/) to learn the theory behind these recommendations, and the [Animations Guide](/animations-guide) for practical tips.
 
-Wizard loading animation <a href="#wizard-loading-animation" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Wizard loading animation <a href="#wizard-loading-animation" class="w-headline-link">#</a>
 
 [View Wizard loading animation on CodePen](https://codepen.io/Craaftx/full/ExyYRMK)
 
@@ -115,8 +112,7 @@ Staying in Chrome DevTools you can find the keyframes by scrolling down the Styl
 
 Each of the different moving parts of this animation uses similar techniques. The result is a complex animation which runs smoothly.
 
-Pulsating Circle <a href="#pulsating-circle" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Pulsating Circle <a href="#pulsating-circle" class="w-headline-link">#</a>
 
 [View Pulsating Circle on CodePen](https://codepen.io/peeke/full/BjxXZa)
 
@@ -198,8 +194,7 @@ The white circle itself is created and animated using the `::after` pseudo-eleme
 
 An animation like this could be used in various places in your application, it's important that these small touches don't impact the overall performance of your app.
 
-Pure CSS 3D Sphere <a href="#pure-css-3d-sphere" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Pure CSS 3D Sphere <a href="#pure-css-3d-sphere" class="w-headline-link">#</a>
 
 [View Pure CSS 3D Sphere on CodePen](https://codepen.io/iamlark/full/jYzYJg)
 
@@ -262,8 +257,7 @@ The work involved in creating this animation has been to get the timing right, t
 
 You can see how this animation performs by opening Chrome DevTools and recording Performance while it is running. After the initial load, the animation is not triggering Layout or Paint, and runs smoothly.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 From these examples you can see how animating a few properties using performant methods can create some very cool animations. By defaulting to the performant methods described in the [Animations guide](/animations-guide) you can spend your time creating the effect you want, with fewer concerns about making the page slow.
 
@@ -273,35 +267,35 @@ From these examples you can see how animating a few properties using performant 
 
 <a href="/animations" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

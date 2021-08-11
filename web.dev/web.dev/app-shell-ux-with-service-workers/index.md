@@ -10,21 +10,19 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#app-shell-ux-with-service-workers-and-streams" class="w-toc__header--link">App shell UX with service workers and streams</a>
---------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#app-shell-ux-with-service-workers-and-streams" class="w-toc__header--link">App shell UX with service workers and streams</a>
 
--   [Production case](#production-case)
--   [Implement an app shell UX architecture in MPAs with Workbox](#implement-an-app-shell-ux-architecture-in-mpas-with-workbox)
--   [The server](#the-server)
--   [The service worker](#the-service-worker)
+- [Production case](#production-case)
+- [Implement an app shell UX architecture in MPAs with Workbox](#implement-an-app-shell-ux-architecture-in-mpas-with-workbox)
+- [The server](#the-server)
+- [The service worker](#the-service-worker)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-App shell UX with service workers and streams
-=============================================
+# App shell UX with service workers and streams
 
 Achieving a SPA-like architecture in multi-page apps by combining partials, service workers, and streams.
 
@@ -36,18 +34,18 @@ Jun 23, 2020 <span class="w-author__separator">•</span> Updated Aug 20, 2020
 
 <a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>
 
--   <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
--   <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
+- <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Jeff Posnick" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/jeffposnick/)
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
 [Single-page app (SPA)](https://en.wikipedia.org/wiki/Single-page_application) is an architectural pattern in which the browser runs JavaScript code to update the existing page when the user visits a different section of the site, as opposed to loading an entire new page.
 
@@ -59,8 +57,7 @@ In multi-page apps (MPAs) each time a user navigates to a new URL, the browser p
 
 While both are equally valid models to use, you might want to bring some of the benefits of the app shell UX of SPAs to your existing MPA site. In this article we'll analyze how you can achieve an SPA-like architecture in multi-page apps by combining partials, service workers, and streams.
 
-Production case <a href="#production-case" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Production case <a href="#production-case" class="w-headline-link">#</a>
 
 [DEV](https://dev.to/) is a community where software developers write articles, take part in discussions, and build their professional profiles.
 
@@ -77,8 +74,7 @@ The resulting UX is similar to the app shell UX pattern of SPAs, implemented on 
 
 The previous section contains a quick summary of DEV's solution. For a more detailed explanation check out their [blog post](https://dev.to/devteam/instant-webpages-and-terabytes-of-data-savings-through-the-magic-of-service-workers-1mkc) on this topic.
 
-Implement an app shell UX architecture in MPAs with Workbox <a href="#implement-an-app-shell-ux-architecture-in-mpas-with-workbox" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Implement an app shell UX architecture in MPAs with Workbox <a href="#implement-an-app-shell-ux-architecture-in-mpas-with-workbox" class="w-headline-link">#</a>
 
 In this section we'll cover a summary of the different parts involved in implementing an app shell UX architecture in MPAs. For a more detailed post on how to implement this on a real site, check out [Beyond SPAs: alternative architectures for your PWA](https://developers.google.com/web/updates/2018/05/beyond-spa).
 
@@ -148,8 +144,8 @@ First, set up the strategies in Workbox to handle the different sources that wil
       ],
     });
 
--   The first strategy reads data that's been precached, like the partial HTML templates.
--   The second strategy implements the [stale-while-revalidate](https://developers.google.com/web/tools/workbox/modules/workbox-strategies#stale-while-revalidate) caching logic, along with [least-recently-used cache expiration](https://developers.google.com/web/tools/workbox/modules/workbox-expiration#restrict_the_number_of_cache_entries) logic once we reach 50 entries.
+- The first strategy reads data that's been precached, like the partial HTML templates.
+- The second strategy implements the [stale-while-revalidate](https://developers.google.com/web/tools/workbox/modules/workbox-strategies#stale-while-revalidate) caching logic, along with [least-recently-used cache expiration](https://developers.google.com/web/tools/workbox/modules/workbox-expiration#restrict_the_number_of_cache_entries) logic once we reach 50 entries.
 
 Next, tell Workbox how to use the strategies to construct a complete, streaming response, by passing in an array of sources as functions to execute immediately:
 
@@ -171,9 +167,9 @@ Next, tell Workbox how to use the strategies to construct a complete, streaming 
         }),
     ]);
 
--   The first two sources are precached partial templates read directly from the service worker's cache, so they'll always be available immediately.
--   The next source function fetches data from the network, and processes the response into the HTML that the web app expects.
--   Finally, a cached copy of the footer and closing HTML tags is streamed to complete the response.
+- The first two sources are precached partial templates read directly from the service worker's cache, so they'll always be available immediately.
+- The next source function fetches data from the network, and processes the response into the HTML that the web app expects.
+- Finally, a cached copy of the footer and closing HTML tags is streamed to complete the response.
 
 Workbox takes the result from each source and streams it to the web app, in sequence, only delaying if the next function in the array hasn't completed yet. As a result, the user immediately sees the page being painted. The experience is so fast that when navigating the header stays in its position without making the user perceive the full page refresh. This is very similar to the UX that the app shell SPA model provides.
 
@@ -183,35 +179,35 @@ Workbox takes the result from each source and streams it to the web app, in sequ
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

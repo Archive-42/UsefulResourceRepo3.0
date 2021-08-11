@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Data races explained](data-races-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Wait for goroutines](wait-for-goroutines-waitgroup.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Go gotcha
----------
+## Go gotcha
 
 1.  [Why can't I add elements to my map?](gotcha-assignment-entry-nil-map.html)
 2.  [What's a nil pointer dereference?](gotcha-nil-pointer-dereference.html)
@@ -46,8 +44,7 @@ Go gotcha
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [Go: String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -57,8 +54,7 @@ Top Go Articles
 
 [**See all 197 Go articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -68,8 +64,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go gotcha: Iteration variables and closures
-===========================================
+# Go gotcha: Iteration variables and closures
 
 Why does this program…
 
@@ -157,8 +152,7 @@ Next »
 
 Why is the JSON output empty?
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

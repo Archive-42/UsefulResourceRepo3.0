@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,8 +24,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Compare slices (arrays)
-===========================
+# Go: Compare slices (arrays)
 
 In general, the preferred approach is to write your own code for comparing slices.
 
@@ -45,13 +42,11 @@ In general, the preferred approach is to write your own code for comparing slice
             return true
     }
 
-Byte slices
------------
+## Byte slices
 
 For comparing bytes slices, use the optimized [`bytes.Equal`](https://golang.org/pkg/bytes/#Equal). This function also treats nil arguments as equivalent to empty slices.
 
-reflect.DeepEqual
------------------
+## reflect.DeepEqual
 
 For testing purposes, you may want to use [`reflect.DeepEqual`](https://golang.org/pkg/reflect/#DeepEqual).
 
@@ -83,8 +78,7 @@ The performance of this function is much worse than for the code above, but it's
 >
 > In general `DeepEqual` is a recursive relaxation of Go's `==` operator. However, this idea is impossible to implement without some inconsistency. Specifically, it is possible for a value to be unequal to itself, either because it is of func type (uncomparable in general) or because it is a floating-point NaN value (not equal to itself in floating-point comparison), or because it is an array, struct, or interface containing such a value. On the other hand, pointer values are always equal to themselves, even if they point at or contain such problematic values, because they compare equal using Go's `==` operator, and that is a sufficient condition to be deeply equal, regardless of content. `DeepEqual` has been defined so that the same short-cut applies to slices and maps: if `x` and `y` are the same slice or the same map, they are deeply equal regardless of content. <a href="https://golang.org/pkg/reflect/#DeepEqual" class="quote-source">Package reflect: DeepEqual</a>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

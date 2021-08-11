@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Concurrent programming](go-concurrency-tutorial.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further reading
 [Select explained](select-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Make a goroutine block or sleep forever
-===========================================
+# Go: Make a goroutine block or sleep forever
 
 An empty select statement blocks forever.
 
@@ -46,8 +42,7 @@ This is useful if you have a long running goroutine (such as a server serving re
 
 This works since select statements block until **at least one** of it's cases become unblocked. With zero cases this will never happen.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

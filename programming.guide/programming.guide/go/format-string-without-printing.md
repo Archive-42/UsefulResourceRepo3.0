@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Print with fmt cheat sheet](fmt-printf-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Format a string without printing it
-=======================================
+# Go: Format a string without printing it
 
 The [`fmt.Sprintf`](https://golang.org/pkg/fmt/#Sprintf) function formats a string in the same way as [`fmt.Printf`](https://golang.org/pkg/fmt/#Printf), but returns the string instead of printing it.
 
@@ -41,8 +37,7 @@ The [`fmt.Sprintf`](https://golang.org/pkg/fmt/#Sprintf) function formats a stri
     fmt.Println(s)
     // Output: Size: 85 MB.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

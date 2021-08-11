@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Defer statements](https://golang.org/ref/spec#Defer_statements)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Defer statement
-===================
+# Go: Defer statement
 
 A deferred method call is executed just before leaving the surrounding function.
 
@@ -101,8 +97,7 @@ Deferred functions may access and modify the surrounding function's named return
 
 `Foo()` returns 7.
 
-Clean-up
---------
+## Clean-up
 
 Defer is commonly used to perform clean-up actions, such as closing a file or unlocking a mutex.
 
@@ -124,13 +119,11 @@ Defer is commonly used to perform clean-up actions, such as closing a file or un
             return io.Copy(dst, src)
     }
 
-Recover from panic
-------------------
+## Recover from panic
 
 The article [**Recover from a panic**](recover-from-panic.html) demonstrates how to use a defer statement when recovering from a panic.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  Go gotcha
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,17 +24,15 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go gotcha
-=========
+# Go gotcha
 
 26 pitfalls and corner cases
 
-*We hope this collection of common mistakes in Go will help you spot similar traps and save you time when debugging your own code.*
+_We hope this collection of common mistakes in Go will help you spot similar traps and save you time when debugging your own code._
 
 <a href="gotcha-assignment-entry-nil-map.html" class="button">Take quiz</a>
 
-Table of contents
------------------
+## Table of contents
 
 1.  [Go gotcha: Why can't I add elements to my map?](gotcha-assignment-entry-nil-map.html)
     You can't assign an entry to a nil map in Go.

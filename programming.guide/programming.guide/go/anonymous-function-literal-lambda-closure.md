@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Function types and values](function-pointer-type-declaration.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Function literals and closures
-==================================
+# Go: Function literals and closures
 
 A **function literal**, or **lambda**, represents a function without a name.
 
@@ -56,13 +52,12 @@ It could also have been stored in an intermediate variable:
 
 Note that the `less` function is a **closure**: it references the `people` variable, which is declared outside the function.
 
-Closures
---------
+## Closures
 
 Function literals are **closures**: they may refer to variables defined in a enclosing function. Such variables
 
--   are shared between the surrounding function and the function literal,
--   and survive as long as they are accessible.
+- are shared between the surrounding function and the function literal,
+- and survive as long as they are accessible.
 
 In this example, the function literal uses the local variable `n` from the enclosing scope to count the number of times it has been invoked.
 
@@ -88,8 +83,7 @@ In this example, the function literal uses the local variable `n` from the encl
             counter()      // 4
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,16 +2,14 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [iota](iota.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -21,8 +19,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Enumeration (enum) with string representation
-=================================================
+# Go: Enumeration (enum) with string representation
 
 A group of constants enumerated with `iota` might do the job:
 
@@ -72,8 +69,7 @@ Here is the new type in action:
 
     Hearts are second best.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

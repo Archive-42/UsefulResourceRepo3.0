@@ -12,30 +12,28 @@
 
 <img src="https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format" alt="Illustration showing images of common disabilities pinned to a corkboard." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/whvrlDQbdAnmwbnZH7qX.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#accessibility-tips-for-web-developers" class="w-toc__header--link">Accessibility tips for web developers</a>
-----------------------------------------------------------------------------------------------------------------------
+## <a href="#accessibility-tips-for-web-developers" class="w-toc__header--link">Accessibility tips for web developers</a>
 
--   [Are your UI components accessible?](#are-your-ui-components-accessible)
--   [Can your UI component be used with the keyboard alone?](#can-your-ui-component-be-used-with-the-keyboard-alone)
--   [Using tabindex](#using-tabindex)
--   [Using autofocus](#using-autofocus)
--   [Adding keyboard interaction](#adding-keyboard-interaction)
--   [Can you use your UI component with a screen reader?](#can-you-use-your-ui-component-with-a-screen-reader)
--   [Do all components and images have meaningful text alternatives?](#do-all-components-and-images-have-meaningful-text-alternatives)
--   [Do your components provide semantic information?](#do-your-components-provide-semantic-information)
--   [Can users understand everything without relying on color?](#can-users-understand-everything-without-relying-on-color)
--   [Is there sufficient contrast between text and images and their background?](#is-there-sufficient-contrast-between-text-and-images-and-their-background)
--   [Is the moving or flashing content in your components stoppable and safe?](#is-the-moving-or-flashing-content-in-your-components-stoppable-and-safe)
--   [Accessibility Tooling](#accessibility-tooling)
--   [Conclusions](#conclusions)
+- [Are your UI components accessible?](#are-your-ui-components-accessible)
+- [Can your UI component be used with the keyboard alone?](#can-your-ui-component-be-used-with-the-keyboard-alone)
+- [Using tabindex](#using-tabindex)
+- [Using autofocus](#using-autofocus)
+- [Adding keyboard interaction](#adding-keyboard-interaction)
+- [Can you use your UI component with a screen reader?](#can-you-use-your-ui-component-with-a-screen-reader)
+- [Do all components and images have meaningful text alternatives?](#do-all-components-and-images-have-meaningful-text-alternatives)
+- [Do your components provide semantic information?](#do-your-components-provide-semantic-information)
+- [Can users understand everything without relying on color?](#can-users-understand-everything-without-relying-on-color)
+- [Is there sufficient contrast between text and images and their background?](#is-there-sufficient-contrast-between-text-and-images-and-their-background)
+- [Is the moving or flashing content in your components stoppable and safe?](#is-the-moving-or-flashing-content-in-your-components-stoppable-and-safe)
+- [Accessibility Tooling](#accessibility-tooling)
+- [Conclusions](#conclusions)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Accessibility tips for web developers
-=====================================
+# Accessibility tips for web developers
 
 Improving accessibility makes your site more useable for everyone.
 
@@ -45,8 +43,8 @@ Dec 6, 2019
 
 <a href="/authors/addyosmani/" class="w-author__name-link">Addy Osmani</a>
 
--   <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
--   <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
+- <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
 
 It's awesome to build sites that are inclusive and accessible to everyone. There are at least six key areas of disability you can optimize for: **visual**, **hearing**, **mobility**, **cognition**, **speech**, and **neural**. Many tools and resources can help here, even if you're totally new to web accessibility.
 
@@ -58,9 +56,9 @@ To be accessible, sites need to work across multiple devices with varying screen
 
 **Visual issues** range from an inability to distinguish colors to no vision at all.
 
--   Ensure text content meets a minimum [contrast ratio threshold](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast).
--   Avoid communicating information [using solely color](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-without-color) and ensure that all text is [resizable](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-scale).
--   Ensure all user interface components can be used with assistive technologies such as screen readers, magnifiers, and braille displays. This entails ensuring that UI components are marked up such that accessibility APIs can programmatically determine the *role*, *state*, *value*, and *title* of any element.
+- Ensure text content meets a minimum [contrast ratio threshold](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast).
+- Avoid communicating information [using solely color](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-without-color) and ensure that all text is [resizable](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-scale).
+- Ensure all user interface components can be used with assistive technologies such as screen readers, magnifiers, and braille displays. This entails ensuring that UI components are marked up such that accessibility APIs can programmatically determine the _role_, _state_, _value_, and _title_ of any element.
 
 **Tip:** The element inspection feature in the Chrome, Edge, and Firefox developer tools displays a tooltip of CSS properties that includes a quick check for color contrast ratio.
 
@@ -70,32 +68,32 @@ I personally live with low vision, and I often find myself zooming in on sites, 
 
 **Hearing issues** mean a user may have issues hearing sound emitted from a page.
 
--   Provide [text alternatives](http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt) for all content that is not strictly text.
--   Test that your UI components are still functional [without sound](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#content-structure-separation-understanding).
+- Provide [text alternatives](http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt) for all content that is not strictly text.
+- Test that your UI components are still functional [without sound](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#content-structure-separation-understanding).
 
 <img src="https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format" alt="Screenshot of the ChromeVox screen reader reading a web page." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/ZIbJHF5vyMxmKAN9juO1.jpg?auto=format&amp;w=1600 1600w" width="800" height="500" />
 
 **Mobility issues** can include the inability to operate a mouse, a keyboard, or a touch screen.
 
--   Make the content of your UI components [functionally accessible from a keyboard](http://www.w3.org/TR/wai-aria-practices/#keyboard) for any actions one would otherwise use a mouse for.
--   Ensure pages are correctly marked up for assistive technologies—including screen readers, voice control software, and physical switch controls—which tend to use the same APIs.
+- Make the content of your UI components [functionally accessible from a keyboard](http://www.w3.org/TR/wai-aria-practices/#keyboard) for any actions one would otherwise use a mouse for.
+- Ensure pages are correctly marked up for assistive technologies—including screen readers, voice control software, and physical switch controls—which tend to use the same APIs.
 
 **Cognitive issues** mean a user may require assistive technologies to help them with reading text, so it's important to ensure text alternatives exist.
 
--   Be mindful when using animations. Avoid video and animation that [repeat](http://www.w3.org/TR/WCAG20/#time-limits) or flash, which can cause [issues](http://www.w3.org/TR/WCAG20/#seizure) for some users.
+- Be mindful when using animations. Avoid video and animation that [repeat](http://www.w3.org/TR/WCAG20/#time-limits) or flash, which can cause [issues](http://www.w3.org/TR/WCAG20/#seizure) for some users.
 
-    The [`prefers-reduced-motion`](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion#too_much_motion_in_real_life_and_on_the_web) CSS media query allows you to limit animations and autoplaying videos for users who prefer reduced motion:
+  The [`prefers-reduced-motion`](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion#too_much_motion_in_real_life_and_on_the_web) CSS media query allows you to limit animations and autoplaying videos for users who prefer reduced motion:
 
-        /*
-        If the user expresses a preference for reduced motion, don't use animations on buttons.
-        */
-        @media (prefers-reduced-motion: reduce) {
-          button {
-            animation: none;
-          }
+      /*
+      If the user expresses a preference for reduced motion, don't use animations on buttons.
+      */
+      @media (prefers-reduced-motion: reduce) {
+        button {
+          animation: none;
         }
+      }
 
--   Avoid interactions that are [timing-based](https://www.w3.org/WAI/WCAG21/Understanding/no-timing.html).
+- Avoid interactions that are [timing-based](https://www.w3.org/WAI/WCAG21/Understanding/no-timing.html).
 
 This may seem like a lot of bases to cover, but we'll walk through the process for assessing and then improving the accessibility of your UI components.
 
@@ -103,32 +101,31 @@ This may seem like a lot of bases to cover, but we'll walk through the process f
 
 <img src="https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format" alt="Digital posters showing accessibility dos and don&#39;ts." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/lmcS2dTmBHuUo3j0ERCp.jpg?auto=format&amp;w=1600 1600w" width="800" height="721" />
 
-Are your UI components accessible? <a href="#are-your-ui-components-accessible" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------
+## Are your UI components accessible? <a href="#are-your-ui-components-accessible" class="w-headline-link">#</a>
 
 **Summary (tl;dr)**
 
 When auditing your page's UI components for accessibility, ask yourself:
 
--   **Can you use your UI component with the keyboard only?**
+- **Can you use your UI component with the keyboard only?**
 
-    Does the component manage focus and avoid focus traps? Can it respond to the appropriate keyboard events?
+  Does the component manage focus and avoid focus traps? Can it respond to the appropriate keyboard events?
 
--   **Can you use your UI component with a screen reader?**
+- **Can you use your UI component with a screen reader?**
 
-    Have you provided text alternatives for any information presented visually? Have you added semantic information using ARIA?
+  Have you provided text alternatives for any information presented visually? Have you added semantic information using ARIA?
 
--   **Can your UI component work without sound?**
+- **Can your UI component work without sound?**
 
-    Turn off your speakers and go through your use cases.
+  Turn off your speakers and go through your use cases.
 
--   **Can your UI component work without color?**
+- **Can your UI component work without color?**
 
-    Ensure your UI component can be used by someone who cannot see colors. A helpful tool for simulating color blindness is a Chrome extension called [SEE](https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn). (Try all four forms of color blindness simulation available.) You may also be interested in the [Daltonize](https://chrome.google.com/webstore/detail/daltonize/obcnmdgpjakcffkcjnonpdlainhphpgh) extension, which is similarly useful.
+  Ensure your UI component can be used by someone who cannot see colors. A helpful tool for simulating color blindness is a Chrome extension called [SEE](https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn). (Try all four forms of color blindness simulation available.) You may also be interested in the [Daltonize](https://chrome.google.com/webstore/detail/daltonize/obcnmdgpjakcffkcjnonpdlainhphpgh) extension, which is similarly useful.
 
--   **Can your UI component work with high-contrast mode enabled?**
+- **Can your UI component work with high-contrast mode enabled?**
 
-    All modern operating systems support a high contrast mode. [High Contrast](https://chrome.google.com/webstore/detail/high-contrast/djcfdncoelnlbldjfhinnjlhdjlikmph?hl=en) is a Chrome extension that can help here.
+  All modern operating systems support a high contrast mode. [High Contrast](https://chrome.google.com/webstore/detail/high-contrast/djcfdncoelnlbldjfhinnjlhdjlikmph?hl=en) is a Chrome extension that can help here.
 
 Standardized controls (such as `<button>` and `<select>`) have accessibility built in by the browser. They are focusable using the `Tab` key; they respond to keyboard events (like the `Enter`, `Space`, and arrow keys); and they have semantic roles, states, and properties used by accessibility tools. Their default styling should also meet the accessibility requirements listed above.
 
@@ -146,8 +143,7 @@ Safari exposes accessibility information in the **Elements** panel's **Node** ta
 
 The following is a list of questions you can ask yourself when attempting to make your UI components more accessible.
 
-Can your UI component be used with the keyboard alone? <a href="#can-your-ui-component-be-used-with-the-keyboard-alone" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------------------------
+## Can your UI component be used with the keyboard alone? <a href="#can-your-ui-component-be-used-with-the-keyboard-alone" class="w-headline-link">#</a>
 
 Ideally, ensure that all functionality in your UI component can be accessed via keyboard. When designing your user experience, think about how you would use your element with the keyboard alone and figure out a consistent set of keyboard interactions.
 
@@ -159,11 +155,11 @@ The `tabindex` attribute allows elements and UI components to be focused using t
 
 **There are three types of `tabindex` values:**
 
--   **`tabindex="0"`** is the most common and places the element in the natural tab order (defined by the DOM order).
+- **`tabindex="0"`** is the most common and places the element in the natural tab order (defined by the DOM order).
 
--   **a `tabindex` value greater than 0** places the element in a manual tab order—all elements in the page with a positive `tabindex` value are visited in numerical order before elements in the natural tab order.
+- **a `tabindex` value greater than 0** places the element in a manual tab order—all elements in the page with a positive `tabindex` value are visited in numerical order before elements in the natural tab order.
 
--   **a `tabindex` value equal to -1** causes the element to be programmatically focusable, but not in the tab order.
+- **a `tabindex` value equal to -1** causes the element to be programmatically focusable, but not in the tab order.
 
 For custom UI components, always use `tabindex` values of 0 or -1, as you won't be able to determine the order of elements on a given page ahead of time—and even if you did, the order may change. A `tabindex` value of -1 is particularly useful for managing focus within complex components as described above.
 
@@ -202,8 +198,7 @@ The importance of managing focus cannot be overstated. One example is a navigati
     // verify aria-expanded = true
     expect(await page.evaluate(elem => elem.getAttribute(`aria-expanded`), category)).toEqual(`true`);
 
-Can you use your UI component with a screen reader? <a href="#can-you-use-your-ui-component-with-a-screen-reader" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------------------
+## Can you use your UI component with a screen reader? <a href="#can-you-use-your-ui-component-with-a-screen-reader" class="w-headline-link">#</a>
 
 Around 1–2% of people use a screen reader. Can you understand all important information and interact with the component using the screen reader and keyboard alone?
 
@@ -211,7 +206,7 @@ The following questions should help you address screen reader accessibility.
 
 ### Do all components and images have meaningful text alternatives? <a href="#do-all-components-and-images-have-meaningful-text-alternatives" class="w-headline-link">#</a>
 
-Wherever information about the *name* or *purpose* of an interactive component is conveyed visually, provide an accessible text alternative.
+Wherever information about the _name_ or _purpose_ of an interactive component is conveyed visually, provide an accessible text alternative.
 
 For example, if your `<fancy-menu>` UI component only displays a gear icon to indicate that it's a settings menu, it needs an accessible text alternative, such as "settings," that conveys the same information. Depending on context, you can provide a text alternative using an `alt` attribute, an `aria-label` attribute, an `aria-labelledby` attribute, or plain text in the Shadow DOM. You can find general technical tips in [WebAIM Quick Reference](http://webaim.org/resources/quickref/).
 
@@ -239,49 +234,47 @@ Any text content displayed in your component should meet the [minimum WCAG AA-le
 
 Content that moves, scrolls, or blinks for more than five seconds should be able to be paused, stopped or hidden. In general, avoid flashing content. If something must flash, make sure it flashes no more than three times per second.
 
-Accessibility Tooling <a href="#accessibility-tooling" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Accessibility Tooling <a href="#accessibility-tooling" class="w-headline-link">#</a>
 
 A number of tools are available that can assist with debugging the accessibility of your visual components.
 
--   [Axe](http://www.deque.com/products/axe/) provides automated accessibility testing for your framework or browser of choice. [Axe Puppeteer](https://www.deque.com/blog/axe-and-attest-integration-puppeteer/) can be used for writing automated accessibility tests.
--   The [Lighthouse](https://developers.google.com/web/tools/lighthouse) Accessibility audits provide helpful insights for discovering common accessibility issues. The accessibility score is a weighted average of all accessibility audits based on [Axe user impact assessments](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md). For monitoring accessibility via continuous integration, see [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci).
+- [Axe](http://www.deque.com/products/axe/) provides automated accessibility testing for your framework or browser of choice. [Axe Puppeteer](https://www.deque.com/blog/axe-and-attest-integration-puppeteer/) can be used for writing automated accessibility tests.
+- The [Lighthouse](https://developers.google.com/web/tools/lighthouse) Accessibility audits provide helpful insights for discovering common accessibility issues. The accessibility score is a weighted average of all accessibility audits based on [Axe user impact assessments](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md). For monitoring accessibility via continuous integration, see [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci).
 
 <img src="https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format" alt="Screenshot of the Lighthouse accessibility audit." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Bft9DABqWge4ZRpF6wzK.png?auto=format&amp;w=1600 1600w" width="800" height="649" />
 
--   [Tenon.io](https://tenon.io/) is useful for testing common accessibility problems. Tenon has strong integration support across build tools, browsers (via extensions), and even text editors.
+- [Tenon.io](https://tenon.io/) is useful for testing common accessibility problems. Tenon has strong integration support across build tools, browsers (via extensions), and even text editors.
 
--   There are many library- and framework-specific tools for highlighting accessibility issues with components. For example, [web.dev](/accessibility-auditing-react/) explains how to use [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) to highlight accessibility issues for React components in your editor:
+- There are many library- and framework-specific tools for highlighting accessibility issues with components. For example, [web.dev](/accessibility-auditing-react/) explains how to use [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) to highlight accessibility issues for React components in your editor:
 
-    <img src="https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format" alt="Screenshot of a code editor with an accessibility issue flagged by eslint-plugin-jsx-a11y." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1600 1600w" width="800" height="500" />
+  <img src="https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format" alt="Screenshot of a code editor with an accessibility issue flagged by eslint-plugin-jsx-a11y." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/9bAOYq7Cr11vzf4P04d2.png?auto=format&amp;w=1600 1600w" width="800" height="500" />
 
-    If you use Angular, [codelyzer](/accessible-angular-with-codelyzer) provides in-editor accessibility audits too:
+  If you use Angular, [codelyzer](/accessible-angular-with-codelyzer) provides in-editor accessibility audits too:
 
-    <img src="https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format" alt="Screenshot of a code editor with an accessibility issue flagged by codelyzer." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1600 1600w" width="800" height="433" />
+  <img src="https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format" alt="Screenshot of a code editor with an accessibility issue flagged by codelyzer." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Ca3rCQlJ53C7ILx3hwot.png?auto=format&amp;w=1600 1600w" width="800" height="433" />
 
--   You can examine the way that assistive technologies see web content by using [Accessibility Inspector](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html#//apple_ref/doc/uid/TP40001078-CH210-SW1) (Mac) or [Windows Automation API Testing Tools](http://msdn.microsoft.com/en-us/library/windows/desktop/dd373661(v=vs.85).aspx) and [AccProbe](http://accessibility.linuxfoundation.org/a11yweb/util/accprobe/) (Windows). You can also see the full accessibility tree that Chrome creates by navigating to `about://accessibility`.
+- You can examine the way that assistive technologies see web content by using [Accessibility Inspector](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html#//apple_ref/doc/uid/TP40001078-CH210-SW1) (Mac) or [Windows Automation API Testing Tools](<http://msdn.microsoft.com/en-us/library/windows/desktop/dd373661(v=vs.85).aspx>) and [AccProbe](http://accessibility.linuxfoundation.org/a11yweb/util/accprobe/) (Windows). You can also see the full accessibility tree that Chrome creates by navigating to `about://accessibility`.
 
--   The best way to test for screen reader support on a Mac is using the VoiceOver utility. Use `⌘F5` to enable or disable it, `Ctrl+Option ←→` to move through the page, and `Ctrl+Shift+Option + ↑↓` to move up and down the accessibility tree. For more detailed instructions, see the [full list of VoiceOver commands](http://www.apple.com/voiceover/info/guide/_1131.html) and the [list of VoiceOver Web commands](http://www.apple.com/voiceover/info/guide/_1131.html#vo27972).
+- The best way to test for screen reader support on a Mac is using the VoiceOver utility. Use `⌘F5` to enable or disable it, `Ctrl+Option ←→` to move through the page, and `Ctrl+Shift+Option + ↑↓` to move up and down the accessibility tree. For more detailed instructions, see the [full list of VoiceOver commands](http://www.apple.com/voiceover/info/guide/_1131.html) and the [list of VoiceOver Web commands](http://www.apple.com/voiceover/info/guide/_1131.html#vo27972).
 
--   [tota11y](http://khan.github.io/tota11y/) is a useful visualizer for assistive technology issues built by Khan Academy. It's a script that adds a button to your document that triggers several plugins for annotating things like insufficient contrast ratio and other a11y violations.
+- [tota11y](http://khan.github.io/tota11y/) is a useful visualizer for assistive technology issues built by Khan Academy. It's a script that adds a button to your document that triggers several plugins for annotating things like insufficient contrast ratio and other a11y violations.
 
--   On Windows, [NVDA](http://www.nvaccess.org/) is a free, open source screen reader that's fully featured and rapidly gaining in popularity. However, note that it has a much steeper learning curve for sighted users than VoiceOver.
+- On Windows, [NVDA](http://www.nvaccess.org/) is a free, open source screen reader that's fully featured and rapidly gaining in popularity. However, note that it has a much steeper learning curve for sighted users than VoiceOver.
 
--   [ChromeLens](http://chromelens.xyz/) helps develop for the visually impaired. It also has great support for visualizing keyboard navigation paths.
+- [ChromeLens](http://chromelens.xyz/) helps develop for the visually impaired. It also has great support for visualizing keyboard navigation paths.
 
-    <img src="https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format" alt="Screenshot of ChromeLens." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1600 1600w" width="800" height="514" />
+  <img src="https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format" alt="Screenshot of ChromeLens." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/RcDZ95ALFvNeDdpdv2Mo.jpg?auto=format&amp;w=1600 1600w" width="800" height="514" />
 
--   [ChromeVox](http://www.chromevox.com/) is a screen reader available as a Chrome extension and built into ChromeOS devices.
+- [ChromeVox](http://www.chromevox.com/) is a screen reader available as a Chrome extension and built into ChromeOS devices.
 
-Conclusions <a href="#conclusions" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Conclusions <a href="#conclusions" class="w-headline-link">#</a>
 
 We still have a long way to go to improve accessibility on the web. Per the [Web Almanac](https://almanac.httparchive.org/en/2019/accessibility):
 
--   4 out of every 5 sites have text that easily blends into the background, making it unreadable.
--   49.91% of pages still fail to provide `alt` attributes for some of their images.
--   Only 24% of pages that use buttons or links include textual labels for them.
--   Only 22.33% of pages provide labels for all their form inputs.
+- 4 out of every 5 sites have text that easily blends into the background, making it unreadable.
+- 49.91% of pages still fail to provide `alt` attributes for some of their images.
+- Only 24% of pages that use buttons or links include textual labels for them.
+- Only 22.33% of pages provide labels for all their form inputs.
 
 To learn more about accessibility fundamentals and help improve those statistics, I recommend the [Accessible to all](/accessible/) docs on web.dev. There's much we can do to build experiences that are more accessible for everyone.
 
@@ -293,35 +286,35 @@ To learn more about accessibility fundamentals and help improve those statistics
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

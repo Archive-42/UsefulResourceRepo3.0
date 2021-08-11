@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  Channels explained
@@ -20,8 +19,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Channels explained
-======================
+# Go: Channels explained
 
 A **channel** is a mechanism for goroutines to **synchronize** execution and **communicate** by passing values.
 
@@ -62,19 +59,17 @@ A new channel value can be made using the built-in function `make`:
     ic <- 3      // Send 3 on the channel.
     work := <-wc // Receive a pointer to Work from the channel.
 
-Buffered and unbuffered channels
---------------------------------
+## Buffered and unbuffered channels
 
--   If the capacity of a channel is zero or absent, the channel is **unbuffered** and the sender blocks until the receiver has received the value.
+- If the capacity of a channel is zero or absent, the channel is **unbuffered** and the sender blocks until the receiver has received the value.
 
--   If the channel **has a buffer**, the sender blocks only until the value has been copied to the buffer; if the buffer is full, this means waiting until some receiver has retrieved a value.
+- If the channel **has a buffer**, the sender blocks only until the value has been copied to the buffer; if the buffer is full, this means waiting until some receiver has retrieved a value.
 
--   Receivers always block until there is data to receive.
+- Receivers always block until there is data to receive.
 
--   Sending or receiving from a `nil` channel blocks forever.
+- Sending or receiving from a `nil` channel blocks forever.
 
-Closing a channel
------------------
+## Closing a channel
 
 The `close` function records that no more values will be sent on a channel. (Sending to or closing a closed channel causes a run-time panic. Closing a `nil` channel also causes a run-time panic.)
 
@@ -98,8 +93,7 @@ After calling `close`, and after any previously sent values have been received, 
 
 Note that it is only necessary to close a channel if a receiver is looking for a close.
 
-Example
--------
+## Example
 
 In the following example we let the `Publish` function return a channel, which is used to broadcast a message when the text has been published.
 
@@ -123,8 +117,7 @@ This is how you might use this function.
     // Do some more work.
     <-wait // Block until the text has been published.
 
-Deadlock
---------
+## Deadlock
 
 If you remove the call to `close` from the example above, the goroutine started by the `Publish` function will print the news and leave the code in the other goroutine waiting forever. This condition is known as a deadlock.
 
@@ -152,8 +145,7 @@ Next »
 
 Select explained
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -20,8 +19,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,19 +29,17 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Efficient parallel computation
-==================================
+# Go: Efficient parallel computation
 
 Dividing a large compu­tation into work units for parallel pro­cessing is more of an art than a science. Here are some rules of thumb.
 
--   Each work unit should take about 100μs to 1ms to compute.
--   If the units are too small, the adminis­trative over­head of divi­ding the problem and sched­uling sub-problems might be too large.
--   If the units are too big, the whole computation may have to wait for a single slow work item to finish. This slowdown can happen for many reasons, such as scheduling, interrupts from other processes, and unfortunate memory layout. (Note that the number of work units is independent of the number of CPUs.)
--   Try to minimize the amount of data sharing. Concurrent writes can be very costly, particularly so if goroutines execute on separate CPUs. Sharing data for reading is often much less of a problem.
--   Strive for good locality when accessing data. If data can be kept in cache memory, data loading and storing will be dramatically faster. Once again, this is particularly important for writing.
+- Each work unit should take about 100μs to 1ms to compute.
+- If the units are too small, the adminis­trative over­head of divi­ding the problem and sched­uling sub-problems might be too large.
+- If the units are too big, the whole computation may have to wait for a single slow work item to finish. This slowdown can happen for many reasons, such as scheduling, interrupts from other processes, and unfortunate memory layout. (Note that the number of work units is independent of the number of CPUs.)
+- Try to minimize the amount of data sharing. Concurrent writes can be very costly, particularly so if goroutines execute on separate CPUs. Sharing data for reading is often much less of a problem.
+- Strive for good locality when accessing data. If data can be kept in cache memory, data loading and storing will be dramatically faster. Once again, this is particularly important for writing.
 
-Example
--------
+## Example
 
 The following example shows how to divide a costly computation and distribute it on all available CPUs. This is the code we want to optimize.
 
@@ -98,8 +94,7 @@ The idea is simple: identify work units of suitable size and then run each work 
         return w
     }
 
-Limiting the number of goroutines
----------------------------------
+## Limiting the number of goroutines
 
 When the work units have been defined, it’s often best to leave the scheduling to the runtime and the operating system. However, if needed, you can tell the runtime how many goroutines you want executing code simultaneously:
 
@@ -122,8 +117,7 @@ Concurrency in Go
 
 12 of 12
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

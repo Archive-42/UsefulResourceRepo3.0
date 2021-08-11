@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Function literals and closures](anonymous-function-literal-lambda-closure.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Function types and values
-=============================
+# Go: Function types and values
 
 Functions in Go are first class citizens. Function types and function values can be used and passed around just like other values.
 
@@ -60,20 +56,18 @@ Functions in Go are first class citizens. Function types and function values can
 
 The second call to `Map` uses an **anonymous function** (or **lambda**). See [Function literals and closures](anonymous-function-literal-lambda-closure.html) for more about lambdas in Go.
 
-Details
--------
+## Details
 
 A function type describes the set of all functions with the same parameter and result types.
 
--   The value of an uninitialized variable of function type is `nil`.
--   The parameter names are optional. The following two function types are **identical**:
+- The value of an uninitialized variable of function type is `nil`.
+- The parameter names are optional. The following two function types are **identical**:
 
-        func(x, y int) int
+      func(x, y int) int
 
-        func(int, int) int
+      func(int, int) int
 
-Comments (1)
-------------
+## Comments (1)
 
 ![User avatar](https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp)
 

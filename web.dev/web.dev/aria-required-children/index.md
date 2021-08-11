@@ -10,19 +10,17 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#elements-with-an-aria-lesscodegreaterrolelesscodegreater-that-require-children-to-contain-a-specific-lesscodegreaterrolelesscodegreater-are-missing-some-or-all-of-those-required-children" class="w-toc__header--link">Elements with an ARIA <code>[role]</code> that require children to contain a specific <code>[role]</code> are missing some or all of those required children</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#elements-with-an-aria-lesscodegreaterrolelesscodegreater-that-require-children-to-contain-a-specific-lesscodegreaterrolelesscodegreater-are-missing-some-or-all-of-those-required-children" class="w-toc__header--link">Elements with an ARIA <code>[role]</code> that require children to contain a specific <code>[role]</code> are missing some or all of those required children</a>
 
--   [How Lighthouse identifies missing child roles](#how-lighthouse-identifies-missing-child-roles)
--   [How to add missing child roles](#how-to-add-missing-child-roles)
--   [Option 1: Place the child elements within the parent in the DOM](#option-1:-place-the-child-elements-within-the-parent-in-the-dom)
--   [Option 2: Associate the child roles with the parent role using aria-owns](#option-2:-associate-the-child-roles-with-the-parent-role-using-aria-owns)
--   [Resources](#resources)
+- [How Lighthouse identifies missing child roles](#how-lighthouse-identifies-missing-child-roles)
+- [How to add missing child roles](#how-to-add-missing-child-roles)
+- [Option 1: Place the child elements within the parent in the DOM](#option-1:-place-the-child-elements-within-the-parent-in-the-dom)
+- [Option 2: Associate the child roles with the parent role using aria-owns](#option-2:-associate-the-child-roles-with-the-parent-role-using-aria-owns)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children
-======================================================================================================================================
+# Elements with an ARIA `[role]` that require children to contain a specific `[role]` are missing some or all of those required children
 
 May 2, 2019 <span class="w-author__separator">•</span> Updated Sep 19, 2019
 
@@ -32,8 +30,7 @@ Users of screen readers and other assistive technologies need information about 
 
 Some ARIA roles require specific child roles. For example, the `tablist` role must own at least one element with the `tab` role. If the required child roles aren't present, assistive technologies may convey confusing information about your page, like announcing a tab set with no tabs.
 
-How Lighthouse identifies missing child roles <a href="#how-lighthouse-identifies-missing-child-roles" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------
+## How Lighthouse identifies missing child roles <a href="#how-lighthouse-identifies-missing-child-roles" class="w-headline-link">#</a>
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse) flags ARIA roles that don't have the required child roles:
 
@@ -45,8 +42,7 @@ This issue is important to fix and may break the experience for users. In the ex
 
 The Lighthouse Accessibility score is a weighted average of all the accessibility audits. See the [Lighthouse accessibility scoring](/accessibility-scoring) post for more information.
 
-How to add missing child roles <a href="#how-to-add-missing-child-roles" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## How to add missing child roles <a href="#how-to-add-missing-child-roles" class="w-headline-link">#</a>
 
 Refer to the [WAI-ARIA role definitions](https://www.w3.org/TR/wai-aria-1.1/#role_definitions) to see which child roles are required for the elements that Lighthouse flagged. (The spec refers to required children as [required owned elements](https://www.w3.org/TR/wai-aria/#mustContain).)
 
@@ -86,46 +82,45 @@ If you can't place child role elements inside the parent role element, you can u
 
 If an element with the `aria-owns` attribute contains DOM children, assistive technologies will announce the DOM children before the elements listed in `aria-owns`.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Source code for **Elements with an ARIA `[role]` that require children to contain a specific \[role\] are missing some or all of those required children** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/aria-required-children.js)
--   [Certain ARIA roles must contain particular children (Deque University)](https://dequeuniversity.com/rules/axe/3.3/aria-required-children)
--   [Role definitions from the WAI-ARIA specification](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
+- [Source code for **Elements with an ARIA `[role]` that require children to contain a specific \[role\] are missing some or all of those required children** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/aria-required-children.js)
+- [Certain ARIA roles must contain particular children (Deque University)](https://dequeuniversity.com/rules/axe/3.3/aria-required-children)
+- [Role definitions from the WAI-ARIA specification](https://www.w3.org/TR/wai-aria-1.1/#role_definitions)
 
 <span class="w-mr--sm">Last updated: Sep 19, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/lighthouse-accessibility/aria-required-children/index.md)
 
 <a href="/lighthouse-accessibility" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

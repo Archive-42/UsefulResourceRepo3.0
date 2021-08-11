@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Print with fmt cheat sheet](fmt-printf-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,11 +29,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Build and concatenate strings efficiently
-=============================================
+# Go: Build and concatenate strings efficiently
 
-Most of the time
-----------------
+## Most of the time
 
 For simple cases where performance is a non-issue, [`fmt.Sprintf`](https://golang.org/pkg/fmt/#Sprintf) is your friend:
 
@@ -44,13 +39,12 @@ For simple cases where performance is a non-issue, [`fmt.Sprintf`](https://golan
 
 The [Print with fmt cheat sheet](fmt-printf-reference-cheat-sheet.html) lists the most common formatting verbs and flags.
 
-String builder (Go 1.10)
-------------------------
+## String builder (Go 1.10)
 
 The [`strings.Builder`](https://tip.golang.org/pkg/strings/#Builder) type, which will be introduced in [**Go 1.10**](https://tip.golang.org/doc/go1.10), is used to efficiently build a string using write methods.
 
--   It offers a subset of the [`bytes.Buffer`](https://golang.org/pkg/bytes/#Buffer) methods that allows it to safely avoid redundant copying.
--   The [`Grow`](https://tip.golang.org/pkg/strings/#Builder.Grow) method can be used to preallocate memory when the maximum size of the string is known.
+- It offers a subset of the [`bytes.Buffer`](https://golang.org/pkg/bytes/#Buffer) methods that allows it to safely avoid redundant copying.
+- The [`Grow`](https://tip.golang.org/pkg/strings/#Builder.Grow) method can be used to preallocate memory when the maximum size of the string is known.
 
 <!-- -->
 
@@ -61,8 +55,7 @@ The [`strings.Builder`](https://tip.golang.org/pkg/strings/#Builder) type, which
     b.WriteString(" MB.")
     s := b.String() // No copying!
 
-Before Go 1.10
---------------
+## Before Go 1.10
 
 Use [`fmt.Fprintf`](https://golang.org/pkg/fmt/#Fprintf) to print into a [`bytes.Buffer`](https://golang.org/pkg/bytes/#Buffer):
 
@@ -88,8 +81,7 @@ If the expected maximum length of the string is known, you may want to prealloca
     buf = append(buf, " MB."...)
     s := string(buf)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

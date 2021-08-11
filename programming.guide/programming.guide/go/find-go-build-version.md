@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Command go](https://golang.org/cmd/go/)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,15 +29,14 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Find build version
-======================
+# Go: Find build version
 
     fmt.Println(runtime.Version())
 
 The function [`runtime.Version`](https://golang.org/pkg/runtime/#Version) returns the Go tree's version string, which is
 
--   either the commit hash and date at the time of the build,
--   or, when possible, a release tag like `go1.9`.
+- either the commit hash and date at the time of the build,
+- or, when possible, a release tag like `go1.9`.
 
 <!-- -->
 
@@ -48,8 +44,7 @@ The function [`runtime.Version`](https://golang.org/pkg/runtime/#Version) return
 
 The command [`go version`](https://golang.org/cmd/go/#hdr-Print_Go_version) prints the version in the same format as `runtime.Version`.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

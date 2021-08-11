@@ -10,17 +10,15 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#lesscodegreateraria-*lesscodegreater-attributes-are-not-valid-or-misspelled" class="w-toc__header--link"><code>[aria-*]</code> attributes are not valid or misspelled</a>
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#lesscodegreateraria-*lesscodegreater-attributes-are-not-valid-or-misspelled" class="w-toc__header--link"><code>[aria-\*]</code> attributes are not valid or misspelled</a>
 
--   [How Lighthouse checks for invalid ARIA attributes](#how-lighthouse-checks-for-invalid-aria-attributes)
--   [How to fix invalid ARIA attributes](#how-to-fix-invalid-aria-attributes)
--   [Resources](#resources)
+- [How Lighthouse checks for invalid ARIA attributes](#how-lighthouse-checks-for-invalid-aria-attributes)
+- [How to fix invalid ARIA attributes](#how-to-fix-invalid-aria-attributes)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-`[aria-*]` attributes are not valid or misspelled
-=================================================
+# `[aria-*]` attributes are not valid or misspelled
 
 May 2, 2019 <span class="w-author__separator">•</span> Updated Sep 19, 2019
 
@@ -32,8 +30,7 @@ Each ARIA `role` supports a specific subset of `aria-*` attributes that define t
 
 If an element's ARIA attribute is invalid, assistive technologies won't be able to interact with it as the developer intended.
 
-How Lighthouse checks for invalid ARIA attributes <a href="#how-lighthouse-checks-for-invalid-aria-attributes" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------
+## How Lighthouse checks for invalid ARIA attributes <a href="#how-lighthouse-checks-for-invalid-aria-attributes" class="w-headline-link">#</a>
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse) flags invalid ARIA attributes:
 
@@ -43,51 +40,49 @@ In the example Lighthouse audit above, the `aria-checked` attribute has been mis
 
 The Lighthouse Accessibility score is a weighted average of all the accessibility audits. See the [Lighthouse accessibility scoring](/accessibility-scoring) post for more information.
 
-How to fix invalid ARIA attributes <a href="#how-to-fix-invalid-aria-attributes" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## How to fix invalid ARIA attributes <a href="#how-to-fix-invalid-aria-attributes" class="w-headline-link">#</a>
 
 Refer to the [WAI-ARIA supported states and properties](https://www.w3.org/TR/wai-aria-1.1/#states_and_properties) to see the full list of valid ARIA attributes. Make sure all ARIA attributes on your page match one of the defined states or properties.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Source code for **`[aria-*]` attributes are not valid or misspelled** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/aria-valid-attr.js)
--   [ARIA attributes must conform to valid names (Deque University)](https://dequeuniversity.com/rules/axe/3.3/aria-valid-attr)
--   [States and properties from the WAI-ARIA specification](https://www.w3.org/TR/wai-aria-1.1/#states_and_properties)
+- [Source code for **`[aria-*]` attributes are not valid or misspelled** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/aria-valid-attr.js)
+- [ARIA attributes must conform to valid names (Deque University)](https://dequeuniversity.com/rules/axe/3.3/aria-valid-attr)
+- [States and properties from the WAI-ARIA specification](https://www.w3.org/TR/wai-aria-1.1/#states_and_properties)
 
 <span class="w-mr--sm">Last updated: Sep 19, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/lighthouse-accessibility/aria-valid-attr/index.md)
 
 <a href="/lighthouse-accessibility" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

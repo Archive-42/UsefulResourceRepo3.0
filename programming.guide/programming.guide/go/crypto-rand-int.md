@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Generate a random number in a given range](generate-number-random-range.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further Reading
 [Cryptographically secure pseudorandom number generator](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)  
 <span style="color: grey; font-style: italic; font-size: smaller">Wikipedia</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,13 +38,12 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Cryptographically secure random numbers
-===========================================
+# Go: Cryptographically secure random numbers
 
 Go has two packages for random numbers:
 
--   [`math/rand`](https://golang.org/pkg/math/rand/) implements a large selection of pseudo-random number generators.
--   [`crypto/rand`](https://golang.org/pkg/crypto/rand/) implements a cryptographically secure pseudo-random number generator with a limited interface.
+- [`math/rand`](https://golang.org/pkg/math/rand/) implements a large selection of pseudo-random number generators.
+- [`crypto/rand`](https://golang.org/pkg/crypto/rand/) implements a cryptographically secure pseudo-random number generator with a limited interface.
 
 The two packages can be combined by calling [`rand.New`](https://golang.org/pkg/math/rand/#New) in package `math/rand` with a source that gets its data from `crypto/rand`.
 
@@ -82,10 +78,9 @@ The two packages can be combined by calling [`rand.New`](https://golang.org/pkg/
             return v
     }
 
-The `crand.Reader` returns an error if the underlying system call fails. For instance if the runtime can't read `/dev/urandom` on a \*nix system or if [`CryptAcquireContext`](https://msdn.microsoft.com/en-us/library/windows/desktop/aa379886(v=vs.85).aspx) fails on a Windows system.
+The `crand.Reader` returns an error if the underlying system call fails. For instance if the runtime can't read `/dev/urandom` on a \*nix system or if [`CryptAcquireContext`](<https://msdn.microsoft.com/en-us/library/windows/desktop/aa379886(v=vs.85).aspx>) fails on a Windows system.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

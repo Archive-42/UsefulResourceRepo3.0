@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Append function explained](append-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Concatenate slices
-======================
+# Go: Concatenate slices
 
 Use [`append`](append-explained.html) and add dots after the second slice:
 
@@ -43,8 +39,7 @@ Use [`append`](append-explained.html) and add dots after the second slice:
 
 The `...` unpacks `b`. Without the dots, the code would attempt to append the slice as a whole, which is invalid since `a` is not a slice of slices.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

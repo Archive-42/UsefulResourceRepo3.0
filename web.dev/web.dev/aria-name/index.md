@@ -10,23 +10,21 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#aria-items-do-not-have-accessible-names" class="w-toc__header--link">ARIA items do not have accessible names</a>
---------------------------------------------------------------------------------------------------------------------------
+## <a href="#aria-items-do-not-have-accessible-names" class="w-toc__header--link">ARIA items do not have accessible names</a>
 
--   [How Lighthouse identifies ARIA items without accessible names](#how-lighthouse-identifies-aria-items-without-accessible-names)
--   [Example 1: How to add accessible names to your custom ARIA toggle fields](#example-1:-how-to-add-accessible-names-to-your-custom-aria-toggle-fields)
--   [Option 1: Add inner text to the element](#option-1:-add-inner-text-to-the-element)
--   [Option 2: Add an aria-label attribute to the element](#option-2:-add-an-aria-label-attribute-to-the-element)
--   [Option 3: Refer to another element using aria-labelledby](#option-3:-refer-to-another-element-using-aria-labelledby)
--   [Example 2: How to add accessible names to your custom ARIA input fields](#example-2:-how-to-add-accessible-names-to-your-custom-aria-input-fields)
--   [Option 1: Add an aria-label attribute to the element](#option-1:-add-an-aria-label-attribute-to-the-element)
--   [Option 2: Refer to another element using aria-labelledby](#option-2:-refer-to-another-element-using-aria-labelledby)
--   [Resources](#resources)
+- [How Lighthouse identifies ARIA items without accessible names](#how-lighthouse-identifies-aria-items-without-accessible-names)
+- [Example 1: How to add accessible names to your custom ARIA toggle fields](#example-1:-how-to-add-accessible-names-to-your-custom-aria-toggle-fields)
+- [Option 1: Add inner text to the element](#option-1:-add-inner-text-to-the-element)
+- [Option 2: Add an aria-label attribute to the element](#option-2:-add-an-aria-label-attribute-to-the-element)
+- [Option 3: Refer to another element using aria-labelledby](#option-3:-refer-to-another-element-using-aria-labelledby)
+- [Example 2: How to add accessible names to your custom ARIA input fields](#example-2:-how-to-add-accessible-names-to-your-custom-aria-input-fields)
+- [Option 1: Add an aria-label attribute to the element](#option-1:-add-an-aria-label-attribute-to-the-element)
+- [Option 2: Refer to another element using aria-labelledby](#option-2:-refer-to-another-element-using-aria-labelledby)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-ARIA items do not have accessible names
-=======================================
+# ARIA items do not have accessible names
 
 Dec 8, 2020
 
@@ -34,8 +32,7 @@ Users of screen readers and other assistive technologies need information about 
 
 To be announced properly by assistive technologies, both [built-in HTML controls](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Forms) and [custom ARIA controls](https://www.w3.org/TR/wai-aria-practices-1.1/#aria_ex) must have [accessible names](/labels-and-text-alternatives) that convey their purpose.
 
-How Lighthouse identifies ARIA items without accessible names <a href="#how-lighthouse-identifies-aria-items-without-accessible-names" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## How Lighthouse identifies ARIA items without accessible names <a href="#how-lighthouse-identifies-aria-items-without-accessible-names" class="w-headline-link">#</a>
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) flags custom ARIA items whose names aren't accessible to assistive technologies:
 
@@ -47,8 +44,7 @@ How Lighthouse identifies ARIA items without accessible names <a href="#how-ligh
 
 The Lighthouse Accessibility score is a weighted average of all the accessibility audits. See the [Lighthouse accessibility scoring](/accessibility-scoring) post for more information.
 
-Example 1: How to add accessible names to your custom ARIA toggle fields <a href="#example-1:-how-to-add-accessible-names-to-your-custom-aria-toggle-fields" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Example 1: How to add accessible names to your custom ARIA toggle fields <a href="#example-1:-how-to-add-accessible-names-to-your-custom-aria-toggle-fields" class="w-headline-link">#</a>
 
 ### Option 1: Add inner text to the element <a href="#option-1:-add-inner-text-to-the-element" class="w-headline-link">#</a>
 
@@ -90,8 +86,7 @@ For example, this custom menu radio button refers to the `menuitem1Label` paragr
             aria-checked="true"></li>
     </ul>
 
-Example 2: How to add accessible names to your custom ARIA input fields <a href="#example-2:-how-to-add-accessible-names-to-your-custom-aria-input-fields" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Example 2: How to add accessible names to your custom ARIA input fields <a href="#example-2:-how-to-add-accessible-names-to-your-custom-aria-input-fields" class="w-headline-link">#</a>
 
 The easiest way to provide an accessible name for most elements is to include text content in the element. However, custom input fields typically don't have inner text, so you can use one of the following strategies instead.
 
@@ -115,19 +110,18 @@ For example, this custom searchbox refers to the `searchLabel` paragraph as its 
         contenteditable="true"
         aria-labelledby="searchLabel"></div>
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Source code for **Not all ARIA toggle fields have accessible names** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/aria-toggle-field-name.js)
--   [ARIA button, link, and menuitem must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-command-name)
--   [ARIA input fields must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-input-field-name)
--   [ARIA meter must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-meter-name)
--   [ARIA progressbar must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-progressbar-name)
--   [ARIA toggle fields have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-toggle-field-label)
--   [ARIA tooltip must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-tooltip-name)
--   [ARIA treeitem must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-treeitem-name)
--   [Labels and text alternatives](/labels-and-text-alternatives)
--   [Use semantic HTML for easy keyboard wins](/use-semantic-html)
+- [Source code for **Not all ARIA toggle fields have accessible names** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/aria-toggle-field-name.js)
+- [ARIA button, link, and menuitem must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-command-name)
+- [ARIA input fields must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-input-field-name)
+- [ARIA meter must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-meter-name)
+- [ARIA progressbar must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-progressbar-name)
+- [ARIA toggle fields have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-toggle-field-label)
+- [ARIA tooltip must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-tooltip-name)
+- [ARIA treeitem must have an accessible name (Deque University)](https://dequeuniversity.com/rules/axe/4.1/aria-treeitem-name)
+- [Labels and text alternatives](/labels-and-text-alternatives)
+- [Use semantic HTML for easy keyboard wins](/use-semantic-html)
 
 <a href="/tags/accessibility/" class="w-chip">Accessibility</a>
 
@@ -135,35 +129,35 @@ Resources <a href="#resources" class="w-headline-link">#</a>
 
 <a href="/lighthouse-accessibility" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

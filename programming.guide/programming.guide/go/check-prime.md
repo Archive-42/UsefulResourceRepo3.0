@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Package big](https://golang.org/pkg/math/big/)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,11 +29,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Check if a number is prime
-==============================
+# Go: Check if a number is prime
 
-Ints
-----
+## Ints
 
 For integer types, use [`ProbablyPrime(0)`](https://golang.org/pkg/math/big/#Int.ProbablyPrime) from package [`math/big`](https://golang.org/pkg/math/big/). (This primality test is 100% accurate for inputs less than 2<sup>64</sup>.)
 
@@ -49,10 +44,9 @@ For integer types, use [`ProbablyPrime(0)`](https://golang.org/pkg/math/big/#Int
 
     1212121 is prime
 
-Larger numbers
---------------
+## Larger numbers
 
-For larger numbers, you need to provide the desired number of tests `n` to [`ProbablyPrime(n)`](https://golang.org/pkg/math/big/#Int.ProbablyPrime). For *n* tests, the probability of returning true for a randomly chosen non-prime is at most (1/4)<sup>*n*</sup>. A common choice is to use *n* = 20; it gives the false positive rate 0.000,000,000,001.
+For larger numbers, you need to provide the desired number of tests `n` to [`ProbablyPrime(n)`](https://golang.org/pkg/math/big/#Int.ProbablyPrime). For *n* tests, the probability of returning true for a randomly chosen non-prime is at most (1/4)<sup>_n_</sup>. A common choice is to use *n* = 20; it gives the false positive rate 0.000,000,000,001.
 
     z := new(big.Int)
     fmt.Sscan("170141183460469231731687303715884105727", z)
@@ -64,8 +58,7 @@ For larger numbers, you need to provide the desired number of tests `n` to [`Pr
 
     170141183460469231731687303715884105727 is probably prime
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Print with fmt cheat sheet](fmt-printf-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further Reading
 [The Laws of Reflection](https://blog.golang.org/laws-of-reflection)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,11 +38,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Find the type of an object
-==============================
+# Go: Find the type of an object
 
-A simple string
----------------
+## A simple string
 
 Use the `%T` flag in the [fmt](https://golang.org/pkg/fmt/) package to get a Go-syntax representation of the type.
 
@@ -54,8 +49,7 @@ Use the `%T` flag in the [fmt](https://golang.org/pkg/fmt/) package to get a Go-
     fmt.Println(xType)
     // Output: []int
 
-A simple choice
----------------
+## A simple choice
 
 Use a type switch to do several type assertions in series.
 
@@ -70,8 +64,7 @@ Use a type switch to do several type assertions in series.
     }
     // Output: float64: 2.3
 
-Full type information
----------------------
+## Full type information
 
 Use the [reflect](https://golang.org/pkg/reflect/) package if the options above don't suffice.
 
@@ -79,7 +72,7 @@ Use the [reflect](https://golang.org/pkg/reflect/) package if the options above 
     xType := reflect.TypeOf(x)
     xValue := reflect.ValueOf(x)
     fmt.Println(xType, xValue)
-    // Output: []int [1 2 3] 
+    // Output: []int [1 2 3]
 
 In this advanced example, we use reflection to check if a list of interface variables have types corresponding to the parameters of a given function. If so, we call the function with those parameters to check if there is a panic.
 
@@ -110,8 +103,7 @@ In this advanced example, we use reflection to check if a list of interface vari
             return
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

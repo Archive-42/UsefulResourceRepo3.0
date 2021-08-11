@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,8 +24,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Format byte size to human readable format
-=============================================
+# Go: Format byte size to human readable format
 
 Here’s how to convert `1000` to `"1 kB"`, `1000000` to `"1 MB"` etc.
 
@@ -70,8 +67,7 @@ Example input/output:
        1855425871872         "1.9 TB"        "1.7 TiB"
        math.MaxInt64         "9.2 EB"        "8.0 EiB
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

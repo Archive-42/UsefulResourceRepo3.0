@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -15,8 +14,7 @@ Top Algorithm Articles
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -26,20 +24,17 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Bloom Filter Calculator
-=======================
+# Bloom Filter Calculator
 
 Here's an interactive tool to help you tune the parameters for a Bloom filter. If you want to learn more about how Bloom filters work, see separate article [here](bloom-filter.html).
 
-  
-
-**Number of bits (*m*)**
+**Number of bits (_m_)**
 
 *m* = <span id="m-bits"></span>
 
 In bytes: <span id="m-bytes"></span>
 
-**Number of hash functions (*k*)**
+**Number of hash functions (_k_)**
 
 *k* = <span id="k-lbl"></span>
 
@@ -47,7 +42,7 @@ This in the optimal choice for <span class="no-wrap">*n* = <span id="k-opt-f
 
 Not the optimal choice for any number of elements.
 
-**Acceptable false positive rate (*p*)**
+**Acceptable false positive rate (_p_)**
 
 *p* = <span id="p-percent"></span> %
 
@@ -57,8 +52,7 @@ Allows no elements to be added.
 
 1 0 p n 1 2 3 4 5 6 7 8 9
 
-Probability of false positives
-------------------------------
+## Probability of false positives
 
 Assuming uniform and independent hashing, the probability of a specific bit not being set to 1 after a single use of a hash function is
 
@@ -68,9 +62,9 @@ Assuming uniform and independent hashing, the probability of a specific bit not 
 
 1
 
-*m*
+_m_
 
-After inserting *n* elements using *k* hashes each, the probability of a specific bit still being 0 is thus
+After inserting _n_ elements using _k_ hashes each, the probability of a specific bit still being 0 is thus
 
 ⎛  
 ⎝
@@ -81,12 +75,12 @@ After inserting *n* elements using *k* hashes each, the probability of a specifi
 
 1
 
-*m*
+_m_
 
 ⎞  
 ⎠
 
-*kn*
+_kn_
 
 Conversely, the probability of a specific bit being set to 1, is
 
@@ -103,14 +97,14 @@ Conversely, the probability of a specific bit being set to 1, is
 
 1
 
-*m*
+_m_
 
 ⎞  
 ⎠
 
-*kn*
+_kn_
 
-Since a false positive requires *k* random bits to be set to 1, the probability of a false positive after inserting *n* elements is
+Since a false positive requires _k_ random bits to be set to 1, the probability of a false positive after inserting _n_ elements is
 
 ⎛  
 ⎝
@@ -128,25 +122,25 @@ Since a false positive requires *k* random bits to be set to 1, the probability 
 
 1
 
-*m*
+_m_
 
 ⎞  
 ⎠
 
-*kn*
+_kn_
 
 ⎞  
 ⎠
 
-*k*
+_k_
 
-Using the formula for calculating *e*…
+Using the formula for calculating _e_…
 
-*e*
+_e_
 
 =
 
- 
+
 
 lim
 
@@ -161,7 +155,7 @@ lim
 
 1
 
-*x*
+_x_
 
 ⎞  
 ⎠
@@ -178,32 +172,15 @@ lim
 
 )
 
-*k*
+_k_
 
-Optimal value for k
--------------------
+## Optimal value for k
 
-By fixing the *n* / *m* ratio in the previous equation, we can solve for *k*, and find the optimal value for it. That is, if you for example know you can spare 1 MB for the bit vector, and you know that you will insert ~10,000 elements, you can calculate the number of hash functions that **minimizes the false positives** in subsequent lookups.
+By fixing the *n* / *m* ratio in the previous equation, we can solve for _k_, and find the optimal value for it. That is, if you for example know you can spare 1 MB for the bit vector, and you know that you will insert ~10,000 elements, you can calculate the number of hash functions that **minimizes the false positives** in subsequent lookups.
 
-Given *n* and *m* we want to minimize
+Given _n_ and _m_ we want to minimize
 
-= 
-
-(
-
-1 − *e*
-
-−*kn* / *m*
-
-)
-
-*k*
-
-= 
-
-*e*
-
-ln 
+=
 
 (
 
@@ -213,15 +190,31 @@ ln 
 
 )
 
-*k*
+_k_
 
-= 
+=
 
-*e*
+_e_
 
-*k* 
+ln
 
-ln 
+(
+
+1 − *e*
+
+−*kn* / *m*
+
+)
+
+_k_
+
+=
+
+_e_
+
+_k_
+
+ln
 
 (
 
@@ -233,9 +226,9 @@ ln 
 
 In other words, we want to minimize
 
-*k* 
+_k_
 
-ln 
+ln
 
 (
 
@@ -247,23 +240,23 @@ ln 
 
 By simple rules of powers and logarithms, we know that <span class="no-wrap">k = −*m* / *n* ln(e<sup>−*kn* / *m*</sup>)</span>, so we can rewrite the above as follows:
 
-− 
+−
 
-*m*
+_m_
 
-*n*
+_n_
 
- ln 
+ln
 
 (
 
-*e*
+_e_
 
 −*kn* / *m*
 
 )
 
- ln 
+ln
 
 (
 
@@ -273,20 +266,19 @@ By simple rules of powers and logarithms, we know that <span class="no-wrap">k�
 
 )
 
-By symmetry, we see that this is minimized when <span class="no-wrap">e<sup>−*kn* / *m*</sup> = 1 − e<sup>−*kn* / *m*</sup></span>, i.e. when <span class="no-wrap">e<sup>−*kn* / *m*</sup> = 0.5</span>. Intuitively this means that we should chose a *k* such that after insterting *n* elements, half of the *m* bits are set to true. Solving for *k* gives us
+By symmetry, we see that this is minimized when <span class="no-wrap">e<sup>−*kn* / *m*</sup> = 1 − e<sup>−*kn* / *m*</sup></span>, i.e. when <span class="no-wrap">e<sup>−*kn* / *m*</sup> = 0.5</span>. Intuitively this means that we should chose a _k_ such that after insterting _n_ elements, half of the _m_ bits are set to true. Solving for _k_ gives us
 
-*k*
+_k_
 
 =
 
 *m* ln 2
 
-*n*
+_n_
 
-With this value for *k* the optimal false positive rate is approximately 0.6185<sup>*m* / *n*</sup>.
+With this value for _k_ the optimal false positive rate is approximately 0.6185<sup>*m* / *n*</sup>.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

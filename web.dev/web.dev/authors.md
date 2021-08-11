@@ -12,8 +12,7 @@
 
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Authors
-=======
+# Authors
 
 Our latest news, updates, and stories for developers
 
@@ -23,8 +22,7 @@ Our latest news, updates, and stories for developers
 
 <a href="/authors/aaronleventhal/" class="w-card-base__link"></a>
 
-Aaron Leventhal
----------------
+## Aaron Leventhal
 
 <a href="/authors/aaronleventhal/" class="w-card-base__link"></a>
 
@@ -36,8 +34,7 @@ Software Engineer
 
 <a href="/authors/abhimanyuraibahadur/" class="w-card-base__link"></a>
 
-Abhimanyu Raibahadur
---------------------
+## Abhimanyu Raibahadur
 
 <a href="/authors/abhimanyuraibahadur/" class="w-card-base__link"></a>
 
@@ -49,8 +46,7 @@ Our latest news, updates, and stories by Abhimanyu Raibahadur.
 
 <a href="/authors/adamargyle/" class="w-card-base__link"></a>
 
-Adam Argyle
------------
+## Adam Argyle
 
 <a href="/authors/adamargyle/" class="w-card-base__link"></a>
 
@@ -62,8 +58,7 @@ Developer Advocate for Chrome
 
 <a href="/authors/adamskret/" class="w-card-base__link"></a>
 
-Adam Skręt
-----------
+## Adam Skręt
 
 <a href="/authors/adamskret/" class="w-card-base__link"></a>
 
@@ -75,8 +70,7 @@ Director of Digital & Performance Marketing, Orange Polska S.A.
 
 <a href="/authors/addyosmani/" class="w-card-base__link"></a>
 
-Addy Osmani
------------
+## Addy Osmani
 
 <a href="/authors/addyosmani/" class="w-card-base__link"></a>
 
@@ -88,8 +82,7 @@ Eng Manager working on Chrome and Web Platform
 
 <a href="/authors/agektmr/" class="w-card-base__link"></a>
 
-Eiji Kitamura
--------------
+## Eiji Kitamura
 
 <a href="/authors/agektmr/" class="w-card-base__link"></a>
 
@@ -101,8 +94,7 @@ Developer Advocate in Tokyo
 
 <a href="/authors/ajain/" class="w-card-base__link"></a>
 
-Ankit Jain
-----------
+## Ankit Jain
 
 <a href="/authors/ajain/" class="w-card-base__link"></a>
 
@@ -114,8 +106,7 @@ Our latest news, updates, and stories by Ankit Jain.
 
 <a href="/authors/ajara/" class="w-card-base__link"></a>
 
-Adriana Jara
-------------
+## Adriana Jara
 
 <a href="/authors/ajara/" class="w-card-base__link"></a>
 
@@ -127,8 +118,7 @@ Adriana is a Developer Relations Engineer
 
 <a href="/authors/alexshalamov/" class="w-card-base__link"></a>
 
-Alex Shalamov
--------------
+## Alex Shalamov
 
 <a href="/authors/alexshalamov/" class="w-card-base__link"></a>
 
@@ -140,8 +130,7 @@ Alex is an Engineer at Intel
 
 <a href="/authors/alonko/" class="w-card-base__link"></a>
 
-Alon Kochba
------------
+## Alon Kochba
 
 <a href="/authors/alonko/" class="w-card-base__link"></a>
 
@@ -153,8 +142,7 @@ Our latest news, updates, and stories by Alon Kochba.
 
 <a href="/authors/alsan/" class="w-card-base__link"></a>
 
-Kaan Alsan
-----------
+## Kaan Alsan
 
 <a href="/authors/alsan/" class="w-card-base__link"></a>
 
@@ -166,8 +154,7 @@ Former Software Engineer Intern working on Chromium
 
 <a href="/authors/amandabaker/" class="w-card-base__link"></a>
 
-Amanda Baker
-------------
+## Amanda Baker
 
 <a href="/authors/amandabaker/" class="w-card-base__link"></a>
 
@@ -179,8 +166,7 @@ Software Engineer on the Microsoft Edge team
 
 <a href="/authors/andreban/" class="w-card-base__link"></a>
 
-André Cipriani Bandarra
------------------------
+## André Cipriani Bandarra
 
 <a href="/authors/andreban/" class="w-card-base__link"></a>
 
@@ -192,8 +178,7 @@ Andre is a Developer Advocate
 
 <a href="/authors/andrewcomminos/" class="w-card-base__link"></a>
 
-Andrew Comminos
----------------
+## Andrew Comminos
 
 <a href="/authors/andrewcomminos/" class="w-card-base__link"></a>
 
@@ -205,8 +190,7 @@ Our latest news, updates, and stories by Andrew Comminos.
 
 <a href="/authors/andrewguan/" class="w-card-base__link"></a>
 
-Andrew Guan
------------
+## Andrew Guan
 
 <a href="/authors/andrewguan/" class="w-card-base__link"></a>
 
@@ -218,8 +202,7 @@ Our latest news, updates, and stories by Andrew Guan.
 
 <a href="/authors/anniesullie/" class="w-card-base__link"></a>
 
-Annie Sullivan
---------------
+## Annie Sullivan
 
 <a href="/authors/anniesullie/" class="w-card-base__link"></a>
 
@@ -231,8 +214,7 @@ Our latest news, updates, and stories by Annie Sullivan.
 
 <a href="/authors/ansteychris/" class="w-card-base__link"></a>
 
-Chris Anstey
-------------
+## Chris Anstey
 
 <a href="/authors/ansteychris/" class="w-card-base__link"></a>
 
@@ -244,8 +226,7 @@ Our latest news, updates, and stories by Chris Anstey.
 
 <a href="/authors/antoinebisch/" class="w-card-base__link"></a>
 
-Antoine Bisch
--------------
+## Antoine Bisch
 
 <a href="/authors/antoinebisch/" class="w-card-base__link"></a>
 
@@ -257,8 +238,7 @@ Web Ecosystem Consultant
 
 <a href="/authors/antonkarlovskiy/" class="w-card-base__link"></a>
 
-Anton Karlovskiy
-----------------
+## Anton Karlovskiy
 
 <a href="/authors/antonkarlovskiy/" class="w-card-base__link"></a>
 
@@ -270,8 +250,7 @@ Our latest news, updates, and stories by Anton Karlovskiy.
 
 <a href="/authors/aranhacarlos/" class="w-card-base__link"></a>
 
-Carlos Aranha
--------------
+## Carlos Aranha
 
 <a href="/authors/aranhacarlos/" class="w-card-base__link"></a>
 
@@ -283,8 +262,7 @@ Our latest news, updates, and stories by Carlos Aranha.
 
 <a href="/authors/arthurevans/" class="w-card-base__link"></a>
 
-Arthur Evans
-------------
+## Arthur Evans
 
 <a href="/authors/arthurevans/" class="w-card-base__link"></a>
 
@@ -296,8 +274,7 @@ Arthur is a Tech Writer
 
 <a href="/authors/arturjanc/" class="w-card-base__link"></a>
 
-Artur Janc
-----------
+## Artur Janc
 
 <a href="/authors/arturjanc/" class="w-card-base__link"></a>
 
@@ -309,8 +286,7 @@ Our latest news, updates, and stories by Artur Janc.
 
 <a href="/authors/bartekn/" class="w-card-base__link"></a>
 
-Bartek Nowierski
-----------------
+## Bartek Nowierski
 
 <a href="/authors/bartekn/" class="w-card-base__link"></a>
 
@@ -322,8 +298,7 @@ Chrome Software Engineer
 
 <a href="/authors/beaufortfrancois/" class="w-card-base__link"></a>
 
-François Beaufort
------------------
+## François Beaufort
 
 <a href="/authors/beaufortfrancois/" class="w-card-base__link"></a>
 
@@ -331,35 +306,35 @@ Dives into Chromium source code
 
 <a href="/authors/" class="w-pagination__link w-pagination__link--active">1</a> <a href="/authors/2" class="w-pagination__link">2</a> <a href="/authors/3" class="w-pagination__link">3</a> <a href="/authors/4" class="w-pagination__link">4</a> <span class="w-pagination__spacer">…</span> <a href="/authors/7" class="w-pagination__link">7</a> <a href="/authors/2" class="w-pagination__link w-pagination__arrow w-pagination__arrow--next"></a> <a href="/authors/7" class="w-pagination__link w-pagination__arrow w-pagination__arrow--last"></a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

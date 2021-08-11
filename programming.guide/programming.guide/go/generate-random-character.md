@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Random Generators: What is a seed?](../random-generators-what-is-a-seed.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,11 +29,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Generate a random character (rune)
-======================================
+# Go: Generate a random character (rune)
 
-Between 'a' and 'z'
--------------------
+## Between 'a' and 'z'
 
 Use the [`rand.Intn`](https://golang.org/pkg/math/rand/#Intn) function in package [`math/rand`](https://golang.org/pkg/math/rand/).
 
@@ -45,14 +40,12 @@ Use the [`rand.Intn`](https://golang.org/pkg/math/rand/#Intn) function in packag
 
 Without the call to `rand.Seed`, a program will produce the same sequence of pseudo-random numbers for each execution.
 
-From arbitrary set
-------------------
+## From arbitrary set
 
     chars := []rune("ab⌘")
     c := chars[rand.Intn(len(chars))]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

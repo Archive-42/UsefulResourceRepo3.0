@@ -10,36 +10,34 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#2021-scroll-survey-report" class="w-toc__header--link">2021 Scroll Survey Report</a>
-----------------------------------------------------------------------------------------------
+## <a href="#2021-scroll-survey-report" class="w-toc__header--link">2021 Scroll Survey Report</a>
 
--   [Noteworthy results](#noteworthy-results)
--   [Overall satisfaction with web scrolling](#overall-satisfaction-with-web-scrolling)
--   [Difficulty working with scroll](#difficulty-working-with-scroll)
--   [Importance of touch interactions](#importance-of-touch-interactions)
--   [Difficulty of tab key or gamepad navigation](#difficulty-of-tab-key-or-gamepad-navigation)
--   [Learning touch-action](#learning-touch-action)
--   [Cyclical scrolling](#cyclical-scrolling)
--   [Are scrollable areas important](#are-scrollable-areas-important)
--   [Carousels](#carousels)
--   [Infinite scroll](#infinite-scroll)
--   [Scroll-linked or scroll-triggered animations](#scroll-linked-or-scroll-triggered-animations)
--   [Compete with built-in scrolling](#compete-with-built-in-scrolling)
--   [Overall satisfaction building scroll interactions on the web](#overall-satisfaction-building-scroll-interactions-on-the-web)
--   [Survey Takeaways](#survey-takeaways)
--   [Compatibility](#compatibility)
--   [Education](#education)
--   [APIs](#apis)
--   [Features](#features)
--   [Resources](#resources)
+- [Noteworthy results](#noteworthy-results)
+- [Overall satisfaction with web scrolling](#overall-satisfaction-with-web-scrolling)
+- [Difficulty working with scroll](#difficulty-working-with-scroll)
+- [Importance of touch interactions](#importance-of-touch-interactions)
+- [Difficulty of tab key or gamepad navigation](#difficulty-of-tab-key-or-gamepad-navigation)
+- [Learning touch-action](#learning-touch-action)
+- [Cyclical scrolling](#cyclical-scrolling)
+- [Are scrollable areas important](#are-scrollable-areas-important)
+- [Carousels](#carousels)
+- [Infinite scroll](#infinite-scroll)
+- [Scroll-linked or scroll-triggered animations](#scroll-linked-or-scroll-triggered-animations)
+- [Compete with built-in scrolling](#compete-with-built-in-scrolling)
+- [Overall satisfaction building scroll interactions on the web](#overall-satisfaction-building-scroll-interactions-on-the-web)
+- [Survey Takeaways](#survey-takeaways)
+- [Compatibility](#compatibility)
+- [Education](#education)
+- [APIs](#apis)
+- [Features](#features)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-2021 Scroll Survey Report
-=========================
+# 2021 Scroll Survey Report
 
 Get the 2021 Scroll Survey Report plus words from the Chrome team about how this impacts priorities and plans for Chromium and the web.
 
@@ -49,24 +47,23 @@ Aug 2, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Sam Dutton" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/samdutton/)
 
 <a href="/authors/samdutton/" class="w-author__name-link">Sam Dutton</a>
 
--   <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
--   <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
+- <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
 
 In April, the Chrome team [released a scroll and touch-action survey](/2021-scroll-survey/) based on top reported issues from the [2019 MDN Web DNA Report](https://mdn-web-dna.s3-us-west-2.amazonaws.com/MDN-Web-DNA-Report-2019.pdf). The [2021 Scroll Survey Report](https://storage.googleapis.com/web-dev-uploads/file/vS06HQ1YTsbMKSFTIPl2iogUQP73/QZopyELSk8T7IpsgOnRU.pdf) is ready, and the Chrome team would like to share some thoughts and action items we've gleaned from the survey results. We hope these results will help browser vendors and standards groups understand how to improve web scrolling.
 
 **View the [2021 Scroll Survey Report](https://storage.googleapis.com/web-dev-uploads/file/vS06HQ1YTsbMKSFTIPl2iogUQP73/QZopyELSk8T7IpsgOnRU.pdf).**
 
-Noteworthy results <a href="#noteworthy-results" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Noteworthy results <a href="#noteworthy-results" class="w-headline-link">#</a>
 
 The survey anonymously collected 880 submissions, with 366 answering every question.
 
@@ -97,13 +94,13 @@ to work with scrolling**.
 
 From our research, these difficulties come from the multitude of use cases for scroll. When we talk about scrolling, that might include:
 
--   [Positioning elements within scrollable areas](https://elad.medium.com/css-position-sticky-how-it-really-works-54cd01dc2d46)
--   [Infinite scroll](https://blog.logrocket.com/infinite-scroll-techniques-in-react-adcfd7ff32bd/)
--   [Scroll linked animation](https://greensock.com/scrolltrigger/)
--   [Carousels](https://css-tricks.com/css-only-carousel/)
--   [Scrollview padding](https://blog.alexandergottlieb.com/overflow-scroll-and-the-right-padding-problem-a-css-only-solution-6d442915b3f4)
--   [Cyclical scroll](https://www.magictoolbox.com/magicscroll/integration/)
--   [Virtualized scroll](https://github.com/tbranyen/hyperlist)
+- [Positioning elements within scrollable areas](https://elad.medium.com/css-position-sticky-how-it-really-works-54cd01dc2d46)
+- [Infinite scroll](https://blog.logrocket.com/infinite-scroll-techniques-in-react-adcfd7ff32bd/)
+- [Scroll linked animation](https://greensock.com/scrolltrigger/)
+- [Carousels](https://css-tricks.com/css-only-carousel/)
+- [Scrollview padding](https://blog.alexandergottlieb.com/overflow-scroll-and-the-right-padding-problem-a-css-only-solution-6d442915b3f4)
+- [Cyclical scroll](https://www.magictoolbox.com/magicscroll/integration/)
+- [Virtualized scroll](https://github.com/tbranyen/hyperlist)
 
 Missing browser features, complex JavaScript, and the need to support input modes including touch, keyboard, and gamepads, make all of these things harder.
 
@@ -244,8 +241,7 @@ Just half of the respondents felt it was only sometimes possible to match the ex
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format" alt="A pie chart showing 5 sections: 6.3% extremely dissatisfied, 2.7% extremely satisfied, 23.4% somewhat satisfied, 28.8% neither satisfied nor dissatisfied, 38.7% somewhat dissatisfied." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/ycHj33nZb1KfUFxNBdH5.png?auto=format&amp;w=1600 1600w" width="800" height="400" />
 
-Survey Takeaways <a href="#survey-takeaways" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Survey Takeaways <a href="#survey-takeaways" class="w-headline-link">#</a>
 
 The survey results are segmented into four categories: [compatibility](#compatibility), [education](#education), [APIs](#apis), and [features](#features).
 
@@ -290,11 +286,11 @@ The features developers struggle to build include:
 
 ### Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Scroll Survey Report](https://drive.google.com/file/d/10WXTJHCZmH0rXEh3J7z3ki96-f9SHs_R/view?usp=sharing&resourcekey=0-5b1y_6rZDhyt6Tkbz3FCzA)
--   [Survey Announcement](/2021-scroll-survey/)
--   [Mozilla DNA Reports](https://insights.developer.mozilla.org/)
--   [Compat2021: Eliminating five top compatibility pain points on the web](/compat2021/)
--   [2020-2021 Scroll Compatibility Igalia Work](https://groups.google.com/a/google.com/g/blink-interactions-team/search?q=Igalia%20work%20update)
+- [Scroll Survey Report](https://drive.google.com/file/d/10WXTJHCZmH0rXEh3J7z3ki96-f9SHs_R/view?usp=sharing&resourcekey=0-5b1y_6rZDhyt6Tkbz3FCzA)
+- [Survey Announcement](/2021-scroll-survey/)
+- [Mozilla DNA Reports](https://insights.developer.mozilla.org/)
+- [Compat2021: Eliminating five top compatibility pain points on the web](/compat2021/)
+- [2020-2021 Scroll Compatibility Igalia Work](https://groups.google.com/a/google.com/g/blink-interactions-team/search?q=Igalia%20work%20update)
 
 Thumbnail image: photo by [Taylor Wilcox](https://unsplash.com/@taypaigey) on [Unsplash](https://unsplash.com/photos/aXeVH4FcS1k).
 
@@ -304,35 +300,35 @@ Thumbnail image: photo by [Taylor Wilcox](https://unsplash.com/@taypaigey) on [U
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

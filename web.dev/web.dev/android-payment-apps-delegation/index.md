@@ -10,24 +10,22 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#providing-shipping-and-contact-information-from-an-android-payment-app" class="w-toc__header--link">Providing shipping and contact information from an Android payment app</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#providing-shipping-and-contact-information-from-an-android-payment-app" class="w-toc__header--link">Providing shipping and contact information from an Android payment app</a>
 
--   [Declare supported delegations](#declare-supported-delegations)
--   [Parse PAY intent extras for required payment options](#parse-pay-intent-extras-for-required-payment-options)
--   [paymentOptions](#paymentoptions)
--   [shippingOptions](#shipping-options)
--   [Provide required information in a payment response](#provide-required-information-in-a-payment-response)
--   [Payment response validation](#payment-response-validation)
--   [Optional: Support dynamic flow](#optional:-support-dynamic-flow)
--   [AIDL](#aidl)
--   [Notify the merchant about changes in the user selected payment method, shipping address, or shipping option](#notify-the-merchant-about-changes-in-the-user-selected-payment-method-shipping-address-or-shipping-option)
--   [Receive updated payment details from the merchant](#receive-updated-payment-details-from-the-merchant)
+- [Declare supported delegations](#declare-supported-delegations)
+- [Parse PAY intent extras for required payment options](#parse-pay-intent-extras-for-required-payment-options)
+- [paymentOptions](#paymentoptions)
+- [shippingOptions](#shipping-options)
+- [Provide required information in a payment response](#provide-required-information-in-a-payment-response)
+- [Payment response validation](#payment-response-validation)
+- [Optional: Support dynamic flow](#optional:-support-dynamic-flow)
+- [AIDL](#aidl)
+- [Notify the merchant about changes in the user selected payment method, shipping address, or shipping option](#notify-the-merchant-about-changes-in-the-user-selected-payment-method-shipping-address-or-shipping-option)
+- [Receive updated payment details from the merchant](#receive-updated-payment-details-from-the-merchant)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Providing shipping and contact information from an Android payment app
-======================================================================
+# Providing shipping and contact information from an Android payment app
 
 How to update your Android payment app to provide shipping address and payer's contact information with Web Payments APIs.
 
@@ -39,17 +37,17 @@ Jul 17, 2020
 
 <a href="/authors/sahel/" class="w-author__name-link">Sahel Sharify</a>
 
--   <a href="https://github.com/sahel-sh" class="w-author__link">GitHub</a>
+- <a href="https://github.com/sahel-sh" class="w-author__link">GitHub</a>
 
 Entering shipping address and contact information through a web form can be a cumbersome experience for customers. It can cause errors and lower conversion rate.
 
 That's why the Payment Request API supports a feature to request shipping address and contact information. This provides multiple benefits:
 
--   Users can pick the right address with just a few taps.
--   The address is always returned in [the standardized format](https://w3c.github.io/payment-request/#paymentaddress-interface).
--   Submitting an incorrect address is less likely.
+- Users can pick the right address with just a few taps.
+- The address is always returned in [the standardized format](https://w3c.github.io/payment-request/#paymentaddress-interface).
+- Submitting an incorrect address is less likely.
 
-This functionality can be deferred to a payment app to offer a unified payment experience and it's called *delegation*.
+This functionality can be deferred to a payment app to offer a unified payment experience and it's called _delegation_.
 
 Whenever possible, Chrome delegates the collection of a customer's shipping address and contact information to the invoked Android payment app. The delegation reduces the friction during checkout because the user's installed payment apps usually have more accurate information about their shipping address and contact details.
 
@@ -68,8 +66,7 @@ To add delegation support to an already existing Android payment app, implement 
     1.  Notify the merchant about changes in the user selected payment method, shipping address, or shipping option.
     2.  Receive updated payment details from the merchant (for example, the adjusted total amount based on the selected shipping option's cost).
 
-Declare supported delegations <a href="#declare-supported-delegations" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Declare supported delegations <a href="#declare-supported-delegations" class="w-headline-link">#</a>
 
 The browser needs to know the list of additional information that your payment app can provide so it can delegate the collection of that information to your app. Declare the supported delegations as a `<meta-data>` in your app's [AndroidManifest.xml](/android-payment-apps-developers-guide/#androidmanifest.xml-2).
 
@@ -95,8 +92,7 @@ The following example can only provide a shipping address and the payer's email 
       </string-array>
     </resources>
 
-Parse `PAY` intent extras for required payment options <a href="#parse-pay-intent-extras-for-required-payment-options" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+## Parse `PAY` intent extras for required payment options <a href="#parse-pay-intent-extras-for-required-payment-options" class="w-headline-link">#</a>
 
 The merchant can specify additional required information using the [`paymentOptions`](https://www.w3.org/TR/payment-request/#paymentoptions-dictionary) dictionary. Chrome will provide the list of required options that your app can provide by passing the following parameters to the `PAY` activity as [Intent extras](/android-payment-apps-developers-guide/#parameters-2).
 
@@ -113,11 +109,11 @@ The merchant can specify additional required information using the [`paymentOpti
 
 It can include the following parameters:
 
--   `requestPayerName` - The boolean indicating whether or not the payer's name is required.
--   `requestPayerPhone` - The boolean indicating whether or not the payer's phone is required.
--   `requestPayerEmail` - The boolean indicating whether or not the payer's email is required.
--   `requestShipping` - The boolean indicating whether or not shipping information is required.
--   `shippingType` - The string showing the type of shipping. Shipping type can be `"shipping"`, `"delivery"`, or `"pickup"`. Your app can use this hint in its UI when asking for the user's address or choice of shipping options.
+- `requestPayerName` - The boolean indicating whether or not the payer's name is required.
+- `requestPayerPhone` - The boolean indicating whether or not the payer's phone is required.
+- `requestPayerEmail` - The boolean indicating whether or not the payer's email is required.
+- `requestShipping` - The boolean indicating whether or not shipping information is required.
+- `shippingType` - The string showing the type of shipping. Shipping type can be `"shipping"`, `"delivery"`, or `"pickup"`. Your app can use this hint in its UI when asking for the user's address or choice of shipping options.
 
 ### `shippingOptions` <a href="#shipping-options" class="w-headline-link">#</a>
 
@@ -130,12 +126,12 @@ It can include the following parameters:
 
 Each shipping option is a `Bundle` with the following keys.
 
--   `id` - The shipping option identifier.
--   `label` - The shipping option label shown to the user.
--   `amount` - The shipping cost bundle containing `currency` and `value` keys with string values.
-    -   `currency` shows the currency of the shipping cost, as an [ISO4217](https://www.iso.org/iso-4217-currency-codes.html) well-formed 3-letter alphabet code
-    -   `value` shows the value of the shipping cost, as a [valid decimal monetary value](https://w3c.github.io/payment-request/#dfn-valid-decimal-monetary-value)
--   `selected` - Whether or not the shipping option should be selected when the payment app displays the shipping options.
+- `id` - The shipping option identifier.
+- `label` - The shipping option label shown to the user.
+- `amount` - The shipping cost bundle containing `currency` and `value` keys with string values.
+  - `currency` shows the currency of the shipping cost, as an [ISO4217](https://www.iso.org/iso-4217-currency-codes.html) well-formed 3-letter alphabet code
+  - `value` shows the value of the shipping cost, as a [valid decimal monetary value](https://w3c.github.io/payment-request/#dfn-valid-decimal-monetary-value)
+- `selected` - Whether or not the shipping option should be selected when the payment app displays the shipping options.
 
 All keys other than the `selected` have string values. `selected` has a boolean value.
 
@@ -144,28 +140,27 @@ All keys other than the `selected` have string values. `selected` has a boolean 
     val amount: Bundle = bundle.getBundle("amount")
     val selected: Boolean = bundle.getBoolean("selected", false)
 
-Provide required information in a payment response <a href="#provide-required-information-in-a-payment-response" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------
+## Provide required information in a payment response <a href="#provide-required-information-in-a-payment-response" class="w-headline-link">#</a>
 
 Your app should include the required additional information in its response to the `PAY` activity.
 
 To do so the following parameters must be specified as Intent extras:
 
--   `payerName` - The payer's full name. This should be a non-empty string when `paymentOptions.requestPayerName` is true.
--   `payerPhone` - The payer's phone number. This should be a non-empty string when `paymentOptions.requestPayerPhone` is true.
--   `payerEmail` - The payer's email address. This should be a non-empty string when `paymentOptions.requestPayerEmail` is true.
--   `shippingAddress` - The user-provided shipping address. This should be a non-empty bundle when `paymentOptions.requestShipping` is true. The bundle should have the following keys which represent different parts in a [physical address](https://www.w3.org/TR/payment-request/#physical-addresses).
-    -   `city`
-    -   `countryCode`
-    -   `dependentLocality`
-    -   `organization`
-    -   `phone`
-    -   `postalCode`
-    -   `recipient`
-    -   `region`
-    -   `sortingCode`
-    -   `addressLine` All keys other than the `addressLine` have string values. The `addressLine` is an array of strings.
--   `shippingOptionId` - The identifier of the user-selected shipping option. This should be a non-empty string when `paymentOptions.requestShipping` is true.
+- `payerName` - The payer's full name. This should be a non-empty string when `paymentOptions.requestPayerName` is true.
+- `payerPhone` - The payer's phone number. This should be a non-empty string when `paymentOptions.requestPayerPhone` is true.
+- `payerEmail` - The payer's email address. This should be a non-empty string when `paymentOptions.requestPayerEmail` is true.
+- `shippingAddress` - The user-provided shipping address. This should be a non-empty bundle when `paymentOptions.requestShipping` is true. The bundle should have the following keys which represent different parts in a [physical address](https://www.w3.org/TR/payment-request/#physical-addresses).
+  - `city`
+  - `countryCode`
+  - `dependentLocality`
+  - `organization`
+  - `phone`
+  - `postalCode`
+  - `recipient`
+  - `region`
+  - `sortingCode`
+  - `addressLine` All keys other than the `addressLine` have string values. The `addressLine` is an array of strings.
+- `shippingOptionId` - The identifier of the user-selected shipping option. This should be a non-empty string when `paymentOptions.requestShipping` is true.
 
 ### Payment response validation <a href="#payment-response-validation" class="w-headline-link">#</a>
 
@@ -206,8 +201,7 @@ Below is an example of a valid response:
         }
     }
 
-Optional: Support dynamic flow <a href="#optional:-support-dynamic-flow" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Optional: Support dynamic flow <a href="#optional:-support-dynamic-flow" class="w-headline-link">#</a>
 
 Sometimes the total cost of a transaction increases, such as when the user chooses the express shipping option, or when the list of available shipping options or their prices changes when the user chooses an international shipping address. When your app provides the user-selected shipping address or option, it should be able to notify the merchant about any shipping address or option changes and show the user the updated payment details (provided by the merchant).
 
@@ -304,8 +298,8 @@ Notifies the merchant about changes in the user-provided shipping address. Chrom
 
 If Chrome encounters an invalid state upon receiving any of the change requests it will call `callback.updateWith` with a redacted `updatePaymentDetails` bundle. The bundle will only contain the `error` key with `"Invalid state"`. Examples of an invalid state are:
 
--   When Chrome is still waiting for the merchant's response to a previous change (such as an ongoing change event).
--   The payment-app-provided shipping option identifier does not belong to any of the merchant-specified shipping options.
+- When Chrome is still waiting for the merchant's response to a previous change (such as an ongoing change event).
+- The payment-app-provided shipping option identifier does not belong to any of the merchant-specified shipping options.
 
 ### Receive updated payment details from the merchant <a href="#receive-updated-payment-details-from-the-merchant" class="w-headline-link">#</a>
 
@@ -331,11 +325,11 @@ If Chrome encounters an invalid state upon receiving any of the change requests 
 
 `updatePaymentDetails` is the bundle equivalent to the [`PaymentRequestDetailsUpdate`](https://w3c.github.io/payment-handler/#the-paymentrequestdetailsupdate) [WebIDL](https://www.w3.org/TR/WebIDL-1/) dictionary (after redacting the `modifiers` field) and contains the following optional keys:
 
--   `total` - A bundle containing `currency` and `value` keys, both keys have string values
--   `shippingOptions` - The parcelable array of [shipping options](#shipping-options)
--   `error` - A string containing a generic error message (e.g. when `changeShippingOption` does not provide a valid shipping option identifier)
--   `stringifiedPaymentMethodErrors` - A JSON string representing validation errors for the payment method
--   `addressErrors` - A bundle with optional keys identical to [shipping address](#provide-required-information-in-a-payment-response) and string values. Each key represents a validation error related to its corresponding part of the shipping address.
+- `total` - A bundle containing `currency` and `value` keys, both keys have string values
+- `shippingOptions` - The parcelable array of [shipping options](#shipping-options)
+- `error` - A string containing a generic error message (e.g. when `changeShippingOption` does not provide a valid shipping option identifier)
+- `stringifiedPaymentMethodErrors` - A JSON string representing validation errors for the payment method
+- `addressErrors` - A bundle with optional keys identical to [shipping address](#provide-required-information-in-a-payment-response) and string values. Each key represents a validation error related to its corresponding part of the shipping address.
 
 An absent key means its value has not changed.
 
@@ -345,35 +339,35 @@ An absent key means its value has not changed.
 
 <a href="/payments" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

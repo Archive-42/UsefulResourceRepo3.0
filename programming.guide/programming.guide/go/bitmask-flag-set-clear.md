@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Bitwise operators cheat sheet](bitwise-operator-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further reading
 [Your basic int: a tribute to an underrated data type](https://github.com/yourbasic/int)  
 <span style="color: grey; font-style: italic; font-size: smaller">github.com/yourbasic</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,8 +38,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Bitmasks and flags
-======================
+# Go: Bitmasks and flags
 
 A bitmask is a small set of booleans, often called flags, represented by the bits in a single number.
 
@@ -72,12 +68,11 @@ A bitmask is a small set of booleans, often called flags, represented by the bit
     1 false
     2 true
 
-Larger bit sets
----------------
+## Larger bit sets
 
 To represent larger sets of bits, you may want to use a custom data structure. The repository [`github.com/yourbasic/bit`](https://github.com/yourbasic/bit) provides an implementation that uses a bit array consisting of 64-bit words.
 
-Because a bit array uses bit-level parallelism, limits memory access, and efficiently uses the data cache, it often outperforms other data structures. Here is an example that shows how to create the set of all primes less than *n* in *O*(*n* log log *n*) time using the [`bit.Set`](https://godoc.org/github.com/yourbasic/bit#Set) data structure from the [`github.com/yourbasic/bit`](https://github.com/yourbasic/bit) package. Try the code with *n* equal to a few hundred millions and be pleasantly surprised.
+Because a bit array uses bit-level parallelism, limits memory access, and efficiently uses the data cache, it often outperforms other data structures. Here is an example that shows how to create the set of all primes less than _n_ in _O_(*n* log log *n*) time using the [`bit.Set`](https://godoc.org/github.com/yourbasic/bit#Set) data structure from the [`github.com/yourbasic/bit`](https://github.com/yourbasic/bit) package. Try the code with _n_ equal to a few hundred millions and be pleasantly surprised.
 
     // Sieve of Eratosthenes
     const n = 50
@@ -92,8 +87,7 @@ Because a bit array uses bit-level parallelism, limits memory access, and effici
 
     {2 3 5 7 11 13 17 19 23 29 31 37 41 43 47}
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

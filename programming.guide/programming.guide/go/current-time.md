@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Measure execution time](measure-execution-time.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -23,8 +22,7 @@ Further Reading
 [Timer and Ticker explained](time-reset-wait-stop-timeout-cancel-interval.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -36,8 +34,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -47,8 +44,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Current time
-================
+# Go: Current time
 
 Use the [`time.Now`](https://golang.org/pkg/time/#Now) function and the [`time.Unix`](https://golang.org/pkg/time/#Time.Unix) and [`time.UnixNano`](https://golang.org/pkg/time/#Time.UnixNano) methods to get a timestamp.
 
@@ -64,8 +60,7 @@ Use the [`time.Now`](https://golang.org/pkg/time/#Now) function and the [`time.U
     1257894000
     1257894000000000000
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

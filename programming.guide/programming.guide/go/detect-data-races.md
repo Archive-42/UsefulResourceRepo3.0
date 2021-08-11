@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Data Race Detector](https://golang.org/doc/articles/race_detector.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language</span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -26,8 +24,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -37,8 +34,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Detect data races
-=====================
+# Go: Detect data races
 
 Data races can happen easily and are hard to debug. Luckily, the Go runtime is often able to help.
 
@@ -47,8 +43,7 @@ Use `-race` to enable the built-in data race detector.
     $ go test -race somepkg
     $ go run -race somepkg
 
-Example
--------
+## Example
 
 Here's a program with a data race:
 
@@ -84,8 +79,7 @@ Running this program with the `-race` options tells us that there's a race betwe
     Found 1 data race(s)
     exit status 66
 
-Details
--------
+## Details
 
 The data race detector does not perform any static analysis. It checks the memory access in runtime and only for the code paths that are actually executed.
 
@@ -113,8 +107,7 @@ Next »
 
 Deadlock
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 
