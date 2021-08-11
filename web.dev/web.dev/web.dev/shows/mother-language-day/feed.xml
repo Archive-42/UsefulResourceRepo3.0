@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Mother Language Day on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Google Developers</name>
+  </author>
+  <link href="https://web.dev/shows/mother-language-day/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <category term="Mother Language Day on web.dev"/>
+  <icon>https://web.dev/images/social.png</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>February 21st is International Mother Language Day! To celebrate, each week we’ll be releasing a new video hosted by one of our team members in their mother language.</subtitle>
+  
+  
+  <entry>
+    <title>Core Web Vitals best practices (Italian with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/9LZRcNp9uxk/"/>
+    <updated>2021-08-05T16:58:56Z</updated>
+    <id>https://web.dev/shows/mother-language-day/9LZRcNp9uxk/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>This video introduces Core Web Vitals, which are essential metrics to measure the health of a site.<br />
+This video covers the Core Web Vitals metrics description including all metrics best practices.<br />
+In addition to this the video also covers Tools to measure sites performance overall from Field to Lab environments.</p>
+<p>To learn more about Core Web Vitals, check out these resources:<br />
+Web Vitals Initiative → <a href="https://goo.gle/3gKe8cw">https://goo.gle/3gKe8cw</a><br />
+LCP metric best practices → <a href="https://goo.gle/2TV8JJN">https://goo.gle/2TV8JJN</a><br />
+CLS metric best practices → <a href="https://goo.gle/3fxu6IE">https://goo.gle/3fxu6IE</a><br />
+FID metric best practices  → <a href="https://goo.gle/3Ci0xEN">https://goo.gle/3Ci0xEN</a><br />
+Core Web Vitals &amp; Page Experience FAQs → <a href="https://goo.gle/2Ux6SuO">https://goo.gle/2Ux6SuO</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a><br />
+Watch more from the Mother Language Day event → <a href="https://goo.gle/369nhI8">https://goo.gle/369nhI8</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>web.dev Internationalization (Polish with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/ds2yMKnIjGI/"/>
+    <updated>2021-08-04T17:46:30Z</updated>
+    <id>https://web.dev/shows/mother-language-day/ds2yMKnIjGI/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Find out more on →https://goo.gle/3ioMOnP</p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a><br />
+Watch more from the Mother Language Day event → <a href="https://goo.gle/369nhI8">https://goo.gle/369nhI8</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>5 tips for your Progressive Web App (Chinese with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/qtGNO64fFfQ/"/>
+    <updated>2021-07-23T17:56:16Z</updated>
+    <id>https://web.dev/shows/mother-language-day/qtGNO64fFfQ/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Progressive Web Apps make it possible to create web apps that look and behave like every other installed app on a user's desktop or mobile device. We take a look at five easy improvements that you can do to take your PWA even further to provide an experience that feels more integrated and natural for your users. We also show you how to measure the effectiveness of your investments.</p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a><br />
+Watch more from the Mother Language Day event → <a href="https://goo.gle/369nhI8">https://goo.gle/369nhI8</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Improving CLS by optimizing ad delivery (French with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/N4vA1lT1NVs/"/>
+    <updated>2021-07-15T16:59:04Z</updated>
+    <id>https://web.dev/shows/mother-language-day/N4vA1lT1NVs/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Cumulative Layout Shift (CLS) is a user-center metric that quantifies the degree of visual stability in a web page. It is part of the Core Web Vitals, an initiative led by Google to provide guidelines that protect the user experience on the web.</p>
+<p>When a page is unstable and CLS is high, ads are often the main culprit. This video will give you tips on how to optimise ad delivery so that users don’t suffer from unexpected layout shifts when ads are served.</p>
+<p>Core Web Vitals → <a href="https://goo.gle/3gKe8cw">https://goo.gle/3gKe8cw</a><br />
+Cumulative Layout Shift → <a href="https://goo.gle/3kle3AW">https://goo.gle/3kle3AW</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a><br />
+Watch more from the Mother Language Day event → <a href="https://goo.gle/369nhI8">https://goo.gle/369nhI8</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction to Web Stories (Swiss German with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/nTySRzu0Xto/"/>
+    <updated>2021-07-08T00:54:24Z</updated>
+    <id>https://web.dev/shows/mother-language-day/nTySRzu0Xto/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Web Stories bring the popular, immersive storytelling format to your own website, where you maintain full control over the experience and monetization. Pascal Birchler, Developer Relations Engineer at Google, explains what Web Stories are, how to create stories, and how you as an online marketer, blogger, or site owner, can make the most out of them.</p>
+<p>Web Stories bringen visuelles Storytelling auf deine eigene Website und damit auch neue Möglichkeiten für Benutzerfreundlichkeit und Monetarisierung. Pascal Birchler erklärt für einmal komplett auf Schweizerdeutsch, wie man von diesem neuen Format profitieren und das meiste rausholen kann.</p>
+<p>Web Stories on Google - <a href="http://goo.gle/stories_google">http://goo.gle/stories_google</a><br />
+Enable Web Stories on Google → <a href="https://goo.gle/31ypeMk">https://goo.gle/31ypeMk</a><br />
+SEO: How to make your Web Stories visible on the web (Storytime #10) → <a href="https://goo.gle/2QU8hK3">https://goo.gle/2QU8hK3</a><br />
+Web Stories Test Tool → <a href="https://goo.gle/2QSWADt">https://goo.gle/2QSWADt</a><br />
+Analytics for your Web Stories → <a href="https://goo.gle/3cxpstg">https://goo.gle/3cxpstg</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a><br />
+Watch more from the Mother Language Day event → <a href="https://goo.gle/369nhI8">https://goo.gle/369nhI8</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>A good cookie recipe (French with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/2N8H6LIdSgs/"/>
+    <updated>2021-07-01T17:00:04Z</updated>
+    <id>https://web.dev/shows/mother-language-day/2N8H6LIdSgs/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Cookies are everywhere. Setting a cookie can take just one line of code, but there are many ways to configure cookies, some better than others. Learn the best practices for your first-party cookie—and how you can prepare for a more private web if you're using third-party cookies.</p>
+<p>Detailed cookie recipes by Rowan Merewood → <a href="https://goo.gle/3jA1t0m">https://goo.gle/3jA1t0m</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a><br />
+Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a></p>
+<p>Watch more from the Mother Language Day event → <a href="https://goo.gle/369nhI8">https://goo.gle/369nhI8</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Core Web Vitals: An everyday explanation (Taiwanese with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/evrNn54UkHQ/"/>
+    <updated>2021-06-24T06:18:15Z</updated>
+    <id>https://web.dev/shows/mother-language-day/evrNn54UkHQ/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Core Web Vitals are meant to measure user experience of actual real-world users during page load. In this talk, we use an everyday explanation of eating out with friends to describe the delays and disruptions that the vitals are meant to assess.</p>
+<p>To learn more about Core Web Vitals, check out these resources:<br />
+Web Vitals Initiative → <a href="https://goo.gle/3gKe8cw">https://goo.gle/3gKe8cw</a><br />
+Core Web Vitals &amp; Page Experience FAQs → <a href="https://goo.gle/2Ux6SuO">https://goo.gle/2Ux6SuO</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>What is the state of web frameworks in India (Hindi with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/zfNrB0C3lF0/"/>
+    <updated>2021-06-17T16:50:40Z</updated>
+    <id>https://web.dev/shows/mother-language-day/zfNrB0C3lF0/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>This video deep dives into the state of different Javascript Frameworks like React, Vue and AngularJS, talking about their market share globally and running a competitive analysis of how they are performing amongst Indian websites when measured against Core Web Vitals using the Real User Metrics (RUM).</p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers #WebFrameworks #CoreWebVitals</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Advanced patterns for Progressive Web Apps (Spanish with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/PPJKljH1dn8/"/>
+    <updated>2021-06-10T17:04:54Z</updated>
+    <id>https://web.dev/shows/mother-language-day/PPJKljH1dn8/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Learn advanced Progressive Web App recipes that combine several modern web APIs, and how companies are using them to create app-like experiences on their sites.</p>
+<p>Aprende patrones avanzados para Progressive Web Apps, que combinan distintas APIs de la web moderna y cómo distintas compañías los están usando en sus sitios.</p>
+<p>Advanced patterns → <a href="https://goo.gle/3ctPfSP">https://goo.gle/3ctPfSP</a><br />
+Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Deep dive into the PWA install flow</title>
+    <link href="https://web.dev/shows/mother-language-day/kzJfiKQyD24/"/>
+    <updated>2021-06-03T17:00:26Z</updated>
+    <id>https://web.dev/shows/mother-language-day/kzJfiKQyD24/</id>
+    <content type="text/html" mode="escaped"><p>How does the install flow work for Progressive Web Apps? How can you provide your own in-app install experience? How do you measure the effectiveness of your install? And what best practices should you be following?</p>
+<p>Installability is one of the biggest advantages of a Progressive Web App. Installing your PWA can make it easier for users to find and use. Once installed, it looks and behaves like every other installed app that the user has. And, they don’t have to go to an app store to get it, there’s no sketchy files to run, and nothing to download.</p>
+<p>Customize install → <a href="https://goo.gle/3imwOmu">https://goo.gle/3imwOmu</a><br />
+Promote install → <a href="https://goo.gle/3pk1lmM">https://goo.gle/3pk1lmM</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Web Audio API 드럼머신 만들기 (Korean with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/MY8LZ49D76c/"/>
+    <updated>2021-05-27T17:06:57Z</updated>
+    <id>https://web.dev/shows/mother-language-day/MY8LZ49D76c/</id>
+    <content type="text/html" mode="escaped"><p>Can a web page be a musical instrument? Using the Web Audio API, it can!</p>
+<p>In this short video, we'll build a simple drum machine, and show you the core concepts behind the Web Audio API, including routing, adding sound effects and more!</p>
+<p>Code examples and audio samples for this tutorial →  <a href="https://goo.gle/3fVsWq6">https://goo.gle/3fVsWq6</a><br />
+Google I/O 2019 “Sonic Boom! Audio Programming on Android and Chrome” →  <a href="https://goo.gle/2SwLQeT">https://goo.gle/2SwLQeT</a><br />
+Making Music with the Web Platform → <a href="https://goo.gle/3wwWHUC">https://goo.gle/3wwWHUC</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Tipps fuer die Suchmaschinenoptimierung von JavaScript Webseiten (German with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/8FQOseGuPak/"/>
+    <updated>2021-05-13T17:00:12Z</updated>
+    <id>https://web.dev/shows/mother-language-day/8FQOseGuPak/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Today, we want to address the main cause of search engine optimization, fear of failure and first of all, what is actually going on when we have JavaScript driven websites? Found out on today’s episode for the International Mother Language Day celebration series.</p>
+<p>Subscribe to the Google Search Central channel → <a href="https://goo.gle/SearchCentral">https://goo.gle/SearchCentral</a><br />
+Check out our documentation → <a href="https://goo.gle/3feg1PA">https://goo.gle/3feg1PA</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>What are PWAs (Spanish with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/OEuPFrLCb0A/"/>
+    <updated>2021-05-06T17:04:03Z</updated>
+    <id>https://web.dev/shows/mother-language-day/OEuPFrLCb0A/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>English:<br />
+Using a single code base you might enjoy the big reach of the web as well as the rich capabilities of native apps, implementing a progressive web app. This video explains what a progressive web app is and the basic components you’ll need to create your own in Spanish as a celebration for mother language day</p>
+<p>Spanish<br />
+Es posible que con un único repositorio de código consigamos el amplio alcance del web así como atractivas funcionalidades de aplicaciones nativas, implementando una aplicación web progressiva (PWA). Este video ofrece una explicación de que es una PWA y los componentes básicos necesarios para crearlas en Español como celebración del día internacional de la lengua materna.</p>
+<p>More PWA info → <a href="https://goo.gle/3b1lBUc">https://goo.gle/3b1lBUc</a><br />
+Workbox → <a href="https://goo.gle/3tjVYEr">https://goo.gle/3tjVYEr</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Practical intro to WebAssembly (Ukrainian with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/Es7Ab2VH_Vg/"/>
+    <updated>2021-04-29T17:13:26Z</updated>
+    <id>https://web.dev/shows/mother-language-day/Es7Ab2VH_Vg/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Learn how to get started with WebAssembly by compiling an existing library written in another language (Rust) and integrating it into a JavaScript Web app.</p>
+<p>wasm-bindgen guide: <a href="https://goo.gle/2Re6kbl">https://goo.gle/2Re6kbl</a><br />
+wasm-pack installer: <a href="https://goo.gle/3eIhAF4">https://goo.gle/3eIhAF4</a><br />
+web-sys docs - Rust bindings for Web APIs: <a href="https://goo.gle/3sXS1oI">https://goo.gle/3sXS1oI</a><br />
+Rust image crate: <a href="https://goo.gle/2S5sKfo">https://goo.gle/2S5sKfo</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers #WebAssembly #GettingStarted</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Back/forward cache (Indonesian with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/khFus6YQi8w/"/>
+    <updated>2021-04-22T16:59:40Z</updated>
+    <id>https://web.dev/shows/mother-language-day/khFus6YQi8w/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Back/forward cache (or BFcache) is a browser optimization that enables instant back and forward navigation. It significantly improves the browsing experience for users—especially those with slower networks or devices. This video explains what it is, how it might affect your webpages, and how to ensure your webpages are optimized for it. This video is in Bahasa Indonesia with English subtitles.</p>
+<p>Back/forward cache (atau BFcache) adalah optimisasi browser yang membuat back dan forward navigation instan mungkin. BFCache membuat browsing jadi jauh lebih baik—terutama untuk pengguna dengan jaringan internet atau device yang lambat. Video ini menjelaskan apa itu BFCache, bagaimana BFCache mempengaruhi halaman web, dan bagaimana kamu bisa menjamin halaman web kamu ter-optimize untuk BFCache. Video ini menggunakan Bahasa Indonesia dengan subtitle Bahasa Inggris.</p>
+<p>Back/forward cache web.dev article → <a href="https://goo.gle/3dIY3oA">https://goo.gle/3dIY3oA</a><br />
+BFCache opt-out spec issue → <a href="https://goo.gle/3awG82I">https://goo.gle/3awG82I</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Building for modern browsers: Progressively enhancing like it’s 2003 (German with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/0qNbknHEt0Q/"/>
+    <updated>2021-04-15T17:00:35Z</updated>
+    <id>https://web.dev/shows/mother-language-day/0qNbknHEt0Q/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>In this video, I use the Lokalschriftartenzugriffsapplikationsprogrammierschnittstelle (Local Font Access API)  to explain how new browser APIs can be used as progressive enhancement and where these APIs developed in the context of Project Fugu come from. Starting with the Web Incubator Community Group (WICG), over to the experimental implementation in Chrome, to final standardization in the World Wide Web Consortium (W3C).</p>
+<p>JS Paint → <a href="https://goo.gle/2OaxqPz">https://goo.gle/2OaxqPz</a><br />
+Local Font Access API → <a href="https://goo.gle/2PgtoG8">https://goo.gle/2PgtoG8</a><br />
+Local Font Access demo → <a href="https://goo.gle/3rGpjb4">https://goo.gle/3rGpjb4</a><br />
+Fugu API tracker → <a href="https://goo.gle/39xTY4d">https://goo.gle/39xTY4d</a><br />
+Project Fugu articles → <a href="https://goo.gle/3fv0kVT">https://goo.gle/3fv0kVT</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers #Chrome</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Build your first WebAuthn app (Japanese with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/8ren54IMSf4/"/>
+    <updated>2021-04-08T17:18:40Z</updated>
+    <id>https://web.dev/shows/mother-language-day/8ren54IMSf4/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Have you ever wondered how to enable biometric authentication on the web? This codelab walks you through how to use WebAuthn to implement reauthentication experience on your website using a biometric sensor.</p>
+<p>Codelab → <a href="https://goo.gle/WebAuthnReauthCodelab">https://goo.gle/WebAuthnReauthCodelab</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Core Web Vitals: Essential metrics for a healthy site (Tamil with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/UJ6YtvPLT8E/"/>
+    <updated>2021-04-01T17:00:01Z</updated>
+    <id>https://web.dev/shows/mother-language-day/UJ6YtvPLT8E/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>This video introduces Core Web Vitals (CWV), which are essential metrics to measure the health of a site.  CWV were announced as part of page experience signals which will be included in search ranking starting May 2021.  In addition to introducing the concepts, this video points to key resources to learn more about and optimize for Core Web Vitals.</p>
+<p>Search announcement about Page Experience and Core Web Vitals → <a href="https://goo.gle/3tRG8S1">https://goo.gle/3tRG8S1</a></p>
+<p>Learn more about Core Web Vitals → <a href="http://goo.gle/webvitals">http://goo.gle/webvitals</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers #CoreWebVitals</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Web in Play with Bubblewrap (Brazilian (Port) with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/JZE6_nDVyIo/"/>
+    <updated>2021-03-25T00:45:49Z</updated>
+    <id>https://web.dev/shows/mother-language-day/JZE6_nDVyIo/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Learn how to transform your Progressive Web App into an Android package with Trusted Web Activity and Bubblewrap.</p>
+<p>Create a Play Developer account → <a href="http://goo.gle/30xuHm3">http://goo.gle/30xuHm3</a><br />
+Learn more about Bubblewrap → <a href="http://goo.gle/3l5A05z">http://goo.gle/3l5A05z</a><br />
+Receive payments with the Digital Goods API, Payment Request API and Google Play Billing → <a href="http://goo.gle/3taYe13">http://goo.gle/3taYe13</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers #TrustedWebActivity #Bubblewrap #ProgressiveWebApps</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Core Web Vitals - Measure what matters (Serbian with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/wGT9s6NW6hg/"/>
+    <updated>2021-03-22T17:00:04Z</updated>
+    <id>https://web.dev/shows/mother-language-day/wGT9s6NW6hg/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>One of the biggest challenges with using performance metrics is that there are so many of them and this can make it difficult to decide which to focus on.</p>
+<p>Web Vitals is an initiative by Google that seeks to define a set of key performance metrics that capture the page characteristics that make for a good user experience.</p>
+<p>Learn more about each Web Vitals metric, what to do to get good Web Vitals scores, and how to measure and continuously monitor them.</p>
+<p>Web Vitals overview → <a href="http://goo.gle/3cgBbuI">http://goo.gle/3cgBbuI</a><br />
+To learn more about Web Vitals → <a href="http://goo.gle/2PYe7cT">http://goo.gle/2PYe7cT</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Simulating color vision deficiencies in the Blink Renderer (available in Flemish and English)</title>
+    <link href="https://web.dev/shows/mother-language-day/34iDTeCNTz4/"/>
+    <updated>2021-03-11T18:01:34Z</updated>
+    <id>https://web.dev/shows/mother-language-day/34iDTeCNTz4/</id>
+    <content type="text/html" mode="escaped"><p>Switch audio to English or Flemish by clicking on the settings wheel and selecting your preferred audio track. Switch on/off English or Flemish subtitles by clicking on the CC icon.</p>
+<p>Chrome DevTools can simulate color vision deficiencies in the Blink Renderer, to help you designers &amp; developers understand the accessibility of their color schemes. This presentation explains why we worked on this, how to achieve the same effect using web technology (HTML, CSS, and SVG), and how we actually implemented this in the Blink Renderer (C++)</p>
+<p>Read more about our International Mother Language Day celebration series → <a href="https://goo.gle/mother-language-day-2021">https://goo.gle/mother-language-day-2021</a></p>
+<p>Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>Presenter: Mathias Bynens <a href="https://twitter.com/mathias%E2%80%8B">https://twitter.com/mathias​</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Supercharged Microtip: Workers (German with English subtitles)</title>
+    <link href="https://web.dev/shows/mother-language-day/rZm1YaMZkUU/"/>
+    <updated>2021-03-03T19:52:22Z</updated>
+    <id>https://web.dev/shows/mother-language-day/rZm1YaMZkUU/</id>
+    <content type="text/html" mode="escaped"><p>Switch on/off English subtitles by clicking on the CC icon.</p>
+<p>Surma revives Supercharged for a special episode on Web Workers, the web’s version of threads. Why would you use workers? When are they a good idea and what are the downsides?  All of this in this rapid-fire edition of Supercharged.</p>
+<p>Another talk by Surma about workers from Chrome Dev Summit 2019 → <a href="https://goo.gle/2NrkLYm">https://goo.gle/2NrkLYm</a><br />
+Read more about Workers → <a href="http://goo.gle/3usj0dS">http://goo.gle/3usj0dS</a><br />
+Read more about postMessage → <a href="http://goo.gle/3dS91cf">http://goo.gle/3dS91cf</a></p>
+<p>Read more about our International Mother Language Day celebration series → <a href="http://goo.gle/mother-language-day-2021">http://goo.gle/mother-language-day-2021</a></p>
+<p>Check out more Supercharged Micro Tips → <a href="http://goo.gle/3uchv3C">http://goo.gle/3uchv3C</a><br />
+Subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay #ChromeDevelopers</p>
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Celebrating International Mother Language Day</title>
+    <link href="https://web.dev/shows/mother-language-day/BgT-1-NgTsY/"/>
+    <updated>2021-02-20T00:50:35Z</updated>
+    <id>https://web.dev/shows/mother-language-day/BgT-1-NgTsY/</id>
+    <content type="text/html" mode="escaped"><p>February 21st is International Mother Language Day! To celebrate, each week we’ll be releasing a new video hosted by one of our team members in their mother language.</p>
+<p>Read more here: <a href="https://developer.chrome.com/blog/mother-language-day-2021">https://developer.chrome.com/blog/mother-language-day-2021</a></p>
+<p>Don’t miss an episode, subscribe to Chrome Developers → <a href="https://goo.gle/ChromeDevs">https://goo.gle/ChromeDevs</a></p>
+<p>#MotherLanguageDay</p>
+</content>
+    
+  </entry>
+</feed>
