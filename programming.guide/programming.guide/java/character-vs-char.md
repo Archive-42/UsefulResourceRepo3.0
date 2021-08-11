@@ -1,7 +1,3 @@
-
-
-
-
 ## Types in Java
 
 1.  [Java Basics: Types](types.html)
@@ -27,8 +23,6 @@
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
-
-
 ## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
@@ -53,7 +47,5 @@ Continue reading here:
 <span class="pointer">[Java: Wrapper Types](wrapper-types.html)</span>
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

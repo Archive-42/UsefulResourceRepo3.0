@@ -1,14 +1,8 @@
-
-
-
-
 ## Featured Stack Overflow Post
 
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -62,7 +56,5 @@ The field you're accessing (even if it's of a different object in runtime) is de
 Some methods such as `equals`, `clone` and copy constructors would be tricky to write without giving up encapsulation.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

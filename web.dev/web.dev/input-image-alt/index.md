@@ -1,5 +1,3 @@
-
-
 ## <a href="#lesscodegreaterandltinput-typeandquotimageandquotandgtlesscodegreater-elements-do-not-have-lesscodegreateraltlesscodegreater-text" class="w-toc__header--link"><code>&lt;input type="image"&gt;</code> elements do not have <code>[alt]</code> text</a>
 
 - [How this Lighthouse audit fails](#how-this-lighthouse-audit-fails)

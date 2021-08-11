@@ -1,5 +1,3 @@
-
-
 ## <a href="#keyboard-access-fundamentals" class="w-toc__header--link">Keyboard access fundamentals</a>
 
 - [Focus and the tab order](#focus-and-the-tab-order)

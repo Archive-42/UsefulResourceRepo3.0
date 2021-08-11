@@ -1,5 +1,3 @@
-
-
 ## <a href="#image-elements-do-not-have-lesscodegreateraltlesscodegreater-attributes" class="w-toc__header--link">Image elements do not have <code>[alt]</code> attributes</a>
 
 - [How the Lighthouse image alternative text audit fails](#how-the-lighthouse-image-alternative-text-audit-fails)

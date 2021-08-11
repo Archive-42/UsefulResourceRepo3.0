@@ -1,7 +1,3 @@
-
-
-
-
 ## External Resources
 
 [Effective Java, Item 69: Use exceptions only for exceptional conditions](https://books.google.se/books?id=BIpDDwAAQBAJ)  
@@ -12,8 +8,6 @@
 
 [Effective Java, Item 71: Avoid unnecessary use of checked exceptions](https://books.google.se/books?id=BIpDDwAAQBAJ)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Joshua Bloch</span>
-
-
 
 ## Top Java Articles
 
@@ -74,7 +68,5 @@ Many conditions should be met for a checked exception to be a good fit. If you o
 ![Two checkboxes](choosing-between-checked-and-unchecked-exceptions/checked-vs-unchecked.jpg)
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -1,5 +1,3 @@
-
-
 ## <a href="#use-image-cdns-to-optimize-images" class="w-toc__header--link">Use image CDNs to optimize images</a>
 
 - [Why use an image CDN?](#why-use-an-image-cdn)

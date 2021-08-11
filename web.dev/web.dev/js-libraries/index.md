@@ -1,5 +1,3 @@
-
-
 ## <a href="#detected-javascript-libraries" class="w-toc__header--link">Detected JavaScript libraries</a>
 
 - [This is a diagnostic audit](#this-is-a-diagnostic-audit)

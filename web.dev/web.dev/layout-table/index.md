@@ -2,7 +2,6 @@
 
 <span class="w-tooltip">Close</span>
 
-
 - [How to make presentational tables accessible](#how-to-make-presentational-tables-accessible)
 - [Resources](#resources)
 

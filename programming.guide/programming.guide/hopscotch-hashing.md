@@ -1,7 +1,3 @@
-
-
-
-
 ## References
 
 [Hopscotch Hashing](http://mcg.cs.tau.ac.il/papers/disc2008-hopscotch.pdf) (pdf)  
@@ -23,8 +19,6 @@
 12. [2-Left Hashing](2-left-hashing.html)
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -157,7 +151,5 @@ To quickly find suitable candidates for swapping during insert, the implementati
   With large neighborhoods this may be a more memory efficient representation. On the other hand it introduces some indirection which could impact performance.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

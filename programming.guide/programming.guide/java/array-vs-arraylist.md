@@ -1,7 +1,3 @@
-
-
-
-
 ## Java Arrays
 
 1.  [Java Arrays (with examples)](arrays.html)
@@ -19,8 +15,6 @@
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -132,7 +126,5 @@ Here's an example using `List.replaceAll` on an array:
 Note however, that since the backing array can't shrink or grow, operations such as `List.add` will throw `UnsupportedOperationException`.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

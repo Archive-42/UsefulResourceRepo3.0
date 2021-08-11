@@ -1,5 +1,3 @@
-
-
 ## <a href="#does-not-use-https" class="w-toc__header--link">Does not use HTTPS</a>
 
 - [How the Lighthouse HTTPS audit fails](#how-the-lighthouse-https-audit-fails)

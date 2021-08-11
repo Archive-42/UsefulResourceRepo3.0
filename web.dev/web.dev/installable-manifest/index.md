@@ -1,5 +1,3 @@
-
-
 ## <a href="#web-app-manifest-does-not-meet-the-installability-requirements" class="w-toc__header--link">Web app manifest does not meet the installability requirements</a>
 
 - [How the Lighthouse web app manifest audit fails](#how-the-lighthouse-web-app-manifest-audit-fails)

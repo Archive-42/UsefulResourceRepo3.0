@@ -1,7 +1,3 @@
-
-
-
-
 ## External resources
 
 [Effective Java Exceptions](http://www.oracle.com/technetwork/java/effective-exceptions-092345.html)  
@@ -15,8 +11,6 @@
 
 [Effective Java, Item 71: Avoid unnecessary use of checked exceptions](https://books.google.se/books?id=BIpDDwAAQBAJ)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Joshua Bloch</span>
-
-
 
 ## Top Java Articles
 
@@ -129,7 +123,5 @@ On the other hand,
 In the end one has to weigh the pros and cons and it's hard to make a fully objective call, especially when you're a carpenter who's already proficient with a hammer. Few Java supporters complain about the lack of operator overloading, but things might have been different if Gosling had chosen to include them, programmers had learned to use them responsibly, and the discussion was about removing them.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

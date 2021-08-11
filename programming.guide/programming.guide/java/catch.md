@@ -1,7 +1,3 @@
-
-
-
-
 ## Exception Related Keywords
 
 1.  [throw](throw.html)
@@ -41,8 +37,6 @@
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -97,7 +91,5 @@ A single catch block can also handle multiple types of exceptions. This is calle
 See [Java Exceptions: Throw, Try and Catch](exceptions-throw-try-catch.html) for details on semantics.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

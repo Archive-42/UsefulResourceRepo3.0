@@ -1,5 +1,3 @@
-
-
 ## <a href="#feedback-from-the-summer-2019-image-optimization-survey" class="w-toc__header--link">Feedback from the summer 2019 image optimization survey</a>
 
 - [Audience](#audience)

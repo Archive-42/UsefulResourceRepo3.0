@@ -1,7 +1,3 @@
-
-
-
-
 ## Java Arrays
 
 1.  [Java Arrays (with examples)](arrays.html)
@@ -19,8 +15,6 @@
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -73,7 +67,5 @@ To wrap up, here are some alternative ways to do a shallow copy…
     String[] strs = Stream.of(original).toArray(String[]::new);
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

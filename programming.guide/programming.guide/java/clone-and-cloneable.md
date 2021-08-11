@@ -1,7 +1,3 @@
-
-
-
-
 ## Related
 
 [Copying Objects](copying-objects-deep-and-shallow.html)  
@@ -18,8 +14,6 @@
 
 [Effective Java, Item 13: Override clone judiciously](https://books.google.se/books?id=BIpDDwAAQBAJ)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Joshua Bloch</span>
-
-
 
 ## Top Java Articles
 
@@ -260,7 +254,5 @@ By serializing an object, then deserializing the result you end up with a copy. 
 Another alternative is to use the `Serializable` mechanism and `ObjectInputStream`/`ObjectOutputStream` but then you trade one type of black magic for another.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

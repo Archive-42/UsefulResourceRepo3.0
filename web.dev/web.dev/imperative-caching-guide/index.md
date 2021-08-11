@@ -1,5 +1,3 @@
-
-
 ## <a href="#imperative-caching-guide" class="w-toc__header--link">Imperative caching guide</a>
 
 - [Production case](#production-case)

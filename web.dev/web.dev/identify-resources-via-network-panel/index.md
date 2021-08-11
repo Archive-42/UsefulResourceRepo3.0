@@ -1,5 +1,3 @@
-
-
 ## <a href="#identify-resources-loaded-from-the-network" class="w-toc__header--link">Identify resources loaded from the network</a>
 
 - [Know what you load](#know-what-you-load)

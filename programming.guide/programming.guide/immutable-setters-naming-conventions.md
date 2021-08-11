@@ -1,7 +1,3 @@
-
-
-
-
 ## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
@@ -11,8 +7,6 @@
 5.  [Generating a random point within a circle (uniformly)](random-point-within-circle.html)
 
 [**See all algorithm articles**](algorithms.html)
-
-
 
 ## Top Java Articles
 
@@ -85,7 +79,5 @@ When the immutable object is itself an operand to the transformation it's not re
 Same with `String.substring`, `Path.resolve`, etc.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

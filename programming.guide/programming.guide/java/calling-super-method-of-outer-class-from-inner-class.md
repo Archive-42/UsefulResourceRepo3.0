@@ -1,7 +1,3 @@
-
-
-
-
 ## Uses of super in Java
 
 1.  [Calling super()](super-call.html)
@@ -14,8 +10,6 @@
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -62,7 +56,5 @@ You use the syntax `OuterClass.super.method()`. Here's an example:
 See also: [Calling method of outer class from inner class](calling-method-of-outer-class-from-inner-class.html)
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

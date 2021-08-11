@@ -2,7 +2,6 @@
 
 <span class="w-tooltip">Close</span>
 
-
 - [Using browser-level lazy-loading](#images-inline-browser-level)
 - [Using Intersection Observer](#images-inline-intersection-observer)
 - [Using event handlers for Internet Explorer support](#images-inline-event-handlers)

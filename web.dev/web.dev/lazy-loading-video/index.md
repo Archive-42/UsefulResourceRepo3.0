@@ -2,7 +2,6 @@
 
 <span class="w-tooltip">Close</span>
 
-
 - [For video acting as an animated GIF replacement](#video-gif-replacement)
 - [Lazy-loading libraries](#libraries)
 

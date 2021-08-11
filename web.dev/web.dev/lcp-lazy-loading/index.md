@@ -2,8 +2,6 @@
 
 <span class="w-tooltip">Close</span>
 
-
-
 - [Adoption](#adoption)
 - [Correlational performance](#correlational-performance)
 - [Causal performance](#causal-performance)

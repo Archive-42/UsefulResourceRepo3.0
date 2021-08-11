@@ -1,5 +1,3 @@
-
-
 ## <a href="#displays-images-with-incorrect-aspect-ratio" class="w-toc__header--link">Displays images with incorrect aspect ratio</a>
 
 - [How the Lighthouse image aspect ratio audit fails](#how-the-lighthouse-image-aspect-ratio-audit-fails)

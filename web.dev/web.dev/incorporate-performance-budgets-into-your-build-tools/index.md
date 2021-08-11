@@ -1,5 +1,3 @@
-
-
 ## <a href="#incorporate-performance-budgets-into-your-build-process" class="w-toc__header--link">Incorporate performance budgets into your build process</a>
 
 - [Lighthouse performance budgets](#lighthouse-performance-budgets)

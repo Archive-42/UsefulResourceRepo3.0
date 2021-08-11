@@ -1,5 +1,3 @@
-
-
 ## <a href="#instant-navigation-experiences" class="w-toc__header--link">Instant navigation experiences</a>
 
 - [Production cases](#production-cases)

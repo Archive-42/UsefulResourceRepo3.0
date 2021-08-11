@@ -1,14 +1,8 @@
-
-
-
-
 ## Featured Stack Overflow Post
 
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -61,7 +55,5 @@ The reason for this is covered in the same email thread as mentioned above ([sou
 > Because you cannot rely on the result of the comparison anyway, since the values may be immediately changed by other threads after you compare but before you use the comparison result. To avoid this, you would have to use locking, and those classes exist precisely to avoid locking. In particular, comparable suggests that you can sort objects of this type, and the sort operation assumes that these objects are constant (at least for some time), which is clearly the opposite of why those classes are to be used. Again, you would have to lock to make sure that the values do not change at least \_during\_ sorting. <span class="quote-source">Dawid Kurzyniec</span>
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

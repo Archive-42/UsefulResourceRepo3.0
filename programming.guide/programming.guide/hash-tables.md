@@ -1,7 +1,3 @@
-
-
-
-
 ## Hash Tables
 
 1.  Hash Tables
@@ -29,8 +25,6 @@
 
 [Big O notation explained](big-o-notation-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
-
-
 
 ## Top Algorithm Articles
 
@@ -308,7 +302,5 @@ See [Open vs Closed Addressing](hash-tables-open-vs-closed-addressing.html) for 
 A third option, which is more of theoretical interest but mentioned here for completeness, is to use a hash function that maps each key to slot of its own, and thus avoiding collisions all together. This is called **perfect hashing**.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

@@ -1,5 +1,3 @@
-
-
 ## <a href="#form-elements-do-not-have-associated-labels" class="w-toc__header--link">Form elements do not have associated labels</a>
 
 - [How this Lighthouse audit fails](#how-this-lighthouse-audit-fails)

@@ -2,7 +2,6 @@
 
 <span class="w-tooltip">Close</span>
 
-
 - [Why lazy-load images or video instead of just loading them?](#why)
 - [Implementing lazy-loading](#implementing)
 - [Conclusion](#conclusion)

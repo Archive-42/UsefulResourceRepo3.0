@@ -1,7 +1,3 @@
-
-
-
-
 ## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
@@ -17,8 +13,6 @@
 3.  [Maps explained](go/maps-explained.html)
 4.  [For loops explained](go/for-loop.html)
 5.  [Concurrent programming](go/go-concurrency-tutorial.html)
-
-
 
 ## Top Algorithm Articles
 

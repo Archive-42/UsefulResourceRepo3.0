@@ -2,7 +2,6 @@
 
 <span class="w-tooltip">Close</span>
 
-
 - [What is a good LCP score?](#what-is-a-good-lcp-score)
 - [What elements are considered?](#what-elements-are-considered)
 - [How is an element's size determined?](#how-is-an-element's-size-determined)

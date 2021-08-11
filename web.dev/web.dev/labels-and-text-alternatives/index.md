@@ -2,7 +2,6 @@
 
 <span class="w-tooltip">Close</span>
 
-
 - [Check for missing names](#check-for-missing-names)
 - [Label documents and frames](#label-documents-and-frames)
 - [Include text alternatives for images and objects](#include-text-alternatives-for-images-and-objects)
