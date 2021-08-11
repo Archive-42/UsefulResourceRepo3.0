@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java Stack Traces: Unknown Source
-=================================
+# Java Stack Traces: Unknown Source
 
 If you get a stack trace with "Unknown Source" like below…
 
@@ -45,22 +41,19 @@ If you get a stack trace with "Unknown Source" like below…
 
 …it means that the program lacks the relevant **debugging information**. Specifically the class files are missing the `LineNumberTable` attribute ([JVMS 4.7.12](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.7.12)).
 
-Possible reasons
-----------------
+## Possible reasons
 
--   The code has been compiled with the [`-g:none`](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javac.html#BHCGAJDC) javac option.
+- The code has been compiled with the [`-g:none`](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javac.html#BHCGAJDC) javac option.
 
--   The class files has been processed by an obfuscator or minimizer
+- The class files has been processed by an obfuscator or minimizer
 
-Solution
---------
+## Solution
 
--   **Make sure you're using the JDK classes** and not the JRE classes (if the lines refer to classes in the standard API)
+- **Make sure you're using the JDK classes** and not the JRE classes (if the lines refer to classes in the standard API)
 
--   **Recompile with debug information**. If the lines refer to some third party library for which you don't have access to the source code, you're out of luck.
+- **Recompile with debug information**. If the lines refer to some third party library for which you don't have access to the source code, you're out of luck.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

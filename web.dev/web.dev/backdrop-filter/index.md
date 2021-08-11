@@ -1,37 +1,29 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format" alt="A view through a rain-covered foggy window." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/ltK4SNRultTnkbimOySm.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#create-os-style-backgrounds-with-backdrop-filter" class="w-toc__header--link">Create OS-style backgrounds with backdrop-filter</a>
---------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#create-os-style-backgrounds-with-backdrop-filter" class="w-toc__header--link">Create OS-style backgrounds with backdrop-filter</a>
 
--   [Basics](#basics)
--   [Feature detection and fallback](#feature-detection-and-fallback)
--   [Examples](#examples)
--   [Single filter](#single-filter)
--   [Multiple filters](#multiple-filters)
--   [Overlays](#overlays)
--   [Text contrast on dynamic backgrounds](#text-contrast-on-dynamic-backgrounds)
--   [Conclusion](#conclusion)
--   [Additional resources](#additional-resources)
+- [Basics](#basics)
+- [Feature detection and fallback](#feature-detection-and-fallback)
+- [Examples](#examples)
+- [Single filter](#single-filter)
+- [Multiple filters](#multiple-filters)
+- [Overlays](#overlays)
+- [Text contrast on dynamic backgrounds](#text-contrast-on-dynamic-backgrounds)
+- [Conclusion](#conclusion)
+- [Additional resources](#additional-resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Create OS-style backgrounds with backdrop-filter
-================================================
+# Create OS-style backgrounds with backdrop-filter
 
 Blurring and color shifting behind an element.
 
@@ -41,17 +33,17 @@ Jul 26, 2019 <span class="w-author__separator">•</span> Updated Aug 29, 2019
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Joe Medley" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/joemedley/)
 
 <a href="/authors/joemedley/" class="w-author__name-link">Joe Medley</a>
 
--   <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
 
 Translucence, blurring, and other effects are useful ways of creating depth while keeping the context of the background content. They support a host of use cases such as frosted glass, video overlays, translucent navigation headers, inappropriate image censoring, image loading, and so on. You may recognize these effects from two popular operating systems: [Windows 10](https://i.kinja-img.com/gawker-media/image/upload/s--9RLXARU4--/c_scale,dpr_2.0,f_auto,fl_progressive,q_80,w_800/trgz8yivyyqrpcnwscu5.png) and [iOS](https://static.businessinsider.com/image/51fd2822eab8eae16e00000b-750.jpg).
 
@@ -59,12 +51,11 @@ Translucence, blurring, and other effects are useful ways of creating depth whil
 
 A demonstration of the filter functions for `backdrop-filter`. Try the example on [CodePen](https://codepen.io/robinrendle/pen/LmzLEL).
 
-Basics <a href="#basics" class="w-headline-link">#</a>
-------------------------------------------------------
+## Basics <a href="#basics" class="w-headline-link">#</a>
 
--   The `backdrop-filter` property applies one or more filters to an element, changing the appearance of anything behind the element.
--   The overlaying element must be at least partially transparent.
--   The overlaying element will get a new stacking context.
+- The `backdrop-filter` property applies one or more filters to an element, changing the appearance of anything behind the element.
+- The overlaying element must be at least partially transparent.
+- The overlaying element will get a new stacking context.
 
 **Caution**: `backdrop-filter` may harm performance. Test it before deploying.
 
@@ -80,8 +71,7 @@ When `backdrop-filter` is set to anything other than `none`, the browser creates
 
 You can combine filters for rich and clever effects, or use just one filter for more subtle or precise effects. You can even combine them with [SVG filters](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter).
 
-Feature detection and fallback <a href="#feature-detection-and-fallback" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Feature detection and fallback <a href="#feature-detection-and-fallback" class="w-headline-link">#</a>
 
 As with many features of the modern web, you'll want to know whether the user's browser supports `backdrop-filter` before using it. Do this with `@supports()`. For performance reasons, fall back to an image instead of a polyfill when `backdrop-image` isn't supported. The example below shows this.
 
@@ -97,8 +87,7 @@ As with many features of the modern web, you'll want to know whether the user's 
       }
     }
 
-Examples <a href="#examples" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Examples <a href="#examples" class="w-headline-link">#</a>
 
 Design techniques and styles previously reserved for operating systems are now performant and achievable with a single CSS declaration. Let's look at some examples.
 
@@ -153,18 +142,17 @@ As stated earlier, `backdrop-filter` allows performant effects that would be dif
 
 Try this example from [Chen Hui Jing](https://www.chenhuijing.com/#%F0%9F%91%9F) in [Codrops](https://tympanus.net/codrops-playground/huijing/Qqpwg5Iy/editor).
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 More than 560 of you have upvoted the [Chromium bug](https://crbug.com/497522) over the past few years, clearly marking this as a long awaited CSS feature. Chrome's release of `backdrop-filter` in version 76 brings the web a step closer to truly OS-like UI presentation.
 
 ### Additional resources <a href="#additional-resources" class="w-headline-link">#</a>
 
--   [Specification](https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty)
--   [Chrome Platform Status](https://www.chromestatus.com/feature/5679432723333120)
--   [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
--   [`background-filter` at CSS Tricks](https://css-tricks.com/the-backdrop-filter-css-property/)
--   [Samples on Codepen](https://codepen.io/tag/backdrop-filter/#)
+- [Specification](https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty)
+- [Chrome Platform Status](https://www.chromestatus.com/feature/5679432723333120)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
+- [`background-filter` at CSS Tricks](https://css-tricks.com/the-backdrop-filter-css-property/)
+- [Samples on Codepen](https://codepen.io/tag/backdrop-filter/#)
 
 <a href="/tags/css/" class="w-chip">CSS</a>
 
@@ -172,35 +160,35 @@ More than 560 of you have upvoted the [Chromium bug](https://crbug.com/497522) o
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

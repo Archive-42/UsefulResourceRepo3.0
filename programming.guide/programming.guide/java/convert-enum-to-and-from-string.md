@@ -2,16 +2,14 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Convert enum to and from int](convert-enum-to-and-from-int.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -21,8 +19,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -30,21 +27,17 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Convert enum to and from string
-=====================================
+# Java: Convert enum to and from string
 
-enum → String
--------------
+## enum → String
 
     yourEnum.name()
 
-String → enum
--------------
+## String → enum
 
     YourEnum.valueOf(yourString)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

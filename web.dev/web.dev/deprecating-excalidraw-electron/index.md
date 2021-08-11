@@ -12,29 +12,27 @@
 
 <img src="https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format" alt="Excalidraw drawing with a stylized Electron logo." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/qfK9zbKBQalqq5zdr1P1.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#deprecating-excalidraw-electron-in-favor-of-the-web-version" class="w-toc__header--link">Deprecating Excalidraw Electron in favor of the web version</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#deprecating-excalidraw-electron-in-favor-of-the-web-version" class="w-toc__header--link">Deprecating Excalidraw Electron in favor of the web version</a>
 
--   [How Excalidraw Desktop came into being](#how-excalidraw-desktop-came-into-being)
--   [What is Electron?](#what-is-electron)
--   [Where Excalidraw Desktop left off](#where-excalidraw-desktop-left-off)
--   [How the web serves us today and in the future](#how-the-web-serves-us-today-and-in-the-future)
--   [Installable Progressive Web App](#installable-progressive-web-app)
--   [File system access](#file-system-access)
--   [Drag and drop support](#drag-and-drop-support)
--   [Clipboard access](#clipboard-access)
--   [File handling](#file-handling)
--   [Declarative link capturing](#declarative-link-capturing)
--   [Conclusion](#conclusion)
--   [Acknowledgements](#acknowledgements)
+- [How Excalidraw Desktop came into being](#how-excalidraw-desktop-came-into-being)
+- [What is Electron?](#what-is-electron)
+- [Where Excalidraw Desktop left off](#where-excalidraw-desktop-left-off)
+- [How the web serves us today and in the future](#how-the-web-serves-us-today-and-in-the-future)
+- [Installable Progressive Web App](#installable-progressive-web-app)
+- [File system access](#file-system-access)
+- [Drag and drop support](#drag-and-drop-support)
+- [Clipboard access](#clipboard-access)
+- [File handling](#file-handling)
+- [Declarative link capturing](#declarative-link-capturing)
+- [Conclusion](#conclusion)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Deprecating Excalidraw Electron in favor of the web version
-===========================================================
+# Deprecating Excalidraw Electron in favor of the web version
 
 Learn why the Excalidraw project decided to deprecate their Electron wrapper in favor of the web  
 version.
@@ -47,17 +45,16 @@ Jan 7, 2021 <span class="w-author__separator">•</span> Updated May 19, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 [Excalidraw](https://excalidraw.com/) is a virtual collaborative whiteboard that lets you easily sketch diagrams that feel hand-drawn. This article was cross-posted to and first appeared on the [Excalidraw blog](https://blog.excalidraw.com/deprecating-excalidraw-electron/).
 
 On the [Excalidraw project](https://github.com/excalidraw), we have decided to deprecate [Excalidraw Desktop](https://github.com/excalidraw/excalidraw-desktop), an [Electron](https://www.electronjs.org/) wrapper for Excalidraw, in favor of the web version that you can—and always could—find at [excalidraw.com](https://excalidraw.com/). After a careful analysis, we have decided that [Progressive Web App](/pwa/) (PWA) is the future we want to build upon. Read on to learn why.
 
-How Excalidraw Desktop came into being <a href="#how-excalidraw-desktop-came-into-being" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------
+## How Excalidraw Desktop came into being <a href="#how-excalidraw-desktop-came-into-being" class="w-headline-link">#</a>
 
 Soon after [@vjeux](https://twitter.com/vjeux) created the initial version of Excalidraw in January 2020 and [blogged about it](https://blog.excalidraw.com/reflections-on-excalidraw/), he proposed the following in [Issue \#561](https://github.com/excalidraw/excalidraw/issues/561#issue-555138343):
 
@@ -75,21 +72,19 @@ While work on converting the version of Excalidraw into a PWA was started by [@v
 
 To this day, the initial goal set by [@vjeux](https://github.com/vjeux), that is, to submit Excalidraw to the various app stores, has not been reached yet. Honestly, no one has even started the submission process to any of the stores. But why is that? Before I answer, let's look at Electron, the platform.
 
-What is Electron? <a href="#what-is-electron" class="w-headline-link">#</a>
----------------------------------------------------------------------------
+## What is Electron? <a href="#what-is-electron" class="w-headline-link">#</a>
 
-The unique selling point of [Electron](https://www.electronjs.org/) is that it allows you to *"build cross-platform desktop apps with JavaScript, HTML, and CSS"*. Apps built with Electron are *"compatible with Mac, Windows, and Linux"*, that is, *"Electron apps build and run on three platforms"*. According to the homepage, the hard parts that Electron makes easy are [automatic updates](https://www.electronjs.org/docs/api/auto-updater), [system-level menus and notifications](https://www.electronjs.org/docs/api/menu), [crash reporting](https://www.electronjs.org/docs/api/crash-reporter), [debugging and profiling](https://www.electronjs.org/docs/api/content-tracing), and [Windows installers](https://www.electronjs.org/docs/api/auto-updater#windows). Turns out, some of the promised features need a detailed look at the small print.
+The unique selling point of [Electron](https://www.electronjs.org/) is that it allows you to _"build cross-platform desktop apps with JavaScript, HTML, and CSS"_. Apps built with Electron are _"compatible with Mac, Windows, and Linux"_, that is, _"Electron apps build and run on three platforms"_. According to the homepage, the hard parts that Electron makes easy are [automatic updates](https://www.electronjs.org/docs/api/auto-updater), [system-level menus and notifications](https://www.electronjs.org/docs/api/menu), [crash reporting](https://www.electronjs.org/docs/api/crash-reporter), [debugging and profiling](https://www.electronjs.org/docs/api/content-tracing), and [Windows installers](https://www.electronjs.org/docs/api/auto-updater#windows). Turns out, some of the promised features need a detailed look at the small print.
 
--   For example, automatic updates *"are \[currently\] only \[supported\] on macOS and Windows. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app"*.
+- For example, automatic updates _"are \[currently\] only \[supported\] on macOS and Windows. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app"_.
 
--   Developers can create system-level menus by calling `Menu.setApplicationMenu(menu)`. On Windows and Linux, the menu will be set as each window's top menu, while on macOS there are many system-defined standard menus, like the [Services](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. To make one's menus a standard menu, developers should set their menu's `role` accordingly, and Electron will recognize them and make them become standard menus. This means that a lot of menu-related code will use the following platform check: `const isMac = process.platform === 'darwin'`.
+- Developers can create system-level menus by calling `Menu.setApplicationMenu(menu)`. On Windows and Linux, the menu will be set as each window's top menu, while on macOS there are many system-defined standard menus, like the [Services](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. To make one's menus a standard menu, developers should set their menu's `role` accordingly, and Electron will recognize them and make them become standard menus. This means that a lot of menu-related code will use the following platform check: `const isMac = process.platform === 'darwin'`.
 
--   Windows installers can be made with [windows-installer](https://github.com/electron/windows-installer). The README of the project highlights that *"for a production app you need to sign your application. Internet Explorer's SmartScreen filter will block your app from being downloaded, and many anti-virus vendors will consider your app as malware unless you obtain a valid cert"* \[sic\].
+- Windows installers can be made with [windows-installer](https://github.com/electron/windows-installer). The README of the project highlights that _"for a production app you need to sign your application. Internet Explorer's SmartScreen filter will block your app from being downloaded, and many anti-virus vendors will consider your app as malware unless you obtain a valid cert"_ \[sic\].
 
-Looking at just these three examples, it is clear that Electron is far from "write once, run everywhere". Distributing an app on app stores requires [code signing](https://www.electronjs.org/docs/tutorial/code-signing), a security technology for certifying app ownership. Packaging an app requires using tools like [electron-forge](https://github.com/electron-userland/electron-forge) and thinking about where to host packages for app updates. It gets complex relatively quickly, especially when the objective truly is cross platform support. I want to note that it is *absolutely* possible to create stunning Electron apps with enough effort and dedication. For Excalidraw Desktop, we were not there.
+Looking at just these three examples, it is clear that Electron is far from "write once, run everywhere". Distributing an app on app stores requires [code signing](https://www.electronjs.org/docs/tutorial/code-signing), a security technology for certifying app ownership. Packaging an app requires using tools like [electron-forge](https://github.com/electron-userland/electron-forge) and thinking about where to host packages for app updates. It gets complex relatively quickly, especially when the objective truly is cross platform support. I want to note that it is _absolutely_ possible to create stunning Electron apps with enough effort and dedication. For Excalidraw Desktop, we were not there.
 
-Where Excalidraw Desktop left off <a href="#where-excalidraw-desktop-left-off" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Where Excalidraw Desktop left off <a href="#where-excalidraw-desktop-left-off" class="w-headline-link">#</a>
 
 Excalidraw Desktop so far is basically the Excalidraw web app bundled as an [`.asar`](https://github.com/electron/asar) file with an added **About Excalidraw** window. The look and feel of the application is almost identical to the web version.
 
@@ -111,10 +106,9 @@ Excalidraw Desktop so far is basically the Excalidraw web app bundled as an [`.a
 
 Unfortunately, in practice, this does not always work as intended, since, depending on the installation type (for the current user, for all users), apps on Windows 10 do not have the rights to associate a file type to themselves.
 
-These shortcomings and the pending work to make the experience truly app-like on *all* platforms (which, again, with enough effort *is* possible) were a strong argument for us to reconsider our investment in Excalidraw Desktop. The way bigger argument for us, though, was that we foresee that for *our* use case, we do not need all the features Electron offers. The grown and still growing set of capabilities of the web serves us equally well, if not better.
+These shortcomings and the pending work to make the experience truly app-like on _all_ platforms (which, again, with enough effort _is_ possible) were a strong argument for us to reconsider our investment in Excalidraw Desktop. The way bigger argument for us, though, was that we foresee that for _our_ use case, we do not need all the features Electron offers. The grown and still growing set of capabilities of the web serves us equally well, if not better.
 
-How the web serves us today and in the future <a href="#how-the-web-serves-us-today-and-in-the-future" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------
+## How the web serves us today and in the future <a href="#how-the-web-serves-us-today-and-in-the-future" class="w-headline-link">#</a>
 
 Even in 2020, [jQuery](https://jquery.com/) is still [incredibly popular](https://almanac.httparchive.org/en/2020/javascript#libraries). For many developers it has become a habit to use it, despite the fact that today they [might not need jQuery](http://youmightnotneedjquery.com/). There is a similar resource for Electron, aptly called [You Might Not Need Electron](https://youmightnotneedelectron.com/). Let me outline why we think we do not need Electron.
 
@@ -146,15 +140,13 @@ Excalidraw already supports the experimental [File Handling API](/file-handling/
 
 Excalidraw drawings can be shared by link. Here is an [example](https://excalidraw.com/#json=4646308765761536,jwZJW8JsOM75vdhqG2nBgA). In the future, if people have Excalidraw installed as a PWA, such links will not open in a browser tab, but launch a new standalone window. Pending implementation, this will work thanks to [declarative link capturing](https://github.com/WICG/sw-launch/blob/master/declarative_link_capturing.md), an, at the time of writing, bleeding-edge proposal for a new web platform feature.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
-The web has come a long way, with more and more features landing in browsers that only a couple of years or even months ago were unthinkable on the web and exclusive to platform-specific applications. Excalidraw is at the forefront of what is possible in the browser, all while acknowledging that not all browsers on all platforms support each feature we use. By betting on a progressive enhancement strategy, we enjoy the latest and greatest wherever possible, but without leaving anyone behind. Best viewed in *any* browser.
+The web has come a long way, with more and more features landing in browsers that only a couple of years or even months ago were unthinkable on the web and exclusive to platform-specific applications. Excalidraw is at the forefront of what is possible in the browser, all while acknowledging that not all browsers on all platforms support each feature we use. By betting on a progressive enhancement strategy, we enjoy the latest and greatest wherever possible, but without leaving anyone behind. Best viewed in _any_ browser.
 
 Electron has served us well, but in 2020 and beyond, we can live without it. Oh, and for that objective of [@vjeux](https://github/com/vjeux): since the Android Play Store now accepts PWAs in a container format called [Trusted Web Activity](/using-a-pwa-in-your-android-app/) and since the [Microsoft Store supports PWAs](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-edgehtml/microsoft-store), too, you can expect Excalidraw in these stores in the not too distant future. Meanwhile, you can always use and install [Excalidraw in and from the browser](https://excalidraw.com/).
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [@lipis](https://github.com/lipis), [@dwelle](https://github.com/dwelle), and [Joe Medley](https://github.com/jpmedley).
 
@@ -164,35 +156,35 @@ This article was reviewed by [@lipis](https://github.com/lipis), [@dwelle](https
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,4 +1,4 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+
 
 <a href="/" class="header-default__logo-link gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
@@ -10,20 +10,18 @@
 
 <a href="/learn/" class="drawer-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="drawer-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="drawer-default__link gc-analytics-event">Blog</a> <a href="/about/" class="drawer-default__link gc-analytics-event">About</a>
 
-<a href="#control-focus-with-tabindex" class="w-toc__header--link">Control focus with tabindex</a>
---------------------------------------------------------------------------------------------------
+## <a href="#control-focus-with-tabindex" class="w-toc__header--link">Control focus with tabindex</a>
 
--   [Check if your controls are keyboard accessible](#check-if-your-controls-are-keyboard-accessible)
--   [Insert an element into the tab order](#insert-an-element-into-the-tab-order)
--   [Remove an element from the tab order](#remove-an-element-from-the-tab-order)
--   [Avoid tabindex &gt; 0](#avoid-tabindex-greater-0)
--   [Create accessible components with "roving tabindex"](#create-accessible-components-with-)
--   [Keyboard access recipes](#keyboard-access-recipes)
+- [Check if your controls are keyboard accessible](#check-if-your-controls-are-keyboard-accessible)
+- [Insert an element into the tab order](#insert-an-element-into-the-tab-order)
+- [Remove an element from the tab order](#remove-an-element-from-the-tab-order)
+- [Avoid tabindex &gt; 0](#avoid-tabindex-greater-0)
+- [Create accessible components with "roving tabindex"](#create-accessible-components-with-)
+- [Keyboard access recipes](#keyboard-access-recipes)
 
 Share <a href="/newsletter/" class="w-actions__fab w-actions__fab--subscribe gc-analytics-event"><span>subscribe</span></a>
 
-Control focus with tabindex
-===========================
+# Control focus with tabindex
 
 Nov 18, 2018
 
@@ -33,17 +31,16 @@ Nov 18, 2018
 
 <a href="/authors/robdodson/" class="w-author__name-link">Rob Dodson</a>
 
--   <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
--   <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
--   <a href="https://robdodson.me" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
+- <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
+- <a href="https://robdodson.me" class="w-author__link">Blog</a>
 
-Standard HTML elements such as `<button>` or `<input>` have keyboard accessibility built in for free. If you're building *custom* interactive components, however, use the `tabindex` attribute to ensure that they're keyboard accessible.
+Standard HTML elements such as `<button>` or `<input>` have keyboard accessibility built in for free. If you're building _custom_ interactive components, however, use the `tabindex` attribute to ensure that they're keyboard accessible.
 
 Whenever possible, use a built-in HTML element rather than building your own custom version. `<button>`, for example, is very easy to style and already has full keyboard support. This will save you from needing to manage `tabindex` or add semantics with ARIA.
 
-Check if your controls are keyboard accessible <a href="#check-if-your-controls-are-keyboard-accessible" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------
+## Check if your controls are keyboard accessible <a href="#check-if-your-controls-are-keyboard-accessible" class="w-headline-link">#</a>
 
 A tool like Lighthouse is great at detecting certain accessibility issues, but some things can only be tested by a human.
 
@@ -51,8 +48,7 @@ Try pressing the `Tab` key to navigate through your site. Are you able to reach 
 
 **Warning**: If you don't see a focus indicator at all, it may be hidden by your CSS. Check for any styles that mention `:focus { outline: none; }`. You can learn how to fix this in our guide on [styling focus](/style-focus).
 
-Insert an element into the tab order <a href="#insert-an-element-into-the-tab-order" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Insert an element into the tab order <a href="#insert-an-element-into-the-tab-order" class="w-headline-link">#</a>
 
 Insert an element into the natural tab order using `tabindex="0"`. For example:
 
@@ -60,8 +56,7 @@ Insert an element into the natural tab order using `tabindex="0"`. For example:
 
 To focus an element, press the `Tab` key or call the element's `focus()` method.
 
-Remove an element from the tab order <a href="#remove-an-element-from-the-tab-order" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Remove an element from the tab order <a href="#remove-an-element-from-the-tab-order" class="w-headline-link">#</a>
 
 Remove an element using `tabindex="-1"`. For example:
 
@@ -73,8 +68,7 @@ Note that applying `tabindex="-1"` to an element doesn't affect its children; if
 
 **Caution**: The `inert` polyfill is experimental and may not work as expected in all cases. Test carefully before using in production.
 
-Avoid `tabindex > 0` <a href="#avoid-tabindex-greater-0" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Avoid `tabindex > 0` <a href="#avoid-tabindex-greater-0" class="w-headline-link">#</a>
 
 Any `tabindex` greater than 0 jumps the element to the front of the natural tab order. If there are multiple elements with a `tabindex` greater than 0, the tab order starts from the lowest value greater than zero and works its way up.
 
@@ -82,8 +76,7 @@ Using a `tabindex` greater than 0 is considered an **anti-pattern** because scre
 
 Lighthouse makes it easy to identify elements with a `tabindex` &gt; 0. Run the Accessibility Audit (Lighthouse &gt; Options &gt; Accessibility) and look for the results of the "No element has a \[tabindex\] value greater than 0" audit.
 
-Create accessible components with "roving `tabindex`" <a href="#create-accessible-components-with-%22roving-tabindex%22" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------
+## Create accessible components with "roving `tabindex`" <a href="#create-accessible-components-with-%22roving-tabindex%22" class="w-headline-link">#</a>
 
 If you're building a complex component, you may need to add additional keyboard support beyond focus. Consider the built-in `select` element. It is focusable and you can use the arrow keys to expose additional functionality (the selectable options).
 
@@ -171,15 +164,14 @@ This HTML renders a custom radio group, which should have a [roving `tabindex`](
 
 When a `role="radio"` element is focused, what should happen when a user presses the `Right` arrow key?
 
--   Change the `tabindex` values for all radio elements in the group to -1.
--   If there's a radio element after the one that's focused, set its `tabindex` value to 0.
--   If there's no radio element after the one that's focused, set the `tabindex` value of the first radio element in the group to 0.
--   Focus the radio element that now has a `tabindex` of 0.
+- Change the `tabindex` values for all radio elements in the group to -1.
+- If there's a radio element after the one that's focused, set its `tabindex` value to 0.
+- If there's no radio element after the one that's focused, set the `tabindex` value of the first radio element in the group to 0.
+- Focus the radio element that now has a `tabindex` of 0.
 
 That's a lot—and it doesn't even include ARIA attributes! This is an example of why it's easier to use built-in elements with built-in keyboard behavior whenever you can.
 
-Keyboard access recipes <a href="#keyboard-access-recipes" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Keyboard access recipes <a href="#keyboard-access-recipes" class="w-headline-link">#</a>
 
 If you're unsure what level of keyboard support your custom components might need, you can refer to the [ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/). This handy guide lists common UI patterns and identifies which keys your components should support.
 
@@ -187,35 +179,35 @@ If you're unsure what level of keyboard support your custom components might nee
 
 <a href="/accessible" class="w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single gc-analytics-event">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

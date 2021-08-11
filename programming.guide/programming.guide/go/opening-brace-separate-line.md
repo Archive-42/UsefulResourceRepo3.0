@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [go fmt your code](https://blog.golang.org/go-fmt-your-code)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Opening brace on separate line
-==================================
+# Go: Opening brace on separate line
 
 As you may have noticed, programs with an opening brace on separate line do not compile:
 
@@ -55,8 +51,7 @@ This is a trade-off in the design of the Go language:
 
 > Some have argued that the lexer should do lookahead to permit the brace to live on the next line. We disagree. Since Go code is meant to be formatted automatically by **gofmt**, some style must be chosen. \[...\] The advantages of a single, programmatically mandated format for all Go programs greatly outweigh any perceived disadvantages of the particular style. <a href="https://golang.org/doc/faq#semicolons" class="quote-source">Go FAQ: Why are there braces but no semicolons? And why can't I put the opening brace on the next line?</a>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

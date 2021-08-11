@@ -1,38 +1,30 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format" alt="Picture of cookie notices." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/V8rNgYUkkAWET3EkBL6H.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#best-practices-for-cookie-notices" class="w-toc__header--link">Best practices for cookie notices</a>
---------------------------------------------------------------------------------------------------------------
+## <a href="#best-practices-for-cookie-notices" class="w-toc__header--link">Best practices for cookie notices</a>
 
--   [Performance](#performance)
--   [Best practices](#best-practices)
--   [Performance measurement](#performance-measurement)
--   [Real User Monitoring (RUM)](#real-user-monitoring-(rum))
--   [Synthetic monitoring](#synthetic-monitoring)
--   [Testing cookie notices with WebPageTest](#testing-cookie-notices-with-webpagetest)
--   [Testing cookie notices with Lighthouse](#testing-cookie-notices-with-lighthouse)
--   [User experience](#user-experience)
--   [Placement](#placement)
--   [Configurability](#configurability)
+- [Performance](#performance)
+- [Best practices](#best-practices)
+- [Performance measurement](#performance-measurement)
+- [Real User Monitoring (RUM)](<#real-user-monitoring-(rum)>)
+- [Synthetic monitoring](#synthetic-monitoring)
+- [Testing cookie notices with WebPageTest](#testing-cookie-notices-with-webpagetest)
+- [Testing cookie notices with Lighthouse](#testing-cookie-notices-with-lighthouse)
+- [User experience](#user-experience)
+- [Placement](#placement)
+- [Configurability](#configurability)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Best practices for cookie notices
-=================================
+# Best practices for cookie notices
 
 Optimize cookie notices for performance and usability.
 
@@ -44,25 +36,24 @@ Mar 30, 2021
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 This article discusses how cookie notices can affect performance, performance measurement, and user experience.
 
-Performance <a href="#performance" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Performance <a href="#performance" class="w-headline-link">#</a>
 
 Cookie notices can have a significant impact on page performance due to the fact that they are typically loaded early in the page load process, are shown to all users, and can potentially influence the loading of ads and other page content.
 
 Here's how cookie notices can impact Web Vitals metrics:
 
--   **Largest Contentful Paint (LCP):** Most cookie consent notices are fairly small and therefore typically don't contain a page's LCP element. However, this can happen—particularly on mobile devices. On mobile devices, a cookie notice typically takes up a larger portion of the screen. This usually occurs when a cookie notice contains a large block of text (text blocks can be LCP elements too).
+- **Largest Contentful Paint (LCP):** Most cookie consent notices are fairly small and therefore typically don't contain a page's LCP element. However, this can happen—particularly on mobile devices. On mobile devices, a cookie notice typically takes up a larger portion of the screen. This usually occurs when a cookie notice contains a large block of text (text blocks can be LCP elements too).
 
--   **First Input Delay (FID):** Generally speaking, your cookie consent solution in and of itself should have a minimal impact on FID—cookie consent requires little JavaScript execution. However, the technologies that these cookies enable—namely advertising and tracking scripts—may have a significant impact on page interactivity. Delaying these scripts until cookie acceptance can serve as a technique to decrease First Input Delay (FID).
+- **First Input Delay (FID):** Generally speaking, your cookie consent solution in and of itself should have a minimal impact on FID—cookie consent requires little JavaScript execution. However, the technologies that these cookies enable—namely advertising and tracking scripts—may have a significant impact on page interactivity. Delaying these scripts until cookie acceptance can serve as a technique to decrease First Input Delay (FID).
 
--   **Cumulative Layout Shift (CLS):** Cookie consent notices are a very common source of layout shifts.
+- **Cumulative Layout Shift (CLS):** Cookie consent notices are a very common source of layout shifts.
 
 Generally speaking, you can expect a cookie notice from third-party providers to have a greater impact on performance than a cookie notice that you build yourself. This is not a problem unique to cookie notices—but rather the nature of third-party scripts in general.
 
@@ -108,19 +99,18 @@ Customizing the look and feel of a third-party cookie notice may incur additiona
 
 These are some of the most common layout shift issues associated with cookie notices:
 
--   **Top-of-screen cookie notices:** Top-of-screen cookie notices are a very common source of layout shift. If a cookie notice is inserted into the DOM after the surrounding page has already rendered, it will push the page elements below it further down the page. This type of layout shift can be eliminated by reserving space in the DOM for the consent notice. If this is not a feasible solution—for example, if the dimensions of your cookie notice vary by geography, consider using a sticky footer or modal to display the cookie notice. Because both of these alternative approaches display the cookie notice as an "overlay" on top of the rest of the page, the cookie notice should not cause content shifts when it loads.
--   **Animations**: Many cookie notices use animations—for example, "sliding in" a cookie notice is a common design pattern. Depending on how these effects are implemented, they can cause layout shifts. For more information, see [Debugging layout shifts](/debugging-layout-shifts/).
--   **Fonts**: Late-loading fonts can block render and or cause layout shifts. This phenomena is more apparent on slow connections.
+- **Top-of-screen cookie notices:** Top-of-screen cookie notices are a very common source of layout shift. If a cookie notice is inserted into the DOM after the surrounding page has already rendered, it will push the page elements below it further down the page. This type of layout shift can be eliminated by reserving space in the DOM for the consent notice. If this is not a feasible solution—for example, if the dimensions of your cookie notice vary by geography, consider using a sticky footer or modal to display the cookie notice. Because both of these alternative approaches display the cookie notice as an "overlay" on top of the rest of the page, the cookie notice should not cause content shifts when it loads.
+- **Animations**: Many cookie notices use animations—for example, "sliding in" a cookie notice is a common design pattern. Depending on how these effects are implemented, they can cause layout shifts. For more information, see [Debugging layout shifts](/debugging-layout-shifts/).
+- **Fonts**: Late-loading fonts can block render and or cause layout shifts. This phenomena is more apparent on slow connections.
 
 #### Advanced loading optimizations <a href="#advanced-loading-optimizations" class="w-headline-link">#</a>
 
 These techniques take more work to implement but can further optimize the loading of cookie notice scripts:
 
--   Caching and serving third-party cookie notice scripts from your own servers can improve the delivery speed of these resources.
--   Using [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) can allow you more control over the [fetching and caching of third-party scripts](https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests) such as cookie notice scripts.
+- Caching and serving third-party cookie notice scripts from your own servers can improve the delivery speed of these resources.
+- Using [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) can allow you more control over the [fetching and caching of third-party scripts](https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests) such as cookie notice scripts.
 
-Performance measurement <a href="#performance-measurement" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Performance measurement <a href="#performance-measurement" class="w-headline-link">#</a>
 
 Cookie notices can impact performance measurements. This section discusses some of these implications and techniques for mitigating them.
 
@@ -154,9 +144,9 @@ Add a script by going to the **Script** tab. The script below navigates to the U
 
 When using this script be aware that:
 
--   `combineSteps` tells WebPageTest to "combine" the results of the scripting steps that follow into a single set of traces and measurements. Running this script without `combineSteps` can also be useful—separate traces make it easy to see whether resources were loaded before or after cookie acceptance.
--   `%URL%` is a WebPageTest convention that refers to the URL that is being tested.
--   `clickAndWait` tells WebPageTest to click on the element indicated by `attribute=value` and wait for the subsequent browser activity to complete. It follows the format `clickAndWait attribute=Value`.
+- `combineSteps` tells WebPageTest to "combine" the results of the scripting steps that follow into a single set of traces and measurements. Running this script without `combineSteps` can also be useful—separate traces make it easy to see whether resources were loaded before or after cookie acceptance.
+- `%URL%` is a WebPageTest convention that refers to the URL that is being tested.
+- `clickAndWait` tells WebPageTest to click on the element indicated by `attribute=value` and wait for the subsequent browser activity to complete. It follows the format `clickAndWait attribute=Value`.
 
 If you've configured this script correctly, the screenshot taken by WebPageTest should not show a cookie notice (the cookie notice has been accepted).
 
@@ -196,8 +186,7 @@ For more information on setting custom request headers in Lighthouse CLI, see [R
 
 Running Lighthouse from PageSpeed Insights uses a fresh Chrome instance and does not set any cookies. PageSeed Insights cannot be configured to set particular cookies.
 
-User experience <a href="#user-experience" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## User experience <a href="#user-experience" class="w-headline-link">#</a>
 
 The user experience (UX) of different cookie consent notices is primarily the result of two decisions: the location of the cookie notice within the page and the extent to which the user can customize a site's use of cookies. This section discusses potential approaches to these two decisions.
 
@@ -205,10 +194,10 @@ The user experience (UX) of different cookie consent notices is primarily the re
 
 When considering potential designs for your cookie notice, here are some things to think about:
 
--   UX: Is this a good user experience? How will this particular design affect existing page elements and user flows?
--   Business: What is your site's cookie strategy? What are your goals for the cookie notice?
--   Legal: Does this comply with legal requirements?
--   Engineering: How much work would this be to implement and maintain? How difficult would it be to change?
+- UX: Is this a good user experience? How will this particular design affect existing page elements and user flows?
+- Business: What is your site's cookie strategy? What are your goals for the cookie notice?
+- Legal: Does this comply with legal requirements?
+- Engineering: How much work would this be to implement and maintain? How difficult would it be to change?
 
 ### Placement <a href="#placement" class="w-headline-link">#</a>
 
@@ -254,11 +243,11 @@ These cookie notices provide users with more fine-grained controls for configuri
 
 <img src="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format" alt="Diagram showing examples of chookie notices with full cookie configurability" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1600 1600w" width="800" height="467" />
 
--   **UX:** Controls for configuring cookie usage are most commonly displayed using a separate modal that is launched when the user responds to the initial cookie consent notice. However, if space permits, some sites will display these controls inline within the initial cookie consent notice.
+- **UX:** Controls for configuring cookie usage are most commonly displayed using a separate modal that is launched when the user responds to the initial cookie consent notice. However, if space permits, some sites will display these controls inline within the initial cookie consent notice.
 
--   **Granularity:** The most common approach to cookie configurability is to allow users to opt-in to cookies by cookie "category". Examples of common cookie categories include functional, targeting, and social media cookies.
+- **Granularity:** The most common approach to cookie configurability is to allow users to opt-in to cookies by cookie "category". Examples of common cookie categories include functional, targeting, and social media cookies.
 
-    However, some sites will go a step further and allow users to opt-in on a per-cookie basis. Alternatively, another way of providing users with more specific controls is to break down cookie categories like "advertising" into specific use cases—for example, allowing users to separately opt-in to "basic ads" and "personalized ads".
+  However, some sites will go a step further and allow users to opt-in on a per-cookie basis. Alternatively, another way of providing users with more specific controls is to break down cookie categories like "advertising" into specific use cases—for example, allowing users to separately opt-in to "basic ads" and "personalized ads".
 
 <img src="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format" alt="Diagram showing examples of cookie notices with full cookie configurability" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1600 1600w" width="800" height="372" />
 
@@ -268,35 +257,35 @@ These cookie notices provide users with more fine-grained controls for configuri
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

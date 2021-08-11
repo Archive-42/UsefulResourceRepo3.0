@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -20,8 +19,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Select explained
-====================
+# Go: Select explained
 
 The **select** statement waits for multiple send or receive operations simultaneously.
 
@@ -44,8 +41,8 @@ The **select** statement waits for multiple send or receive operations simultane
             fmt.Println("Received from ch2")
     }
 
--   The statement blocks as a whole until one of the operations becomes unblocked.
--   If several cases can proceed, a single one of them will be chosen at random.
+- The statement blocks as a whole until one of the operations becomes unblocked.
+- If several cases can proceed, a single one of them will be chosen at random.
 
 Send and receive operations on a `nil` channel block forever. This can be used to disable a channel in a select statement:
 
@@ -57,8 +54,7 @@ Send and receive operations on a `nil` channel block forever. This can be used t
             fmt.Println("Received from ch2")
     }
 
-Default case
-------------
+## Default case
 
 The `default` case is always able to proceed and runs if all other cases are blocked.
 
@@ -70,8 +66,7 @@ The `default` case is always able to proceed and runs if all other cases are blo
             fmt.Println("Nothing available on ch")
     }
 
-More examples
--------------
+## More examples
 
     // An infinite random binary sequence
     rand := make(chan int)
@@ -117,8 +112,7 @@ Next »
 
 Data races explained
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

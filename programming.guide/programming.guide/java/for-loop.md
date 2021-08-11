@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Loops in Java
--------------
+## Loops in Java
 
 1.  [while loop](while-loop.html)
 2.  for loop
@@ -13,17 +12,15 @@ Loops in Java
 6.  [continue](continue.html)
 7.  [Beware of accidental semicolons in while and for loops!](beware-of-accidental-semicolons-in-while-and-for-loops.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -33,8 +30,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -42,8 +38,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: for loop
-==============
+# Java: for loop
 
     // Traditional, print 0 to 9
     for (int i = 0; i < 10; i++) {
@@ -55,8 +50,7 @@ Java: for loop
         System.out.println(s);
     }
 
-Traditional `for` loops
------------------------
+## Traditional `for` loops
 
 The following code runs `instructions` repeatedly until `condition` becomes false:
 
@@ -64,10 +58,10 @@ The following code runs `instructions` repeatedly until `condition` becomes fals
         instructions
     }
 
--   `initialization` runs **before the first** iteration
--   `condition` is evaluated **before each** iteration
--   If it evaluates to true, `instructions` are executed
--   `step` runs **after each** iteration
+- `initialization` runs **before the first** iteration
+- `condition` is evaluated **before each** iteration
+- If it evaluates to true, `instructions` are executed
+- `step` runs **after each** iteration
 
 for (initialization; condition; step) { false true instructions }
 
@@ -112,8 +106,7 @@ If `condition` is left empty it defaults to true.
         System.out.println("Looping forever!");
     }
 
-For each loop ("Enhanced for loop")
------------------------------------
+## For each loop ("Enhanced for loop")
 
 The following code iterates over the elements in `iterable`:
 
@@ -123,8 +116,8 @@ The following code iterates over the elements in `iterable`:
 
 Where `iterable` can be
 
--   An array, such as a `String[]`, or
--   An implementation of [`Iterable`](https://docs.oracle.com/javase/8/docs/api/java/util/Iterable.html) such as an `ArrayList` or a `HashSet`.
+- An array, such as a `String[]`, or
+- An implementation of [`Iterable`](https://docs.oracle.com/javase/8/docs/api/java/util/Iterable.html) such as an `ArrayList` or a `HashSet`.
 
 ### Behind the scenes
 
@@ -155,8 +148,7 @@ Thanks to auto (un)boxing, you can for instance use an `int` to iterate over a l
         // ...
     }
 
-Optional Braces
----------------
+## Optional Braces
 
 For single statement bodies, the **braces are optional**, just as with `if` and `while` statements.
 
@@ -174,17 +166,15 @@ These two snippets are equivalent:
 
 The official style guide does however madate the use of braces for safety.
 
-Accidental semicolon
---------------------
+## Accidental semicolon
 
 There should **not** be a semicolon after the loop declaration:
 
     for (…); { … }
 
-See [*Beware of accidental semicolons in while and for loops!*](beware-of-accidental-semicolons-in-while-and-for-loops.html)
+See [_Beware of accidental semicolons in while and for loops!_](beware-of-accidental-semicolons-in-while-and-for-loops.html)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

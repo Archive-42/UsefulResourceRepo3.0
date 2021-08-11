@@ -1,36 +1,28 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format" alt="Five persons in a conference room photo." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/wbcUb7ooaR1nCeYnSiCV.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#control-camera-pan-tilt-and-zoom" class="w-toc__header--link">Control camera pan, tilt, and zoom</a>
---------------------------------------------------------------------------------------------------------------
+## <a href="#control-camera-pan-tilt-and-zoom" class="w-toc__header--link">Control camera pan, tilt, and zoom</a>
 
--   [Using the API](#use)
--   [Feature detection](#feature-detection)
--   [Request camera PTZ access](#request)
--   [Control camera PTZ](#control)
--   [Playground](#playground)
--   [Security Considerations](#security)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [Using the API](#use)
+- [Feature detection](#feature-detection)
+- [Request camera PTZ access](#request)
+- [Control camera PTZ](#control)
+- [Playground](#playground)
+- [Security Considerations](#security)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Control camera pan, tilt, and zoom
-==================================
+# Control camera pan, tilt, and zoom
 
 Pan, tilt, and zoom features on cameras are finally controllable on the web.
 
@@ -40,12 +32,11 @@ Oct 5, 2020 <span class="w-author__separator">•</span> Updated Mar 22, 2021
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 Room-scale video conferencing solutions deploy cameras with pan, tilt, and zoom (PTZ) capabilities so that software can point the camera at meeting participants. Starting in Chrome 87, the pan, tilt, and zoom features on cameras are available to websites using media track constraints in `MediaDevices.getUserMedia()` and `MediaStreamTrack.applyConstraints()`.
 
-Using the API <a href="#use" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Using the API <a href="#use" class="w-headline-link">#</a>
 
 ### Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
 
@@ -111,9 +102,9 @@ Controlling Camera PTZ.
 
 Call `videoTrack.applyConstraints()` with the appropriate [PTZ advanced constraints](https://bugs.chromium.org/p/chromium/issues/detail?id=1126045) to control camera pan, tilt, and zoom as shown in the example below. The returned promise will resolve if successful. Otherwise it will reject if either:
 
--   the camera with PTZ permission is not granted.
--   the camera hardware does not support the PTZ constraint.
--   the page is not visible to the user. Use the [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) to detect page visibility changes.
+- the camera with PTZ permission is not granted.
+- the camera hardware does not support the PTZ constraint.
+- the page is not visible to the user. Use the [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) to detect page visibility changes.
 
 <!-- -->
 
@@ -150,29 +141,25 @@ It is also possible to configure camera pan, tilt, and zoom by calling `navigato
       video: { pan: 0, deviceId: { exact: "myCameraDeviceId" } }
     });
 
-Playground <a href="#playground" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Playground <a href="#playground" class="w-headline-link">#</a>
 
 You can play with the API by running the [demo](https://ptz.glitch.me/) on Glitch. Be sure to [check out the source code](https://glitch.com/edit/#!/ptz?path=public%2Fscript.js).
 
 Tip: If you don't have a camera that supports PTZ, you can [run Chrome with the switch](https://www.chromium.org/developers/how-tos/run-chromium-with-flags) `--use-fake-device-for-media-stream` to simulate one on your machine. Enjoy!
 
-Security Considerations <a href="#security" class="w-headline-link">#</a>
--------------------------------------------------------------------------
+## Security Considerations <a href="#security" class="w-headline-link">#</a>
 
 The spec authors have designed and implemented this API using the core including user control, transparency, and ergonomics. The ability to use this API is primarily gated by the same permission model as the [Media Capture and Streams API](https://w3c.github.io/mediacapture-main). In response to a user prompt, the website is allowed to control camera PTZ only when the page is visible to the user.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [PTZ Explainer](https://github.com/w3c/mediacapture-image/blob/master/ptz-explainer.md)
--   [Specification draft](https://w3c.github.io/mediacapture-image/)
--   [GitHub repository](https://github.com/w3c/mediacapture-image)
--   [ChromeStatus entry](https://www.chromestatus.com/feature/5570717087170560)
--   [Chrome tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=934063)
+- [PTZ Explainer](https://github.com/w3c/mediacapture-image/blob/master/ptz-explainer.md)
+- [Specification draft](https://w3c.github.io/mediacapture-image/)
+- [GitHub repository](https://github.com/w3c/mediacapture-image)
+- [ChromeStatus entry](https://www.chromestatus.com/feature/5570717087170560)
+- [Chrome tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=934063)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [Joe Medley](https://github.com/jpmedley) and [Thomas Steiner](https://github.com/tomayac). Thanks to [Rijubrata Bhaumik](https://github.com/riju) and [Eero Häkkinen](https://github.com/eehakkin) at Intel for their work on the spec and the implementation. Hero image by [Christina @ wocintechchat.com](https://unsplash.com/@wocintechchat) on [Unsplash](https://unsplash.com/photos/lqPLmYD_MO8).
 
@@ -182,35 +169,35 @@ This article was reviewed by [Joe Medley](https://github.com/jpmedley) and [Thom
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

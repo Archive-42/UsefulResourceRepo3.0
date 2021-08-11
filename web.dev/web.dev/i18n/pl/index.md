@@ -1,17 +1,6 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-Let's build the future of the web
-=================================
+# Let's build the future of the web
 
 Get the web's modern capabilities on your own sites and apps with useful guidance and analysis from web.dev.
 
@@ -19,102 +8,93 @@ Get the web's modern capabilities on your own sites and apps with useful guidanc
 
 <a href="/about" class="gc-analytics-event w-button"></a>
 
-Latest stories
---------------
+## Latest stories
 
 See our latest news, updates, and stories for developers.
 
 <a href="/blog" class="w-button">See all articles</a>
 
-Explore topics
---------------
+## Explore topics
 
 Learn more about a topic, and practice your skills with a hands-on codelab.
 
 <a href="/learn-web-vitals" class="w-card"></a>
 
--   Collection
--   1 resource
--   Updated
+- Collection
+- 1 resource
+- Updated
 
 <img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dYAbN2LdttJ1qYk1gssh.svg" class="w-path-card__cover-image" style="width:100.0%" height="240" />
 
-Web Vitals
-----------
+## Web Vitals
 
 Essential metrics for a healthy site.
 
 <a href="/progressive-web-apps" class="w-card"></a>
 
--   Collection
--   0 resource
--   Updated
+- Collection
+- 0 resource
+- Updated
 
 <img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/LvIq0sbMK73ycjb2yomw.svg" class="w-path-card__cover-image" style="width:100.0%" height="240" />
 
-Progressive Web Apps
---------------------
+## Progressive Web Apps
 
 Websites that took all the right vitamins.
 
 <a href="/accessible" class="w-card"></a>
 
--   Collection
--   0 resource
--   Updated
+- Collection
+- 0 resource
+- Updated
 
 <img src="https://web-dev.imgix.net/image/jxu1OdD7LKOGIDU7jURMpSH2lyK2/kIvqNJ7Z62umTO31nYhk.svg" class="w-path-card__cover-image" style="width:100.0%" height="240" />
 
-Accessible to all
------------------
+## Accessible to all
 
 Build a site that works for all of your users.
 
 <a href="/fast" class="w-card"></a>
 
--   Collection
--   0 resource
--   Updated
+- Collection
+- 0 resource
+- Updated
 
 <img src="https://web-dev.imgix.net/image/jxu1OdD7LKOGIDU7jURMpSH2lyK2/fjFJRFnHXiem8yF0GGQ9.svg" class="w-path-card__cover-image" style="width:100.0%" height="240" />
 
-Fast load times
----------------
+## Fast load times
 
 Techniques for improving site performance.
 
 <a href="/reliable" class="w-card"></a>
 
--   Collection
--   0 resource
--   Updated
+- Collection
+- 0 resource
+- Updated
 
 <img src="https://web-dev.imgix.net/image/jxu1OdD7LKOGIDU7jURMpSH2lyK2/9K5gvnLRtD0yyiJM2r0c.svg" class="w-path-card__cover-image" style="width:100.0%" height="240" />
 
-Network reliability
--------------------
+## Network reliability
 
 See consistent, reliable performance regardless of network quality.
 
 <a href="/secure" class="w-card"></a>
 
--   Collection
--   0 resource
--   Updated
+- Collection
+- 0 resource
+- Updated
 
 <img src="https://web-dev.imgix.net/image/jxu1OdD7LKOGIDU7jURMpSH2lyK2/gVpSImYQruckFe6Srvxv.svg" class="w-path-card__cover-image" style="width:100.0%" height="240" />
 
-Safe and secure
----------------
+## Safe and secure
 
 Ensure your site and your users' data is secure.
 
 <a href="/learn" class="gc-analytics-event w-button">See all topics</a>
 
-------------------------------------------------------------------------
+---
 
-Developer Newsletter
-====================
+# Developer Newsletter
 
 Get the latest news, techniques and updates straight to your inbox.
 
@@ -138,35 +118,35 @@ subscribe
 
 It seems like you have JavaScript disabled or it failed to load. After you submit the form, press the back button to return to the site.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

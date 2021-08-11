@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Exceptions
----------------
+## Java Exceptions
 
 1.  [Throw, Try and Catch](exceptions-throw-try-catch.html)
 2.  [Java Exception Types](exception-types.html)
@@ -20,8 +19,7 @@ Java Exceptions
 13. [throw vs throws vs Throwable](throw-vs-throws-vs-throwable.html)
 14. [List of Java Exceptions](list-of-java-exceptions.html)
 
-Exception Related Keywords
---------------------------
+## Exception Related Keywords
 
 1.  [throw](throw.html)
 2.  [throws](throws.html)
@@ -29,17 +27,15 @@ Exception Related Keywords
 4.  [try](try.html)
 5.  [finally](finally.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -49,8 +45,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -58,10 +53,9 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Chained Exceptions
-========================
+# Java: Chained Exceptions
 
-Here's an example of exception *chaining* or *wrapping*:
+Here's an example of exception _chaining_ or _wrapping_:
 
     public Person getPerson(long id) {
         try {
@@ -78,8 +72,7 @@ The `InternalServerErrorException` "wrapps" the `SQLException`.
 
 This makes sure that the service level API doesn't throw database level exceptions. In other words, the exceptions thrown are on the right **level of abstraction** which makes the API easier to work with.
 
-Stack Traces
-------------
+## Stack Traces
 
 Causes are shown in stack traces. A stack trace of chained exceptions looks like follows:
 
@@ -95,10 +88,9 @@ Causes are shown in stack traces. A stack trace of chained exceptions looks like
             at example.Service.serviceMethod(Service.java:6)
             ... 2 more
 
-Chained exceptions should not be confused with [*suppressed exceptions*](suppressed-exceptions.html).
+Chained exceptions should not be confused with [_suppressed exceptions_](suppressed-exceptions.html).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

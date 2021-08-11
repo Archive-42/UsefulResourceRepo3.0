@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -12,22 +10,20 @@
 
 <img src="https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format" alt="Picture of a compass." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/YekhsmFaDpnxwhG14CQv.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#handling-navigation-requests" class="w-toc__header--link">Handling navigation requests</a>
-----------------------------------------------------------------------------------------------------
+## <a href="#handling-navigation-requests" class="w-toc__header--link">Handling navigation requests</a>
 
--   [Different approaches for architectures](#different-approaches-for-architectures)
--   [Small static sites](#small-static-sites)
--   [Single-page apps](#single-page-apps)
--   [Multi-page apps](#multi-page-apps)
--   [Everything else](#everything-else)
+- [Different approaches for architectures](#different-approaches-for-architectures)
+- [Small static sites](#small-static-sites)
+- [Single-page apps](#single-page-apps)
+- [Multi-page apps](#multi-page-apps)
+- [Everything else](#everything-else)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Handling navigation requests
-============================
+# Handling navigation requests
 
 Respond to navigation requests without waiting on the network by using  
 a service worker.
@@ -40,10 +36,10 @@ Jul 13, 2020
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
 Navigation requests are requests for HTML documents made by your browser whenever you enter a new URL in the navigation bar, or follow a link on a page taking you to a new URL. This is where service workers make their biggest impact on performance: if you use a service worker to respond to navigation requests without waiting for the network, you can ensure that navigations are reliably fast, in addition to being resilient when the network is unavailable. This is the single biggest performance win that comes from a service worker, versus what's possible with [HTTP caching](/http-cache/).
 
@@ -51,14 +47,13 @@ As detailed in the [Identify resources loaded from the network](/identify-resour
 
 Inside of a service worker's `fetch` event handler, you can determine whether a request is a navigation by checking the `request.mode` property on the `FetchEvent`. If it's set to `'navigate'`, then it's a navigation request.
 
-As a general rule, do not use long-lived `Cache-Control headers` to cache the HTML response for a navigation request. They should normally be satisfied via the network, with `Cache-Control: no-cache`, to ensure that the HTML, along with the chain of subsequent network requests, is (reasonably) fresh. Going against the network each time the user navigates to a new page unfortunately means that each navigation *might* be slow. At the very least, it means that it won't be *reliably* fast.
+As a general rule, do not use long-lived `Cache-Control headers` to cache the HTML response for a navigation request. They should normally be satisfied via the network, with `Cache-Control: no-cache`, to ensure that the HTML, along with the chain of subsequent network requests, is (reasonably) fresh. Going against the network each time the user navigates to a new page unfortunately means that each navigation _might_ be slow. At the very least, it means that it won't be _reliably_ fast.
 
 `Cache-Control: no-cache` means the browser must check (or "revalidate") with the server before using a previously cached resource. This requires a round-trip network communication to complete before the resource can be used.
 
-Different approaches for architectures <a href="#different-approaches-for-architectures" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------
+## Different approaches for architectures <a href="#different-approaches-for-architectures" class="w-headline-link">#</a>
 
-Figuring out *how* to respond to navigation requests while avoiding the network can be tricky. The right approach depends very much on your web site's architecture and the number of unique URLs that users might navigate to.
+Figuring out _how_ to respond to navigation requests while avoiding the network can be tricky. The right approach depends very much on your web site's architecture and the number of unique URLs that users might navigate to.
 
 While there's no one-size-fits all solution, the following general guidelines should help you decide which approach is the most viable.
 
@@ -92,7 +87,7 @@ If you can't respond to navigation requests with cached HTML, you must take step
 
 Workbox [provides a helper library](https://developers.google.com/web/tools/workbox/modules/workbox-navigation-preload) that feature-detects whether navigation preload is supported, and if so, simplifies the process of telling your service worker to use the network response.
 
-*Photo by [Aaron Burden](https://unsplash.com/@aaronburden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/navigate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText),*
+_Photo by [Aaron Burden](https://unsplash.com/@aaronburden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/navigate?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText),_
 
 <a href="/tags/network/" class="w-chip">Network</a> <a href="/tags/service-worker/" class="w-chip">Service Worker</a> <a href="/tags/offline/" class="w-chip">Offline</a>
 
@@ -100,35 +95,35 @@ Workbox [provides a helper library](https://developers.google.com/web/tools/work
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,35 +1,27 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/TQ4U8BZanGFSfJI973xn.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#using-the-chrome-ux-report-api" class="w-toc__header--link">Using the Chrome UX Report API</a>
---------------------------------------------------------------------------------------------------------
+## <a href="#using-the-chrome-ux-report-api" class="w-toc__header--link">Using the Chrome UX Report API</a>
 
--   [Querying origin data](#querying-origin-data)
--   [Errors](#errors)
--   [Querying URL data](#querying-url-data)
--   [URL normalization](#url-normalization)
--   [Querying by form factor](#querying-by-form-factor)
--   [Assessing Core Web Vitals performance](#assessing-core-web-vitals-performance)
--   [What's next?](#what's-next)
+- [Querying origin data](#querying-origin-data)
+- [Errors](#errors)
+- [Querying URL data](#querying-url-data)
+- [URL normalization](#url-normalization)
+- [Querying by form factor](#querying-by-form-factor)
+- [Assessing Core Web Vitals performance](#assessing-core-web-vitals-performance)
+- [What's next?](#what's-next)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Using the Chrome UX Report API
-==============================
+# Using the Chrome UX Report API
 
 Learn how to use the Chrome UX Report API to get easy, RESTful access to real-user experience data across millions of websites.
 
@@ -41,26 +33,25 @@ Jun 25, 2020
 
 <a href="/authors/rviscomi/" class="w-author__name-link">Rick Viscomi</a>
 
--   <a href="https://twitter.com/rick_viscomi" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rviscomi" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/rick_viscomi" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rviscomi" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/yPytekIqH5VnoqMx3jj2.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Shane Exterkamp" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/yPytekIqH5VnoqMx3jj2.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/yPytekIqH5VnoqMx3jj2.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/yPytekIqH5VnoqMx3jj2.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/yPytekIqH5VnoqMx3jj2.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/yPytekIqH5VnoqMx3jj2.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/exterkamp/)
 
 <a href="/authors/exterkamp/" class="w-author__name-link">Shane Exterkamp</a>
 
--   <a href="https://twitter.com/shane_exterkamp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/exterkamp" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/shane_exterkamp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/exterkamp" class="w-author__link">GitHub</a>
 
 The [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report) (CrUX) dataset represents how real-world Chrome users experience popular destinations on the web. Since 2017, when the queryable dataset was first released on [BigQuery](/chrome-ux-report-bigquery/), field data from CrUX has been integrated into developer tools like [PageSpeed Insights](/chrome-ux-report-pagespeed-insights/), the [CrUX Dashboard](/chrome-ux-report-data-studio-dashboard/), and Search Console's [Core Web Vitals report](https://support.google.com/webmasters/answer/9205520), enabling developers to easily measure and monitor real-user experiences. The piece that has been missing all this time has been a tool that provides free and RESTful access to CrUX data programmatically. To help bridge that gap, we're excited to announce the release of the all new [Chrome UX Report API](https://developers.google.com/web/tools/chrome-user-experience-report/api/reference)!
 
-This API has been built with the goal of providing developers with simple, fast, and comprehensive access to CrUX data. The CrUX API only reports [*field*](/how-to-measure-speed/#lab-data-vs-field-data) user experience data, unlike the existing [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started), which also reports *lab* data from the Lighthouse performance audits. The CrUX API is streamlined and can quickly serve user experience data, making it ideally suited for real-time auditing applications.
+This API has been built with the goal of providing developers with simple, fast, and comprehensive access to CrUX data. The CrUX API only reports [_field_](/how-to-measure-speed/#lab-data-vs-field-data) user experience data, unlike the existing [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started), which also reports _lab_ data from the Lighthouse performance audits. The CrUX API is streamlined and can quickly serve user experience data, making it ideally suited for real-time auditing applications.
 
 To ensure that developers have access to all of the metrics that matter the most—the [Core Web Vitals](/vitals/#core-web-vitals)—the CrUX API audits and monitors [Largest Contentful Paint](/lcp/) (LCP), [First Input Delay](/fid/) (FID), and [Cumulative Layout Shift](/cls/) (CLS) at both the origin and URL level.
 
 So let's dive in and see how to use it!
 
-Querying origin data <a href="#querying-origin-data" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Querying origin data <a href="#querying-origin-data" class="w-headline-link">#</a>
 
 Origins in the CrUX dataset encompass all underlying page-level experiences. The example below demonstrates how to query the CrUX API for an origin's user experience data using cURL on the command line.
 
@@ -172,10 +163,9 @@ Success
 
 This origin is publicly navigable.
 
-If the requested origin *is* the navigable version, this error may also occur if the origin has an insufficient number of samples. All origins and URLs included in the dataset must have a sufficient number of samples to anonymize individual users. Additionally, origins and URLs must be [publicly crawlable](https://developers.google.com/search/reference/robots_txt). Refer to the [CrUX methodology](https://developers.google.com/web/tools/chrome-user-experience-report#methodology) to learn more about how websites are included in the dataset.
+If the requested origin _is_ the navigable version, this error may also occur if the origin has an insufficient number of samples. All origins and URLs included in the dataset must have a sufficient number of samples to anonymize individual users. Additionally, origins and URLs must be [publicly crawlable](https://developers.google.com/search/reference/robots_txt). Refer to the [CrUX methodology](https://developers.google.com/web/tools/chrome-user-experience-report#methodology) to learn more about how websites are included in the dataset.
 
-Querying URL data <a href="#querying-url-data" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Querying URL data <a href="#querying-url-data" class="w-headline-link">#</a>
 
 You've seen how to query the CrUX API for the overall user experience on an origin. To restrict the results to a particular page, use the `url` request parameter.
 
@@ -251,8 +241,7 @@ The CrUX API may normalize requested URLs to better match the list of known URLs
 
 Learn more about [URL normalization](https://developers.google.com/web/tools/chrome-user-experience-report/api/reference/rest/v1/records/queryRecord#urlnormalization) in the CrUX documentation.
 
-Querying by form factor <a href="#querying-by-form-factor" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Querying by form factor <a href="#querying-by-form-factor" class="w-headline-link">#</a>
 
 **Key Term**: A form factor is the type of device on which a user visits a website. Common device types include desktop, phone, and tablet.
 
@@ -317,8 +306,7 @@ The `key` field of the response will echo back the `formFactor` request configur
 
 Recall from the previous section that 85% of user experiences on this page had "good" LCP. Compare that to phone-specific experiences, of which only 78% are considered "good". The 75th percentile is also slower among phone experiences, up from 1,947 milliseconds to 2,366 milliseconds. Segmenting by form factor has the potential to highlight more extreme disparities in user experiences.
 
-Assessing Core Web Vitals performance <a href="#assessing-core-web-vitals-performance" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------
+## Assessing Core Web Vitals performance <a href="#assessing-core-web-vitals-performance" class="w-headline-link">#</a>
 
 The [Core Web Vitals](/vitals/#core-web-vitals) program defines targets that help determine whether a user experience or a distribution of experiences can be considered "good". In the following example, we use the CrUX API and the [`CrUXApiUtil.query`](#crux-api-util) function to assess whether a web page's distribution of Core Web Vitals metrics (LCP, FID, CLS) are "good".
 
@@ -366,24 +354,23 @@ The results show that this page passes the Core Web Vitals assessments for all t
 
 Combined with an automated way to monitor API results, data from CrUX can be used to ensure that real-user experiences **get fast** and **stay fast**. For more information about Core Web Vitals and how to measure them, check out [Web Vitals](/vitals) and [Tools to measure Core Web Vitals](/vitals-tools).
 
-What's next? <a href="#what&#39;s-next" class="w-headline-link">#</a>
----------------------------------------------------------------------
+## What's next? <a href="#what&#39;s-next" class="w-headline-link">#</a>
 
 The features included in the initial version of the CrUX API only scratch the surface of the kinds of insights that are possible with CrUX. Users of the [CrUX dataset on BigQuery](/chrome-ux-report-bigquery/) may be familiar with some of the more advanced features including:
 
--   Additional metrics
-    -   `first_paint`
-    -   `dom_content_loaded`
-    -   `onload`
-    -   `time_to_first_byte`
-    -   `notification_permissions`
--   Additional dimensions
-    -   month
-    -   country
-    -   effective connection type (ECT)
--   Additional granularity
-    -   detailed histograms
-    -   more percentiles
+- Additional metrics
+  - `first_paint`
+  - `dom_content_loaded`
+  - `onload`
+  - `time_to_first_byte`
+  - `notification_permissions`
+- Additional dimensions
+  - month
+  - country
+  - effective connection type (ECT)
+- Additional granularity
+  - detailed histograms
+  - more percentiles
 
 Over time, we hope to integrate more of these features with the CrUX API's ease of use and free pricing to enable new ways of exploring the data and discovering insights about the state of user experiences on the web.
 
@@ -395,35 +382,35 @@ Check out the official [CrUX API docs](https://developers.google.com/web/tools/c
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

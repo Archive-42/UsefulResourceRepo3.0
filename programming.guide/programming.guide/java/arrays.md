@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Arrays
------------
+## Java Arrays
 
 1.  Java Arrays (with examples)
 2.  [Maximum length of array](array-maximum-length.html)
@@ -15,17 +14,15 @@ Java Arrays
 8.  [Inserting an element in an array at a given index](array-insert-at-index.html)
 9.  [Testing array equality](testing-array-equality.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -35,8 +32,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +40,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java Arrays (with examples)
-===========================
+# Java Arrays (with examples)
 
     int[] arr = new int[5];
 
@@ -54,17 +49,16 @@ Java Arrays (with examples)
 
     // arr == [ 5, 0, 0, 2, 0 ]
 
--   Arrays have **fixed length**. Once created, they can not be resized.
--   In an array of length 10, the first index is 0 and the last is 9.
--   Arrays are **objects**
-    -   They are dynamically allocated
-    -   They live on the heap
-    -   Array variables are of reference type
+- Arrays have **fixed length**. Once created, they can not be resized.
+- In an array of length 10, the first index is 0 and the last is 9.
+- Arrays are **objects**
+  - They are dynamically allocated
+  - They live on the heap
+  - Array variables are of reference type
 
 Arrays are to be considered a low level language feature. In 99 cases out of 100 you'll want to use a [`List`](https://docs.oracle.com/javase/8/docs/api/java/util/List.html). See [Java: Array vs ArrayList](array-vs-arraylist.html).
 
-Three ways to create an array
------------------------------
+## Three ways to create an array
 
     // Short form
     // (can only be used as initializer in a declaration)
@@ -82,22 +76,19 @@ Three ways to create an array
 
 This format is rarely used and discouraged by most style guides.
 
-Accessing Elements
-------------------
+## Accessing Elements
 
-Since indexes start at 0, you write for example `arr[2]` to access the **third** element of `arr`. In an array with *n* elements, the last valid index is *n* − 1.
+Since indexes start at 0, you write for example `arr[2]` to access the **third** element of `arr`. In an array with _n_ elements, the last valid index is *n* − 1.
 
 If you try to access an element at a **negative index** or an index **greater than or equal to the length** of the array, an [`ArrayIndexOutOfBoundsException`](https://docs.oracle.com/javase/8/docs/api/java/lang/ArrayIndexOutOfBoundsException.html) will be thrown.
 
-Length
-------
+## Length
 
 To get the length of an array, `arr`, use `arr.length`.
 
 The length is represented by an `int` which means the maximum length is 2<sup>31</sup> − 1 ([`Integer.MAX_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#MAX_VALUE)).
 
-Iterating
----------
+## Iterating
 
 Arrays can be used in enhanced for loops:
 
@@ -113,8 +104,7 @@ If you need to keep track of the index, use a traditional `for` loop:
 
 For more details on loops, see: [Java Trail: Loops](loops.html)
 
-Printing
---------
+## Printing
 
 `System.out.println(arr)` prints something like `[I@3af49f1c`. Here's a better way:
 
@@ -123,8 +113,7 @@ Printing
 
     // Output: [1, 2, 77]
 
-Primitives vs objects (references)
-----------------------------------
+## Primitives vs objects (references)
 
 Arrays are layed out linearly in memory. In other words, an `int[]` looks like this:
 
@@ -136,8 +125,7 @@ Person\[\]: name: John age: 19 name: Bob age: 55 name: Amy age: 25 name: Eve age
 
 The references are stored linearly, but the actual objects are spread out in memory.
 
-Multidimensional arrays
------------------------
+## Multidimensional arrays
 
 Java does not have "true" multidimensional arrays. Instead you typically use arrays of arrays:
 
@@ -147,8 +135,7 @@ Java does not have "true" multidimensional arrays. Instead you typically use arr
 
 For more details see: [Java: Matrices and Multidimensional Arrays](matrices-and-multidimensional-arrays.html)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

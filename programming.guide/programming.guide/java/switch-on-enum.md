@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-See also
---------
+## See also
 
 [Switch Statement](switch-statement.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,19 +13,15 @@ See also
 [Enum Types](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Java™ Tutorials</span>
 
-  
+## Featured Stack Overflow Post
 
-Featured Stack Overflow Post
-----------------------------
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -36,8 +31,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -45,8 +39,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Switch on enum (with examples)
-==============================
+# Switch on enum (with examples)
 
 Java has support for switching on enum values.
 
@@ -93,8 +86,7 @@ Java has support for switching on enum values.
 
 You must **not** fully qualify the constants. This will **not** compile: `case Month.FEB: …`
 
-Arrow Syntax
-------------
+## Arrow Syntax
 
 With Java 14+ the above switch statement can be written as:
 
@@ -119,8 +111,7 @@ Or using a switch expression:
 
 See [Switch Statement](switch-statement.html) and [Switch Expression](switch-expression.html) for more examples.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

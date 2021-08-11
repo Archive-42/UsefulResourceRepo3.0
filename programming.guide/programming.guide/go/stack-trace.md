@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Stack Traces in Go](https://www.goinggo.net/2015/01/stack-traces-in-go.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Going Go Programming</span>
 
-Error handling
---------------
+## Error handling
 
 1.  [Errors explained](errors-explained.html)
 2.  [Create a custom error](create-error.html)
@@ -17,8 +15,7 @@ Error handling
 4.  [Recover from a panic](recover-from-panic.html)
 5.  Stack traces
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +27,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,15 +37,13 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Stack traces
-================
+# Go: Stack traces
 
 A stack trace is the list of functions that the program was in the middle of when the stack trace was printed.
 
 Stack traces are typically printed to the console when unexpected error occurs. They can be very useful for debugging: - not only do you see where the error happened, - but also how the program arrived in this place.
 
-Example
--------
+## Example
 
     goroutine 11 [running]:
     testing.tRunner.func1(0xc420092690)
@@ -67,30 +61,28 @@ Example
 
 The stack trace can be read from the bottom up:
 
--   `testing.(*T).Run` has called `testing.tRunner`
--   ...which has called `bit.TestMax`
--   ...which has called `bit.(*Set).Max`
--   ...which has called `panic`
--   ...which has called `testing.tRunner.func1`
+- `testing.(*T).Run` has called `testing.tRunner`
+- ...which has called `bit.TestMax`
+- ...which has called `bit.(*Set).Max`
+- ...which has called `panic`
+- ...which has called `testing.tRunner.func1`
 
 The indented lines show the source file and line number at which the function was called. The hexadecimal numbers refer to parameter values, including values of pointers and internal data structures. [Stack Traces in Go](https://www.goinggo.net/2015/01/stack-traces-in-go.html) has more details.
 
-Print a stack trace
--------------------
+## Print a stack trace
 
 To print the stack trace for the current goroutine, use [`debug.PrintStack`](https://golang.org/pkg/runtime/debug/#PrintStack) from package [`runtime/debug`](https://golang.org/pkg/runtime/debug/).
 
 You can also examine the current stack trace programatically by calling [`runtime.Stack`](https://golang.org/pkg/runtime/#Stack).
 
-Level of detail
----------------
+## Level of detail
 
 The [`GOTRACEBACK`](https://golang.org/pkg/runtime/#hdr-Environment_Variables) variable controls the amount of output generated when a Go program fails.
 
--   `GOTRACEBACK=none` omits the goroutine stack traces entirely.
--   `GOTRACEBACK=single` (the default) prints a stack trace for the current goroutine, eliding functions internal to the run-time system. The failure prints stack traces for all goroutines if there is no current goroutine or the failure is internal to the run-time.
--   `GOTRACEBACK=all` adds stack traces for all user-created goroutines.
--   `GOTRACEBACK=system` is like `all` but adds stack frames for run-time functions and shows goroutines created internally by the run-time.
+- `GOTRACEBACK=none` omits the goroutine stack traces entirely.
+- `GOTRACEBACK=single` (the default) prints a stack trace for the current goroutine, eliding functions internal to the run-time system. The failure prints stack traces for all goroutines if there is no current goroutine or the failure is internal to the run-time.
+- `GOTRACEBACK=all` adds stack traces for all user-created goroutines.
+- `GOTRACEBACK=system` is like `all` but adds stack frames for run-time functions and shows goroutines created internally by the run-time.
 
 <a href="recover-from-panic.html" class="prev"></a>
 
@@ -106,8 +98,7 @@ Error handling
 
 5 of 5
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

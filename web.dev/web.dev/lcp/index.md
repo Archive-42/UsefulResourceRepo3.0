@@ -1,38 +1,26 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
 <span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#largest-contentful-paint-(lcp)" class="w-toc__header--link">Largest Contentful Paint (LCP)</a>
---------------------------------------------------------------------------------------------------------
-
--   [What is LCP?](#what-is-lcp)
--   [What is a good LCP score?](#what-is-a-good-lcp-score)
--   [What elements are considered?](#what-elements-are-considered)
--   [How is an element's size determined?](#how-is-an-element's-size-determined)
--   [When is largest contentful paint reported?](#when-is-largest-contentful-paint-reported)
--   [How are element layout and size changes handled?](#how-are-element-layout-and-size-changes-handled)
--   [Examples](#examples)
--   [How to measure LCP](#how-to-measure-lcp)
--   [Field tools](#field-tools)
--   [Lab tools](#lab-tools)
--   [Measure LCP in JavaScript](#measure-lcp-in-javascript)
--   [What if the largest element isn't the most important?](#what-if-the-largest-element-isn't-the-most-important)
--   [How to improve LCP](#how-to-improve-lcp)
--   [Additional resources](#additional-resources)
--   [CHANGELOG](#changelog)
+- [What is a good LCP score?](#what-is-a-good-lcp-score)
+- [What elements are considered?](#what-elements-are-considered)
+- [How is an element's size determined?](#how-is-an-element's-size-determined)
+- [When is largest contentful paint reported?](#when-is-largest-contentful-paint-reported)
+- [How are element layout and size changes handled?](#how-are-element-layout-and-size-changes-handled)
+- [Examples](#examples)
+- [How to measure LCP](#how-to-measure-lcp)
+- [Field tools](#field-tools)
+- [Lab tools](#lab-tools)
+- [Measure LCP in JavaScript](#measure-lcp-in-javascript)
+- [What if the largest element isn't the most important?](#what-if-the-largest-element-isn't-the-most-important)
+- [How to improve LCP](#how-to-improve-lcp)
+- [Additional resources](#additional-resources)
+- [CHANGELOG](#changelog)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Largest Contentful Paint (LCP)
-==============================
+# Largest Contentful Paint (LCP)
 
 Aug 8, 2019 <span class="w-author__separator">•</span> Updated Jun 17, 2020
 
@@ -42,9 +30,9 @@ Aug 8, 2019 <span class="w-author__separator">•</span> Updated Jun 17, 2020
 
 <a href="/authors/philipwalton/" class="w-author__name-link">Philip Walton</a>
 
--   <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
--   <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
--   <a href="https://philipwalton.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
+- <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
+- <a href="https://philipwalton.com" class="w-author__link">Blog</a>
 
 Largest Contentful Paint (LCP) is an important, user-centric metric for measuring [perceived load speed](/user-centric-performance-metrics/#types-of-metrics) because it marks the point in the page load timeline when the page's main content has likely loaded—a fast LCP helps reassure the user that the page is [useful](/user-centric-performance-metrics/#questions).
 
@@ -56,8 +44,7 @@ In the past we've recommended performance metrics like [First Meaningful Paint (
 
 Sometimes simpler is better. Based on discussions in the [W3C Web Performance Working Group](https://www.w3.org/webperf/) and research done at Google, we've found that a more accurate way to measure when the main content of a page is loaded is to look at when the largest element was rendered.
 
-What is LCP? <a href="#what-is-lcp" class="w-headline-link">#</a>
------------------------------------------------------------------
+## What is LCP? <a href="#what-is-lcp" class="w-headline-link">#</a>
 
 The Largest Contentful Paint (LCP) metric reports the render time of the largest [image or text block](#what-elements-are-considered) visible within the viewport, relative to when the page [first started loading](https://w3c.github.io/hr-time/#timeorigin-attribute).
 
@@ -73,11 +60,11 @@ To learn more about the research and methodology behind this recommendation, see
 
 As currently specified in the [Largest Contentful Paint API](https://wicg.github.io/largest-contentful-paint/), the types of elements considered for Largest Contentful Paint are:
 
--   `<img>` elements
--   `<image>` elements inside an `<svg>` element
--   `<video>` elements (the poster image is used)
--   An element with a background image loaded via the [`url()`](https://developer.mozilla.org/en-US/docs/Web/CSS/url()) function (as opposed to a [CSS gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients))
--   [Block-level](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) elements containing text nodes or other inline-level text elements children.
+- `<img>` elements
+- `<image>` elements inside an `<svg>` element
+- `<video>` elements (the poster image is used)
+- An element with a background image loaded via the [`url()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/url()>) function (as opposed to a [CSS gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients))
+- [Block-level](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) elements containing text nodes or other inline-level text elements children.
 
 Note, restricting the elements to this limited set was intentional in order to keep things simple in the beginning. Additional elements (e.g. `<svg>`, `<video>`) may be added in the future as more research is conducted.
 
@@ -143,23 +130,22 @@ In the first example, the Instagram logo is loaded relatively early and it remai
 
 In the first frame of the Instagram timeline, you may notice the camera logo does not have a green box around it. That's because it's an `<svg>` element, and `<svg>` elements are not currently considered LCP candidates. The first LCP candidate is the text in the second frame.
 
-How to measure LCP <a href="#how-to-measure-lcp" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## How to measure LCP <a href="#how-to-measure-lcp" class="w-headline-link">#</a>
 
 LCP can be measured [in the lab](/user-centric-performance-metrics/#in-the-lab) or [in the field](/user-centric-performance-metrics/#in-the-field), and it's available in the following tools:
 
 ### Field tools <a href="#field-tools" class="w-headline-link">#</a>
 
--   [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report)
--   [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
--   [Search Console (Core Web Vitals report)](https://support.google.com/webmasters/answer/9205520)
--   [`web-vitals` JavaScript library](https://github.com/GoogleChrome/web-vitals)
+- [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report)
+- [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+- [Search Console (Core Web Vitals report)](https://support.google.com/webmasters/answer/9205520)
+- [`web-vitals` JavaScript library](https://github.com/GoogleChrome/web-vitals)
 
 ### Lab tools <a href="#lab-tools" class="w-headline-link">#</a>
 
--   [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
--   [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
--   [WebPageTest](https://webpagetest.org/)
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
+- [WebPageTest](https://webpagetest.org/)
 
 ### Measure LCP in JavaScript <a href="#measure-lcp-in-javascript" class="w-headline-link">#</a>
 
@@ -181,10 +167,10 @@ The following section lists the differences between what the API reports and how
 
 #### Differences between the metric and the API <a href="#differences-between-the-metric-and-the-api" class="w-headline-link">#</a>
 
--   The API will dispatch `largest-contentful-paint` entries for pages loaded in a background tab, but those pages should be ignored when calculating LCP.
--   The API will continue to dispatch `largest-contentful-paint` entries after a page has been backgrounded, but those entries should be ignored when calculating LCP (elements may only be considered if the page was in the foreground the entire time).
--   The API does not report `largest-contentful-paint` entries when the page is restored from the [back/forward cache](/bfcache/#impact-on-core-web-vitals), but LCP should be measured in these cases since users experience them as distinct page visits.
--   The API does not consider elements within iframes, but to properly measure LCP you should consider them. Sub-frames can use the API to report their `largest-contentful-paint` entries to the parent frame for aggregation.
+- The API will dispatch `largest-contentful-paint` entries for pages loaded in a background tab, but those pages should be ignored when calculating LCP.
+- The API will continue to dispatch `largest-contentful-paint` entries after a page has been backgrounded, but those entries should be ignored when calculating LCP (elements may only be considered if the page was in the foreground the entire time).
+- The API does not report `largest-contentful-paint` entries when the page is restored from the [back/forward cache](/bfcache/#impact-on-core-web-vitals), but LCP should be measured in these cases since users experience them as distinct page visits.
+- The API does not consider elements within iframes, but to properly measure LCP you should consider them. Sub-frames can use the API to report their `largest-contentful-paint` entries to the parent frame for aggregation.
 
 Rather than memorizing all these subtle differences, developers can use the [`web-vitals` JavaScript library](https://github.com/GoogleChrome/web-vitals) to measure LCP, which handles these differences for you (where possible):
 
@@ -201,32 +187,29 @@ In some cases (such as cross-origin iframes) it's not possible to measure LCP in
 
 In some cases the most important element (or elements) on the page is not the same as the largest element, and developers may be more interested in measuring the render times of these other elements instead. This is possible using the [Element Timing API](https://wicg.github.io/element-timing/), as described in the article on [custom metrics](/custom-metrics/#element-timing-api).
 
-How to improve LCP <a href="#how-to-improve-lcp" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## How to improve LCP <a href="#how-to-improve-lcp" class="w-headline-link">#</a>
 
 LCP is primarily affected by four factors:
 
--   Slow server response times
--   Render-blocking JavaScript and CSS
--   Resource load times
--   Client-side rendering
+- Slow server response times
+- Render-blocking JavaScript and CSS
+- Resource load times
+- Client-side rendering
 
 For a deep dive on how to improve LCP, see [Optimize LCP](/optimize-lcp/). For additional guidance on individual performance techniques that can also improve LCP, see:
 
--   [Apply instant loading with the PRPL pattern](/apply-instant-loading-with-prpl)
--   [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
--   [Optimize your CSS](/fast#optimize-your-css)
--   [Optimize your Images](/fast#optimize-your-images)
--   [Optimize web Fonts](/fast#optimize-web-fonts)
--   [Optimize your JavaScript](/fast#optimize-your-javascript) (for client-rendered sites)
+- [Apply instant loading with the PRPL pattern](/apply-instant-loading-with-prpl)
+- [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
+- [Optimize your CSS](/fast#optimize-your-css)
+- [Optimize your Images](/fast#optimize-your-images)
+- [Optimize web Fonts](/fast#optimize-web-fonts)
+- [Optimize your JavaScript](/fast#optimize-your-javascript) (for client-rendered sites)
 
-Additional resources <a href="#additional-resources" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Additional resources <a href="#additional-resources" class="w-headline-link">#</a>
 
--   [Lessons learned from performance monitoring in Chrome](https://youtu.be/ctavZT87syI) by [Annie Sullivan](https://anniesullie.com/) at [performance.now()](https://perfnow.nl/) (2019)
+- [Lessons learned from performance monitoring in Chrome](https://youtu.be/ctavZT87syI) by [Annie Sullivan](https://anniesullie.com/) at [performance.now()](https://perfnow.nl/) (2019)
 
-CHANGELOG <a href="#changelog" class="w-headline-link">#</a>
-------------------------------------------------------------
+## CHANGELOG <a href="#changelog" class="w-headline-link">#</a>
 
 Occasionally, bugs are discovered in the APIs used to measure metrics, and sometimes in the definitions of the metrics themselves. As a result, changes must sometimes be made, and these changes can show up as improvements or regressions in your internal reports and dashboards.
 
@@ -238,35 +221,35 @@ To help you manage this, all changes to either the implementation or definition 
 
 <a href="/learn-web-vitals" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

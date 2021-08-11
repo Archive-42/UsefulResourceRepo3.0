@@ -1,17 +1,10 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-Codelab: Building a Sidenav component
-=====================================
+# Codelab: Building a Sidenav component
 
 Jan 21, 2021
 
@@ -19,23 +12,21 @@ Jan 21, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 This codelab teaches you how to build a responsive slide out side navigation layout component on the web. We'll build the component as we go, starting with HTML, then CSS, then JavaScript.
 
 Check out my blog post [Building a Sidenav component](/building-a-sidenav-component) to learn about the CSS web platform features chosen for building this component.
 
-Setup <a href="#setup" class="w-headline-link">#</a>
-----------------------------------------------------
+## Setup <a href="#setup" class="w-headline-link">#</a>
 
 1.  Click **Remix to Edit** to make the project editable.
 2.  Open `app/index.html`.
 
-HTML <a href="#html" class="w-headline-link">#</a>
---------------------------------------------------
+## HTML <a href="#html" class="w-headline-link">#</a>
 
 First, get the essentials of the HTML setup so there's content and some boxes to work with.
 
@@ -129,8 +120,7 @@ The close link in the sidenav could be more clearly marked. Add attributes `titl
 
 While all links do not require titles or special labels, I believe these to be an exception since they're being used to change the URL, like a link does, but they don't have any text content of their own.
 
-CSS <a href="#css" class="w-headline-link">#</a>
-------------------------------------------------
+## CSS <a href="#css" class="w-headline-link">#</a>
 
 Time to layout the elements. The main content and sidenav are direct children of the `<body>` tag, so that's a good place to start.
 
@@ -296,13 +286,11 @@ Add the following JavaScript to `js/index.js`:
         : opennav.focus();
     });
 
-Try it out <a href="#try-it-out" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Try it out <a href="#try-it-out" class="w-headline-link">#</a>
 
--   To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
+- To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 That's a wrap up for the needs I had with the component. Feel free to build upon it, drive it with JavaScript state instead of the URL, and in general make it yours! There's always more to add or more use cases to cover.
 
@@ -312,35 +300,35 @@ How do you make slide out responsive sidenav components? Do you ever have more t
 
 <a href="/building-a-sidenav-component" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to article</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

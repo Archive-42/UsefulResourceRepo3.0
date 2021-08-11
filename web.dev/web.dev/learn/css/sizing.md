@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,39 +52,38 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#numbers" class="toc__anchor">Numbers</a>
--   <a href="#percentages" class="toc__anchor">Percentages</a>
--   <a href="#dimensions-and-lengths" class="toc__anchor">Dimensions and lengths</a>
-    -   <a href="#absolute-lengths" class="toc__anchor">Absolute lengths</a>
-    -   <a href="#relative-lengths" class="toc__anchor">Relative lengths</a>
--   <a href="#miscellaneous-units" class="toc__anchor">Miscellaneous units</a>
-    -   <a href="#angle-units" class="toc__anchor">Angle units</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#numbers" class="toc__anchor">Numbers</a>
+- <a href="#percentages" class="toc__anchor">Percentages</a>
+- <a href="#dimensions-and-lengths" class="toc__anchor">Dimensions and lengths</a>
+  - <a href="#absolute-lengths" class="toc__anchor">Absolute lengths</a>
+  - <a href="#relative-lengths" class="toc__anchor">Relative lengths</a>
+- <a href="#miscellaneous-units" class="toc__anchor">Miscellaneous units</a>
+  - <a href="#angle-units" class="toc__anchor">Angle units</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 007
 
-Sizing Units
-============
+# Sizing Units
 
 In this module find out how to size elements using CSS, working with the flexible medium of the web.
 
 On this page
 
--   <a href="#numbers" class="toc__anchor">Numbers</a>
--   <a href="#percentages" class="toc__anchor">Percentages</a>
--   <a href="#dimensions-and-lengths" class="toc__anchor">Dimensions and lengths</a>
-    -   <a href="#absolute-lengths" class="toc__anchor">Absolute lengths</a>
-    -   <a href="#relative-lengths" class="toc__anchor">Relative lengths</a>
--   <a href="#miscellaneous-units" class="toc__anchor">Miscellaneous units</a>
-    -   <a href="#angle-units" class="toc__anchor">Angle units</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#numbers" class="toc__anchor">Numbers</a>
+- <a href="#percentages" class="toc__anchor">Percentages</a>
+- <a href="#dimensions-and-lengths" class="toc__anchor">Dimensions and lengths</a>
+  - <a href="#absolute-lengths" class="toc__anchor">Absolute lengths</a>
+  - <a href="#relative-lengths" class="toc__anchor">Relative lengths</a>
+- <a href="#miscellaneous-units" class="toc__anchor">Miscellaneous units</a>
+  - <a href="#angle-units" class="toc__anchor">Angle units</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -98,8 +95,7 @@ The web is a responsive medium, but sometimes you want to control its dimensions
 
 For this case, you can use a `ch` unit, which is equal to the width of a "0" character in the rendered font at its computed size. This unit allows you to limit the width of text with a unit that's designed to size text, which in turn, allows predictable control regardless of the size of that text. The `ch` unit is one of a handful of units that are helpful for specific contexts like this example.
 
-Numbers <a href="#numbers" class="w-headline-link">#</a>
---------------------------------------------------------
+## Numbers <a href="#numbers" class="w-headline-link">#</a>
 
 Numbers are used to define `opacity`, `line-height` and even for color channel values in `rgb`. Numbers are unitless integers (1, 2, 3, 100) and decimals (.1, .2, .3).
 
@@ -116,13 +112,12 @@ It's a good idea to use a unitless value for `line-height`, rather than specifyi
 
 Numbers can also be used in the following places:
 
--   When setting values for filters: `filter: sepia(0.5)` applies a `50%` sepia filter to the element.
--   When setting opacity: `opacity: 0.5` applies a `50%` opacity.
--   In color channels: `rgb(50, 50, 50)`, where the values 0-255 are acceptable to set a color value. [See color lesson](/learn/css/color).
--   To transform an element: `transform: scale(1.2)` scales the element by 120% of its initial size.
+- When setting values for filters: `filter: sepia(0.5)` applies a `50%` sepia filter to the element.
+- When setting opacity: `opacity: 0.5` applies a `50%` opacity.
+- In color channels: `rgb(50, 50, 50)`, where the values 0-255 are acceptable to set a color value. [See color lesson](/learn/css/color).
+- To transform an element: `transform: scale(1.2)` scales the element by 120% of its initial size.
 
-Percentages <a href="#percentages" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Percentages <a href="#percentages" class="w-headline-link">#</a>
 
 When using a percentage in CSS you need to know how the percentage is calculated. For example,`width` is calculated as a percentage of the width of the parent element.
 
@@ -165,8 +160,7 @@ If you set a `transform` value as a percentage, it is based on the element with 
 
 **Key Term**: The transform property allows you alter an element's appearance and position by rotating, skewing, scaling and translating it. This can be done in a 2D and 3D space.
 
-Dimensions and lengths <a href="#dimensions-and-lengths" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Dimensions and lengths <a href="#dimensions-and-lengths" class="w-headline-link">#</a>
 
 If you attach a unit to a number, it becomes a dimension. For example, `1rem` is a dimension. In this context, the unit that is attached to a number is referred to in specifications as a dimension token. Lengths are **dimensions that refer to distance** and they can either be absolute or relative.
 
@@ -216,8 +210,7 @@ By sizing text with relative units like `em` or `rem`, rather than an absolute u
 
 If you don't define a `font-size` on your `html` element, this user-preferred system font size will be honoured if you use relative lengths, such as `em` and `rem`. If you use `px` units for sizing text, this preference will be ignored.
 
-Miscellaneous units <a href="#miscellaneous-units" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Miscellaneous units <a href="#miscellaneous-units" class="w-headline-link">#</a>
 
 There are some other units which have been specified to deal with particular types of values.
 
@@ -289,13 +282,12 @@ They may feel absolute, but they're relative to a viewport, which could be an if
 
 They are relative to the document window they were created in, which may or may not be the same as a device screen.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [CSS Spec Values and Units Level 4](https://www.w3.org/TR/css-values-4)
--   [Sizing and Units on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units)
--   [All About Ems](https://learn.scannerlicker.net/2014/07/31/so-how-much-is-an-em/)
--   [A percentages explainer](https://wattenberger.com/blog/css-percents)
+- [CSS Spec Values and Units Level 4](https://www.w3.org/TR/css-values-4)
+- [Sizing and Units on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units)
+- [All About Ems](https://learn.scannerlicker.net/2014/07/31/so-how-much-is-an-em/)
+- [A percentages explainer](https://wattenberger.com/blog/css-percents)
 
 <a href="/learn/css/color/" class="course-pagination-control"></a>
 
@@ -311,35 +303,35 @@ Layout
 
 An overview of the various layout methods you have to choose from when building a component or page layout.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

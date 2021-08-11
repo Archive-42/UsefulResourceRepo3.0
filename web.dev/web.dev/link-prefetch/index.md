@@ -1,36 +1,22 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+## <a href="#prefetch-resources-to-speed-up-future-navigations" class="w-toc__header--link">Prefetch resources to speed up future navigations</a>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#prefetch-resources-to-speed-up-future-navigations" class="w-toc__header--link">Prefetch resources to speed up future navigations</a>
-----------------------------------------------------------------------------------------------------------------------------------------------
-
--   [Improve navigations with rel=prefetch](#improve-navigations-with-relprefetch)
--   [Use cases](#use-cases)
--   [Prefetching subsequent pages](#prefetching-subsequent-pages)
--   [Prefetching static assets](#prefetching-static-assets)
--   [Prefetching on-demand JavaScript chunks](#prefetching-on-demand-javascript-chunks)
--   [How to implement rel=prefetch](#how-to-implement-relprefetch)
--   [Prefetching JavaScript modules with webpack magic comments](#prefetching-javascript-modules-with-webpack-magic-comments)
--   [Smart prefetching with quicklink and Guess.js](#smart-prefetching-with-quicklink-and-guess.js)
--   [Prefetching under the hood](#prefetching-under-the-hood)
--   [Conclusion](#conclusion)
+- [Improve navigations with rel=prefetch](#improve-navigations-with-relprefetch)
+- [Use cases](#use-cases)
+- [Prefetching subsequent pages](#prefetching-subsequent-pages)
+- [Prefetching static assets](#prefetching-static-assets)
+- [Prefetching on-demand JavaScript chunks](#prefetching-on-demand-javascript-chunks)
+- [How to implement rel=prefetch](#how-to-implement-relprefetch)
+- [Prefetching JavaScript modules with webpack magic comments](#prefetching-javascript-modules-with-webpack-magic-comments)
+- [Smart prefetching with quicklink and Guess.js](#smart-prefetching-with-quicklink-and-guess.js)
+- [Prefetching under the hood](#prefetching-under-the-hood)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Prefetch resources to speed up future navigations
-=================================================
+# Prefetch resources to speed up future navigations
 
 Learn about rel=prefetch resource hint and how to use it.
 
@@ -42,16 +28,15 @@ Sep 12, 2019
 
 <a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>
 
--   <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
--   <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
+- <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
 
 Research shows that [faster load times result in higher conversion rates](https://wpostats.com/) and better user experiences. If you have insight into how users move through your website and which pages they will likely visit next, you can improve load times of future navigations by downloading the resources for those pages ahead of time.
 
 This guide explains how to achieve that with `<link rel=prefetch>`, a [resource hint](https://www.w3.org/TR/resource-hints/) that enables you to implement prefetching in an easy and efficient way.
 
-Improve navigations with `rel=prefetch` <a href="#improve-navigations-with-relprefetch" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------------------
+## Improve navigations with `rel=prefetch` <a href="#improve-navigations-with-relprefetch" class="w-headline-link">#</a>
 
 Adding `<link rel=prefetch>` to a web page tells the browser to download entire pages, or some of the resources (like scripts or CSS files), that the user might need in the future. This can improve metrics like [First Contentful Paint](/first-contentful-paint) and [Time to Interactive](/interactive/) and can often make subsequent navigations appear to load instantly.
 
@@ -63,8 +48,7 @@ The `prefetch` hint consumes extra bytes for resources that are not immediately 
 
 There are different ways to determine which links to prefetch. The simplest one is to prefetch the first link or the first few links on the current page. There are also libraries that use more sophisticated approaches, explained later in this post.
 
-Use cases <a href="#use-cases" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Use cases <a href="#use-cases" class="w-headline-link">#</a>
 
 ### Prefetching subsequent pages <a href="#prefetching-subsequent-pages" class="w-headline-link">#</a>
 
@@ -90,8 +74,7 @@ At the time of this writing, it is possible to share prefetched resources among 
 
 For example, if you have a page that contains a button that opens a dialog box which contains an emoji picker, you can divide it into three JavaScript chunks—home, dialog and picker. Home and dialog could be initially loaded, while the picker could be loaded on-demand. Tools like webpack allow you to instruct the browser to prefetch these on-demand chunks.
 
-How to implement `rel=prefetch` <a href="#how-to-implement-relprefetch" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------
+## How to implement `rel=prefetch` <a href="#how-to-implement-relprefetch" class="w-headline-link">#</a>
 
 The simplest way to implement `prefetch` is adding a `<link>` tag to the `<head>` of the document:
 
@@ -143,15 +126,14 @@ This tells webpack to inject the `<link rel="prefetch">` tag into the HTML docum
 
 You can also implement smarter prefetching with libraries that use `prefetch` under the hood:
 
--   [quicklink](https://github.com/GoogleChromeLabs/quicklink) uses [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to detect when links come into the viewport and prefetches linked resources during [idle time](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback). Bonus: quicklink weighs less than 1 KB!
--   [Guess.js](https://github.com/guess-js) uses analytics reports to build a predictive model that is used to [smartly prefetch](/predictive-prefetching/) only what the user is likely to need.
+- [quicklink](https://github.com/GoogleChromeLabs/quicklink) uses [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to detect when links come into the viewport and prefetches linked resources during [idle time](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback). Bonus: quicklink weighs less than 1 KB!
+- [Guess.js](https://github.com/guess-js) uses analytics reports to build a predictive model that is used to [smartly prefetch](/predictive-prefetching/) only what the user is likely to need.
 
 Both quicklink and Guess.js use the [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API) to avoid prefetching if a user is on a slow network or has [`Save-Data`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Save-Data) turned on.
 
 A wine company Jabong implemented prefetching with quicklink and achieved 2.7 s faster Time To Interactive on future pages.
 
-Prefetching under the hood <a href="#prefetching-under-the-hood" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Prefetching under the hood <a href="#prefetching-under-the-hood" class="w-headline-link">#</a>
 
 Resource hints are not mandatory instructions and it's up to the browser to decide if, and when, they get executed.
 
@@ -161,8 +143,7 @@ Prefetching takes place at the ['Lowest' priority](https://docs.google.com/docum
 
 Prefetched files are stored in the [HTTP Cache](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching), or the [memory cache](https://calendar.perfplanet.com/2016/a-tale-of-four-caches/) (depending on whether the resource is cacheable or not), for an amount of time that varies by browsers. For example, in Chrome resources are kept around for five minutes, after which the normal cache-control rules for the resource apply.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Using `prefetch` can greatly improve load times of future navigations and even make pages appear to load instantly. `prefetch` is widely supported in modern browsers, which makes it an attractive technique to improve the navigation experience for many users. This technique requires loading extra bytes that might not be used, so be mindful when you use it; only do it when necessary, and ideally, only on fast networks.
 
@@ -170,46 +151,45 @@ Using `prefetch` can greatly improve load times of future navigations and even m
 
 <span class="w-mr--sm">Last updated: Sep 12, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/blog/link-prefetch/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-two-ways-to-prefetch/" class="w-callout__link w-callout__link--codelab">Two ways to prefetch: <code>&lt;link&gt;</code> tags and HTTP headers</a>
+- <a href="/codelab-two-ways-to-prefetch/" class="w-callout__link w-callout__link--codelab">Two ways to prefetch: <code>&lt;link&gt;</code> tags and HTTP headers</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,41 +1,31 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format" alt="A screenshot of Python code related to Resource Isolation Policy." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/El8ytnIgMDWVzdsglcfv.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#protect-your-resources-from-web-attacks-with-fetch-metadata" class="w-toc__header--link">Protect your resources from web attacks with Fetch Metadata</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#protect-your-resources-from-web-attacks-with-fetch-metadata" class="w-toc__header--link">Protect your resources from web attacks with Fetch Metadata</a>
 
--   [Why should you care about isolating your web resources?](#why-should-you-care-about-isolating-your-web-resources)
--   [Browser compatibility](#compatibility)
--   [Background](#background)
--   [Introducing Fetch Metadata](#introduction)
--   [Sec-Fetch-Site](#sec-fetch-site)
--   [Sec-Fetch-Mode](#sec-fetch-mode)
--   [Sec-Fetch-Dest](#sec-fetch-dest)
--   [How to use Fetch Metadata to protect against cross-origin attacks](#how-to-use-fetch-metadata-to-protect-against-cross-origin-attacks)
--   [Implementing a Resource Isolation Policy](#implementing-a-resource-isolation-policy)
--   [Deploying a Resource Isolation Policy](#deploying-a-resource-isolation-policy)
--   [Identifying and fixing policy violations](#identifying-and-fixing-policy-violations)
--   [Enforcing a Resource Isolation Policy](#enforcing-a-resource-isolation-policy)
--   [Further reading](#further-reading)
+- [Why should you care about isolating your web resources?](#why-should-you-care-about-isolating-your-web-resources)
+- [Browser compatibility](#compatibility)
+- [Background](#background)
+- [Introducing Fetch Metadata](#introduction)
+- [Sec-Fetch-Site](#sec-fetch-site)
+- [Sec-Fetch-Mode](#sec-fetch-mode)
+- [Sec-Fetch-Dest](#sec-fetch-dest)
+- [How to use Fetch Metadata to protect against cross-origin attacks](#how-to-use-fetch-metadata-to-protect-against-cross-origin-attacks)
+- [Implementing a Resource Isolation Policy](#implementing-a-resource-isolation-policy)
+- [Deploying a Resource Isolation Policy](#deploying-a-resource-isolation-policy)
+- [Identifying and fixing policy violations](#identifying-and-fixing-policy-violations)
+- [Enforcing a Resource Isolation Policy](#enforcing-a-resource-isolation-policy)
+- [Further reading](#further-reading)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Protect your resources from web attacks with Fetch Metadata
-===========================================================
+# Protect your resources from web attacks with Fetch Metadata
 
 Prevent CSRF, XSSI, and cross-origin information leaks.
 
@@ -47,12 +37,11 @@ Jun 4, 2020 <span class="w-author__separator">•</span> Updated Jun 10, 2020
 
 <a href="/authors/lwe/" class="w-author__name-link">Lukas Weichselbaum</a>
 
--   <a href="https://twitter.com/we1x" class="w-author__link">Twitter</a>
--   <a href="https://github.com/lweichselbaum" class="w-author__link">GitHub</a>
--   <a href="https://webappsec.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/we1x" class="w-author__link">Twitter</a>
+- <a href="https://github.com/lweichselbaum" class="w-author__link">GitHub</a>
+- <a href="https://webappsec.dev" class="w-author__link">Blog</a>
 
-Why should you care about isolating your web resources? <a href="#why-should-you-care-about-isolating-your-web-resources" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------------------------------------
+## Why should you care about isolating your web resources? <a href="#why-should-you-care-about-isolating-your-web-resources" class="w-headline-link">#</a>
 
 Many web applications are vulnerable to [cross-origin](/same-site-same-origin/#%22same-origin%22-and-%22cross-origin%22) attacks like [cross-site request forgery](https://portswigger.net/web-security/csrf) (CSRF), [cross-site script inclusion](https://portswigger.net/research/json-hijacking-for-the-modern-web) (XSSI), timing attacks, [cross-origin information leaks](https://arxiv.org/pdf/1908.02204.pdf) or speculative execution side-channel ([Spectre](https://developers.google.com/web/updates/2018/02/meltdown-spectre)) attacks.
 
@@ -60,13 +49,11 @@ Many web applications are vulnerable to [cross-origin](/same-site-same-origin/#%
 
 It is common for resources exposed by a given web application to only be loaded by the application itself, and not by other websites. In such cases, deploying a Resource Isolation Policy based on Fetch Metadata request headers takes little effort, and at the same time protects the application from cross-site attacks.
 
-Browser compatibility <a href="#compatibility" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Browser compatibility <a href="#compatibility" class="w-headline-link">#</a>
 
 Fetch Metadata request headers are supported as of Chrome 76 and in other Chromium-based browsers, and are under development in Firefox. See [Browser compatibility](https://developer.mozilla.org/docs/Web/HTTP/Headers/Sec-Fetch-Site#Browser_compatibility) for up-to-date browser support information.
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 Many cross-site attacks are possible because the web is open by default and your application server cannot easily protect itself from communication originating from external applications. A typical cross-origin attack is cross-site request forgery (CSRF) where an attacker lures a user onto a site they control and then submits a form to the server the user is logged in to. Since the server cannot tell if the request originated from another domain (cross-site) and the browser automatically attaches cookies to cross-site requests, the server will execute the action requested by the attacker on behalf of the user.
 
@@ -74,10 +61,9 @@ Other cross-site attacks like cross-site script inclusion (XSSI) or cross-origin
 
 **Gotchas!**
 
-Apart from attacks on resources as described above, *window references* can also lead to cross-origin information leaks and Spectre attacks. You can prevent them by setting the `Cross-Origin-Opener-Policy` response header to `same-origin`.
+Apart from attacks on resources as described above, _window references_ can also lead to cross-origin information leaks and Spectre attacks. You can prevent them by setting the `Cross-Origin-Opener-Policy` response header to `same-origin`.
 
-Introducing Fetch Metadata <a href="#introduction" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Introducing Fetch Metadata <a href="#introduction" class="w-headline-link">#</a>
 
 Fetch Metadata request headers are a new web platform security feature designed to help servers defend themselves against cross-origin attacks. By providing information about the context of an HTTP request in a set of `Sec-Fetch-*` headers, they allow the responding server to apply security policies before processing the request. This lets developers decide whether to accept or reject a request based on the way it was made and the context in which it will be used, making it possible to respond to only legitimate requests made by their own application.
 
@@ -85,10 +71,10 @@ Fetch Metadata request headers are a new web platform security feature designed 
 
 `Sec-Fetch-Site` tells the server which [site](/same-site-same-origin) sent the request. The browser sets this value to one of the following:
 
--   `same-origin`, if the request was made by your own application (e.g. `site.example`)
--   `same-site`, if the request was made by a subdomain of your site (e.g. `bar.site.example`)
--   `none`, if the request was explicitly caused by a user's interaction with the user agent (e.g. clicking on a bookmark)
--   `cross-site`, if the request was sent by another website (e.g. `evil.example`)
+- `same-origin`, if the request was made by your own application (e.g. `site.example`)
+- `same-site`, if the request was made by a subdomain of your site (e.g. `bar.site.example`)
+- `none`, if the request was explicitly caused by a user's interaction with the user agent (e.g. clicking on a bookmark)
+- `cross-site`, if the request was sent by another website (e.g. `evil.example`)
 
 ### `Sec-Fetch-Mode` <a href="#sec-fetch-mode" class="w-headline-link">#</a>
 
@@ -98,8 +84,7 @@ Fetch Metadata request headers are a new web platform security feature designed 
 
 `Sec-Fetch-Dest` exposes a request's [destination](https://developer.mozilla.org/docs/Web/API/Request/destination) (e.g. if a `script` or an `img` tag caused a resource to be requested by the browser).
 
-How to use Fetch Metadata to protect against cross-origin attacks <a href="#how-to-use-fetch-metadata-to-protect-against-cross-origin-attacks" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## How to use Fetch Metadata to protect against cross-origin attacks <a href="#how-to-use-fetch-metadata-to-protect-against-cross-origin-attacks" class="w-headline-link">#</a>
 
 The extra information these request headers provide is quite simple, but the additional context allows you to build powerful security logic on the server-side, also referred to as a Resource Isolation Policy, with just a few lines of code.
 
@@ -122,9 +107,9 @@ All of the following examples are Python code.
 
 Any requests that do not originate from a cross-origin context (like `evil.example`) will be allowed. In particular, these are requests that:
 
--   Originate from your own application (e.g. a same-origin request where `site.example` requests `site.example/foo.json` will always be allowed).
--   Originate from your subdomains.
--   Are explicitly caused by a user's interaction with the user agent (e.g. direct navigation or by clicking a bookmark, etc.).
+- Originate from your own application (e.g. a same-origin request where `site.example` requests `site.example/foo.json` will always be allowed).
+- Originate from your subdomains.
+- Are explicitly caused by a user's interaction with the user agent (e.g. direct navigation or by clicking a bookmark, etc.).
 
 <!-- -->
 
@@ -152,8 +137,8 @@ The logic above protects your application's endpoints from being used as resourc
 
 In some cases, your application might provide resources which are meant to be loaded cross-site. These resources need to be exempted on a per-path or per-endpoint basis. Examples of such endpoints are:
 
--   Endpoints meant to be accessed cross-origin: If your application is serving endpoints that are `CORS` enabled, you need to explicitly opt them out from resource isolation to ensure that cross-site requests to these endpoints are still possible.
--   Public resources (e.g. images, styles, etc.): Any public and unauthenticated resources that should be loadable cross-origin from other sites can be exempted as well.
+- Endpoints meant to be accessed cross-origin: If your application is serving endpoints that are `CORS` enabled, you need to explicitly opt them out from resource isolation to ensure that cross-site requests to these endpoints are still possible.
+- Public resources (e.g. images, styles, etc.): Any public and unauthenticated resources that should be loadable cross-origin from other sites can be exempted as well.
 
 <!-- -->
 
@@ -170,8 +155,8 @@ Any other **cross-site** request will be rejected by this Resource Isolation Pol
 
 By default, requests violating your policy should be rejected with an `HTTP 403` response. But, depending on your use case, you can also consider other actions, such as:
 
--   **Only logging violations**. This is especially useful when testing the compatibility of the policy and finding endpoints that might need to be opted out.
--   **Modifying the request**. In certain scenarios, consider performing other actions like redirecting to your landing page and dropping authentication credentials (e.g. cookies). However, be aware that this could weaken the protections of a Fetch Metadata-based policy.
+- **Only logging violations**. This is especially useful when testing the compatibility of the policy and finding endpoints that might need to be opted out.
+- **Modifying the request**. In certain scenarios, consider performing other actions like redirecting to your landing page and dropping authentication credentials (e.g. cookies). However, be aware that this could weaken the protections of a Fetch Metadata-based policy.
 
 **Example:** The following code demonstrates a complete implementation of a robust Resource Isolation Policy on the server or as a middleware to deny potentially malicious cross-site resource requests, while allowing simple navigational requests:
 
@@ -215,12 +200,11 @@ After you've checked that your policy doesn't impact legitimate production traff
 
 **Caution**: Make sure that you reject invalid requests before running authentication checks or any other processing of the request to prevent revealing sensitive timing information.
 
-Further reading <a href="#further-reading" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
--   [W3C Fetch Metadata Request Headers specification](https://www.w3.org/TR/fetch-metadata/)
--   [Fetch Metadata Playground](https://secmetadata.appspot.com/)
--   [Google I/O talk: Securing Web Apps with Modern Platform Features](https://webappsec.dev/assets/pub/Google_IO-Securing_Web_Apps_with_Modern_Platform_Features.pdf) (Slides)
+- [W3C Fetch Metadata Request Headers specification](https://www.w3.org/TR/fetch-metadata/)
+- [Fetch Metadata Playground](https://secmetadata.appspot.com/)
+- [Google I/O talk: Securing Web Apps with Modern Platform Features](https://webappsec.dev/assets/pub/Google_IO-Securing_Web_Apps_with_Modern_Platform_Features.pdf) (Slides)
 
 <a href="/tags/security/" class="w-chip">Security</a>
 
@@ -228,35 +212,35 @@ Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

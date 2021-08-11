@@ -1,36 +1,28 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#building-a-device-for-webusb" class="w-toc__header--link">Building a device for WebUSB</a>
-----------------------------------------------------------------------------------------------------
+## <a href="#building-a-device-for-webusb" class="w-toc__header--link">Building a device for WebUSB</a>
 
--   [Background](#background)
--   [API basics](#api-basics)
--   [WebUSB descriptors](#webusb-descriptors)
--   [Platform-specific considerations](#platform-specific-considerations)
--   [macOS](#macos)
--   [Linux](#linux)
--   [Android](#android)
--   [Chrome OS](#chrome-os)
--   [Windows](#windows)
--   [Examples](#examples)
+- [Background](#background)
+- [API basics](#api-basics)
+- [WebUSB descriptors](#webusb-descriptors)
+- [Platform-specific considerations](#platform-specific-considerations)
+- [macOS](#macos)
+- [Linux](#linux)
+- [Android](#android)
+- [Chrome OS](#chrome-os)
+- [Windows](#windows)
+- [Examples](#examples)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a device for WebUSB
-============================
+# Building a device for WebUSB
 
 Build a device to take full advantage of the WebUSB API.
 
@@ -42,13 +34,12 @@ Dec 20, 2018 <span class="w-author__separator">•</span> Updated Dec 3, 2020
 
 <a href="/authors/reillyg/" class="w-author__name-link">Reilly Grant</a>
 
--   <a href="https://twitter.com/reillyeon" class="w-author__link">Twitter</a>
--   <a href="https://github.com/reillyeon" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/reillyeon" class="w-author__link">Twitter</a>
+- <a href="https://github.com/reillyeon" class="w-author__link">GitHub</a>
 
 This article explains how to build a device to take full advantage of the [WebUSB API](https://wicg.github.io/webusb). For a brief introduction to the API itself, see [Access USB Devices on the Web](/usb).
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 The Universal Serial Bus (USB) has become the most common physical interface for connecting peripherals to desktop and mobile computing devices. In addition to defining the electrical characteristics of the bus and a general model for communicating with a device, USB specifications include a set of device class specifications. These are general models for particular classes of devices such as storage, audio, video, networking, etc. that device manufacturers can implement. The advantage of these device class specifications is that an operating system vendor can implement a single driver based on the class specification (a "class driver") and any device implementing that class will be supported. This was a great improvement over every manufacturer needing to write their own device drivers.
 
@@ -56,8 +47,7 @@ Some devices however don't fit into one of these standardized device classes. A 
 
 Another feature of the USB is that devices may provide multiple interfaces to the host they are connected to. Each interface can implement either a standardized class or be vendor-specific. When an operating system chooses the right drivers to handle the device each interface can be claimed by a different driver. For example, a USB webcam typically provides two interfaces, one implementing the USB video class (for the camera) and one implementing the USB audio class (for the microphone). The operating system does not load a single "webcam driver" but instead loads independent video and audio class drivers which take responsibility for the separate functions of the device. This composition of interface classes provides for greater flexibility.
 
-API basics <a href="#api-basics" class="w-headline-link">#</a>
---------------------------------------------------------------
+## API basics <a href="#api-basics" class="w-headline-link">#</a>
 
 Many of the standard USB classes have corresponding web APIs. For example, a page can capture video from a video class device using [`getUserMedia()`](https://html5rocks.com/en/tutorials/getusermedia/intro/) or receive input events from a human interface (HID) class device by listening for [KeyboardEvents](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) or [PointerEvents](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events), or by using the [Gamepad](/gamepad) or the [WebHID](/hid) API. Just as not all devices implement a standardized class definition, not all devices implement features that correspond to existing web platform APIs. When this is the case the WebUSB API can fill that gap by providing a way for sites to claim a vendor-specific interface and implement support for it from directly within their page.
 
@@ -391,8 +381,7 @@ N/A for bulk endpoints
 
 The configuration descriptor consists of multiple descriptors concatenated together. Each begins with `bLength` and `bDescriptorType` fields so that they can be identified. The first interface is an HID interface with an associated HID descriptor and a single endpoint used to deliver input events to the operating system. The second interface is a vendor-specific interface with two endpoints that can be used to send commands to the device and receive responses in return.
 
-WebUSB descriptors <a href="#webusb-descriptors" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## WebUSB descriptors <a href="#webusb-descriptors" class="w-headline-link">#</a>
 
 While WebUSB can work with many devices without firmware modifications, additional functionality is enabled by marking the device with specific descriptors indicating support for WebUSB. For example, you can specify a landing page URL that the browser can direct the user to when your device is plugged in.
 
@@ -528,8 +517,7 @@ Again, this request may be issued twice in order to first probe for the length o
 
 Support for displaying a notification when a USB device is plugged in is not available yet on Android.
 
-Platform-specific considerations <a href="#platform-specific-considerations" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## Platform-specific considerations <a href="#platform-specific-considerations" class="w-headline-link">#</a>
 
 While the WebUSB API attempts to provide a consistent interface for accessing USB devices developers should still be aware of requirements imposed on applications such as a web browsers requirements in order to access devices.
 
@@ -555,7 +543,7 @@ In addition more devices will be accessible on Android than on desktop Linux bec
 
 ### Chrome OS <a href="#chrome-os" class="w-headline-link">#</a>
 
-Chrome OS is based on Linux as well and also does not require any modification to system configuration. The permission\_broker service controls access to USB devices and will allow the browser to access them as long as there is at least one unclaimed interface.
+Chrome OS is based on Linux as well and also does not require any modification to system configuration. The permission_broker service controls access to USB devices and will allow the browser to access them as long as there is at least one unclaimed interface.
 
 ### Windows <a href="#windows" class="w-headline-link">#</a>
 
@@ -681,7 +669,7 @@ Total length of the descriptor set
 
 `0x02`
 
-bMS\_VendorCode
+bMS_VendorCode
 
 bRequest value for retrieving further Microsoft descriptors
 
@@ -837,7 +825,7 @@ Registry property descriptor
 
 wPropertyDataType
 
-REG\_MULTI\_SZ
+REG_MULTI_SZ
 
 `0x002A`
 
@@ -867,13 +855,12 @@ Windows will only query the device for this information once. If the device does
 
 For more information check out Microsoft's [blog post](https://techcommunity.microsoft.com/t5/microsoft-usb-blog/how-to-install-winusb-sys-without-a-custom-inf/ba-p/270769) on how to use these descriptors.
 
-Examples <a href="#examples" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Examples <a href="#examples" class="w-headline-link">#</a>
 
 Example code implementing WebUSB-aware devices that include both WebUSB descriptors and Microsoft OS descriptors can be found in these projects:
 
--   [WebLight](https://github.com/sowbug/weblight)
--   [WebUSB Arduino Library](https://github.com/webusb/arduino)
+- [WebLight](https://github.com/sowbug/weblight)
+- [WebUSB Arduino Library](https://github.com/webusb/arduino)
 
 Have a question about using this feature? You can get help by [asking a question on Stack Overflow](https://stackoverflow.com/questions/ask?tags=webusb), or [browsing a list of questions](https://stackoverflow.com/search?q=%5Bwebusb%5D+is%3Aquestion) asked by other developers.
 
@@ -883,35 +870,35 @@ Have a question about using this feature? You can get help by [asking a question
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

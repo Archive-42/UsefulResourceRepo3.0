@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -10,20 +8,18 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#handling-optional-payment-information-with-a-service-worker" class="w-toc__header--link">Handling optional payment information with a service worker</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#handling-optional-payment-information-with-a-service-worker" class="w-toc__header--link">Handling optional payment information with a service worker</a>
 
--   [Inform the merchant of a payment method change](#payment-method-changes)
--   [Inform the merchant of a shipping address change](#shipping-address-changes)
--   [Inform the merchant of a shipping option change](#inform-the-merchant-of-a-shipping-option-change)
--   [Reflect the updated payment details](#reflect-the-updated-payment-details)
--   [Sample code](#sample-code)
--   [Next steps](#next-steps)
+- [Inform the merchant of a payment method change](#payment-method-changes)
+- [Inform the merchant of a shipping address change](#shipping-address-changes)
+- [Inform the merchant of a shipping option change](#inform-the-merchant-of-a-shipping-option-change)
+- [Reflect the updated payment details](#reflect-the-updated-payment-details)
+- [Sample code](#sample-code)
+- [Next steps](#next-steps)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Handling optional payment information with a service worker
-===========================================================
+# Handling optional payment information with a service worker
 
 How to adapt your web-based payment app to Web Payments and provide a better user experience for customers.
 
@@ -35,14 +31,13 @@ Aug 31, 2020
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 Once [a web-based payment app receives a payment request and initiates a payment transaction](/orchestrating-payment-transactions), the service worker will act as the hub for communication between the merchant and the payment app. This post explains how a payment app can pass information about the payment method, shipping address, or contact information to the merchant using a service worker.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format" alt="Handling optional payment information with a service worker" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1600 1600w" width="800" height="2335" /><figcaption>Handling optional payment information with a service worker</figcaption></figure>Inform the merchant of a payment method change <a href="#payment-method-changes" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format" alt="Handling optional payment information with a service worker" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kDteyNFNEVnJQyTPw5p8.png?auto=format&amp;w=1600 1600w" width="800" height="2335" /><figcaption>Handling optional payment information with a service worker</figcaption></figure>Inform the merchant of a payment method change <a href="#payment-method-changes" class="w-headline-link">#</a>
 
 Payment apps can support multiple payment instruments with different payment methods.
 
@@ -147,8 +142,7 @@ When the merchant responds, the promise that [`PaymentRequestEvent.changePayment
 
 Use the object to update the UI on the frontend. See [Reflect the updated payment details](#reflect-the-updated-payment-details).
 
-Inform the merchant of a shipping address change <a href="#shipping-address-changes" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Inform the merchant of a shipping address change <a href="#shipping-address-changes" class="w-headline-link">#</a>
 
 Payment apps can provide the customer's shipping address to the merchant as part of the result of a payment transaction.
 
@@ -158,9 +152,9 @@ This is beneficial for customers as well because once they register their addres
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format" alt="Shipping address picker UI" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0ytdyaEC7tkPkBTv5rIu.png?auto=format&amp;w=1600 1600w" width="800" height="1600" /><figcaption>Shipping address picker UI</figcaption></figure>Payment apps can provide a UI to edit a shipping address or to select pre-registered address information for the customer on a payment transaction. When a shipping address is determined temporarily, the payment app can let the merchant know of the redacted address information. This provides merchants with multiple benefits:
 
--   A merchant can determine whether the customer meets the regional restriction to ship the item (for example, domestic only).
--   A merchant can change the list of shipping options based on the region of the shipping address (For example, international regular or express).
--   A merchant can apply the new shipping cost based on the address and update the total price.
+- A merchant can determine whether the customer meets the regional restriction to ship the item (for example, domestic only).
+- A merchant can change the list of shipping options based on the region of the shipping address (For example, international regular or express).
+- A merchant can apply the new shipping cost based on the address and update the total price.
 
 With the Payment Handler API, the payment app can send a "shipping address change" event to the merchant from the service worker to notify the new shipping address. The service worker should invoke [`PaymentRequestEvent.changeShippingAddress()`](https://w3c.github.io/payment-handler/#dom-paymentrequestevent-changeshippingaddress) with the [new address object](https://www.w3.org/TR/payment-request/#dom-addressinit).
 
@@ -208,15 +202,14 @@ When the merchant responds, the promise [`PaymentRequestEvent.changeShippingAddr
 
 Use the object to update the UI on the frontend. See [Reflect the updated payment details](#reflect-the-updated-payment-details).
 
-Inform the merchant of a shipping option change <a href="#inform-the-merchant-of-a-shipping-option-change" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------
+## Inform the merchant of a shipping option change <a href="#inform-the-merchant-of-a-shipping-option-change" class="w-headline-link">#</a>
 
 Shipping options are delivery methods merchants use to ship purchased items to a customer. Typical shipping options include:
 
--   Free shipping
--   Express shipping
--   International shipping
--   Premium international shipping
+- Free shipping
+- Express shipping
+- International shipping
+- Premium international shipping
 
 Each comes with its own cost. Usually faster methods/options are more expensive.
 
@@ -300,8 +293,7 @@ When the merchant responds, the promise that [`PaymentRequestEvent.changeShippin
 
 Use the object to update the UI on the frontend. See [Reflect the updated payment details](#reflect-the-updated-payment-details).
 
-Reflect the updated payment details <a href="#reflect-the-updated-payment-details" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Reflect the updated payment details <a href="#reflect-the-updated-payment-details" class="w-headline-link">#</a>
 
 Once the merchant finishes updating the payment details, the promises returned from `.changePaymentMethod()`, `.changeShippingAddress()` and `.changeShippingOption()` will resolve with a common [`PaymentRequestDetailsUpdate`](https://w3c.github.io/payment-handler/#the-paymentrequestdetailsupdate) object. The payment handler can use the result to reflect updated total price and shipping options to the UI.
 
@@ -309,19 +301,18 @@ The `PaymentRequestDetailsUpdate` object is passed from the merchant and it cont
 
 Merchants may return errors for a few reasons:
 
--   The payment method is not acceptable.
--   The shipping address is outside of their supported regions.
--   The shipping address contains invalid information.
--   The shipping option is not selectable for the provided shipping address or some other reason.
+- The payment method is not acceptable.
+- The shipping address is outside of their supported regions.
+- The shipping address contains invalid information.
+- The shipping option is not selectable for the provided shipping address or some other reason.
 
 Use the following properties to reflect the error status:
 
--   **`error`**: Human readable error string. This is the best string to display to customers.
--   **`shippingAddressErrors`**: [`AddressErrors`](https://www.w3.org/TR/payment-request/#dom-addresserrors) object that contains in-detail error string per address property. This is useful if you want to open a form that lets the customer edit their address and you need to point them directly to the invalid fields.
--   **`paymentMethodErrors`**: Payment-method-specific error object. You can ask merchants to provide a structured error like [`BasicCardErrors`](https://www.w3.org/TR/payment-method-basic-card/#dom-basiccarderrors) for basic-card, but the Web Payments spec authors recommend keeping it a simple string.
+- **`error`**: Human readable error string. This is the best string to display to customers.
+- **`shippingAddressErrors`**: [`AddressErrors`](https://www.w3.org/TR/payment-request/#dom-addresserrors) object that contains in-detail error string per address property. This is useful if you want to open a form that lets the customer edit their address and you need to point them directly to the invalid fields.
+- **`paymentMethodErrors`**: Payment-method-specific error object. You can ask merchants to provide a structured error like [`BasicCardErrors`](https://www.w3.org/TR/payment-method-basic-card/#dom-basiccarderrors) for basic-card, but the Web Payments spec authors recommend keeping it a simple string.
 
-Sample code <a href="#sample-code" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Sample code <a href="#sample-code" class="w-headline-link">#</a>
 
 Most of sample codes you saw in this document were excerpts from the following working sample app:
 
@@ -339,12 +330,11 @@ To try it out:
 4.  Enter `https://paymenthandler-demo.glitch.me` to the **Payment Method Identifier** field.
 5.  Press **Pay** button next to the field.
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 In this article, we learned how to handle optional information on the service worker. The final step for building a web-based payment app is to learn how to build the frontend.
 
--   Handling payments on the payment frontend (coming soon)
+- Handling payments on the payment frontend (coming soon)
 
 <a href="/tags/payments/" class="w-chip">Payments</a> <a href="/tags/service-worker/" class="w-chip">Service Worker</a>
 
@@ -352,35 +342,35 @@ In this article, we learned how to handle optional information on the service wo
 
 <a href="/payments" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

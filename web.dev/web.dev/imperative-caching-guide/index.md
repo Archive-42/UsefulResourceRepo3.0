@@ -1,30 +1,18 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
+## <a href="#imperative-caching-guide" class="w-toc__header--link">Imperative caching guide</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#imperative-caching-guide" class="w-toc__header--link">Imperative caching guide</a>
---------------------------------------------------------------------------------------------
-
--   [Production case](#production-case)
--   [Using Workbox](#using-workbox)
--   [Using browser APIs](#using-browser-apis)
--   [A simple prefetching example](#a-simple-prefetching-example)
--   [Prefetch product detail pages](#prefetch-product-detail-pages)
--   [Beyond JSON data](#beyond-json-data)
--   [Conclusion](#conclusion)
+- [Production case](#production-case)
+- [Using Workbox](#using-workbox)
+- [Using browser APIs](#using-browser-apis)
+- [A simple prefetching example](#a-simple-prefetching-example)
+- [Prefetch product detail pages](#prefetch-product-detail-pages)
+- [Beyond JSON data](#beyond-json-data)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Imperative caching guide
-========================
+# Imperative caching guide
 
 Dec 8, 2020
 
@@ -34,20 +22,20 @@ Dec 8, 2020
 
 <a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>
 
--   <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
--   <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
+- <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
 
 [<img src="https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Andrew Guan" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/andrewguan/)
 
 <a href="/authors/andrewguan/" class="w-author__name-link">Andrew Guan</a>
 
--   <a href="https://github.com/AndrewKGuan" class="w-author__link">GitHub</a>
+- <a href="https://github.com/AndrewKGuan" class="w-author__link">GitHub</a>
 
 Some websites might need to communicate to the service worker without the need of being informed about the result. Here are some examples:
 
--   A page sends the service worker a list of URLs [to prefetch](/instant-navigation-experiences/), so that, when the user clicks on a link the document or page subresources are already available in the cache, making subsequent navigation much faster.
--   The page asks the service worker to retrieve and cache a set of top articles, to have them available for offline purposes.
+- A page sends the service worker a list of URLs [to prefetch](/instant-navigation-experiences/), so that, when the user clicks on a link the document or page subresources are already available in the cache, making subsequent navigation much faster.
+- The page asks the service worker to retrieve and cache a set of top articles, to have them available for offline purposes.
 
 Delegating these types of non-critical tasks to the service worker has the benefit of freeing up the main thread for better handling more pressing tasks such as responding to user interactions.
 
@@ -55,22 +43,20 @@ Delegating these types of non-critical tasks to the service worker has the benef
 
 Check out [Workers overview](/workers-overview/) for a high-level explanation of when to use web workers versus service workers and the rest of the [Communicate with workers](/reliable/#communicate-with-workers) series for guides on other common use cases.
 
-Production case <a href="#production-case" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Production case <a href="#production-case" class="w-headline-link">#</a>
 
 1-800-Flowers.com implemented **imperative caching** (prefetching) with service workers via [`postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage) to prefetch the top items in category pages to speed up subsequent navigation to product detail pages.
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format" sizes="(min-width: 400px) 400px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/eNMKYuaKnlYu0N3IIhI5.png?auto=format&amp;w=800 800w" width="400" height="203" /></figure>They use a mixed approach to decide which items to prefetch:
 
--   At page load time they ask the servicer worker to retrieve the JSON data for the top 9 items, and add the resulting response objects to the cache.
--   For the remaining items, they listen to the [`mouseover`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event) event, so that, when a user moves the cursor on top of an item, they can trigger a fetch for the resource on "demand".
+- At page load time they ask the servicer worker to retrieve the JSON data for the top 9 items, and add the resulting response objects to the cache.
+- For the remaining items, they listen to the [`mouseover`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event) event, so that, when a user moves the cursor on top of an item, they can trigger a fetch for the resource on "demand".
 
 They use the [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) to store JSON responses:
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format" alt="Prefetching JSON product data from product listing pages in 1-800Flowers.com." sizes="(min-width: 728px) 728px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FH4clAbGShyIdhj4jWdL.png?auto=format&amp;w=1456 1456w" width="728" height="287" /><figcaption>Prefetching JSON product data from product listing pages in 1-800Flowers.com.</figcaption></figure>When the user clicks on an item, the JSON data associated with it can be picked up from the cache, without the need of going to the network, making the navigation faster.
 
-Using Workbox <a href="#using-workbox" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Using Workbox <a href="#using-workbox" class="w-headline-link">#</a>
 
 [Workbox](https://developers.google.com/web/tools/workbox) provides an easy way to send messages to a service worker, via the [`workbox-window`](https://developers.google.com/web/tools/workbox/modules/workbox-window) package, a set of modules that are intended to run in the window context. They're a complement to the other Workbox packages that run in the service worker.
 
@@ -91,8 +77,7 @@ The service worker implements a [`message`](https://developer.mozilla.org/en-US/
       }
     });
 
-Using browser APIs <a href="#using-browser-apis" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Using browser APIs <a href="#using-browser-apis" class="w-headline-link">#</a>
 
 If the Workbox library is not enough for your needs, here is how you can implement window to service worker communication, using browser APIs.
 
@@ -123,8 +108,8 @@ One of the most common applications of **imperative caching** is **prefetching**
 
 There are different ways of implementing prefetching in sites:
 
--   Using [Link prefetch tags](/link-prefetch/) in pages: resources are kept in the browser cache for five minutes, after which the normal `Cache-Control` rules for the resource apply.
--   Complementing the previous technique with [a runtime caching strategy in the service worker](/instant-navigation-experiences/) to extend the lifetime of the prefetch resource beyond this limit.
+- Using [Link prefetch tags](/link-prefetch/) in pages: resources are kept in the browser cache for five minutes, after which the normal `Cache-Control` rules for the resource apply.
+- Complementing the previous technique with [a runtime caching strategy in the service worker](/instant-navigation-experiences/) to extend the lifetime of the prefetch resource beyond this limit.
 
 For relatively simple prefetching scenarios, like prefetching documents, or specific assets (JS, CSS, etc.), those techniques are the best approach.
 
@@ -132,8 +117,8 @@ If additional logic is required, for example, parsing the prefetch resource (a J
 
 Delegating these types of operations to the service worker has the following advantages:
 
--   Offloading the heavy lifting of fetching and post-fetch processing (which will be introduced later) to a secondary thread. By doing this, it frees the main thread to handle more important tasks such as responding to user interactions.
--   Allowing multiple clients (e.g. tabs) to reuse a common functionality, and even calling the service simultaneously without blocking the main thread.
+- Offloading the heavy lifting of fetching and post-fetch processing (which will be introduced later) to a secondary thread. By doing this, it frees the main thread to handle more important tasks such as responding to user interactions.
+- Allowing multiple clients (e.g. tabs) to reuse a common functionality, and even calling the service simultaneously without blocking the main thread.
 
 ### Prefetch product detail pages <a href="#prefetch-product-detail-pages" class="w-headline-link">#</a>
 
@@ -208,15 +193,14 @@ You can add some exception handling around this code for situations like 404s. B
 
 **Caution**: Prefetching techniques consume extra bytes for resources that are not immediately needed, so it needs to be applied thoughtfully; only prefetch resources when you are confident that users will need them. Avoid prefetching when users are on slow connections. You can detect that with the [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API).
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 In this article, we covered a common use case of **one-way** communication between page and service worker: **imperative caching**. The examples discussed are only meant for demonstrating one way of using this pattern and the same approach can be applied to other use cases as well, for example, caching top articles on demand for offline consumption, bookmarking, and others.
 
 For more patterns of page and service worker communication, check out:
 
--   [Broadcast updates](/broadcast-updates-guide): Calling the page from the service worker to inform about important updates (e.g. a new version of the webapp is available).
--   [Two-way communication](/two-way-communication-guide): Delegating a task to a service worker (e.g. a heavy download), and keeping the page informed on the progress.
+- [Broadcast updates](/broadcast-updates-guide): Calling the page from the service worker to inform about important updates (e.g. a new version of the webapp is available).
+- [Two-way communication](/two-way-communication-guide): Delegating a task to a service worker (e.g. a heavy download), and keeping the page informed on the progress.
 
 <a href="/tags/service-worker/" class="w-chip">Service Worker</a> <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/offline/" class="w-chip">Offline</a>
 
@@ -224,35 +208,35 @@ For more patterns of page and service worker communication, check out:
 
 <a href="/reliable" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

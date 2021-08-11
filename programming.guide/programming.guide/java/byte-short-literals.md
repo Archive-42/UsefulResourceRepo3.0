@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Types in Java
--------------
+## Types in Java
 
 1.  [Java Basics: Types](types.html)
 2.  [Primitive Types](primitive-types.html)
@@ -22,17 +21,15 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -42,13 +39,11 @@ Top Java Articles
 
 [**See all Java articles**](index.html)
 
-Java: No byte or short literals?
-================================
+# Java: No byte or short literals?
 
 According to JLS, a literal such as `123` is an `int`. You can turn it into a `long`, a `float`, a `double` or a `char` literal by writing `123L`, `123f`, `123d` or `'{'` respectively, but there’s **no way to turn it into a `byte` or a `short` literal**.
 
-Look mom, no casting!
----------------------
+## Look mom, no casting!
 
 Still, there’s no casting required here:
 
@@ -64,16 +59,14 @@ This is because the language allows for implicit **compile-time narrowing** of c
 
 So, technically speaking there’s no `byte` or `short` literals. However, a regular `int` literal (that fits in a `byte` or a `short`) can be used as such since it’s implicitly converted to a byte in complie-time.
 
-Similar article
----------------
+## Similar article
 
 [Integers may overflow, but bytes may not?](int-may-overflow-byte-may-not.html) discusses the situation below:
 
     int i = Integer.MAX_VALUE + 1;  // allowed to overflow
     byte b = Byte.MAX_VALUE + 1;    // not allowed to overflow
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

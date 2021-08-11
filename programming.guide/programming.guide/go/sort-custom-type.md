@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [How to sort in Go](how-to-sort-in-go.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,11 +29,10 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: How to sort a custom type in Go
-===================================
+# Go: How to sort a custom type in Go
 
--   Use the function [`sort.Slice`](https://golang.org/pkg/sort/#Slice). It sorts a slice using a provided `less(i, j int) bool` function.
--   To sort the slice while keeping the original order of equal elements, use [`sort.SliceStable`](https://golang.org/pkg/sort/#SliceStable) instead.
+- Use the function [`sort.Slice`](https://golang.org/pkg/sort/#Slice). It sorts a slice using a provided `less(i, j int) bool` function.
+- To sort the slice while keeping the original order of equal elements, use [`sort.SliceStable`](https://golang.org/pkg/sort/#SliceStable) instead.
 
 <!-- -->
 
@@ -56,8 +52,7 @@ Go: How to sort a custom type in Go
     })
     fmt.Println(family) // [{David 2} {Eve 2} {Alice 23} {Bob 25}]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

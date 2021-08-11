@@ -1,39 +1,25 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Yz5G0leLpdHLidygym31.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#mainline-menswear-implements-pwa-and-sees-a-55percent-conversion-rate-uplift" class="w-toc__header--link">Mainline Menswear implements PWA and sees a 55% conversion rate uplift</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#mainline-menswear-implements-pwa-and-sees-a-55percent-conversion-rate-uplift" class="w-toc__header--link">Mainline Menswear implements PWA and sees a 55% conversion rate uplift</a>
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#results)
--   [Technical deep dive](#technical-deep-dive)
--   [Generating a service worker file](#generating-a-service-worker-file)
--   [Anatomy of the web app manifest](#anatomy-of-the-web-app-manifest)
--   [Runtime caching for faster navigations](#runtime-caching-for-faster-navigations)
--   [Providing offline functionality](#providing-offline-functionality)
--   [Demo](#demo)
--   [Reporting successful installs](#reporting-successful-installs)
--   [Conclusion](#conclusion)
+- [Challenge](#challenge)
+- [Solution](#solution)
+- [Results](#results)
+- [Technical deep dive](#technical-deep-dive)
+- [Generating a service worker file](#generating-a-service-worker-file)
+- [Anatomy of the web app manifest](#anatomy-of-the-web-app-manifest)
+- [Runtime caching for faster navigations](#runtime-caching-for-faster-navigations)
+- [Providing offline functionality](#providing-offline-functionality)
+- [Demo](#demo)
+- [Reporting successful installs](#reporting-successful-installs)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Mainline Menswear implements PWA and sees a 55% conversion rate uplift
-======================================================================
+# Mainline Menswear implements PWA and sees a 55% conversion rate uplift
 
 Apr 20, 2021 <span class="w-author__separator">•</span> Updated May 19, 2021
 
@@ -41,8 +27,8 @@ Apr 20, 2021 <span class="w-author__separator">•</span> Updated May 19, 2021
 
 <a href="/authors/charistheodoulou/" class="w-author__name-link">Charis Theodoulou</a>
 
--   <a href="https://twitter.com/charistheo_dev" class="w-author__link">Twitter</a>
--   <a href="https://www.charistheo.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/charistheo_dev" class="w-author__link">Twitter</a>
+- <a href="https://www.charistheo.io/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/ccGMk9IszZxs7LbBum7s.png?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Natasha Kosoglov" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/ccGMk9IszZxs7LbBum7s.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/ccGMk9IszZxs7LbBum7s.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/ccGMk9IszZxs7LbBum7s.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/ccGMk9IszZxs7LbBum7s.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/ccGMk9IszZxs7LbBum7s.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/natashakosoglov/)
 
@@ -52,20 +38,18 @@ Apr 20, 2021 <span class="w-author__separator">•</span> Updated May 19, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 Mainline is an online clothing retailer that offers the biggest designer brand names in fashion. The UK-based company entrusts its team of in-house experts, blended strategically with key partners, to provide a frictionless shopping experience for all. With market presence in over 100 countries via seven custom-built territorial websites and an app, Mainline will continue to ensure the ecommerce offering is rivalling the competition.
 
-Challenge <a href="#challenge" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Challenge <a href="#challenge" class="w-headline-link">#</a>
 
 Mainline Menswear's goal was to complement the current mobile optimized website with progressive features that would adhere to their 'mobile first' vision, focusing on mobile-friendly design and functionality with a growing smartphone market in mind.
 
-Solution <a href="#solution" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Solution <a href="#solution" class="w-headline-link">#</a>
 
 The objective was to build and launch a PWA that complemented the original mobile friendly version of the Mainline Menswear website, and then compare the stats to their hybrid mobile app, which is currently available on Android and iOS.
 
@@ -73,8 +57,7 @@ Once the app launched and was being used by a small section of Mainline Menswear
 
 The approach Mainline took when converting their website to a PWA was to make sure that the framework they selected for their website (Nuxt.js, utilizing Vue.js) would be future-proof and enable them to take advantage of fast moving web technology.
 
-Results <a href="#results" class="w-headline-link">#</a>
---------------------------------------------------------
+## Results <a href="#results" class="w-headline-link">#</a>
 
 139<sub>%</sub>
 
@@ -100,8 +83,7 @@ Higher conversion rate in PWA vs. web.
 
 Higher revenue per session in PWA vs. web.
 
-Technical deep dive <a href="#technical-deep-dive" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Technical deep dive <a href="#technical-deep-dive" class="w-headline-link">#</a>
 
 [Mainline Menswear](https://www.mainlinemenswear.co.uk/) is using the [Nuxt.js framework](https://nuxtjs.org/) to bundle and render their site, which is a single page application (SPA).
 
@@ -168,8 +150,8 @@ For CSS and JS files, the team chose to cache them and serve them over the cache
 
 The strategy for caching Google Fonts depends on two file types:
 
--   The stylesheet that contains the `@font-face` declarations.
--   The underlying font files (requested within the stylesheet mentioned above).
+- The stylesheet that contains the `@font-face` declarations.
+- The underlying font files (requested within the stylesheet mentioned above).
 
 <!-- -->
 
@@ -272,8 +254,7 @@ To achieve this, Mainline Menswear provided a fallback to failed [`NavigationRou
     });
     workbox.routing.registerRoute(navigationRoute);
 
-Demo <a href="#demo" class="w-headline-link">#</a>
---------------------------------------------------
+## Demo <a href="#demo" class="w-headline-link">#</a>
 
 Offline page example as seen on www.mainlinemenswear.co.uk.
 
@@ -287,8 +268,7 @@ Apart from the home screen launch tracking (with `"start_url": "/?utm_source=pwa
 
 > Adding PWA capabilities to your website will further enhance your customers experience of shopping with you, and will be quicker to market than a \[platform-specific\] app. Andy Hoyle, Head of Development
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 To learn more about progressive web apps and how to build them, head to the [Progressive Web Apps section](/progressive-web-apps/) on web.dev.
 
@@ -300,35 +280,35 @@ To read more Progressive Web Apps case studies, browse to the [case studies sect
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

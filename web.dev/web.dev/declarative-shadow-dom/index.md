@@ -1,39 +1,31 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format" alt="decorative shadow dome" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/IIPe5m8edvp0XMPpzrz9.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#declarative-shadow-dom" class="w-toc__header--link">Declarative Shadow DOM</a>
-----------------------------------------------------------------------------------------
+## <a href="#declarative-shadow-dom" class="w-toc__header--link">Declarative Shadow DOM</a>
 
--   [Building a Declarative Shadow Root](#building)
--   [Serialization](#serialization)
--   [Component hydration](#hydration)
--   [One shadow per root](#shadow-per-root)
--   [Timing is everything](#timing)
--   [Parser-only](#parser-only)
--   [Server-rendering with style](#styling)
--   [Avoiding the flash of unstyled content](#fouc)
--   [Feature detection and browser support](#detection-support)
--   [Polyfill](#polyfill)
--   [Further Reading](#further-reading)
+- [Building a Declarative Shadow Root](#building)
+- [Serialization](#serialization)
+- [Component hydration](#hydration)
+- [One shadow per root](#shadow-per-root)
+- [Timing is everything](#timing)
+- [Parser-only](#parser-only)
+- [Server-rendering with style](#styling)
+- [Avoiding the flash of unstyled content](#fouc)
+- [Feature detection and browser support](#detection-support)
+- [Polyfill](#polyfill)
+- [Further Reading](#further-reading)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Declarative Shadow DOM
-======================
+# Declarative Shadow DOM
 
 A new way to implement and use Shadow DOM directly in HTML.
 
@@ -43,16 +35,16 @@ Sep 30, 2020 <span class="w-author__separator">•</span> Updated Apr 14, 2021
 
 <a href="/authors/developit/" class="w-author__name-link">Jason Miller</a>
 
--   <a href="https://twitter.com/_developit" class="w-author__link">Twitter</a>
--   <a href="https://github.com/developit" class="w-author__link">GitHub</a>
--   <a href="https://jasonformat.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/_developit" class="w-author__link">Twitter</a>
+- <a href="https://github.com/developit" class="w-author__link">GitHub</a>
+- <a href="https://jasonformat.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/t7E3inN3orEPpDUXSkXR.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Mason Freed" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/t7E3inN3orEPpDUXSkXR.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/t7E3inN3orEPpDUXSkXR.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/t7E3inN3orEPpDUXSkXR.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/t7E3inN3orEPpDUXSkXR.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/t7E3inN3orEPpDUXSkXR.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/masonfreed/)
 
 <a href="/authors/masonfreed/" class="w-author__name-link">Mason Freed</a>
 
--   <a href="https://twitter.com/Mfreed777" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mfreed7" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/Mfreed777" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mfreed7" class="w-author__link">GitHub</a>
 
 Declarative Shadow DOM is a proposed web platform feature that the Chrome team is looking for feedback on. Try it out using the [experimental flag](#detection-support) or [polyfill](#polyfill).
 
@@ -72,8 +64,7 @@ Historically, it has been difficult to use Shadow DOM in combination with Server
 
 [Declarative Shadow DOM](https://github.com/mfreed7/declarative-shadow-dom/blob/master/README.md) (DSD) removes this limitation, bringing Shadow DOM to the server.
 
-Building a Declarative Shadow Root <a href="#building" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Building a Declarative Shadow Root <a href="#building" class="w-headline-link">#</a>
 
 A Declarative Shadow Root is a `<template>` element with a `shadowroot` attribute:
 
@@ -98,8 +89,7 @@ This code sample is following the Chrome DevTools Elements panel's conventions f
 
 This gives us the benefits of Shadow DOM's encapsulation and slot projection in static HTML. No JavaScript is needed to produce the entire tree, including the Shadow Root.
 
-Serialization <a href="#serialization" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Serialization <a href="#serialization" class="w-headline-link">#</a>
 
 In addition to introducing the new `<template>` syntax for creating shadow roots and attaching them to elements, Declarative Shadow Dom also includes a new API for getting the HTML contents of an element. The new `getInnerHTML()` method works like `.innerHTML`, but provides an option to control whether shadow roots should be included in the returned HTML:
 
@@ -129,8 +119,7 @@ When serializing the HTML within an element, any closed shadow roots that are pr
 
 Serialized closed shadow roots are indicated by a `shadowroot` attribute with a value of `closed`.
 
-Component hydration <a href="#hydration" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Component hydration <a href="#hydration" class="w-headline-link">#</a>
 
 Declarative Shadow DOM can be used on its own as a way to encapsulate styles or customize child placement, but it's most powerful when used with Custom Elements. Components built using Custom Elements get automatically upgraded from static HTML. With the introduction of Declarative Shadow DOM, it's now possible for a Custom Element to have a shadow root before it gets upgraded.
 
@@ -193,8 +182,7 @@ For newly-created Custom Elements, a new [ElementInternals.shadowRoot](https://g
     }
     customElements.define('menu-toggle', MenuToggle);
 
-One shadow per root <a href="#shadow-per-root" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## One shadow per root <a href="#shadow-per-root" class="w-headline-link">#</a>
 
 A Declarative Shadow Root is only associated with its parent element. This means shadow roots are always colocated with their associated element. This design decision ensures shadow roots are streamable like the rest of an HTML document. It's also convenient for authoring and generation, since adding a shadow root to an element does not require maintaining a registry of existing shadow roots.
 
@@ -202,8 +190,7 @@ The tradeoff of associating shadow roots with their parent element is that it is
 
 In the future, it might be possible to revisit shared shadow roots. If the DOM gains support for [built-in templating](https://w3c.github.io/webcomponents/proposals/Template-Instantiation.html), Declarative Shadow Roots could be treated as templates that are instantiated in order to construct the shadow root for a given element. The current Declarative Shadow DOM design allows for this possibility to exist in the future by limiting shadow root association to a single element.
 
-Timing is everything <a href="#timing" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Timing is everything <a href="#timing" class="w-headline-link">#</a>
 
 Associating Declarative Shadow Roots directly with their parent element simplifies the process of upgrading and attaching them to that element. Declarative Shadow Roots are detected during HTML parsing, and attached immediately when their **closing** `</template>` tag is encountered.
 
@@ -232,8 +219,7 @@ Prior to being attached, the contents of a `<template>` element with the `shadow
       </template>
     </div>
 
-Parser-only <a href="#parser-only" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Parser-only <a href="#parser-only" class="w-headline-link">#</a>
 
 Declarative Shadow DOM is a feature of the HTML parser. This means that a Declarative Shadow Root will only be parsed and attached for `<template>` tags with a `shadowroot` attribute that are present during HTML parsing. In other words, Declarative Shadow Roots can be constructed during initial HTML parsing:
 
@@ -266,8 +252,7 @@ To avoid some important security considerations, Declarative Shadow Roots also c
       }); // Shadow root here
     </script>
 
-Server-rendering with style <a href="#styling" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Server-rendering with style <a href="#styling" class="w-headline-link">#</a>
 
 Inline and external stylesheets are fully supported inside Declarative Shadow Roots using the standard `<style>` and `<link>` tags:
 
@@ -290,8 +275,7 @@ Styles specified this way are also highly optimized: if the same stylesheet is p
 
 [Constructable Stylesheets](https://developers.google.com/web/updates/2019/02/constructable-stylesheets) are not supported in Declarative Shadow DOM. This is because there is currently no way to serialize constructable stylesheets in HTML, and no way to refer to them when populating `adoptedStyleSheets`.
 
-Avoiding the flash of unstyled content <a href="#fouc" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Avoiding the flash of unstyled content <a href="#fouc" class="w-headline-link">#</a>
 
 One potential issue in browsers that do not yet support Declarative Shadow DOM is avoiding "flash of unstyled content" (FOUC), where the raw contents are shown for Custom Elements that have not yet been upgraded. Prior to Declarative Shadow DOM, one common technique for avoiding FOUC was to apply a `display:none` style rule to Custom Elements that haven't been loaded yet, since these have not had their shadow root attached and populated. In this way, content is not displayed until it is "ready":
 
@@ -320,10 +304,9 @@ Fortunately, this can be solved in CSS by modifying the FOUC style rule. In brow
       }
     </style>
 
-Instead of hiding the not-yet-defined Custom Element, the revised "FOUC" rule hides its *children* when they follow a `<template shadowroot>` element. Once the Custom Element is defined, the rule no longer matches. The rule is ignored in browsers that support Declarative Shadow DOM because the `<template shadowroot>` child is removed during HTML parsing.
+Instead of hiding the not-yet-defined Custom Element, the revised "FOUC" rule hides its _children_ when they follow a `<template shadowroot>` element. Once the Custom Element is defined, the rule no longer matches. The rule is ignored in browsers that support Declarative Shadow DOM because the `<template shadowroot>` child is removed during HTML parsing.
 
-Feature detection and browser support <a href="#detection-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## Feature detection and browser support <a href="#detection-support" class="w-headline-link">#</a>
 
 Declarative Shadow DOM is available in Chrome 90 and Edge 91. It can also be enabled using the **Experimental Web Platform Features** flag in Chrome 85. Navigate to `about://flags/#enable-experimental-web-platform-features` to find that setting.
 
@@ -333,8 +316,7 @@ As a new web platform API, Declarative Shadow DOM does not yet have widespread s
       return HTMLTemplateElement.prototype.hasOwnProperty('shadowRoot');
     }
 
-Polyfill <a href="#polyfill" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Polyfill <a href="#polyfill" class="w-headline-link">#</a>
 
 Building a simplified polyfill for Declarative Shadow DOM is relatively straightforward, since a polyfill doesn't need to perfectly replicate the timing semantics or parser-only characteristics that a browser implementation concerns itself with. To polyfill Declarative Shadow DOM, we can scan the DOM to find all `<template shadowroot>` elements, then convert them to attached Shadow Roots on their parent element. This process can be done once the document is ready, or triggered by more specific events like Custom Element lifecycles.
 
@@ -345,12 +327,11 @@ Building a simplified polyfill for Declarative Shadow DOM is relatively straight
       template.remove();
     });
 
-Further Reading <a href="#further-reading" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Further Reading <a href="#further-reading" class="w-headline-link">#</a>
 
--   [Explainer with alternatives and performance analysis](https://github.com/mfreed7/declarative-shadow-dom/blob/master/README.md)
--   [Chromestatus for Declarative Shadow DOM](https://www.chromestatus.com/feature/5191745052606464)
--   [Intent to Prototype](https://groups.google.com/a/chromium.org/g/blink-dev/c/nJDc-1s3R9U/m/uCJKsEqpAwAJ)
+- [Explainer with alternatives and performance analysis](https://github.com/mfreed7/declarative-shadow-dom/blob/master/README.md)
+- [Chromestatus for Declarative Shadow DOM](https://www.chromestatus.com/feature/5191745052606464)
+- [Intent to Prototype](https://groups.google.com/a/chromium.org/g/blink-dev/c/nJDc-1s3R9U/m/uCJKsEqpAwAJ)
 
 <a href="/tags/dom/" class="w-chip">DOM</a> <a href="/tags/html/" class="w-chip">HTML</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a> <a href="/tags/layout/" class="w-chip">Layout</a> <a href="/tags/rendering/" class="w-chip">Rendering</a>
 
@@ -358,35 +339,35 @@ Further Reading <a href="#further-reading" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

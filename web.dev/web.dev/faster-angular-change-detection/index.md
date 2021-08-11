@@ -1,29 +1,19 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format" alt="An array of light bulbs with a single bulb turned on." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/gzvMgZD2uXO7L49EWuIV.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#optimize-angular&#39;s-change-detection" class="w-toc__header--link">Optimize Angular's change detection</a>
-----------------------------------------------------------------------------------------------------------------------
+## <a href="#optimize-angular&#39;s-change-detection" class="w-toc__header--link">Optimize Angular's change detection</a>
 
--   [Inside Angular's change detection](#inside-angular's-change-detection)
--   [Skipping component subtrees](#skipping-component-subtrees)
--   [Using pure pipes](#using-pure-pipes)
--   [Conclusion](#conclusion)
+- [Inside Angular's change detection](#inside-angular's-change-detection)
+- [Skipping component subtrees](#skipping-component-subtrees)
+- [Using pure pipes](#using-pure-pipes)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Optimize Angular's change detection
-===================================
+# Optimize Angular's change detection
 
 Implement faster change detection for better user experience.
 
@@ -35,10 +25,10 @@ Jul 9, 2019
 
 <a href="/authors/mgechev/" class="w-author__name-link">Minko Gechev</a>
 
--   <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
--   <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
+- <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
 
 Angular runs its [change detection mechanism](https://angular.io/api/core/ChangeDetectorRef) periodically so that changes to the data model are reflected in an app's view. Change detection can be triggered either manually or through an asynchronous event (for example, a user interaction or an XHR completion).
 
@@ -46,17 +36,16 @@ Change detection is a powerful tool, but if it's run very often, it can trigger 
 
 In this post you'll learn how to control and optimize the change detection mechanism by skipping parts of your application and running change detection only when necessary.
 
-Inside Angular's change detection <a href="#inside-angular&#39;s-change-detection" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Inside Angular's change detection <a href="#inside-angular&#39;s-change-detection" class="w-headline-link">#</a>
 
 To understand how Angular's change detection works, let's look at a sample app!
 
-*You can find the code for the app in [this GitHub repository](https://github.com/mgechev/change-detection-web-dev).*
+_You can find the code for the app in [this GitHub repository](https://github.com/mgechev/change-detection-web-dev)._
 
 The app lists employees from two departments in a company—sales and R&D—and has two components:
 
--   `AppComponent`, which is the root component of the app, and
--   Two instances of `EmployeeListComponent`, one for sales and one for R&D.
+- `AppComponent`, which is the root component of the app, and
+- Two instances of `EmployeeListComponent`, one for sales and one for R&D.
 
 <img src="https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format" alt="Sample application" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/JtDFr3VL1e2AyUvhbKVU.png?auto=format&amp;w=1600 1600w" width="800" height="456" />
 
@@ -152,10 +141,9 @@ Now click **Record** <span style="width: 13px;height: 13px;background-color: #6E
 
 If there are many employees in the list, this process may block the browser's UI thread and cause frame drops, which leads to a bad user experience.
 
-Skipping component subtrees <a href="#skipping-component-subtrees" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## Skipping component subtrees <a href="#skipping-component-subtrees" class="w-headline-link">#</a>
 
-When the user is typing in the text input for the *sales* `EmployeeListComponent` you know that the data in the *R&D* department isn't changing—so there's no reason to run change detection on its component. To make sure the R&D instance doesn't trigger change detection, set the `changeDetectionStrategy` of `EmployeeListComponent` to `OnPush`:
+When the user is typing in the text input for the _sales_ `EmployeeListComponent` you know that the data in the _R&D_ department isn't changing—so there's no reason to run change detection on its component. To make sure the R&D instance doesn't trigger change detection, set the `changeDetectionStrategy` of `EmployeeListComponent` to `OnPush`:
 
     import { ChangeDetectionStrategy, ... } from '@angular/core';
 
@@ -171,14 +159,13 @@ Now when the user types in a text input, change detection is only triggered for 
 
 <img src="https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format" alt="Change detection in a component subtree" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/1hUupNUByRDQLyYYvMcX.png?auto=format&amp;w=1600 1600w" width="800" height="462" />
 
-*You can find this optimization applied to the original application [here](https://github.com/mgechev/change-detection-web-dev/tree/onpush).*
+_You can find this optimization applied to the original application [here](https://github.com/mgechev/change-detection-web-dev/tree/onpush)._
 
 You can read more about the `OnPush` change detection strategy in the [official Angular documentation](https://angular.io/api/core/ChangeDetectionStrategy).
 
 To see the effect of this optimization, enter a new employee in the [application on StackBlitz](https://stackblitz.com/github/mgechev/change-detection-web-dev/tree/onpush).
 
-Using pure pipes <a href="#using-pure-pipes" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Using pure pipes <a href="#using-pure-pipes" class="w-headline-link">#</a>
 
 Even though the change detection strategy for the `EmployeeListComponent` is now set to `OnPush`, Angular still recalculates the numeric value for all employees in a department when the user types in the corresponding text input.
 
@@ -222,10 +209,9 @@ In the app below you can see how much smoother the typing is!
 
 To see the effect of the last optimization [try this example on StackBlitz](https://stackblitz.com/github/mgechev/change-detection-web-dev/tree/pure-pipe).
 
-*The code with the pure pipe optimization of the original application is available [here](https://github.com/mgechev/change-detection-web-dev/tree/pure-pipe).*
+_The code with the pure pipe optimization of the original application is available [here](https://github.com/mgechev/change-detection-web-dev/tree/pure-pipe)._
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 When facing runtime slowdowns in an Angular app:
 
@@ -239,35 +225,35 @@ When facing runtime slowdowns in an Angular app:
 
 <a href="/angular" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

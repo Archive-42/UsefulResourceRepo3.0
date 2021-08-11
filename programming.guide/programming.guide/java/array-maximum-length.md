@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Arrays
------------
+## Java Arrays
 
 1.  [Java Arrays (with examples)](arrays.html)
 2.  Maximum length of array
@@ -15,17 +14,15 @@ Java Arrays
 8.  [Inserting an element in an array at a given index](array-insert-at-index.html)
 9.  [Testing array equality](testing-array-equality.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -35,8 +32,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,20 +40,17 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Maximum length of array
-=============================
+# Java: Maximum length of array
 
 The maximum length of an array in Java is 2,147,483,647 (i.e. the maximum size of an `int`, 2<sup>31</sup> − 1).
 
 This is the **theoretical limit** implied by the fact that the size of an array creation expression must be of type `int`. In practice there are **two additional limits** in effect:
 
-Available Memory
-----------------
+## Available Memory
 
 The entire array is allocated up front, so the size of the array can not exceed the amount of free memory.
 
-JVM Implementation
-------------------
+## JVM Implementation
 
 Some JVMs reserve a small part of the array for header information, and bail out with an `OutOfMemoryError` for array sizes that are close to the theoretical limit. In the HotSpot VM For example, the [`max_array_length`](https://github.com/openjdk/jdk14u/blob/84917a040a81af2863fddc6eace3dda3e31bf4b5/src/hotspot/share/oops/arrayOop.hpp#L132) function states the following:
 
@@ -79,8 +72,7 @@ You don't always know what JVM your code will be running on, so to be safe you c
      */
     public static final int MAX_ARRAY_LENGTH = Integer.MAX_VALUE - 8;
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

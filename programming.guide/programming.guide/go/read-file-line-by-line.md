@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Defer statement](defer.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Write a command-line (CLI) application](write-command-line-application.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Read a file line by line
-============================
+# Go: Read a file line by line
 
     file, err := os.Open("file.txt")
     if err != nil {
@@ -55,8 +51,7 @@ Go: Read a file line by line
 
 For more advanced scanning, see the examples in the [`bufio.Scanner`](https://golang.org/pkg/bufio/#Scanner) documentation.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

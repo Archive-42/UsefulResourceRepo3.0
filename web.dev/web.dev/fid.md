@@ -1,37 +1,27 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
+## <a href="#first-input-delay-(fid)" class="w-toc__header--link">First Input Delay (FID)</a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#first-input-delay-(fid)" class="w-toc__header--link">First Input Delay (FID)</a>
-------------------------------------------------------------------------------------------
-
--   [What is FID?](#what-is-fid)
--   [What is a good FID score?](#what-is-a-good-fid-score)
--   [FID in detail](#fid-in-detail)
--   [What if an interaction doesn't have an event listener?](#what-if-an-interaction-doesn't-have-an-event-listener)
--   [Why only consider the first input?](#why-only-consider-the-first-input)
--   [What counts as a first input?](#what-counts-as-a-first-input)
--   [What if a user never interacts with your site?](#what-if-a-user-never-interacts-with-your-site)
--   [Why only consider the input delay?](#why-only-consider-the-input-delay)
--   [How to measure FID](#how-to-measure-fid)
--   [Field tools](#field-tools)
--   [Measure FID in JavaScript](#measure-fid-in-javascript)
--   [Analyzing and reporting on FID data](#analyzing-and-reporting-on-fid-data)
--   [How to improve FID](#how-to-improve-fid)
--   [CHANGELOG](#changelog)
+- [What is FID?](#what-is-fid)
+- [What is a good FID score?](#what-is-a-good-fid-score)
+- [FID in detail](#fid-in-detail)
+- [What if an interaction doesn't have an event listener?](#what-if-an-interaction-doesn't-have-an-event-listener)
+- [Why only consider the first input?](#why-only-consider-the-first-input)
+- [What counts as a first input?](#what-counts-as-a-first-input)
+- [What if a user never interacts with your site?](#what-if-a-user-never-interacts-with-your-site)
+- [Why only consider the input delay?](#why-only-consider-the-input-delay)
+- [How to measure FID](#how-to-measure-fid)
+- [Field tools](#field-tools)
+- [Measure FID in JavaScript](#measure-fid-in-javascript)
+- [Analyzing and reporting on FID data](#analyzing-and-reporting-on-fid-data)
+- [How to improve FID](#how-to-improve-fid)
+- [CHANGELOG](#changelog)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-First Input Delay (FID)
-=======================
+# First Input Delay (FID)
 
 Nov 7, 2019 <span class="w-author__separator">•</span> Updated Jun 19, 2020
 
@@ -41,9 +31,9 @@ Nov 7, 2019 <span class="w-author__separator">•</span> Updated Jun 19, 2020
 
 <a href="/authors/philipwalton/" class="w-author__name-link">Philip Walton</a>
 
--   <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
--   <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
--   <a href="https://philipwalton.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
+- <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
+- <a href="https://philipwalton.com" class="w-author__link">Blog</a>
 
 First Input Delay (FID) is an important, user-centric metric for measuring [load responsiveness](/user-centric-performance-metrics/#types-of-metrics) because it quantifies the experience users feel when trying to interact with unresponsive pages—a low FID helps ensure that the page is [usable](/user-centric-performance-metrics/#questions).
 
@@ -59,8 +49,7 @@ The first impression users have of how fast your site loads can be measured with
 
 The First Input Delay (FID) metric helps measure your user's first impression of your site's interactivity and responsiveness.
 
-What is FID? <a href="#what-is-fid" class="w-headline-link">#</a>
------------------------------------------------------------------
+## What is FID? <a href="#what-is-fid" class="w-headline-link">#</a>
 
 FID measures the time from when a user first interacts with a page (i.e. when they click a link, tap on a button, or use a custom, JavaScript-powered control) to the time when the browser is actually able to begin processing event handlers in response to that interaction.
 
@@ -72,8 +61,7 @@ To provide a good user experience, sites should strive to have a First Input Del
 
 To learn more about the research and methodology behind this recommendation, see: [Defining the Core Web Vitals metrics thresholds](/defining-core-web-vitals-thresholds/)
 
-FID in detail <a href="#fid-in-detail" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## FID in detail <a href="#fid-in-detail" class="w-headline-link">#</a>
 
 As developers who write code that responds to events, we often assume our code is going to be run immediately—as soon as the event happens. But as users, we've all frequently experienced the opposite—we've loaded a web page on our phone, tried to interact with it, and then been frustrated when nothing happened.
 
@@ -107,21 +95,21 @@ In this example the user just happened to interact with the page at the beginnin
 
 ### What if an interaction doesn't have an event listener? <a href="#what-if-an-interaction-doesn&#39;t-have-an-event-listener" class="w-headline-link">#</a>
 
-FID measures the delta between when an input event is received and when the main thread is next idle. This means FID is measured **even in cases where an event listener has not been registered.** The reason is because many user interactions do not require an event listener but *do* require the main thread to be idle in order to run.
+FID measures the delta between when an input event is received and when the main thread is next idle. This means FID is measured **even in cases where an event listener has not been registered.** The reason is because many user interactions do not require an event listener but _do_ require the main thread to be idle in order to run.
 
 For example, all of the following HTML elements need to wait for in-progress tasks on the main thread to complete prior to responding to user interactions:
 
--   Text fields, checkboxes, and radio buttons (`<input>`, `<textarea>`)
--   Select dropdowns (`<select>`)
--   links (`<a>`)
+- Text fields, checkboxes, and radio buttons (`<input>`, `<textarea>`)
+- Select dropdowns (`<select>`)
+- links (`<a>`)
 
 ### Why only consider the first input? <a href="#why-only-consider-the-first-input" class="w-headline-link">#</a>
 
 While a delay from any input can lead to a bad user experience, we primarily recommend measuring the first input delay for a few reasons:
 
--   The first input delay will be the user's first impression of your site's responsiveness, and first impressions are critical in shaping our overall impression of a site's quality and reliability.
--   The biggest interactivity issues we see on the web today occur during page load. Therefore, we believe initially focusing on improving site's first user interaction will have the greatest impact on improving the overall interactivity of the web.
--   The recommended solutions for how sites should fix high first input delays (code splitting, loading less JavaScript upfront, etc.) are not necessarily the same solutions for fixing slow input delays after page load. By separating out these metrics we'll be able to provide more specific performance guidelines to web developers.
+- The first input delay will be the user's first impression of your site's responsiveness, and first impressions are critical in shaping our overall impression of a site's quality and reliability.
+- The biggest interactivity issues we see on the web today occur during page load. Therefore, we believe initially focusing on improving site's first user interaction will have the greatest impact on improving the overall interactivity of the web.
+- The recommended solutions for how sites should fix high first input delays (code splitting, loading less JavaScript upfront, etc.) are not necessarily the same solutions for fixing slow input delays after page load. By separating out these metrics we'll be able to provide more specific performance guidelines to web developers.
 
 ### What counts as a first input? <a href="#what-counts-as-a-first-input" class="w-headline-link">#</a>
 
@@ -143,12 +131,11 @@ How you track, report on, and analyze FID will probably be quite a bit different
 
 As mentioned above, FID only measures the "delay" in event processing. It does not measure the event processing time itself nor the time it takes the browser to update the UI after running event handlers.
 
-Even though this time is important to the user and *does* affect the experience, it's not included in this metric because doing so could incentivize developers to add workarounds that actually make the experience worse—that is, they could wrap their event handler logic in an asynchronous callback (via `setTimeout()` or `requestAnimationFrame()`) in order to separate it from the task associated with the event. The result would be an improvement in the metric score but a slower response as perceived by the user.
+Even though this time is important to the user and _does_ affect the experience, it's not included in this metric because doing so could incentivize developers to add workarounds that actually make the experience worse—that is, they could wrap their event handler logic in an asynchronous callback (via `setTimeout()` or `requestAnimationFrame()`) in order to separate it from the task associated with the event. The result would be an improvement in the metric score but a slower response as perceived by the user.
 
 However, while FID only measure the "delay" portion of event latency, developers who want to track more of the event lifecycle can do so using the [Event Timing API](https://wicg.github.io/event-timing/). See the guide on [custom metrics](/custom-metrics/#event-timing-api) for more details.
 
-How to measure FID <a href="#how-to-measure-fid" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## How to measure FID <a href="#how-to-measure-fid" class="w-headline-link">#</a>
 
 FID is a metric that can only be measured [in the field](/user-centric-performance-metrics/#in-the-field), as it requires a real user to interact with your page. You can measure FID with the following tools.
 
@@ -156,10 +143,10 @@ FID requires a real user and thus cannot be measured in the lab. However, the [T
 
 ### Field tools <a href="#field-tools" class="w-headline-link">#</a>
 
--   [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report)
--   [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
--   [Search Console (Core Web Vitals report)](https://support.google.com/webmasters/answer/9205520)
--   [`web-vitals` JavaScript library](https://github.com/GoogleChrome/web-vitals)
+- [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report)
+- [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+- [Search Console (Core Web Vitals report)](https://support.google.com/webmasters/answer/9205520)
+- [`web-vitals` JavaScript library](https://github.com/GoogleChrome/web-vitals)
 
 ### Measure FID in JavaScript <a href="#measure-fid-in-javascript" class="w-headline-link">#</a>
 
@@ -180,10 +167,10 @@ The following section lists the differences between what the API reports and how
 
 #### Differences between the metric and the API <a href="#differences-between-the-metric-and-the-api" class="w-headline-link">#</a>
 
--   The API will dispatch `first-input` entries for pages loaded in a background tab but those pages should be ignored when calculating FID.
--   The API will also dispatch `first-input` entries if the page was backgrounded prior to the first input occurring, but those pages should also be ignored when calculating FID (inputs are only considered if the page was in the foreground the entire time).
--   The API does not report `first-input` entries when the page is restored from the [back/forward cache](/bfcache/#impact-on-core-web-vitals), but FID should be measured in these cases since users experience them as distinct page visits.
--   The API does not report inputs that occur within iframes, but to properly measure FID you should consider them. Sub-frames can use the API to report their `first-input` entries to the parent frame for aggregation.
+- The API will dispatch `first-input` entries for pages loaded in a background tab but those pages should be ignored when calculating FID.
+- The API will also dispatch `first-input` entries if the page was backgrounded prior to the first input occurring, but those pages should also be ignored when calculating FID (inputs are only considered if the page was in the foreground the entire time).
+- The API does not report `first-input` entries when the page is restored from the [back/forward cache](/bfcache/#impact-on-core-web-vitals), but FID should be measured in these cases since users experience them as distinct page visits.
+- The API does not report inputs that occur within iframes, but to properly measure FID you should consider them. Sub-frames can use the API to report their `first-input` entries to the parent frame for aggregation.
 
 Rather than memorizing all these subtle differences, developers can use the [`web-vitals` JavaScript library](https://github.com/GoogleChrome/web-vitals) to measure FID, which handles these differences for you (where possible):
 
@@ -204,8 +191,7 @@ While [choice of percentile](/defining-core-web-vitals-thresholds/#choice-of-per
 
 This is true even if you segment your reports by device category or type. For example, if you run separate reports for desktop and mobile, the FID value you care most about on desktop should be the 95th–99th percentile of desktop users, and the FID value you care about most on mobile should be the 95th–99th percentile of mobile users.
 
-How to improve FID <a href="#how-to-improve-fid" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## How to improve FID <a href="#how-to-improve-fid" class="w-headline-link">#</a>
 
 To learn how to improve FID for a specific site, you can run a Lighthouse performance audit and pay attention to any specific [opportunities](/lighthouse-performance/#opportunities) the audit suggests.
 
@@ -213,13 +199,12 @@ While FID is a field metric (and Lighthouse is a lab metric tool), the guidance 
 
 For a deep dive on how to improve FID, see [Optimize FID](/optimize-fid/). For additional guidance on individual performance techniques that can also improve FID, see:
 
--   [Reduce the impact of third-party code](/third-party-summary/)
--   [Reduce JavaScript execution time](/bootup-time/)
--   [Minimize main thread work](/mainthread-work-breakdown/)
--   [Keep request counts low and transfer sizes small](/resource-summary/)
+- [Reduce the impact of third-party code](/third-party-summary/)
+- [Reduce JavaScript execution time](/bootup-time/)
+- [Minimize main thread work](/mainthread-work-breakdown/)
+- [Keep request counts low and transfer sizes small](/resource-summary/)
 
-CHANGELOG <a href="#changelog" class="w-headline-link">#</a>
-------------------------------------------------------------
+## CHANGELOG <a href="#changelog" class="w-headline-link">#</a>
 
 Occasionally, bugs are discovered in the APIs used to measure metrics, and sometimes in the definitions of the metrics themselves. As a result, changes must sometimes be made, and these changes can show up as improvements or regressions in your internal reports and dashboards.
 
@@ -231,35 +216,35 @@ To help you manage this, all changes to either the implementation or definition 
 
 <a href="/learn-web-vitals" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

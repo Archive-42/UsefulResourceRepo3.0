@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Exceptions
----------------
+## Java Exceptions
 
 1.  [Throw, Try and Catch](exceptions-throw-try-catch.html)
 2.  [Java Exception Types](exception-types.html)
@@ -20,8 +19,7 @@ Java Exceptions
 13. [throw vs throws vs Throwable](throw-vs-throws-vs-throwable.html)
 14. [List of Java Exceptions](list-of-java-exceptions.html)
 
-Exception Related Keywords
---------------------------
+## Exception Related Keywords
 
 1.  [throw](throw.html)
 2.  [throws](throws.html)
@@ -29,17 +27,15 @@ Exception Related Keywords
 4.  [try](try.html)
 5.  [finally](finally.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -49,8 +45,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -58,51 +53,43 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: try + finally
-===================
+# Java: try + finally
 
 A `finally` block is **always** executed after the code in the preceeding `try` block. It doesn't matter if the `try` block throws an exception, whether or not the exception is caught, or if it executes a `return` statement. (The only way to prevent a `finally` block from running is by terminating the VM through `System.exit` or killing it manually.)
 
 It's often used to restore some state after an operation, such as freeing up resources.
 
-Without `catch`, no exception thrown
-------------------------------------
+## Without `catch`, no exception thrown
 
 statement try { } finally { }
 
-Without `catch`, exception thrown
----------------------------------
+## Without `catch`, exception thrown
 
 Exception is thrown, finally block is executed, exception propagates:
 
 try { throw new SomeException(); } finally { }
 
-With `catch`, no exception thrown
----------------------------------
+## With `catch`, no exception thrown
 
 try { } catch (SomeException e) { } finally { }
 
-With `catch`, exception thrown
-------------------------------
+## With `catch`, exception thrown
 
 try { throw new SomeException(); } catch (SomeException e) { } finally { }
 
-With `return` statement in `try` block
---------------------------------------
+## With `return` statement in `try` block
 
 The `return` statement is executed, finally block runs, method actually returns.
 
 try { return ; } finally { }
 
-With `return` in both `try` and finally blocks
-----------------------------------------------
+## With `return` in both `try` and finally blocks
 
 In the snippet below, `return 0` is executed, then the finally block kicks in and `return 1` is executed. The second return overrides the first return which means that the 0 return value is discarded, and the method **returns 1**.
 
 try { return 0 ; } finally { return 1 ; }
 
-With `throw` in both `try` and `finally` block
-----------------------------------------------
+## With `throw` in both `try` and `finally` block
 
 The `try` block throws `SomeException`, the finally block kicks in and throws `SomeOtherException`. The second throw "wins" and the first exception is discarded.
 
@@ -112,8 +99,7 @@ Similarly a `return` in a `finally` block will cause an exception thrown from a 
 
 **Note:** The examples are notional and only meant to illustrate the semantics. Some of them wouldn't actually compile due to unreachable code.
 
-Comments (3)
-------------
+## Comments (3)
 
 ![User avatar](https://www.gravatar.com/avatar/9345bde1426871f0839fc75d34bfc784?d=mp)
 

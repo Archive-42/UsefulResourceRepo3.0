@@ -1,33 +1,23 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
+## <a href="#fixing-mixed-content" class="w-toc__header--link">Fixing mixed content</a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#fixing-mixed-content" class="w-toc__header--link">Fixing mixed content</a>
-------------------------------------------------------------------------------------
-
--   [Finding mixed content by visiting your site](#finding-mixed-content-by-visiting-your-site)
--   [Finding mixed content in your site](#finding-mixed-content-in-your-site)
--   [Fixing mixed content](#fixing-mixed-content)
--   [Beware of non-standard tag usage](#beware-of-non-standard-tag-usage)
--   [Handle mixed content at scale](#handle-mixed-content-at-scale)
--   [Content security policy](#content-security-policy)
--   [Finding mixed content with content security policy](#finding-mixed-content-with-content-security-policy)
--   [Alternatives to reporting with CSP](#alternatives-to-reporting-with-csp)
--   [Upgrading insecure requests](#upgrading-insecure-requests)
--   [Blocking all mixed content](#blocking-all-mixed-content)
+- [Finding mixed content by visiting your site](#finding-mixed-content-by-visiting-your-site)
+- [Finding mixed content in your site](#finding-mixed-content-in-your-site)
+- [Fixing mixed content](#fixing-mixed-content)
+- [Beware of non-standard tag usage](#beware-of-non-standard-tag-usage)
+- [Handle mixed content at scale](#handle-mixed-content-at-scale)
+- [Content security policy](#content-security-policy)
+- [Finding mixed content with content security policy](#finding-mixed-content-with-content-security-policy)
+- [Alternatives to reporting with CSP](#alternatives-to-reporting-with-csp)
+- [Upgrading insecure requests](#upgrading-insecure-requests)
+- [Blocking all mixed content](#blocking-all-mixed-content)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Fixing mixed content
-====================
+# Fixing mixed content
 
 Sep 7, 2019 <span class="w-author__separator">•</span> Updated Sep 23, 2020
 
@@ -37,23 +27,22 @@ Sep 7, 2019 <span class="w-author__separator">•</span> Updated Sep 23, 2020
 
 <a href="/authors/johyphenel/" class="w-author__name-link">Jo-el van Bergen</a>
 
--   <a href="https://twitter.com/johyphenel" class="w-author__link">Twitter</a>
+- <a href="https://twitter.com/johyphenel" class="w-author__link">Twitter</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Rachel Andrew" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/rachelandrew/)
 
 <a href="/authors/rachelandrew/" class="w-author__name-link">Rachel Andrew</a>
 
--   <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
--   <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
+- <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
 
 Supporting HTTPS for your website is an important step to protecting your site and your users from attack, but mixed content can render that protection useless. Increasingly insecure mixed content will be blocked by browsers, as explained in [What is mixed content?](/what-is-mixed-content)
 
 In this guide we will demonstrate techniques and tools for fixing existing mixed content issues and preventing new ones from happening.
 
-Finding mixed content by visiting your site <a href="#finding-mixed-content-by-visiting-your-site" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------
+## Finding mixed content by visiting your site <a href="#finding-mixed-content-by-visiting-your-site" class="w-headline-link">#</a>
 
 When visiting an HTTPS page in Google Chrome, the browser alerts you to mixed content as errors and warnings in the JavaScript console.
 
@@ -81,9 +70,9 @@ If you get a console message that a resource request has been automatically upgr
 
 If the resource is not available via `https://`, you should consider one of the following options:
 
--   Include the resource from a different host, if one is available.
--   Download and host the content on your site directly, if you are legally allowed to do so.
--   Exclude the resource from your site altogether.
+- Include the resource from a different host, if one is available.
+- Download and host the content on your site directly, if you are legally allowed to do so.
+- Exclude the resource from your site altogether.
 
 Having fixed the problem, view the page where you found the error originally and verify that the error no longer appears.
 
@@ -91,8 +80,7 @@ Having fixed the problem, view the page where you found the error originally and
 
 Beware of non-standard tag usage on your site. For instance, anchor (`<a>`) tag URLs don't result in mixed content errors, as they cause the browser to navigate to a new page. This means they usually don't need to be fixed. However some image gallery scripts override the functionality of the `<a>` tag and load the HTTP resource specified by the `href` attribute into a lightbox display on the page, causing a mixed content problem.
 
-Handle mixed content at scale <a href="#handle-mixed-content-at-scale" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Handle mixed content at scale <a href="#handle-mixed-content-at-scale" class="w-headline-link">#</a>
 
 The manual steps above work well for smaller websites; but for large websites or sites with many separate development teams, it can be tough to keep track of all the content being loaded. To help with this task, you can use content security policy to instruct the browser to notify you about mixed content and ensure that your pages never unexpectedly load insecure resources.
 
@@ -118,8 +106,8 @@ Whenever a user visits a page on your site, their browser sends JSON-formatted r
 
 The two caveats to this are:
 
--   Users have to visit your page in a browser that understands the CSP header. This is true for most modern browsers.
--   You only get reports for pages visited by your users. So if you have pages that don't get much traffic, it might be some time before you get reports for your entire site.
+- Users have to visit your page in a browser that understands the CSP header. This is true for most modern browsers.
+- You only get reports for pages visited by your users. So if you have pages that don't get much traffic, it might be some time before you get reports for your entire site.
 
 The [Content security policy](https://developers.google.com/web/fundamentals/security/csp/) guide has more information and an example endpoint.
 
@@ -169,35 +157,35 @@ If you set both `upgrade-insecure-requests` and `block-all-mixed-content` `upgra
 
 <a href="/secure" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

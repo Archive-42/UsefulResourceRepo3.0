@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Command goimports](https://godoc.org/golang.org/x/tools/cmd/goimports)  
 <span style="color: grey; font-style: italic; font-size: smaller">GoDoc</span>
@@ -11,8 +10,7 @@ Further reading
 [Blank identifier (underscore)](underscore.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Unused imports
-==================
+# Go: Unused imports
 
 As you may have noticed, programs with unused imports do not compile:
 
@@ -59,8 +55,7 @@ This is a deliberate feature of the Go language:
 >
 > Go refuses to compile programs with unused variables or imports, trading short-term convenience for long-term build speed and program clarity. <a href="https://golang.org/doc/faq#unused_variables_and_imports" class="quote-source">Go FAQ: Can I stop these complaints about my unused variable/import?</a>
 
-Workaround
-----------
+## Workaround
 
 There's no compiler option to allow unused imports. If you don't want to remove/comment out the import, you can for instance use it in a dummy assignment:
 
@@ -77,13 +72,11 @@ There's no compiler option to allow unused imports. If you don't want to remove/
             fmt.Println("Hello")
     }
 
-A better solution
------------------
+## A better solution
 
 Use the [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports) tool, which rewrites a Go source file to have the correct imports. Many Go editors and IDEs run this tool automatically whenever a source file is written.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

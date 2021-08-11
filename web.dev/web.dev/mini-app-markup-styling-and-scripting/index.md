@@ -1,32 +1,18 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+## <a href="#mini-app-markup-styling-and-scripting" class="w-toc__header--link">Mini app markup, styling, and scripting</a>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#mini-app-markup-styling-and-scripting" class="w-toc__header--link">Mini app markup, styling, and scripting</a>
-------------------------------------------------------------------------------------------------------------------------
-
--   [Markup languages](#markup-languages)
--   [Data binding](#data-binding)
--   [List rendering](#list-rendering)
--   [Conditional rendering](#conditional-rendering)
--   [Templates](#templates)
--   [Styling](#styling)
--   [Scripting](#scripting)
--   [JavaScript bridge API](#javascript-bridge-api)
--   [Acknowledgements](#acknowledgements)
+- [Markup languages](#markup-languages)
+- [Data binding](#data-binding)
+- [List rendering](#list-rendering)
+- [Conditional rendering](#conditional-rendering)
+- [Templates](#templates)
+- [Styling](#styling)
+- [Scripting](#scripting)
+- [JavaScript bridge API](#javascript-bridge-api)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Mini app markup, styling, and scripting
-=======================================
+# Mini app markup, styling, and scripting
 
 Mar 3, 2021
 
@@ -36,15 +22,14 @@ Mar 3, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 This post is part of an article collection where each article builds upon previous articles. If you just landed here, you may want to start reading from the [beginning](/mini-app-super-apps/).
 
-Markup languages <a href="#markup-languages" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Markup languages <a href="#markup-languages" class="w-headline-link">#</a>
 
 As outlined before, rather than with plain HTML, mini apps are written with dialects of HTML. If you have ever dealt with [Vue.js](https://vuejs.org/) text interpolation and directives, you will feel immediately at home, but similar concepts existed way before that in XML Transformations ([XSLT](https://www.w3.org/TR/xslt-30/)). Below, you can see code samples from WeChat's [WXML](https://developers.weixin.qq.com/miniprogram/en/dev/framework/view/wxml/), but the concept is the same for all mini apps platforms, namely Alipay's [AXML](https://opendocs.alipay.com/mini/framework/axml), Baidu's [Swan Element](https://smartprogram.baidu.com/docs/develop/framework/dev/), ByteDance's [TTML](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/mini-app-framework/view/ttml) (despite the DevTools calling it Bxml), and Quick App's [HTML](https://doc.quickapp.cn/tutorial/framework/for.html). Just like with Vue.js, the underlying mini app programming concept is the [model-view-viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM).
 
@@ -116,8 +101,7 @@ Rather than requiring the imperative [cloning of the `content` of an HTML templa
       },
     });
 
-Styling <a href="#styling" class="w-headline-link">#</a>
---------------------------------------------------------
+## Styling <a href="#styling" class="w-headline-link">#</a>
 
 Styling happens with dialects of CSS. WeChat's is named [WXSS](https://developers.weixin.qq.com/miniprogram/en/dev/framework/quickstart/code.html#WXSS-Style). For Alipay, theirs is called [ACSS](https://opendocs.alipay.com/mini/framework/acss), Baidu's simply [CSS](https://smartprogram.baidu.com/docs/develop/framework/view_css/), and for ByteDance, their dialect is referred to as [TTSS](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/mini-app-framework/view/ttss). What they have in common is that they extend CSS with responsive pixels. When writing regular CSS, developers need to convert all pixel units to adapt to different mobile device screens with different widths and pixel ratios. TTSS supports the `rpx` unit as its underlying layer, which means the mini app takes over the job from the developer and converts the units on their behalf, based on a specified screen width of `750rpx`. For example, on a Pixel 3a phone with a screen width of `393px` (and a device pixel ratio of `2.75`), responsive `200rpx` become `104px` on the real device when inspected with Chrome DevTools (393px / 750rpx \* 200rpx ≈ 104px). In Android, the same concept is called [density-independent pixel](https://developer.android.com/training/multiscreen/screendensities#TaskUseDP).
 
@@ -136,8 +120,7 @@ Since components (see [later](/mini-app-components/)) do not use shadow DOM, sty
 
     <view style="color:{{color}};" />
 
-Scripting <a href="#scripting" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Scripting <a href="#scripting" class="w-headline-link">#</a>
 
 Mini apps support a "safe subset" of JavaScript that includes support for modules using varying syntaxes that remind of [CommonJS](http://www.commonjs.org/) or [RequireJS](https://requirejs.org/). JavaScript code cannot be executed via `eval()` and no functions can be created with `new Function()`. The scripting execution context is [V8](https://v8.dev/) or [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore) on devices, and V8 or [NW.js](https://nwjs.io/) in the simulator. Coding with ES6 or newer syntax is usually possible, since the particular DevTools automatically transpile the code to ES5 if the build target is an operating system with an older WebView implementation (see [later](/mini-app-project-structure-lifecycle-and-bundling/#the-build-process)). The documentation of the super app providers explicitly mentions that their scripting languages are not to be confused with and are distinct from JavaScript. This statement, however, refers mostly just to the way modules work, that is, that they do not support standard [ES Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) yet.
 
@@ -190,8 +173,7 @@ Feature detection is straightforward, since all platforms provide a (literally c
 
 **Success**: The next chapter introduces [mini app components](/mini-app-components/).
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [Joe Medley](https://github.com/jpmedley), [Kayce Basques](https://github.com/kaycebasques), [Milica Mihajlija](https://github.com/mihajlija), [Alan Kent](https://github.com/alankent), and Keith Gu.
 
@@ -201,35 +183,35 @@ This article was reviewed by [Joe Medley](https://github.com/jpmedley), [Kayce B
 
 <a href="/mini-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

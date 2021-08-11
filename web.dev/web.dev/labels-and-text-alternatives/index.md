@@ -1,33 +1,21 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
 <span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#labels-and-text-alternatives" class="w-toc__header--link">Labels and text alternatives</a>
-----------------------------------------------------------------------------------------------------
-
--   [Inspect an element's name](#inspect-an-element's-name)
--   [Check for missing names](#check-for-missing-names)
--   [Label documents and frames](#label-documents-and-frames)
--   [Include text alternatives for images and objects](#include-text-alternatives-for-images-and-objects)
--   [Images as links and inputs](#images-as-links-and-inputs)
--   [Embedded objects](#embedded-objects)
--   [Label buttons and links](#label-buttons-and-links)
--   [Buttons](#buttons)
--   [Links](#links)
--   [Label form elements](#label-form-elements)
+- [Check for missing names](#check-for-missing-names)
+- [Label documents and frames](#label-documents-and-frames)
+- [Include text alternatives for images and objects](#include-text-alternatives-for-images-and-objects)
+- [Images as links and inputs](#images-as-links-and-inputs)
+- [Embedded objects](#embedded-objects)
+- [Label buttons and links](#label-buttons-and-links)
+- [Buttons](#buttons)
+- [Links](#links)
+- [Label form elements](#label-form-elements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Labels and text alternatives
-============================
+# Labels and text alternatives
 
 Nov 18, 2018
 
@@ -37,17 +25,16 @@ Nov 18, 2018
 
 <a href="/authors/robdodson/" class="w-author__name-link">Rob Dodson</a>
 
--   <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
--   <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
--   <a href="https://robdodson.me" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
+- <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
+- <a href="https://robdodson.me" class="w-author__link">Blog</a>
 
 In order for a screen reader to present a spoken UI to the user, meaningful elements must have proper labels or text alternatives. A label or text alternative gives an element its accessible **name**, one of the key properties for [expressing element semantics in the accessibility tree](/semantics-and-screen-readers/#semantic-properties-and-the-accessibility-tree).
 
 When an element's name is combined with the element's **role**, it gives the user context so they can understand what type of element they're interacting with and how it is represented on the page. If a name is not present, then a screen reader only announces the element's role. Imagine trying to navigate a page and hearing, "button," "checkbox," "image" without any additional context. This is why labeling and text alternatives are crucial to a good, accessible experience.
 
-Inspect an element's name <a href="#inspect-an-element&#39;s-name" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## Inspect an element's name <a href="#inspect-an-element&#39;s-name" class="w-headline-link">#</a>
 
 It's easy to check an element's accessible name using Chrome's DevTools:
 
@@ -59,15 +46,13 @@ It's easy to check an element's accessible name using Chrome's DevTools:
 
 Whether you're looking at an `img` with `alt` text or an `input` with a `label`, all of these scenarios result in the same outcome: giving an element its accessible name.
 
-Check for missing names <a href="#check-for-missing-names" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Check for missing names <a href="#check-for-missing-names" class="w-headline-link">#</a>
 
 There are different ways to add an accessible name to an element, depending on its type. The following table lists the most common element types that need accessible names and links to explanations for how to add them.
 
 <table><thead><tr class="header"><th>Element type</th><th>How to add a name</th></tr></thead><tbody><tr class="odd"><td>HTML document</td><td><a href="#label-documents-and-frames">Label documents and frames</a></td></tr><tr class="even"><td><code>&lt;frame&gt;</code> or <code>&lt;iframe&gt;</code> elements</td><td><a href="#label-documents-and-frames">Label documents and frames</a></td></tr><tr class="odd"><td>Image elements</td><td><a href="#include-text-alternatives-for-images-and-objects">Include text alternatives for images and objects</a></td></tr><tr class="even"><td><code>&lt;input type="image"&gt;</code> elements</td><td><a href="#include-text-alternatives-for-images-and-objects">Include text alternatives for images and objects</a></td></tr><tr class="odd"><td><code>&lt;object&gt;</code> elements</td><td><a href="#include-text-alternatives-for-images-and-objects">Include text alternatives for images and objects</a></td></tr><tr class="even"><td>Buttons</td><td><a href="#label-buttons-and-links">Label buttons and links</a></td></tr><tr class="odd"><td>Links</td><td><a href="#label-buttons-and-links">Label buttons and links</a></td></tr><tr class="even"><td>Form elements</td><td><a href="#label-form-elements">Label form elements</a></td></tr></tbody></table>
 
-Label documents and frames <a href="#label-documents-and-frames" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Label documents and frames <a href="#label-documents-and-frames" class="w-headline-link">#</a>
 
 Every page should have a [`title`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title) element that briefly explains what the page is about. The `title` element gives the page its accessible name. When a screen reader enters the page, this is the first text that is announced.
 
@@ -91,8 +76,7 @@ Similarly, any `frame` or `iframe` elements should have `title` attributes:
 
 While an `iframe`'s contents may contain their own internal `title` element, a screen reader usually stops at the frame boundary and announces the element's role—"frame"—and its accessible name, provided by the `title` attribute. This lets the user decide if they wish to enter the frame or bypass it.
 
-Include text alternatives for images and objects <a href="#include-text-alternatives-for-images-and-objects" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------
+## Include text alternatives for images and objects <a href="#include-text-alternatives-for-images-and-objects" class="w-headline-link">#</a>
 
 An `img` should always be accompanied by an [`alt`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes) attribute to give the image its accessible name. If the image fails to load, the `alt` text is used as a placeholder so users have a sense of what the image was trying to convey.
 
@@ -131,8 +115,7 @@ Similarly, if an `<input type="image">` element is used to create an image butto
     Annual report.
     </object>
 
-Label buttons and links <a href="#label-buttons-and-links" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Label buttons and links <a href="#label-buttons-and-links" class="w-headline-link">#</a>
 
 Buttons and links are often crucial to the experience of a site, and it is important that both have good accessible names.
 
@@ -166,12 +149,11 @@ Useful content!
 
 This is especially helpful for screen readers that offer shortcuts to list all of the links on the page. If links are full of repetitive filler text, these shortcuts become much less useful:
 
-<figure><img src="https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format" alt="Example of VoiceOver, a screen reader for macOS, showing the navigate by links menu." sizes="(min-width: 519px) 519px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=1038 1038w" width="519" height="469" /><figcaption>Example of VoiceOver, a screen reader for macOS, showing the navigate by links menu.</figcaption></figure>Label form elements <a href="#label-form-elements" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format" alt="Example of VoiceOver, a screen reader for macOS, showing the navigate by links menu." sizes="(min-width: 519px) 519px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/IPxS2dwHMyGRvGxGi5n2.jpg?auto=format&amp;w=1038 1038w" width="519" height="469" /><figcaption>Example of VoiceOver, a screen reader for macOS, showing the navigate by links menu.</figcaption></figure>Label form elements <a href="#label-form-elements" class="w-headline-link">#</a>
 
 There are two ways to associate a label with a form element such as a checkbox. Either of the methods causes the label text to also become a click target for the checkbox, which is also helpful for mouse or touchscreen users. To associate a label with an element, either:
 
--   Place the input element inside of a label element
+- Place the input element inside of a label element
 
 <!-- -->
 
@@ -179,7 +161,7 @@ There are two ways to associate a label with a form element such as a checkbox. 
       <input type="checkbox">Receive promotional offers?</input>
     </label>
 
--   Or use the label's `for` attribute and refer to the element's `id`
+- Or use the label's `for` attribute and refer to the element's `id`
 
 <!-- -->
 
@@ -249,35 +231,35 @@ Does this checkbox have an accessible name?
 
 <a href="/accessible" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

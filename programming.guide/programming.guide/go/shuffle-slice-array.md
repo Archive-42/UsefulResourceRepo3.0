@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Random Generators: What is a seed?](../random-generators-what-is-a-seed.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Fisher–Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)  
 <span style="color: grey; font-style: italic; font-size: smaller">Wikipedia</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Shuffle slice or array
-==========================
+# Go: Shuffle slice or array
 
 The [`rand.Shuffle`](https://tip.golang.org/pkg/math/rand/#Shuffle) function, which will be introduced in [**Go 1.10**](https://tip.golang.org/doc/go1.10), shuffles an input sequence.
 
@@ -48,8 +44,7 @@ The [`rand.Shuffle`](https://tip.golang.org/pkg/math/rand/#Shuffle) function, wh
 
 Without the call to `rand.Seed`, a program will produce the same sequence of pseudo-random numbers for each execution.
 
-Before Go 1.10
---------------
+## Before Go 1.10
 
 Use the [`rand.Seed`](https://golang.org/pkg/math/rand/#Seed) and [`rand.Intn`](https://golang.org/pkg/math/rand/#Intn) functions in package [`math/rand`](https://golang.org/pkg/math/rand/):
 
@@ -60,8 +55,7 @@ Use the [`rand.Seed`](https://golang.org/pkg/math/rand/#Seed) and [`rand.Intn`](
             a[i], a[j] = a[j], a[i]
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

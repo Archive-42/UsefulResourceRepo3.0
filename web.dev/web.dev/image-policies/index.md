@@ -1,36 +1,24 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format" alt="A description of the hero image for screen reader users." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/OHtpn2oJuumNzReNNI6f.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#image-policies-for-fast-load-times-and-more" class="w-toc__header--link">Image policies for fast load times and more</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## <a href="#image-policies-for-fast-load-times-and-more" class="w-toc__header--link">Image policies for fast load times and more</a>
 
--   [Optimized image policies](#optimized-image-policies)
--   [oversized-images](#oversized-images)
--   [unoptimized-{lossy,lossless}-images](#unoptimized-lossylossless-images)
--   [Report-only mode in the wild](#report-only-mode-in-the-wild)
--   [Limitations](#limitations)
--   [Optimizing your images](#optimizing-your-images)
--   [Experiment with the policies in origin trials](#experiment-with-the-policies-in-origin-trials)
--   [Please give us feedback](#please-give-us-feedback)
+- [Optimized image policies](#optimized-image-policies)
+- [oversized-images](#oversized-images)
+- [unoptimized-{lossy,lossless}-images](#unoptimized-lossylossless-images)
+- [Report-only mode in the wild](#report-only-mode-in-the-wild)
+- [Limitations](#limitations)
+- [Optimizing your images](#optimizing-your-images)
+- [Experiment with the policies in origin trials](#experiment-with-the-policies-in-origin-trials)
+- [Please give us feedback](#please-give-us-feedback)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Image policies for fast load times and more
-===========================================
+# Image policies for fast load times and more
 
 Use optimized image policies to ensure your site is using the best performing images.
 
@@ -40,7 +28,7 @@ May 31, 2019
 
 <a href="/authors/lunalu/" class="w-author__name-link">Luna Lu</a>
 
--   <a href="https://github.com/loonybear" class="w-author__link">GitHub</a>
+- <a href="https://github.com/loonybear" class="w-author__link">GitHub</a>
 
 Images often take up a significant amount of visual space and make up the majority of the downloaded bytes on a website. Optimizing images can improve loading performance and reduce network traffic.
 
@@ -48,8 +36,7 @@ Surprisingly, more than half of the sites on the web are serving poorly compress
 
 You may ask, how do I know if my images are optimized and how should I optimize them? We are experimenting with a new set of feature policies for image optimization: `oversized-images`, `unoptimized-lossy-images`, `unoptimized-lossless-images`, and`unoptimized-lossless-images-strict`. All are now available for [origin trials](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md).
 
-Optimized image policies <a href="#optimized-image-policies" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Optimized image policies <a href="#optimized-image-policies" class="w-headline-link">#</a>
 
 Feature policy is introducing a new set restrictions on images that can be applied with development-time enforcement. Images violating any of the restrictions will be rendered as placeholder images, which are easy to identify and fix. These policies can be specified in report-only mode where images will render normally without enforcement while violations are being observed via reports. (See [Report-only mode in the wild](#report-only-mode-in-the-wild), below for details.)
 
@@ -77,14 +64,14 @@ A few examples illustrate this. The following shows the default behavior when cu
 
 To summarize, `oversized-images` policy can be specified through either:
 
--   `Feature-Policy` HTTP header
--   `<iframe>` `allow` attribute
+- `Feature-Policy` HTTP header
+- `<iframe>` `allow` attribute
 
 To declare the `oversized-images` policy, you need to provide:
 
--   The feature name, `oversized-images` (Required)
--   A list of origins (Optional)
--   The threshold values (i.e., the downscaling ratio X) for the origins, specified in parenthesis (Optional)
+- The feature name, `oversized-images` (Required)
+- A list of origins (Optional)
+- The threshold values (i.e., the downscaling ratio X) for the origins, specified in parenthesis (Optional)
 
 We recommend a downscaling ratio of 2.0 or lower. Consider using [responsive images](/serve-responsive-images/) with different resolutions to best serve images on various screen sizes, resolutions, and so on.
 
@@ -131,14 +118,14 @@ If you are new to feature policy, please check out [Introduction to Feature Poli
 
 To summarize, `unoptimized-{lossy,lossless}-images` policies can be either specified through:
 
--   `Feature-Policy` HTTP header
--   `<iframe>` `allow` attribute
+- `Feature-Policy` HTTP header
+- `<iframe>` `allow` attribute
 
 To declare an `unoptimized-{lossy,lossless}-images` policy, you will need to provide:
 
--   The feature name, for example, `unoptimized-lossy-images` (Required)
--   A list of origins (Optional)
--   The threshold values (i.e., byte-per-pixel ratio X) for the origins, specified in parenthesis (Optional)
+- The feature name, for example, `unoptimized-lossy-images` (Required)
+- A list of origins (Optional)
+- The threshold values (i.e., byte-per-pixel ratio X) for the origins, specified in parenthesis (Optional)
 
 We recommend a byte-per-pixel ratio of 0.5 or lower for `unoptimized-lossy-images` and a byte-per-pixel ratio of 1 or lower for `unoptimized-lossless-images` and `unoptimized-lossless-images-strict`.
 
@@ -146,8 +133,8 @@ WebP formats have better compression ratios than other formats. Serve all your i
 
 If you are using WebP formats, try with stricter thresholds:
 
--   0.2 for WEBPV8
--   0.5 for WEBPL
+- 0.2 for WEBPV8
+- 0.5 for WEBPL
 
 #### More examples <a href="#more-examples-2" class="w-headline-link">#</a>
 
@@ -171,16 +158,14 @@ Publishing a site with placeholder images may not be what you want. You can use 
 
 Image policies only work on HTML image elements (`<img>`, `<source>`, etc.) and are not yet supported on background images or generated content. If you would like to have policies supported on broader contents, please let us know.
 
-Optimizing your images <a href="#optimizing-your-images" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Optimizing your images <a href="#optimizing-your-images" class="w-headline-link">#</a>
 
 I've talked quite a bit about optimizing your images, but haven't said how to do it. That topic is out of scope for this article, but you can learn more from the links below and from the codelabs listed at the end of the article.
 
--   [Optimizing images](/fast#optimize-your-images)
--   [Serve images with correct dimensions](/serve-images-with-correct-dimensions/)
+- [Optimizing images](/fast#optimize-your-images)
+- [Serve images with correct dimensions](/serve-images-with-correct-dimensions/)
 
-Experiment with the policies in origin trials <a href="#experiment-with-the-policies-in-origin-trials" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------
+## Experiment with the policies in origin trials <a href="#experiment-with-the-policies-in-origin-trials" class="w-headline-link">#</a>
 
 Image policies are available in Chrome 75 via an origin trial.
 
@@ -188,18 +173,16 @@ To participate:
 
 1.  [request a token](https://developers.chrome.com/origintrials/#/view_trial/2562548187973812225)
 
-2.  Add the token on any pages in your origin using an `Origin-Trial` HTTP header:  
-      
+2.  Add the token on any pages in your origin using an `Origin-Trial` HTTP header:
+
     `Origin-Trial: **token as provided in the developer console**`
 
-3.  Specify an image policy via HTTP header Feature-Policy header:  
-      
+3.  Specify an image policy via HTTP header Feature-Policy header:
     `Feature-Policy: **image policies specified here**`
 
 Check out [Origin Trials Guide for Web Developers](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) for more details.
 
-Please give us feedback <a href="#please-give-us-feedback" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Please give us feedback <a href="#please-give-us-feedback" class="w-headline-link">#</a>
 
 Hopefully this article has given you a good understanding of the image policies and gotten you excited. We'd really love for you to try out the policies and give us feedback.
 
@@ -211,46 +194,45 @@ We would love to know what threshold values you used and found useful. We would 
 
 <span class="w-mr--sm">Last updated: May 31, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/blog/image-policies/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-serve-images-webp/" class="w-callout__link w-callout__link--codelab">Creating WebP Images with the Command Line</a>
+- <a href="/codelab-serve-images-webp/" class="w-callout__link w-callout__link--codelab">Creating WebP Images with the Command Line</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

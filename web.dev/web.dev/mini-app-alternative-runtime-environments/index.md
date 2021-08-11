@@ -1,33 +1,19 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+## <a href="#other-mini-app-runtime-environments" class="w-toc__header--link">Other mini app runtime environments</a>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#other-mini-app-runtime-environments" class="w-toc__header--link">Other mini app runtime environments</a>
-------------------------------------------------------------------------------------------------------------------
-
--   [More than just on mobile](#more-than-just-on-mobile)
--   [Mini apps in cars](#mini-apps-in-cars)
--   [Mini apps on the desktop](#mini-apps-on-the-desktop)
--   [Mini apps in WeChat Desktop](#mini-apps-in-wechat-desktop)
--   [Mini apps in the 360 Secure Browser](#mini-apps-in-the-360-secure-browser)
--   [Web-based mini apps](#web-based-mini-apps)
--   [LINE](#line)
--   [Google Spot](#google-spot)
--   [Snap Minis](#snap-minis)
--   [Acknowledgements](#acknowledgements)
+- [More than just on mobile](#more-than-just-on-mobile)
+- [Mini apps in cars](#mini-apps-in-cars)
+- [Mini apps on the desktop](#mini-apps-on-the-desktop)
+- [Mini apps in WeChat Desktop](#mini-apps-in-wechat-desktop)
+- [Mini apps in the 360 Secure Browser](#mini-apps-in-the-360-secure-browser)
+- [Web-based mini apps](#web-based-mini-apps)
+- [LINE](#line)
+- [Google Spot](#google-spot)
+- [Snap Minis](#snap-minis)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Other mini app runtime environments
-===================================
+# Other mini app runtime environments
 
 Mar 3, 2021
 
@@ -37,29 +23,26 @@ Mar 3, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 This post is part of an article collection where each article builds upon previous articles. If you just landed here, you may want to start reading from the [beginning](/mini-app-super-apps/).
 
-More than just on mobile <a href="#more-than-just-on-mobile" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## More than just on mobile <a href="#more-than-just-on-mobile" class="w-headline-link">#</a>
 
 In countries like China, mini apps have taken the market by storm. Apart from mobile devices, where mini apps are omnipresent and which are their natural habitat, mini apps have started to conquer other runtime environments like cars and the classic desktop.
 
-Mini apps in cars <a href="#mini-apps-in-cars" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Mini apps in cars <a href="#mini-apps-in-cars" class="w-headline-link">#</a>
 
-In July 2020 the German car maker BMW Group [announced](https://www.press.bmwgroup.com/china/article/detail/T0313254ZH_CN/%E2%80%9C2020-%E5%AE%9D%E9%A9%AC%E7%A7%91%E6%8A%80%E6%97%A5%E2%80%9D%E5%9C%A8%E7%BA%BF%E5%8F%91%E5%B8%83%E5%A4%9A%E6%AC%BE%E8%BD%A6%E5%86%85%E6%95%B0%E5%AD%97%E4%BA%A7%E5%93%81) a collaboration with Tencent branded as WeScenario, which, [according to Tencent](https://www.tencent.com/en-us/articles/2201068.html), will be rolled out to *"30 leading auto companies in the world, and \[bring the WeScenario\] ecosystem of social, content and services to more than 110 mainstream automobile models"*.
+In July 2020 the German car maker BMW Group [announced](https://www.press.bmwgroup.com/china/article/detail/T0313254ZH_CN/%E2%80%9C2020-%E5%AE%9D%E9%A9%AC%E7%A7%91%E6%8A%80%E6%97%A5%E2%80%9D%E5%9C%A8%E7%BA%BF%E5%8F%91%E5%B8%83%E5%A4%9A%E6%AC%BE%E8%BD%A6%E5%86%85%E6%95%B0%E5%AD%97%E4%BA%A7%E5%93%81) a collaboration with Tencent branded as WeScenario, which, [according to Tencent](https://www.tencent.com/en-us/articles/2201068.html), will be rolled out to _"30 leading auto companies in the world, and \[bring the WeScenario\] ecosystem of social, content and services to more than 110 mainstream automobile models"_.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format" alt="Landing page of Tencent WeScenario (Source: BMW)." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1600 1600w" width="800" height="533" /><figcaption>Landing page of Tencent WeScenario (Source: <a href="https://www.press.bmwgroup.com/china/article/detail/T0313254ZH_CN/%E2%80%9C2020-%E5%AE%9D%E9%A9%AC%E7%A7%91%E6%8A%80%E6%97%A5%E2%80%9D%E5%9C%A8%E7%BA%BF%E5%8F%91%E5%B8%83%E5%A4%9A%E6%AC%BE%E8%BD%A6%E5%86%85%E6%95%B0%E5%AD%97%E4%BA%A7%E5%93%81">BMW</a>).</figcaption></figure>Mini apps on the desktop <a href="#mini-apps-on-the-desktop" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format" alt="Landing page of Tencent WeScenario (Source: BMW)." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/AX07xQlEHL7MDjPo1U1H.jpg?auto=format&amp;w=1600 1600w" width="800" height="533" /><figcaption>Landing page of Tencent WeScenario (Source: <a href="https://www.press.bmwgroup.com/china/article/detail/T0313254ZH_CN/%E2%80%9C2020-%E5%AE%9D%E9%A9%AC%E7%A7%91%E6%8A%80%E6%97%A5%E2%80%9D%E5%9C%A8%E7%BA%BF%E5%8F%91%E5%B8%83%E5%A4%9A%E6%AC%BE%E8%BD%A6%E5%86%85%E6%95%B0%E5%AD%97%E4%BA%A7%E5%93%81">BMW</a>).</figcaption></figure>Mini apps on the desktop <a href="#mini-apps-on-the-desktop" class="w-headline-link">#</a>
 
 ### Mini apps in WeChat Desktop <a href="#mini-apps-in-wechat-desktop" class="w-headline-link">#</a>
 
-Using the WeChat desktop client available for [macOS](https://dldir1.qq.com/weixin/mac/WeChatMac.dmg) and [Windows](https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe)), it is possible to run WeChat mini apps on the desktop. (Make sure to *not* load the macOS [version from the App Store](https://itunes.apple.com/cn/app/id836500024) if you are doing research and want the full experience, since it is more limited.)
+Using the WeChat desktop client available for [macOS](https://dldir1.qq.com/weixin/mac/WeChatMac.dmg) and [Windows](https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe)), it is possible to run WeChat mini apps on the desktop. (Make sure to _not_ load the macOS [version from the App Store](https://itunes.apple.com/cn/app/id836500024) if you are doing research and want the full experience, since it is more limited.)
 
 To test it on macOS, share a mini app from a mobile device with yourself via the "File Transfer" account. This will result in a message that you can then open on the desktop client. In most cases, the mini app will then be directly clickable and runnable. In other cases, you have to forward the chat history to yourself again from a mobile device.
 
@@ -79,8 +62,7 @@ To test it on macOS, share a mini app from a mobile device with yourself via the
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format" alt="Debugging a 360 mini app using Chrome Dev Tools." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/IdHpN4GhVWDZ5gmSZ4Jb.png?auto=format&amp;w=1600 1600w" width="800" height="402" /><figcaption>Debugging a 360 mini app using Chrome Dev Tools.</figcaption></figure>360 mini apps can run in fullscreen mode and do appear as separate entries in the multitasking bar. Via the context menu, a home screen icon can be added that allows for mini apps to be launched from the desktop.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format" alt="360 mini app running in fullscreen mode." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1600 1600w" width="800" height="402" /><figcaption>360 mini app running in fullscreen mode.</figcaption></figure>Web-based mini apps <a href="#web-based-mini-apps" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format" alt="360 mini app running in fullscreen mode." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M4MPV6TXwsLC6lFn9Jgi.png?auto=format&amp;w=1600 1600w" width="800" height="402" /><figcaption>360 mini app running in fullscreen mode.</figcaption></figure>Web-based mini apps <a href="#web-based-mini-apps" class="w-headline-link">#</a>
 
 There are some mini app platforms that are web-based, but that depend on the presence of a special WebView to unlock their full potential.
 
@@ -100,8 +82,7 @@ The [Google Spot Platform](https://developers.google.com/pay/spot) allows develo
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format" alt="The Atom Tickets mini app running in Snapchat (Source: Snap)." sizes="(min-width: 320px) 320px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/vM5d0wK5fCQSV0VyP7HA.png?auto=format&amp;w=640 640w" width="320" height="470" /><figcaption>The Atom Tickets mini app running in Snapchat (Source: <a href="https://minis.snapchat.com/">Snap</a>).</figcaption></figure>**Success**: Read on to see some examples of the [mini app open source projects](/mini-app-open-source-projects/).
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [Joe Medley](https://github.com/jpmedley), [Kayce Basques](https://github.com/kaycebasques), [Milica Mihajlija](https://github.com/mihajlija), [Alan Kent](https://github.com/alankent), and Keith Gu.
 
@@ -111,35 +92,35 @@ This article was reviewed by [Joe Medley](https://github.com/jpmedley), [Kayce B
 
 <a href="/mini-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

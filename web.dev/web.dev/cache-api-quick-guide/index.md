@@ -1,41 +1,33 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#the-cache-api:-a-quick-guide" class="w-toc__header--link">The Cache API: A quick guide</a>
-----------------------------------------------------------------------------------------------------
+## <a href="#the-cache-api:-a-quick-guide" class="w-toc__header--link">The Cache API: A quick guide</a>
 
--   [Where is it available?](#where-is-it-available)
--   [What can be stored](#what-can-be-stored)
--   [How much can be stored?](#how-much-can-be-stored)
--   [Creating and opening a cache](#creating-and-opening-a-cache)
--   [Adding to a cache](#adding-to-a-cache)
--   [cache.add](#cache.add)
--   [cache.addAll](#cache.addall)
--   [cache.put](#cache.put)
--   [Retrieving from a cache](#retrieving)
--   [Searching](#searching)
--   [Filtering](#filtering)
--   [Creating an index](#creating-an-index)
--   [Deleting an item](#deleting-an-item)
--   [Deleting a cache](#deleting-a-cache)
--   [Thanks](#thanks)
+- [Where is it available?](#where-is-it-available)
+- [What can be stored](#what-can-be-stored)
+- [How much can be stored?](#how-much-can-be-stored)
+- [Creating and opening a cache](#creating-and-opening-a-cache)
+- [Adding to a cache](#adding-to-a-cache)
+- [cache.add](#cache.add)
+- [cache.addAll](#cache.addall)
+- [cache.put](#cache.put)
+- [Retrieving from a cache](#retrieving)
+- [Searching](#searching)
+- [Filtering](#filtering)
+- [Creating an index](#creating-an-index)
+- [Deleting an item](#deleting-an-item)
+- [Deleting a cache](#deleting-a-cache)
+- [Thanks](#thanks)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-The Cache API: A quick guide
-============================
+# The Cache API: A quick guide
 
 Learn how to use the Cache API to make your application data available offline.
 
@@ -47,17 +39,16 @@ Oct 3, 2017 <span class="w-author__separator">•</span> Updated Apr 27, 2020
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
 The [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) is a system for storing and retrieving network requests and their corresponding responses. These might be regular requests and responses created in the course of running your application, or they could be created solely for the purpose of storing data for later use.
 
 The Cache API was created to enable service workers to cache network requests so that they can provide fast responses, regardless of network speed or availablity. However, the API can also be used as a general storage mechanism.
 
-Where is it available? <a href="#where-is-it-available" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------
+## Where is it available? <a href="#where-is-it-available" class="w-headline-link">#</a>
 
 The Cache API is available in [all modern browsers](https://caniuse.com/#feat=mdn-api_cache). It is exposed via the global `caches` property, so you can test for the presence of the API with a simple feature detection:
 
@@ -65,8 +56,7 @@ The Cache API is available in [all modern browsers](https://caniuse.com/#feat=md
 
 The Cache API can be accessed from a window, iframe, worker, or service worker.
 
-What can be stored <a href="#what-can-be-stored" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## What can be stored <a href="#what-can-be-stored" class="w-headline-link">#</a>
 
 The caches only store pairs of [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) and [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) objects, representing HTTP requests and responses, respectively. However, the requests and responses can contain any kind of data that can be transferred over HTTP.
 
@@ -74,16 +64,14 @@ The caches only store pairs of [`Request`](https://developer.mozilla.org/en-US/d
 
 In short, **a lot**, at least a couple of hundred megabytes, and potentially hundreds of gigabytes or more. Browser implementations vary, but the amount of storage available is usually based on the amount of storage available on the device.
 
-Creating and opening a cache <a href="#creating-and-opening-a-cache" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## Creating and opening a cache <a href="#creating-and-opening-a-cache" class="w-headline-link">#</a>
 
 To open a cache, use the `caches.open(name)` method, passing the name of the cache as the single parameter. If the named cache does not exist, it is created. This method returns a `Promise` that resolves with the `Cache` object.
 
     const cache = await caches.open('my-cache');
     // do something with cache...
 
-Adding to a cache <a href="#adding-to-a-cache" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Adding to a cache <a href="#adding-to-a-cache" class="w-headline-link">#</a>
 
 There are three ways to add an item to a cache - `add`, `addAll`, and `put`. All three methods return a `Promise`.
 
@@ -181,8 +169,7 @@ For example
     console.log(new Uint8Array(buffer));
     // Uint8Array(11) [72, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]
 
-Retrieving from a cache <a href="#retrieving" class="w-headline-link">#</a>
----------------------------------------------------------------------------
+## Retrieving from a cache <a href="#retrieving" class="w-headline-link">#</a>
 
 To find an item in a cache, you can use the `match` method.
 
@@ -204,7 +191,7 @@ You can ignore some or all of these things by passing an options object as a sec
     const response = await cache.match(request, options);
     // do something with the response
 
-If more than one cached request matches then the one that was created first is returned. If you want to retrieve *all* matching responses, you can use `cache.matchAll()`.
+If more than one cached request matches then the one that was created first is returned. If you want to retrieve _all_ matching responses, you can use `cache.matchAll()`.
 
     const options = {
       ignoreSearch: true,
@@ -217,8 +204,7 @@ If more than one cached request matches then the one that was created first is r
 
 As a shortcut you can search over all caches at once by using `caches.match()` instead of calling `cache.match()` for each cache.
 
-Searching <a href="#searching" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Searching <a href="#searching" class="w-headline-link">#</a>
 
 The Cache API does not provide a way to search for requests or responses except for matching entries against a `Response` object. However, you can implement your own search using filtering or by creating an index.
 
@@ -255,8 +241,7 @@ The other way to implement your own search is to maintain a separate index of en
 
 If you store the URL of the `Request` alongside the searchable properties then you can easily retrieve the correct cache entry after doing the search.
 
-Deleting an item <a href="#deleting-an-item" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Deleting an item <a href="#deleting-an-item" class="w-headline-link">#</a>
 
 To delete an item from a cache:
 
@@ -266,13 +251,11 @@ Where request can be a `Request` or a URL string. This method also takes the sam
 
     cache.delete('/example/file.txt', {ignoreVary: true, ignoreSearch: true});
 
-Deleting a cache <a href="#deleting-a-cache" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Deleting a cache <a href="#deleting-a-cache" class="w-headline-link">#</a>
 
 To delete a cache, call `caches.delete(name)`. This function returns a `Promise` that resolves to `true` if the cache existed and was deleted, or `false` otherwise.
 
-Thanks <a href="#thanks" class="w-headline-link">#</a>
-------------------------------------------------------
+## Thanks <a href="#thanks" class="w-headline-link">#</a>
 
 Thanks to Mat Scales who wrote the original version of this article, which first appeared on WebFundamentals.
 
@@ -282,35 +265,35 @@ Thanks to Mat Scales who wrote the original version of this article, which first
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

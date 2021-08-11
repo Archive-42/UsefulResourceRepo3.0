@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [How to Write Go Code](https://golang.org/doc/code.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language</span>
@@ -17,8 +16,7 @@ Further reading
 [How should I manage package versions using "go get"?](https://golang.org/doc/faq#get_version)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go FAQ</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,14 +38,13 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Packages explained
-======================
+# Go: Packages explained
 
 Every Go program is made up of packages and each package has an **import path**:
 
--   `"fmt"`
--   `"math/rand"`
--   `"github.com/yourbasic/graph"`
+- `"fmt"`
+- `"math/rand"`
+- `"github.com/yourbasic/graph"`
 
 Packages in the standard library have short import paths, such as `"fmt"` and `"math/rand"`.
 
@@ -56,9 +52,9 @@ Third-party packages, such as `"github.com/yourbasic/graph"`, typically have an 
 
 By convention, the **package name** is the same as the last element of the import path:
 
--   `fmt`
--   `rand`
--   `graph`
+- `fmt`
+- `rand`
+- `graph`
 
 References to other packages' definitions must always be prefixed with their package names, and only the capitalized names from other packages are accessible.
 
@@ -77,24 +73,22 @@ References to other packages' definitions must always be prefixed with their pac
             fmt.Println(g)
     }
 
-Declaring a package
--------------------
+## Declaring a package
 
 Every Go source file starts with a package declaration, which contains only the package name.
 
 For example, the file [`src/math/rand/exp.go`](https://golang.org/src/math/rand/exp.go), which is part of the implementation of the [`math/rand`](https://golang.org/pkg/math/rand/) package, contains the following code:
 
     package rand
-      
+
     import "math"
-      
+
     const re = 7.69711747013104972
     …
 
 You don't need to worry about package name collisions, only the import path of a package must be unique. [How to Write Go Code](https://golang.org/doc/code.html) shows how to organize your code and its packages in a file structure.
 
-Package name conflicts
-----------------------
+## Package name conflicts
 
 You can customize the name under which you refer to an imported package:
 
@@ -114,8 +108,7 @@ You can customize the name under which you refer to an imported package:
             fmt.Println(n, b)
     }
 
-Dot imports
------------
+## Dot imports
 
 If a period `.` appears instead of a name in an import statement, all the package's exported identifiers can be accessed without a qualifier.
 
@@ -132,8 +125,7 @@ If a period `.` appears instead of a name in an import statement, all the packag
 
 Dot imports can make programs hard to read and **generally should be avoided**.
 
-Package download
-----------------
+## Package download
 
 The [`go get`](https://golang.org/cmd/go/#hdr-Download_and_install_packages_and_dependencies) command downloads packages named by import paths, along with their dependencies, and then installs the packages:
 
@@ -145,14 +137,13 @@ The [Go Wiki](https://github.com/golang/go/wiki/Projects) and [Awesome Go](https
 
 For more information on using remote repositories with the go tool, see [Command go: Remote import paths](https://golang.org/cmd/go/#hdr-Remote_import_paths).
 
-Package documentation
----------------------
+## Package documentation
 
 The [GoDoc](https://godoc.org/) web site hosts documentation for Go packages on Bitbucket, GitHub, Google Project Hosting and Launchpad:
 
--   [`https://godoc.org/fmt`](https://godoc.org/fmt)
--   [`https://godoc.org/math/rand`](https://godoc.org/math/rand)
--   [`https://godoc.org/github.com/yourbasic/graph`](https://godoc.org/github.com/yourbasic/graph)
+- [`https://godoc.org/fmt`](https://godoc.org/fmt)
+- [`https://godoc.org/math/rand`](https://godoc.org/math/rand)
+- [`https://godoc.org/github.com/yourbasic/graph`](https://godoc.org/github.com/yourbasic/graph)
 
 The [godoc](https://godoc.org/golang.org/x/tools/cmd/godoc) command extracts and generates documentation for all locally installed Go programs:
 
@@ -162,8 +153,7 @@ starts a web server that presents the documentation at `http://localhost:6060/`.
 
 For more on how to access and create documentation, see [Go: Package documentation](https://programming.guide/go/generate-download-documentation.html)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

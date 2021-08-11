@@ -2,25 +2,22 @@
 
 <span class="underline"></span>
 
-Unsigned integers in Java
--------------------------
+## Unsigned integers in Java
 
 1.  [Unsigned byte](unsigned-byte.html)
 2.  [Unsigned short](unsigned-short.html)
 3.  Unsigned int
 4.  [Unsigned long](unsigned-long.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -30,8 +27,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -39,17 +35,15 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Unsigned int in Java
-====================
+# Unsigned int in Java
 
 Java does not have unsigned data types. Your options are:
 
--   Use a `long`
--   Use an [`UnsignedInteger`](https://guava.dev/releases/snapshot-jre/api/docs/com/google/common/primitives/UnsignedInteger.html) from Guava
--   Use an `int` and interpret the bits as unsigned (described below)
+- Use a `long`
+- Use an [`UnsignedInteger`](https://guava.dev/releases/snapshot-jre/api/docs/com/google/common/primitives/UnsignedInteger.html) from Guava
+- Use an `int` and interpret the bits as unsigned (described below)
 
-An unsigned `int`
------------------
+## An unsigned `int`
 
 An `int` is always signed in Java, but nothing prevents you from viewing an `int` simply as 32 bits and interpret those bits as a value between 0 and 2<sup>64</sup>.
 
@@ -59,15 +53,13 @@ Keep in mind that there’s nothing you can do to force your interpretation upon
 
 Here are a couple of useful conversions / manipulations.
 
-Printing an unsigned `int`
---------------------------
+## Printing an unsigned `int`
 
 Use [`Integer.toUnsignedString`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#toUnsignedString-int-):
 
     System.out.println("Value of my unsigned int: " + Integer.toUnsignedString(uint));
 
-Converting from `long` to unsigned `int`
-----------------------------------------
+## Converting from `long` to unsigned `int`
 
 Casting to `int` throws away all but the lowest 32 bits.
 
@@ -77,8 +69,7 @@ Casting to `int` throws away all but the lowest 32 bits.
     System.out.println(i);                            // -2094967296
     System.out.println(Integer.toUnsignedString(i));  // 2200000000
 
-Converting from unsigned `int` to `long`
-----------------------------------------
+## Converting from unsigned `int` to `long`
 
 Use [`Integer.toUnsignedLong`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#toUnsignedLong-int-) to avoid [sign extension](https://en.wikipedia.org/wiki/Sign_extension).
 
@@ -91,16 +82,14 @@ Or, equivalently:
 
     long unsigned = i & 0xffffffffL;
 
-Comparing unsigned `int`s
--------------------------
+## Comparing unsigned `int`s
 
     int cmp = Integer.compareUnsigned(i1, i2);
     // cmp = -1  =>  i1 < i2
     // cmp =  0  =>  i1 = i2
     // cmp =  1  =>  11 > i2
 
-Parsing an unsigned `int`
--------------------------
+## Parsing an unsigned `int`
 
     int i = Integer.parseUnsignedInt("2200000000");
 
@@ -108,8 +97,7 @@ Parsing an unsigned `int`
 
 **Note:** [`Integer.parseInt`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#parseInt-java.lang.String-) would throw a [`NumberFormatException`](https://docs.oracle.com/javase/8/docs/api/java/lang/NumberFormatException.html) for the above input.
 
-Arithmetics
------------
+## Arithmetics
 
 As it happens, the 2-complement representation “just works” for addition, subtraction and multiplication.
 
@@ -126,8 +114,7 @@ For division and remainder, use [`Integer.divideUnsigned`](https://docs.oracle.c
     int q = Integer.divideUnsigned(i1, i2);     // 39600
     int r = Integer.remainderUnsigned(i1, i2);  // 22000
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

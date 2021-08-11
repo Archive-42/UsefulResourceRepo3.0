@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Defer statement](defer.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,11 +29,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Create a temporary file or directory
-========================================
+# Go: Create a temporary file or directory
 
-File
-----
+## File
 
 Use [`ioutil.TempFile`](https://golang.org/pkg/io/ioutil/#TempFile) in package [`io/ioutil`](https://golang.org/pkg/io/ioutil/) to create a temporary file:
 
@@ -50,15 +45,14 @@ Use [`ioutil.TempFile`](https://golang.org/pkg/io/ioutil/#TempFile) in package [
 
 The call to [`ioutil.TempFile`](https://golang.org/pkg/io/ioutil/#TempFile)
 
--   creates a new file with a name starting with `"prefix"`
--   in the directory `"dir"`,
--   opens the file for reading and writing,
--   and returns the new [`*os.File`](https://golang.org/pkg/os/#File).
+- creates a new file with a name starting with `"prefix"`
+- in the directory `"dir"`,
+- opens the file for reading and writing,
+- and returns the new [`*os.File`](https://golang.org/pkg/os/#File).
 
 To put the new file in [`os.TempDir()`](https://golang.org/pkg/os/#TempDir), the default directory for temporary files, call [`ioutil.TempFile`](https://golang.org/pkg/io/ioutil/#TempFile) with an empty directory string.
 
-Directory
----------
+## Directory
 
 Use [`ioutil.TempDir`](https://golang.org/pkg/io/ioutil/#TempDir) in package [`io/ioutil`](https://golang.org/pkg/io/ioutil/) to create a temporary directory:
 
@@ -70,14 +64,13 @@ Use [`ioutil.TempDir`](https://golang.org/pkg/io/ioutil/#TempDir) in package [`i
 
 The call to [`ioutil.TempDir`](https://golang.org/pkg/io/ioutil/#TempDir)
 
--   creates a new directory with a name starting with `"prefix"`
--   in the directory `"dir"`,
--   and returns the path of the new directory.
+- creates a new directory with a name starting with `"prefix"`
+- in the directory `"dir"`,
+- and returns the path of the new directory.
 
 To put the new directory in [`os.TempDir()`](https://golang.org/pkg/os/#TempDir), the default directory for temporary files, call [`ioutil.TempDir`](https://golang.org/pkg/io/ioutil/#TempDir) with an empty directory string.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

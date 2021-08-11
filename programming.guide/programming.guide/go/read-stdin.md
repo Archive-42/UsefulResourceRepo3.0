@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Read a file line by line](read-file-line-by-line.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Read from stdin
-===================
+# Go: Read from stdin
 
 Use a [`bufio.Scanner`](https://golang.org/pkg/bufio/#Scanner) to read one line at a time from standard input:
 
@@ -45,8 +41,7 @@ Use a [`bufio.Scanner`](https://golang.org/pkg/bufio/#Scanner) to read one line 
             log.Println(err)
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

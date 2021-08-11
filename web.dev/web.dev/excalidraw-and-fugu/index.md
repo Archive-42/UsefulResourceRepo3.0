@@ -1,46 +1,36 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format" alt="Dropping a file from the macOS Finder onto the Excalidraw application." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/FcDeDjh1bW8zAHIzA2BF.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#excalidraw-and-fugu:-improving-core-user-journeys" class="w-toc__header--link">Excalidraw and Fugu: Improving Core User Journeys</a>
-----------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#excalidraw-and-fugu:-improving-core-user-journeys" class="w-toc__header--link">Excalidraw and Fugu: Improving Core User Journeys</a>
 
--   [How I came to Excalidraw](#how-i-came-to-excalidraw)
--   [Lipis on why he dedicates so much of his time to Excalidraw](#lipis-on-why-he-dedicates-so-much-of-his-time-to-excalidraw)
--   [Excalidraw in action](#excalidraw-in-action)
--   [Working with files](#working-with-files)
--   [Opening files](#opening-files)
--   [Saving files](#saving-files)
--   [Drag and drop](#drag-and-drop)
--   [Sharing files](#sharing-files)
--   [Lipis on the deprecated Electron version](#lipis-on-the-deprecated-electron-version)
--   [File handling](#file-handling)
--   [Clipboard integration](#clipboard-integration)
--   [Collaborating with others](#collaborating-with-others)
--   [Sharing a session URL](#sharing-a-session-url)
--   [Live collaboration](#live-collaboration)
--   [Seeing collaborator statuses](#seeing-collaborator-statuses)
--   [Lipis on what is holding back Excalidraw](#lipis-on-what-is-holding-back-excalidraw)
--   [Tabbed application mode](#tabbed-application-mode)
--   [Closing](#closing)
+- [How I came to Excalidraw](#how-i-came-to-excalidraw)
+- [Lipis on why he dedicates so much of his time to Excalidraw](#lipis-on-why-he-dedicates-so-much-of-his-time-to-excalidraw)
+- [Excalidraw in action](#excalidraw-in-action)
+- [Working with files](#working-with-files)
+- [Opening files](#opening-files)
+- [Saving files](#saving-files)
+- [Drag and drop](#drag-and-drop)
+- [Sharing files](#sharing-files)
+- [Lipis on the deprecated Electron version](#lipis-on-the-deprecated-electron-version)
+- [File handling](#file-handling)
+- [Clipboard integration](#clipboard-integration)
+- [Collaborating with others](#collaborating-with-others)
+- [Sharing a session URL](#sharing-a-session-url)
+- [Live collaboration](#live-collaboration)
+- [Seeing collaborator statuses](#seeing-collaborator-statuses)
+- [Lipis on what is holding back Excalidraw](#lipis-on-what-is-holding-back-excalidraw)
+- [Tabbed application mode](#tabbed-application-mode)
+- [Closing](#closing)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Excalidraw and Fugu: Improving Core User Journeys
-=================================================
+# Excalidraw and Fugu: Improving Core User Journeys
 
 Any sufficiently advanced technology is indistinguishable from magic. Unless you understand it. My  
 name is Thomas Steiner, I work in Developer Relations at Google and in this write-up of my Google I/O talk, I will look at  
@@ -53,15 +43,14 @@ May 18, 2021 <span class="w-author__separator">•</span> Updated May 19, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 This is a write-up of my Google I/O talk. If you prefer watching it, see the video below.
 
-How I came to Excalidraw <a href="#how-i-came-to-excalidraw" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## How I came to Excalidraw <a href="#how-i-came-to-excalidraw" class="w-headline-link">#</a>
 
 I want to start with a story. On January 1st, 2020, [Christopher Chedeau](https://twitter.com/vjeux), a software engineer at Facebook, [tweeted](https://twitter.com/Vjeux/status/1212503324982792193) about a small drawing app he had started to work on. With this tool, you could draw boxes and arrows that feel cartoony and hand-drawn. The next day, you could also draw ellipses and text, as well as select objects and move them around. On January 3, the app had gotten its name, Excalidraw, and, like with every good side project, buying the [domain name](https://excalidraw.com/) was one of Christopher's first acts. By now, you could use colors and export the whole drawing as a PNG.
 
@@ -69,11 +58,11 @@ I want to start with a story. On January 1st, 2020, [Christopher Chedeau](https:
 
 On January 15, Christopher put out a [blog post](https://blog.vjeux.com/2020/uncategorized/reflections-on-excalidraw.html) that drew a lot of attention on Twitter, including mine. The post started with some impressive stats:
 
--   12K unique active users
--   1.5K stars on GitHub
--   26 contributors
+- 12K unique active users
+- 1.5K stars on GitHub
+- 26 contributors
 
-For a project that started a mere two weeks ago, that's not bad at all. But the thing that truly spiked my interest was further down in the post. Christopher wrote that he tried something new this time: *giving everyone who landed a pull request unconditional commit access.* The same day of reading the blog post, I had a [pull request](https://github.com/excalidraw/excalidraw/pull/388) up that added File System Access API support to Excalidraw, fixing a [feature request](https://github.com/excalidraw/excalidraw/issues/169) that someone had filed.
+For a project that started a mere two weeks ago, that's not bad at all. But the thing that truly spiked my interest was further down in the post. Christopher wrote that he tried something new this time: _giving everyone who landed a pull request unconditional commit access._ The same day of reading the blog post, I had a [pull request](https://github.com/excalidraw/excalidraw/pull/388) up that added File System Access API support to Excalidraw, fixing a [feature request](https://github.com/excalidraw/excalidraw/issues/169) that someone had filed.
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format" alt="Screenshot of the tweet where I announce my PR." sizes="(min-width: 550px) 550px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/9VJ9EqPzKdzUpxFeM5wH.png?auto=format&amp;w=1100 1100w" width="550" height="424" />
 
@@ -83,8 +72,7 @@ Today, [Excalidraw](https://excalidraw.com/) is a full-fledged installable progr
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format" alt="Screenshot of the Excalidraw PWA in today&#39;s state." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/Wzz6UELRpcvkKZQtmVmc.png?auto=format&amp;w=1600 1600w" width="800" height="537" />
 
-Lipis on why he dedicates so much of his time to Excalidraw <a href="#lipis-on-why-he-dedicates-so-much-of-his-time-to-excalidraw" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Lipis on why he dedicates so much of his time to Excalidraw <a href="#lipis-on-why-he-dedicates-so-much-of-his-time-to-excalidraw" class="w-headline-link">#</a>
 
 So this marks the end of my "how I came to Excalidraw" story, but before I dive into some of Excalidraw's amazing features, I have the pleasure to introduce Panayiotis. Panayiotis Lipiridis, on the Internet simply known as [lipis](https://github.com/lipis), is the most prolific contributor to Excalidraw. I asked lipis what motivates him to dedicate so much of his time to Excalidraw:
 
@@ -92,8 +80,7 @@ So this marks the end of my "how I came to Excalidraw" story, but before I dive 
 
 I fully agree with lipis. Whoever tried Excalidraw is looking to find excuses to use it again.
 
-Excalidraw in action <a href="#excalidraw-in-action" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Excalidraw in action <a href="#excalidraw-in-action" class="w-headline-link">#</a>
 
 I want to show you now how you can use Excalidraw in practice. I'm not a great artist, but the Google I/O logo is simple enough, so let me give it a try. A box is the "i", a line can be the slash, and the "o" is a circle. I hold down shift, so I get a perfect circle. Let me move the slash a little, so it looks better. Now some color for the "i" and the "o". Blue is good. Maybe a different fill style? All solid, or cross-hatch? Nah, hachure looks great. It's not perfect, but that's the idea of Excalidraw, so let me save it.
 
@@ -101,8 +88,7 @@ I click the save icon and enter a file name in the file save dialog. In Chrome, 
 
 Let me change the logo and make the "i" red. If I now click save again, my modification is saved to the same file as before. As a proof, let me clear the canvas and reopen the file. As you can see, the modified red-blue logo is there again.
 
-Working with files <a href="#working-with-files" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Working with files <a href="#working-with-files" class="w-headline-link">#</a>
 
 On browsers that currently don't support the File System Access API, each save operation is a download, so when I make changes, I end up with multiple files with an incrementing number in the filename that fill up my Downloads folder. But despite this downside, I can still save the file.
 
@@ -229,8 +215,7 @@ The implementation for browsers that don't support the File System Access API is
 
 The anchor element then gets clicked programmatically. To prevent memory leaks, the blob URL needs to be revoked after use. As this is just a download, no file save dialog gets shown ever, and all files land in the default `Downloads` folder.
 
-Drag and drop <a href="#drag-and-drop" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Drag and drop <a href="#drag-and-drop" class="w-headline-link">#</a>
 
 One of my favorite system integrations on desktop is drag and drop. In Excalidraw, when I drop an `.excalidraw` file onto the application, it opens right away and I can start editing. On browsers that support the File System Access API, I can then even immediately save my changes. No need to go through a file save dialog since the required file handle has been obtained from the drag and drop operation.
 
@@ -256,13 +241,11 @@ The secret for making this happen is by calling `getAsFileSystemHandle()` on the
       });
     }
 
-Sharing files <a href="#sharing-files" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Sharing files <a href="#sharing-files" class="w-headline-link">#</a>
 
 Another system integration currently on Android, Chrome OS, and Windows is through the [Web Share Target API](/web-share-target/). Here I am in the Files app in my `Downloads` folder. I can see two files, one of them with the non-descript name `untitled` and a timestamp. To check what it contains, I click on the three dots, then share, and one of the options that appears is Excalidraw. When I tap the icon, I can then see that the file just contains the I/O logo again.
 
-Lipis on the deprecated Electron version <a href="#lipis-on-the-deprecated-electron-version" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------
+## Lipis on the deprecated Electron version <a href="#lipis-on-the-deprecated-electron-version" class="w-headline-link">#</a>
 
 One thing you can do with files that I haven't talked about yet is doubleclick them. What typically happens when you doubleclick a file is that the app that's associated with the file's MIME type opens. For example for `.docx` this would be Microsoft Word.
 
@@ -272,8 +255,7 @@ Excalidraw [used to have an Electron version](/deprecating-excalidraw-electron/)
 
 One could say Excalidraw for Electron was not deprecated because Electron is bad, not at all, but because the web has become good enough. I like this!
 
-File handling <a href="#file-handling" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## File handling <a href="#file-handling" class="w-headline-link">#</a>
 
 When I say "the web has become good enough", it's because of features like the upcoming File Handling.
 
@@ -317,8 +299,7 @@ The next step is to handle the file when the application launches. This happens 
 
 Again, if this went too fast, you can read more about the File Handling API in [my article](/file-handling/). You can enable file handling by setting the experimental web platform features flag. It's scheduled to land in Chrome later this year.
 
-Clipboard integration <a href="#clipboard-integration" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Clipboard integration <a href="#clipboard-integration" class="w-headline-link">#</a>
 
 Another cool feature of Excalidraw is the clipboard integration. I can copy my entire drawing or just parts of it into the clipboard, maybe adding a watermark if I feel like, and then paste it into another app. This is a web version of the Windows 95 Paint app by the way.
 
@@ -348,8 +329,7 @@ The way this works is surprisingly simple. All I need is the canvas as a blob, w
       });
     };
 
-Collaborating with others <a href="#collaborating-with-others" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Collaborating with others <a href="#collaborating-with-others" class="w-headline-link">#</a>
 
 ### Sharing a session URL <a href="#sharing-a-session-url" class="w-headline-link">#</a>
 
@@ -371,8 +351,7 @@ Avid readers of our publications might be inclined to think that idle detection 
 
 We filed [feedback](https://github.com/WICG/idle-detection/issues/36) on why the Idle Detection API wasn't solving the use case we had. All Project Fugu APIs are being developed in the open, so everyone can chime in and have their voice heard!
 
-Lipis on what is holding back Excalidraw <a href="#lipis-on-what-is-holding-back-excalidraw" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------
+## Lipis on what is holding back Excalidraw <a href="#lipis-on-what-is-holding-back-excalidraw" class="w-headline-link">#</a>
 
 Talking of which, I asked lipis one last question regarding what he thinks is missing from the web platform that holds back Excalidraw:
 
@@ -380,8 +359,7 @@ Talking of which, I asked lipis one last question regarding what he thinks is mi
 
 I fully agree with lipis, I live in the cloud, too. Here's hoping that this will be implemented soon.
 
-Tabbed application mode <a href="#tabbed-application-mode" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Tabbed application mode <a href="#tabbed-application-mode" class="w-headline-link">#</a>
 
 Wow! We have seen a lot of really great API integrations in Excalidraw. [File system](/file-system-access/), [file handling](/file-handling/), [clipboard](%5Casync-clipboard/), [web share](%5Cweb-share/), and [web share target](/web-share-target/). But here is one more thing. Up until now, I could only ever edit one document at a given time. Not anymore. Please enjoy for the first time an early version of tabbed application mode in Excalidraw. This is how it looks.
 
@@ -389,8 +367,7 @@ I have an existing file open in the installed Excalidraw PWA that's running in s
 
 Tabbed application mode is in its early stages and not everything is set in stone. If you're interested, be sure to read up on the current status of this feature in [my article](/tabbed-application-mode/).
 
-Closing <a href="#closing" class="w-headline-link">#</a>
---------------------------------------------------------
+## Closing <a href="#closing" class="w-headline-link">#</a>
 
 To stay in the loop on this and other features, be sure to watch our [Fugu API tracker](https://fugu-tracker.web.app/). We're super excited to push the web forward and allow you to do more on the platform. Here's to an ever improving Excalidraw, and here's to all the amazing applications that you will build. Go start creating at [excalidraw.com](https://excalidraw.com/).
 
@@ -402,35 +379,35 @@ I can't wait to see some of the APIs that I have shown today pop up in your apps
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

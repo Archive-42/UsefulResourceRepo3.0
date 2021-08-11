@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Regular expressions](regexp-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [How to trim leading and trailing whitespace from a string](trim-whitespace-from-string.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Remove duplicate whitespace from a string
-=============================================
+# Go: Remove duplicate whitespace from a string
 
     space := regexp.MustCompile(`\s+`)
     str := space.ReplaceAllString("Hello  \t \n world!", " ")
@@ -44,8 +40,7 @@ Go: Remove duplicate whitespace from a string
 
 `\s+` is a [regular expression](regexp-cheat-sheet.html). The character class `\s` matches a space, tab, new line, carriage return or form feed, and `+` says “one or more of those”. In other words, the code will replace all whitespace substrings with a single space character.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,52 +1,42 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format" alt="A simple gyroscope." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/2AGc7aV66zc69fiqNJBZ.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#sensors-for-the-web" class="w-toc__header--link">Sensors for the web</a>
-----------------------------------------------------------------------------------
+## <a href="#sensors-for-the-web" class="w-toc__header--link">Sensors for the web</a>
 
--   [What is the Generic Sensor API?](#what-is-generic-sensor-api)
--   [Browser compatibility](#browser-compatibility)
--   [Available generic sensor APIs](#available-generic-sensor-apis)
--   [Feature detection](#feature-detection)
--   [Polyfill](#polyfill)
--   [What are all these sensors? How can I use them?](#what-are-sensors-how-to-use-them)
--   [Accelerometer and linear acceleration sensor](#acceleration-and-linear-accelerometer-sensor)
--   [Gravity sensor](#gravity-sensor)
--   [Gyroscope](#gyroscope-sensor)
--   [Orientation sensors](#orientation-sensors)
--   [Synchronization with screen coordinates](#synchronization-with-screen-coordinates)
--   [Let's code!](#lets-code)
--   [Development environment](#development-environment)
--   [3D model rotation](#3d-model-rotation)
--   [Punchmeter](#punchmeter)
--   [Debugging and sensor overriding with Chrome DevTools](#debugging-and-sensor-overriding-with-chrome-devtools)
--   [Privacy and security](#privacy-and-security)
--   [Only HTTPS](#only-https)
--   [Permissions Policy integration](#permissions-policy-integration)
--   [Sensor readings delivery can be suspended](#sensor-readings-delivery-can-be-suspended)
--   [What's next?](#whats-next)
--   [You can help!](#you-can-help!)
--   [Resources](#resources)
--   [Acknowledgements](#acknowledgements)
+- [What is the Generic Sensor API?](#what-is-generic-sensor-api)
+- [Browser compatibility](#browser-compatibility)
+- [Available generic sensor APIs](#available-generic-sensor-apis)
+- [Feature detection](#feature-detection)
+- [Polyfill](#polyfill)
+- [What are all these sensors? How can I use them?](#what-are-sensors-how-to-use-them)
+- [Accelerometer and linear acceleration sensor](#acceleration-and-linear-accelerometer-sensor)
+- [Gravity sensor](#gravity-sensor)
+- [Gyroscope](#gyroscope-sensor)
+- [Orientation sensors](#orientation-sensors)
+- [Synchronization with screen coordinates](#synchronization-with-screen-coordinates)
+- [Let's code!](#lets-code)
+- [Development environment](#development-environment)
+- [3D model rotation](#3d-model-rotation)
+- [Punchmeter](#punchmeter)
+- [Debugging and sensor overriding with Chrome DevTools](#debugging-and-sensor-overriding-with-chrome-devtools)
+- [Privacy and security](#privacy-and-security)
+- [Only HTTPS](#only-https)
+- [Permissions Policy integration](#permissions-policy-integration)
+- [Sensor readings delivery can be suspended](#sensor-readings-delivery-can-be-suspended)
+- [What's next?](#whats-next)
+- [You can help!](#you-can-help!)
+- [Resources](#resources)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Sensors for the web
-===================
+# Sensors for the web
 
 Use the Generic Sensor API to get access to on-device sensors like accelerometers,  
 gyroscopes, and magentometers.
@@ -65,15 +55,14 @@ Sep 18, 2017 <span class="w-author__separator">•</span> Updated Feb 17, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 Today, sensor data is used in many platform-specific applications to enable use cases such as immersive gaming, fitness tracking, and augmented or virtual reality. Wouldn't it be cool to bridge the gap between platform-specific and web applications? Enter the [Generic Sensor API](https://www.w3.org/TR/generic-sensor/), for the web!
 
-What is the Generic Sensor API? <a href="#what-is-generic-sensor-api" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------
+## What is the Generic Sensor API? <a href="#what-is-generic-sensor-api" class="w-headline-link">#</a>
 
 The [Generic Sensor API](https://www.w3.org/TR/generic-sensor/) is a set of interfaces which expose sensor devices to the web platform. The API consists of the base [`Sensor`](https://w3c.github.io/sensors/#the-sensor-interface) interface and a set of concrete sensor classes built on top. Having a base interface simplifies the implementation and specification process for the concrete sensor classes. For instance, take a look at the [`Gyroscope`](https://w3c.github.io/gyroscope/#gyroscope-interface) class. It is super tiny! The core functionality is specified by the base interface, and `Gyroscope` merely extends it with three attributes representing angular velocity.
 
@@ -83,43 +72,40 @@ You might think that the web platform already provides sensor data and you are a
 
 Comparing to the existing interfaces, Generic Sensor API provides a great number of advantages:
 
--   Generic Sensor API is a sensor framework that can be easily extended with new sensor classes and each of these classes will keep the generic interface. The client code written for one sensor type can be reused for another one with very few modifications!
--   You can configure the sensor. For example, you can set the sampling frequency suitable for your application needs.
--   You can detect whether a sensor is available on the platform.
--   Sensor readings have high precision timestamps, enabling better synchronization with other activities in your application.
--   Sensor data models and coordinate systems are clearly defined, allowing browser vendors to implement interoperable solutions.
--   The Generic Sensor based interfaces are not bound to the DOM (meaning they are neither `navigator` nor `window` objects), and this opens up future opportunities for using the API within service workers or implementing it in headless JavaScript runtimes, such as embedded devices.
--   [Security and privacy](#privacy-and-security) aspects are the top priority for the Generic Sensor API and provide much better security as compared to older sensor APIs. There is integration with the Permissions API.
--   Automatic [synchronization with screen coordinates](#synchronization-with-screen-coordinates) is available for `Accelerometer`, `Gyroscope`, `LinearAccelerationSensor`, `AbsoluteOrientationSensor`, `RelativeOrientationSensor` and `Magnetometer`.
+- Generic Sensor API is a sensor framework that can be easily extended with new sensor classes and each of these classes will keep the generic interface. The client code written for one sensor type can be reused for another one with very few modifications!
+- You can configure the sensor. For example, you can set the sampling frequency suitable for your application needs.
+- You can detect whether a sensor is available on the platform.
+- Sensor readings have high precision timestamps, enabling better synchronization with other activities in your application.
+- Sensor data models and coordinate systems are clearly defined, allowing browser vendors to implement interoperable solutions.
+- The Generic Sensor based interfaces are not bound to the DOM (meaning they are neither `navigator` nor `window` objects), and this opens up future opportunities for using the API within service workers or implementing it in headless JavaScript runtimes, such as embedded devices.
+- [Security and privacy](#privacy-and-security) aspects are the top priority for the Generic Sensor API and provide much better security as compared to older sensor APIs. There is integration with the Permissions API.
+- Automatic [synchronization with screen coordinates](#synchronization-with-screen-coordinates) is available for `Accelerometer`, `Gyroscope`, `LinearAccelerationSensor`, `AbsoluteOrientationSensor`, `RelativeOrientationSensor` and `Magnetometer`.
 
-Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
 
 The Generic Sensor API is supported by Google Chrome as of version 67. Most Chromium-derived browsers like Microsoft Edge, Opera, or Samsung Internet support this API as well. For other browsers, see [Can I use](https://caniuse.com/mdn-api_sensor). Note that the Generic Sensor API can be [polyfilled](#polyfill).
 
-Available generic sensor APIs <a href="#available-generic-sensor-apis" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Available generic sensor APIs <a href="#available-generic-sensor-apis" class="w-headline-link">#</a>
 
 At the time of writing, there are several sensors that you can experiment with.
 
 **Motion sensors:**
 
--   `Accelerometer`
--   `Gyroscope`
--   `LinearAccelerationSensor`
--   `AbsoluteOrientationSensor`
--   `RelativeOrientationSensor`
--   `GravitySensor`
+- `Accelerometer`
+- `Gyroscope`
+- `LinearAccelerationSensor`
+- `AbsoluteOrientationSensor`
+- `RelativeOrientationSensor`
+- `GravitySensor`
 
 **Environmental sensors:**
 
--   `AmbientLightSensor` (Behind the `#enable-generic-sensor-extra-classes` flag in Chromium.)
--   `Magnetometer` (Behind the `#enable-generic-sensor-extra-classes` flag in Chromium.)
+- `AmbientLightSensor` (Behind the `#enable-generic-sensor-extra-classes` flag in Chromium.)
+- `Magnetometer` (Behind the `#enable-generic-sensor-extra-classes` flag in Chromium.)
 
-Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
 
-Feature detection of hardware APIs is tricky, since you need to detect both whether the browser supports the interface in question, *and* whether the device has the corresponding sensor. Checking whether the browser supports an interface is straightforward. (Replace `Accelerometer` with any of the other interfaces mentioned [above](#available-generic-sensor-apis).)
+Feature detection of hardware APIs is tricky, since you need to detect both whether the browser supports the interface in question, _and_ whether the device has the corresponding sensor. Checking whether the browser supports an interface is straightforward. (Replace `Accelerometer` with any of the other interfaces mentioned [above](#available-generic-sensor-apis).)
 
     if ('Accelerometer' in window) {
       // The `Accelerometer` interface is supported by the browser.
@@ -154,8 +140,7 @@ For an actually meaningful feature detection result, you need to try to connect 
       }
     }
 
-Polyfill <a href="#polyfill" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Polyfill <a href="#polyfill" class="w-headline-link">#</a>
 
 For browsers that do not support the Generic Sensor API, a [polyfill](https://github.com/kenchris/sensor-polyfills) is available. The polyfill allows you to load only the relevant sensors' implementations.
 
@@ -166,8 +151,7 @@ For browsers that do not support the Generic Sensor API, a [polyfill](https://gi
     const gyroscope = new Gyroscope({ frequency: 15 });
     const orientation = new AbsoluteOrientationSensor({ frequency: 60 });
 
-What are all these sensors? How can I use them? <a href="#what-are-sensors-how-to-use-them" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------
+## What are all these sensors? How can I use them? <a href="#what-are-sensors-how-to-use-them" class="w-headline-link">#</a>
 
 Sensors is an area that might need a brief introduction. If you are familiar with sensors, you can jump right to the [hands-on coding section](#lets-code). Otherwise, let's look at each supported sensor in detail.
 
@@ -242,8 +226,7 @@ Orientation sensors enable various use cases, such as immersive gaming, augmente
 
 For more information about motion sensors, advanced use cases, and requirements, check out the [motion sensors explainer](https://w3c.github.io/motion-sensors/) document.
 
-Synchronization with screen coordinates <a href="#synchronization-with-screen-coordinates" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------
+## Synchronization with screen coordinates <a href="#synchronization-with-screen-coordinates" class="w-headline-link">#</a>
 
 By default, [spatial sensors'](https://w3c.github.io/sensors/#spatial-sensor) readings are resolved in a local coordinate system that is bound to the device and does not take screen orientation into account.
 
@@ -260,8 +243,7 @@ The Generic Sensor API provides a much simpler and reliable solution! The local 
     // Sensor readings are resolved in the Screen coordinate system. No manual remapping is required!
     const sensorRelScreen = new RelativeOrientationSensor({ referenceFrame: 'screen' });
 
-Let's code! <a href="#lets-code" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Let's code! <a href="#lets-code" class="w-headline-link">#</a>
 
 The Generic Sensor API is very simple and easy-to-use! The Sensor interface has [`start()`](https://w3c.github.io/sensors/#sensor-start) and [`stop()`](https://w3c.github.io/sensors/#sensor-stop) methods to control sensor state and several event handlers for receiving notifications about sensor activation, errors and newly available readings. The concrete sensor classes usually add their specific reading attributes to the base class.
 
@@ -315,13 +297,11 @@ The following code snippet is extracted from the [punchmeter demo](https://githu
 
 The current velocity is calculated as an approximation to the integral of the acceleration function.
 
-<figure><img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format" alt="Measurement of a punch speed" sizes="(min-width: 338px) 338px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=676 676w" width="338" height="347" /><figcaption>Measurement of a punch speed</figcaption></figure>Debugging and sensor overriding with Chrome DevTools <a href="#debugging-and-sensor-overriding-with-chrome-devtools" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format" alt="Measurement of a punch speed" sizes="(min-width: 338px) 338px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/37a9DYv1huOcraAMfXpO.png?auto=format&amp;w=676 676w" width="338" height="347" /><figcaption>Measurement of a punch speed</figcaption></figure>Debugging and sensor overriding with Chrome DevTools <a href="#debugging-and-sensor-overriding-with-chrome-devtools" class="w-headline-link">#</a>
 
 In some cases you don't need a physical device to play with the Generic Sensor API. Chrome DevTools has great support for [simulating device orientation](https://developers.google.com/web/tools/chrome-devtools/device-mode/orientation).
 
-<figure><img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format" alt="Simulating device orientation with Chrome DevTools" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1600 1600w" width="800" height="648" /><figcaption>Simulating device orientation with Chrome DevTools</figcaption></figure>Privacy and security <a href="#privacy-and-security" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format" alt="Simulating device orientation with Chrome DevTools" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/OWhCoZXMZllhI7fN7BMR.png?auto=format&amp;w=1600 1600w" width="800" height="648" /><figcaption>Simulating device orientation with Chrome DevTools</figcaption></figure>Privacy and security <a href="#privacy-and-security" class="w-headline-link">#</a>
 
 Sensor readings are sensitive data which can be subject to various attacks from malicious web pages. Implementations of Generic Sensor APIs enforce a few limitations to mitigate the possible security and privacy risks. These limitations must be taken into account by developers who intend to use the API, so let's briefly list them.
 
@@ -343,32 +323,28 @@ The snippet below illustrates granting accelerometer data access to a cross-orig
 
 Sensor readings are only accessible by a visible web page, i.e., when the user is actually interacting with it. Moreover, sensor data would not be provided to the parent frame if the user focus changes to a cross-origin subframe. This prevents the parent frame infering user input.
 
-What's next? <a href="#whats-next" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## What's next? <a href="#whats-next" class="w-headline-link">#</a>
 
 There is a set of already specified sensor classes to be implemented in the near future such as [Ambient Light Sensor](https://w3c.github.io/ambient-light/) or [Proximity Sensor](https://w3c.github.io/proximity/); however, thanks to the great extensibility of Generic Sensor framework we can anticipate appearance of even more new classes representing various sensor types.
 
 Another important area for future work is improving the Generic Sensor API itself, the Generic Sensor specification is currently a Candidate Recommendation, which means that there is still time to make fixes and bring new functionality that developers need.
 
-You can help! <a href="#you-can-help!" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## You can help! <a href="#you-can-help!" class="w-headline-link">#</a>
 
 The sensor specifications reached [Candidate Recommendation](https://www.w3.org/Consortium/Process/Process-19991111/tr.html#RecsCR) maturity level, hence, the feedback from web and browser developers is highly appreciated. Let us know what features would be great to add or if there is something you would like to modify in the current API.
 
 Please feel free to file [specification issues](https://github.com/w3c/sensors/issues/new) as well as [bugs](https://bugs.chromium.org/p/chromium/issues/entry) for the Chrome implementation.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   Demo projects: <https://intel.github.io/generic-sensor-demos/>
--   Generic Sensor API specification: <https://w3c.github.io/sensors/>
--   Specification issues: <https://github.com/w3c/sensors/issues>
--   W3C working group mailing list: <public-device-apis@w3.org>
--   Chrome Feature Status: <https://www.chromestatus.com/feature/5698781827825664>
--   Implementation bugs: <http://crbug.com?q=component:Blink%3ESensor>
+- Demo projects: <https://intel.github.io/generic-sensor-demos/>
+- Generic Sensor API specification: <https://w3c.github.io/sensors/>
+- Specification issues: <https://github.com/w3c/sensors/issues>
+- W3C working group mailing list: <public-device-apis@w3.org>
+- Chrome Feature Status: <https://www.chromestatus.com/feature/5698781827825664>
+- Implementation bugs: <http://crbug.com?q=component:Blink%3ESensor>
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [Joe Medley](https://github.com/jpmedley) and [Kayce Basques](https://github.com/kaycebasques). Hero image by [Misko](https://www.flickr.com/photos/msk13/) via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simple_Gyroscope.jpg).
 
@@ -378,35 +354,35 @@ This article was reviewed by [Joe Medley](https://github.com/jpmedley) and [Kayc
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Go Concurrency Patterns: Context](https://blog.golang.org/context)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
@@ -11,8 +10,7 @@ Further Reading
 [Go Concurrency Patterns: Pipelines and cancellation](https://blog.golang.org/pipelines)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -29,8 +27,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -40,8 +37,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Stop a goroutine
-====================
+# Go: Stop a goroutine
 
 One goroutine can't forcibly stop another—a gorou­tine can stop only by returning from it's top level function.
 
@@ -113,8 +109,7 @@ Next »
 
 Timer and Ticker explained
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

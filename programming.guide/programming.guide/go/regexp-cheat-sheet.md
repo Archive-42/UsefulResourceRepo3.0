@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [String handling cheat sheet](string-functions-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Related
 [Time complexity explained](../time-complexity-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,26 +38,24 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Regular expressions
-=======================
+# Go: Regular expressions
 
--   [Basics](regexp-cheat-sheet.html#basics)
--   [Cheat sheet](regexp-cheat-sheet.html#cheat-sheet)
-    -   [Choice and grouping](regexp-cheat-sheet.html#choice-and-grouping)
-    -   [Repetition](regexp-cheat-sheet.html#repetition)
-    -   [Character classes](regexp-cheat-sheet.html#character-classes)
-    -   [Special characters](regexp-cheat-sheet.html#special-characters)
-    -   [Text boundary anchors](regexp-cheat-sheet.html#text-boundary-anchors)
--   [Code examples](regexp-cheat-sheet.html#code-examples)
-    -   [First match](regexp-cheat-sheet.html#first-match)
-    -   [Location](regexp-cheat-sheet.html#location)
-    -   [All matches](regexp-cheat-sheet.html#all-matches)
-    -   [Replace](regexp-cheat-sheet.html#replace)
-    -   [Split](regexp-cheat-sheet.html#split)
--   [Implementation](regexp-cheat-sheet.html#implementation)
+- [Basics](regexp-cheat-sheet.html#basics)
+- [Cheat sheet](regexp-cheat-sheet.html#cheat-sheet)
+  - [Choice and grouping](regexp-cheat-sheet.html#choice-and-grouping)
+  - [Repetition](regexp-cheat-sheet.html#repetition)
+  - [Character classes](regexp-cheat-sheet.html#character-classes)
+  - [Special characters](regexp-cheat-sheet.html#special-characters)
+  - [Text boundary anchors](regexp-cheat-sheet.html#text-boundary-anchors)
+- [Code examples](regexp-cheat-sheet.html#code-examples)
+  - [First match](regexp-cheat-sheet.html#first-match)
+  - [Location](regexp-cheat-sheet.html#location)
+  - [All matches](regexp-cheat-sheet.html#all-matches)
+  - [Replace](regexp-cheat-sheet.html#replace)
+  - [Split](regexp-cheat-sheet.html#split)
+- [Implementation](regexp-cheat-sheet.html#implementation)
 
-Basics
-------
+## Basics
 
 The regular expression `a.b` matches any string that starts with an `a`, ends with a `b`, and has a single character in between (the period matches any character).
 
@@ -70,10 +65,10 @@ To check if there is a **substring** matching `a.b`, write:
     fmt.Println(matched) // true
     fmt.Println(err)     // nil (regexp is valid)
 
-To check if a **full string** matches `a.b`, *anchor* the start and the end:
+To check if a **full string** matches `a.b`, _anchor_ the start and the end:
 
--   the caret `^` matches the beginning of a text or line,
--   the dollar sign `$` matches the end of a text.
+- the caret `^` matches the beginning of a text or line,
+- the dollar sign `$` matches the end of a text.
 
 <!-- -->
 
@@ -90,8 +85,7 @@ For more complicated queries, **compile** the regular expression to create a [`R
 
 It's convenient to use `raw strings` when writing regular expressions; both ordinary string literals and regular expressions use backslashes for special characters.
 
-Cheat sheet
------------
+## Cheat sheet
 
 ### Choice and grouping
 
@@ -105,7 +99,7 @@ Cheat sheet
 
 <table><thead><tr class="header"><th>Expression</th><th>Meaning</th></tr></thead><tbody><tr class="odd"><td><code>.</code></td><td>any character</td></tr><tr class="even"><td><code>[ab]</code></td><td>the character a or b</td></tr><tr class="odd"><td><code>[^ab]</code></td><td>any character except a or b</td></tr><tr class="even"><td><code>[a-z]</code></td><td>any character from a to z</td></tr><tr class="odd"><td><code>[a-z0-9]</code></td><td>any character from a to z or 0 to 9</td></tr><tr class="even"><td><code>\d</code></td><td>a digit: <code>[0-9]</code></td></tr><tr class="odd"><td><code>\D</code></td><td>a non-digit: <code>[^0-9]</code></td></tr><tr class="even"><td><code>\s</code></td><td>a whitespace character: <code>[\t\n\f\r ]</code></td></tr><tr class="odd"><td><code>\S</code></td><td>a non-whitespace character: <code>[^\t\n\f\r ]</code></td></tr><tr class="even"><td><code>\w</code></td><td>a word character: <code>[0-9A-Za-z_]</code></td></tr><tr class="odd"><td><code>\W</code></td><td>a non-word character: <code>[^0-9A-Za-z_]</code></td></tr><tr class="even"><td><code>\p{Greek}</code></td><td>Unicode character class*</td></tr><tr class="odd"><td><code>\pN</code></td><td>one-letter name</td></tr><tr class="even"><td><code>\P{Greek}</code></td><td>negated Unicode character class*</td></tr><tr class="odd"><td><code>\PN</code></td><td>one-letter name</td></tr></tbody></table>
 
--   [RE2: Unicode character class names](https://github.com/google/re2/wiki/Syntax)
+- [RE2: Unicode character class names](https://github.com/google/re2/wiki/Syntax)
 
 ### Special characters
 
@@ -117,8 +111,7 @@ To match a **special character** `\^$.|?*+-[]{}()` literally, escape it with a b
 
 <table><thead><tr class="header"><th>Symbol</th><th>Matches</th></tr></thead><tbody><tr class="odd"><td><code>\A</code></td><td>at beginning of text</td></tr><tr class="even"><td><code>^</code></td><td>at beginning of text or line</td></tr><tr class="odd"><td><code>$</code></td><td>at end of text</td></tr><tr class="even"><td><code>\z</code></td><td></td></tr><tr class="odd"><td><code>\b</code></td><td>at ASCII word boundary</td></tr><tr class="even"><td><code>\B</code></td><td>not at ASCII word boundary</td></tr></tbody></table>
 
-Code examples
--------------
+## Code examples
 
 ### First match
 
@@ -179,16 +172,14 @@ The method takes an integer argument `n`; if `n >= 0`, the function returns at m
 >
 > For example: `Find`, `FindAllString`, `FindStringIndex`, …
 
-Implementation
---------------
+## Implementation
 
--   The [`regexp`](https://golang.org/pkg/regexp/) package implements regular expressions with [RE2](https://golang.org/s/re2syntax) syntax.
--   It supports UTF-8 encoded strings and Unicode character classes.
--   The implementation is very efficient: the running time is linearly proportional to the size of the input.
--   Backreferences are not supported since they cannot be efficiently implemented. Further reading: [Regular expression matching can be simple and fast (but is slow in Java, Perl, PHP, Python, Ruby, …)](https://swtch.com/~rsc/regexp/regexp1.html).
+- The [`regexp`](https://golang.org/pkg/regexp/) package implements regular expressions with [RE2](https://golang.org/s/re2syntax) syntax.
+- It supports UTF-8 encoded strings and Unicode character classes.
+- The implementation is very efficient: the running time is linearly proportional to the size of the input.
+- Backreferences are not supported since they cannot be efficiently implemented. Further reading: [Regular expression matching can be simple and fast (but is slow in Java, Perl, PHP, Python, Ruby, …)](https://swtch.com/~rsc/regexp/regexp1.html).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

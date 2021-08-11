@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Types in Java
--------------
+## Types in Java
 
 1.  [Java Basics: Types](types.html)
 2.  [Primitive Types](primitive-types.html)
@@ -22,17 +21,15 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -42,8 +39,7 @@ Top Java Articles
 
 [**See all Java articles**](index.html)
 
-Java: Long (class) vs long (primitive)
-======================================
+# Java: Long (class) vs long (primitive)
 
 A [`Long`](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html) is a class, or a **reference type**, defined in the standard library. It stores a reference to an object containing a value (a "box").
 
@@ -56,8 +52,7 @@ Continue reading here:
 <span class="pointer">[Java: Primitives vs Objects and References](primitives-vs-objects-references.html)</span>  
 <span class="pointer">[Java: Wrapper Types](wrapper-types.html)</span>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

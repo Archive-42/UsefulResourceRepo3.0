@@ -1,22 +1,8 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#what-is-a-media-experience" class="w-toc__header--link">What is a media experience?</a>
--------------------------------------------------------------------------------------------------
+## <a href="#what-is-a-media-experience" class="w-toc__header--link">What is a media experience?</a>
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-What is a media experience?
-===========================
+# What is a media experience?
 
 Jun 30, 2017 <span class="w-author__separator">•</span> Updated Aug 27, 2020
 
@@ -26,27 +12,27 @@ Jun 30, 2017 <span class="w-author__separator">•</span> Updated Aug 27, 2020
 
 <a href="/authors/joemedley/" class="w-author__name-link">Joe Medley</a>
 
--   <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
 
 Users like media, especially videos; they can be fun and informative. On mobile devices, videos can be an easier way to consume information than text. For a good user experience, videos should not need more than the available bandwidth. Users should be able to use them no matter what device they're viewing them with. Users should never need to wait for download. Who likes it when they press play and nothing happens?
 
 You've no doubt consumed video on your own device. Which means that nothing in that last paragraph surprises you. Now you need to learn how to put a video or other media file on your own website. The technical requirements of that work should be in service to the user experience. Those technical requirements are:
 
--   Versions of a media file in common web-friendly formats containing both audio and video streams.
--   A resolution appropriate for your users' devices.
--   A bitrate that doesn't overload your users' network bandwidth.
--   (Optional) Encryption.
--   Viewable on all major browsers using appropriate technologies.
+- Versions of a media file in common web-friendly formats containing both audio and video streams.
+- A resolution appropriate for your users' devices.
+- A bitrate that doesn't overload your users' network bandwidth.
+- (Optional) Encryption.
+- Viewable on all major browsers using appropriate technologies.
 
 Our [media](/media) collection will help you achieve these technical requirements. Don't worry if you don't know what these technical requirements mean. I'll explain them.
 
 There are four approaches you can take displaying video on a site.
 
--   Upload your content to a hosting site such as [YouTube](https://www.youtube.com/) or [Vimeo](https://vimeo.com/). These options do not preclude displaying from within your website.
--   Basic embedding using the HTML `<video>` and `<audio>` elements.
--   More full-featured embedding using a video library such as [Google's Shaka Player](https://github.com/google/shaka-player), [JW Player](https://developer.jwplayer.com/), or [Video.js](http://videojs.com/).
--   Building your own media streaming application.
+- Upload your content to a hosting site such as [YouTube](https://www.youtube.com/) or [Vimeo](https://vimeo.com/). These options do not preclude displaying from within your website.
+- Basic embedding using the HTML `<video>` and `<audio>` elements.
+- More full-featured embedding using a video library such as [Google's Shaka Player](https://github.com/google/shaka-player), [JW Player](https://developer.jwplayer.com/), or [Video.js](http://videojs.com/).
+- Building your own media streaming application.
 
 This site only covers the second option, at least for now. The last item, building a media streaming application is beyond the scope of this site. Frankly, it requires a team of expert programmers and thousands of human-hours of work. Unless your goal is to enter that market as a competitor, you're better off using one of the other methods.
 
@@ -58,35 +44,35 @@ This site has three parts. In the first, I'll provide information prerequisite t
 
 <a href="/media" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Defer statement](defer.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Defer, Panic, and Recover](https://blog.golang.org/defer-panic-and-recover)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Error handling
---------------
+## Error handling
 
 1.  [Errors explained](errors-explained.html)
 2.  [Create a custom error](create-error.html)
@@ -20,8 +18,7 @@ Error handling
 4.  Recover from a panic
 5.  [Stack traces](stack-trace.html)
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +30,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +40,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Recover from a panic
-========================
+# Go: Recover from a panic
 
 A [panic](panic-explained.html) is caused either by a runtime error or an explicit call to the built-in `panic` function.
 
@@ -55,8 +50,7 @@ func foo() { defer bar() statement panic("Argh!") statement statement } func bar
 
 The `recover` function returns whatever you gave as argument to the `panic` function. (During normal operation it will return `nil`.)
 
-Another example
----------------
+## Another example
 
     func main() {
             s := foo()
@@ -82,8 +76,7 @@ Output:
 
 Since the panic occured before `foo` returned a value, `s` in `main` still has its initial zero value `""`:
 
-Return a value
---------------
+## Return a value
 
 To return a value during a panic, use a named return value:
 
@@ -130,8 +123,7 @@ Next »
 
 Stack traces
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

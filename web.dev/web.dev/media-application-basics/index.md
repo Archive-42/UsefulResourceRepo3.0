@@ -1,25 +1,11 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+## <a href="#media-application-basics" class="w-toc__header--link">Media application basics</a>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#media-application-basics" class="w-toc__header--link">Media application basics</a>
---------------------------------------------------------------------------------------------
-
--   [Shaka Packager](#shaka-packager)
--   [FFmpeg](#ffmpeg)
+- [Shaka Packager](#shaka-packager)
+- [FFmpeg](#ffmpeg)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Media application basics
-========================
+# Media application basics
 
 Jun 9, 2017 <span class="w-author__separator">•</span> Updated Sep 24, 2020
 
@@ -29,8 +15,8 @@ Jun 9, 2017 <span class="w-author__separator">•</span> Updated Sep 24, 2020
 
 <a href="/authors/joemedley/" class="w-author__name-link">Joe Medley</a>
 
--   <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
 
 Much media work requires changing characteristics of media files, such as bitrate or resolution. Finding a straightforward way to get started can be bewildering and intimidating. On this page, I provide an onramp into that world.
 
@@ -40,8 +26,7 @@ This page describes the basic usage for two common command-line media utilities:
 
 These aren't the only options available for many file manipulation tasks. But they are two of the most common and powerful. Other options include the GUI applications [Miro](http://www.mirovideoconverter.com/), [HandBrake](//handbrake.fr/), and [VLC](//www.videolan.org/). There are also online encoding/transcoding services such as [Zencoder](//en.wikipedia.org/wiki/Zencoder) and [Amazon Elastic Encoder](//aws.amazon.com/elastictranscoder).
 
-Shaka Packager <a href="#shaka-packager" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Shaka Packager <a href="#shaka-packager" class="w-headline-link">#</a>
 
 [Shaka Packager](https://github.com/google/shaka-packager) is a free media packaging SDK. If you were using a media player on your site, Shaka Packager is what you would use to prepare the files. It supports conversion for the two most common video streaming protocols: [Dynamic Adaptive Streaming over HTTP (DASH)](https://developer.mozilla.org/en-US/docs/Web/HTML/DASH_Adaptive_Streaming_for_HTML_5_Video) or [HTTP Live Streaming (HLS)](https://developer.apple.com/documentation/http_live_streaming). Shaka Packager supports key security features: common encryption and Widevine digital rights management (DRM). It can also handle live video, and video-on-demand. Those concepts are beyond the scope of this article.
 
@@ -96,8 +81,7 @@ Look for the characteristics discussed in [Media file basics](/media-file-basics
 
 Notice that the output above doesn't show the bitrate. Despite what's missing, this output is easier to read, so I use it whenever I can. When I need information that Shaka Packager can't get, such as the bitrate, I use FFmpeg.
 
-FFmpeg <a href="#ffmpeg" class="w-headline-link">#</a>
-------------------------------------------------------
+## FFmpeg <a href="#ffmpeg" class="w-headline-link">#</a>
 
 [FFmpeg](https://ffmpeg.org/download.html) is also a free application for recording, converting, and streaming media files. Its capabilities aren't better or worse than Shaka Packager's. They're just different.
 
@@ -138,35 +122,35 @@ Now that you've tried your hand at using Shaka and FFmpeg, it's time to [Prepare
 
 <a href="/media" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

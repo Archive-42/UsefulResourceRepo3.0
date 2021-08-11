@@ -1,53 +1,45 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/SUaxDTgOYvv2JXxaErBP.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-settings-component" class="w-toc__header--link">Building a Settings component</a>
-------------------------------------------------------------------------------------------------------
+## <a href="#building-a-settings-component" class="w-toc__header--link">Building a Settings component</a>
 
--   [Overview](#overview)
--   [Layouts](#layouts)
--   [Just for gap](#just-for-gap)
--   [Natural grid wrapping](#natural-grid-wrapping)
--   [Spacing](#spacing)
--   [Color](#color)
--   [LCH?](#lch)
--   [Adaptive form controls with color-scheme](#adaptive-form-controls-with-color-scheme)
--   [CSS accent-color](#css-accent-color)
--   [Color pops with fixed gradients and focus-within](#color-pops-with-fixed-gradients-and-focus-within)
--   [Custom range](#custom-range)
--   [Range element styles](#range-element-styles)
--   [Track styles](#track-styles)
--   [Thumb styles](#thumb-styles)
--   [Cross browser selectors](#cross-browser-selectors)
--   [Custom Checkbox](#custom-checkbox)
--   [Checkbox element](#checkbox-element)
--   [Checkbox labels](#checkbox-labels)
--   [Checkbox highlight](#checkbox-highlight)
--   [Accessibility](#accessibility)
--   [HTML Element Choices](#html-element-choices)
--   [HTML Attributes](#html-attributes)
--   [JavaScript](#javascript)
--   [Conclusion](#conclusion)
--   [Community remixes](#community-remixes)
+- [Overview](#overview)
+- [Layouts](#layouts)
+- [Just for gap](#just-for-gap)
+- [Natural grid wrapping](#natural-grid-wrapping)
+- [Spacing](#spacing)
+- [Color](#color)
+- [LCH?](#lch)
+- [Adaptive form controls with color-scheme](#adaptive-form-controls-with-color-scheme)
+- [CSS accent-color](#css-accent-color)
+- [Color pops with fixed gradients and focus-within](#color-pops-with-fixed-gradients-and-focus-within)
+- [Custom range](#custom-range)
+- [Range element styles](#range-element-styles)
+- [Track styles](#track-styles)
+- [Thumb styles](#thumb-styles)
+- [Cross browser selectors](#cross-browser-selectors)
+- [Custom Checkbox](#custom-checkbox)
+- [Checkbox element](#checkbox-element)
+- [Checkbox labels](#checkbox-labels)
+- [Checkbox highlight](#checkbox-highlight)
+- [Accessibility](#accessibility)
+- [HTML Element Choices](#html-element-choices)
+- [HTML Attributes](#html-attributes)
+- [JavaScript](#javascript)
+- [Conclusion](#conclusion)
+- [Community remixes](#community-remixes)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a Settings component
-=============================
+# Building a Settings component
 
 A foundational overview of how to build a settings component of sliders and checkboxes.
 
@@ -57,10 +49,10 @@ Mar 17, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share thinking on building a Settings component for the web that is responsive, supports multiple device inputs, and works across browsers. Try the [demo](https://gui-challenges.web.app/settings/dist/).
 
@@ -68,8 +60,7 @@ In this post I want to share thinking on building a Settings component for the w
 
 If you prefer video, or want a UI/UX preview of what we're building, here's a shorter walkthrough on YouTube:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 I've broken out the aspects of this component into the following sections:
 
@@ -84,8 +75,7 @@ I've broken out the aspects of this component into the following sections:
 
 The CSS snippets below assume PostCSS with [PostCSS Preset Env](https://preset-env.cssdb.org/features). Intent is to practice early and often with syntax in early drafts or experimentally available in browsers. Or as the plugin likes to say, "Use tomorrow's CSS today".
 
-Layouts <a href="#layouts" class="w-headline-link">#</a>
---------------------------------------------------------
+## Layouts <a href="#layouts" class="w-headline-link">#</a>
 
 This is the first GUI Challenge demo to be **all CSS Grid**! Here's each grid highlighted with the [Chrome DevTools for grid](https://goo.gle/devtools-grid):
 
@@ -173,13 +163,13 @@ The `<form>` uses an adaptive grid layout for each section. This layout switches
 
 This grid has a different value for `row-gap` (--space-xl) than `column-gap` (--space-xxl) to put that custom touch on the responsive layout. When the columns stack, we want a large gap, but not as large as if we're on a wide screen.
 
-The `grid-template-columns` property uses 3 CSS functions: `repeat()`, `minmax()` and `min()`. [Una Kravets](#) has a [great layout blog post](/one-line-layouts/) about this, calling it [RAM](/one-line-layouts/#07.-ram-(repeat-auto-minmax):-grid-template-columns(auto-fit-minmax(lessbasegreater-1fr))).
+The `grid-template-columns` property uses 3 CSS functions: `repeat()`, `minmax()` and `min()`. [Una Kravets](#) has a [great layout blog post](/one-line-layouts/) about this, calling it [RAM](</one-line-layouts/#07.-ram-(repeat-auto-minmax):-grid-template-columns(auto-fit-minmax(lessbasegreater-1fr))>).
 
 There's 3 special additions in our layout, if you compare it to Una's:
 
--   We pass an extra `min()` function.
--   We specify `align-items: flex-start`.
--   There's a `max-width: 89vw` style.
+- We pass an extra `min()` function.
+- We specify `align-items: flex-start`.
+- There's a `max-width: 89vw` style.
 
 The extra `min()` function is well described by Evan Minto on their blog in the post [Intrinsically Responsive CSS Grid with minmax() and min()](https://evanminto.com/blog/intrinsically-responsive-css-grid-minmax-min/). I recommend giving that a read. The `flex-start` alignment correction is to remove the default stretching effect, so that the children of this layout don't need to have equal heights, they can have natural, intrinsic heights. The YouTube video has a quick breakdown of this alignment addition.
 
@@ -238,8 +228,7 @@ Remember the earlier layout, "just for gap"? Here's a more complete version of h
       gap: var(--space-md);
     }
 
-Color <a href="#color" class="w-headline-link">#</a>
-----------------------------------------------------
+## Color <a href="#color" class="w-headline-link">#</a>
 
 A controlled use of color helped this design stand out as expressive yet minimal. I do it like this:
 
@@ -333,9 +322,9 @@ Color pops most when it's used sparingly, and one of the ways I like to achieve 
 
 There are many layers of UI feedback and interaction in the above video, which help give personality to the interaction by:
 
--   Highlighting context.
--   Providing UI feedback of "how full" the value is in the range.
--   Providing UI feedback that a field is accepting input.
+- Highlighting context.
+- Providing UI feedback of "how full" the value is in the range.
+- Providing UI feedback that a field is accepting input.
 
 To provide feedback when an element is being interacted with, CSS is using the [`:focus-within`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within) pseudo class to change the appearance of various elements, let's break down the `.fieldset-item`, it's super interesting:
 
@@ -362,8 +351,7 @@ When one of the children of this element has focus-within:
 2.  The nested `svg` is filled white for higher contrast.
 3.  The nested `<picture>` `clip-path` expands to a full circle and the background is filled with the bright fixed gradient.
 
-Custom range <a href="#custom-range" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Custom range <a href="#custom-range" class="w-headline-link">#</a>
 
 Given the following HTML input element, I'll show you how I customized its appearance:
 
@@ -504,8 +492,7 @@ I found I needed these `-webkit-` and `-moz-` selectors to achieve cross browser
 
 [Josh Comeau](https://twitter.com/JoshWComeau) outlines why the above examples don't simply use a comma between selectors for cross browser styling, see the [Twitter thread](https://twitter.com/JoshWComeau/status/1359213591602335752?s=20) for more information.
 
-Custom Checkbox <a href="#custom-checkbox" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Custom Checkbox <a href="#custom-checkbox" class="w-headline-link">#</a>
 
 Given the following HTML input element, I'll show you how I customized its appearance:
 
@@ -598,8 +585,7 @@ Creating a circle psuedo-element is straightforward work, but **placing it behin
 
 It's definitely a micro interaction, but important to me to keep the visual consistency. The animation scaling technique is the same as we've been using in other places. We set a custom property to a new value and let CSS transition it based on motion preferences. The key feature here is `translateZ(-1px)`. The parent created a 3D space and this pseudo-element child tapped into it by placing itself slightly back in z-space.
 
-Accessibility <a href="#accessibility" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Accessibility <a href="#accessibility" class="w-headline-link">#</a>
 
 The YouTube video does a great demonstration of the mouse, keyboard and screenreader interactions for this settings component. I'll call out some of the details here.
 
@@ -635,8 +621,7 @@ The SVG is a bunch of math, let's add a `<title>` element for a free mouse hover
 
 Other than that, we've used enough clearly marked HTML, that the form tests really well across mouse, keyboard, video game controllers and screenreaders.
 
-JavaScript <a href="#javascript" class="w-headline-link">#</a>
---------------------------------------------------------------
+## JavaScript <a href="#javascript" class="w-headline-link">#</a>
 
 I've [already covered](#track-styles) how the track fill color was being managed from JavaScript, so let's look at the `<form>` related JavaScript now:
 
@@ -651,17 +636,15 @@ Everytime the form is interacted with and changed, the console logs the form as 
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format" alt="A screenshot of the console.table() results, where the form data is shown in a table" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/hFAyIOpOSdiczdf4AtIj.png?auto=format&amp;w=1600 1600w" width="800" height="285" />
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Now that you know how I did it, how would you?! This makes for some fun component architecture! Who's going to make the 1st version with slots in their favorite framework? 🙂
 
 Let's diversify our approaches and learn all the ways to build on the web. Create a demo, [tweet me](https://twitter.com/argyleink) links, and I'll add it to the [Community remixes](#community-remixes) section below!
 
-Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
--   [@tomayac](https://twitter.com/tomayac) with their style regarding the hover area for the checkbox labels! This version has no hover gap between elements: [demo](https://tomayac.github.io/gui-challenges/settings/dist/) and [source](https://github.com/tomayac/gui-challenges).
+- [@tomayac](https://twitter.com/tomayac) with their style regarding the hover area for the checkbox labels! This version has no hover gap between elements: [demo](https://tomayac.github.io/gui-challenges/settings/dist/) and [source](https://github.com/tomayac/gui-challenges).
 
 <a href="/tags/css/" class="w-chip">CSS</a> <a href="/tags/dom/" class="w-chip">DOM</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a> <a href="/tags/layout/" class="w-chip">Layout</a> <a href="/tags/mobile/" class="w-chip">Mobile</a> <a href="/tags/ux/" class="w-chip">UX</a>
 
@@ -669,35 +652,35 @@ Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-References
-----------
+## References
 
 [Javadoc for List.toArray](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#toArray-T:A-)  
 <span style="color: grey; font-style: italic; font-size: smaller">docs.oracle.com</span>
@@ -13,8 +12,7 @@ References
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -24,8 +22,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -33,8 +30,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Passing a list as argument to a vararg method
-===================================================
+# Java: Passing a list as argument to a vararg method
 
 Use [`List.toArray(T[] arr)`](http://docs.oracle.com/javase/8/docs/api/java/util/List.html#toArray-T:A-):
 
@@ -42,15 +38,13 @@ Use [`List.toArray(T[] arr)`](http://docs.oracle.com/javase/8/docs/api/java/util
 
 (Replace `String` with whatever type of objects your list contains.)
 
-Details
--------
+## Details
 
 `String...` behaves similarly to `String[]`.
 
-You could also use `new String[yourList.size()]` instead of `new String[0]`. [This is however *not* more performant.](https://shipilev.net/blog/2016/arrays-wisdom-ancients/)
+You could also use `new String[yourList.size()]` instead of `new String[0]`. [This is however _not_ more performant.](https://shipilev.net/blog/2016/arrays-wisdom-ancients/)
 
-Full Example
-------------
+## Full Example
 
     import java.util.List;
     class Demo {
@@ -67,8 +61,7 @@ Full Example
         }
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

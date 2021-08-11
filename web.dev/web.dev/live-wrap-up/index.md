@@ -1,36 +1,22 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
 <img src="https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format" alt="The web.dev LIVE logo." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/H60ns6FN1VtNrlx8e3EU.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#web.dev-live-wrap-up" class="w-toc__header--link">web.dev LIVE wrap-up</a>
-------------------------------------------------------------------------------------
+## <a href="#web.dev-live-wrap-up" class="w-toc__header--link">web.dev LIVE wrap-up</a>
 
--   [Web Vitals](#web-vitals)
--   [tooling.report](#tooling.report)
--   [Privacy and security on the web](#privacy-and-security-on-the-web)
--   [Building a web with powerful capabilities](#building-a-web-with-powerful-capabilities)
--   [What's new in Chrome DevTools and Lighthouse 6.0](#what's-new-in-chrome-devtools-and-lighthouse-6.0)
--   [Chrome Devtools: new Issues tab, color deficiencies emulator, and Web Vitals support](#chrome-devtools:-new-issues-tab-color-deficiencies-emulator-and-web-vitals-support)
--   [Lighthouse 6.0: New metrics, Core Web Vitals lab measurements, an updated Performance score, and new audits](#lighthouse-6.0:-new-metrics-core-web-vitals-lab-measurements-an-updated-performance-score-and-new-audits)
--   [Learn more](#learn-more)
+- [Web Vitals](#web-vitals)
+- [tooling.report](#tooling.report)
+- [Privacy and security on the web](#privacy-and-security-on-the-web)
+- [Building a web with powerful capabilities](#building-a-web-with-powerful-capabilities)
+- [What's new in Chrome DevTools and Lighthouse 6.0](#what's-new-in-chrome-devtools-and-lighthouse-6.0)
+- [Chrome Devtools: new Issues tab, color deficiencies emulator, and Web Vitals support](#chrome-devtools:-new-issues-tab-color-deficiencies-emulator-and-web-vitals-support)
+- [Lighthouse 6.0: New metrics, Core Web Vitals lab measurements, an updated Performance score, and new audits](#lighthouse-6.0:-new-metrics-core-web-vitals-lab-measurements-an-updated-performance-score-and-new-audits)
+- [Learn more](#learn-more)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-web.dev LIVE wrap-up
-====================
+# web.dev LIVE wrap-up
 
 A summary of the major news and updates that were announced during our 3-day online community event, and a reminder about upcoming regional events.
 
@@ -42,8 +28,7 @@ If you missed some of the live stream, all of the [sessions are recorded](/live)
 
 Let's dive into some of the news and updates that were shared over the three days.
 
-Web Vitals <a href="#web-vitals" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Web Vitals <a href="#web-vitals" class="w-headline-link">#</a>
 
 The Chrome team [announced](https://blog.chromium.org/2020/05/introducing-web-vitals-essential-metrics.html) the [Web Vitals](/vitals) initiative to provide unified guidance, metrics, and tools to help developers deliver great user experiences on the web. The Google Search team also [recently announced](https://webmasters.googleblog.com/2020/05/evaluating-page-experience.html) that they will be evaluating page experience as a ranking criteria, and will include [Core Web Vitals](/vitals/#core-web-vitals) metrics as its foundation.
 
@@ -55,12 +40,11 @@ The three pillars of the 2020 Core Web Vitals are loading, interactivity, and vi
 
 At web.dev LIVE, we shared best practices on how to [optimize for Core Web Vitals](https://youtu.be/AQqFZ5t8uNc) and how to use [Chrome DevTools to explore your site's vitals values](https://youtu.be/OHb3xZIqUeU). We also shared plenty of other performance-related talks that you can find at [web.dev/live](/live) in the Day 1 schedule.
 
-tooling.report <a href="#tooling.report" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## tooling.report <a href="#tooling.report" class="w-headline-link">#</a>
 
 Developing for a platform as broad as the web can be challenging. Build tools are often at the heart of your web development project, taking on a key role in handling your developer and product lifecycle.
 
-We have all seen unwieldy build config files, so to help web developers *and* tooling authors conquer the complexity of the web, we built [tooling.report](/introducing-tooling-report). It's a website that helps you choose the right build tool for your next project, decide if migrating from one tool to another is worth it, or figure out how to incorporate best practices into your tooling configuration and code base.
+We have all seen unwieldy build config files, so to help web developers _and_ tooling authors conquer the complexity of the web, we built [tooling.report](/introducing-tooling-report). It's a website that helps you choose the right build tool for your next project, decide if migrating from one tool to another is worth it, or figure out how to incorporate best practices into your tooling configuration and code base.
 
 We designed a suite of tests to determine which build tools allow you to follow web development best practices. We worked with the build tool authors to make sure we used their tools correctly and represented them fairly.
 
@@ -70,8 +54,7 @@ If we're missing a best practice that should be tested, please [propose it in a 
 
 In the meantime, you can read more about our [approach towards building tooling.report](/introducing-tooling-report) and watch our [session from web.dev LIVE](https://youtu.be/vsMJiNtQWvw).
 
-Privacy and security on the web <a href="#privacy-and-security-on-the-web" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------
+## Privacy and security on the web <a href="#privacy-and-security-on-the-web" class="w-headline-link">#</a>
 
 Chrome believes in an open web that is respectful of users' privacy and maintains key use cases that keep the web working for everyone.
 
@@ -83,8 +66,7 @@ Moreover, under the banner of the [Privacy Sandbox](https://blog.chromium.org/20
 
 Finally, looking at user security, [Spectre](https://meltdownattack.com/) was a vulnerability that meant malicious code running in one browser process might be able to read any data associated with that process even if it's from a different origin. One of the browser mitigations for this is site isolation, i.e. putting each site into a separate process. Watch the web.dev LIVE session on the [new Cross-Origin Opener and Embedder Policies](https://youtu.be/XLNJYhjA-0c) (COOP and COEP) to learn more.
 
-Building a web with powerful capabilities <a href="#building-a-web-with-powerful-capabilities" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------
+## Building a web with powerful capabilities <a href="#building-a-web-with-powerful-capabilities" class="w-headline-link">#</a>
 
 Chrome wants you to be free to create the highest quality web apps that give you the biggest reach to users across devices. Combining the installability and reliability of PWAs, with the [capabilities project](/fugu-status/) (Project Fugu), Chrome is focusing on three things to close the gap between platform-specific apps and the web, to help you build and deliver great experiences.
 
@@ -96,8 +78,7 @@ And finally, Chrome has been working on new capabilities that enable new scenari
 
 During web.dev LIVE, we spoke about [lots of other capabilities and features](https://youtu.be/NXCT3htg9nk) that can enable you to deliver the same kind of experience, with the same capabilities, as platform-specific apps. See all sessions at [web.dev/live](/live) in the Day 2 schedule.
 
-What's new in Chrome DevTools and Lighthouse 6.0 <a href="#what&#39;s-new-in-chrome-devtools-and-lighthouse-6.0" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------
+## What's new in Chrome DevTools and Lighthouse 6.0 <a href="#what&#39;s-new-in-chrome-devtools-and-lighthouse-6.0" class="w-headline-link">#</a>
 
 ### Chrome Devtools: new Issues tab, color deficiencies emulator, and Web Vitals support <a href="#chrome-devtools:-new-issues-tab-color-deficiencies-emulator-and-web-vitals-support" class="w-headline-link">#</a>
 
@@ -119,8 +100,7 @@ And finally, Lighthouse added a bunch of [new audits](/lighthouse-whats-new-6.0/
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qAVFUVHR7Ad0tm05J1d3.png?auto=format&amp;w=1600 1600w" width="800" height="450" /></figure>Learn more by watching the [What's new in speed tooling](https://youtu.be/yDHfrhCGFQw) session.
 
-Learn more <a href="#learn-more" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Learn more <a href="#learn-more" class="w-headline-link">#</a>
 
 Thank you to everyone in the community who joined us to discuss the web platform's opportunities and challenges.
 
@@ -132,35 +112,35 @@ This post summarized some of the highlights of the event, but there was so much 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

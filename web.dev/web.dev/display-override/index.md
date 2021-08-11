@@ -12,24 +12,22 @@
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format" alt="Web app manifest source code excerpt." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/woTD625c2X9tODE58koK.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#preparing-for-the-display-modes-of-tomorrow" class="w-toc__header--link">Preparing for the display modes of tomorrow</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## <a href="#preparing-for-the-display-modes-of-tomorrow" class="w-toc__header--link">Preparing for the display modes of tomorrow</a>
 
--   [Shortcomings of the display property](#shortcomings-of-the-display-property)
--   [The display\_override property](#the-display_override-property)
--   [Browser compatibility](#browser-compatibility)
--   [Useful links](#useful-links)
--   [Acknowledgments](#acknowledgments)
+- [Shortcomings of the display property](#shortcomings-of-the-display-property)
+- [The display_override property](#the-display_override-property)
+- [Browser compatibility](#browser-compatibility)
+- [Useful links](#useful-links)
+- [Acknowledgments](#acknowledgments)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Preparing for the display modes of tomorrow
-===========================================
+# Preparing for the display modes of tomorrow
 
-PWAs can use the "display\_override" property to deal with special display modes.
+PWAs can use the "display_override" property to deal with special display modes.
 
 Feb 25, 2021 <span class="w-author__separator">•</span> Updated May 28, 2021
 
@@ -37,10 +35,10 @@ Feb 25, 2021 <span class="w-author__separator">•</span> Updated May 28, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 A [web app manifest](/add-manifest/) is a JSON file that tells the browser about your Progressive Web App and how it should behave when installed on the user's desktop or mobile device. Via the [`display`](/add-manifest/#display) property, you can customize what browser UI is shown when your app is launched. For example, you can hide the address bar and browser chrome. Games can even be made to launch full screen. As a quick recap, below are the display modes that are specified at the time this article was written.
 
@@ -48,19 +46,17 @@ A [web app manifest](/add-manifest/) is a JSON file that tells the browser about
 
 These display modes follow a [well-defined fallback chain](https://w3c.github.io/manifest/#dfn-fallback-display-mode) (`"fullscreen"` → `"standalone"` → `"minimal-ui"` → `"browser"`). If a browser does not support a given mode, it falls back to the next display mode in the chain.
 
-Shortcomings of the `display` property <a href="#shortcomings-of-the-display-property" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------
+## Shortcomings of the `display` property <a href="#shortcomings-of-the-display-property" class="w-headline-link">#</a>
 
 The problem with this hard-wired fallback chain approach is threefold:
 
--   A developer cannot request `"minimal-ui"` without being forced back into the `"browser"` display mode in case `"minimal-ui"` is not supported by a given browser.
--   Developers have no way of handling cross-browser differences, like if the browser includes or excludes a [back button](https://twitter.com/ChromiumDev/status/1012065260625383425/photo/1) in the window for `"standalone"` mode.
--   The current behavior makes it impossible to introduce new display modes in a backward compatible way, since explorations like tabbed application mode do not have a natural place in the fallback chain.
+- A developer cannot request `"minimal-ui"` without being forced back into the `"browser"` display mode in case `"minimal-ui"` is not supported by a given browser.
+- Developers have no way of handling cross-browser differences, like if the browser includes or excludes a [back button](https://twitter.com/ChromiumDev/status/1012065260625383425/photo/1) in the window for `"standalone"` mode.
+- The current behavior makes it impossible to introduce new display modes in a backward compatible way, since explorations like tabbed application mode do not have a natural place in the fallback chain.
 
-The `display_override` property <a href="#the-display_override-property" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## The `display_override` property <a href="#the-display_override-property" class="w-headline-link">#</a>
 
-These problems are solved by the `display_override` property, which the browser considers *before* the `display` property. Its value is a sequence of strings that are considered in-order, and the first supported display mode is applied. If none are supported, the browser falls back to evaluating the `display` field.
+These problems are solved by the `display_override` property, which the browser considers _before_ the `display` property. Its value is a sequence of strings that are considered in-order, and the first supported display mode is applied. If none are supported, the browser falls back to evaluating the `display` field.
 
 The `display_override` property is meant to solve special corner cases. In almost all circumstances the regular `display` property is what developers should reach for.
 
@@ -85,22 +81,19 @@ To remain backward compatible, any future display mode will only be acceptable a
 
 The `display_override` property is defined independently from its potential values.
 
-Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
 
 The `display_override` property is supported as of Chromium 89. Other browsers support the `display` property, which caters to the majority of display mode use cases.
 
-Useful links <a href="#useful-links" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Useful links <a href="#useful-links" class="w-headline-link">#</a>
 
--   [Explainer](https://github.com/WICG/display-override/blob/master/explainer.md)
--   [Intent to Ship thread](https://groups.google.com/a/chromium.org/g/blink-dev/c/MZgYJgS4Lcs/m/NnUxG2_mAAAJ)
--   [Chromium bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1092667)
--   [Chrome Status entry](https://chromestatus.com/feature/5728570678706176)
--   [Manifest Incubations repository](https://github.com/WICG/manifest-incubations)
+- [Explainer](https://github.com/WICG/display-override/blob/master/explainer.md)
+- [Intent to Ship thread](https://groups.google.com/a/chromium.org/g/blink-dev/c/MZgYJgS4Lcs/m/NnUxG2_mAAAJ)
+- [Chromium bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1092667)
+- [Chrome Status entry](https://chromestatus.com/feature/5728570678706176)
+- [Manifest Incubations repository](https://github.com/WICG/manifest-incubations)
 
-Acknowledgments <a href="#acknowledgments" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Acknowledgments <a href="#acknowledgments" class="w-headline-link">#</a>
 
 The `display_override` property was formalized by [Daniel Murphy](https://github.com/dmurph).
 
@@ -110,35 +103,35 @@ The `display_override` property was formalized by [Daniel Murphy](https://github
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

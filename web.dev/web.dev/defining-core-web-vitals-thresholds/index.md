@@ -1,43 +1,35 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format" alt="The research and methodology behind Core Web Vitals thresholds" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#defining-the-core-web-vitals-metrics-thresholds" class="w-toc__header--link">Defining the Core Web Vitals metrics thresholds</a>
-------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#defining-the-core-web-vitals-metrics-thresholds" class="w-toc__header--link">Defining the Core Web Vitals metrics thresholds</a>
 
--   [Refresher: Core Web Vitals metrics and thresholds](#refresher:-core-web-vitals-metrics-and-thresholds)
--   [Criteria for the Core Web Vitals metric thresholds](#criteria-for-the-core-web-vitals-metric-thresholds)
--   [High-quality user experience](#high-quality-user-experience)
--   [Achievable by existing web content](#achievable-by-existing-web-content)
--   [Final thoughts on criteria](#final-thoughts-on-criteria)
--   [Choice of percentile](#choice-of-percentile)
--   [Largest Contentful Paint](#largest-contentful-paint)
--   [Quality of experience](#quality-of-experience)
--   [Achievability](#achievability)
--   [First Input Delay](#first-input-delay)
--   [Quality of experience](#quality-of-experience-2)
--   [Achievability](#achievability-2)
--   [Cumulative Layout Shift](#cumulative-layout-shift)
--   [Quality of experience](#quality-of-experience-3)
--   [Achievability](#achievability-3)
+- [Refresher: Core Web Vitals metrics and thresholds](#refresher:-core-web-vitals-metrics-and-thresholds)
+- [Criteria for the Core Web Vitals metric thresholds](#criteria-for-the-core-web-vitals-metric-thresholds)
+- [High-quality user experience](#high-quality-user-experience)
+- [Achievable by existing web content](#achievable-by-existing-web-content)
+- [Final thoughts on criteria](#final-thoughts-on-criteria)
+- [Choice of percentile](#choice-of-percentile)
+- [Largest Contentful Paint](#largest-contentful-paint)
+- [Quality of experience](#quality-of-experience)
+- [Achievability](#achievability)
+- [First Input Delay](#first-input-delay)
+- [Quality of experience](#quality-of-experience-2)
+- [Achievability](#achievability-2)
+- [Cumulative Layout Shift](#cumulative-layout-shift)
+- [Quality of experience](#quality-of-experience-3)
+- [Achievability](#achievability-3)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Defining the Core Web Vitals metrics thresholds
-===============================================
+# Defining the Core Web Vitals metrics thresholds
 
 The research and methodology behind Core Web Vitals thresholds
 
@@ -49,12 +41,11 @@ May 21, 2020 <span class="w-author__separator">•</span> Updated May 27, 2020
 
 <a href="/authors/bmcquade/" class="w-author__name-link">Bryan McQuade</a>
 
--   <a href="https://twitter.com/bryanmcquade" class="w-author__link">Twitter</a>
+- <a href="https://twitter.com/bryanmcquade" class="w-author__link">Twitter</a>
 
 [Core Web Vitals](/vitals/#core-web-vitals) are a set of field metrics that measure important aspects of real-world user experience on the web. Core Web Vitals includes metrics, as well as target thresholds for each metric, which help developers qualitatively understand whether the experience of their site is "good", "needs improvement", or is "poor". This post will explain the approach used to choose thresholds for Core Web Vitals metrics generally, as well as how the thresholds for each specific Core Web Vitals metric were chosen.
 
-Refresher: Core Web Vitals metrics and thresholds <a href="#refresher:-core-web-vitals-metrics-and-thresholds" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------
+## Refresher: Core Web Vitals metrics and thresholds <a href="#refresher:-core-web-vitals-metrics-and-thresholds" class="w-headline-link">#</a>
 
 In 2020 the Core Web Vitals are three metrics: Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS). Each metric measures a different aspect of user experience: LCP measures perceived load speed and marks the point in the page load timeline when the page's main content has likely loaded; FID measures responsiveness and quantifies the experience users feel when trying to first interact with the page; and CLS measures visual stability and quantifies the amount of unexpected layout shift of visible page content.
 
@@ -66,8 +57,7 @@ Each Core Web Vitals metric has associated thresholds, which categorize performa
 
 Additionally, to classify the overall performance of a page or site, we use the 75th percentile value of all page views to that page or site. In other words, if at least 75 percent of page views to a site meet the "good" threshold, the site is classified as having "good" performance for that metric. Conversely, if at least 25 percent of page views meet the "poor" threshold, the site is classified as having "poor" performance. So, for example, a 75th percentile LCP of 2 seconds is classified as "good", while a 75th percentile LCP of 5 seconds is classified as "poor".
 
-Criteria for the Core Web Vitals metric thresholds <a href="#criteria-for-the-core-web-vitals-metric-thresholds" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------
+## Criteria for the Core Web Vitals metric thresholds <a href="#criteria-for-the-core-web-vitals-metric-thresholds" class="w-headline-link">#</a>
 
 When establishing thresholds for Core Web Vitals metrics, we first identified criteria that each threshold had to meet. Below, I explain the criteria we used at Google for evaluating 2020 Core Web Vitals metric thresholds. The subsequent sections will go into more detail on how these criteria were applied to select the thresholds for each metric in 2020. In future years we anticipate making improvements and additions to the criteria and thresholds to further improve our ability to measure great user experiences on the web.
 
@@ -91,8 +81,7 @@ Conversely, we establish the "poor" threshold by identifying a level of performa
 
 When evaluating candidate thresholds, we found that the criteria were sometimes in conflict with one another. For example, there can be a tension between a threshold being consistently achievable and it ensuring consistently good user experiences. Additionally, given that human perception research typically provides a range of values, and user behavior metrics show gradual changes in behavior, we found there is often no single "correct" threshold for a metric. Thus, our approach for the 2020 Core Web Vitals has been to choose thresholds that best meet the above criteria, while recognizing that there is no one perfect threshold and that we may sometimes need to choose from multiple reasonable candidate thresholds. Rather than asking "what is the perfect threshold?" we instead focused on asking "which candidate threshold best achieves our criteria?"
 
-Choice of percentile <a href="#choice-of-percentile" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Choice of percentile <a href="#choice-of-percentile" class="w-headline-link">#</a>
 
 As noted earlier, to classify the overall performance of a page or site, we use the 75th percentile value of all visits to that page or site. The 75th percentile was chosen based on two criteria. First, the percentile should ensure that a majority of visits to a page or site experienced the target level of performance. Second, the value at the chosen percentile should not be overly impacted by outliers.
 
@@ -100,14 +89,13 @@ These goals are somewhat at odds with one another. To satisfy the first goal, a 
 
 Given these goals are a bit at odds, after analysis, we concluded that the 75th percentile strikes a reasonable balance. By using the 75th percentile, we know that most visits to the site (3 of 4) experienced the target level of performance or better. Additionally, the 75th percentile value is less likely to be affected by outliers. Returning to our example, for a site with 100 visits, 25 of those visits would need to report large outlier samples for the value at the 75th percentile to be affected by outliers. While 25 of 100 samples being outliers is possible, it is much less likely than for the 95th percentile case.
 
-Largest Contentful Paint <a href="#largest-contentful-paint" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Largest Contentful Paint <a href="#largest-contentful-paint" class="w-headline-link">#</a>
 
 ### Quality of experience <a href="#quality-of-experience" class="w-headline-link">#</a>
 
 1 second is often cited as the amount of time a user will wait before they begin to lose focus on a task. On closer inspection of relevant research, we found that 1 second is an approximation to describe a range of values, from roughly several hundred milliseconds to several seconds.
 
-Two commonly cited sources for the 1 second threshold are [Card et al](https://dl.acm.org/doi/10.1145/108844.108874) and [Miller](https://dl.acm.org/doi/10.1145/1476589.1476628). Card defines a 1-second "immediate response" threshold, citing Newell's [Unified Theories of Cognition](https://dl.acm.org/doi/book/10.5555/86564). Newell explains immediate responses as "responses that must be made to some stimulus within *very approximately one second* (that is, roughly from ~0.3sec to ~3sec)." This follows Newell's discussion on "real-time constraints on cognition", where it is noted that "interactions with the environment which evoke cognitive considerations take place on the order of seconds" which range from roughly 0.5 to 2-3 seconds. Miller, another commonly cited source for the 1 second threshold, notes "tasks which humans can and will perform with machine communications will seriously change their character if response delays are greater than two seconds, with some possible extension of another second or so."
+Two commonly cited sources for the 1 second threshold are [Card et al](https://dl.acm.org/doi/10.1145/108844.108874) and [Miller](https://dl.acm.org/doi/10.1145/1476589.1476628). Card defines a 1-second "immediate response" threshold, citing Newell's [Unified Theories of Cognition](https://dl.acm.org/doi/book/10.5555/86564). Newell explains immediate responses as "responses that must be made to some stimulus within _very approximately one second_ (that is, roughly from ~0.3sec to ~3sec)." This follows Newell's discussion on "real-time constraints on cognition", where it is noted that "interactions with the environment which evoke cognitive considerations take place on the order of seconds" which range from roughly 0.5 to 2-3 seconds. Miller, another commonly cited source for the 1 second threshold, notes "tasks which humans can and will perform with machine communications will seriously change their character if response delays are greater than two seconds, with some possible extension of another second or so."
 
 Miller and Card's research describes the amount of time a user will wait before losing focus as a range, from roughly 0.3 to 3 seconds, which suggests our LCP "good" threshold should be in this range. Additionally, given that the existing First Contentful Paint "good" threshold is 1 second, and that the Largest Contentful Paint typically occurs after First Contentful Paint, we further constrain our range of candidate LCP thresholds, from 1 second to 3 seconds. To choose the threshold in this range that best meets our criteria, we look at the achievability of these candidate thresholds, below.
 
@@ -133,8 +121,7 @@ For a 4 second threshold, roughly 26% of phone origins, and 21% of desktop origi
 
 Thus, we conclude that 2.5 seconds is a reasonable "good" threshold, and 4 seconds is a reasonable "poor" threshold for Largest Contentful Paint.
 
-First Input Delay <a href="#first-input-delay" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## First Input Delay <a href="#first-input-delay" class="w-headline-link">#</a>
 
 ### Quality of experience <a href="#quality-of-experience-2" class="w-headline-link">#</a>
 
@@ -160,8 +147,7 @@ Additionally, we observe that top sites across the web are able to consistently 
 
 Given the above, we conclude that 100ms is a reasonable "good" threshold for FID.
 
-Cumulative Layout Shift <a href="#cumulative-layout-shift" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Cumulative Layout Shift <a href="#cumulative-layout-shift" class="w-headline-link">#</a>
 
 ### Quality of experience <a href="#quality-of-experience-3" class="w-headline-link">#</a>
 
@@ -191,35 +177,35 @@ For a 0.25 threshold, roughly 20% of phone origins, and 18% of desktop origins, 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

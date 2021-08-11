@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Regular expressions](regexp-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Split a string using regexp delimiter
-=========================================
+# Go: Split a string using regexp delimiter
 
 Use the [`Split`](https://golang.org/pkg/regexp/#Regexp.Split) method to **slice a string into substrings** separated by the regexp. It returns a slice of the substrings between those expression matches. A return value of nil indicates no match.
 
@@ -51,8 +47,7 @@ The method takes an integer argument `n`; if `n >= 0`, the function returns at m
     fmt.Printf("%q\n", zp.Split("pizza", 1))  // ["pizza"]
     fmt.Printf("%q\n", zp.Split("pizza", 2))  // ["pi" "a"]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

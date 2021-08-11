@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,8 +24,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Variable declaration outside of function body
-=================================================
+# Go: Variable declaration outside of function body
 
 As you may have noticed, programs with short variable declarations outside a function do not compile:
 
@@ -51,8 +48,7 @@ This is a trade-off in the design of the Go language:
 
 > At the top level, every declaration begins with a keyword. This simplifies parsing. <a href="https://groups.google.com/forum/#!msg/golang-nuts/qTZemuGDV6o/IyCwXPJsUFIJ" class="quote-source">golang-nuts forum: Ian Lance Taylor</a>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

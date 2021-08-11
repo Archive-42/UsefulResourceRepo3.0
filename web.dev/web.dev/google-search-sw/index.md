@@ -1,8 +1,6 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
+og/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
 <span class="w-tooltip">Close</span>
 
@@ -12,39 +10,37 @@
 
 <img src="https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format" alt="An illustration of a service worker interacting with a cache." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/SEsw9jtfge6PSYNqTkUl.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#bringing-service-workers-to-google-search" class="w-toc__header--link">Bringing service workers to Google Search</a>
-------------------------------------------------------------------------------------------------------------------------------
+## <a href="#bringing-service-workers-to-google-search" class="w-toc__header--link">Bringing service workers to Google Search</a>
 
--   [Background](#background)
--   [Key reasons for exploring service workers](#key-reasons-for-exploring-service-workers)
--   [Limited search result caching](#limited-search-result-caching)
--   [Meaningful offline experience](#meaningful-offline-experience)
--   [Smarter JavaScript caching and serving](#smarter-javascript-caching-and-serving)
--   [Challenges and solutions](#challenges-and-solutions)
--   [Problem: service worker overhead](#problem:-service-worker-overhead)
--   [Solution: use navigation preload](#solution:-use-navigation-preload)
--   [Problem: service worker scopes](#problem:-service-worker-scopes)
--   [Solution: create a dispatch and routing framework](#solution:-create-a-dispatch-and-routing-framework)
--   [Problem: personalized results and metrics](#problem:-personalized-results-and-metrics)
--   [Solution: send cookies using postMessage](#solution:-send-cookies-using-postmessage)
--   [Problem: experiments and dynamism](#problem:-experiments-and-dynamism)
--   [Solution: dynamically generated service worker script](#solution:-dynamically-generated-service-worker-script)
--   [Problem: coordinating updates](#problem:-coordinating-updates)
--   [Solution: balance freshness and cache-utilization](#solution:-balance-freshness-and-cache-utilization)
--   [Key Takeaways](#key-takeaways)
--   [By default, service workers aren't performance neutral](#by-default-service-workers-aren't-performance-neutral)
--   [Service workers are (still!) a progressive enhancement](#service-workers-are-(still!)-a-progressive-enhancement)
--   [Measure everything](#measure-everything)
--   [Non-goals](#non-goals)
--   [Acknowledgements](#acknowledgements)
+- [Background](#background)
+- [Key reasons for exploring service workers](#key-reasons-for-exploring-service-workers)
+- [Limited search result caching](#limited-search-result-caching)
+- [Meaningful offline experience](#meaningful-offline-experience)
+- [Smarter JavaScript caching and serving](#smarter-javascript-caching-and-serving)
+- [Challenges and solutions](#challenges-and-solutions)
+- [Problem: service worker overhead](#problem:-service-worker-overhead)
+- [Solution: use navigation preload](#solution:-use-navigation-preload)
+- [Problem: service worker scopes](#problem:-service-worker-scopes)
+- [Solution: create a dispatch and routing framework](#solution:-create-a-dispatch-and-routing-framework)
+- [Problem: personalized results and metrics](#problem:-personalized-results-and-metrics)
+- [Solution: send cookies using postMessage](#solution:-send-cookies-using-postmessage)
+- [Problem: experiments and dynamism](#problem:-experiments-and-dynamism)
+- [Solution: dynamically generated service worker script](#solution:-dynamically-generated-service-worker-script)
+- [Problem: coordinating updates](#problem:-coordinating-updates)
+- [Solution: balance freshness and cache-utilization](#solution:-balance-freshness-and-cache-utilization)
+- [Key Takeaways](#key-takeaways)
+- [By default, service workers aren't performance neutral](#by-default-service-workers-aren't-performance-neutral)
+- [Service workers are (still!) a progressive enhancement](<#service-workers-are-(still!)-a-progressive-enhancement>)
+- [Measure everything](#measure-everything)
+- [Non-goals](#non-goals)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Bringing service workers to Google Search
-=========================================
+# Bringing service workers to Google Search
 
 The story of what shipped, how the impact was measured, and the tradeoffs that were made.
 
@@ -54,20 +50,18 @@ Jun 20, 2019
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
-Search for just about any topic on Google, and you're presented with an instantly recognizable page of meaningful, relevant results. What you probably *didn't* realize is that this search results page is, under certain scenarios, served by a powerful piece of web technology called a [service worker](/service-workers-cache-storage/).
+Search for just about any topic on Google, and you're presented with an instantly recognizable page of meaningful, relevant results. What you probably _didn't_ realize is that this search results page is, under certain scenarios, served by a powerful piece of web technology called a [service worker](/service-workers-cache-storage/).
 
 Rolling out service worker support for Google Search without negatively impacting the performance required dozens of engineers working across multiple teams. This is the story of what shipped, how performance was measured, and what tradeoffs were made.
 
-Key reasons for exploring service workers <a href="#key-reasons-for-exploring-service-workers" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------
+## Key reasons for exploring service workers <a href="#key-reasons-for-exploring-service-workers" class="w-headline-link">#</a>
 
 Adding a service worker to a web app, just like making any architectural change to your site, should be done with a clear set of goals in mind. For the Google Search team, there were a few key reasons why adding a service worker was worth exploring.
 
@@ -99,14 +93,13 @@ By using a service worker's ability to version and cache fine-grained chunks of 
 
 There are also performance benefits of using cached JavaScript served by a service worker: in Chrome, [a parsed, byte code representation](https://v8.dev/blog/code-caching-for-devs#use-service-worker-caches) of that JavaScript is stored and reused, leading to less work that needs to be done at runtime in order to execute the JavaScript on the page.
 
-Challenges and solutions <a href="#challenges-and-solutions" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Challenges and solutions <a href="#challenges-and-solutions" class="w-headline-link">#</a>
 
 Here are a few of the hurdles that needed to be overcome in order to achieve the team's stated goals. While some of these challenges are specific to Google Search, many of them are applicable to a wide range of sites that might be considering a service worker deployment.
 
 ### Problem: service worker overhead <a href="#problem:-service-worker-overhead" class="w-headline-link">#</a>
 
-The biggest challenge, and the one true blocker for launching a service worker on Google Search, was to ensure that it did not do anything that might increase user-perceived latency. Google Search takes performance *very* seriously, and in the past, has blocked launches of new functionality if it contributed even tens of milliseconds of additional latency for a given user population.
+The biggest challenge, and the one true blocker for launching a service worker on Google Search, was to ensure that it did not do anything that might increase user-perceived latency. Google Search takes performance _very_ seriously, and in the past, has blocked launches of new functionality if it contributed even tens of milliseconds of additional latency for a given user population.
 
 When the team started collecting performance data during their earliest experiments, it became obvious that there would be a problem. The HTML returned in response to [navigation requests](https://developers.google.com/web/fundamentals/primers/service-workers/high-performance-loading#first_what_are_navigation_requests) for the search result page is dynamic, and varies greatly depending on logic that needs to run on Search's web servers. There's currently no way for the service worker to replicate this logic and return cached HTML immediately—the best it could do is to pass along navigation requests to the backend web servers, which necessitates a network request.
 
@@ -180,9 +173,9 @@ Using a dynamically generated service worker script also makes it easier to prov
 
 One of the toughest challenges facing any real-world service worker deployment is to devise a reasonable tradeoff between avoiding the network in favor of the cache, while at the same time, ensuring that existing users get critical updates and changes soon after they're deployed to production. The right balance depends on a lot of factors:
 
--   Whether your web app is a long-lived [single page app](https://en.wikipedia.org/wiki/Single-page_application) that a user keeps open indefinitely, without navigating to new pages.
--   What the deployment cadence is for updates to your backend web server.
--   Whether the average user would tolerate using a slightly out-of-date version of your web app, or whether freshness is the top priority.
+- Whether your web app is a long-lived [single page app](https://en.wikipedia.org/wiki/Single-page_application) that a user keeps open indefinitely, without navigating to new pages.
+- What the deployment cadence is for updates to your backend web server.
+- Whether the average user would tolerate using a slightly out-of-date version of your web app, or whether freshness is the top priority.
 
 While experimenting with service workers, the Google Search team made sure to keep the experiments running across a number of scheduled backend updates, to ensure that the metrics and user experience would more closely match what return users would end up seeing in the real-world.
 
@@ -202,8 +195,7 @@ While some interactions within the Google Search web app use single page app-sty
 
 The approach that Google Search went with isn't necessarily a solution that works for everyone—it was the result of carefully A/B testing various combinations of serving options until they found what worked best for them. Developers whose backend infrastructure allow them to deploy updates more quickly might prefer that the browser check for an updated service worker script as frequently as possible, by [always ignoring the HTTP cache](https://developers.google.com/web/updates/2018/06/fresher-sw#whats_changing). If you're building a single page app that users will might keep open for a long period of time, using `skipWaiting()` is probably not the right choice for you—you [risk running into cache inconsistencies](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase) if you allow the new service worker to activate while there are long-lived clients.
 
-Key Takeaways <a href="#key-takeaways" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Key Takeaways <a href="#key-takeaways" class="w-headline-link">#</a>
 
 ### By default, service workers aren't performance neutral <a href="#by-default-service-workers-aren&#39;t-performance-neutral" class="w-headline-link">#</a>
 
@@ -223,15 +215,13 @@ The only way you can figure out whether shipping a service worker has had a posi
 
 The specifics of setting up meaningful measurements depends on what analytics provider you're using, and how you normally conduct experiments in your deployment setup. One approach, using Google Analytics to collect metrics, is detailed in [this case study](https://developers.google.com/web/showcase/2016/service-worker-perf) based on the experience using service workers in the Google I/O web app.
 
-Non-goals <a href="#non-goals" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Non-goals <a href="#non-goals" class="w-headline-link">#</a>
 
 While many in the web development community associate service workers with [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/), building a "Google Search PWA" was not an initial goal of the team. The Google Search web app doesn't currently provide metadata via a [web app manifest](https://developers.google.com/web/fundamentals/web-app-manifest/), nor does it encourage users to go through the [Add to Home Screen flow](https://developers.google.com/web/fundamentals/app-install-banners/). The Search team is currently satisfied with users coming to their web app via the traditional entry points for Google Search.
 
 Rather than trying to turn the Google Search web experience into the equivalent of what you'd expect from an installed application, the focus on the initial roll out was to progressively enhance the existing web site.
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Thanks to the entire Google Search web development team for their work on the service worker implementation, and for sharing the background material that went into writing this article. Particular thanks goes to Philippe Golle, Rajesh Jagannathan, R. Samuel Klatchko, Andy Martone, Leonardo Peña, Rachel Shearer, Greg Terrono, and Clay Woolam.
 
@@ -241,35 +231,35 @@ Thanks to the entire Google Search web development team for their work on the se
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,47 +1,33 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+## <a href="#media-manipulation-cheat-sheet" class="w-toc__header--link">Media manipulation cheat sheet</a>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#media-manipulation-cheat-sheet" class="w-toc__header--link">Media manipulation cheat sheet</a>
---------------------------------------------------------------------------------------------------------
-
--   [Display characteristics](#display-characteristics)
--   [Demux (split) audio and video](#demux-(split)-audio-and-video)
--   [Shaka Packager](#shaka-packager)
--   [FFmpeg](#ffmpeg)
--   [Change characteristics](#change-characteristics)
--   [Bitrate](#bitrate)
--   [Dimensions (resolution)](#dimensions-(resolution))
--   [File type](#file-type)
--   [Synchronize audio and video](#synchronize-audio-and-video)
--   [Codec](#codec)
--   [Packager](#packager)
--   [DASH/MPD](#dashmpd)
--   [HLS](#hls)
--   [Clear Key Encryption](#clear-key-encryption)
--   [Create a key](#create-a-key)
--   [Encrypt](#encrypt)
--   [Create a key information file](#create-a-key-information-file)
--   [Encrypt for HLS](#encrypt-for-hls)
--   [Widevine Encryption](#widevine-encryption)
--   [Media conversion sequence](#media-conversion-sequence)
--   [DASH/WebM with Shaka Packager](#dashwebm-with-shaka-packager)
--   [DASH/MP4 with Shaka Packager](#dashmp4-with-shaka-packager)
--   [Widevine](#widevine)
--   [HLS/MP4](#hlsmp4)
+- [Display characteristics](#display-characteristics)
+- [Demux (split) audio and video](<#demux-(split)-audio-and-video>)
+- [Shaka Packager](#shaka-packager)
+- [FFmpeg](#ffmpeg)
+- [Change characteristics](#change-characteristics)
+- [Bitrate](#bitrate)
+- [Dimensions (resolution)](<#dimensions-(resolution)>)
+- [File type](#file-type)
+- [Synchronize audio and video](#synchronize-audio-and-video)
+- [Codec](#codec)
+- [Packager](#packager)
+- [DASH/MPD](#dashmpd)
+- [HLS](#hls)
+- [Clear Key Encryption](#clear-key-encryption)
+- [Create a key](#create-a-key)
+- [Encrypt](#encrypt)
+- [Create a key information file](#create-a-key-information-file)
+- [Encrypt for HLS](#encrypt-for-hls)
+- [Widevine Encryption](#widevine-encryption)
+- [Media conversion sequence](#media-conversion-sequence)
+- [DASH/WebM with Shaka Packager](#dashwebm-with-shaka-packager)
+- [DASH/MP4 with Shaka Packager](#dashmp4-with-shaka-packager)
+- [Widevine](#widevine)
+- [HLS/MP4](#hlsmp4)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Media manipulation cheat sheet
-==============================
+# Media manipulation cheat sheet
 
 Sep 20, 2018 <span class="w-author__separator">•</span> Updated Sep 24, 2020
 
@@ -51,19 +37,19 @@ Sep 20, 2018 <span class="w-author__separator">•</span> Updated Sep 24, 2020
 
 <a href="/authors/joemedley/" class="w-author__name-link">Joe Medley</a>
 
--   <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
 
 This page offers these resources:
 
--   Commands for manipulating specific characteristics of media files.
--   The sequence of commands needed to get from a raw mov file to encrypted media assets.
+- Commands for manipulating specific characteristics of media files.
+- The sequence of commands needed to get from a raw mov file to encrypted media assets.
 
 Conversion is done with these applications:
 
--   [Shaka Packager](https://github.com/google/shaka-packager) ([on Stack Overflow](https://stackoverflow.com/questions/tagged/shaka))
--   [FFmpeg](https://ffmpeg.org/download.html), version 4.2.2-tessus ([on Stack Overflow](https://stackoverflow.com/questions/tagged/ffmpeg))
--   [OpenSSL](https://www.openssl.org/) ([on Stack Overflow](https://stackoverflow.com/questions/tagged/openssl))
+- [Shaka Packager](https://github.com/google/shaka-packager) ([on Stack Overflow](https://stackoverflow.com/questions/tagged/shaka))
+- [FFmpeg](https://ffmpeg.org/download.html), version 4.2.2-tessus ([on Stack Overflow](https://stackoverflow.com/questions/tagged/ffmpeg))
+- [OpenSSL](https://www.openssl.org/) ([on Stack Overflow](https://stackoverflow.com/questions/tagged/openssl))
 
 Although I've tried to show equivalent operations for all procedures, not all operations are possible in both applications.
 
@@ -73,8 +59,7 @@ Please let me know of useful additions or corrections. [Pull requests are welcom
 
 This page contains a few more commands than are covered in this section. Not only are there plans to cover these topics (we have drafts already), we also hope this page will be a resource for multiple levels of expertise.
 
-Display characteristics <a href="#display-characteristics" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Display characteristics <a href="#display-characteristics" class="w-headline-link">#</a>
 
     packager input=myvideo.mp4 --dump_stream_info
 
@@ -82,14 +67,13 @@ Display characteristics <a href="#display-characteristics" class="w-headline-lin
 
 Technically, FFmpeg always requires an output file format. Calling FFmpeg this way will give you an error message explaining that; however, it lists information not available using Shaka Packager.
 
-Demux (split) audio and video <a href="#demux-(split)-audio-and-video" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Demux (split) audio and video <a href="#demux-(split)-audio-and-video" class="w-headline-link">#</a>
 
 Shaka Packager requires demuxing when converting files. This is also required for using media frameworks.
 
 ### Shaka Packager <a href="#shaka-packager" class="w-headline-link">#</a>
 
-***MP4***
+**_MP4_**
 
     packager input=myvideo.mp4,stream=video,output=myvideo_video.mp4
     packager input=myvideo.mp4,stream=audio,output=myvideo_audio.m4a
@@ -100,7 +84,7 @@ Or:
       input=myvideo.mp4,stream=video,output=myvideo_video.mp4 \
       input=myvideo.mp4,stream=audio,output=myvideo_audio.m4a
 
-***WebM***
+**_WebM_**
 
     packager \
       input=myvideo.webm,stream=video,output=myvideo_video.webm \
@@ -108,18 +92,17 @@ Or:
 
 ### FFmpeg <a href="#ffmpeg" class="w-headline-link">#</a>
 
-***MP4***
+**_MP4_**
 
     ffmpeg -i myvideo.mp4 -vcodec copy -an myvideo_video.mp4
     ffmpeg -i myvideo.mp4 -acodec copy -vn myvideo_audio.m4a
 
-***WebM***
+**_WebM_**
 
     ffmpeg -i myvideo.webm -vcodec copy -an myvideo_video.webm
     ffmpeg -i myvideo.webm -acodec copy -vn myvideo_audio.webm
 
-Change characteristics <a href="#change-characteristics" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Change characteristics <a href="#change-characteristics" class="w-headline-link">#</a>
 
 ### Bitrate <a href="#bitrate" class="w-headline-link">#</a>
 
@@ -136,11 +119,11 @@ For FFmpeg, I can do this while I'm converting to mp4 or WebM.
 
 Shaka Packager cannot process mov files and hence cannot be used to convert files from that format.
 
-***mov to MP4***
+**_mov to MP4_**
 
     ffmpeg -i myvideo.mov myvideo.mp4
 
-***mov to WebM***
+**_mov to WebM_**
 
     ffmpeg -i myvideo.mov myvideo.webm
 
@@ -162,25 +145,24 @@ The tables below list common containers and codecs for both audio and video, as 
 
 <table><thead><tr class="header"><th>Codec</th><th>Container</th><th>Library</th></tr></thead><tbody><tr class="odd"><td>aac</td><td>MP4</td><td>aac</td></tr><tr class="even"><td>opus</td><td>WebM</td><td>libopus</td></tr><tr class="odd"><td>vorbis</td><td>WebM</td><td>libvorbis</td></tr></tbody></table>
 
-***MP4/H.264***
+**_MP4/H.264_**
 
     ffmpeg -i myvideo.mp4 -c:v libx264 -c:a copy myvideo.mp4
 
-***Audio for an MP4***
+**_Audio for an MP4_**
 
     ffmpeg -i myvideo.mp4 -c:v copy -c:a aac myvideo.mp4
 
-***WebM/VP9***
+**_WebM/VP9_**
 
     ffmpeg -i myvideo.webm -v:c libvpx-vp9 -v:a copy myvideo.webm
 
-***Audio for a WebM***
+**_Audio for a WebM_**
 
     ffmpeg -i myvideo.webm -v:c copy -v:a libvorbis myvideo.webm
     ffmpeg -i myvideo.webm -v:c copy -v:a libopus myvideo.webm
 
-Packager <a href="#packager" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Packager <a href="#packager" class="w-headline-link">#</a>
 
 ### DASH/MPD <a href="#dashmpd" class="w-headline-link">#</a>
 
@@ -198,8 +180,7 @@ HTTP Live Streaming (HLS) is [Apple's standard](https://developer.apple.com/stre
     ffmpeg -i myvideo.mp4 -c:a copy -b:v 8M -c:v copy -f hls -hls_time 10 \
             -hls_list_size 0 myvideo.m3u8
 
-Clear Key Encryption <a href="#clear-key-encryption" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Clear Key Encryption <a href="#clear-key-encryption" class="w-headline-link">#</a>
 
 ### Create a key <a href="#create-a-key" class="w-headline-link">#</a>
 
@@ -245,8 +226,7 @@ This command will accept a key with either 16 or 32 characters.
 
     ffmpeg -i myvideo.mov -c:v libx264 -c:a aac -hls_key_info_file key_info myvideo.m3u8
 
-Widevine Encryption <a href="#widevine-encryption" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Widevine Encryption <a href="#widevine-encryption" class="w-headline-link">#</a>
 
     packager \
       input=glocken.mp4,stream=video,output=enc_video.mp4 \
@@ -257,8 +237,7 @@ Widevine Encryption <a href="#widevine-encryption" class="w-headline-link">#</a>
       --aes_signing_key "1ae8ccd0e7985cc0b6203a55855a1034afc252980e970ca90e5202689f947ab9" \
       --aes_signing_iv "d58ce954203b7c9a9a9d467f59839249"
 
-Media conversion sequence <a href="#media-conversion-sequence" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Media conversion sequence <a href="#media-conversion-sequence" class="w-headline-link">#</a>
 
 This section shows in order commands needed to get from a raw mov file to encrypted assets packaged for DASH or HLS. For the sake of having a goal to illustrate, I'm converting my source file to a bitrate of 8Mbs at a resolution of 1080p (1920 x 1080). Adjust these values as your needs dictate.
 
@@ -379,35 +358,35 @@ HLS only supports MP4, so first you'll need to convert to the MP4 container and 
 
 <a href="/media" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Loops in Java
--------------
+## Loops in Java
 
 1.  [while loop](while-loop.html)
 2.  [for loop](for-loop.html)
@@ -13,17 +12,15 @@ Loops in Java
 6.  continue
 7.  [Beware of accidental semicolons in while and for loops!](beware-of-accidental-semicolons-in-while-and-for-loops.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -33,8 +30,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -42,8 +38,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java Loops: continue
-====================
+# Java Loops: continue
 
 `continue` can be used to immediately continue to the next iteration of the loop (or exit the loop if the loop condition no longer holds).
 
@@ -81,8 +76,7 @@ In enhanced `for` loops the behavior is similar: the loop variable is updated to
         process(order);
     }
 
-Nested Loops
-------------
+## Nested Loops
 
 By default `continue` only applies to the **immediately enclosing loop**. To make an outer loop continue, use labelled statements.
 
@@ -92,8 +86,7 @@ while (…) { … while (…) { … continue ; … } … }
 
 outer: while (…) { … while (…) { … continue outer; … } … }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

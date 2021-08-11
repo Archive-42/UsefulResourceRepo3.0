@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -10,17 +8,15 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#heading-elements-are-not-in-a-sequentially-descending-order" class="w-toc__header--link">Heading elements are not in a sequentially-descending order</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#heading-elements-are-not-in-a-sequentially-descending-order" class="w-toc__header--link">Heading elements are not in a sequentially-descending order</a>
 
--   [How the Lighthouse heading levels audit fails](#how-the-lighthouse-heading-levels-audit-fails)
--   [How to fix poorly structured headings](#how-to-fix-poorly-structured-headings)
--   [Resources](#resources)
+- [How the Lighthouse heading levels audit fails](#how-the-lighthouse-heading-levels-audit-fails)
+- [How to fix poorly structured headings](#how-to-fix-poorly-structured-headings)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Heading elements are not in a sequentially-descending order
-===========================================================
+# Heading elements are not in a sequentially-descending order
 
 Oct 17, 2019 <span class="w-author__separator">•</span> Updated May 7, 2020
 
@@ -30,8 +26,7 @@ Screen readers have commands to quickly jump between headings or to specific lan
 
 By using correct heading and landmark elements, you can dramatically improve the navigation experience on your site for users of assistive technologies.
 
-How the Lighthouse heading levels audit fails <a href="#how-the-lighthouse-heading-levels-audit-fails" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------
+## How the Lighthouse heading levels audit fails <a href="#how-the-lighthouse-heading-levels-audit-fails" class="w-headline-link">#</a>
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) flags pages whose headings skip one or more levels:
 
@@ -45,11 +40,10 @@ How the Lighthouse heading levels audit fails <a href="#how-the-lighthouse-headi
 
 The Lighthouse Accessibility score is a weighted average of all the accessibility audits. See the [Lighthouse accessibility scoring](/accessibility-scoring) post for more information.
 
-How to fix poorly structured headings <a href="#how-to-fix-poorly-structured-headings" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------
+## How to fix poorly structured headings <a href="#how-to-fix-poorly-structured-headings" class="w-headline-link">#</a>
 
--   Make all heading elements follow a logical, numerical order that reflects the structure of your content.
--   Make sure your heading text clearly conveys the content in the associated section.
+- Make all heading elements follow a logical, numerical order that reflects the structure of your content.
+- Make sure your heading text clearly conveys the content in the associated section.
 
 For example:
 
@@ -68,45 +62,44 @@ You can also use tools like Microsoft's [Accessibility Insights extension](https
 
 See the [Headings and landmarks](/headings-and-landmarks) post for more information.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Source code for **Headings skip levels** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/heading-order.js)
--   [Heading levels should only increase by one (Deque University)](https://dequeuniversity.com/rules/axe/3.3/heading-order)
+- [Source code for **Headings skip levels** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/heading-order.js)
+- [Heading levels should only increase by one (Deque University)](https://dequeuniversity.com/rules/axe/3.3/heading-order)
 
 <span class="w-mr--sm">Last updated: May 7, 2020 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/lighthouse-accessibility/heading-order/index.md)
 
 <a href="/lighthouse-accessibility" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

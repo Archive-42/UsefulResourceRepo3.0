@@ -1,17 +1,10 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-Codelab: Building a Stories component
-=====================================
+# Codelab: Building a Stories component
 
 Nov 25, 2020
 
@@ -19,10 +12,10 @@ Nov 25, 2020
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 This codelab teaches you how to build an experience like Instagram Stories on the web. We'll build the component as we go, starting with HTML, then CSS, then JavaScript.
 
@@ -30,14 +23,12 @@ Check out my blog post [Building a Stories component](/building-a-stories-compon
 
 This post assumes that you're familiar with the Instagram Stories UX and will use terminology from that experience (e.g. a "friend's story").
 
-Setup <a href="#setup" class="w-headline-link">#</a>
-----------------------------------------------------
+## Setup <a href="#setup" class="w-headline-link">#</a>
 
 1.  Click **Remix to Edit** to make the project editable.
 2.  Open `app/index.html`.
 
-HTML <a href="#html" class="w-headline-link">#</a>
---------------------------------------------------
+## HTML <a href="#html" class="w-headline-link">#</a>
 
 I always aim to use [semantic HTML](https://en.wikipedia.org/wiki/Semantic_HTML). Since each friend can have any number of stories, I thought it was meaningful to use a `<section>` element for each friend and an `<article>` element for each story. Let's start from the beginning though. First, we need a container for our stories component.
 
@@ -76,11 +67,10 @@ Add some `<article>` elements to represent stories:
       </section>
     </div>
 
--   We're using an image service (`picsum.com`) to help prototype stories.
--   The `style` attribute on each `<article>` is part of a placeholder loading technique, which you'll learn more about in the next section.
+- We're using an image service (`picsum.com`) to help prototype stories.
+- The `style` attribute on each `<article>` is part of a placeholder loading technique, which you'll learn more about in the next section.
 
-CSS <a href="#css" class="w-headline-link">#</a>
-------------------------------------------------
+## CSS <a href="#css" class="w-headline-link">#</a>
 
 Our content is ready for style. Let's turn those bones into something folks will want to interact with. We'll be working mobile-first today.
 
@@ -88,9 +78,9 @@ Our content is ready for style. Let's turn those bones into something folks will
 
 For our `<div class="stories">` container we want a horizontal scrolling container. We can achieve this by:
 
--   Making the container a [Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
--   Setting each child to fill the row track
--   Making the width of each child the width of a mobile device viewport
+- Making the container a [Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- Setting each child to fill the row track
+- Making the width of each child the width of a mobile device viewport
 
 Grid will continue placing new `100vw`-wide columns to the right of the previous one, until it's placed all the HTML elements in your markup.
 
@@ -171,10 +161,10 @@ First, let's update the `.story` ruleset to replace a gradient with a background
         linear-gradient(to top, lch(98 0 0), lch(90 0 0));
     }
 
-Setting `background-size` to `cover` ensures there's no empty space in the viewport because our image will be filling it up. Defining 2 background images enables us to pull a neat CSS web trick called the *loading tombstone*:
+Setting `background-size` to `cover` ensures there's no empty space in the viewport because our image will be filling it up. Defining 2 background images enables us to pull a neat CSS web trick called the _loading tombstone_:
 
--   Background image 1 (`var(--bg)`) is the URL we passed inline in the HTML
--   Background image 2 (`linear-gradient(to top, lch(98 0 0), lch(90 0 0))` is a gradient to show while the URL is loading
+- Background image 1 (`var(--bg)`) is the URL we passed inline in the HTML
+- Background image 2 (`linear-gradient(to top, lch(98 0 0), lch(90 0 0))` is a gradient to show while the URL is loading
 
 CSS will automatically replace the gradient with the image, once the image is done downloading.
 
@@ -192,8 +182,8 @@ Next we'll add some CSS to remove some behavior, freeing up the browser to move 
       touch-action: manipulation;
     }
 
--   `user-select: none` prevents users from accidentally selecting text
--   `touch-action: manipulation` instructs the browser that these interactions should be treated as touch events, which frees up the browser from trying to decide whether you're clicking a URL or not
+- `user-select: none` prevents users from accidentally selecting text
+- `touch-action: manipulation` instructs the browser that these interactions should be treated as touch events, which frees up the browser from trying to decide whether you're clicking a URL or not
 
 Last, let's add a little CSS to animate the transition between stories. Add the highlighted code to your `.story` ruleset:
 
@@ -216,14 +206,13 @@ Last, let's add a little CSS to animate the transition between stories. Add the 
       }
     }
 
-The `.seen` class will be added to a story that needs an exit. I got the custom easing function (`cubic-bezier(0.4, 0.0, 1,1)`) from Material Design's [Easing](https://material.io/design/motion/speed.html#easing) guide (scroll to the *Accerlerated easing* section).
+The `.seen` class will be added to a story that needs an exit. I got the custom easing function (`cubic-bezier(0.4, 0.0, 1,1)`) from Material Design's [Easing](https://material.io/design/motion/speed.html#easing) guide (scroll to the _Accerlerated easing_ section).
 
 Check out [Nesting Selector: the `&` selector](https://drafts.csswg.org/css-nesting-1/#nest-selector) for an explanation of `&.seen`.
 
 If you've got a keen eye you probably noticed the `pointer-events: none` declaration and are scratching your head right now. I'd say this is the only downside of the solution so far. We need this because a `.seen.story` element will be on top and will receive taps, even though it's invisible. By setting the `pointer-events` to `none`, we turn the glass story into a window, and steal no more user interactions. Not too bad of a trade off, not too hard to manage here in our CSS right now. We're not juggling `z-index`. I'm feeling good about this still.
 
-JavaScript <a href="#javascript" class="w-headline-link">#</a>
---------------------------------------------------------------
+## JavaScript <a href="#javascript" class="w-headline-link">#</a>
 
 The interactions of a Stories component are quite simple to the user: tap on the right to go forward, tap on the left to go back. Simple things for users tends to be hard work for developers. We'll take care of lots of it, though.
 
@@ -325,11 +314,11 @@ Add the following code to the bottom of `app/js/index.js`:
 
 Here's our business logic goal, as close to natural language as possible:
 
--   Decide how to handle the tap
-    -   If there's a next/previous story: show that story
-    -   If it's the last/first story of the friend: show a new friend
-    -   If there's no story to go to in that direction: do nothing
--   Stash the new current story into `state`
+- Decide how to handle the tap
+  - If there's a next/previous story: show that story
+  - If it's the last/first story of the friend: show a new friend
+  - If there's no story to go to in that direction: do nothing
+- Stash the new current story into `state`
 
 Add the highlighted code to your `navigateStories` function:
 
@@ -370,47 +359,45 @@ Add the highlighted code to your `navigateStories` function:
       }
     }
 
-Try it out <a href="#try-it-out" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Try it out <a href="#try-it-out" class="w-headline-link">#</a>
 
--   To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
+- To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 That's a wrap up for the needs I had with the component. Feel free to build upon it, drive it with data, and in general make it yours!
 
 <a href="/building-a-stories-component" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to article</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

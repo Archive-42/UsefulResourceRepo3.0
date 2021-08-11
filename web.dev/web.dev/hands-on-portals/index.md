@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -12,29 +10,27 @@
 
 <img src="https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format" alt="A logo of Portals" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/7hJbSWnhhE1lRVHJOWI9.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#hands-on-with-portals:-seamless-navigation-on-the-web" class="w-toc__header--link">Hands-on with Portals: seamless navigation on the web</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#hands-on-with-portals:-seamless-navigation-on-the-web" class="w-toc__header--link">Hands-on with Portals: seamless navigation on the web</a>
 
--   [What Portals enable](#what-portals-enable)
--   [Try out Portals](#try-out-portals)
--   [Enabling via about://flags](#enable-flags)
--   [Implement Portals](#implement-portals)
--   [Check out the spec](#check-out-the-spec)
--   [Customize the style when embedded as a &lt;portal&gt; element](#customize-the-style-when-embedded-as-a-lessportalgreater-element)
--   [Messaging between the &lt;portal&gt; element and portalHost](#messaging-between-the-lessportalgreater-element-and-portalhost)
--   [Activating the &lt;portal&gt; element and receiving the portalactivate event](#activating-the-lessportalgreater-element-and-receiving-the-portalactivate-event)
--   [Retrieving the predecessor](#retrieving-the-predecessor)
--   [Knowing your page was adopted as a predecessor](#knowing-your-page-was-adopted-as-a-predecessor)
--   [Use cases and plans](#use-cases-and-plans)
--   [Feedback welcome](#feedback-welcome)
+- [What Portals enable](#what-portals-enable)
+- [Try out Portals](#try-out-portals)
+- [Enabling via about://flags](#enable-flags)
+- [Implement Portals](#implement-portals)
+- [Check out the spec](#check-out-the-spec)
+- [Customize the style when embedded as a &lt;portal&gt; element](#customize-the-style-when-embedded-as-a-lessportalgreater-element)
+- [Messaging between the &lt;portal&gt; element and portalHost](#messaging-between-the-lessportalgreater-element-and-portalhost)
+- [Activating the &lt;portal&gt; element and receiving the portalactivate event](#activating-the-lessportalgreater-element-and-receiving-the-portalactivate-event)
+- [Retrieving the predecessor](#retrieving-the-predecessor)
+- [Knowing your page was adopted as a predecessor](#knowing-your-page-was-adopted-as-a-predecessor)
+- [Use cases and plans](#use-cases-and-plans)
+- [Feedback welcome](#feedback-welcome)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Hands-on with Portals: seamless navigation on the web
-=====================================================
+# Hands-on with Portals: seamless navigation on the web
 
 Learn how the proposed Portals API can improve your navigation UX.
 
@@ -44,19 +40,18 @@ May 6, 2019 <span class="w-author__separator">•</span> Updated Feb 15, 2021
 
 <a href="/authors/uskay/" class="w-author__name-link">Yusuke Utsunomiya</a>
 
--   <a href="https://twitter.com/uskay" class="w-author__link">Twitter</a>
--   <a href="https://blog.uskay.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/uskay" class="w-author__link">Twitter</a>
+- <a href="https://blog.uskay.io/" class="w-author__link">Blog</a>
 
 Making sure your pages load fast is key to delivering a good user experience. But one area we often overlook is page transitions—what our users see when they move between pages.
 
-A new web platform API proposal called [Portals](https://github.com/WICG/portals) aims to help with this by streamlining the experience as users navigate *across* your site.
+A new web platform API proposal called [Portals](https://github.com/WICG/portals) aims to help with this by streamlining the experience as users navigate _across_ your site.
 
 See Portals in action:
 
 Seamless embeds and navigation with Portals. Created by [Adam Argyle](https://twitter.com/argyleink).
 
-What Portals enable <a href="#what-portals-enable" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## What Portals enable <a href="#what-portals-enable" class="w-headline-link">#</a>
 
 Single Page Applications (SPAs) offer nice transitions but come at the cost of higher complexity to build. Multi-page Applications (MPAs) are much easier to build, but you end up with blank screens between pages.
 
@@ -68,22 +63,20 @@ With classic navigations, users have to wait with a blank screen until the brows
 
 Before Portals, we could have rendered another page using an `<iframe>`. We could also have added animations to move the frame around the page. But an `<iframe>` won't let you navigate into its content. Portals close this gap, enabling interesting use cases.
 
-Try out Portals <a href="#try-out-portals" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Try out Portals <a href="#try-out-portals" class="w-headline-link">#</a>
 
 ### Enabling via about://flags <a href="#enable-flags" class="w-headline-link">#</a>
 
 Try out Portals in Chrome 85 and later versions by flipping an experimental flag:
 
--   Enable the `about://flags/#enable-portals` flag for same-origin navigations.
--   For testing out cross-origin navigations, enable the `about://flags/#enable-portals-cross-origin` flag in addition.
+- Enable the `about://flags/#enable-portals` flag for same-origin navigations.
+- For testing out cross-origin navigations, enable the `about://flags/#enable-portals-cross-origin` flag in addition.
 
 During this early phase of the Portals experiment, we also recommend using a completely separate user data directory for your tests by setting the [`--user-data-dir`](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md#command-line) command line flag. Once Portals are enabled, confirm in DevTools that you have the new shiny `HTMLPortalElement`.
 
 <img src="https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format" alt="A screenshot of the DevTools console showing the HTMLPortalElement" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/aUrrqhzMxaEX865Fk5zX.png?auto=format&amp;w=1600 1600w" width="800" height="252" />
 
-Implement Portals <a href="#implement-portals" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Implement Portals <a href="#implement-portals" class="w-headline-link">#</a>
 
 Let's walk through a basic implementation example.
 
@@ -179,14 +172,13 @@ If you want to quickly experience what Portals feel like, try using [uskay-porta
 
 <img src="https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format" alt="A gif of using the glitch demo of using Portals" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Y4Vv6v3DAAC32IsiWS7g.gif?auto=format&amp;w=1600 1600w" width="800" height="547" />
 
-Check out the spec <a href="#check-out-the-spec" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Check out the spec <a href="#check-out-the-spec" class="w-headline-link">#</a>
 
 We are actively discussing [the Portals spec](https://wicg.github.io/portals/) in the Web Incubation Community Group (WICG). To quickly get up to speed, take a look at some of the [key scenarios](https://github.com/WICG/portals/blob/master/key-scenarios.md). These are the three important features to familiarize yourself with:
 
--   [The `<portal>` element:](https://wicg.github.io/portals/#the-portal-element) The HTML element itself. The API is very simple. It consists of the `src` attribute, the `activate` function and an interface for messaging (`postMessage`). `activate` takes an optional argument to pass data to the `<portal>` upon activation.
--   [The `portalHost` interface:](https://wicg.github.io/portals/#the-portalhost-interface) Adds a `portalHost` object to the `window` object. This lets you check if the page is embedded as a `<portal>` element. It also provides an interface for messaging (`postMessage`) back to the host.
--   [The PortalActivateEvent interface:](https://wicg.github.io/portals/#the-portalactivateevent-interface) An event that fires when the `<portal>` is activated. There is a neat function called `adoptPredecessor` which you can use to retrieve the previous page as a `<portal>` element. This allows you to create seamless navigations and composed experiences between two pages.
+- [The `<portal>` element:](https://wicg.github.io/portals/#the-portal-element) The HTML element itself. The API is very simple. It consists of the `src` attribute, the `activate` function and an interface for messaging (`postMessage`). `activate` takes an optional argument to pass data to the `<portal>` upon activation.
+- [The `portalHost` interface:](https://wicg.github.io/portals/#the-portalhost-interface) Adds a `portalHost` object to the `window` object. This lets you check if the page is embedded as a `<portal>` element. It also provides an interface for messaging (`postMessage`) back to the host.
+- [The PortalActivateEvent interface:](https://wicg.github.io/portals/#the-portalactivateevent-interface) An event that fires when the `<portal>` is activated. There is a neat function called `adoptPredecessor` which you can use to retrieve the previous page as a `<portal>` element. This allows you to create seamless navigations and composed experiences between two pages.
 
 Let's look beyond the basic usage pattern. Here is a non-exhaustive list of what you can achieve with Portals along with sample code.
 
@@ -250,15 +242,13 @@ By combining all of the features supported by Portals, you can build really fanc
 
 Interested in this demo? [Fork it on GitHub](https://github.com/WICG/portals/tree/master/demos/portal-embed-demo) and build your own version!
 
-Use cases and plans <a href="#use-cases-and-plans" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Use cases and plans <a href="#use-cases-and-plans" class="w-headline-link">#</a>
 
 We hope you liked this brief tour of Portals! We can't wait to see what you can come up with. For instance, you might want to start using Portals for non-trivial navigations such as: pre-rendering the page for your best-seller product from a product category listing page.
 
 Another important thing to know is that Portals can be used in cross-origin navigations, just like an `<iframe>`. So, if you have multiple websites that cross reference one another, you can also use Portals to create seamless navigations between two different websites. This cross-origin use case is very unique to Portals, and can even improve the user experience of SPAs.
 
-Feedback welcome <a href="#feedback-welcome" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Feedback welcome <a href="#feedback-welcome" class="w-headline-link">#</a>
 
 Portals are ready for experimentation in Chrome 85 and later versions. Feedback from the community is crucial to the design of new APIs, so please try it out and tell us what you think! If you have any feature requests or feedback, please head over to the [WICG GitHub repo](https://github.com/WICG/portals/issues).
 
@@ -268,35 +258,35 @@ Portals are ready for experimentation in Chrome 85 and later versions. Feedback 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

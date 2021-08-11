@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Regular expressions](regexp-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Find first substring matching a regexp
-==========================================
+# Go: Find first substring matching a regexp
 
 Use the [`FindString`](https://golang.org/pkg/regexp/#Regexp.FindString) method to find the **text of the first match**. If there is no match, the return value is an empty string.
 
@@ -45,8 +41,7 @@ There are several more search functions available in the [`regexp`](https://gola
 
     Find(All)?(String)?(Submatch)?(Index)?
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

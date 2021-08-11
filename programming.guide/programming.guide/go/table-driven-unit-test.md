@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [How to Write Go Code: Testing](https://golang.org/doc/code.html#Testing)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Table-driven unit tests
-===========================
+# Go: Table-driven unit tests
 
 Here is the code we want to test:
 
@@ -57,9 +53,9 @@ Here is the code we want to test:
             return i
     }
 
--   Put the test code in a file whose name ends with **\_test.go**.
--   Write a function `TestXXX` with a single argument of type [`*testing.T`](https://golang.org/pkg/testing/#T). The test framework runs each such function.
--   To indicate a failed test, call a failure function such as [`t.Errorf`](https://golang.org/pkg/testing/#T.Errorf).
+- Put the test code in a file whose name ends with **\_test.go**.
+- Write a function `TestXXX` with a single argument of type [`*testing.T`](https://golang.org/pkg/testing/#T). The test framework runs each such function.
+- To indicate a failed test, call a failure function such as [`t.Errorf`](https://golang.org/pkg/testing/#T.Errorf).
 
 <!-- -->
 
@@ -99,8 +95,7 @@ Run the tests with [`go test`](https://golang.org/cmd/go/#hdr-Test_packages):
     exit status 1
     FAIL    .../search      0.001s
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

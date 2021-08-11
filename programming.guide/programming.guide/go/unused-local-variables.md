@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Blank identifier (underscore)](underscore.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Unused local variables
-==========================
+# Go: Unused local variables
 
 As you may have noticed, programs with unused local variables do not compile:
 
@@ -50,8 +46,7 @@ This is a deliberate feature of the Go language:
 
 Unused global variables and function arguments are however allowed.
 
-Workaround
-----------
+## Workaround
 
 There's no compiler option to allow unused local variables. If you don't want to remove/comment out the declaration, you can add a dummy assignment:
 
@@ -61,8 +56,7 @@ There's no compiler option to allow unused local variables. If you don't want to
             _ = n  // n is now "used"
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,38 +1,30 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/OghwTxMrgwyEpzqQeuCa.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-stories-component" class="w-toc__header--link">Building a Stories component</a>
-----------------------------------------------------------------------------------------------------
+## <a href="#building-a-stories-component" class="w-toc__header--link">Building a Stories component</a>
 
--   [Overview](#overview)
--   [Picking the right tools for the job](#features)
--   [CSS Grid](#grid)
--   [CSS Scroll Snap Points](#scroll-snap-points)
--   [Cross-browser compatibility](#compatibility)
--   [scroll-snap-stop](#scroll-snap-stop)
--   [overscroll-behavior](#overscroll-behavior)
--   [scrollIntoView({behavior: 'smooth'})](#scrollintoview)
--   [Hands-on](#hands-on)
--   [Community remixes](#remixes)
+- [Overview](#overview)
+- [Picking the right tools for the job](#features)
+- [CSS Grid](#grid)
+- [CSS Scroll Snap Points](#scroll-snap-points)
+- [Cross-browser compatibility](#compatibility)
+- [scroll-snap-stop](#scroll-snap-stop)
+- [overscroll-behavior](#overscroll-behavior)
+- [scrollIntoView({behavior: 'smooth'})](#scrollintoview)
+- [Hands-on](#hands-on)
+- [Community remixes](#remixes)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a Stories component
-============================
+# Building a Stories component
 
 A foundational overview of how to build an experience similar to Instagram Stories on the web.
 
@@ -42,10 +34,10 @@ Nov 25, 2020
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share thinking on building a Stories component for the web that is responsive, supports keyboard navigation, and works across browsers.
 
@@ -55,8 +47,7 @@ If you would prefer a hands-on demonstration of building this Stories component 
 
 If you prefer video, here's a YouTube version of this post:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 Two popular examples of the Stories UX are Snapchat Stories and Instagram Stories (not to mention fleets). In general UX terms, Stories are usually a mobile-only, tap-centric pattern for navigating multiple subscriptions. For example, on Instagram, users open a friend's story and go through the pictures in it. They generally do this many friends at a time. By tapping on the right side of the device, a user skips ahead to that friend's next story. By swiping right, a user skips ahead to a different friend. A Story component is fairly similar to a carousel, but allows navigating a multi-dimensional array as opposed to a single-dimensional array. It's as if there's a carousel inside each carousel. 🤯
 
@@ -99,10 +90,10 @@ Using Chrome DevTools' [Device Mode](https://developers.google.com/web/tools/chr
 
 Let's breakdown that `grid` layout:
 
--   We explicitly fill the viewport on mobile with `100vh` and `100vw` and constrain the size on desktop
--   `/` separates our row and column templates
--   `auto-flow` translates to [`grid-auto-flow: column`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow)
--   The autoflow template is `100%`, which in this case is whatever the scroll window width is
+- We explicitly fill the viewport on mobile with `100vh` and `100vw` and constrain the size on desktop
+- `/` separates our row and column templates
+- `auto-flow` translates to [`grid-auto-flow: column`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow)
+- The autoflow template is `100%`, which in this case is whatever the scroll window width is
 
 Note that the location of the `/` separator relative to `auto-flow` is important. If `auto-flow` came before `/` it would be shorthand for `grid-auto-flow: row`.
 
@@ -162,13 +153,12 @@ Children opt into being a snap target.
 
 I chose Scroll Snap Points for a few reasons:
 
--   **Free accessibility**. The Scroll Snap Points spec states that pressing the Left Arrow and Right Arrow keys should move through the snap points by default.
--   **A growing spec**. The Scroll Snap Points spec is getting new features and improvements all the time, which means that my Stories component will probably only get better from here on out.
--   **Ease of implementation**. Scroll Snap Points are practically built for the touch-centric horizontal-pagination use case.
--   **Free platform-style inertia**. Every platform will scroll and rest in its style, as opposed to normalized inertia which can have an uncanny scrolling and resting style.
+- **Free accessibility**. The Scroll Snap Points spec states that pressing the Left Arrow and Right Arrow keys should move through the snap points by default.
+- **A growing spec**. The Scroll Snap Points spec is getting new features and improvements all the time, which means that my Stories component will probably only get better from here on out.
+- **Ease of implementation**. Scroll Snap Points are practically built for the touch-centric horizontal-pagination use case.
+- **Free platform-style inertia**. Every platform will scroll and rest in its style, as opposed to normalized inertia which can have an uncanny scrolling and resting style.
 
-Cross-browser compatibility <a href="#compatibility" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Cross-browser compatibility <a href="#compatibility" class="w-headline-link">#</a>
 
 We tested on Opera, Firefox, Safari, and Chrome, plus Android and iOS. Here's a brief rundown of the web features where we found differences in capabilities and support.
 
@@ -210,62 +200,59 @@ When a user taps or clicks and has reached the end of a friend's set of stories,
 
 Safari was the only browser not to support `behavior: 'smooth'` here. Check out [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#Browser_compatibility) for updates.
 
-Hands-on <a href="#hands-on" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Hands-on <a href="#hands-on" class="w-headline-link">#</a>
 
 Now that you know how I did it, how would you?! Let's diversify our approaches and learn all the ways to build on the web. Create a [Glitch](https://glitch.com), [tweet me](https://twitter.com/argyleink) your version, and I'll add it to the [Community remixes](#community-remixes) section below.
 
-Community remixes <a href="#remixes" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Community remixes <a href="#remixes" class="w-headline-link">#</a>
 
--   [@geoffrich\_](https://twitter.com/geoffrich_) with [Svelte](https://svelte.dev): [demo](https://svelte-stories.glitch.me) & [code](https://github.com/geoffrich/svelte-stories)
--   [@GauteMeekOlsen](https://twitter.com/GauteMeekOlsen) with [Vue](https://vuejs.org/): [demo + code](https://stackblitz.com/edit/stories)
--   [@AnaestheticsApp](https://twitter.com/AnaestheticsApp) with [Lit](https://lit-element.polymer-project.org/): [demo](https://lit-stories.glitch.me/) & [code](https://github.com/anaestheticsapp/web-stories)
+- [@geoffrich\_](https://twitter.com/geoffrich_) with [Svelte](https://svelte.dev): [demo](https://svelte-stories.glitch.me) & [code](https://github.com/geoffrich/svelte-stories)
+- [@GauteMeekOlsen](https://twitter.com/GauteMeekOlsen) with [Vue](https://vuejs.org/): [demo + code](https://stackblitz.com/edit/stories)
+- [@AnaestheticsApp](https://twitter.com/AnaestheticsApp) with [Lit](https://lit-element.polymer-project.org/): [demo](https://lit-stories.glitch.me/) & [code](https://github.com/anaestheticsapp/web-stories)
 
 <a href="/tags/css/" class="w-chip">CSS</a> <a href="/tags/dom/" class="w-chip">DOM</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a> <a href="/tags/layout/" class="w-chip">Layout</a> <a href="/tags/mobile/" class="w-chip">Mobile</a> <a href="/tags/ux/" class="w-chip">UX</a>
 
 <span class="w-mr--sm">Last updated: Nov 25, 2020 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/blog/building-a-stories-component/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-building-a-stories-component/" class="w-callout__link w-callout__link--codelab">Codelab: Building a Stories component</a>
+- <a href="/codelab-building-a-stories-component/" class="w-callout__link w-callout__link--codelab">Codelab: Building a Stories component</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

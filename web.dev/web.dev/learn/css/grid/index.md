@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,85 +52,84 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#overview" class="toc__anchor">Overview</a>
--   <a href="#grid-terminology" class="toc__anchor">Grid terminology</a>
-    -   <a href="#grid-lines" class="toc__anchor">Grid lines</a>
-    -   <a href="#grid-tracks" class="toc__anchor">Grid tracks</a>
-    -   <a href="#grid-cell" class="toc__anchor">Grid cell</a>
-    -   <a href="#grid-area" class="toc__anchor">Grid area</a>
-    -   <a href="#gaps" class="toc__anchor">Gaps</a>
-    -   <a href="#grid-container" class="toc__anchor">Grid container</a>
-    -   <a href="#grid-item" class="toc__anchor">Grid item</a>
--   <a href="#rows-and-columns" class="toc__anchor">Rows and columns</a>
-    -   <a href="#intrinsic-sizing-keywords" class="toc__anchor">Intrinsic sizing keywords</a>
-    -   <a href="#the-fr-unit" class="toc__anchor">The fr unit</a>
-    -   <a href="#the-minmax()-function" class="toc__anchor">The minmax() function</a>
-    -   <a href="#repeat()-notation" class="toc__anchor">repeat() notation</a>
-    -   <a href="#auto-fill-and-auto-fit" class="toc__anchor">auto-fill and auto-fit</a>
--   <a href="#auto-placement" class="toc__anchor">Auto-placement</a>
-    -   <a href="#placing-items-in-columns" class="toc__anchor">Placing items in columns</a>
-    -   <a href="#spanning-tracks" class="toc__anchor">Spanning tracks</a>
-    -   <a href="#filling-gaps" class="toc__anchor">Filling gaps</a>
--   <a href="#placing-items" class="toc__anchor">Placing items</a>
-    -   <a href="#stacking-items" class="toc__anchor">Stacking items</a>
-    -   <a href="#negative-line-numbers" class="toc__anchor">Negative line numbers</a>
--   <a href="#named-grid-lines" class="toc__anchor">Named grid lines</a>
--   <a href="#grid-template-areas" class="toc__anchor">Grid Template Areas</a>
--   <a href="#shorthand-properties" class="toc__anchor">Shorthand properties</a>
-    -   <a href="#grid-template" class="toc__anchor">grid-template</a>
-    -   <a href="#grid-property" class="toc__anchor">grid property</a>
--   <a href="#alignment" class="toc__anchor">Alignment</a>
-    -   <a href="#distributing-extra-space" class="toc__anchor">Distributing extra space</a>
-    -   <a href="#moving-content-around" class="toc__anchor">Moving content around</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#overview" class="toc__anchor">Overview</a>
+- <a href="#grid-terminology" class="toc__anchor">Grid terminology</a>
+  - <a href="#grid-lines" class="toc__anchor">Grid lines</a>
+  - <a href="#grid-tracks" class="toc__anchor">Grid tracks</a>
+  - <a href="#grid-cell" class="toc__anchor">Grid cell</a>
+  - <a href="#grid-area" class="toc__anchor">Grid area</a>
+  - <a href="#gaps" class="toc__anchor">Gaps</a>
+  - <a href="#grid-container" class="toc__anchor">Grid container</a>
+  - <a href="#grid-item" class="toc__anchor">Grid item</a>
+- <a href="#rows-and-columns" class="toc__anchor">Rows and columns</a>
+  - <a href="#intrinsic-sizing-keywords" class="toc__anchor">Intrinsic sizing keywords</a>
+  - <a href="#the-fr-unit" class="toc__anchor">The fr unit</a>
+  - <a href="#the-minmax()-function" class="toc__anchor">The minmax() function</a>
+  - <a href="#repeat()-notation" class="toc__anchor">repeat() notation</a>
+  - <a href="#auto-fill-and-auto-fit" class="toc__anchor">auto-fill and auto-fit</a>
+- <a href="#auto-placement" class="toc__anchor">Auto-placement</a>
+  - <a href="#placing-items-in-columns" class="toc__anchor">Placing items in columns</a>
+  - <a href="#spanning-tracks" class="toc__anchor">Spanning tracks</a>
+  - <a href="#filling-gaps" class="toc__anchor">Filling gaps</a>
+- <a href="#placing-items" class="toc__anchor">Placing items</a>
+  - <a href="#stacking-items" class="toc__anchor">Stacking items</a>
+  - <a href="#negative-line-numbers" class="toc__anchor">Negative line numbers</a>
+- <a href="#named-grid-lines" class="toc__anchor">Named grid lines</a>
+- <a href="#grid-template-areas" class="toc__anchor">Grid Template Areas</a>
+- <a href="#shorthand-properties" class="toc__anchor">Shorthand properties</a>
+  - <a href="#grid-template" class="toc__anchor">grid-template</a>
+  - <a href="#grid-property" class="toc__anchor">grid property</a>
+- <a href="#alignment" class="toc__anchor">Alignment</a>
+  - <a href="#distributing-extra-space" class="toc__anchor">Distributing extra space</a>
+  - <a href="#moving-content-around" class="toc__anchor">Moving content around</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 010
 
-Grid
-====
+# Grid
 
 CSS Grid Layout provides a two dimensional layout system, controlling layout in rows and columns. In this module discover everything grid has to offer.
 
 On this page
 
--   <a href="#overview" class="toc__anchor">Overview</a>
--   <a href="#grid-terminology" class="toc__anchor">Grid terminology</a>
-    -   <a href="#grid-lines" class="toc__anchor">Grid lines</a>
-    -   <a href="#grid-tracks" class="toc__anchor">Grid tracks</a>
-    -   <a href="#grid-cell" class="toc__anchor">Grid cell</a>
-    -   <a href="#grid-area" class="toc__anchor">Grid area</a>
-    -   <a href="#gaps" class="toc__anchor">Gaps</a>
-    -   <a href="#grid-container" class="toc__anchor">Grid container</a>
-    -   <a href="#grid-item" class="toc__anchor">Grid item</a>
--   <a href="#rows-and-columns" class="toc__anchor">Rows and columns</a>
-    -   <a href="#intrinsic-sizing-keywords" class="toc__anchor">Intrinsic sizing keywords</a>
-    -   <a href="#the-fr-unit" class="toc__anchor">The fr unit</a>
-    -   <a href="#the-minmax()-function" class="toc__anchor">The minmax() function</a>
-    -   <a href="#repeat()-notation" class="toc__anchor">repeat() notation</a>
-    -   <a href="#auto-fill-and-auto-fit" class="toc__anchor">auto-fill and auto-fit</a>
--   <a href="#auto-placement" class="toc__anchor">Auto-placement</a>
-    -   <a href="#placing-items-in-columns" class="toc__anchor">Placing items in columns</a>
-    -   <a href="#spanning-tracks" class="toc__anchor">Spanning tracks</a>
-    -   <a href="#filling-gaps" class="toc__anchor">Filling gaps</a>
--   <a href="#placing-items" class="toc__anchor">Placing items</a>
-    -   <a href="#stacking-items" class="toc__anchor">Stacking items</a>
-    -   <a href="#negative-line-numbers" class="toc__anchor">Negative line numbers</a>
--   <a href="#named-grid-lines" class="toc__anchor">Named grid lines</a>
--   <a href="#grid-template-areas" class="toc__anchor">Grid Template Areas</a>
--   <a href="#shorthand-properties" class="toc__anchor">Shorthand properties</a>
-    -   <a href="#grid-template" class="toc__anchor">grid-template</a>
-    -   <a href="#grid-property" class="toc__anchor">grid property</a>
--   <a href="#alignment" class="toc__anchor">Alignment</a>
-    -   <a href="#distributing-extra-space" class="toc__anchor">Distributing extra space</a>
-    -   <a href="#moving-content-around" class="toc__anchor">Moving content around</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#overview" class="toc__anchor">Overview</a>
+- <a href="#grid-terminology" class="toc__anchor">Grid terminology</a>
+  - <a href="#grid-lines" class="toc__anchor">Grid lines</a>
+  - <a href="#grid-tracks" class="toc__anchor">Grid tracks</a>
+  - <a href="#grid-cell" class="toc__anchor">Grid cell</a>
+  - <a href="#grid-area" class="toc__anchor">Grid area</a>
+  - <a href="#gaps" class="toc__anchor">Gaps</a>
+  - <a href="#grid-container" class="toc__anchor">Grid container</a>
+  - <a href="#grid-item" class="toc__anchor">Grid item</a>
+- <a href="#rows-and-columns" class="toc__anchor">Rows and columns</a>
+  - <a href="#intrinsic-sizing-keywords" class="toc__anchor">Intrinsic sizing keywords</a>
+  - <a href="#the-fr-unit" class="toc__anchor">The fr unit</a>
+  - <a href="#the-minmax()-function" class="toc__anchor">The minmax() function</a>
+  - <a href="#repeat()-notation" class="toc__anchor">repeat() notation</a>
+  - <a href="#auto-fill-and-auto-fit" class="toc__anchor">auto-fill and auto-fit</a>
+- <a href="#auto-placement" class="toc__anchor">Auto-placement</a>
+  - <a href="#placing-items-in-columns" class="toc__anchor">Placing items in columns</a>
+  - <a href="#spanning-tracks" class="toc__anchor">Spanning tracks</a>
+  - <a href="#filling-gaps" class="toc__anchor">Filling gaps</a>
+- <a href="#placing-items" class="toc__anchor">Placing items</a>
+  - <a href="#stacking-items" class="toc__anchor">Stacking items</a>
+  - <a href="#negative-line-numbers" class="toc__anchor">Negative line numbers</a>
+- <a href="#named-grid-lines" class="toc__anchor">Named grid lines</a>
+- <a href="#grid-template-areas" class="toc__anchor">Grid Template Areas</a>
+- <a href="#shorthand-properties" class="toc__anchor">Shorthand properties</a>
+  - <a href="#grid-template" class="toc__anchor">grid-template</a>
+  - <a href="#grid-property" class="toc__anchor">grid property</a>
+- <a href="#alignment" class="toc__anchor">Alignment</a>
+  - <a href="#distributing-extra-space" class="toc__anchor">Distributing extra space</a>
+  - <a href="#moving-content-around" class="toc__anchor">Moving content around</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -148,8 +145,7 @@ Over the years, there have been many methods to solve this layout, but with CSS 
 
 When creating a grid layout you define a grid with rows and columns. Then you place items onto that grid, or allow the browser to auto-place them into the cells you have created. There's a lot to grid, but with an overview of what is available you'll be making grid layouts in no time.
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 So what can you do with grid? Grid layouts have the following features. You'll learn about all of them in this guide.
 
@@ -160,8 +156,7 @@ So what can you do with grid? Grid layouts have the following features. You'll l
 5.  Spare space in the grid container can be distributed between the tracks.
 6.  Grid items can be aligned within their area.
 
-Grid terminology <a href="#grid-terminology" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Grid terminology <a href="#grid-terminology" class="w-headline-link">#</a>
 
 Grid comes with a bunch of new terminology as it's the first time CSS has had a real layout system.
 
@@ -215,8 +210,7 @@ A grid item is an item which is a direct child of the grid container.
       <div class="item"></div>
     </div>
 
-Rows and columns <a href="#rows-and-columns" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Rows and columns <a href="#rows-and-columns" class="w-headline-link">#</a>
 
 To create a basic grid you can define a grid with three column tracks, two row tracks and a 10 pixel gap between the tracks as follows.
 
@@ -239,15 +233,15 @@ Open the [demo](https://codepen.io/web-dot-dev/full/NWdbrzr) in Chrome. Inspect 
 
 In addition to the length and percentage dimensions as described in the section on [sizing units](/learn/css/sizing), grid tracks can use intrinsic sizing keywords. These keywords are defined in the Box Sizing specification and add additional methods of sizing boxes in CSS, not just grid tracks.
 
--   `min-content`
--   `max-content`
--   `fit-content()`
+- `min-content`
+- `max-content`
+- `fit-content()`
 
 The [`min-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/min-content) keyword will make a track as small as it can be without the track content overflowing. Changing the example grid layout to have three column tracks all at `min-content` size will mean they become as narrow as the longest word in the track.
 
 The [`max-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/max-content) keyword has the opposite effect. The track will become as wide enough for all of the content to display in one long unbroken string. This might cause overflows as the string will not wrap.
 
-The [`fit-content()`](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content()) function acts like `max-content` at first. However, once the track reaches the size that you pass into the function, the content starts to wrap. So `fit-content(10em)` will create a track that is less than 10em, if the `max-content` size is less than 10em, but never larger than 10em.
+The [`fit-content()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content()>) function acts like `max-content` at first. However, once the track reaches the size that you pass into the function, the content starts to wrap. So `fit-content(10em)` will create a track that is less than 10em, if the `max-content` size is less than 10em, but never larger than 10em.
 
 In the next demo try out the different intrinsic sizing keywords by changing the sizing of the grid tracks.
 
@@ -270,7 +264,7 @@ Using different values for the fr unit will share the space in proportion. Large
 
 ### The `minmax()` function <a href="#the-minmax()-function" class="w-headline-link">#</a>
 
-This function means that you can set a minimum and a maximum size for a track. This can be quite useful. If we take the example of the `fr` unit above which distributes remaining space, it could be written out using [`minmax()`](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax()) as `minmax(auto, 1fr)`. Grid looks at the intrinsic size of the content, then distributes available space after giving the content enough room. This means that you might not get tracks that each have an equal share of all space available in the grid container.
+This function means that you can set a minimum and a maximum size for a track. This can be quite useful. If we take the example of the `fr` unit above which distributes remaining space, it could be written out using [`minmax()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/minmax()>) as `minmax(auto, 1fr)`. Grid looks at the intrinsic size of the content, then distributes available space after giving the content enough room. This means that you might not get tracks that each have an equal share of all space available in the grid container.
 
 To force a track to take an equal share of the space in the grid container minus gaps use minmax. Replace `1fr` as a track size with `minmax(0, 1fr)`. This makes the minimum size of the track 0 and not the min-content size. Grid will then take all of the available size in the container, deduct the size needed for any gaps, and share the rest out according to your fr units.
 
@@ -295,7 +289,7 @@ If you want to create a 12 column track grid with equal columns, you could use t
           minmax(0,1fr);
     }
 
-Or, you could write it out using [`repeat()`](https://developer.mozilla.org/en-US/docs/Web/CSS/repeat()):
+Or, you could write it out using [`repeat()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/repeat()>):
 
     .container {
         display: grid;
@@ -323,8 +317,7 @@ There is a subtle difference between `auto-fill` and `auto-fit`. In the next dem
 
 The `auto-fill` and `auto-fit` keywords otherwise act in exactly the same way. There is no difference between them once the first track is filled.
 
-Auto-placement <a href="#auto-placement" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Auto-placement <a href="#auto-placement" class="w-headline-link">#</a>
 
 You have already seen grid auto-placement at work in the demos so far. Items are placed on the grid one per cell in the order that they appear in the source. For many layouts this might be all you need. If you need more control then there are a couple of things you might like to do. The first is to tweak the auto-placement layout.
 
@@ -354,8 +347,7 @@ An auto-placed layout with some items spanning multiple tracks may result in a g
 
 The next demo shows this behavior. The checkbox will apply the dense packing mode. This is enabled by giving `grid-auto-flow` a value of `dense`. With this value in place, grid will take items later in the layout and use them to fill gaps. This may mean that the display becomes disconnected from the logical order.
 
-Placing items <a href="#placing-items" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Placing items <a href="#placing-items" class="w-headline-link">#</a>
 
 You have a lot of functionality from CSS Grid already. Let's now take a look at how we position items on the grid we have created.
 
@@ -363,15 +355,15 @@ The first thing to remember is that CSS Grid Layout is based on a grid of number
 
 The properties that you can use to place items by line number are:
 
--   [`grid-column-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start)
--   [`grid-column-end`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end)
--   [`grid-row-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start)
--   [`grid-row-end`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end)
+- [`grid-column-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start)
+- [`grid-column-end`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end)
+- [`grid-row-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start)
+- [`grid-row-end`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end)
 
 They have shorthands which allow you to set both start and end lines at once:
 
--   [`grid-column`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)
--   [`grid-row`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row)
+- [`grid-column`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)
+- [`grid-row`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row)
 
 To place your item set the start and end lines of the grid area that it should be placed into.
 
@@ -430,8 +422,7 @@ To create implicit columns with a pattern of 100px and 200px wide tracks. In thi
         grid-auto-columns: 100px 200px;
     }
 
-Named grid lines <a href="#named-grid-lines" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Named grid lines <a href="#named-grid-lines" class="w-headline-link">#</a>
 
 It can make it easier to place items into a layout if the lines have a name rather than a number. You can name any line on your grid by adding a name of your choosing between square brackets. Multiple names can be added, separated by a space inside the same brackets. Once you have named lines they can be used instead of the numbers.
 
@@ -453,8 +444,7 @@ It can make it easier to place items into a layout if the lines have a name rath
         /* right across the layout from line 1 to line 3*/
     }
 
-Grid Template Areas <a href="#grid-template-areas" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Grid Template Areas <a href="#grid-template-areas" class="w-headline-link">#</a>
 
 You can also name areas of the grid and place items onto those named areas. This is a lovely technique as it allows you to see what your component looks like right there in the CSS.
 
@@ -489,9 +479,9 @@ The name can be anything you like other than the keywords `auto` and `span`. Onc
 
 There are a few rules when using `grid-template-areas`.
 
--   The value must be a complete grid with no empty cells.
--   To span tracks repeat the name.
--   The areas created by repeating the name must be rectangular and cannot be disconnected.
+- The value must be a complete grid with no empty cells.
+- To span tracks repeat the name.
+- The areas created by repeating the name must be rectangular and cannot be disconnected.
 
 If you break any of the above rules the value is treated as invalid and thrown away.
 
@@ -510,8 +500,7 @@ As your entire layout is defined in one place, it makes it straightforward to re
 
 You can also see how the `grid-template-areas` property relates to `writing-mode` and direction, as with other grid methods.
 
-Shorthand properties <a href="#shorthand-properties" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Shorthand properties <a href="#shorthand-properties" class="w-headline-link">#</a>
 
 There are two shorthand properties which allow you to set many of the grid properties in one go. These can look a little confusing until you break down exactly how they go together. Whether you want to use them or prefer to use longhands is up to you.
 
@@ -531,12 +520,12 @@ The [`grid-template`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-temp
 
 The [`grid`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) shorthand can be used in exactly the same way as the `grid-template` shorthand. When used in this way it will reset the other grid properties that it accepts to their initial values. The full set being:
 
--   `grid-template-rows`
--   `grid-template-columns`
--   `grid-template-areas`
--   `grid-auto-rows`
--   `grid-auto-columns`
--   `grid-auto-flow`
+- `grid-template-rows`
+- `grid-template-columns`
+- `grid-template-areas`
+- `grid-auto-rows`
+- `grid-auto-columns`
+- `grid-auto-flow`
 
 You can alternately use this shorthand to define how the implicit grid behaves, for example:
 
@@ -545,16 +534,15 @@ You can alternately use this shorthand to define how the implicit grid behaves, 
         grid: repeat(2, 80px) / auto-flow  120px;
     }
 
-Alignment <a href="#alignment" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Alignment <a href="#alignment" class="w-headline-link">#</a>
 
 Grid layout uses the same alignment properties that you learned about in the guide to [flexbox](/learn/css/flexbox). In grid the properties which begin with `justify-` are always used on the inline axis, the direction in which sentences run in your writing mode.
 
 The properties which begin with `align-` are used on the block axis, the direction in which blocks are laid out in your writing mode.
 
--   [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) and [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): distribute additional space in the grid container around or between tracks.
--   [`justify-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self) and [`align-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self): are applied to a grid item to move it around inside the grid area it is placed in.
--   [`justify-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items) and [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): are applied to the grid container to set all of the `justify-self` properties on the items.
+- [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) and [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content): distribute additional space in the grid container around or between tracks.
+- [`justify-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self) and [`align-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self): are applied to a grid item to move it around inside the grid area it is placed in.
+- [`justify-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items) and [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items): are applied to the grid container to set all of the `justify-self` properties on the items.
 
 ### Distributing extra space <a href="#distributing-extra-space" class="w-headline-link">#</a>
 
@@ -642,15 +630,14 @@ That's explicit placement not auto placement.
 
 Grid items without an explicit area will be placed in the next available grid cell
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
 This guide has given you an overview of the different parts of the grid layout specification. To find out more, take a look at the following resources.
 
--   [MDN CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
--   [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
--   [Creating a Grid Container](https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/)
--   [A comprehensive collection of grid learning material](https://gridbyexample.com/)
+- [MDN CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [Creating a Grid Container](https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/)
+- [A comprehensive collection of grid learning material](https://gridbyexample.com/)
 
 <a href="/learn/css/flexbox/" class="course-pagination-control"></a>
 
@@ -666,35 +653,35 @@ Logical Properties
 
 Logical, flow relative properties and values are linked to the flow of text, rather than the physical shape of the screen. Learn how to take advantage of this newer approach to CSS.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

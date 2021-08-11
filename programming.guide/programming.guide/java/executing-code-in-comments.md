@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  Executing code in comments?!
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Executing code in comments?!
-==================================
+# Java: Executing code in comments?!
 
 The following line surprisingly prints `"Hello World"`:
 
@@ -40,8 +36,8 @@ The following line surprisingly prints `"Hello World"`:
 
 This is because
 
--   unicode decoding takes place before any other lexical translation, and
--   `\u000d` corresponds to a newline character which terminates the comment.
+- unicode decoding takes place before any other lexical translation, and
+- `\u000d` corresponds to a newline character which terminates the comment.
 
 The key benefit of this mechanism is that it makes it trivial to go back and forth between ASCII and any other encoding. You don't even need to figure out where comments begin and end!
 
@@ -53,7 +49,7 @@ This gives a fundamental guarantee for platform independence (independence of su
 
 Being able to write any Unicode character anywhere in the file is a neat feature, and especially important in comments, when documenting code in non-latin languages. The fact that it can interfere with the semantics in such subtle ways is just an (unfortunate) side-effect.
 
-There are many gotchas on this theme and [*Java Puzzlers*](http://www.javapuzzlers.com/) by Joshua Bloch and Neal Gafter included the following variant:
+There are many gotchas on this theme and [_Java Puzzlers_](http://www.javapuzzlers.com/) by Joshua Bloch and Neal Gafter included the following variant:
 
 > Is this a legal Java program? If so, what does it print?
 >
@@ -75,8 +71,7 @@ In the solution to the puzzler, they point out the following:
 
 > More seriously, this puzzle serves to reinforce the lessons of the previous three: **Unicode escapes are essential when you need to insert characters that can’t be represented in any other way into your program. Avoid them in all other cases.**
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

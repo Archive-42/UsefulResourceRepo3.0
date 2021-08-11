@@ -1,14 +1,8 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format" alt="Growing plants in boxes." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/WJ69aw9UMPwsc7ShYvif.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 

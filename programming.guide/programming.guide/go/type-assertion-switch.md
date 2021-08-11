@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Interfaces explained](interfaces-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,15 +29,14 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Type assertions and type switches
-=====================================
+# Go: Type assertions and type switches
 
 A **type assertion** provides access to an interface's concrete value.
 
 The type assertion `x.(T)` asserts that the concrete value stored in `x` is of type `T`, and that `x` is not nil. More precisely:
 
--   If `T` is not an interface, it asserts that the dynamic type of `x` is identical to `T`.
--   If `T` is an interface, it asserts that the dynamic type of `x` implements `T`.
+- If `T` is not an interface, it asserts that the dynamic type of `x` is identical to `T`.
+- If `T` is an interface, it asserts that the dynamic type of `x` implements `T`.
 
 <!-- -->
 
@@ -66,7 +62,7 @@ A **type switch** performs several type assertions in series and runs the first 
     switch v := x.(type) {
     case nil:
             fmt.Println("x is nil")            // here v has type interface{}
-    case int: 
+    case int:
             fmt.Println("x is", v)             // here v has type int
     case bool, string:
             fmt.Println("x is bool or string") // here v has type interface{}
@@ -76,8 +72,7 @@ A **type switch** performs several type assertions in series and runs the first 
 
     x is bool or string
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

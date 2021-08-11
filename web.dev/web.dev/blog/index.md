@@ -1,19 +1,12 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Blog
-====
+# Blog
 
 Our latest news, updates, and stories for developers
 
@@ -23,8 +16,7 @@ Our latest news, updates, and stories for developers
 
 <a href="/building-a-switch-component/" class="w-card-base__link"></a>
 
-Building a switch component
----------------------------
+## Building a switch component
 
 [<img src="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Adam Argyle" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/adamargyle/)
 
@@ -44,8 +36,7 @@ A foundational overview of how to build a responsive and accessible switch compo
 
 <a href="/accent-color/" class="w-card-base__link"></a>
 
-CSS \`accent-color\`
---------------------
+## CSS \`accent-color\`
 
 [<img src="https://web-dev.imgix.net/image/ahMMPwVRwAdp0gFdY0zZnncYdsm1/3i0rkOVNKJImIy1UWvyC.jpeg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Joey Arhar" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/ahMMPwVRwAdp0gFdY0zZnncYdsm1/3i0rkOVNKJImIy1UWvyC.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/ahMMPwVRwAdp0gFdY0zZnncYdsm1/3i0rkOVNKJImIy1UWvyC.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/ahMMPwVRwAdp0gFdY0zZnncYdsm1/3i0rkOVNKJImIy1UWvyC.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/ahMMPwVRwAdp0gFdY0zZnncYdsm1/3i0rkOVNKJImIy1UWvyC.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/ahMMPwVRwAdp0gFdY0zZnncYdsm1/3i0rkOVNKJImIy1UWvyC.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/jarhar/)
 
@@ -67,8 +58,7 @@ Bring your brand color to built-in HTML form inputs with one line of code.
 
 <a href="/vitals-tools-workflow/" class="w-card-base__link"></a>
 
-A performance-focused workflow based on Google tools
-----------------------------------------------------
+## A performance-focused workflow based on Google tools
 
 [<img src="https://web-dev.imgix.net/image/admin/obrDCmQVA55Oc4bBX5ek.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Garima Mimani" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/obrDCmQVA55Oc4bBX5ek.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/obrDCmQVA55Oc4bBX5ek.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/obrDCmQVA55Oc4bBX5ek.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/obrDCmQVA55Oc4bBX5ek.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/obrDCmQVA55Oc4bBX5ek.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/gmimani/)
 
@@ -90,8 +80,7 @@ Combine Google tools to audit, improve and monitor your website effectively.
 
 <a href="/user-preference-media-features-headers/" class="w-card-base__link"></a>
 
-User preference media features client hints headers
----------------------------------------------------
+## User preference media features client hints headers
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -113,8 +102,7 @@ The \`Sec-CH-Prefers-Color-Scheme\` client hint header allows sites to obtain th
 
 <a href="/2021-scroll-survey-report/" class="w-card-base__link"></a>
 
-2021 Scroll Survey Report
--------------------------
+## 2021 Scroll Survey Report
 
 [<img src="https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Sam Dutton" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/wPss4TJX9IJ1CJza7iFY.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/samdutton/)
 
@@ -136,8 +124,7 @@ Get the 2021 Scroll Survey Report plus words from the Chrome team about how this
 
 <a href="/tag-best-practices/" class="w-card-base__link"></a>
 
-Best practices for tags and tag managers
-----------------------------------------
+## Best practices for tags and tag managers
 
 [<img src="https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Katie Hempenius" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/katiehempenius/)
 
@@ -157,8 +144,7 @@ Optimize tags and tag managers for Core Web Vitals.
 
 <a href="/compat2021-midyear/" class="w-card-base__link"></a>
 
-Compat 2021 mid-year update: Flex gap everywhere
-------------------------------------------------
+## Compat 2021 mid-year update: Flex gap everywhere
 
 [<img src="https://web-dev.imgix.net/image/admin/TaVHIb4KixCUF6XheH7z.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Mariko Kosaka" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/TaVHIb4KixCUF6XheH7z.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/TaVHIb4KixCUF6XheH7z.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/TaVHIb4KixCUF6XheH7z.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/TaVHIb4KixCUF6XheH7z.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/TaVHIb4KixCUF6XheH7z.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/kosamari/)
 
@@ -178,8 +164,7 @@ Mid-year update on Compat 2021—an effort to eliminate browser compatibility pr
 
 <a href="/urlpattern/" class="w-card-base__link"></a>
 
-URLPattern brings routing to the web platform
----------------------------------------------
+## URLPattern brings routing to the web platform
 
 [<img src="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Jeff Posnick" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/jeffposnick/)
 
@@ -197,8 +182,7 @@ An approach to standardizing common pattern matching use cases.
 
 <a href="/netzwelt/" class="w-card-base__link"></a>
 
-How committing to Core Web Vitals increased Netzwelt's advertising revenues by 18%
-----------------------------------------------------------------------------------
+## How committing to Core Web Vitals increased Netzwelt's advertising revenues by 18%
 
 [<img src="https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Martin Schierle" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/martinschierle/)
 
@@ -218,8 +202,7 @@ The relaunched website also sees ad viewability of over 75%, bounce rates reduce
 
 <a href="/lcp-lazy-loading/" class="w-card-base__link"></a>
 
-The performance effects of too much lazy-loading
-------------------------------------------------
+## The performance effects of too much lazy-loading
 
 [<img src="https://web-dev.imgix.net/image/admin/rAUzMzFAA67M36n66uVT.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Felix Arntz" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/rAUzMzFAA67M36n66uVT.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/rAUzMzFAA67M36n66uVT.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/rAUzMzFAA67M36n66uVT.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/rAUzMzFAA67M36n66uVT.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/rAUzMzFAA67M36n66uVT.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/felixarntz/)
 
@@ -241,8 +224,7 @@ Data-driven advice for lazy-loading images with Core Web Vitals in mind.
 
 <a href="/building-a-breadcrumbs-component/" class="w-card-base__link"></a>
 
-Building a breadcrumbs component
---------------------------------
+## Building a breadcrumbs component
 
 [<img src="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Adam Argyle" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/adamargyle/)
 
@@ -262,8 +244,7 @@ A foundational overview of how to build a responsive and accessible breadcrumbs 
 
 <a href="/webassembly-threads/" class="w-card-base__link"></a>
 
-Using WebAssembly threads from C, C++ and Rust
-----------------------------------------------
+## Using WebAssembly threads from C, C++ and Rust
 
 [<img src="https://web-dev.imgix.net/image/admin/Ma3ckXmLV7aj1rVgVT1I.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Ingvar Stepanyan" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Ma3ckXmLV7aj1rVgVT1I.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/Ma3ckXmLV7aj1rVgVT1I.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/Ma3ckXmLV7aj1rVgVT1I.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/Ma3ckXmLV7aj1rVgVT1I.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/Ma3ckXmLV7aj1rVgVT1I.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/rreverser/)
 
@@ -283,8 +264,7 @@ Learn how to bring multithreaded applications written in other languages to WebA
 
 <a href="/field-data-in-the-web-vitals-extension/" class="w-card-base__link"></a>
 
-Find your way with field data in the Web Vitals extension update
-----------------------------------------------------------------
+## Find your way with field data in the Web Vitals extension update
 
 [<img src="https://web-dev.imgix.net/image/admin/oWRqaR6XXwIdNXPLpUMn.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Rick Viscomi" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/oWRqaR6XXwIdNXPLpUMn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/oWRqaR6XXwIdNXPLpUMn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/oWRqaR6XXwIdNXPLpUMn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/oWRqaR6XXwIdNXPLpUMn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/oWRqaR6XXwIdNXPLpUMn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/rviscomi/)
 
@@ -304,8 +284,7 @@ The Web Vitals extension now shows you where your local experiences are in relat
 
 <a href="/aurora-resource-inlining/" class="w-card-base__link"></a>
 
-Resource inlining in JavaScript frameworks
-------------------------------------------
+## Resource inlining in JavaScript frameworks
 
 [<img src="https://web-dev.imgix.net/image/admin/OPpZ9x8KCVcxvqgdWXM5.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Minko Gechev" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/OPpZ9x8KCVcxvqgdWXM5.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/OPpZ9x8KCVcxvqgdWXM5.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/OPpZ9x8KCVcxvqgdWXM5.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/OPpZ9x8KCVcxvqgdWXM5.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/OPpZ9x8KCVcxvqgdWXM5.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/mgechev/)
 
@@ -325,8 +304,7 @@ Improving Largest Contentful Paint across the JavaScript ecosystem.
 
 <a href="/better-responsiveness-metric/" class="w-card-base__link"></a>
 
-Towards a better responsiveness metric
---------------------------------------
+## Towards a better responsiveness metric
 
 <span class="w-author__name"><a href="/authors/npm/" class="w-author__name-link">Nicolás Peña Moreno</a>, <a href="/authors/anniesullie/" class="w-author__name-link">Annie Sullivan</a>, <a href="/authors/hbsong/" class="w-author__name-link">Hongbo Song</a></span>
 
@@ -344,8 +322,7 @@ Learn about our thoughts on measuring responsiveness and give us feedback.
 
 <a href="/storage-foundation/" class="w-card-base__link"></a>
 
-High performance storage for your app: the Storage Foundation API
------------------------------------------------------------------
+## High performance storage for your app: the Storage Foundation API
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -365,8 +342,7 @@ The Storage Foundation API resembles a basic file system, with direct access to 
 
 <a href="/blibli/" class="w-card-base__link"></a>
 
-Blibli's PWA generates 10x more revenue per user than their previous mobile website
------------------------------------------------------------------------------------
+## Blibli's PWA generates 10x more revenue per user than their previous mobile website
 
 [<img src="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Mpe7GGUwnUsy9Gx7UxZK.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Swetha Gopalakrishnan" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Mpe7GGUwnUsy9Gx7UxZK.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Mpe7GGUwnUsy9Gx7UxZK.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Mpe7GGUwnUsy9Gx7UxZK.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Mpe7GGUwnUsy9Gx7UxZK.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Mpe7GGUwnUsy9Gx7UxZK.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/swethagopalakrishnan/)
 
@@ -388,8 +364,7 @@ How Blibli achieved a 42% reduction in bounce rate, an 8x improvement in mobile 
 
 <a href="/introducing-aurora/" class="w-card-base__link"></a>
 
-Introducing Aurora
-------------------
+## Introducing Aurora
 
 <span class="w-author__name"><a href="/authors/shubhie/" class="w-author__name-link">Shubhie Panicker</a>, <a href="/authors/addyosmani/" class="w-author__name-link">Addy Osmani</a>, <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a></span>
 
@@ -405,8 +380,7 @@ A collaboration between Chrome and open-source web frameworks & tools
 
 <a href="/conformance/" class="w-card-base__link"></a>
 
-Conformance for Frameworks
---------------------------
+## Conformance for Frameworks
 
 [<img src="https://web-dev.imgix.net/image/admin/BibySYHD7JweNcHZCCOe.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Houssein Djirdeh" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/BibySYHD7JweNcHZCCOe.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/BibySYHD7JweNcHZCCOe.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/BibySYHD7JweNcHZCCOe.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/BibySYHD7JweNcHZCCOe.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/BibySYHD7JweNcHZCCOe.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/houssein/)
 
@@ -426,8 +400,7 @@ Conformance in the JavaScript framework ecosystem
 
 <a href="/telegraph/" class="w-card-base__link"></a>
 
-Improving Cumulative Layout Shift at Telegraph Media Group
-----------------------------------------------------------
+## Improving Cumulative Layout Shift at Telegraph Media Group
 
 [<img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/eIgvuUcq2LknyiDixzOJ.jpeg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Chris Boakes" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/eIgvuUcq2LknyiDixzOJ.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/eIgvuUcq2LknyiDixzOJ.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/eIgvuUcq2LknyiDixzOJ.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/eIgvuUcq2LknyiDixzOJ.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/eIgvuUcq2LknyiDixzOJ.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/chrisboakes/)
 
@@ -447,8 +420,7 @@ Within a couple of months the leading UK news website managed to improve their 7
 
 <a href="/css-size-adjust/" class="w-card-base__link"></a>
 
-CSS \`size-adjust\` for \`@font-face\`
---------------------------------------
+## CSS \`size-adjust\` for \`@font-face\`
 
 [<img src="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Adam Argyle" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/adamargyle/)
 
@@ -468,8 +440,7 @@ As a web font loads, you can now adjust its scale, to normalize the document fon
 
 <a href="/building-a-color-scheme/" class="w-card-base__link"></a>
 
-Building a color scheme
------------------------
+## Building a color scheme
 
 [<img src="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Adam Argyle" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/jdQIxAJrGuFOtwmuDfIn.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/adamargyle/)
 
@@ -489,8 +460,7 @@ A foundational overview of how to establish a dynamic and configurable color sch
 
 <a href="/introducing-libsquoosh/" class="w-card-base__link"></a>
 
-Introducing libSquoosh
-----------------------
+## Introducing libSquoosh
 
 [<img src="https://web-dev.imgix.net/image/admin/MPQ3Co9Ej7Uka4cgPePh.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Surma" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/MPQ3Co9Ej7Uka4cgPePh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/MPQ3Co9Ej7Uka4cgPePh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/MPQ3Co9Ej7Uka4cgPePh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/MPQ3Co9Ej7Uka4cgPePh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/MPQ3Co9Ej7Uka4cgPePh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/surma/)
 
@@ -510,8 +480,7 @@ It's Squoosh, but as a Node library.
 
 <a href="/compress-images-avif/" class="w-card-base__link"></a>
 
-Using AVIF to compress images on your site
-------------------------------------------
+## Using AVIF to compress images on your site
 
 [<img src="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/tyVCzJx2Qe2hCSwXzhrk.jpeg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Wan-Teh Chang" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/tyVCzJx2Qe2hCSwXzhrk.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/tyVCzJx2Qe2hCSwXzhrk.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/tyVCzJx2Qe2hCSwXzhrk.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/tyVCzJx2Qe2hCSwXzhrk.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/tyVCzJx2Qe2hCSwXzhrk.jpeg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/wtc/)
 
@@ -525,35 +494,35 @@ Jun 7, 2021
 
 <a href="/blog/" class="w-pagination__link w-pagination__link--active">1</a> <a href="/blog/2" class="w-pagination__link">2</a> <a href="/blog/3" class="w-pagination__link">3</a> <a href="/blog/4" class="w-pagination__link">4</a> <span class="w-pagination__spacer">…</span> <a href="/blog/13" class="w-pagination__link">13</a> <a href="/blog/2" class="w-pagination__link w-pagination__arrow w-pagination__arrow--next"></a> <a href="/blog/13" class="w-pagination__link w-pagination__arrow w-pagination__arrow--last"></a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

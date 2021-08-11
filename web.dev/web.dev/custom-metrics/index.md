@@ -1,32 +1,24 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#custom-metrics" class="w-toc__header--link">Custom metrics</a>
-------------------------------------------------------------------------
+## <a href="#custom-metrics" class="w-toc__header--link">Custom metrics</a>
 
--   [APIs to measure custom metrics](#apis-to-measure-custom-metrics)
--   [Performance Observer](#performance-observer)
--   [User Timing API](#user-timing-api)
--   [Long Tasks API](#long-tasks-api)
--   [Element Timing API](#element-timing-api)
--   [Event Timing API](#event-timing-api)
--   [Resource Timing API](#resource-timing-api)
--   [Navigation Timing API](#navigation-timing-api)
--   [Server Timing API](#server-timing-api)
+- [APIs to measure custom metrics](#apis-to-measure-custom-metrics)
+- [Performance Observer](#performance-observer)
+- [User Timing API](#user-timing-api)
+- [Long Tasks API](#long-tasks-api)
+- [Element Timing API](#element-timing-api)
+- [Event Timing API](#event-timing-api)
+- [Resource Timing API](#resource-timing-api)
+- [Navigation Timing API](#navigation-timing-api)
+- [Server Timing API](#server-timing-api)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Custom metrics
-==============
+# Custom metrics
 
 Nov 8, 2019
 
@@ -36,28 +28,27 @@ Nov 8, 2019
 
 <a href="/authors/philipwalton/" class="w-author__name-link">Philip Walton</a>
 
--   <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
--   <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
--   <a href="https://philipwalton.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
+- <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
+- <a href="https://philipwalton.com" class="w-author__link">Blog</a>
 
 There's a lot of value in having [user-centric metrics](/user-centric-performance-metrics/) that you can measure, universally, on any given website. These metrics allow you to:
 
--   Understand how real users experience the web as a whole
--   Easily compare your site to a competitor's
--   Track useful and actionable data in your analytics tools without needing to write custom code
+- Understand how real users experience the web as a whole
+- Easily compare your site to a competitor's
+- Track useful and actionable data in your analytics tools without needing to write custom code
 
-Universal metrics offer a good baseline, but in many cases you need to measure *more* than just these metrics in order to capture the full experience for your particular site.
+Universal metrics offer a good baseline, but in many cases you need to measure _more_ than just these metrics in order to capture the full experience for your particular site.
 
 Custom metrics allow you to measure aspects of your site's experience that may only apply to your site, such as:
 
--   How long it takes for a single page app (SPA) to transition from one "page" to another
--   How long it takes for a page to display data fetched from a database for logged-in users
--   How long it takes for a server-side-rendered (SSR) app to [hydrate](https://addyosmani.com/blog/rehydration/)
--   The cache hit rate for resources loaded by returning visitors
--   The event latency of click or keyboard events in a game
+- How long it takes for a single page app (SPA) to transition from one "page" to another
+- How long it takes for a page to display data fetched from a database for logged-in users
+- How long it takes for a server-side-rendered (SSR) app to [hydrate](https://addyosmani.com/blog/rehydration/)
+- The cache hit rate for resources loaded by returning visitors
+- The event latency of click or keyboard events in a game
 
-APIs to measure custom metrics <a href="#apis-to-measure-custom-metrics" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## APIs to measure custom metrics <a href="#apis-to-measure-custom-metrics" class="w-headline-link">#</a>
 
 Historically web developers haven't had many low-level APIs to measure performance, and as a result they've had to resort to hacks in order to measure whether a site was performing well.
 
@@ -109,9 +100,9 @@ To avoid memory issues, the performance entry buffer is not unlimited. For most 
 
 Prior to the Performance Observer API, developers could access performance entries using the following three methods defined on the [`performance`](https://w3c.github.io/performance-timeline/) object:
 
--   [`getEntries()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntries)
--   [`getEntriesByName()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntriesByName)
--   [`getEntriesByType()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntriesByType)
+- [`getEntries()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntries)
+- [`getEntriesByName()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntriesByName)
+- [`getEntriesByType()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/getEntriesByType)
 
 While these APIs are still supported, their usage is not recommended because they don't allow you to listen for when new entries are emitted. In addition, many new APIs (such as Long Tasks) are not exposed via the `performance` object, they're only exposed via `PerformanceObserver`.
 
@@ -211,10 +202,10 @@ The [First Input Delay (FID)](/fid/) metric measures the time from when a user f
 
 This is possible with the [Event Timing API](https://wicg.github.io/event-timing/) (which is used to measure FID) as it exposes a number of timestamps in the event lifecycle, including:
 
--   [`startTime`](https://w3c.github.io/performance-timeline/#dom-performanceentry-starttime): the time when the browser receives the event.
--   [`processingStart`](https://wicg.github.io/event-timing/#dom-performanceeventtiming-processingstart): the time when the browser is able to begin processing event handlers for the event.
--   [`processingEnd`](https://wicg.github.io/event-timing/#dom-performanceeventtiming-processingend): time when the browser finishes executing all synchronous code initiated from event handlers for this event.
--   [`duration`](https://wicg.github.io/event-timing/#dom-performanceeventtiming-processingstart): the time (rounded to 8ms for security reasons) between when the browser receives the event until it's able to paint the next frame after finishing executing all synchronous code initiated from the event handlers.
+- [`startTime`](https://w3c.github.io/performance-timeline/#dom-performanceentry-starttime): the time when the browser receives the event.
+- [`processingStart`](https://wicg.github.io/event-timing/#dom-performanceeventtiming-processingstart): the time when the browser is able to begin processing event handlers for the event.
+- [`processingEnd`](https://wicg.github.io/event-timing/#dom-performanceeventtiming-processingend): time when the browser finishes executing all synchronous code initiated from event handlers for this event.
+- [`duration`](https://wicg.github.io/event-timing/#dom-performanceeventtiming-processingstart): the time (rounded to 8ms for security reasons) between when the browser receives the event until it's able to paint the next frame after finishing executing all synchronous code initiated from the event handlers.
 
 The following example shows how to use these these values to create custom measurements:
 
@@ -257,12 +248,12 @@ The following example shows how to use these these values to create custom measu
 
 The [Resource Timing API](https://w3c.github.io/resource-timing/) gives developers detailed insight into how resources for a particular page were loaded. Despite the name of the API, the information it provides is not just limited to timing data (though there's [plenty of that](https://w3c.github.io/resource-timing/#processing-model)). Other data you can access includes:
 
--   [initiatorType](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-initiatortype): how the resource was fetched: such as from a `<script>` or `<link>` tag, or from `fetch()`
--   [nextHopProtocol](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-nexthopprotocol): the protocol used to fetch the resource, such as `h2` or `quic`
--   [encodedBodySize](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-encodedbodysize)/[decodedBodySize](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-decodedbodysize)\]: the size of the resource in its encoded or decoded form (respectively)
--   [transferSize](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-transfersize): the size of the resource that was actually transferred over the network. When resources are fulfilled via the cache, this value can be much smaller than the `encodedBodySize`, and in some cases it can be zero (if no cache revalidation is required).
+- [initiatorType](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-initiatortype): how the resource was fetched: such as from a `<script>` or `<link>` tag, or from `fetch()`
+- [nextHopProtocol](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-nexthopprotocol): the protocol used to fetch the resource, such as `h2` or `quic`
+- [encodedBodySize](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-encodedbodysize)/[decodedBodySize](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-decodedbodysize)\]: the size of the resource in its encoded or decoded form (respectively)
+- [transferSize](https://w3c.github.io/resource-timing/#dom-performanceresourcetiming-transfersize): the size of the resource that was actually transferred over the network. When resources are fulfilled via the cache, this value can be much smaller than the `encodedBodySize`, and in some cases it can be zero (if no cache revalidation is required).
 
-Note, you can use the `transferSize` property of resource timing entries to measure a *cache hit rate* metric or perhaps even a *total cached resource size* metric, which may be useful in understanding how your resource caching strategy affects performance for repeat visitors.
+Note, you can use the `transferSize` property of resource timing entries to measure a _cache hit rate_ metric or perhaps even a _total cached resource size_ metric, which may be useful in understanding how your resource caching strategy affects performance for repeat visitors.
 
 The following example logs all resources requested by the page and indicates whether or not each resource was fulfilled via the cache.
 
@@ -360,35 +351,35 @@ Then, from your pages, you can read this data on both `resource` or `navigation`
 
 <a href="/metrics" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,25 +2,22 @@
 
 <span class="underline"></span>
 
-Unsigned integers in Java
--------------------------
+## Unsigned integers in Java
 
 1.  [Unsigned byte](unsigned-byte.html)
 2.  [Unsigned short](unsigned-short.html)
 3.  [Unsigned int](unsigned-int.html)
 4.  Unsigned long
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -30,8 +27,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -39,17 +35,15 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Unsigned long in Java
-=====================
+# Unsigned long in Java
 
 Java does not have unsigned data types. Your options are:
 
--   Use a [`BigInteger`](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)
--   Use an [`UnsignedLong`](https://guava.dev/releases/20.0/api/docs/com/google/common/primitives/UnsignedLong.html) from Guava
--   Use a `long` as described below.
+- Use a [`BigInteger`](https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html)
+- Use an [`UnsignedLong`](https://guava.dev/releases/20.0/api/docs/com/google/common/primitives/UnsignedLong.html) from Guava
+- Use a `long` as described below.
 
-An unsigned `long`
-------------------
+## An unsigned `long`
 
 A `long` is always signed in Java, but nothing prevents you from viewing a `long` simply as 64 bits and interpret those bits as a value between 0 and 2<sup>64</sup>.
 
@@ -59,15 +53,13 @@ Keep in mind that there’s nothing you can do to force your interpretation upon
 
 Here are a couple of useful conversions / manipulations.
 
-Printing an unsigned `long`
----------------------------
+## Printing an unsigned `long`
 
 Use [`Long.toUnsignedString`](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html#toUnsignedString-long-):
 
     System.out.println("Value of my unsigned long: " + Long.toUnsignedString(i));
 
-Converting from `BigInteger` to unsigned `long`
------------------------------------------------
+## Converting from `BigInteger` to unsigned `long`
 
 `BigInteger.longValue()` throws away all but the lowest 64 bits.
 
@@ -77,8 +69,7 @@ Converting from `BigInteger` to unsigned `long`
 
     System.out.println(Long.toUnsignedString(lng));  // 9223372036854800000
 
-Converting from unsigned `long` to `BigInteger`
------------------------------------------------
+## Converting from unsigned `long` to `BigInteger`
 
 From the [OpenJDK implementation of `Long`](https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/master/src/java.base/share/classes/java/lang/Long.java#L241):
 
@@ -98,8 +89,7 @@ From the [OpenJDK implementation of `Long`](https://github.com/AdoptOpenJDK/open
         }
     }
 
-Parsing an unsigned `long`
---------------------------
+## Parsing an unsigned `long`
 
     long lng = Long.parseUnsignedLong("10000000000000000000");
 
@@ -107,16 +97,14 @@ Parsing an unsigned `long`
 
 **Note:** [`Long.parseLong`](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html#parseLong-java.lang.String-) would throw a [`NumberFormatException`](https://docs.oracle.com/javase/8/docs/api/java/lang/NumberFormatException.html) for the above input.
 
-Comparing unsigned `long`s
---------------------------
+## Comparing unsigned `long`s
 
     int cmp = Long.compareUnsigned(l1, l2);
     // cmp = -1  =>  l1 < l2
     // cmp =  0  =>  l1 = l2
     // cmp =  1  =>  l1 > l2
 
-Arithmetics
------------
+## Arithmetics
 
 The 2-complement representation “just works” for addition, subtraction and multiplication.
 
@@ -133,8 +121,7 @@ For division and remainder, use [`Long.divideUnsigned`](https://docs.oracle.com/
     long q = Long.divideUnsigned(l1, l2);
     long r = Long.remainderUnsigned(l1, l2);
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

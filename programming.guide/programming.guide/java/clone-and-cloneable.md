@@ -2,13 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Copying Objects](copying-objects-deep-and-shallow.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-[Javadoc for Object.clone](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#clone())  
+[Javadoc for Object.clone](<https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#clone()>)  
 <span style="color: grey; font-style: italic; font-size: smaller">docs.oracle.com</span>
 
 [Javadoc for the Cloneable interface](https://docs.oracle.com/javase/10/docs/api/java/lang/Cloneable.html)  
@@ -22,8 +21,7 @@ Related
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -33,8 +31,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -42,17 +39,15 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Clone and Cloneable
-=========================
+# Java: Clone and Cloneable
 
 `Object.clone` offers a shortcut for creating exact, field-by-field, copies of objects. A lot of the boiler plate typically required in copy constructors or static factory methods goes away.
 
-Unfortunately the cloning API is poorly designed and should almost always be avoided. See sections [*Critique*](clone-and-cloneable.html#critique) and [*Alternatives to Cloning*](clone-and-cloneable.html#alternatives-to-cloning) for more information.
+Unfortunately the cloning API is poorly designed and should almost always be avoided. See sections [_Critique_](clone-and-cloneable.html#critique) and [_Alternatives to Cloning_](clone-and-cloneable.html#alternatives-to-cloning) for more information.
 
 Both arrays and objects can be cloned. Apart from the section specifically on arrays, this article focuses on cloning objects.
 
-Example
--------
+## Example
 
 Here's how to make a `Car` class cloneable:
 
@@ -101,17 +96,17 @@ Here's how to make a `Car` class cloneable:
 
 
                 // c.make = make;No need to clone make, since strings are immutable
-                
-                
-                
-                
+
+
+
+
                 return c;
             } catch (CloneNotSupportedException e) {
                 // Will not happen in this case
                 return null;
             }
         }
-        
+
         …
     }
 
@@ -122,10 +117,9 @@ Then, clone away…
 
     // car1 and car2 refer to distinct objects
 
-Shallow vs Deep Cloning
------------------------
+## Shallow vs Deep Cloning
 
-*See [Shallow vs Deep Copy (with examples)](../shallow-vs-deep-copy.html) if you're not familiar with these terms.*
+_See [Shallow vs Deep Copy (with examples)](../shallow-vs-deep-copy.html) if you're not familiar with these terms._
 
 According to convention, clone should return a **deep copy**. This is typically the expected / most useful alternative. Consider the `Car` example at the top of the article. It would be quite annoying if `car1.getGearbox().setGear(4)` would affect the current gear of `car2`!
 
@@ -135,8 +129,7 @@ Original Car make: BMW engine: gearbox: Gearbox gears: 6 Engine cylinders: 12 Af
 
 Returning a deep clone is not a strict requirement though. There are situations when a shallow copy makes more sense, and sometimes cloning the children is not even an option. The clone methods of all standard collections for example (`ArrayList`, `HashMap`, …) return shallow clones.
 
-The black magic of `Object.clone`
----------------------------------
+## The black magic of `Object.clone`
 
 `Object.clone` achieves two things that ordinary Java methods can't:
 
@@ -148,14 +141,13 @@ The black magic of `Object.clone`
 
 It manages to do this without invoking any constructors and the field-by-field copy includes private and final fields.
 
-**But… how!?** The `Object.clone` method is *native*:
+**But… how!?** The `Object.clone` method is _native_:
 
     protected native Object clone() throws CloneNotSupportedException;
 
 This means that it's implemented as part of a system library, typically written in C or C++. This allows it to use low level calls such as `memcpy`, ignore access modifiers, and do other things ordinary Java methods can't.
 
-Why use `super.clone()` instead of `new Car(…)`?
-------------------------------------------------
+## Why use `super.clone()` instead of `new Car(…)`?
 
 Had we used `new Car(…)` instead of `super.clone()` **subclasses would run into trouble**.
 
@@ -165,8 +157,7 @@ If the `clone` method of every class in the hierarchy starts with `super.clone()
 
 Note that if `Car` had been declared final, there would be no subclasses, and using `new Car(…)` would have been completely fine.
 
-Gotchas
--------
+## Gotchas
 
 A few things to keep in mind when overriding `clone`:
 
@@ -186,22 +177,20 @@ Design for inheritance, or prohibit it (Effective Java, item 19). In a non-final
 Extending a cloneable class  
 If you extend a cloneable class, directly or indirectly, your will automatically implement `Cloneable` and inherit a public `clone` method. There's no way to opt out from this, so you must play along and override `clone` properly. If this is not possible, you could throw an `CloneNotSupportedException`, but only if the signature of the super class's `clone` method allows for it.
 
-Why implement `Cloneable`? It has no methods!
----------------------------------------------
+## Why implement `Cloneable`? It has no methods!
 
 If you don't implement `Cloneable`, then `Object.clone` will throw a [`CloneNotSupportedException`](https://docs.oracle.com/javase/8/docs/api/java/lang/CloneNotSupportedException.html).
 
-An interface with no methods is called a *marker interface* (see [Java: Marker interfaces, with examples](marker-interface.html)).
+An interface with no methods is called a _marker interface_ (see [Java: Marker interfaces, with examples](marker-interface.html)).
 
-The Contract of `clone`
------------------------
+## The Contract of `clone`
 
-The contract says that it should *"return a copy of this object"* where the meaning of copy *"…may depend on the class of the object"*. In other words, **the contract doesn't specify any absolute requirements**. It does however list the following conventions:
+The contract says that it should _"return a copy of this object"_ where the meaning of copy _"…may depend on the class of the object"_. In other words, **the contract doesn't specify any absolute requirements**. It does however list the following conventions:
 
--   `x.clone() != x`
--   `x.clone().getClass() == x.getClass()`
--   `x.clone().equals(x)`
--   The returned object should be independent of the object being cloned
+- `x.clone() != x`
+- `x.clone().getClass() == x.getClass()`
+- `x.clone().equals(x)`
+- The returned object should be independent of the object being cloned
 
 The first two items can be achieved by following the convention to always start with `super.clone()`.
 
@@ -209,23 +198,22 @@ As mention further up in the article `Object.clone` produces a shallow copy, whi
 
 The method should throw `CloneNotSupportedException` if the object's class doesn't implement `Cloneable` (again, achieved by always calling `super.clone`). Furthermore, subclasses are allowed to throw this exception to indicate that an object can't be cloned for other reasons.
 
-Critique
---------
+## Critique
 
 The general consensus is that the cloneable API is poorly designed and should be avoided. Here's why:
 
 Marker interfaces in general…  
-…are considered a bad idea in the first place. Instead of describing what clients can do with an object, they describe an internal capability. They require out of band knowledge and encourages a procedural programming style.  
-  
-There's no way to "opt out" from them in subclasses. If a `Car` is `Cloneable`, then so is a `Minivan` and there's nothing you can do about it.  
-  
+…are considered a bad idea in the first place. Instead of describing what clients can do with an object, they describe an internal capability. They require out of band knowledge and encourages a procedural programming style.
+
+There's no way to "opt out" from them in subclasses. If a `Car` is `Cloneable`, then so is a `Minivan` and there's nothing you can do about it.
+
 Since the first marker interfaces were introduced, annotations have been added to the language which are better suited for expressing this type of meta data.
 
 `Cloneable` in particular lacks a clone method  
-This means for example that if you have an array of `Cloneable` objects you can't iterate over it and create a deep copy of the array.  
-  
-If you cast something to a `Cloneable`, and the runtime type really do implement the interface, you *still* can't call the `clone` method, since it's `protected` in `Object`.  
-  
+This means for example that if you have an array of `Cloneable` objects you can't iterate over it and create a deep copy of the array.
+
+If you cast something to a `Cloneable`, and the runtime type really do implement the interface, you _still_ can't call the `clone` method, since it's `protected` in `Object`.
+
 If you implement `Cloneable` but forget to implement a public `clone` method, the compiler will not catch the error. And just being `Cloneable` is pretty useless, since there's still no way for clients to clone objects.
 
 `Object.clone` bends the rules of the language  
@@ -235,8 +223,8 @@ Incompatibility with `final` references
 Since references to mutable objects should be updated by the clone method, such fields can't be marked as `final`.
 
 CloneNotSupportedException is a checked exception…  
-…while it should have been unchecked. The client may know for sure that a clone will succeed, yet it is forced to wrap the call in a `try`/`catch`.  
-  
+…while it should have been unchecked. The client may know for sure that a clone will succeed, yet it is forced to wrap the call in a `try`/`catch`.
+
 See [Choosing between Checked and Unchecked Exceptions](choosing-between-checked-and-unchecked-exceptions.html).
 
 It's hard to get right  
@@ -245,8 +233,7 @@ Even though you know the rules of the game, it's hard to override `clone` correc
 `Object.clone` returns an `Object`…  
 …which means you must resort to casts.
 
-Cloning Arrays
---------------
+## Cloning Arrays
 
 Arrays implement `Cloneable` and provide a public `clone` method. None of the drawbacks mentioned in previous section applies to arrays. In fact `arr.clone()` is the preferred idiom for cloning arrays. You don't even have to cast the result as the return type of the array `clone` method is the same as the type of the array being cloned.
 
@@ -254,8 +241,7 @@ Keep in mind however, that the result is a **shallow copy**. If the array stores
 
 Original array Cloned array Car make: BMW
 
-Alternatives to Cloning
------------------------
+## Alternatives to Cloning
 
 For full details and examples please refer to the full article [Java: Copying Objects, Deep and Shallow)](copying-objects-deep-and-shallow.html).
 
@@ -266,15 +252,14 @@ Homegrown copy method
 A home grown copy method that doesn't rely on the `Cloneable`/`Object.clone` mechanism may be a viable option. It's more verbose but that may be a an acceptable price to pay considering the alternative. It's possible to name it "`clone`" but you may want to go for something different (`copy`, `copyOf`, `deepCopy`, `shallowCopy`, …) to avoid confusion.
 
 Builders  
-When using the builder pattern it's common to provide a way to initialize the state of the builder with the state of a given object. Creating a copy of a car `c` could look like `new Car.Builder(c).build()`. The [Immutables library](https://immutables.github.io) for example, generates a builder with a `from(…)` method for this purpose.
+When using the builder pattern it's common to provide a way to initialize the state of the builder with the state of a given object. Creating a copy of a car `c` could look like `new Car.Builder(c).build()`. The [Immutables library](https://immutables.github.io) for example, generates a builder with a `from(…)` method for this purpose.
 
 Serialization / deserialization  
-By serializing an object, then deserializing the result you end up with a copy. If you already have a library such as Jackson set up for json serialization, you can reuse this for cloning.  
-  
+By serializing an object, then deserializing the result you end up with a copy. If you already have a library such as Jackson set up for json serialization, you can reuse this for cloning.
+
 Another alternative is to use the `Serializable` mechanism and `ObjectInputStream`/`ObjectOutputStream` but then you trade one type of black magic for another.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

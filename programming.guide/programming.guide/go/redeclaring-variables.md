@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,8 +24,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Redeclaring variables
-=========================
+# Go: Redeclaring variables
 
 As you may have noticed, you can't redeclare a variable which has already been declared in the same block:
 
@@ -59,8 +56,7 @@ However, variables can be redeclared in short multi-variable declarations where 
 >
 > Redeclaration does not introduce a new variable; it just assigns a new value to the original. <a href="https://golang.org/ref/spec#Short_variable_declarations" class="quote-source">The Go Programming Language Specification: Short variable declarations</a>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

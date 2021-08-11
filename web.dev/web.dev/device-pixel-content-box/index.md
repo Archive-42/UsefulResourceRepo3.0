@@ -12,25 +12,23 @@
 
 <img src="https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format" alt="A closeup image of a computer screen." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/t9UnR0miKBlEuPbvPdPH.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#pixel-perfect-rendering-with-devicepixelcontentbox" class="w-toc__header--link">Pixel-perfect rendering with devicePixelContentBox</a>
-------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#pixel-perfect-rendering-with-devicepixelcontentbox" class="w-toc__header--link">Pixel-perfect rendering with devicePixelContentBox</a>
 
--   [Background: CSS pixels, canvas pixels, and physical pixels](#background:-css-pixels-canvas-pixels-and-physical-pixels)
--   [Pixel perfection](#pixel-perfection)
--   [Pixel snapping](#pixel-snapping)
--   [devicePixelContentBox](#devicepixelcontentbox)
--   [Feature detection](#feature-detection)
--   [Conclusion](#conclusion)
+- [Background: CSS pixels, canvas pixels, and physical pixels](#background:-css-pixels-canvas-pixels-and-physical-pixels)
+- [Pixel perfection](#pixel-perfection)
+- [Pixel snapping](#pixel-snapping)
+- [devicePixelContentBox](#devicepixelcontentbox)
+- [Feature detection](#feature-detection)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Pixel-perfect rendering with devicePixelContentBox
-==================================================
+# Pixel-perfect rendering with devicePixelContentBox
 
-How many pixels are there *really* in a canvas?
+How many pixels are there _really_ in a canvas?
 
 Jul 7, 2020
 
@@ -38,21 +36,19 @@ Jul 7, 2020
 
 <a href="/authors/surma/" class="w-author__name-link">Surma</a>
 
--   <a href="https://twitter.com/DasSurma" class="w-author__link">Twitter</a>
+- <a href="https://twitter.com/DasSurma" class="w-author__link">Twitter</a>
 
-Since Chrome 84, [ResizeObserver](/resize-observer/) supports a new box measurement called `device-pixel-content-box`, that measures the element's dimension in *physical* pixels. This enables rendering pixel-perfect graphics, especially in the context of high-density screens.
+Since Chrome 84, [ResizeObserver](/resize-observer/) supports a new box measurement called `device-pixel-content-box`, that measures the element's dimension in _physical_ pixels. This enables rendering pixel-perfect graphics, especially in the context of high-density screens.
 
-Background: CSS pixels, canvas pixels, and physical pixels <a href="#background:-css-pixels-canvas-pixels-and-physical-pixels" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Background: CSS pixels, canvas pixels, and physical pixels <a href="#background:-css-pixels-canvas-pixels-and-physical-pixels" class="w-headline-link">#</a>
 
 While we often work with abstract units of length like `em`, `%` or `vh`, it all boils down to pixels. Whenever we specify the size or position of an element in CSS, the browser's layout engine will eventually convert that value to pixels (`px`). These are "CSS Pixels", which have a lot of history and only have a loose relationship with the pixels you have on your screen.
 
-For a long time, it was fairly reasonable to estimate anyone's screen pixel density with 96DPI ("dots per inch"), meaning any given monitor would have roughly 38 pixels per cm. Over time, monitors grew and/or shrunk or started to have more pixels on the same surface area. Combine that with the fact that lots of content on the web define their dimensions, including font sizes, in `px`, and we end up with illegible text on these high-density ("HiDPI") screens. As a counter-measure, browsers hide the monitor's actual pixel density and instead pretend that the user has a 96 DPI display. The `px` unit in CSS represents the size of one pixel on this *virtual* 96 DPI display, hence the name "CSS Pixel". This unit is only used for measurement and positioning. Before any actual rendering happens, a conversion to physical pixels happens.
+For a long time, it was fairly reasonable to estimate anyone's screen pixel density with 96DPI ("dots per inch"), meaning any given monitor would have roughly 38 pixels per cm. Over time, monitors grew and/or shrunk or started to have more pixels on the same surface area. Combine that with the fact that lots of content on the web define their dimensions, including font sizes, in `px`, and we end up with illegible text on these high-density ("HiDPI") screens. As a counter-measure, browsers hide the monitor's actual pixel density and instead pretend that the user has a 96 DPI display. The `px` unit in CSS represents the size of one pixel on this _virtual_ 96 DPI display, hence the name "CSS Pixel". This unit is only used for measurement and positioning. Before any actual rendering happens, a conversion to physical pixels happens.
 
-How do we go from this virtual display to the user's real display? Enter `devicePixelRatio`. This global value tells you how many *physical* pixels you need to form a single CSS pixel. If `devicePixelRatio` (dPR) is `1`, you are working on a monitor with roughly 96DPI. If you have a retina screen, your dPR is probably `2`. On phones it is not uncommon to encounter higher (and weirder) dPR values like `2`, `3` or even `2.65`. It is essential to note that this value is *exact*, but doesn't let you derive the monitor's *actual* DPI value. A dPR of `2` means that 1 CSS pixel will map to *exactly* 2 physical pixels.
+How do we go from this virtual display to the user's real display? Enter `devicePixelRatio`. This global value tells you how many _physical_ pixels you need to form a single CSS pixel. If `devicePixelRatio` (dPR) is `1`, you are working on a monitor with roughly 96DPI. If you have a retina screen, your dPR is probably `2`. On phones it is not uncommon to encounter higher (and weirder) dPR values like `2`, `3` or even `2.65`. It is essential to note that this value is _exact_, but doesn't let you derive the monitor's _actual_ DPI value. A dPR of `2` means that 1 CSS pixel will map to _exactly_ 2 physical pixels.
 
-Example
--------
+## Example
 
 My monitor has a dPR of `1` according to Chrome…
 
@@ -88,8 +84,7 @@ The astute reader might be wondering what happens when dPR is not an integer val
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format" alt="DevTools showing fractional pixel values as a result of a getBoundingClientRect() call." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gWP1lVOw8ITEJhziaKnU.png?auto=format&amp;w=1600 1600w" width="800" height="409" /><figcaption>DevTools showing fractional pixel values as a result of a <code>getBoundingClientRect()</code> call.</figcaption></figure>CSS pixels are purely virtual, so having fractions of a pixel is okay in theory, but how does the browser figure out the mapping to physical pixels? Because fractional *physical* pixels are not a thing.
 
-Pixel snapping <a href="#pixel-snapping" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Pixel snapping <a href="#pixel-snapping" class="w-headline-link">#</a>
 
 The part of the unit conversion process that takes care of aligning elements with physical pixels is called "pixel snapping", and it does what it says on the tin: It snaps fractional pixel values to integer, physical pixel values. How exactly this happens is different from browser to browser. If we have an element with a width of `791.984px` on a display where dPR is 1, one browser might render the element at `792px` physical pixels, while another browser might render it at `791px`. That's just a single pixel off, but a single pixel can be detrimental to renderings that need to be pixel-perfect. This can lead to blurriness or even more visible artifacts like the [Moiré effect](https://en.wikipedia.org/wiki/Moir%C3%A9_pattern).
 
@@ -110,7 +105,7 @@ As mentioned in [`ResizeObserver`: it's like `document.onresize` for elements](/
     });
     observer.observe(canvas, {box: ['device-pixel-content-box']});
 
-The `box` property in the options object for `observer.observe()` lets you define which sizes you wish to *observe*. So while each `ResizeObserverEntry` will always provide `borderBoxSize`, `contentBoxSize` and `devicePixelContentBoxSize` (provided the browser supports it), the callback will only be invoked if any of the *observed* box metrics change.
+The `box` property in the options object for `observer.observe()` lets you define which sizes you wish to _observe_. So while each `ResizeObserverEntry` will always provide `borderBoxSize`, `contentBoxSize` and `devicePixelContentBoxSize` (provided the browser supports it), the callback will only be invoked if any of the _observed_ box metrics change.
 
 All of the box metrics are arrays to allow `ResizeObserver` to handle fragmentation in the future. At the time of writing, the array is always of length 1.
 
@@ -134,8 +129,7 @@ To check if a user's browser has support for `devicePixelContentBox`, we can obs
       // The browser does NOT support devicePixelContentBox
     }
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Pixels are a surprisingly complex topic on the web and up until now there was no way for you to know the exact number of physical pixels an element occupies on the user's screen. The new `devicePixelContentBox` property on a `ResizeObserverEntry` gives you that piece of information and allows you to do pixel-perfect renderings with `<canvas>`. `devicePixelContentBox` is supported in Chrome 84+.
 
@@ -145,35 +139,35 @@ Pixels are a surprisingly complex topic on the web and up until now there was no
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

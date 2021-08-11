@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Types in Java
--------------
+## Types in Java
 
 1.  Java Basics: Types
 2.  [Primitive Types](primitive-types.html)
@@ -22,17 +21,15 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -42,10 +39,9 @@ Top Java Articles
 
 [**See all Java articles**](index.html)
 
-Java Basics: Types
-==================
+# Java Basics: Types
 
-A computer only knows about ones and zeros (*bits*). Still, it's able to tell you 1+1 equals **2**. How is that possible?
+A computer only knows about ones and zeros (_bits_). Still, it's able to tell you 1+1 equals **2**. How is that possible?
 
 `11100010010011011001010011111010001010`  
 `10001100101001111111110111000101000110`  
@@ -67,8 +63,7 @@ Here's where **types** come in. Each variable has a type associated with it, whi
     System.out.println(i); // prints 97
     System.out.println(c); // prints 'a'
 
-Type Checking
--------------
+## Type Checking
 
 Since the computer knows how to interpret the data, it can check whether or not the program treats the data sensibly. For example, multiplying an integer with a boolean value (true/false) doesn't make sense. If you try to do so you get a **type error**.
 
@@ -83,8 +78,7 @@ Since the computer knows how to interpret the data, it can check whether or not 
 
 Parts of the Java type system is quite complicated. Some type errors are in fact so complicated that even experienced programmers have trouble deciphering the meaning.
 
-Dynamic vs Static Typing
-------------------------
+## Dynamic vs Static Typing
 
 Some programming languages (Python, JavaScript, PHP, …) lets you run code containing type errors, and doesn't complain unless the faulty instruction is actually executed. This is called **dynamic typing**. Others, like Java (and C, C++, Scala, …), refuses to even start executing code that contain a type error. This is called **static typing**.
 
@@ -104,15 +98,13 @@ Some programming languages (Python, JavaScript, PHP, …) lets you run code cont
 
 The static approach trades some flexibility for robustness: It's more restrictive in terms of what's acceptable to write, but a program that passes compilation is guaranteed to be free of a whole class of common errors.
 
-Weak vs Strong Typing
----------------------
+## Weak vs Strong Typing
 
 In some programming languages (like JavaScript or Perl) the type of a value is determined by how it's used. If you for instance do `if (x) …`, then `x` is treated as a boolean, but if you do `y = x * 5`, then `x` is treated as a number. This is called **weak typing**.
 
 In other languages, like Java, it's the other way around: The type determines what you can do with a value. If, for example, the type of `x` is a number, then `if (x) …` will result in a compilation error. This is called **strong typing**.
 
-Primitive vs Reference Types
-----------------------------
+## Primitive vs Reference Types
 
 Java provides 8 built-in **primitive types** and lets you define your own custom **reference types**.
 
@@ -120,16 +112,16 @@ Java provides 8 built-in **primitive types** and lets you define your own custom
 
 The primitive types are:
 
--   Integers
-    -   `byte` (−128–127)
-    -   `short` (±32 thousand)
-    -   `int` (±2 billion)
-    -   `long` (±9 quintillion)
--   Reals
-    -   `float` (~6 digits precision)
-    -   `double` (~15 digits precision)
--   `char` (unicode characters: `a` `5`, `ξ`, `♪`, …)
--   `boolean` (true/false)
+- Integers
+  - `byte` (−128–127)
+  - `short` (±32 thousand)
+  - `int` (±2 billion)
+  - `long` (±9 quintillion)
+- Reals
+  - `float` (~6 digits precision)
+  - `double` (~15 digits precision)
+- `char` (unicode characters: `a` `5`, `ξ`, `♪`, …)
+- `boolean` (true/false)
 
 Java is able to convert between some of these types automatically, but apart from that, they have nothing in common.
 
@@ -139,7 +131,7 @@ Further details: [Java: Primitive Types](primitive-types.html)
 
 Sometimes simple numbers and characters aren't enough. You may want your data to represent products, people, buttons, etc. For these situations we have **classes**. Classes can be thought of as blueprints for **objects**. Classes and objects are the foundation of what is called Object Oriented Programming and is a whole topic of it's own. In this article we'll just cover the basics and refer to other articles for details.
 
-**Example:** Here's a `Person` class with variables, or *fields*, for name and age
+**Example:** Here's a `Person` class with variables, or _fields_, for name and age
 
     class Person {
         String name;
@@ -186,13 +178,11 @@ Finally, a slighly more intricate example:
 
 Looking at the snippet as a whole, it's clear that the second assignment is safe. The type checker however has a quite narrow field of view, and looks at each assignment in isolation. In the last assignment it refuses to let us assign an arbitrary `Edible` to a `Fruit`. It basically want's to play it safe and make sure we don't assign something like a `Cake` reference to a `Fruit` variable.
 
-What's different here compared to the example where we tried to assign a `Car` to a `Fruit` is that an `Edible` *could conceivably* contain a valid `Fruit` reference. While the type checker won't allow it by default, you can force it through with a **cast** as explained in the next section.
+What's different here compared to the example where we tried to assign a `Car` to a `Fruit` is that an `Edible` _could conceivably_ contain a valid `Fruit` reference. While the type checker won't allow it by default, you can force it through with a **cast** as explained in the next section.
 
-  
 **Further Reading:** [Java: Primitives vs Objects and References](primitives-vs-objects-references.html).
 
-Conversions
------------
+## Conversions
 
 Java allows you to convert between types that are similar. There are different ways such conversions can be expressed.
 
@@ -227,7 +217,7 @@ Result:
 
     Exception in thread "main" java.lang.ClassCastException: Cake cannot be cast to Fruit
 
-If the `e` variable was of type `Integer` the compiler would even reject the program, since it's *guaranteed* that it would give an error when executed.
+If the `e` variable was of type `Integer` the compiler would even reject the program, since it's _guaranteed_ that it would give an error when executed.
 
 **Example:** Illegal cast (compile time)
 
@@ -287,18 +277,16 @@ Promotion is a collective name for widening and unboxing conversions. For exampl
     short s3 = s1 + s2; // error: incompatible types: possible
                         // lossy conversion from int to short
 
-Summary
--------
+## Summary
 
--   Types give meaning to data
--   All variables (and expressions) have a type
--   The entire program must be free of type errors for it to be compiled and executed
--   There are 8 different primitive types representing numbers, characters and booleans
--   Classes are arranged in a hierrachy
--   Sometimes you're allowed to convert the type of the data from one type to another
+- Types give meaning to data
+- All variables (and expressions) have a type
+- The entire program must be free of type errors for it to be compiled and executed
+- There are 8 different primitive types representing numbers, characters and booleans
+- Classes are arranged in a hierrachy
+- Sometimes you're allowed to convert the type of the data from one type to another
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,37 +52,36 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#position-and-order-of-appearance" class="toc__anchor">Position and order of appearance</a>
--   <a href="#specificity" class="toc__anchor">Specificity</a>
-    -   <a href="#specificity-is-cumulative" class="toc__anchor">Specificity is cumulative</a>
--   <a href="#origin" class="toc__anchor">Origin</a>
--   <a href="#importance" class="toc__anchor">Importance</a>
--   <a href="#using-devtools-to-find-out-why-some-css-is-not-applying" class="toc__anchor">Using DevTools to find out why some CSS is not applying</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#position-and-order-of-appearance" class="toc__anchor">Position and order of appearance</a>
+- <a href="#specificity" class="toc__anchor">Specificity</a>
+  - <a href="#specificity-is-cumulative" class="toc__anchor">Specificity is cumulative</a>
+- <a href="#origin" class="toc__anchor">Origin</a>
+- <a href="#importance" class="toc__anchor">Importance</a>
+- <a href="#using-devtools-to-find-out-why-some-css-is-not-applying" class="toc__anchor">Using DevTools to find out why some CSS is not applying</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 003
 
-The cascade
-===========
+# The cascade
 
 Sometimes two or more competing CSS rules could apply to an element. In this module find out how the browser chooses which to use, and how to control this selection.
 
 On this page
 
--   <a href="#position-and-order-of-appearance" class="toc__anchor">Position and order of appearance</a>
--   <a href="#specificity" class="toc__anchor">Specificity</a>
-    -   <a href="#specificity-is-cumulative" class="toc__anchor">Specificity is cumulative</a>
--   <a href="#origin" class="toc__anchor">Origin</a>
--   <a href="#importance" class="toc__anchor">Importance</a>
--   <a href="#using-devtools-to-find-out-why-some-css-is-not-applying" class="toc__anchor">Using DevTools to find out why some CSS is not applying</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#position-and-order-of-appearance" class="toc__anchor">Position and order of appearance</a>
+- <a href="#specificity" class="toc__anchor">Specificity</a>
+  - <a href="#specificity-is-cumulative" class="toc__anchor">Specificity is cumulative</a>
+- <a href="#origin" class="toc__anchor">Origin</a>
+- <a href="#importance" class="toc__anchor">Importance</a>
+- <a href="#using-devtools-to-find-out-why-some-css-is-not-applying" class="toc__anchor">Using DevTools to find out why some CSS is not applying</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -109,8 +106,7 @@ Understanding the cascade algorithm helps you understand how the browser resolve
 3.  **Origin**: the order of when CSS appears and where it comes from, whether that is a browser style, CSS from a browser extension, or your authored CSS
 4.  **Importance**: some CSS rules are weighted more heavily than others, especially with the `!important` rule type
 
-Position and order of appearance <a href="#position-and-order-of-appearance" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## Position and order of appearance <a href="#position-and-order-of-appearance" class="w-headline-link">#</a>
 
 The order in which your CSS rules appear and how they appear is taken into consideration by the cascade while it calculates conflict resolution.
 
@@ -175,8 +171,7 @@ The embedded `<style>` origin is further down the page than the `<link>` tag, so
 
 To the HTML document, the yellow button background may have been read first, but a newer rule of the same specificity was discovered later, making this rule not apply to the button.
 
-Specificity <a href="#specificity" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Specificity <a href="#specificity" class="w-headline-link">#</a>
 
 Specificity is an algorithm which determines which CSS selector is the most specific, using a weighting or scoring system to make those calculations. By making a rule more specific, you can cause it to be applied even if some other CSS that matches the selector appears later in the CSS.
 
@@ -200,8 +195,7 @@ An `id` makes the CSS even more specific, so styles applied to an ID will overri
 
 As you can find out in the next lesson, each type of selector is awarded points which indicate how specific it is, the points for all of the selectors you have used to target an element are added together. This means that if you target an element with a selector list such as `a.my-class.another-class[href]:hover` you get something quite hard to overwrite with other CSS. For this reason, and to help make your CSS more reusable, it's a good idea to keep your selectors as simple as possible. Use specificity as a tool to get at elements when you need to, but always consider refactoring long, specific selector lists, if you can.
 
-Origin <a href="#origin" class="w-headline-link">#</a>
-------------------------------------------------------
+## Origin <a href="#origin" class="w-headline-link">#</a>
 
 The CSS that you write isn't the only CSS applied to a page. The cascade takes into account the origin of the CSS. This origin includes the browser's internal stylesheet, styles added by browser extensions or the operating system, and your authored CSS. The **order of specificity of these origins**, from least specific, to most specific is as follows:
 
@@ -254,8 +248,7 @@ This author style is part of the authored origin, which loses to the important l
 
 This author style is part of the authored origin, which loses to the important local user style.
 
-Importance <a href="#importance" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Importance <a href="#importance" class="w-headline-link">#</a>
 
 Not all CSS rules are calculated the same as each other, or given the same specificity as each other.
 
@@ -268,8 +261,7 @@ The **order of importance**, from least important, to most important is as follo
 
 Active animation and transition rule types have higher importance than normal rules. In the case of transitions higher importance than `!important` rule types. This is because when an animation or transition becomes active, its expected behaviour is to change visual state.
 
-Using DevTools to find out why some CSS is not applying <a href="#using-devtools-to-find-out-why-some-css-is-not-applying" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------
+## Using DevTools to find out why some CSS is not applying <a href="#using-devtools-to-find-out-why-some-css-is-not-applying" class="w-headline-link">#</a>
 
 Browser DevTools will typically show all CSS that could match an element, with those which are not being used crossed out.
 
@@ -287,11 +279,10 @@ Scoring and weighting are part of the sorting phase of The Cascade.
 
 Sorting and filtering are phases of The Cascade to help understand aspects of conflict resolution.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [A highly interactive explainer of the cascade](https://wattenberger.com/blog/css-cascade)
--   [MDN cascade reference](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
+- [A highly interactive explainer of the cascade](https://wattenberger.com/blog/css-cascade)
+- [MDN cascade reference](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
 
 <a href="/learn/css/selectors/" class="course-pagination-control"></a>
 
@@ -307,35 +298,35 @@ Specificity
 
 This module takes a deeper look at specificity, a key part of the cascade.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

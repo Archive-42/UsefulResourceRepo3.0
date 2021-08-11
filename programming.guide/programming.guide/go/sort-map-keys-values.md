@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Maps explained](maps-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [How to sort in Go](how-to-sort-in-go.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,11 +32,10 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Sort a map by key or value
-==============================
+# Go: Sort a map by key or value
 
--   A map is an **unordered** collection of key-value pairs.
--   If you need a stable iteration order, you must maintain a separate data structure.
+- A map is an **unordered** collection of key-value pairs.
+- If you need a stable iteration order, you must maintain a separate data structure.
 
 This example uses a sorted slice of keys to print a `map[string]int` in key order:
 
@@ -61,8 +57,7 @@ Output:
     Bob 25
     Eve 2
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

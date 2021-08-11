@@ -1,36 +1,28 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/sq79nDAthaQGcdQkqazJ.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-tabs-component" class="w-toc__header--link">Building a Tabs component</a>
-----------------------------------------------------------------------------------------------
+## <a href="#building-a-tabs-component" class="w-toc__header--link">Building a Tabs component</a>
 
--   [Overview](#overview)
--   [Web Tactics](#web-tactics)
--   [The HTML](#markup)
--   [Scrolling layouts](#overscroll)
--   [Animation](#animation)
--   [Even more JavaScript enhancements](#js)
--   [Conclusion](#conclusion)
--   [Community remixes](#community-remixes)
+- [Overview](#overview)
+- [Web Tactics](#web-tactics)
+- [The HTML](#markup)
+- [Scrolling layouts](#overscroll)
+- [Animation](#animation)
+- [Even more JavaScript enhancements](#js)
+- [Conclusion](#conclusion)
+- [Community remixes](#community-remixes)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a Tabs component
-=========================
+# Building a Tabs component
 
 A foundational overview of how to build a tabs component similar to those found in iOS and Android apps.
 
@@ -40,10 +32,10 @@ Feb 17, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share thinking on building a Tabs component for the web that is responsive, supports multiple device inputs, and works across browsers. Try the [demo](https://gui-challenges.web.app/tabs/dist/).
 
@@ -51,23 +43,21 @@ In this post I want to share thinking on building a Tabs component for the web t
 
 If you prefer video, here's a YouTube version of this post:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 Tabs are a common component of design systems but can take many shapes and forms. First there were desktop tabs built on `<frame>` element, and now we have buttery mobile components that animate content based on physics properties. They're all trying to do the same thing: save space.
 
 Today, the essentials of a tabs user experience is a button navigation area which toggles the visibility of content in a display frame. Many different content areas share the same space, but are conditionally presented based on the button selected in the navigation.
 
-<figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format" alt="A collage of tab component web design styles from over the past 10 years" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1600 1600w" width="800" height="500" /><figcaption>A collage of tab component web design styles from over the past 10 years</figcaption></figure>Web Tactics <a href="#web-tactics" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format" alt="A collage of tab component web design styles from over the past 10 years" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/eAaQ44VAmzVOO9Cy5Wc8.png?auto=format&amp;w=1600 1600w" width="800" height="500" /><figcaption>A collage of tab component web design styles from over the past 10 years</figcaption></figure>Web Tactics <a href="#web-tactics" class="w-headline-link">#</a>
 
 All in all I found this component pretty straightforward to build, thanks to a few critical web platform features:
 
--   `scroll-snap-points` for elegant swipe and keyboard interactions with appropriate scroll stop positions
--   [Deep links](https://en.wikipedia.org/wiki/Deep_linking) via URL hashes for browser handled in-page scroll anchoring and sharing support
--   Screen reader support with `<a>` and `id="#hash"` element markup
--   `prefers-reduced-motion` for enabling crossfade transitions and instant in-page scrolling
--   The in-draft `@scroll-timeline` web feature for dynamically underlining and color changing the selected tab
+- `scroll-snap-points` for elegant swipe and keyboard interactions with appropriate scroll stop positions
+- [Deep links](https://en.wikipedia.org/wiki/Deep_linking) via URL hashes for browser handled in-page scroll anchoring and sharing support
+- Screen reader support with `<a>` and `id="#hash"` element markup
+- `prefers-reduced-motion` for enabling crossfade transitions and instant in-page scrolling
+- The in-draft `@scroll-timeline` web feature for dynamically underlining and color changing the selected tab
 
 ### The HTML <a href="#markup" class="w-headline-link">#</a>
 
@@ -123,9 +113,9 @@ I next filled the articles with mixed amounts of lorem, and the links with a mix
 
 There are 3 different types of scroll areas in this component:
 
--   The navigation **(pink)** is horizontally scrollable
--   The content area **(blue)** is horizontally scrollable
--   Each article item **(green)** is vertically scrollable.
+- The navigation **(pink)** is horizontally scrollable
+- The content area **(blue)** is horizontally scrollable
+- Each article item **(green)** is vertically scrollable.
 
 <figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/qVmUKMwbeoCBffP0aY55.png?auto=format&amp;w=1600 1600w" width="800" height="450" /></figure>There's 2 different types of elements involved with scrolling:
 
@@ -170,8 +160,8 @@ CSS
 
 Pointing back to the colorful 3-scroll diagram:
 
--   `<header>` is now prepared to be the **(pink)** scroll container.
--   `<section>` is prepared to be the **(blue)** scroll container.
+- `<header>` is now prepared to be the **(pink)** scroll container.
+- `<section>` is prepared to be the **(blue)** scroll container.
 
 The frames I've highlighted below with [VisBug](https://a.nerdy.dev/gimme-visbug) help us see the **windows** the scroll containers have created.
 
@@ -551,10 +541,9 @@ Now that you know how I did it, how would you?! This makes for some fun componen
 
 Let's diversify our approaches and learn all the ways to build on the web. Create a [Glitch](https://glitch.com), [tweet me](https://twitter.com/argyleink) your version, and I'll add it to the [Community remixes](#community-remixes) section below.
 
-Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
--   [@devnook](https://twitter.com/devnook), [@rob\_dodson](https://twitter.com/rob_dodson), & [@DasSurma](https://twitter.com/DasSurma) with Web Components: [article](https://developers.google.com/web/fundamentals/web-components/examples/howto-tabs)
+- [@devnook](https://twitter.com/devnook), [@rob_dodson](https://twitter.com/rob_dodson), & [@DasSurma](https://twitter.com/DasSurma) with Web Components: [article](https://developers.google.com/web/fundamentals/web-components/examples/howto-tabs)
 
 <a href="/tags/css/" class="w-chip">CSS</a> <a href="/tags/dom/" class="w-chip">DOM</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a> <a href="/tags/layout/" class="w-chip">Layout</a> <a href="/tags/mobile/" class="w-chip">Mobile</a> <a href="/tags/ux/" class="w-chip">UX</a>
 
@@ -562,35 +551,35 @@ Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

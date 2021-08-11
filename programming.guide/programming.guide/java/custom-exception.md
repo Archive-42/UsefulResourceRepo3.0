@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Exceptions
----------------
+## Java Exceptions
 
 1.  [Throw, Try and Catch](exceptions-throw-try-catch.html)
 2.  [Java Exception Types](exception-types.html)
@@ -20,8 +19,7 @@ Java Exceptions
 13. [throw vs throws vs Throwable](throw-vs-throws-vs-throwable.html)
 14. [List of Java Exceptions](list-of-java-exceptions.html)
 
-Exception Related Keywords
---------------------------
+## Exception Related Keywords
 
 1.  [throw](throw.html)
 2.  [throws](throws.html)
@@ -29,17 +27,15 @@ Exception Related Keywords
 4.  [try](try.html)
 5.  [finally](finally.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -49,8 +45,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -58,8 +53,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Custom Exception
-======================
+# Java: Custom Exception
 
 You create a custom exception by extending [`Exception`](https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html), directly or indirectly. Technically speaking you could extend any [`Throwable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html), but ordinary programs should stick to the `Exception` hierarchy. See [Java Exception Types](exception-types.html).
 
@@ -79,8 +73,7 @@ This can be used as any other exception:
 
 It's also customary to allow clients to specify a message and/or cause by overriding one or more [`Throwable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html) constructors. See the "real world" example at the end of the article.
 
-Which class to extend?
-----------------------
+## Which class to extend?
 
 If you extend `RuntimeException` your exception will be an **unchecked** exception. Otherwise it will be a **checked** exception.
 
@@ -88,32 +81,30 @@ If you extend `RuntimeException` your exception will be an **unchecked** excepti
 
 This is an important decision and you should read the following two articles to understand the implications.
 
--   [Difference between Checked and Unchecked Exceptions](difference-between-checked-and-unchecked-exceptions.html)
--   [Choosing between Checked and Unchecked Exceptions](choosing-between-checked-and-unchecked-exceptions.html)
+- [Difference between Checked and Unchecked Exceptions](difference-between-checked-and-unchecked-exceptions.html)
+- [Choosing between Checked and Unchecked Exceptions](choosing-between-checked-and-unchecked-exceptions.html)
 
-Use a standard exception if possible
-------------------------------------
+## Use a standard exception if possible
 
 By reusing exceptions from the standard API, either by extending it or by using it off the shelf, you get two benefits:
 
--   As always with code reuse, you end up with less code to test and maintain
+- As always with code reuse, you end up with less code to test and maintain
 
--   It makes your API easier to understand, as most programmers are already familiar with the semantics of the standard exceptions
+- It makes your API easier to understand, as most programmers are already familiar with the semantics of the standard exceptions
 
 Make sure to always read the Javadoc of the exception you intend to use. Even though an exception may have a generic and fitting name, it may be intended for something specific and entirely different. Don't use a [`ZipException`](https://docs.oracle.com/javase/8/docs/api/java/util/zip/ZipException.html) for malformed Zip Codes, or an [`InvalidAddress`](https://docs.oracle.com/javase/8/docs/api/org/omg/CosNaming/NamingContextExtPackage/InvalidAddress.html) (which belongs to the CORBA package) for invalid email addresses.
 
 Here's a [list of all Java Exceptions](list-of-java-exceptions.html).
 
-Real World Example
-------------------
+## Real World Example
 
 Here's an example that follows the above mentioned best practices.
 
 **Example:** The exception below is thrown when the application fails to save the document to disk.
 
--   It reuses the well known `IOException` from the API
--   It allows clients to specify message and cause, and
--   It includes information useful when handling the exception
+- It reuses the well known `IOException` from the API
+- It allows clients to specify message and cause, and
+- It includes information useful when handling the exception
 
 <!-- -->
 
@@ -150,8 +141,7 @@ Here's an example that follows the above mentioned best practices.
         }
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

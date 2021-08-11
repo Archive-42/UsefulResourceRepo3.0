@@ -1,35 +1,27 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#broadcast-updates-to-pages-with-service-workers" class="w-toc__header--link">Broadcast updates to pages with service workers</a>
-------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#broadcast-updates-to-pages-with-service-workers" class="w-toc__header--link">Broadcast updates to pages with service workers</a>
 
--   [Production cases](#production-cases)
--   [Tinder](#tinder)
--   [Squoosh](#squoosh)
--   [Using Workbox](#using-workbox)
--   [Listen to service worker lifecycle events](#listen-to-service-worker-lifecycle-events)
--   [Inform the page of changes in cache data](#inform-the-page-of-changes-in-cache-data)
--   [Using browser APIs](#using-browser-apis)
--   [Broadcast Channel API](#broadcast-channel-api)
--   [Client API](#client-api)
--   [Message Channel](#message-channel)
--   [Next steps](#next-steps)
--   [Additional resources](#additional-resources)
+- [Production cases](#production-cases)
+- [Tinder](#tinder)
+- [Squoosh](#squoosh)
+- [Using Workbox](#using-workbox)
+- [Listen to service worker lifecycle events](#listen-to-service-worker-lifecycle-events)
+- [Inform the page of changes in cache data](#inform-the-page-of-changes-in-cache-data)
+- [Using browser APIs](#using-browser-apis)
+- [Broadcast Channel API](#broadcast-channel-api)
+- [Client API](#client-api)
+- [Message Channel](#message-channel)
+- [Next steps](#next-steps)
+- [Additional resources](#additional-resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Broadcast updates to pages with service workers
-===============================================
+# Broadcast updates to pages with service workers
 
 Dec 8, 2020
 
@@ -39,27 +31,26 @@ Dec 8, 2020
 
 <a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>
 
--   <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
--   <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
+- <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
 
 [<img src="https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Andrew Guan" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/HFWAhol3apcfNfuFxGZfjtLt2Yq2/oXpI60ZHNBOBos8bGJRn.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/andrewguan/)
 
 <a href="/authors/andrewguan/" class="w-author__name-link">Andrew Guan</a>
 
--   <a href="https://github.com/AndrewKGuan" class="w-author__link">GitHub</a>
+- <a href="https://github.com/AndrewKGuan" class="w-author__link">GitHub</a>
 
 In some scenarios the service worker might need to proactively communicate with any of the active tabs it controls to inform of a certain event. Examples include:
 
--   Informing the page when a new version of the service worker has been installed, so that the page can show an **"Update to refresh"** button to the user to access the new functionality immediately.
--   Letting the user know about a change on cached data that took place on the service worker side, by showing an indication, like: **"The app is now ready to work offline"**, or **"New version of the content available"**.
+- Informing the page when a new version of the service worker has been installed, so that the page can show an **"Update to refresh"** button to the user to access the new functionality immediately.
+- Letting the user know about a change on cached data that took place on the service worker side, by showing an indication, like: **"The app is now ready to work offline"**, or **"New version of the content available"**.
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format" sizes="(min-width: 550px) 550px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/RpZYhHYGpPY9e3AjxuaQ.png?auto=format&amp;w=1100 1100w" width="550" height="318" /></figure>We'll call these types of use cases where the service worker doesn't need to receive a message from the page to start a communication **"broadcast updates"**. In this guide we'll review different ways of implementing this type of communication between pages and service workers, by using standard browser APIs and the [Workbox library](https://developers.google.com/web/tools/workbox).
 
 Check out [Workers overview](/workers-overview/) for a high-level explanation of when to use web workers versus service workers and the rest of the [Communicate with workers](/reliable/#communicate-with-workers) series for guides on other common use cases.
 
-Production cases <a href="#production-cases" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Production cases <a href="#production-cases" class="w-headline-link">#</a>
 
 ### Tinder <a href="#tinder" class="w-headline-link">#</a>
 
@@ -69,8 +60,7 @@ Tinder PWA uses [`workbox-window`](https://developers.google.com/web/tools/workb
 
 In the [Squoosh PWA](https://squoosh.app/), when the service worker has cached all of the necessary assets to make it work offline, it sends a message to the page to show a "Ready to work offline" toast, letting the user know about the feature:
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format" alt="In the Squoosh PWA the service worker broadcasts an update to the page when cache is ready, and the page displays &quot;Ready to work offline&quot; toast." sizes="(min-width: 550px) 550px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=1100 1100w" width="550" height="380" /><figcaption>In the Squoosh PWA the service worker broadcasts an update to the page when cache is ready, and the page displays "Ready to work offline" toast.</figcaption></figure>Using Workbox <a href="#using-workbox" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format" alt="In the Squoosh PWA the service worker broadcasts an update to the page when cache is ready, and the page displays &quot;Ready to work offline&quot; toast." sizes="(min-width: 550px) 550px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/tRM8WvCI0aEdVGWGDpLS.png?auto=format&amp;w=1100 1100w" width="550" height="380" /><figcaption>In the Squoosh PWA the service worker broadcasts an update to the page when cache is ready, and the page displays "Ready to work offline" toast.</figcaption></figure>Using Workbox <a href="#using-workbox" class="w-headline-link">#</a>
 
 ### Listen to service worker lifecycle events <a href="#listen-to-service-worker-lifecycle-events" class="w-headline-link">#</a>
 
@@ -123,8 +113,7 @@ In your web app, you can listen for these events like so:
       }
     });
 
-Using browser APIs <a href="#using-browser-apis" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Using browser APIs <a href="#using-browser-apis" class="w-headline-link">#</a>
 
 If the functionality that Workbox provides is not enough for your needs, use the following browser APIs to implement **"broadcast updates"**:
 
@@ -216,22 +205,20 @@ From that point it can send messages to the page, by calling `postMessage()` in 
 
 `MessageChannel` might be more complex to implement, due to the need of initializing ports, but it's supported by [all major browsers](https://caniuse.com/?search=channel%20messaging).
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 In this guide we explored one particular case of Window to service worker communication: **"broadcast updates"**. The examples explored include listening to important service worker lifecycle events, and communicating to the page about changes in content or cached data. You can think of more interesting use cases where the service worker proactively communicates with the page, without receiving any message previously.
 
 For more patterns of Window and service worker communication check out:
 
--   [Imperative caching guide](/imperative-caching-guide): Calling a service worker from the page to cache resources in advance (e.g. in prefetching scenarios).
--   [Two-way communication](/two-way-communication-guide): Delegating a task to a service worker (e.g. a heavy download), and keeping the page informed on the progress.
+- [Imperative caching guide](/imperative-caching-guide): Calling a service worker from the page to cache resources in advance (e.g. in prefetching scenarios).
+- [Two-way communication](/two-way-communication-guide): Delegating a task to a service worker (e.g. a heavy download), and keeping the page informed on the progress.
 
-Additional resources <a href="#additional-resources" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Additional resources <a href="#additional-resources" class="w-headline-link">#</a>
 
--   [workbox-window](https://developers.google.com/web/tools/workbox/modules/workbox-window)
--   [workbox-broadcast-update](https://developers.google.com/web/tools/workbox/modules/workbox-broadcast-update)
--   [Workbox 4: Implementing refresh-to-update-version flow using the workbox-window module](https://medium.com/google-developer-experts/workbox-4-implementing-refresh-to-update-version-flow-using-the-workbox-window-module-41284967e79c)
+- [workbox-window](https://developers.google.com/web/tools/workbox/modules/workbox-window)
+- [workbox-broadcast-update](https://developers.google.com/web/tools/workbox/modules/workbox-broadcast-update)
+- [Workbox 4: Implementing refresh-to-update-version flow using the workbox-window module](https://medium.com/google-developer-experts/workbox-4-implementing-refresh-to-update-version-flow-using-the-workbox-window-module-41284967e79c)
 
 <a href="/tags/service-worker/" class="w-chip">Service Worker</a> <a href="/tags/offline/" class="w-chip">Offline</a>
 
@@ -239,35 +226,35 @@ Additional resources <a href="#additional-resources" class="w-headline-link">#</
 
 <a href="/reliable" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,42 +1,34 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format" alt="A lazy leopard relaxing on a tree" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Tx8vq8DMsflw49EHAa8Q.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#browser-level-lazy-loading-for-cmss" class="w-toc__header--link">Browser-level lazy-loading for CMSs</a>
-------------------------------------------------------------------------------------------------------------------
+## <a href="#browser-level-lazy-loading-for-cmss" class="w-toc__header--link">Browser-level lazy-loading for CMSs</a>
 
--   [Background](#background)
--   [The case for implementing lazy-loading now](#the-case-for-implementing-lazy-loading-now)
--   [Standardization](#standardization)
--   [Browser support](#browser-support)
--   [Distance-from-viewport thresholds](#distance-from-viewport-thresholds)
--   [User experience recommendations](#user-experience-recommendations)
--   [Require dimension attributes on elements](#require-dimension-attributes-on-elements)
--   [Avoid lazy-loading above-the-fold elements](#avoid-lazy-loading-above-the-fold-elements)
--   [Avoid a JavaScript fallback](#avoid-a-javascript-fallback)
--   [Technical recommendations](#technical-recommendations)
--   [Enable lazy-loading by default](#enable-lazy-loading-by-default)
--   [Allow per-element modifications](#allow-per-element-modifications)
--   [Retrofit existing content](#retrofit-existing-content)
--   [Next steps](#next-steps)
+- [Background](#background)
+- [The case for implementing lazy-loading now](#the-case-for-implementing-lazy-loading-now)
+- [Standardization](#standardization)
+- [Browser support](#browser-support)
+- [Distance-from-viewport thresholds](#distance-from-viewport-thresholds)
+- [User experience recommendations](#user-experience-recommendations)
+- [Require dimension attributes on elements](#require-dimension-attributes-on-elements)
+- [Avoid lazy-loading above-the-fold elements](#avoid-lazy-loading-above-the-fold-elements)
+- [Avoid a JavaScript fallback](#avoid-a-javascript-fallback)
+- [Technical recommendations](#technical-recommendations)
+- [Enable lazy-loading by default](#enable-lazy-loading-by-default)
+- [Allow per-element modifications](#allow-per-element-modifications)
+- [Retrofit existing content](#retrofit-existing-content)
+- [Next steps](#next-steps)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Browser-level lazy-loading for CMSs
-===================================
+# Browser-level lazy-loading for CMSs
 
 Learnings for adopting the standardized loading attribute
 
@@ -46,22 +38,20 @@ Nov 20, 2020 <span class="w-author__separator">•</span> Updated Jul 29, 2021
 
 <a href="/authors/felixarntz/" class="w-author__name-link">Felix Arntz</a>
 
--   <a href="https://twitter.com/felixarntz" class="w-author__link">Twitter</a>
--   <a href="https://felix-arntz.me" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/felixarntz" class="w-author__link">Twitter</a>
+- <a href="https://felix-arntz.me" class="w-author__link">Blog</a>
 
 My goal with this post is to persuade CMS platform developers and contributors (i.e. the people who develop CMS cores) that [now is the time to implement support for the browser-level image lazy-loading feature](#the-case-for-implementing-lazy-loading-now). I'll also share recommendations on how to [ensure high-quality user experiences](#user-experience-recommendations) and [enable customization by other developers](#technical-recommendations) while implementing lazy-loading. These guidelines come from our experience adding support to WordPress as well as helping Joomla, Drupal, and TYPO3 implement the feature.
 
 Regardless of whether you're a CMS platform developer or a CMS user (i.e. a person who builds websites with a CMS), you can use this post to learn more about the benefits of browser-level lazy-loading in your CMS. Check out the [Next steps](#next-steps) section for suggestions on how you can encourage your CMS platform to implement lazy-loading.
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 Over the past year, [lazy-loading images and iframes using the `loading` attribute](/browser-level-image-lazy-loading/) has [become part of the WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/urls-and-fetching.html#lazy-loading-attributes) and [seen growing adoption by various browsers](https://caniuse.com/#feat=loading-lazy-attr). These milestones however only lay the groundwork for a [faster and more resource-saving web](/browser-level-image-lazy-loading/#why-browser-level-lazy-loading). It is now on the distributed web ecosystem to make use of the `loading` attribute.
 
 Content management systems [power about 60% of websites](https://w3techs.com/technologies/overview/content_management), so these platforms play a vital role in bringing adoption of modern browser features to the web. With a few popular open-source CMSs such as [WordPress](https://make.wordpress.org/core/2020/07/14/lazy-loading-images-in-5-5/), [Joomla](https://github.com/joomla/joomla-cms/pull/28838), and [TYPO3](https://review.typo3.org/c/Packages/TYPO3.CMS/+/63317) having already implemented support for the `loading` attribute on images, let's have a look at their approaches and the takeaways which are relevant for adopting the feature in other CMS platforms as well. Lazy-loading media is a key web performance feature that sites should benefit from at a large scale, which is why adopting it at the CMS core level is recommended.
 
-The case for implementing lazy-loading now <a href="#the-case-for-implementing-lazy-loading-now" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------
+## The case for implementing lazy-loading now <a href="#the-case-for-implementing-lazy-loading-now" class="w-headline-link">#</a>
 
 ### Standardization <a href="#standardization" class="w-headline-link">#</a>
 
@@ -81,8 +71,7 @@ A common concern with lazy-loading implementations is that they in principle inc
 
 **Success**: Experiments using Chrome on Android indicated that on 4G networks, 97.5% of below-the-fold lazy-loaded images were fully loaded within 10ms of becoming visible, compared to 97.6% for non lazy-loaded images. In other words, there was virtually no difference (0.1%) in the user experience of eagerly-loaded images and lazy-loaded images.
 
-User experience recommendations <a href="#user-experience-recommendations" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------
+## User experience recommendations <a href="#user-experience-recommendations" class="w-headline-link">#</a>
 
 ### Require dimension attributes on elements <a href="#require-dimension-attributes-on-elements" class="w-headline-link">#</a>
 
@@ -100,12 +89,11 @@ Depending on the capabilities and audience of the CMS, try to define reasonable 
 
 ### Avoid a JavaScript fallback <a href="#avoid-a-javascript-fallback" class="w-headline-link">#</a>
 
-While JavaScript can be used to [provide lazy-loading to browsers which do not (yet) support the `loading` attribute](/browser-level-image-lazy-loading/#how-do-i-handle-browsers-that-don't-yet-support-lazy-loading), such mechanisms always rely on initially removing the `src` attribute of an image or iframe, which causes a delay for the browsers that *do* support the attribute. In addition, rolling out such a JavaScript-based solution in the frontends of a large-scale CMS increases the surface area for potential issues, which is part of why no major CMS had adopted lazy-loading in its core prior to the standardized browser feature.
+While JavaScript can be used to [provide lazy-loading to browsers which do not (yet) support the `loading` attribute](/browser-level-image-lazy-loading/#how-do-i-handle-browsers-that-don't-yet-support-lazy-loading), such mechanisms always rely on initially removing the `src` attribute of an image or iframe, which causes a delay for the browsers that _do_ support the attribute. In addition, rolling out such a JavaScript-based solution in the frontends of a large-scale CMS increases the surface area for potential issues, which is part of why no major CMS had adopted lazy-loading in its core prior to the standardized browser feature.
 
 **Caution**: Avoid providing a JavaScript-based fallback in the CMS. With growing adoption of the `loading` attribute and no adverse effects on browser versions that do not support it yet, it is safer to not provide the feature to those browsers and instead encourage updating to a newer browser version.
 
-Technical recommendations <a href="#technical-recommendations" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Technical recommendations <a href="#technical-recommendations" class="w-headline-link">#</a>
 
 ### Enable lazy-loading by default <a href="#enable-lazy-loading-by-default" class="w-headline-link">#</a>
 
@@ -125,8 +113,8 @@ WordPress for example allows to skip the `loading` attribute either for an [enti
 
 At a high level, there are two approaches for adding the `loading` attribute to HTML elements in a CMS:
 
--   Either add the attribute from within the content editor in the backend, persistently saving it in the database.
--   Add the attribute on the fly when rendering content from the database in the frontend.
+- Either add the attribute from within the content editor in the backend, persistently saving it in the database.
+- Add the attribute on the fly when rendering content from the database in the frontend.
 
 It is recommended for CMS to opt for adding the attribute on the fly when rendering, in order to bring the lazy-loading benefits to any existing content as well. If the attribute could solely be added through the editor, only new or recently modified pieces of content would receive the benefits, drastically reducing the CMS's impact on saving network resources. Furthermore, adding the attribute on the fly will easily allow for future modifications, should the capabilities of browser-level lazy-loading be further expanded.
 
@@ -138,8 +126,7 @@ When adding the `loading` attribute to content on the fly using (for example) a 
 
 Regular expressions use should be kept to a minimum, for example a single regex which collects all `img` and `iframe` tags in the content including their attributes and then adds the `loading` attribute to each tag string as applicable. WordPress for example goes as far as [having a single general regular expression to perform various on-the-fly operations to certain elements](https://developer.wordpress.org/reference/functions/wp_filter_content_tags/), of which adding `loading="lazy"` is just one, using a single regular expression to facilitate multiple features. This form of optimization furthermore is another reason why adopting lazy-loading in a CMS's core is recommended over an extension - it allows for better server-side performance optimization.
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 See if there is an existing feature request ticket to add support for the feature in your CMS, or open a new one if there is none yet. Use references to this post as needed to support your proposal.
 
@@ -147,9 +134,9 @@ Tweet me ([felixarntz@](https://twitter.com/felixarntz)) for questions or commen
 
 If you're a CMS platform developer, study how other CMSs have implemented lazy-loading:
 
--   [WordPress Core](https://make.wordpress.org/core/2020/07/14/lazy-loading-images-in-5-5/)
--   [Joomla](https://github.com/joomla/joomla-cms/pull/28838)
--   [TYPO3](https://review.typo3.org/c/Packages/TYPO3.CMS/+/63317)
+- [WordPress Core](https://make.wordpress.org/core/2020/07/14/lazy-loading-images-in-5-5/)
+- [Joomla](https://github.com/joomla/joomla-cms/pull/28838)
+- [TYPO3](https://review.typo3.org/c/Packages/TYPO3.CMS/+/63317)
 
 You can use the learnings from your research and the technical recommendations from this post to start contributing code to your CMS, for example in form of a patch or pull-request.
 
@@ -161,35 +148,35 @@ Hero photo by [Colin Watts](https://unsplash.com/@imagefactory?utm_source=unspla
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,25 +2,22 @@
 
 <span class="underline"></span>
 
-Unsigned integers in Java
--------------------------
+## Unsigned integers in Java
 
 1.  Unsigned byte
 2.  [Unsigned short](unsigned-short.html)
 3.  [Unsigned int](unsigned-int.html)
 4.  [Unsigned long](unsigned-long.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -30,8 +27,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -39,16 +35,14 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Unsigned byte in Java
-=====================
+# Unsigned byte in Java
 
 Java does not have unsigned data types. Your options are:
 
--   Use a wider datatype such as `short`, `char` or `int`
--   Use a `byte` and “manually” interpret it as unsigned (described below)
+- Use a wider datatype such as `short`, `char` or `int`
+- Use a `byte` and “manually” interpret it as unsigned (described below)
 
-An unsigned `byte`
-------------------
+## An unsigned `byte`
 
 A `byte` is always signed in Java, but nothing prevents you from viewing a `byte` simply as 8 bits and interpret those bits as a value between 0 and 255.
 
@@ -60,8 +54,7 @@ Keep in mind that there’s nothing you can do to force your interpretation upon
 
 Here are a couple of useful conversions / manipulations.
 
-Printing an unsigned `byte`
----------------------------
+## Printing an unsigned `byte`
 
 Use [`Byte.toUnsignedInt`](https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html#toUnsignedInt-byte-) and print the resulting `int`:
 
@@ -69,8 +62,7 @@ Use [`Byte.toUnsignedInt`](https://docs.oracle.com/javase/8/docs/api/java/lang/B
 
     System.out.println("Value of my unsigned byte: " + Byte.toUnsignedInt(b));  // 150
 
-Converting from `int` to unsigned `byte`
-----------------------------------------
+## Converting from `int` to unsigned `byte`
 
 Casting to `byte` throws away all but the lowest 8 bits.
 
@@ -80,8 +72,7 @@ Casting to `byte` throws away all but the lowest 8 bits.
     System.out.println(b);                      // -106
     System.out.println(Byte.toUnsignedInt(b));  //  150
 
-Converting from unsigned `byte` to `int`
-----------------------------------------
+## Converting from unsigned `byte` to `int`
 
 Use [`Byte.toUnsignedInt`](https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html#toUnsignedInt-byte-) to avoid [sign extension](https://en.wikipedia.org/wiki/Sign_extension).
 
@@ -94,8 +85,7 @@ Or, equivalently:
 
     int unsigned = b & 0xff;
 
-Parsing an unsigned `byte`
---------------------------
+## Parsing an unsigned `byte`
 
     byte b = (byte) Integer.parseInt("150");
 
@@ -105,8 +95,7 @@ Or, using Guava:
 
     byte b = UnsignedBytes.parseUnsignedByte("150");
 
-Compare unsigned `byte`s
-------------------------
+## Compare unsigned `byte`s
 
 Convert to `int` and compare.
 
@@ -119,8 +108,7 @@ Or, using Guava
 
     int cmp = UnsignedBytes.compare(b1, b2);
 
-Arithmetics
------------
+## Arithmetics
 
 The 2-complement representation “just works” for addition, subtraction and multiplication.
 
@@ -136,8 +124,7 @@ Division requires conversion of operands, and then convertion of result back to 
 
     byte ratio = (byte) (Byte.toUnsignedInt(b1) / Byte.toUnsignedInt(b2));
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,39 +1,29 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format" alt="The Workbox logo." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/KW5Rgyo01HyimeALdCZD.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#extending-workbox" class="w-toc__header--link">Extending Workbox</a>
-------------------------------------------------------------------------------
+## <a href="#extending-workbox" class="w-toc__header--link">Extending Workbox</a>
 
--   [What's Workbox?](#what's-workbox)
--   [Custom strategies](#custom-strategies)
--   [Handle simultaneous, duplicate requests with DedupeNetworkFirst](#handle-simultaneous-duplicate-requests-with-dedupenetworkfirst)
--   [Create a race between the cache and network with CacheNetworkRace](#create-a-race-between-the-cache-and-network-with-cachenetworkrace)
--   [StategyHandler: the recommended approach for creating custom strategies](#stategyhandler:-the-recommended-approach-for-creating-custom-strategies)
--   [Drop-in support for routing](#drop-in-support-for-routing)
--   [Custom plugins](#custom-plugins)
--   [Lifecycle event overview](#lifecycle-event-overview)
--   [Lifecycle events example: FallbackOnErrorPlugin](#lifecycle-events-example:-fallbackonerrorplugin)
--   [Custom strategy or custom plugin?](#custom-strategy-or-custom-plugin)
--   [Takeaways](#takeaways)
+- [What's Workbox?](#what's-workbox)
+- [Custom strategies](#custom-strategies)
+- [Handle simultaneous, duplicate requests with DedupeNetworkFirst](#handle-simultaneous-duplicate-requests-with-dedupenetworkfirst)
+- [Create a race between the cache and network with CacheNetworkRace](#create-a-race-between-the-cache-and-network-with-cachenetworkrace)
+- [StategyHandler: the recommended approach for creating custom strategies](#stategyhandler:-the-recommended-approach-for-creating-custom-strategies)
+- [Drop-in support for routing](#drop-in-support-for-routing)
+- [Custom plugins](#custom-plugins)
+- [Lifecycle event overview](#lifecycle-event-overview)
+- [Lifecycle events example: FallbackOnErrorPlugin](#lifecycle-events-example:-fallbackonerrorplugin)
+- [Custom strategy or custom plugin?](#custom-strategy-or-custom-plugin)
+- [Takeaways](#takeaways)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Extending Workbox
-=================
+# Extending Workbox
 
 Write your own reusable, shareable strategies and plugins.
 
@@ -45,24 +35,22 @@ Dec 10, 2020
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
 In this article, we're going to take a quick tour of some ways of extending [Workbox](https://developers.google.com/web/tools/workbox). By the end, you'll be writing your own strategies and plugins, and hopefully sharing them with the world.
 
 If you're more of a visual person, you can watch a recording of a Chrome Dev Summit talk covering the same material:
 
-What's Workbox? <a href="#what&#39;s-workbox" class="w-headline-link">#</a>
----------------------------------------------------------------------------
+## What's Workbox? <a href="#what&#39;s-workbox" class="w-headline-link">#</a>
 
 At its core, Workbox is a set of libraries to help with common service worker caching scenarios. And when we've written about Workbox in the past, the emphasis has been on "common" scenarios. For most developers, the [caching strategies](https://developers.google.com/web/tools/workbox/modules/workbox-strategies) that Workbox already provides will handle your caching needs.
 
 The built-in strategies include [stale-while-revalidate](https://developers.google.com/web/tools/workbox/modules/workbox-strategies#stale-while-revalidate), where a cached response is used to respond to a request immediately, while the cache is also updated so that it's fresh the next time around. They also include [network-first](https://developers.google.com/web/tools/workbox/modules/workbox-strategies#network_first_network_falling_back_to_cache), falling back to the cache when the network is unavailable, and a few more.
 
-Custom strategies <a href="#custom-strategies" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Custom strategies <a href="#custom-strategies" class="w-headline-link">#</a>
 
 But what if you wanted to go beyond those common caching scenarios? Let's cover writing your own custom caching strategies. [Workbox v6](https://github.com/GoogleChrome/workbox/releases/tag/v6.0.0) offers a new [`Strategy` base class](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.Strategy) that sits in front of lower-level APIs, like [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and [Cache Storage](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage). You can extend the `Strategy` base class, and then implement your own logic in the [`_handle()` method](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.Strategy#_handle).
 
@@ -139,14 +127,13 @@ Here's another example of a custom strategy—one that's a twist on stale-while-
             if (results[0].status === 'rejected' &&
                 !results[1].value) {
               reject(results[0].reason);
-            }  
+            }
           });
         });
       }
     }
 
-StategyHandler: the recommended approach for creating custom strategies <a href="#stategyhandler:-the-recommended-approach-for-creating-custom-strategies" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## StategyHandler: the recommended approach for creating custom strategies <a href="#stategyhandler:-the-recommended-approach-for-creating-custom-strategies" class="w-headline-link">#</a>
 
 Although it's not required, it's strongly recommended that when interacting with the network or cache, you use the instance of the [`StrategyHandler` class](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.StrategyHandler) that's passed to your `_handle()` method. It's the second parameter, called `handler` in the example code.
 
@@ -180,8 +167,7 @@ Writing a Workbox strategy class is a great way to package up response logic in 
 
 A properly written strategy should automatically work with all plugins as well. This applies to the standard plugins that Workbox provides, like the one that handles [cache expiration](https://developers.google.com/web/tools/workbox/modules/workbox-expiration). But you're not limited to using the standard set of plugins! Another great way to extend Workbox is to write your own reusable plugins.
 
-Custom plugins <a href="#custom-plugins" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Custom plugins <a href="#custom-plugins" class="w-headline-link">#</a>
 
 Taking a step back, what is a Workbox plugin, and why would you write your own? A plugin doesn't fundamentally change the order of network and cache operations performed by a strategy. Instead, it allows you to add in extra code that will be run at critical points in the lifetime of a request, like when a network request fails, or when a cached response is about to be returned to the page.
 
@@ -191,7 +177,7 @@ Here's an overview of all the events that a plugin could listen to. Technical de
 
 <table><thead><tr class="header"><th>Lifecycle Event</th><th>Purpose</th></tr></thead><tbody><tr class="odd"><td><code>cacheWillUpdate</code></td><td>Change response before it's written to cache.</td></tr><tr class="even"><td><code>cacheDidUpdate</code></td><td>Do something following a cache write.</td></tr><tr class="odd"><td><code>cacheKeyWillBeUsed</code></td><td>Override the cache key used for reads or writes.</td></tr><tr class="even"><td><code>cachedResponseWillBeUsed</code></td><td>Change response read from cache before it's used.</td></tr><tr class="odd"><td><code>requestWillFetch</code></td><td>Change request before it's sent to the network.</td></tr><tr class="even"><td><code>fetchDidFail</code></td><td>Do something when a network request fails.</td></tr><tr class="odd"><td><code>fetchDidSucceed</code></td><td>Do something when a network request succeeds.</td></tr><tr class="even"><td><code>handlerWillStart</code></td><td>Take note of when a handler starts up.</td></tr><tr class="odd"><td><code>handlerWillRespond</code></td><td>Take note of when a handler is about to respond.</td></tr><tr class="even"><td><code>handlerDidRespond</code></td><td>Take note of when a handler finishes responding.</td></tr><tr class="odd"><td><code>handlerDidComplete</code></td><td>Take note of when a handler has run all its code.</td></tr><tr class="even"><td><code>handlerDidError</code></td><td>Provide a fallback response if a handler throws an error.</td></tr></tbody></table>
 
-When writing your own plugin, you'll only implement callbacks for the limited number of events that match your purpose—there's no need to add in callbacks for *all* of the possible events. Additionally, it's up to you whether you implement your plugin as an `Object` with properties that match the lifecycle event names, or as a class that exposes methods with those names.
+When writing your own plugin, you'll only implement callbacks for the limited number of events that match your purpose—there's no need to add in callbacks for _all_ of the possible events. Additionally, it's up to you whether you implement your plugin as an `Object` with properties that match the lifecycle event names, or as a class that exposes methods with those names.
 
 ### Lifecycle events example: FallbackOnErrorPlugin <a href="#lifecycle-events-example:-fallbackonerrorplugin" class="w-headline-link">#</a>
 
@@ -227,8 +213,7 @@ For instance, here's a custom plugin class that implements callback methods for 
 
 This plugin class provides a "fallback" whenever a strategy would otherwise generate an error response. It can be added to any strategy class, and if running that strategy does not result in a `2xx OK` response, it will use a backup response from the cache instead.
 
-Custom strategy or custom plugin? <a href="#custom-strategy-or-custom-plugin" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------
+## Custom strategy or custom plugin? <a href="#custom-strategy-or-custom-plugin" class="w-headline-link">#</a>
 
 Now that you know more about custom strategies and plugins, you might be wondering which one to write for a given use case.
 
@@ -236,8 +221,7 @@ A good rule of thumb is to sketch out a diagram of your desired request and resp
 
 Conversely, if your diagram ends up looking mostly like a standard strategy but with a few extra pieces of logic injected at keys points, then you should probably write a custom plugin.
 
-Takeaways <a href="#takeaways" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Takeaways <a href="#takeaways" class="w-headline-link">#</a>
 
 Whichever approach to customizing Workbox you go with, I hope this article has inspired you write your own strategies and plugins, and then release them on [npm](https://www.npmjs.com/), tagged with `workbox-strategy` or `workbox-plugin`.
 
@@ -251,35 +235,35 @@ Go out there and extend Workbox, and then share what you build!
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,35 +1,27 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format" alt="An illustration of a person browsing a website that has a popup, an iframe, and an image." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Rv8gOTwZwxr2Z7b13Ize.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#making-your-website-andquotcross-origin-isolatedandquot-using-coop-and-coep" class="w-toc__header--link">Making your website "cross-origin isolated" using COOP and COEP</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#making-your-website-andquotcross-origin-isolatedandquot-using-coop-and-coep" class="w-toc__header--link">Making your website "cross-origin isolated" using COOP and COEP</a>
 
--   [Deploy COOP and COEP to make your website cross-origin isolated](#deploy-coop-and-coep-to-make-your-website-cross-origin-isolated)
--   [Integrate COOP and COEP](#integrate-coop-and-coep)
--   [Determine whether isolation succeeded with self.crossOriginIsolated](#determine-whether-isolation-succeeded-with-self.crossoriginisolated)
--   [Debug issues using Chrome DevTools](#debug-issues-using-chrome-devtools)
--   [Observe issues using the Reporting API](#observe-issues-using-the-reporting-api)
--   [Conclusion](#conclusion)
--   [Resources](#resources)
+- [Deploy COOP and COEP to make your website cross-origin isolated](#deploy-coop-and-coep-to-make-your-website-cross-origin-isolated)
+- [Integrate COOP and COEP](#integrate-coop-and-coep)
+- [Determine whether isolation succeeded with self.crossOriginIsolated](#determine-whether-isolation-succeeded-with-self.crossoriginisolated)
+- [Debug issues using Chrome DevTools](#debug-issues-using-chrome-devtools)
+- [Observe issues using the Reporting API](#observe-issues-using-the-reporting-api)
+- [Conclusion](#conclusion)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Making your website "cross-origin isolated" using COOP and COEP
-===============================================================
+# Making your website "cross-origin isolated" using COOP and COEP
 
 Use COOP and COEP to set up a cross-origin isolated environment and enable powerful features like `SharedArrayBuffer`, `performance.measureUserAgentSpecificMemory()` and high resolution timer with better precision.
 
@@ -41,9 +33,9 @@ Apr 13, 2020 <span class="w-author__separator">•</span> Updated Aug 5, 2021
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 **Caution**:
 
@@ -51,13 +43,13 @@ Apr 13, 2020 <span class="w-author__separator">•</span> Updated Aug 5, 2021
 
 **Updates**
 
--   **Aug 5, 2021**: JS Self-Profiling API has been mentioned as one of APIs that require cross-origin isolation, but reflecting [recent change of the direction](https://github.com/shhnjk/shhnjk.github.io/tree/main/investigations/js-self-profiling#conclusion), it's removed.
--   **May 6, 2021**: Based on feedback and issues reported we've decided to adjust the timeline for `SharedArrayBuffer` usage in none cross-origin isolated sites to be restricted in Chrome M92.
--   **April 16, 2021**: Added notes about [a new COEP credentialless mode](https://github.com/mikewest/credentiallessness/) and [COOP same-origin-allow-popups to be a relaxed condition](https://github.com/whatwg/html/issues/6364) for cross-origin isolation.
--   **March 5, 2021**: Removed limitations for `SharedArrayBuffer`, `performance.measureUserAgentSpecificMemory()`, and debugging functionalities, which are now fully enabled in Chrome 89. Added upcoming capabilities, `performance.now()` and `performance.timeOrigin`, that will have higher precision.
--   **February 19, 2021**: Added a note about feature policy `allow="cross-origin-isolated"` and debugging functionality on DevTools.
--   **February 9, 2021**: Added an instruction [how to set up a reporting endpoint](#set-up-reporting-endpoint).
--   **October 15, 2020**: `self.crossOriginIsolated` is available from Chrome 87. Reflecting that, `document.domain` is immutable when `self.crossOriginIsolated` returns `true`. `performance.measureUserAgentSpecificMemory()` is ending its origin trial and is enabled by default in Chrome 89. Shared Array Buffer on Android Chrome will be available from Chrome 88.
+- **Aug 5, 2021**: JS Self-Profiling API has been mentioned as one of APIs that require cross-origin isolation, but reflecting [recent change of the direction](https://github.com/shhnjk/shhnjk.github.io/tree/main/investigations/js-self-profiling#conclusion), it's removed.
+- **May 6, 2021**: Based on feedback and issues reported we've decided to adjust the timeline for `SharedArrayBuffer` usage in none cross-origin isolated sites to be restricted in Chrome M92.
+- **April 16, 2021**: Added notes about [a new COEP credentialless mode](https://github.com/mikewest/credentiallessness/) and [COOP same-origin-allow-popups to be a relaxed condition](https://github.com/whatwg/html/issues/6364) for cross-origin isolation.
+- **March 5, 2021**: Removed limitations for `SharedArrayBuffer`, `performance.measureUserAgentSpecificMemory()`, and debugging functionalities, which are now fully enabled in Chrome 89. Added upcoming capabilities, `performance.now()` and `performance.timeOrigin`, that will have higher precision.
+- **February 19, 2021**: Added a note about feature policy `allow="cross-origin-isolated"` and debugging functionality on DevTools.
+- **February 9, 2021**: Added an instruction [how to set up a reporting endpoint](#set-up-reporting-endpoint).
+- **October 15, 2020**: `self.crossOriginIsolated` is available from Chrome 87. Reflecting that, `document.domain` is immutable when `self.crossOriginIsolated` returns `true`. `performance.measureUserAgentSpecificMemory()` is ending its origin trial and is enabled by default in Chrome 89. Shared Array Buffer on Android Chrome will be available from Chrome 88.
 
 Some web APIs increase the risk of side-channel attacks like Spectre. To mitigate that risk, browsers offer an opt-in-based isolated environment called cross-origin isolated. With a cross-origin isolated state, the webpage will be able to use privileged features including:
 
@@ -96,14 +88,13 @@ This article is aimed at those who would like to get their websites ready for us
 
 **Key Term**: This article uses many similar-sounding terminologies. To make things clearer, let's define them first:
 
--   [COEP: Cross Origin Embedder Policy](https://wicg.github.io/cross-origin-embedder-policy/)
--   [COOP: Cross Origin Opener Policy](https://github.com/whatwg/html/pull/5334/files)
--   [CORP: Cross Origin Resource Policy](https://developer.mozilla.org/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP))
--   [CORS: Cross Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS)
--   [CORB: Cross Origin Read Blocking](https://www.chromium.org/Home/chromium-security/corb-for-developers)
+- [COEP: Cross Origin Embedder Policy](https://wicg.github.io/cross-origin-embedder-policy/)
+- [COOP: Cross Origin Opener Policy](https://github.com/whatwg/html/pull/5334/files)
+- [CORP: Cross Origin Resource Policy](<https://developer.mozilla.org/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)>)
+- [CORS: Cross Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+- [CORB: Cross Origin Read Blocking](https://www.chromium.org/Home/chromium-security/corb-for-developers)
 
-Deploy COOP and COEP to make your website cross-origin isolated <a href="#deploy-coop-and-coep-to-make-your-website-cross-origin-isolated" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Deploy COOP and COEP to make your website cross-origin isolated <a href="#deploy-coop-and-coep-to-make-your-website-cross-origin-isolated" class="w-headline-link">#</a>
 
 Learn practical steps to enable cross-origin isolation at [A guide to enable cross-origin isolation](/cross-origin-isolation-guide/).
 
@@ -133,13 +124,13 @@ Make sure that all resources in the page are loaded with CORP or CORS HTTP heade
 
 Here is what you need to do depending on the nature of the resource:
 
--   If the resource is expected to be loaded **only from the same origin**, set the `Cross-Origin-Resource-Policy: same-origin` header.
--   If the resource is expected to be loaded **only from the same site but cross origin**, set the `Cross-Origin-Resource-Policy: same-site` header.
--   If the resource is **loaded from cross origin(s) under your control**, set the `Cross-Origin-Resource-Policy: cross-origin` header if possible.
--   For cross origin resources that you have no control over:
-    -   Use the `crossorigin` attribute in the loading HTML tag if the resource is served with CORS. (For example, `<img src="***" crossorigin>`.)
-    -   Ask the owner of the resource to support either CORS or CORP.
--   For iframes, use CORP and COEP headers as follows: `Cross-Origin-Resource-Policy: same-origin` (or `same-site`, `cross-origin` depending on the context) and `Cross-Origin-Embedder-Policy: require-corp`.
+- If the resource is expected to be loaded **only from the same origin**, set the `Cross-Origin-Resource-Policy: same-origin` header.
+- If the resource is expected to be loaded **only from the same site but cross origin**, set the `Cross-Origin-Resource-Policy: same-site` header.
+- If the resource is **loaded from cross origin(s) under your control**, set the `Cross-Origin-Resource-Policy: cross-origin` header if possible.
+- For cross origin resources that you have no control over:
+  - Use the `crossorigin` attribute in the loading HTML tag if the resource is served with CORS. (For example, `<img src="***" crossorigin>`.)
+  - Ask the owner of the resource to support either CORS or CORP.
+- For iframes, use CORP and COEP headers as follows: `Cross-Origin-Resource-Policy: same-origin` (or `same-site`, `cross-origin` depending on the context) and `Cross-Origin-Embedder-Policy: require-corp`.
 
 **Gotchas!**
 
@@ -191,15 +182,15 @@ The Reporting API is undergoing transition to [a new](https://w3c.github.io/repo
 
 A server with reporting endpoints needs to be set up in order to receive reports from your COOP/COEP. There are two options:
 
--   Use a solution that accepts reports.
--   Build your own server that accepts reports.
+- Use a solution that accepts reports.
+- Build your own server that accepts reports.
 
 ##### Use a solution that accepts reports <a href="#use-a-solution-that-accepts-reports" class="w-headline-link">#</a>
 
 There are a couple of solutions that accept reports from the browser's COOP/COEP reporting functionality:
 
--   <https://report-uri.com>
--   <https://uriports.com>
+- <https://report-uri.com>
+- <https://uriports.com>
 
 If there are any other solutions that accept reports, [let us know to update this post](https://github.com/GoogleChrome/web.dev).
 
@@ -306,20 +297,18 @@ When different browsing context groups try to access each other (only on "report
       "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4246.0 Safari/537.36"
     }]
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Use a combination of COOP and COEP HTTP headers to opt a web page into a special cross-origin isolated state. You will be able to examine `self.crossOriginIsolated` to determine whether a web page is in a cross-origin isolated state.
 
 We'll keep this post updated as new features are made available to this cross-origin isolated state, and further improvements are made to DevTools around COOP and COEP.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Why you need "cross-origin isolated" for powerful features](https://web.dev/why-coop-coep/)
--   [A guide to enable cross-origin isolation](https://web.dev/cross-origin-isolation-guide/)
--   [SharedArrayBuffer updates in Android Chrome 88 and Desktop Chrome 92](https://developer.chrome.com/blog/enabling-shared-array-buffer/)
--   [Monitor your web page's total memory usage with `measureUserAgentSpecificMemory()`](https://web.dev/monitor-total-page-memory-usage/)
+- [Why you need "cross-origin isolated" for powerful features](https://web.dev/why-coop-coep/)
+- [A guide to enable cross-origin isolation](https://web.dev/cross-origin-isolation-guide/)
+- [SharedArrayBuffer updates in Android Chrome 88 and Desktop Chrome 92](https://developer.chrome.com/blog/enabling-shared-array-buffer/)
+- [Monitor your web page's total memory usage with `measureUserAgentSpecificMemory()`](https://web.dev/monitor-total-page-memory-usage/)
 
 <a href="/tags/security/" class="w-chip">Security</a>
 
@@ -327,35 +316,35 @@ Resources <a href="#resources" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

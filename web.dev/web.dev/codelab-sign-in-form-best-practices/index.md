@@ -1,17 +1,10 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-Use cross-platform browser features to build a sign-in form
-===========================================================
+# Use cross-platform browser features to build a sign-in form
 
 Jun 29, 2020 <span class="w-author__separator">•</span> Updated Aug 5, 2020
 
@@ -19,20 +12,21 @@ Jun 29, 2020 <span class="w-author__separator">•</span> Updated Aug 5, 2020
 
 <a href="/authors/samdutton/" class="w-author__name-link">Sam Dutton</a>
 
--   <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
--   <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
+- <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
 
 This codelab teaches you how to build a sign-in form that's secure, accessible, and easy to use.
 
 1. Use meaningful HTML <a href="#1.-use-meaningful-html" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+
+---
 
 Use these elements built for the job:
 
--   `<form>`
--   `<section>`
--   `<label>`
--   `<button>`
+- `<form>`
+- `<section>`
+- `<label>`
+- `<button>`
 
 As you'll see, these elements enable built-in browser functionality, improve accessibility, and add meaning to your markup.
 
@@ -61,8 +55,9 @@ Here's how your `index.html` file should look at this point:
 
 2.  Click **View Source** to return to your source code.
 
-2. Design for fingers and thumbs <a href="#2.-design-for-fingers-and-thumbs" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+3.  Design for fingers and thumbs <a href="#2.-design-for-fingers-and-thumbs" class="w-headline-link">#</a>
+
+---
 
 Adjust padding, margins, and font sizes to ensure that your inputs work well on mobile.
 
@@ -70,27 +65,28 @@ Adjust padding, margins, and font sizes to ensure that your inputs work well on 
 
 1.  Click **View App** to see your freshly styled sign-in form.
 
-2.  Click **View Source** to return to your `style.css` file.
+1.  Click **View Source** to return to your `style.css` file.
 
 That's quite a lot of code! The main things to be aware of are the changes to sizes:
 
--   `padding` and `margin` are added to inputs.
--   `font-size` is different for mobile and desktop.
+- `padding` and `margin` are added to inputs.
+- `font-size` is different for mobile and desktop.
 
 The `:invalid` selector is used to indicate when an input has an invalid value. This doesn't work yet.
 
 The CSS layout is mobile-first:
 
--   The default CSS is for viewports less than 450 pixels wide.
--   The media query section sets overrides for viewports that are at least 450 pixels wide.
+- The default CSS is for viewports less than 450 pixels wide.
+- The media query section sets overrides for viewports that are at least 450 pixels wide.
 
 When building your own form like this, it's very important at this point in the process to test your code on real devices on desktop and mobile:
 
--   Is label and input text readable, especially for people with low vision?
--   Are the inputs and **Sign in** button large enough to use as touch targets for thumbs?
+- Is label and input text readable, especially for people with low vision?
+- Are the inputs and **Sign in** button large enough to use as touch targets for thumbs?
 
 3. Add input attributes to enable built-in browser features <a href="#3.-add-input-attributes-to-enable-built-in-browser-features" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---
 
 Enable the browser to store and autofill input values, and provide access to built-in password-management features.
 
@@ -100,11 +96,11 @@ Enable the browser to store and autofill input values, and provide access to bui
 
     <form action="#" method="post">
       <h1>Sign in</h1>
-      <section>        
+      <section>
         <label for="email">Email</label>
         <input id="email" name="email" type="email" autocomplete="username" required autofocus>
       </section>
-      <section>        
+      <section>
         <label for="current-password">Password</label>
         <input id="password" name="password" type="password" autocomplete="new-password" required>
       </section>
@@ -123,13 +119,13 @@ Enable the browser to store and autofill input values, and provide access to bui
 
     The text is hidden by default because the `type="password"` attribute has been applied to the element.
 
--   The `autocomplete`, `name`, `id`, and `type` attributes help browsers understand the role of inputs in order to store data that can be used later for autofill.
+- The `autocomplete`, `name`, `id`, and `type` attributes help browsers understand the role of inputs in order to store data that can be used later for autofill.
 
 1.  Focus the email input on a desktop device and type some text.
 
     You can see the URL of your app when you click **Fullscreen** ![The Fullscreen icon](/images/glitch/fullscreen.svg). If you stored any email addresses in your browser, you probably see a dialog that lets you select from those stored emails. This happens because the `autocomplete="username"` attribute applied to the email input.
 
--   `autocomplete="username"` and `autocomplete="current-password"` help browsers use stored values to autofill the inputs.
+- `autocomplete="username"` and `autocomplete="current-password"` help browsers use stored values to autofill the inputs.
 
 For email inputs, use `autocomplete="username"` because `username` is recognized by password managers in modern browsers, even though you should use `type="email"`, and you may want to use `id="email"` and `name="email"`.
 
@@ -142,7 +138,8 @@ It's extremely important to test behavior across platforms. You should enter val
 Here's how your `index.html` file should look at this point:
 
 4. Add UI to toggle password display <a href="#4.-add-ui-to-toggle-password-display" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+
+---
 
 Usability experts [strongly recommend](https://www.nngroup.com/articles/stop-password-masking/) the addition of an icon or button that lets users see the text that they enter in the **Password** field. There's [no built-in way to do this](https://twitter.com/sw12/status/1251191795377156099), so you need to implement it yourself with JavaScript.
 
@@ -216,7 +213,8 @@ Some websites, such as [Gmail](https://mail.google.com), use icons, not text, to
 Here's how your code should look at this point:
 
 5. Add form validation <a href="#5.-add-form-validation" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+
+---
 
 You can help users enter their data correctly when you let them validate their data before form submission and show them what they need to change.
 
@@ -241,8 +239,8 @@ Tell users the constraints for passwords and any other inputs. Don't make them g
 
 This adds two new features:
 
--   Information about password constraints
--   An `aria-describedby` attribute for the password input (Screenreaders read the label text, the input type (password), and then the description.)
+- Information about password constraints
+- An `aria-describedby` attribute for the password input (Screenreaders read the label text, the input type (password), and then the description.)
 
 1.  Add the following CSS to the bottom of the `style.css` file:
 
@@ -257,12 +255,12 @@ This adds two new features:
 
 <!-- -->
 
-    passwordInput.addEventListener('input', resetCustomValidity); 
+    passwordInput.addEventListener('input', resetCustomValidity);
     function resetCustomValidity() {
       passwordInput.setCustomValidity('');
     }
 
-    // A production site would use more stringent password testing. 
+    // A production site would use more stringent password testing.
     function validatePassword() {
       let message= '';
       if (!/.{8,}/.test(passwordInput.value)) {
@@ -280,7 +278,7 @@ This adds two new features:
     const form = document.querySelector('form');
     const signinButton = document.querySelector('button#sign-in');
 
-    form.addEventListener('submit', handleFormSubmission);                       
+    form.addEventListener('submit', handleFormSubmission);
 
     function handleFormSubmission(event) {
       event.preventDefault();
@@ -308,50 +306,49 @@ This adds two new features:
 
     Here's how your code should look at this point:
 
-Go further <a href="#go-further" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Go further <a href="#go-further" class="w-headline-link">#</a>
 
 They're not shown in this codelab, but you still need these four crucial sign-in form features:
 
--   Add **Forgot your password?**, a button that makes it easy for users to reset their passwords.
+- Add **Forgot your password?**, a button that makes it easy for users to reset their passwords.
 
--   Link to your terms of service and privacy policy documents so that your users know how you safeguard their data.
+- Link to your terms of service and privacy policy documents so that your users know how you safeguard their data.
 
--   Consider style and branding, and ensure that these additional features match the rest of your website.
+- Consider style and branding, and ensure that these additional features match the rest of your website.
 
--   Add [Analytics and RUM](/sign-in-form-best-practices#analytics) so that you can test and monitor the performance and usability of your form design.
+- Add [Analytics and RUM](/sign-in-form-best-practices#analytics) so that you can test and monitor the performance and usability of your form design.
 
 <a href="/sign-in-form-best-practices" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to article</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

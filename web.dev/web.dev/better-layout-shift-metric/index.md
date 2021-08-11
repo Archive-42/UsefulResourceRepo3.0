@@ -1,40 +1,32 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <embed src="https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/JSBg0yF1fatrTDQSKiTW.webp?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#feedback-wanted:-the-road-to-a-better-layout-shift-metric-for-long-lived-pages" class="w-toc__header--link">Feedback wanted: The road to a better layout shift metric for long-lived pages</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#feedback-wanted:-the-road-to-a-better-layout-shift-metric-for-long-lived-pages" class="w-toc__header--link">Feedback wanted: The road to a better layout shift metric for long-lived pages</a>
 
--   [How would we decide if a new metric is better?](#how-would-we-decide-if-a-new-metric-is-better)
--   [What metric ideas did we test?](#what-metric-ideas-did-we-test)
--   [Windowing strategies](#windowing-strategies)
--   [Window sizes](#window-sizes)
--   [Summarization](#summarization)
--   [Other strategies](#other-strategies)
--   [The initial results](#the-initial-results)
--   [Best strategies](#best-strategies)
--   [Strategies that didn't work out](#strategies-that-didn't-work-out)
--   [Next steps](#next-steps)
--   [Larger-scale analysis](#larger-scale-analysis)
--   [Feedback on our approach](#feedback-on-our-approach)
+- [How would we decide if a new metric is better?](#how-would-we-decide-if-a-new-metric-is-better)
+- [What metric ideas did we test?](#what-metric-ideas-did-we-test)
+- [Windowing strategies](#windowing-strategies)
+- [Window sizes](#window-sizes)
+- [Summarization](#summarization)
+- [Other strategies](#other-strategies)
+- [The initial results](#the-initial-results)
+- [Best strategies](#best-strategies)
+- [Strategies that didn't work out](#strategies-that-didn't-work-out)
+- [Next steps](#next-steps)
+- [Larger-scale analysis](#larger-scale-analysis)
+- [Feedback on our approach](#feedback-on-our-approach)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Feedback wanted: The road to a better layout shift metric for long-lived pages
-==============================================================================
+# Feedback wanted: The road to a better layout shift metric for long-lived pages
 
 Learn about our plans for improving the Cumulative Layout Shift metric and give us feedback.
 
@@ -44,16 +36,16 @@ Jan 25, 2021
 
 <a href="/authors/anniesullie/" class="w-author__name-link">Annie Sullivan</a>
 
--   <a href="https://twitter.com/anniesullie" class="w-author__link">Twitter</a>
--   <a href="https://github.com/anniesullie" class="w-author__link">GitHub</a>
--   <a href="https://anniesullie.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/anniesullie" class="w-author__link">Twitter</a>
+- <a href="https://github.com/anniesullie" class="w-author__link">GitHub</a>
+- <a href="https://anniesullie.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/urYfROhm806fvOPRMsRg.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Michal Mocny" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/urYfROhm806fvOPRMsRg.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/urYfROhm806fvOPRMsRg.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/urYfROhm806fvOPRMsRg.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/urYfROhm806fvOPRMsRg.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/urYfROhm806fvOPRMsRg.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/mmocny/)
 
 <a href="/authors/mmocny/" class="w-author__name-link">Michal Mocny</a>
 
--   <a href="https://twitter.com/mmocny" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mmocny" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/mmocny" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mmocny" class="w-author__link">GitHub</a>
 
 [Cumulative Layout Shift](/cls) (CLS) is a metric that measures the visual stability of a web page. The metric is called cumulative layout shift because the score of every individual shift is summed throughout the lifespan of the page.
 
@@ -63,37 +55,35 @@ It's important that the metric focuses on user experience through the full page 
 
 An internal analysis of long-lived pages with high CLS scores found that most problems were caused by the following patterns:
 
--   [Infinite scrollers shifting content](https://addyosmani.com/blog/infinite-scroll-without-layout-shifts/) as the user scrolls.
--   Input handlers taking longer than 500 ms to update the UI in response to a user interaction, without any kind of placeholder or skeleton pattern.
+- [Infinite scrollers shifting content](https://addyosmani.com/blog/infinite-scroll-without-layout-shifts/) as the user scrolls.
+- Input handlers taking longer than 500 ms to update the UI in response to a user interaction, without any kind of placeholder or skeleton pattern.
 
 While we encourage developers to improve those user experiences, we're also working towards improving the metric and looking for feedback on possible approaches.
 
-How would we decide if a new metric is better? <a href="#how-would-we-decide-if-a-new-metric-is-better" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------------------
+## How would we decide if a new metric is better? <a href="#how-would-we-decide-if-a-new-metric-is-better" class="w-headline-link">#</a>
 
 Before diving into metric design, we wanted to ensure that we evaluated our ideas on a wide variety of real-world web pages and use cases. To start, we designed a small user study.
 
 First, we recorded videos and [Chrome traces](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) of 34 user journeys through various websites. In selecting the user journeys, we aimed for a few things:
 
--   A variety of different types of sites, such as news and shopping sites.
--   A variety of user journeys, such as initial page load, scrolling, single-page app navigations, and user interactions.
--   A variety of both number and intensity of individual layout shifts on the sites.
--   Few negative experiences on the sites apart from layout shifts.
+- A variety of different types of sites, such as news and shopping sites.
+- A variety of user journeys, such as initial page load, scrolling, single-page app navigations, and user interactions.
+- A variety of both number and intensity of individual layout shifts on the sites.
+- Few negative experiences on the sites apart from layout shifts.
 
 We asked 41 of our colleagues to watch two videos at a time, rating which of the pair was better in terms of layout shift. From these ratings, we created an idealized ranking order of the sites. The results of the user ranking confirmed our suspicions that our colleagues, like most users, are really frustrated by layout shifts after load, especially during scrolling and single-page app navigations. We saw that some sites have much better user experiences during these activities than others.
 
 Since we recorded Chrome traces along with the videos, we had all the details of the individual layout shifts in each user journey. We used those to compute metric values for each idea for each user journey. This allowed us to see how each metric variant ranked the user journeys, and how different each was from the ideal ranking.
 
-What metric ideas did we test? <a href="#what-metric-ideas-did-we-test" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------
+## What metric ideas did we test? <a href="#what-metric-ideas-did-we-test" class="w-headline-link">#</a>
 
 ### Windowing strategies <a href="#windowing-strategies" class="w-headline-link">#</a>
 
 Often pages have multiple layout shifts bunched closely together, because elements can shift multiple times as new content comes in piece by piece. This prompted us to try out techniques for grouping shifts together. To accomplish that, we looked at three windowing approaches:
 
--   Tumbling windows
--   Sliding windows
--   Session windows
+- Tumbling windows
+- Sliding windows
+- Session windows
 
 In each of these examples, the page has layout shifts of varying severity over time. Each blue bar represents a single layout shift, and the length represents the [score](/cls/#layout-shift-score) of that shift. The images illustrate the ways different windowing strategies group the layout shifts over time.
 
@@ -119,11 +109,11 @@ If we wanted to focus on identifying areas of the page with bursts of layout shi
 
 The metric might give very different results depending on how big the windows actually are, so we tried multiple different window sizes:
 
--   Each shift as its own window (no windows)
--   100 ms
--   300 ms
--   1 second
--   5 seconds
+- Each shift as its own window (no windows)
+- 100 ms
+- 300 ms
+- 1 second
+- 5 seconds
 
 ### Summarization <a href="#summarization" class="w-headline-link">#</a>
 
@@ -145,8 +135,7 @@ We wondered if maybe there was some minimum layout shift score that users wouldn
 
 We also looked at many strategies that didn't involve windows, like the total layout shift divided by time on page, and the average of the worst N individual shifts.
 
-The initial results <a href="#the-initial-results" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## The initial results <a href="#the-initial-results" class="w-headline-link">#</a>
 
 Overall, we tested **145 different metric definitions** based on permutations of the above ideas. For each metric, we ranked all the user journeys by their score on the metric, and then ranked the metrics by how close they were to the ideal ranking.
 
@@ -164,9 +153,9 @@ When we ranked the strategies, we found that three types of strategies topped th
 
 A few windowing strategies worked well with long window sizes:
 
--   1 second sliding windows
--   Session windows capped at 5 seconds with 1 second gap
--   Session windows uncapped with 1 second gap
+- 1 second sliding windows
+- Session windows capped at 5 seconds with 1 second gap
+- Session windows uncapped with 1 second gap
 
 These all ranked really well at both the 95th percentile and the maximum.
 
@@ -176,8 +165,8 @@ But for such large window sizes, we were concerned about using the 95th percenti
 
 Averaging the scores of all uncapped session windows with 5 second gaps between them performed really well. This strategy has a few interesting characteristics:
 
--   If the page doesn't have gaps between layout shifts, it ends up being one long session window with the exact same score as the current CLS.
--   This metric didn't take idle time into account directly; it only looked at the shifts that happened on the page, and not at points in time when the page was not shifting.
+- If the page doesn't have gaps between layout shifts, it ends up being one long session window with the exact same score as the current CLS.
+- This metric didn't take idle time into account directly; it only looked at the shifts that happened on the page, and not at points in time when the page was not shifting.
 
 #### High percentiles of short windows <a href="#high-percentiles-of-short-windows" class="w-headline-link">#</a>
 
@@ -189,20 +178,19 @@ Strategies that tried to look at the "average" experience of time spent both wit
 
 We evaluated a number of different "budgets" for acceptable layout shifts:
 
--   Percent of layout shifts above some budget. For various budgets, these all ranked quite poorly.
--   Average layout shift above some excess. Most variations on this strategy did poorly, but average excess over a long session with a large gap did almost as well as the average of session windows with long gaps. We decided to move forward with only the latter because it is simpler.
+- Percent of layout shifts above some budget. For various budgets, these all ranked quite poorly.
+- Average layout shift above some excess. Most variations on this strategy did poorly, but average excess over a long session with a large gap did almost as well as the average of session windows with long gaps. We decided to move forward with only the latter because it is simpler.
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 ### Larger-scale analysis <a href="#larger-scale-analysis" class="w-headline-link">#</a>
 
 We've implemented the top strategies listed above in Chrome, so that we can get data on real-world usage for a much larger set of websites. We plan to use a similar approach of ranking sites based on their metric scores to do the larger-scale analysis:
 
--   Rank all the sites by CLS, and by each new metric candidate.
-    -   Which sites are ranked most differently by CLS and each candidate? Do we find anything unexpected when we look at these sites?
-    -   What are the largest differences between the new metric candidates? Do any of the differences stand out as advantages or disadvantages of a specific candidate?
--   Repeat the above analysis, but bucketing by time spent on each page load. Do we see an expected improvement for long-lived page loads with acceptable layout shift? Do we see any unexpected results for short-lived pages?
+- Rank all the sites by CLS, and by each new metric candidate.
+  - Which sites are ranked most differently by CLS and each candidate? Do we find anything unexpected when we look at these sites?
+  - What are the largest differences between the new metric candidates? Do any of the differences stand out as advantages or disadvantages of a specific candidate?
+- Repeat the above analysis, but bucketing by time spent on each page load. Do we see an expected improvement for long-lived page loads with acceptable layout shift? Do we see any unexpected results for short-lived pages?
 
 ### Feedback on our approach <a href="#feedback-on-our-approach" class="w-headline-link">#</a>
 
@@ -212,8 +200,8 @@ We'd love to get feedback from web developers on these approaches. Some things t
 
 We do want to clarify that a lot of things will not be changing with a new approach:
 
--   None of our metric ideas change the way layout shift scores for [individual frames are calculated](/cls/#layout-shift-score), only the way we summarize multiple frames. This means that the [JavaScript API](/cls/#measure-cls-in-javascript) for layout shifts will stay the same, and the underlying events in Chrome traces that developer tools use will also stay the same, so layout shift rects in tools like WebPageTest and Chrome DevTools will continue to work the same way.
--   We'll continue to work hard on making the metrics easy for developers to adopt, including them in the [web-vitals library](https://github.com/GoogleChrome/web-vitals), documenting on [web.dev](/metrics), and reporting them in our developer tooling like Lighthouse.
+- None of our metric ideas change the way layout shift scores for [individual frames are calculated](/cls/#layout-shift-score), only the way we summarize multiple frames. This means that the [JavaScript API](/cls/#measure-cls-in-javascript) for layout shifts will stay the same, and the underlying events in Chrome traces that developer tools use will also stay the same, so layout shift rects in tools like WebPageTest and Chrome DevTools will continue to work the same way.
+- We'll continue to work hard on making the metrics easy for developers to adopt, including them in the [web-vitals library](https://github.com/GoogleChrome/web-vitals), documenting on [web.dev](/metrics), and reporting them in our developer tooling like Lighthouse.
 
 #### Trade-offs between metrics <a href="#trade-offs-between-metrics" class="w-headline-link">#</a>
 
@@ -233,35 +221,35 @@ Please email feedback to our **[web-vitals-feedback](https://groups.google.com/g
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

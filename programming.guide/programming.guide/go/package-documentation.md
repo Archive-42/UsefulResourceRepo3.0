@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Packages explained](packages-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -23,8 +22,7 @@ Further reading
 [Package testing: examples](https://golang.org/pkg/testing/#hdr-Examples)  
 <span style="color: grey; font-style: italic; font-size: smaller">golang.org</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -36,8 +34,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -47,17 +44,15 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Package documentation
-=========================
+# Go: Package documentation
 
 The [GoDoc](https://godoc.org/) website hosts docu­men­tation for Go packages on Bitbucket, GitHub, Google Project Hosting and Launchpad:
 
--   [`https://godoc.org/fmt`](https://godoc.org/fmt)
--   [`https://godoc.org/math/rand`](https://godoc.org/math/rand)
--   [`https://godoc.org/github.com/yourbasic/graph`](https://godoc.org/github.com/yourbasic/graph)
+- [`https://godoc.org/fmt`](https://godoc.org/fmt)
+- [`https://godoc.org/math/rand`](https://godoc.org/math/rand)
+- [`https://godoc.org/github.com/yourbasic/graph`](https://godoc.org/github.com/yourbasic/graph)
 
-Godoc command
--------------
+## Godoc command
 
 The [godoc](https://godoc.org/golang.org/x/tools/cmd/godoc) command extracts and generates documentation for all locally installed Go programs, both your own code and the standard libraries.
 
@@ -80,8 +75,7 @@ Without the `-http` flag, `godoc` prints plain text documentation to standard ou
         is appended. It returns the number of bytes written and any write error
         encountered.
 
-Create documentation
---------------------
+## Create documentation
 
 To document a function, type, constant, variable, or even a complete package, write a regular comment directly preceding its declaration, with no blank line in between. For example, this is the documentation for the [`fmt.Println`](https://golang.org/src/fmt/print.go?s=7388:7437#L246) function:
 
@@ -93,13 +87,11 @@ To document a function, type, constant, variable, or even a complete package, wr
 
 For best practices on how to document Go code, see [Effective Go: Commentary](https://golang.org/doc/effective_go.html#commentary).
 
-Godoc examples
---------------
+## Godoc examples
 
 You can add example code snippets to the package documentation; this code is verified by running it as a test. For more information on how to create such testable examples, see [The Go Blog: Testable Examples in Go](https://blog.golang.org/examples).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

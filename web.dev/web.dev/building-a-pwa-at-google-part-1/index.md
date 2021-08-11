@@ -1,45 +1,37 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format" alt="A group of people working on their computers at a table." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/mgB3j6NZa6F1CkoD9YI4.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-pwa-at-google-part-1" class="w-toc__header--link">Building a PWA at Google, part 1</a>
------------------------------------------------------------------------------------------------------------
+## <a href="#building-a-pwa-at-google-part-1" class="w-toc__header--link">Building a PWA at Google, part 1</a>
 
--   [Background](#background)
--   [Why we chose to build a PWA](#why-pwa)
--   [Our framework](#framework)
--   [What we learned about service workers](#lessons-learned)
--   [Generate it if you can](#generate)
--   [Not all libraries are service-worker-compatible](#libraries)
--   [Avoid accessing IndexedDB during initialization](#idb)
--   [Make it resilient](#resilient)
--   [Don't depend on global state](#global-state)
--   [Local development](#local-development)
--   [Lighthouse](#lighthouse)
--   [Embrace continuous delivery](#continuous-delivery)
--   [Getting cookie values in a service worker](#cookies)
--   [Pitfalls for non-generated service workers](#pitfalls)
--   [Ensure service worker script changes if any static cached file changes](#regeneration)
--   [Unit testing](#unit-testing)
--   [Stay tuned for parts 2 and 3](#stay-tuned)
+- [Background](#background)
+- [Why we chose to build a PWA](#why-pwa)
+- [Our framework](#framework)
+- [What we learned about service workers](#lessons-learned)
+- [Generate it if you can](#generate)
+- [Not all libraries are service-worker-compatible](#libraries)
+- [Avoid accessing IndexedDB during initialization](#idb)
+- [Make it resilient](#resilient)
+- [Don't depend on global state](#global-state)
+- [Local development](#local-development)
+- [Lighthouse](#lighthouse)
+- [Embrace continuous delivery](#continuous-delivery)
+- [Getting cookie values in a service worker](#cookies)
+- [Pitfalls for non-generated service workers](#pitfalls)
+- [Ensure service worker script changes if any static cached file changes](#regeneration)
+- [Unit testing](#unit-testing)
+- [Stay tuned for parts 2 and 3](#stay-tuned)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a PWA at Google, part 1
-================================
+# Building a PWA at Google, part 1
 
 What the Bulletin team learned about service workers while developing a PWA.
 
@@ -51,22 +43,22 @@ Jul 29, 2020
 
 <a href="/authors/joelriley/" class="w-author__name-link">Joel Riley</a>
 
--   <a href="https://twitter.com/j0000el" class="w-author__link">Twitter</a>
--   <a href="https://github.com/j0000el" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/j0000el" class="w-author__link">Twitter</a>
+- <a href="https://github.com/j0000el" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/32FlxFjSQeesv2IgBva4.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Douglas Parker" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/32FlxFjSQeesv2IgBva4.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/32FlxFjSQeesv2IgBva4.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/32FlxFjSQeesv2IgBva4.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/32FlxFjSQeesv2IgBva4.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/32FlxFjSQeesv2IgBva4.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/douglasparker/)
 
 <a href="/authors/douglasparker/" class="w-author__name-link">Douglas Parker</a>
 
--   <a href="https://twitter.com/develwoutacause" class="w-author__link">Twitter</a>
--   <a href="https://github.com/dgp1130" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/develwoutacause" class="w-author__link">Twitter</a>
+- <a href="https://github.com/dgp1130" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/b9zEc84wlzbNww2MKoBL.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Dikla Cohen" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/b9zEc84wlzbNww2MKoBL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/b9zEc84wlzbNww2MKoBL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/b9zEc84wlzbNww2MKoBL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/b9zEc84wlzbNww2MKoBL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/b9zEc84wlzbNww2MKoBL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/msdikla/)
 
 <a href="/authors/msdikla/" class="w-author__name-link">Dikla Cohen</a>
 
--   <a href="https://twitter.com/diklla" class="w-author__link">Twitter</a>
--   <a href="https://github.com/diklla" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/diklla" class="w-author__link">Twitter</a>
+- <a href="https://github.com/diklla" class="w-author__link">GitHub</a>
 
 This is the first of a series of blog posts about the lessons that the Google Bulletin team learned while building an external-facing PWA. In these posts we'll share some of the challenges we faced, the approaches we took to overcome them, and general advice for avoiding pitfalls. This is by no means a complete overview of PWAs. The aim is to share learnings from our team's experience.
 
@@ -74,8 +66,7 @@ For this first post we'll cover a little background information first and then d
 
 Bulletin was shut down in 2019 due to lack of product/market fit. We still learned a lot about PWAs along the way!
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 Bulletin was in active development from mid-2017 to mid-2019.
 
@@ -83,18 +74,17 @@ Bulletin was in active development from mid-2017 to mid-2019.
 
 Before we delve into the development process, let's examine why building a PWA was an attractive option for this project:
 
--   **Ability to iterate quickly**. Especially valuable since Bulletin would be piloted in multiple markets.
--   **Single code base**. Our users were roughly evenly split between Android and iOS. A PWA meant we could build a single web app that would work on both platforms. This increased the velocity and impact of the team.
--   **Updated quickly and independent of user behavior**. PWAs can automatically update which reduces the amount of out-of-date clients in the wild. We were able to push out breaking backend changes with a very short amount of migration time for clients.
--   **Easily integrated with first- and third-party apps.** Such integrations were a requirement for the app. With a PWA it often meant simply opening a URL.
--   **Removed the friction of installing an app.**
+- **Ability to iterate quickly**. Especially valuable since Bulletin would be piloted in multiple markets.
+- **Single code base**. Our users were roughly evenly split between Android and iOS. A PWA meant we could build a single web app that would work on both platforms. This increased the velocity and impact of the team.
+- **Updated quickly and independent of user behavior**. PWAs can automatically update which reduces the amount of out-of-date clients in the wild. We were able to push out breaking backend changes with a very short amount of migration time for clients.
+- **Easily integrated with first- and third-party apps.** Such integrations were a requirement for the app. With a PWA it often meant simply opening a URL.
+- **Removed the friction of installing an app.**
 
 ### Our framework <a href="#framework" class="w-headline-link">#</a>
 
 For Bulletin, we used [Polymer](https://www.polymer-project.org/), but any modern, well-supported framework will work.
 
-What we learned about service workers <a href="#lessons-learned" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## What we learned about service workers <a href="#lessons-learned" class="w-headline-link">#</a>
 
 You can't have a PWA without a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers/). Service workers give you a lot of power, such as advanced caching strategies, offline capabilities, background sync, etc. While service workers do add some complexity, we found that their benefits outweighed the added complexity.
 
@@ -133,7 +123,7 @@ Because service workers exist in a different context, many symbols you might exp
 
 ### Local development <a href="#local-development" class="w-headline-link">#</a>
 
-A major component of service workers is caching resources locally. However, during development this is the exact *opposite* of what you want, particularly when updates are done lazily. You still want the server worker installed so you can debug problems with it or work with other APIs like background sync, or notifications. On Chrome you can achieve this through Chrome DevTools by enabling the **Bypass for network** checkbox (**Application** panel &gt; **Service workers** pane) in addition to enabling the **Disable cache** checkbox in the **Network** panel in order to also disable the memory cache. In order to cover more browsers, we opted for a different solution by including a flag to disable caching in our service worker which is enabled by default on developer builds. This ensures that devs always get their most recent changes without any caching issues. It's important to include the `Cache-Control: no-cache` header as well to [prevent the browser from caching any assets](/http-cache/#unversioned-urls).
+A major component of service workers is caching resources locally. However, during development this is the exact _opposite_ of what you want, particularly when updates are done lazily. You still want the server worker installed so you can debug problems with it or work with other APIs like background sync, or notifications. On Chrome you can achieve this through Chrome DevTools by enabling the **Bypass for network** checkbox (**Application** panel &gt; **Service workers** pane) in addition to enabling the **Disable cache** checkbox in the **Network** panel in order to also disable the memory cache. In order to cover more browsers, we opted for a different solution by including a flag to disable caching in our service worker which is enabled by default on developer builds. This ensures that devs always get their most recent changes without any caching issues. It's important to include the `Cache-Control: no-cache` header as well to [prevent the browser from caching any assets](/http-cache/#unversioned-urls).
 
 ### Lighthouse <a href="#lighthouse" class="w-headline-link">#</a>
 
@@ -151,8 +141,7 @@ Sometimes it is necessary to access cookie values in a service worker context. I
 
 With the release of the [Cookie Store API](https://developers.google.com/web/updates/2018/09/asynchronous-access-to-http-cookies), this workaround should no longer be necessary for browsers that support it, as it provides asynchronous access to browser cookies and can be used directly by the service worker.
 
-Pitfalls for non-generated service workers <a href="#pitfalls" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Pitfalls for non-generated service workers <a href="#pitfalls" class="w-headline-link">#</a>
 
 ### Ensure service worker script changes if any static cached file changes <a href="#regeneration" class="w-headline-link">#</a>
 
@@ -171,14 +160,13 @@ This can be a pain to test because you need to mock the event trigger, the event
 
 Due to the difficulties of unit testing a service worker script, we kept the core service worker script as bare-bones as possible, splitting most of the implementation into other modules. Since those files were just standard JS modules, they could be more easily unit tested with standard test libraries.
 
-Stay tuned for parts 2 and 3 <a href="#stay-tuned" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Stay tuned for parts 2 and 3 <a href="#stay-tuned" class="w-headline-link">#</a>
 
 In parts 2 and 3 of this series we'll talk about media management and iOS-specific issues. If you want to ask us more about building a PWA at Google, visit our author profiles to find out how to contact us:
 
--   [Joel](/authors/joelriley)
--   [Douglas](/authors/douglasparker)
--   [Dikla](/authors/msdikla)
+- [Joel](/authors/joelriley)
+- [Douglas](/authors/douglasparker)
+- [Dikla](/authors/msdikla)
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a> <a href="/tags/service-worker/" class="w-chip">Service Worker</a> <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/storage/" class="w-chip">Storage</a> <a href="/tags/testing/" class="w-chip">Testing</a>
 
@@ -186,35 +174,35 @@ In parts 2 and 3 of this series we'll talk about media management and iOS-specif
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

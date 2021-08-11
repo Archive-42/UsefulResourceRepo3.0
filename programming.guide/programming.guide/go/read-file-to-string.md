@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -15,8 +14,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -26,8 +24,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Read a whole file into a string (byte slice)
-================================================
+# Go: Read a whole file into a string (byte slice)
 
 Use [`ioutil.ReadFile`](https://golang.org/pkg/io/ioutil/#ReadFile) in package [`io/ioutil`](https://golang.org/pkg/io/ioutil/) to read a whole file into a byte slice.
 
@@ -37,8 +34,7 @@ Use [`ioutil.ReadFile`](https://golang.org/pkg/io/ioutil/#ReadFile) in package [
     }
     str := string(b)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,36 +1,28 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Zo1KkESK9CfEIYpbWzap.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-sidenav-component" class="w-toc__header--link">Building a sidenav component</a>
-----------------------------------------------------------------------------------------------------
+## <a href="#building-a-sidenav-component" class="w-toc__header--link">Building a sidenav component</a>
 
--   [Overview](#overview)
--   [Web Tactics](#web-tactics)
--   [CSS :target pseudo-class](#target-psuedo-class)
--   [CSS Grid](#grid-stacks)
--   [CSS 3D transforms & transitions](#transforms)
--   [Accessibility UX enhancements](#ux-enhancements)
--   [Conclusion](#conclusion)
--   [Community remixes](#community-remixes)
+- [Overview](#overview)
+- [Web Tactics](#web-tactics)
+- [CSS :target pseudo-class](#target-psuedo-class)
+- [CSS Grid](#grid-stacks)
+- [CSS 3D transforms & transitions](#transforms)
+- [Accessibility UX enhancements](#ux-enhancements)
+- [Conclusion](#conclusion)
+- [Community remixes](#community-remixes)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a sidenav component
-============================
+# Building a sidenav component
 
 A foundational overview of how to build a responsive slide out sidenav
 
@@ -40,17 +32,16 @@ Jan 21, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share with you how I prototyped a Sidenav component for the web that is responsive, stateful, supports keyboard navigation, works with and without JavaScript, and works across browsers. Try the [demo](https://gui-challenges.web.app/sidenav/dist/).
 
 If you prefer video, here's a YouTube version of this post:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 It's tough building a responsive navigation system. Some users will be on a keyboard, some will have powerful desktops, and some will visit from a small mobile device. Everyone visiting should be able to open and close the menu.
 
@@ -58,8 +49,7 @@ Desktop to mobile responsive layout demo
 
 Light and dark theme down on iOS and Android
 
-Web Tactics <a href="#web-tactics" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Web Tactics <a href="#web-tactics" class="w-headline-link">#</a>
 
 In this component exploration I had the joy of combining a few critical web platform features:
 
@@ -132,9 +122,9 @@ A demo of what happens when you change the ratio.
 
 Our layout is now stacked at a mobile viewport size. Until I add some new styles, it's overlaying our article by default. Here's some UX I'm shooting for in this next section:
 
--   Animate open and close
--   Only animate with motion if the user is OK with that
--   Animate `visibility` so keyboard focus doesn't enter the offscreen element
+- Animate open and close
+- Only animate with motion if the user is OK with that
+- Animate `visibility` so keyboard focus doesn't enter the offscreen element
 
 As I begin to implement motion animations, I want to start with accessibility top of mind.
 
@@ -192,8 +182,8 @@ When the `#sidenav` element matches as `:target`, set the `translateX()` positio
 
 The goal now is to hide the menu from screenreaders when it's out, so systems don't put focus into an offscreen menu. I accomplish this by setting a visibility transition when the `:target` changes.
 
--   When going in, don't transition visibility; be visible right away so I can see the element slide in and accept focus.
--   When going out, transition visibility but delay it, so it flips to `hidden` at the end of the transition out.
+- When going in, don't transition visibility; be visible right away so I can see the element slide in and accept focus.
+- When going out, transition visibility but delay it, so it flips to `hidden` at the end of the transition out.
 
 ### Accessibility UX enhancements <a href="#ux-enhancements" class="w-headline-link">#</a>
 
@@ -251,58 +241,56 @@ Now that you know how I did it, how would you?! This makes for some fun componen
 
 Let's diversify our approaches and learn all the ways to build on the web. Create a [Glitch](https://glitch.com), [tweet me](https://twitter.com/argyleink) your version, and I'll add it to the [Community remixes](#community-remixes) section below.
 
-Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
--   [@\_developit](https://twitter.com/_developit) with custom elements: [demo & code](https://glitch.com/edit/#!/app-drawer)
--   [@mayeedwin1](https://twitter.com/mayeedwin1) with HTML/CSS/JS: [demo & code](https://glitch.com/edit/#!/maye-gui-challenge)
--   [@a\_nurella](https://twitter.com/a_nurella) with a Glitch Remix: [demo & code](https://glitch.com/edit/#!/sidenav-with-adam)
--   [@EvroMalarkey](https://twitter.com/EvroMalarkey) with HTML/CSS/JS: [demo & code](https://evromalarkey.github.io/scrollsnap-drawer/index.html)
+- [@\_developit](https://twitter.com/_developit) with custom elements: [demo & code](https://glitch.com/edit/#!/app-drawer)
+- [@mayeedwin1](https://twitter.com/mayeedwin1) with HTML/CSS/JS: [demo & code](https://glitch.com/edit/#!/maye-gui-challenge)
+- [@a_nurella](https://twitter.com/a_nurella) with a Glitch Remix: [demo & code](https://glitch.com/edit/#!/sidenav-with-adam)
+- [@EvroMalarkey](https://twitter.com/EvroMalarkey) with HTML/CSS/JS: [demo & code](https://evromalarkey.github.io/scrollsnap-drawer/index.html)
 
 <a href="/tags/css/" class="w-chip">CSS</a> <a href="/tags/dom/" class="w-chip">DOM</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a> <a href="/tags/layout/" class="w-chip">Layout</a> <a href="/tags/mobile/" class="w-chip">Mobile</a> <a href="/tags/ux/" class="w-chip">UX</a>
 
 <span class="w-mr--sm">Last updated: Jan 21, 2021 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/blog/building-a-sidenav-component/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-building-a-sidenav-component/" class="w-callout__link w-callout__link--codelab">Codelab: Building a Sidenav component</a>
+- <a href="/codelab-building-a-sidenav-component/" class="w-callout__link w-callout__link--codelab">Codelab: Building a Sidenav component</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

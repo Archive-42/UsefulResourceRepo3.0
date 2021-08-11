@@ -1,31 +1,19 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
+## <a href="#instant-navigation-experiences" class="w-toc__header--link">Instant navigation experiences</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#instant-navigation-experiences" class="w-toc__header--link">Instant navigation experiences</a>
---------------------------------------------------------------------------------------------------------
-
--   [Production cases](#production-cases)
--   [Implement precaching with Workbox](#implement-precaching-with-workbox)
--   [1. Precache static pages and page subresources](#1.-precache-static-pages-and-page-subresources)
--   [2. Extend the lifetime of prefetch resources](#2.-extend-the-lifetime-of-prefetch-resources)
--   [3. Delegate prefetching to the service worker](#3.-delegate-prefetching-to-the-service-worker)
+- [Production cases](#production-cases)
+- [Implement precaching with Workbox](#implement-precaching-with-workbox)
+- [1. Precache static pages and page subresources](#1.-precache-static-pages-and-page-subresources)
+- [2. Extend the lifetime of prefetch resources](#2.-extend-the-lifetime-of-prefetch-resources)
+- [3. Delegate prefetching to the service worker](#3.-delegate-prefetching-to-the-service-worker)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Instant navigation experiences
-==============================
+# Instant navigation experiences
 
 Complementing traditional prefetching techniques with service workers.
 
@@ -37,36 +25,35 @@ Jun 23, 2020 <span class="w-author__separator">•</span> Updated Aug 20, 2020
 
 <a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>
 
--   <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
--   <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
+- <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Jeff Posnick" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/jeffposnick/)
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/4CxwBoPk1E2KKHDkdY1s.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Gilberto Cocchi" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/4CxwBoPk1E2KKHDkdY1s.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/4CxwBoPk1E2KKHDkdY1s.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/4CxwBoPk1E2KKHDkdY1s.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/4CxwBoPk1E2KKHDkdY1s.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/4CxwBoPk1E2KKHDkdY1s.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/gilbertococchi/)
 
 <a href="/authors/gilbertococchi/" class="w-author__name-link">Gilberto Cocchi</a>
 
--   <a href="https://twitter.com/gilberto_cocchi" class="w-author__link">Twitter</a>
--   <a href="https://github.com/gilbertococchi" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/gilberto_cocchi" class="w-author__link">Twitter</a>
+- <a href="https://github.com/gilbertococchi" class="w-author__link">GitHub</a>
 
 Performing a task on a site commonly involves several steps. For example, purchasing a product in an e-commerce website might involve searching for a product, picking an item from the list of results, adding the item to the cart, and completing the operation by checking out.
 
-In technical terms, moving through different pages means making a **navigation request**. As a general rule, you **don't** want to use long-lived `Cache-Control` headers to cache the HTML response for a navigation request. They should normally be satisfied via the network, with `Cache-Control: no-cache`, to ensure that the HTML, along with the chain of subsequent network requests, is (reasonably) fresh. Having to go against the network each time the user navigates to a new page unfortunately means that each navigation might be slow—at the very least, it means that it won't be *reliably* fast.
+In technical terms, moving through different pages means making a **navigation request**. As a general rule, you **don't** want to use long-lived `Cache-Control` headers to cache the HTML response for a navigation request. They should normally be satisfied via the network, with `Cache-Control: no-cache`, to ensure that the HTML, along with the chain of subsequent network requests, is (reasonably) fresh. Having to go against the network each time the user navigates to a new page unfortunately means that each navigation might be slow—at the very least, it means that it won't be _reliably_ fast.
 
 To speed up these requests, if you can anticipate the user's action, you can request these pages and assets beforehand and keep them in the cache for a short period of time until the user clicks on these links. This technique is called [prefetching](/link-prefetch/) and it's commonly implemented by adding `<link rel="prefetch">` tags to pages, indicating the resource to prefetch.
 
 In this guide we'll explore different ways in which [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) can be used as a complement of traditional prefetching techniques.
 
-Production cases <a href="#production-cases" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Production cases <a href="#production-cases" class="w-headline-link">#</a>
 
 [MercadoLibre](https://www.mercadolibre.com.ar/) is the biggest e-commerce site in Latin America. To speed up navigations, they dynamically inject `<link rel="prefetch">` tags in some parts of the flow. For example, in listing pages, they fetch the next result page as soon as the user scrolls to the bottom of the listing:
 
@@ -78,8 +65,7 @@ For example, Italian sports portal [Virgilio Sport](https://sport.virgilio.it/) 
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format" sizes="(min-width: 340px) 340px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/bqiSoliDKZ9SR1NX2Ek3.png?auto=format&amp;w=680 680w" width="340" height="100" /></figure>As a result of this, over 3 weeks of observation Virgilio Sport witnessed load times for navigation to articles improve **78%**, and the number of article impressions increase **45%**.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format" sizes="(min-width: 536px) 536px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=1072 1072w" width="536" height="442" /></figure>Implement precaching with Workbox <a href="#implement-precaching-with-workbox" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format" sizes="(min-width: 536px) 536px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wn7OR4CA21QJUYhs8OUu.png?auto=format&amp;w=1072 1072w" width="536" height="442" /></figure>Implement precaching with Workbox <a href="#implement-precaching-with-workbox" class="w-headline-link">#</a>
 
 In the following section we'll use [Workbox](/workbox/) to show how to implement different caching techniques in the service worker that can be used as a complement to `<link rel="prefetch">`, or even a replacement for it, by delegating this task completely to the service worker.
 
@@ -110,13 +96,13 @@ To speed up navigations in an e-commerce site, you can use `<link rel="prefetch"
 
 To implement this:
 
--   Add a `<link rel="prefetch">` tag to the page:
+- Add a `<link rel="prefetch">` tag to the page:
 
 <!-- -->
 
      <link rel="prefetch" href="/phones/smartphone-5x.html" as="document">
 
--   Add the page subresources to the precache list in the service worker:
+- Add the page subresources to the precache list in the service worker:
 
 <!-- -->
 
@@ -135,13 +121,13 @@ In the previous example, one could complement the `<link rel="prefetch">` used t
 
 To implement that:
 
--   Add a `<link rel="prefetch">` tag to the page:
+- Add a `<link rel="prefetch">` tag to the page:
 
 <!-- -->
 
      <link rel="prefetch" href="/phones/smartphone-5x.html" as="document">
 
--   Implement a runtime caching strategy in the service worker for these types of requests:
+- Implement a runtime caching strategy in the service worker for these types of requests:
 
 <!-- -->
 
@@ -168,7 +154,7 @@ In cases like this, use a "page to service worker communication strategy", to de
 
 Prefetching with Workbox Window can be implemented in the following way:
 
--   In the page: call the service worker passing it the type of message, and the list of URLs to prefetch:
+- In the page: call the service worker passing it the type of message, and the list of URLs to prefetch:
 
 <!-- -->
 
@@ -177,7 +163,7 @@ Prefetching with Workbox Window can be implemented in the following way:
 
     const prefetchResponse = await wb.messageSW({type: 'PREFETCH_URLS', urls: […]});
 
--   In the service worker: implement a message handler to issue a `fetch()` request for each URL to prefetch:
+- In the service worker: implement a message handler to issue a `fetch()` request for each URL to prefetch:
 
 <!-- -->
 
@@ -193,35 +179,35 @@ Prefetching with Workbox Window can be implemented in the following way:
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

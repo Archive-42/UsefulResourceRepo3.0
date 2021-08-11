@@ -1,33 +1,25 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format" alt="A bright and white library, rows and rows of books, with a single person in the middle reaching for a single book." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/bFO3SPdt1bPIB8EylsB7.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#new-css-functional-pseudo-class-selectors-lesscodegreater:is()lesscodegreater-and-lesscodegreater:where()lesscodegreater" class="w-toc__header--link">New CSS functional pseudo-class selectors <code>:is()</code> and <code>:where()</code></a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#new-css-functional-pseudo-class-selectors-lesscodegreater:is()lesscodegreater-and-lesscodegreater:where()lesscodegreater" class="w-toc__header--link">New CSS functional pseudo-class selectors <code>:is()</code> and <code>:where()</code></a>
 
--   [Browser compatibility](#browser-compatibility)
--   [Meet :is() and :where()](#meet-:is()-and-:where())
--   [Selector grouping](#selector-grouping)
--   [Using simple and complex selectors with :is()](#using-simple-and-complex-selectors-with-:is())
--   [The difference between :is() and :where()](#the-difference-between-:is()-and-:where())
+- [Browser compatibility](#browser-compatibility)
+- [Meet :is() and :where()](<#meet-:is()-and-:where()>)
+- [Selector grouping](#selector-grouping)
+- [Using simple and complex selectors with :is()](<#using-simple-and-complex-selectors-with-:is()>)
+- [The difference between :is() and :where()](<#the-difference-between-:is()-and-:where()>)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-New CSS functional pseudo-class selectors `:is()` and `:where()`
-================================================================
+# New CSS functional pseudo-class selectors `:is()` and `:where()`
 
 These seemingly small additions to CSS selector syntax are going to have a big impact.
 
@@ -37,10 +29,10 @@ May 27, 2021 <span class="w-author__separator">•</span> Updated May 27, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 When writing CSS, you can sometimes end up with long selector lists to target multiple elements with the same style rules. For example, if you want to color adjust any `<b>` tags found inside a heading element, you could write:
 
@@ -62,8 +54,7 @@ An infinite visual of before and after using `:is()`
 
 The `:is` and `:where` pseudo-classes are supported in Chromium (&gt;=88), Firefox (&gt;= 78) and Safari (&gt;=14). See MDN's [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#Browser_compatibility) table for more information. Some older browser versions support the `:is()` selector as `:matches()` or `-webkit-any()`. For more information see the [`:is()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:is) page on MDN.
 
-Meet `:is()` and `:where()` <a href="#meet-:is()-and-:where()" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Meet `:is()` and `:where()` <a href="#meet-:is()-and-:where()" class="w-headline-link">#</a>
 
 These are functional pseudo-class selectors, notice the `()` at the end and the way they start with `:`. Think of these as runtime dynamic function calls that match elements. When writing CSS, they give you a way to group elements together in the middle, beginning or end of a selector. They also can change specificity, giving you power to nullify or increase specificity.
 
@@ -131,10 +122,10 @@ When it comes to specificity, `:is()` and `:where()` strongly diverge. For a bru
 
 In short
 
--   `:where()` has no specificity.  
-    `:where()` squashes all the specificity in the selector list passed as functional parameters. This is a first of its kind selector feature.
--   `:is()` takes the specificity of its most specific selector.  
-    `:is(a,div,#id)` has a specificity score of an ID, 100 points.
+- `:where()` has no specificity.  
+  `:where()` squashes all the specificity in the selector list passed as functional parameters. This is a first of its kind selector feature.
+- `:is()` takes the specificity of its most specific selector.  
+  `:is(a,div,#id)` has a specificity score of an ID, 100 points.
 
 Taking on the highest specificity selector from the list has only been a gotcha for me when I was getting too excited about grouping. I was always able to improve legibility by moving the high specificity selector to it's own selector where it wouldn't have so much impact. Here's an example of what I mean:
 
@@ -150,7 +141,7 @@ Taking on the highest specificity selector from the list has only been a gotcha 
 
 With `:where()`, I'm waiting to see libraries offer versions with no specificity. The specificity competition between author styles and library styles could come to an end. There would be no specificity to compete with when writing CSS. CSS has been working on a grouping feature like this for quite some time, it's here, and it's still largely unexplored territory. Have fun making smaller stylesheets and removing commas.
 
-*Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) on [Unsplash](https://unsplash.com/photos/afW1hht0NSs)*
+_Photo by [Markus Winkler](https://unsplash.com/@markuswinkler) on [Unsplash](https://unsplash.com/photos/afW1hht0NSs)_
 
 <a href="/tags/css/" class="w-chip">CSS</a>
 
@@ -158,35 +149,35 @@ With `:where()`, I'm waiting to see libraries offer versions with no specificity
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

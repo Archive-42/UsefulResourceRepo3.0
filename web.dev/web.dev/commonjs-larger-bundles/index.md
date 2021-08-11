@@ -1,33 +1,25 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format" alt="How CommonJS is making your bundles larger" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/S5JWmwRRW3rEXKwJR0JA.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#how-commonjs-is-making-your-bundles-larger" class="w-toc__header--link">How CommonJS is making your bundles larger</a>
---------------------------------------------------------------------------------------------------------------------------------
+## <a href="#how-commonjs-is-making-your-bundles-larger" class="w-toc__header--link">How CommonJS is making your bundles larger</a>
 
--   [What's CommonJS?](#what's-commonjs)
--   [How does CommonJS affect your final bundle size?](#how-does-commonjs-affect-your-final-bundle-size)
--   [Why does CommonJS make your app larger?](#why-does-commonjs-make-your-app-larger)
--   [Tree-shaking with CommonJS](#tree-shaking-with-commonjs)
--   [Conclusion](#conclusion)
+- [What's CommonJS?](#what's-commonjs)
+- [How does CommonJS affect your final bundle size?](#how-does-commonjs-affect-your-final-bundle-size)
+- [Why does CommonJS make your app larger?](#why-does-commonjs-make-your-app-larger)
+- [Tree-shaking with CommonJS](#tree-shaking-with-commonjs)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-How CommonJS is making your bundles larger
-==========================================
+# How CommonJS is making your bundles larger
 
 Learn how CommonJS modules are impacting the tree-shaking of your application
 
@@ -39,17 +31,16 @@ May 8, 2020 <span class="w-author__separator">•</span> Updated May 26, 2020
 
 <a href="/authors/mgechev/" class="w-author__name-link">Minko Gechev</a>
 
--   <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
--   <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
+- <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
 
 In this post, we'll look into what CommonJS is and why it's making your JavaScript bundles larger than necessary.
 
 Summary: **To ensure the bundler can successfully optimize your application, avoid depending on CommonJS modules, and use ECMAScript module syntax in your entire application.**
 
-What's CommonJS? <a href="#what&#39;s-commonjs" class="w-headline-link">#</a>
------------------------------------------------------------------------------
+## What's CommonJS? <a href="#what&#39;s-commonjs" class="w-headline-link">#</a>
 
 CommonJS is a standard from 2009 that established conventions for JavaScript modules. It was initially intended for use outside of the web browser, primarily for server-side applications.
 
@@ -77,8 +68,7 @@ Invoking `index.js` with `node` will output the number `3` in the console.
 
 Because of the lack of a standardized module system in the browser in the early 2010s, CommonJS became a popular module format for JavaScript client-side libraries as well.
 
-How does CommonJS affect your final bundle size? <a href="#how-does-commonjs-affect-your-final-bundle-size" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------------
+## How does CommonJS affect your final bundle size? <a href="#how-does-commonjs-affect-your-final-bundle-size" class="w-headline-link">#</a>
 
 The size of your server-side JavaScript application is not as critical as in the browser, that's why CommonJS was not designed with reducing the production bundle size in mind. At the same time, [analysis](https://v8.dev/blog/cost-of-javascript-2019) shows that the JavaScript bundle size is still the number one reason for making browser apps slower.
 
@@ -134,8 +124,7 @@ A fair question you might ask is, **why does using CommonJS cause the output bun
 
 Notice that even if you're using ECMAScript modules in `index.js`, if the module you're consuming is a CommonJS module, your app's bundle size will suffer.
 
-Why does CommonJS make your app larger? <a href="#why-does-commonjs-make-your-app-larger" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------
+## Why does CommonJS make your app larger? <a href="#why-does-commonjs-make-your-app-larger" class="w-headline-link">#</a>
 
 To answer this question, we'll look at the behavior of the `ModuleConcatenationPlugin` in `webpack` and, after that, discuss static analyzability. This plugin concatenates the scope of all your modules into one closure and allows for your code to have a faster execution time in the browser. Let's look at an example:
 
@@ -184,9 +173,9 @@ In the output above, all the functions are inside the same namespace. To prevent
 
 If a minifier processes the source code above, it will:
 
--   Remove the unused functions `subtract` and `index_subtract`
--   Remove all the comments and redundant whitespace
--   Inline the body of the `add` function in the `console.log` call
+- Remove the unused functions `subtract` and `index_subtract`
+- Remove all the comments and redundant whitespace
+- Inline the body of the `add` function in the `console.log` call
 
 Often developers refer to this **removal of unused imports as tree-shaking**. Tree-shaking was only possible because webpack was able to statically (at build time) understand which symbols we are importing from `utils.js` and what symbols it exports.
 
@@ -229,23 +218,21 @@ There's no way for the bundler to know at build-time what the name of the export
 
 **This way, the minifier is incapable of understanding what exactly `index.js` uses from its dependencies so it can't tree-shake it away.** We'll observe the exact same behavior for third-party modules as well. **If we import a CommonJS module from `node_modules`, your build toolchain will not be able to optimize it properly.**
 
-Tree-shaking with CommonJS <a href="#tree-shaking-with-commonjs" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Tree-shaking with CommonJS <a href="#tree-shaking-with-commonjs" class="w-headline-link">#</a>
 
 It's much harder to analyze CommonJS modules since they are dynamic by definition. For example, the import location in ES modules is always a string literal, compared to CommonJS, where it is an expression.
 
 In some cases, if the library you're using follows specific conventions on how it uses CommonJS, it's possible to remove unused exports at build time using a third-party `webpack` [plugin](https://github.com/indutny/webpack-common-shake). Although this plugin adds support for tree-shaking, it does not cover all the different ways your dependencies could use CommonJS. This means that you're not getting the same guarantees as with ES modules. Additionally, it adds an extra cost as part of your build process on top of the default `webpack` behavior.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 **To ensure the bundler can successfully optimize your application, avoid depending on CommonJS modules, and use ECMAScript module syntax in your entire application.**
 
 Here are a few actionable tips to verify you're on the optimal path:
 
--   Use Rollup.js's [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) plugin and set the `modulesOnly` flag to specify that you want to depend only on ECMAScript modules.
--   Use the package [`is-esm`](https://github.com/mgechev/is-esm) to verify that an npm package uses ECMAScript modules.
--   If you're using Angular, by default you'll get a warning if you depend on non-tree-shakeable modules.
+- Use Rollup.js's [node-resolve](https://github.com/rollup/plugins/tree/master/packages/node-resolve) plugin and set the `modulesOnly` flag to specify that you want to depend only on ECMAScript modules.
+- Use the package [`is-esm`](https://github.com/mgechev/is-esm) to verify that an npm package uses ECMAScript modules.
+- If you're using Angular, by default you'll get a warning if you depend on non-tree-shakeable modules.
 
 <a href="/tags/javascript/" class="w-chip">JavaScript</a> <a href="/tags/modules/" class="w-chip">Modules</a>
 
@@ -253,35 +240,35 @@ Here are a few actionable tips to verify you're on the optimal path:
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,16 +2,14 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Lesson: Generics](http://download.oracle.com/javase/tutorial/java/generics/index.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Java™ Tutorials</span>
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -21,8 +19,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -30,8 +27,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: &lt;...&gt; (less than/greater than) syntax
-=================================================
+# Java: &lt;...&gt; (less than/greater than) syntax
 
 The `<...>` syntax allows you to write **generic** classes and methods that can handle multiple different types. This means, for instance, that you don't have to write one list class that can store integers, one list class that can store strings, and so on. Instead you can write one list class that's generic and can be used for any type.
 
@@ -51,23 +47,20 @@ Looking at the documentation, we see that the [`ArrayList.get(int)`](https://doc
 
 This means that `strList.get()` will return a `String`.
 
-Diamond Syntax: `new ArrayList<>()`
------------------------------------
+## Diamond Syntax: `new ArrayList<>()`
 
 If the type is left out, as below, the type is **inferred**:
 
     List<String> l1 = new ArrayList<>();
     List<String> l2 = new ArrayList<String>(); // Equivalent
 
-Details
--------
+## Details
 
--   `ArrayList` (without any type argument) is called the **raw type** and should not be used if it can be avoided.
+- `ArrayList` (without any type argument) is called the **raw type** and should not be used if it can be avoided.
 
--   `ArrayList<Object>` is **not** a super type of `ArrayList<String>`. In technical terms: generic classes are **invariant** (as opposed to arrays that are **covariant**).
+- `ArrayList<Object>` is **not** a super type of `ArrayList<String>`. In technical terms: generic classes are **invariant** (as opposed to arrays that are **covariant**).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

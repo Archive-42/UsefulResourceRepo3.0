@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Proposal: Type Aliases](https://github.com/golang/proposal/blob/master/design/18130-type-alias.md)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Russ Cox and Robert Griesemer</span>
@@ -11,8 +10,7 @@ Further Reading
 [Codebase Refactoring (with help from Go)](https://talks.golang.org/2016/refactor.article)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Russ Cox</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Type alias
-==============
+# Go: Type alias
 
 An **alias declaration** has the form
 
@@ -50,8 +46,7 @@ As opposed to a **type definition**…
 
 Type aliases are not meant for everyday use. They were introduced to support gradual code repair while moving a type between packages during large-scale refactoring. The article [Codebase Refactoring (with help from Go)](https://talks.golang.org/2016/refactor.article) covers this in detail.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -10,22 +10,20 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#how-progressive-web-apps-can-drive-business-success" class="w-toc__header--link">How Progressive Web Apps can drive business success</a>
---------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#how-progressive-web-apps-can-drive-business-success" class="w-toc__header--link">How Progressive Web Apps can drive business success</a>
 
--   [PWAs solve customer needs](#solve-customer-needs)
--   [PWAs leverage modern web capabilities](#modern-capabilities)
--   [Understand the business impact](#business-impact)
--   [The business impact of a fast website](#impact-fast)
--   [The business impact of an installable website](#impact-installable)
--   [The business impact of a reliable website](#impact-reliable)
--   [The business impact of an engaging website](#impact-engaging)
--   [The P in PWA: a progressive launch, feature by feature](#feature-by-feature)
+- [PWAs solve customer needs](#solve-customer-needs)
+- [PWAs leverage modern web capabilities](#modern-capabilities)
+- [Understand the business impact](#business-impact)
+- [The business impact of a fast website](#impact-fast)
+- [The business impact of an installable website](#impact-installable)
+- [The business impact of a reliable website](#impact-reliable)
+- [The business impact of an engaging website](#impact-engaging)
+- [The P in PWA: a progressive launch, feature by feature](#feature-by-feature)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-How Progressive Web Apps can drive business success
-===================================================
+# How Progressive Web Apps can drive business success
 
 May 20, 2020 <span class="w-author__separator">•</span> Updated May 20, 2020
 
@@ -35,9 +33,9 @@ May 20, 2020 <span class="w-author__separator">•</span> Updated May 20, 2020
 
 <a href="/authors/sfourault/" class="w-author__name-link">Sébastien Fourault</a>
 
--   <a href="https://twitter.com/SebFourault" class="w-author__link">Twitter</a>
--   <a href="https://github.com/krustydaclown" class="w-author__link">GitHub</a>
--   <a href="https://medium.com/@sebFourault" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/SebFourault" class="w-author__link">Twitter</a>
+- <a href="https://github.com/krustydaclown" class="w-author__link">GitHub</a>
+- <a href="https://medium.com/@sebFourault" class="w-author__link">Blog</a>
 
 Progressive Web Apps are on a lot of companies' roadmap to modernize their website and adapt to users' new expectations. Like all new concepts and technical capabilities, they raise questions: is it what my customers want, how much will it grow my business, what is technically feasible?
 
@@ -47,24 +45,22 @@ To shape your digital strategy, several stakeholders are often involved: the Pro
 
 This article aims to help you answer those three questions and shape your PWA project. You will start from your customer needs, translate this into PWA features, and focus on measuring the business impact that each feature brings to the table.
 
-PWAs solve customer needs <a href="#solve-customer-needs" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------
+## PWAs solve customer needs <a href="#solve-customer-needs" class="w-headline-link">#</a>
 
-One rule we love to follow at Google when making products is "[focus on the user and all else will follow](https://www.google.com/about/philosophy.html)". Think *user-first*: what are my customers' needs, and how does a PWA provide them?
+One rule we love to follow at Google when making products is "[focus on the user and all else will follow](https://www.google.com/about/philosophy.html)". Think _user-first_: what are my customers' needs, and how does a PWA provide them?
 
 <img src="https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format" alt="Identify customer needs" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/TcmXmWb5mSUqal98NIAH.jpg?auto=format&amp;w=1600 1600w" width="800" height="262" />
 
 When doing user research, we find some interesting patterns:
 
--   Users hate delays and unreliability on mobile: the level of stress caused by mobile delays is [comparable to watching a horror movie](https://blog.hubspot.com/marketing/mobile-website-load-faster).
--   Fifty percent of smartphone users are more likely to use a company's mobile site when browsing or shopping because they [don't want to download an app](https://www.thinkwithgoogle.com/data/smartphone-user-mobile-shopping-preferences/).
--   One of the top reasons for uninstalling an app is the [limited storage](https://www.thinkwithgoogle.com/data/why-users-uninstall-travel-apps/) (whereas an installed PWA usually takes less than 1MB).
--   Smartphone users are more likely to purchase from mobile sites that [offer relevant recommendations](https://www.thinkwithgoogle.com/data/smartphone-mobile-app-and-site-purchase-data/) on products, and 85% of smartphone users say [mobile notifications are useful](https://www.thinkwithgoogle.com/data/smartphone-user-notification-preferences/).
+- Users hate delays and unreliability on mobile: the level of stress caused by mobile delays is [comparable to watching a horror movie](https://blog.hubspot.com/marketing/mobile-website-load-faster).
+- Fifty percent of smartphone users are more likely to use a company's mobile site when browsing or shopping because they [don't want to download an app](https://www.thinkwithgoogle.com/data/smartphone-user-mobile-shopping-preferences/).
+- One of the top reasons for uninstalling an app is the [limited storage](https://www.thinkwithgoogle.com/data/why-users-uninstall-travel-apps/) (whereas an installed PWA usually takes less than 1MB).
+- Smartphone users are more likely to purchase from mobile sites that [offer relevant recommendations](https://www.thinkwithgoogle.com/data/smartphone-mobile-app-and-site-purchase-data/) on products, and 85% of smartphone users say [mobile notifications are useful](https://www.thinkwithgoogle.com/data/smartphone-user-notification-preferences/).
 
 According to those observations, we found out that customers prefer experiences that are fast, installable, reliable, and engaging (F.I.R.E.)!
 
-PWAs leverage modern web capabilities <a href="#modern-capabilities" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## PWAs leverage modern web capabilities <a href="#modern-capabilities" class="w-headline-link">#</a>
 
 PWAs provide a set of best practices and modern web APIs that are aimed at meeting your customers' needs by making your site fast, installable, reliable, and engaging.
 
@@ -72,15 +68,14 @@ For example, using a service worker to [cache your resources](/service-workers-c
 
 <img src="https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format" alt="Improving the user experience with new capabilities" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/rP0eNCflNYOhzjPi1Lq5.jpg?auto=format&amp;w=1600 1600w" width="800" height="393" />
 
-Understand the business impact <a href="#business-impact" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------
+## Understand the business impact <a href="#business-impact" class="w-headline-link">#</a>
 
 The business success definition can be a lot of things depending on your activity:
 
--   Users spending more time on your service
--   Reduced bounce rates for your leads
--   Improved conversion rates
--   More returning visitors
+- Users spending more time on your service
+- Reduced bounce rates for your leads
+- Improved conversion rates
+- More returning visitors
 
 Most PWA projects result in a higher mobile conversion rate, and you can learn more from the numerous [PWA case studies](https://www.pwastats.com/). Depending on your objectives, you may want to prioritize some aspects of PWA that make more sense for your business, and it's completely OK. PWA features can be cherry-picked and launched separately.
 
@@ -122,10 +117,10 @@ To maximize the number of users installing your site, you may want to [test diff
 
 To understand where your users are leaving and how to improve retention, the install funnel can be [measured](https://pwa-book.awwwards.com/chapter-8) in four ways:
 
--   Number of users eligible to install
--   Number of users who clicked on the UI install prompt
--   Number of users who both accepted and declined to install
--   Number of users who have successfully installed
+- Number of users eligible to install
+- Number of users who clicked on the UI install prompt
+- Number of users who both accepted and declined to install
+- Number of users who have successfully installed
 
 You can start promoting your PWA install to all your users or use a more cautious approach by only experimenting with a small group of users.
 
@@ -173,19 +168,18 @@ Technically, [push notifications](https://developers.google.com/web/fundamentals
 
 To measure the effectiveness of your push campaigns, your need to measure the whole funnel:
 
--   Number of users eligible for push notifications
--   Number of users who click a custom notification UI prompt
--   Number of users who grant push notification permission
--   Number of users who receive push notifications
--   Number of users who engage with notifications
--   Conversion and engagement of users coming from a notification
+- Number of users eligible for push notifications
+- Number of users who click a custom notification UI prompt
+- Number of users who grant push notification permission
+- Number of users who receive push notifications
+- Number of users who engage with notifications
+- Conversion and engagement of users coming from a notification
 
 <img src="https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format" alt="Measure the value of Web Push Notifications" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/UpzfxBDi3e66cZ9gzkkS.jpg?auto=format&amp;w=1600 1600w" width="800" height="255" />
 
 There are a lot of great case studies on web push notifications, like [Carrefour who multiplied their conversion rate by 4.5](https://useinsider.com/case-studies/carrefour/) by re-engaging users with abandoned carts.
 
-The P in PWA: a progressive launch, feature by feature <a href="#feature-by-feature" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## The P in PWA: a progressive launch, feature by feature <a href="#feature-by-feature" class="w-headline-link">#</a>
 
 PWAs are modern websites that benefit from the massive reach of the web, combined with all the user-friendly features that users love in Android/iOS/desktop apps. They leverage a set of best practices and modern web APIs, that can be implemented independently depending on your business specificities and priorities.
 
@@ -199,35 +193,35 @@ To accelerate the modernization of your website and make it a real PWA, we encou
 
 <a href="/progressive-web-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

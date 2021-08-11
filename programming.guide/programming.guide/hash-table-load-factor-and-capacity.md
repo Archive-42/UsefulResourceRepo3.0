@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Hash Tables](hash-tables.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -21,8 +19,7 @@ Top Algorithm Articles
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -32,13 +29,11 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Hash Table Load Factor and Capacity
-===================================
+# Hash Table Load Factor and Capacity
 
 This is an excerpt from the more extensive article on [Hash Tables](hash-tables.html).
 
-Load Factor
------------
+## Load Factor
 
 The **load factor** is the average number of key-value pairs per bucket.
 
@@ -58,8 +53,7 @@ Lower limit More empty buckets More memory overhead Higher limit Larger buckets 
 
 The default load factor for a Java [`HashMap`](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) is 0.75 and for a C\# [`Hashtable`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8) it’s 1.0.
 
-Capacity
---------
+## Capacity
 
 The **capacity** is the maximum number of key-value pairs for the given load factor limit and current bucket count.
 
@@ -77,15 +71,13 @@ Since rehashing increases the number of buckets, it increases the capacity.
 
 The default initial capacity for a Java [`HashMap`](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html) is 12 and for a C\# [`Hashtable`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8) it’s 0, i.e. the bucket array is initialized lazily upon first insertion.
 
-Example
--------
+## Example
 
 Here’s the structure of a hash table, configured with load factor limit of 4.
 
 Current load factor: 24 / 8 = 3 Configured limit: 4 Current capacity: 8 × 4 = 32
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

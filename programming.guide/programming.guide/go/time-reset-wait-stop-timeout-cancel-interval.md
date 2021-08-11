@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -20,8 +19,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,13 +29,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Timer and Ticker explained
-==============================
+# Go: Timer and Ticker explained
 
 Timers and Tickers let you execute code in the future, once or repeatedly.
 
-Timeout (Timer)
----------------
+## Timeout (Timer)
 
 [`time.After`](https://golang.org/pkg/time/#After) waits for a specified duration and then sends the current time on the returned channel:
 
@@ -62,8 +58,7 @@ The underlying [`time.Timer`](https://golang.org/pkg/time/#Timer) will not be re
             }
     }
 
-Repeat (Ticker)
----------------
+## Repeat (Ticker)
 
 [`time.Tick`](https://golang.org/pkg/time/#Tick) returns a channel that delivers clock ticks at even intervals:
 
@@ -75,8 +70,7 @@ Repeat (Ticker)
 
 The underlying [`time.Ticker`](https://golang.org/pkg/time/#Ticker) will not be recovered by the garbage collector. If this is a concern, use [`time.NewTicker`](https://golang.org/pkg/time/#NewTicker) instead and call its [`Stop`](https://golang.org/pkg/time/#Timer.Stop) method when the ticker is no longer needed.
 
-Wait, act and cancel
---------------------
+## Wait, act and cancel
 
 [`time.AfterFunc`](https://golang.org/pkg/time/#AfterFunc) waits for a specified duration and then calls a function in its own goroutine. It returns a [`time.Timer`](https://golang.org/pkg/time/#Timer) that can be used to cancel the call:
 
@@ -109,8 +103,7 @@ Next »
 
 Mutual exclusion lock (mutex)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -12,24 +10,22 @@
 
 <img src="https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format" alt="A sparkler." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/qphHgunn2LamPL1qODh5.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#cross-browser-paint-worklets-and-houdini.how" class="w-toc__header--link">Cross-browser paint worklets and Houdini.how</a>
-------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#cross-browser-paint-worklets-and-houdini.how" class="w-toc__header--link">Cross-browser paint worklets and Houdini.how</a>
 
--   [Understanding Houdini worklets](#understanding-houdini-worklets)
--   [Implementing your own features with the CSS Painting API](#implementing-your-own-features-with-the-css-painting-api)
--   [Houdini.how](#houdini.how)
--   [Using Houdini](#using-houdini)
--   [1. Prototyping with a CDN](#1.-prototyping-with-a-cdn)
--   [2. Managing worklets via NPM](#2.-managing-worklets-via-npm)
--   [Contribute](#contribute)
+- [Understanding Houdini worklets](#understanding-houdini-worklets)
+- [Implementing your own features with the CSS Painting API](#implementing-your-own-features-with-the-css-painting-api)
+- [Houdini.how](#houdini.how)
+- [Using Houdini](#using-houdini)
+- [1. Prototyping with a CDN](#1.-prototyping-with-a-cdn)
+- [2. Managing worklets via NPM](#2.-managing-worklets-via-npm)
+- [Contribute](#contribute)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Cross-browser paint worklets and Houdini.how
-============================================
+# Cross-browser paint worklets and Houdini.how
 
 Supercharging your CSS with Houdini paint worklets is just a few clicks away.
 
@@ -39,9 +35,9 @@ Dec 10, 2020
 
 <a href="/authors/una/" class="w-author__name-link">Una Kravets</a>
 
--   <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
--   <a href="https://github.com/una" class="w-author__link">GitHub</a>
--   <a href="https://una.im/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
+- <a href="https://github.com/una" class="w-author__link">GitHub</a>
+- <a href="https://una.im/" class="w-author__link">Blog</a>
 
 CSS [Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini) is an umbrella term that describes a series of low-level browser APIs that give developers much more control and power over the styles they write.
 
@@ -49,15 +45,13 @@ CSS [Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini) is an umbrel
 
 It also introduces paint, layout, and animation [worklets](https://developers.google.com/web/updates/2018/10/animation-worklet), which open up a world of possibilities, by making it easier for authors to hook into the styling and layout process of the browser's rendering engine.
 
-Understanding Houdini worklets <a href="#understanding-houdini-worklets" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Understanding Houdini worklets <a href="#understanding-houdini-worklets" class="w-headline-link">#</a>
 
 Houdini worklets are browser instructions that run off the main thread and can be called when needed. Worklets enable you to write modular CSS to accomplish specific tasks, and require a single line of JavaScript to import and register. Much like service workers for CSS style, Houdini worklets are registered to your application, and once registered can be used in your CSS by name.
 
 Write worklet file Register worklet module (`CSS.paintWorklet.addModule(workletURL)`) Use worklet (`background: paint(confetti)`)
 
-Implementing your own features with the CSS Painting API <a href="#implementing-your-own-features-with-the-css-painting-api" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+## Implementing your own features with the CSS Painting API <a href="#implementing-your-own-features-with-the-css-painting-api" class="w-headline-link">#</a>
 
 The [CSS Painting API](https://drafts.css-houdini.org/css-paint-api/) is an example of such a worklet (the Paint worklet), and enables developers to define canvas-like custom painting functions that can be used directly in CSS as backgrounds, borders, masks, and more. There is a whole world of possibilities for how you can use CSS Paint in your own user interfaces.
 
@@ -85,13 +79,11 @@ The CSS Painting API is currently one of the best-supported Houdini APIs, its sp
 
 <figure><img src="https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format" alt="The CSS Painting API is currently supported on Chromium-based browsers." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/vL8Z5YEwk2g2QJ6T6IWp.png?auto=format&amp;w=1600 1600w" width="800" height="176" /><figcaption>The CSS Painting API is currently supported on Chromium-based browsers.</figcaption></figure>But even without full browser support, you can still get creative with the Houdini Paint API and see your styles work across all modern browsers with the [CSS Paint Polyfill](https://github.com/GoogleChromeLabs/css-paint-polyfill). And to showcase a few unique implementations, as well as to provide a resource and worklet library, my team built [houdini.how](https://houdini.how).
 
-Houdini.how <a href="#houdini.how" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Houdini.how <a href="#houdini.how" class="w-headline-link">#</a>
 
 <figure><img src="https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format" alt="Screenshot from the Houdini.how homepage." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/UKenhKMvDWI9PvWGcTG4.png?auto=format&amp;w=1600 1600w" width="800" height="833" /><figcaption>Screenshot from the <a href="https://houdini.how">Houdini.how</a> homepage.</figcaption></figure>[Houdini.how](https://houdini.how) is a library and reference for Houdini worklets and resources. It provides everything you need to know about CSS Houdini: browser support, an [overview](https://houdini.how/about) of its various APIs, [usage](https://houdini.how/usage) information, additional [resources](https://houdini.how/resources), and live paint worklet [samples](https://houdini.how/). Each sample on Houdini.how is backed by the CSS Paint API, meaning they each work on all modern browsers. Give it a whirl!
 
-Using Houdini <a href="#using-houdini" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Using Houdini <a href="#using-houdini" class="w-headline-link">#</a>
 
 Houdini worklets must either be run via a server locally, or on HTTPS in production. In order to work with a Houdini worklet, you will need to either install it locally or use a content delivery network (CDN) like [unpkg](https://unpkg.com) to serve the files. You will then need to register the worklet locally.
 
@@ -138,8 +130,7 @@ Here is an example of how to use Houdini with the paint polyfill in modern bundl
 
 For more specific instruction per-bundler, check out the [usage page](https://houdini.how/usage) on Houdini.how.
 
-Contribute <a href="#contribute" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Contribute <a href="#contribute" class="w-headline-link">#</a>
 
 Now that you've played around with some Houdini samples, it's your turn to contribute your own! Houdini.how does not host any worklets itself, and instead showcases the work of the community. If you have a worklet or resource you would like to submit, check out the [github repo](https://github.com/GoogleChromeLabs/houdini.how/blob/main/CONTRIBUTING.md) with contribution guidelines. We'd love to see what you come up with!
 
@@ -149,35 +140,35 @@ Now that you've played around with some Houdini samples, it's your turn to contr
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

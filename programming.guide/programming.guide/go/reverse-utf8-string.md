@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [What is a rune?](rune.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Strings, bytes, runes and characters in Go](https://blog.golang.org/strings)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,8 +35,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Reverse a UTF-8 encoded string
-==================================
+# Go: Reverse a UTF-8 encoded string
 
 This function returns a string with the UTF-8 encoded characters of `s` in reverse order. Invalid UTF-8 sequences, if any, will be reversed byte by byte.
 
@@ -69,8 +65,7 @@ Example usage:
     "界世 ,olleH"
     "\xfd\xfe\xff"
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,13 +28,11 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Switch Statement
-======================
+# Java: Switch Statement
 
 **Note:** Not to be confused with [switch expressions](switch-expression.html). (What's the [difference between statements and expressions?](../statements-vs-expressions.html))
 
-Arrow syntax (Java 12+)
------------------------
+## Arrow syntax (Java 12+)
 
     switch (myInt) {
         case 1 -> System.out.println("One");
@@ -52,8 +47,7 @@ No [fall through](switch-statement.html#fall-through).
 
 Multiple statements require `{ ... }`
 
-Colon syntax
-------------
+## Colon syntax
 
     switch (myInt) {
         case 1:
@@ -70,8 +64,7 @@ Colon syntax
 
 Multiple statements don't require `{ ... }`
 
-Multiple case constants
------------------------
+## Multiple case constants
 
 Both colon and arrow variants allow for multiple constants in each case:
 
@@ -83,13 +76,11 @@ Both colon and arrow variants allow for multiple constants in each case:
             System.out.println("Something else");
     }
 
-Can't mix colons and arrows
----------------------------
+## Can't mix colons and arrows
 
 You can't have both cases with colon syntax and cases with arrow syntax in the same switch statement.
 
-Fall through
-------------
+## Fall through
 
 Fall through is what happens when execution proceeds from the bottom of one case to the top of the subsequent case.
 
@@ -106,8 +97,7 @@ First case falls through. Output: "Hello World"
             System.out.println("Not executed");
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

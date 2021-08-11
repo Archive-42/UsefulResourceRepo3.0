@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Hash Tables
------------
+## Hash Tables
 
 1.  [Hash Tables](hash-tables.html)
 2.  [Complexity](hash-tables-complexity.html)
@@ -22,8 +21,7 @@ Hash Tables
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -33,11 +31,9 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-Hash Table
-==========
+# Hash Table
 
-Hash Set
-========
+# Hash Set
 
 A hash table (or hash map) is an implementation of a **map** ADT.
 
@@ -62,8 +58,7 @@ A hash set stores values. The value is also the key, i.e. the hashing is based o
 
 **Note:** The literature on these types of data structures (including many of the articles here on Programming.Guide) mostly focus on hash sets rather than hash tables. This is because the actual values are never really relevant to the discussion, and it's easy to generalize an implementation that works only with keys, into one that works with key-value pairs.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

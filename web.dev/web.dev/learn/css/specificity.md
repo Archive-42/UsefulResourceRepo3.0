@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,49 +52,48 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#specificity-scoring" class="toc__anchor">Specificity scoring</a>
--   <a href="#scoring-each-selector-type" class="toc__anchor">Scoring each selector type</a>
-    -   <a href="#universal-selector" class="toc__anchor">Universal selector</a>
-    -   <a href="#element-or-pseudo-element-selector" class="toc__anchor">Element or pseudo-element selector</a>
-    -   <a href="#class-pseudo-class-or-attribute-selector" class="toc__anchor">Class, pseudo-class, or attribute selector</a>
-    -   <a href="#id-selector" class="toc__anchor">ID selector</a>
-    -   <a href="#inline-style-attribute" class="toc__anchor">Inline style attribute</a>
-    -   <a href="#!important-rule" class="toc__anchor">!important rule</a>
--   <a href="#specificity-in-context" class="toc__anchor">Specificity in context</a>
--   <a href="#visualizing-specificity" class="toc__anchor">Visualizing specificity</a>
--   <a href="#pragmatically-increasing-specificity" class="toc__anchor">Pragmatically increasing specificity</a>
--   <a href="#a-matching-specificity-score-sees-the-newest-instance-win" class="toc__anchor">A matching specificity score sees the newest instance win</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#specificity-scoring" class="toc__anchor">Specificity scoring</a>
+- <a href="#scoring-each-selector-type" class="toc__anchor">Scoring each selector type</a>
+  - <a href="#universal-selector" class="toc__anchor">Universal selector</a>
+  - <a href="#element-or-pseudo-element-selector" class="toc__anchor">Element or pseudo-element selector</a>
+  - <a href="#class-pseudo-class-or-attribute-selector" class="toc__anchor">Class, pseudo-class, or attribute selector</a>
+  - <a href="#id-selector" class="toc__anchor">ID selector</a>
+  - <a href="#inline-style-attribute" class="toc__anchor">Inline style attribute</a>
+  - <a href="#!important-rule" class="toc__anchor">!important rule</a>
+- <a href="#specificity-in-context" class="toc__anchor">Specificity in context</a>
+- <a href="#visualizing-specificity" class="toc__anchor">Visualizing specificity</a>
+- <a href="#pragmatically-increasing-specificity" class="toc__anchor">Pragmatically increasing specificity</a>
+- <a href="#a-matching-specificity-score-sees-the-newest-instance-win" class="toc__anchor">A matching specificity score sees the newest instance win</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 004
 
-Specificity
-===========
+# Specificity
 
 This module takes a deeper look at specificity, a key part of the cascade.
 
 On this page
 
--   <a href="#specificity-scoring" class="toc__anchor">Specificity scoring</a>
--   <a href="#scoring-each-selector-type" class="toc__anchor">Scoring each selector type</a>
-    -   <a href="#universal-selector" class="toc__anchor">Universal selector</a>
-    -   <a href="#element-or-pseudo-element-selector" class="toc__anchor">Element or pseudo-element selector</a>
-    -   <a href="#class-pseudo-class-or-attribute-selector" class="toc__anchor">Class, pseudo-class, or attribute selector</a>
-    -   <a href="#id-selector" class="toc__anchor">ID selector</a>
-    -   <a href="#inline-style-attribute" class="toc__anchor">Inline style attribute</a>
-    -   <a href="#!important-rule" class="toc__anchor">!important rule</a>
--   <a href="#specificity-in-context" class="toc__anchor">Specificity in context</a>
--   <a href="#visualizing-specificity" class="toc__anchor">Visualizing specificity</a>
--   <a href="#pragmatically-increasing-specificity" class="toc__anchor">Pragmatically increasing specificity</a>
--   <a href="#a-matching-specificity-score-sees-the-newest-instance-win" class="toc__anchor">A matching specificity score sees the newest instance win</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#specificity-scoring" class="toc__anchor">Specificity scoring</a>
+- <a href="#scoring-each-selector-type" class="toc__anchor">Scoring each selector type</a>
+  - <a href="#universal-selector" class="toc__anchor">Universal selector</a>
+  - <a href="#element-or-pseudo-element-selector" class="toc__anchor">Element or pseudo-element selector</a>
+  - <a href="#class-pseudo-class-or-attribute-selector" class="toc__anchor">Class, pseudo-class, or attribute selector</a>
+  - <a href="#id-selector" class="toc__anchor">ID selector</a>
+  - <a href="#inline-style-attribute" class="toc__anchor">Inline style attribute</a>
+  - <a href="#!important-rule" class="toc__anchor">!important rule</a>
+- <a href="#specificity-in-context" class="toc__anchor">Specificity in context</a>
+- <a href="#visualizing-specificity" class="toc__anchor">Visualizing specificity</a>
+- <a href="#pragmatically-increasing-specificity" class="toc__anchor">Pragmatically increasing specificity</a>
+- <a href="#a-matching-specificity-score-sees-the-newest-instance-win" class="toc__anchor">A matching specificity score sees the newest instance win</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -120,15 +117,13 @@ There's two competing rules here. One will color the button red and the other wi
 
 Specificity is one of the four distinct stages of the cascade, which was covered in the last module, on [the cascade](/learn/css/the-cascade/).
 
-Specificity scoring <a href="#specificity-scoring" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Specificity scoring <a href="#specificity-scoring" class="w-headline-link">#</a>
 
 Each selector rule gets a scoring. You can think of specificity as a total score and each selector type earns points towards that score. The selector with the highest score wins.
 
-With specificity in a real project, the balancing act is making sure the CSS rules you expect to apply, actually *do apply,* while generally keeping scores low to prevent complexity. The score should only be as high as we need it to be, rather than aiming for the highest score possible. In the future, some genuinely more important CSS might need to be applied. If you go for the highest score, you'll make that job hard.
+With specificity in a real project, the balancing act is making sure the CSS rules you expect to apply, actually _do apply,_ while generally keeping scores low to prevent complexity. The score should only be as high as we need it to be, rather than aiming for the highest score possible. In the future, some genuinely more important CSS might need to be applied. If you go for the highest score, you'll make that job hard.
 
-Scoring each selector type <a href="#scoring-each-selector-type" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Scoring each selector type <a href="#scoring-each-selector-type" class="w-headline-link">#</a>
 
 Each selector type earns points. You add all of these points up to calculate a selector's overall specificity.
 
@@ -184,7 +179,7 @@ The [`:not()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:not) pseudo-cla
       color: red;
     }
 
-This sample would have **11 points** of specificity because it has one type selector (`div`) and one class *inside* the `:not()`.
+This sample would have **11 points** of specificity because it has one type selector (`div`) and one class _inside_ the `:not()`.
 
 ### ID selector <a href="#id-selector" class="w-headline-link">#</a>
 
@@ -221,8 +216,7 @@ Try again!
 
 The `a` is worth 1 point and the `[href="#"]` is worth 10 points, making a total score of **11 points**.
 
-Specificity in context <a href="#specificity-in-context" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Specificity in context <a href="#specificity-in-context" class="w-headline-link">#</a>
 
 The specificity of each selector that matches an element is added together. Consider this example HTML:
 
@@ -268,8 +262,7 @@ Elements are worth 1 point, classes are worth 10 points, and with 2 classes and 
 
 Elements are worth 1 point, pseudo-classes and attributes are worth 10 points, there are 2 points for the elements, and 20 points for the attributes and classes, makes this selector worth **22 points**.
 
-Visualizing specificity <a href="#visualizing-specificity" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Visualizing specificity <a href="#visualizing-specificity" class="w-headline-link">#</a>
 
 In diagrams and specificity calculators, the specificity is often visualized like this:
 
@@ -295,8 +288,7 @@ This selector is visualized as `1-3-0`.
 
 This selector is visualized as `1-1-2`.
 
-Pragmatically increasing specificity <a href="#pragmatically-increasing-specificity" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Pragmatically increasing specificity <a href="#pragmatically-increasing-specificity" class="w-headline-link">#</a>
 
 Let's say we have some CSS that looks like this:
 
@@ -330,8 +322,7 @@ Now, the button will have a blue background, because the new selector gets a spe
 
 **Caution**: If you find that you are needing to boost specificity like this frequently, it may indicate that you are writing overly specific selectors. Consider whether you can refactor your CSS to reduce the specificity of other selectors to avoid this problem.
 
-A matching specificity score sees the newest instance win <a href="#a-matching-specificity-score-sees-the-newest-instance-win" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+## A matching specificity score sees the newest instance win <a href="#a-matching-specificity-score-sees-the-newest-instance-win" class="w-headline-link">#</a>
 
 Let's stay with the button example for now and switch the CSS around to this:
 
@@ -357,14 +348,13 @@ If you switch the rules in the source order, the button would then be blue.
 
 This is the only instance where newer CSS wins. To do so it must match the specificity of another selector that targets the same element.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [CSS SpeciFISHity](http://specifishity.com)
--   [Specificity Calculator](https://specificity.keegan.st)
--   [MDN Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
--   [Specifics on CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/)
--   [Another Specificity Calculator](https://polypane.app/css-specificity-calculator)
+- [CSS SpeciFISHity](http://specifishity.com)
+- [Specificity Calculator](https://specificity.keegan.st)
+- [MDN Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+- [Specifics on CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/)
+- [Another Specificity Calculator](https://polypane.app/css-specificity-calculator)
 
 <a href="/learn/css/the-cascade/" class="course-pagination-control"></a>
 
@@ -380,35 +370,35 @@ Inheritance
 
 Some CSS properties inherit if you don't specify a value for them. Find out how this works, and how to use it to your advantage in this module.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

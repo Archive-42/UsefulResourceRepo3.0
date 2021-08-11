@@ -1,37 +1,29 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format" alt="The AVIF logo" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/0jtMLyN4T7C7UazJCYEH.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#using-avif-to-compress-images-on-your-site" class="w-toc__header--link">Using AVIF to compress images on your site</a>
---------------------------------------------------------------------------------------------------------------------------------
+## <a href="#using-avif-to-compress-images-on-your-site" class="w-toc__header--link">Using AVIF to compress images on your site</a>
 
--   [What's New](#what's-new)
--   [Libaom](#libaom)
--   [Libavif](#libavif)
--   [Encoding AVIF images with avifenc](#encoding-avif-images-with-avifenc)
--   [Building command line encoder avifenc](#building-command-line-encoder-avifenc)
--   [Understanding the avifenc command line parameters](#understanding-the-avifenc-command-line-parameters)
--   [Create an AVIF image with default settings](#create-an-avif-image-with-default-settings)
--   [Speeding up the encoder](#speeding-up-the-encoder)
--   [Conclusion](#conclusion)
+- [What's New](#what's-new)
+- [Libaom](#libaom)
+- [Libavif](#libavif)
+- [Encoding AVIF images with avifenc](#encoding-avif-images-with-avifenc)
+- [Building command line encoder avifenc](#building-command-line-encoder-avifenc)
+- [Understanding the avifenc command line parameters](#understanding-the-avifenc-command-line-parameters)
+- [Create an AVIF image with default settings](#create-an-avif-image-with-default-settings)
+- [Speeding up the encoder](#speeding-up-the-encoder)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Using AVIF to compress images on your site
-==========================================
+# Using AVIF to compress images on your site
 
 Jun 7, 2021
 
@@ -53,8 +45,7 @@ Additionally, AVIF adds codec and container support for new image features such 
 
 AVIF supports two types of progressive decoding. Spatial scalability can be used to offer a lower resolution image for network constrained users and 'progressively' provide a higher resolution image by sending just the additional data required to fill in the high frequency details. Quality scalability offers a similar progression by steadily improving visual quality with each render.
 
-What's New <a href="#what&#39;s-new" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## What's New <a href="#what&#39;s-new" class="w-headline-link">#</a>
 
 Since landing AVIF support in Chrome M85 last summer, AVIF support in the open source ecosystem has improved on a number of fronts.
 
@@ -62,9 +53,9 @@ Since landing AVIF support in Chrome M85 last summer, AVIF support in the open s
 
 [Libaom](https://aomedia.googlesource.com/aom/) is an open source AV1 encoder and decoder maintained by the companies in the Alliance for Open Media, and used in many production services at Google and other member companies. Between the libaom 2.0.0 release—around the same time Chrome added AVIF support—and the recent 3.1.0 release, there have been significant still image encoding optimizations added to the codebase. These include:
 
--   Optimizations for multi-threading and tiled encoding.
--   5x reduction in memory usage.
--   6.5x reduction in CPU usage, as shown in the chart below.
+- Optimizations for multi-threading and tiled encoding.
+- 5x reduction in memory usage.
+- 6.5x reduction in CPU usage, as shown in the chart below.
 
 <figure><img src="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format" alt="Using speed=6, cq-level=18, for 8.1 MP images" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1600 1600w" width="800" height="467" /><figcaption>Using speed=6, cq-level=18, for 8.1 MP images</figcaption></figure>These changes massively reduce the cost of encoding AVIF— particularly the most frequently loaded, or highest priority images on your site. As [hardware-accelerated encoding](https://www.cnet.com/news/google-supercharges-youtube-with-a-custom-video-chip/) of AV1 becomes more available on servers and cloud services, the cost to create AVIF images will continue to drop.
 
@@ -76,8 +67,7 @@ Libavif recently added support for a wider range of encoder settings, including 
 
 Note: [libheif](https://github.com/strukturag/libheif) is another popular open source AVIF muxer and parser, used in [ImageMagick](https://imagemagick.org/index.php), [libvips](https://github.com/libvips/libvips), and the [sharp](https://sharp.pixelplumbing.com/) Node.js module.
 
-Encoding AVIF images with avifenc <a href="#encoding-avif-images-with-avifenc" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Encoding AVIF images with avifenc <a href="#encoding-avif-images-with-avifenc" class="w-headline-link">#</a>
 
 A quick way to experiment with AVIF is [Squoosh.app](https://squoosh.app/). Squoosh runs a WebAssembly version of libavif, and exposes many of the same features as the command line tools. It's an easy way to compare AVIF to other formats old and new. There's also a [CLI version](https://www.npmjs.com/package/@squoosh/cli) of Squoosh aimed at Node apps.
 
@@ -85,10 +75,10 @@ However, WebAssembly doesn't yet have access to all the performance primitives o
 
 To understand how to encode AVIF images, we will present a tutorial using the [same source image](https://codelabs.developers.google.com/codelabs/avif/images/happy_dog.jpg) used in our example above. To start, you will need:
 
--   [Chrome](https://www.google.com/chrome/) version 85 or later
--   [cmake](https://cmake.org/)
--   [git](https://git-scm.com/)
--   [ninja](https://ninja-build.org/)
+- [Chrome](https://www.google.com/chrome/) version 85 or later
+- [cmake](https://cmake.org/)
+- [git](https://git-scm.com/)
+- [ninja](https://ninja-build.org/)
 
 You will also need to install the development packages for zlib, libpng, and libjpeg. The commands for the Debian and Ubuntu Linux distributions are:
 
@@ -184,8 +174,7 @@ One parameter that may be good to change depending on how many cores you have on
 
 This tells avifenc to use 8 threads when creating the AVIF image, which speeds up AVIF encoding by roughly 5x.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Using libaom, libavif and other open source tooling, you can get the best image quality and performance for your website using AVIF. The format is still relatively new, and optimizations and tooling integrations are actively being developed. If you have questions, comments, or feature requests, reach out on the [av1-discuss mailing list](https://groups.google.com/a/aomedia.org/g/av1-discuss), [AOM Github community](https://github.com/AOMediaCodec/community/wiki), and [AVIF wiki](https://github.com/AOMediaCodec/av1-avif/wiki).
 
@@ -195,35 +184,35 @@ Using libaom, libavif and other open source tooling, you can get the best image 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

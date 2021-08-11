@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Unused local variables](unused-local-variables.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Related
 [Command goimports](https://godoc.org/golang.org/x/tools/cmd/goimports)  
 <span style="color: grey; font-style: italic; font-size: smaller">GoDoc</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,13 +35,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Blank identifier (underscore)
-=================================
+# Go: Blank identifier (underscore)
 
 The **blank identifier** `_` is an anonymous placeholder. It may be used like any other identifier in a declaration, but it does not introduce a binding.
 
-Ignore values
--------------
+## Ignore values
 
 The blank identifier provides a way to ignore left-hand side values in an assignment:
 
@@ -55,15 +50,13 @@ The blank identifier provides a way to ignore left-hand side values in an assign
             sum += n
     }
 
-Import for side effects
------------------------
+## Import for side effects
 
 It can also be used to import a package solely for its side effects:
 
     import _ "image/png" // init png decoder function
 
-Silence the compiler
---------------------
+## Silence the compiler
 
 It can be used to during development to avoid compiler errors about unused imports and variables in a half-written program:
 
@@ -87,8 +80,7 @@ It can be used to during development to avoid compiler errors about unused impor
 
 For an automatic solution, use the [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports) tool, which rewrites a Go source file to have the correct imports. Many Go editors and IDEs run this tool automatically.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

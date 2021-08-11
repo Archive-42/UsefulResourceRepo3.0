@@ -1,32 +1,18 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
 <img src="https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format" alt="People on a subway." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/NvPzgpuXtjuz5oE54SWn.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#measuring-offline-usage" class="w-toc__header--link">Measuring offline usage</a>
-------------------------------------------------------------------------------------------
+## <a href="#measuring-offline-usage" class="w-toc__header--link">Measuring offline usage</a>
 
--   [The pitfalls of the online and offline browser events](#the-pitfalls-of-the-online-and-offline-browser-events)
--   [A better approach: the service worker](#a-better-approach:-the-service-worker)
--   [SPAs and lazy loading](#spas-and-lazy-loading)
--   [Next steps](#next-steps)
+- [The pitfalls of the online and offline browser events](#the-pitfalls-of-the-online-and-offline-browser-events)
+- [A better approach: the service worker](#a-better-approach:-the-service-worker)
+- [SPAs and lazy loading](#spas-and-lazy-loading)
+- [Next steps](#next-steps)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Measuring offline usage
-=======================
+# Measuring offline usage
 
 How to track offline usage of your site so that you can make a case as to why your site needs a better offline experience.
 
@@ -42,27 +28,25 @@ Oct 28, 2020
 
 <a href="/authors/martinschierle/" class="w-author__name-link">Martin Schierle</a>
 
--   <a href="https://twitter.com/martinschierle" class="w-author__link">Twitter</a>
--   <a href="https://github.com/martinschierle" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/martinschierle" class="w-author__link">Twitter</a>
+- <a href="https://github.com/martinschierle" class="w-author__link">GitHub</a>
 
 This article shows you how to track offline usage of your site to help you make a case for why your site needs a better offline mode. It also explains pitfalls and problems to avoid when implementing offline usage analytics.
 
-The pitfalls of the online and offline browser events <a href="#the-pitfalls-of-the-online-and-offline-browser-events" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+## The pitfalls of the online and offline browser events <a href="#the-pitfalls-of-the-online-and-offline-browser-events" class="w-headline-link">#</a>
 
 The obvious solution for tracking offline usage is to create event listeners for the [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) and [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) events (which [many browsers support](https://caniuse.com/#feat=online-status)) and to put your analytics tracking logic in those listeners. Unfortunately, there are several problems and limitations with this approach:
 
--   In general tracking every network connection status event might be excessive, and is counter-productive in a privacy-centric world where as little data as possible should be collected. Additionally the `online` and `offline` events can fire for just a split second of network loss, which a user probably wouldn't even see or notice.
--   The analytics tracking of offline activity would never reach the analytics server because the user is… well, offline.
--   Tracking a timestamp locally when a user goes offline and sending the offline activity to the analytics server when the user goes back online depends on the user revisiting your site. If the user drops off your site due to a lack of an offline mode and never revisits, you have no way to track that. The ability to track offline drop-offs is critical data for building a case about why your site needs a better offline mode.
--   The `online` event is not very reliable as it [only knows about network access](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine), not internet access. Therefore a user might still be offline, and sending the tracking ping can still fail.
--   Even if the user still stays on the current page while being offline, none of the other analytics events (e.g. scroll events, clicks, etc.) are tracked either, which might be the more relevant and useful information.
--   Being offline in itself is also not too meaningful in general. As a website developer it may be more important to know what kinds of resources failed to load. This is especially relevant in the context of SPAs, where a dropped network connection might not lead to a browser offline error page (which users understand) but more likely to random dynamic parts of the page failing silently.
+- In general tracking every network connection status event might be excessive, and is counter-productive in a privacy-centric world where as little data as possible should be collected. Additionally the `online` and `offline` events can fire for just a split second of network loss, which a user probably wouldn't even see or notice.
+- The analytics tracking of offline activity would never reach the analytics server because the user is… well, offline.
+- Tracking a timestamp locally when a user goes offline and sending the offline activity to the analytics server when the user goes back online depends on the user revisiting your site. If the user drops off your site due to a lack of an offline mode and never revisits, you have no way to track that. The ability to track offline drop-offs is critical data for building a case about why your site needs a better offline mode.
+- The `online` event is not very reliable as it [only knows about network access](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine), not internet access. Therefore a user might still be offline, and sending the tracking ping can still fail.
+- Even if the user still stays on the current page while being offline, none of the other analytics events (e.g. scroll events, clicks, etc.) are tracked either, which might be the more relevant and useful information.
+- Being offline in itself is also not too meaningful in general. As a website developer it may be more important to know what kinds of resources failed to load. This is especially relevant in the context of SPAs, where a dropped network connection might not lead to a browser offline error page (which users understand) but more likely to random dynamic parts of the page failing silently.
 
 You can still use this solution to gain a basic understanding of offline usage, but the many drawbacks and limitations need to be considered carefully.
 
-A better approach: the service worker <a href="#a-better-approach:-the-service-worker" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------
+## A better approach: the service worker <a href="#a-better-approach:-the-service-worker" class="w-headline-link">#</a>
 
 The solution that enables offline mode turns out to be the better solution for tracking offline usage. The basic idea is to store analytics pings into IndexedDB as long as the user is offline, and just resend them when the user goes online again. For Google Analytics this is already available [off-the-shelf through a Workbox module](https://developers.google.com/web/tools/workbox/modules/workbox-google-analytics), but keep in mind that hits sent more than [four hours deferred](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#qt) may not be processed. In its simplest form, it can be activated within a Workbox-based service worker with these two lines:
 
@@ -84,8 +68,7 @@ What if the user drops out of the page due to being offline, before an internet 
 
 There is still a drawback: while this makes existing tracking offline-capable, you would most likely not see much relevant data coming in until you implement a basic offline mode. Users would still drop off your site quickly when the connection breaks away. But now you can at least measure and quantify this, by comparing average session length and user engagement for users with the offline dimension applied versus your regular users.
 
-SPAs and lazy loading <a href="#spas-and-lazy-loading" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## SPAs and lazy loading <a href="#spas-and-lazy-loading" class="w-headline-link">#</a>
 
 If users visiting a page built as a multi-page website go offline and try to navigate, the browser's default offline page shows up, helping users understand what is happening. However, pages built as single-page applications work differently. The user stays on the same page, and new content is loaded dynamically through AJAX without any browser navigation. Users do not see the browser error page when going offline. Instead, the dynamic parts of the page render with errors, go into undefined states, or just stop being dynamic.
 
@@ -172,8 +155,7 @@ The following example uses Google Analytics, but can be applied in the same way 
 
 This will track failed resource loads in Google Analytics, where they can be analyzed with [reporting](https://support.google.com/analytics/answer/1033068?hl=en). The derived insight can be used to improve service worker caching and error handling in general, to make the page more robust and reliable under unstable network conditions.
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 This article showed different ways of tracking offline usage with their advantages and shortcomings. While this can help to quantify how many of your users go offline and run into problems due to it, it's still just a start. As long as your website does not offer a well-built offline mode, you obviously won't see much offline usage in analytics.
 
@@ -189,35 +171,35 @@ Hero photo by [JC Gellidon](https://unsplash.com/@jcgellidon?utm_source=unsplash
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

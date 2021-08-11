@@ -12,25 +12,23 @@
 
 <img src="https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format" alt="Aerial view of shipping containers." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/udp7L9LSo5mfI3F0tvNY.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#efficiently-load-third-party-javascript" class="w-toc__header--link">Efficiently load third-party JavaScript</a>
---------------------------------------------------------------------------------------------------------------------------
+## <a href="#efficiently-load-third-party-javascript" class="w-toc__header--link">Efficiently load third-party JavaScript</a>
 
--   [Use async or defer](#use-async-or-defer)
--   [async](#async)
--   [defer](#defer)
--   [Establish early connections to required origins](#establish-early-connections-to-required-origins)
--   [preconnect](#preconnect)
--   [dns-prefetch](#dns-prefetch)
--   [Lazy-load third-party resources](#lazy-load-third-party-resources)
--   [Optimize how you serve third-party scripts](#optimize-how-you-serve-third-party-scripts)
--   [Third-party CDN hosting](#third-party-cdn-hosting)
--   [Self-host third-party scripts](#self-host-third-party-scripts)
--   [Use service workers to cache scripts from third-party servers](#use-service-workers-to-cache-scripts-from-third-party-servers)
+- [Use async or defer](#use-async-or-defer)
+- [async](#async)
+- [defer](#defer)
+- [Establish early connections to required origins](#establish-early-connections-to-required-origins)
+- [preconnect](#preconnect)
+- [dns-prefetch](#dns-prefetch)
+- [Lazy-load third-party resources](#lazy-load-third-party-resources)
+- [Optimize how you serve third-party scripts](#optimize-how-you-serve-third-party-scripts)
+- [Third-party CDN hosting](#third-party-cdn-hosting)
+- [Self-host third-party scripts](#self-host-third-party-scripts)
+- [Use service workers to cache scripts from third-party servers](#use-service-workers-to-cache-scripts-from-third-party-servers)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Efficiently load third-party JavaScript
-=======================================
+# Efficiently load third-party JavaScript
 
 Avoid the common pitfalls of using third-party scripts to improve load times and user experience.
 
@@ -42,15 +40,15 @@ Aug 14, 2019
 
 <a href="/authors/mihajlija/" class="w-author__name-link">Milica Mihajlija</a>
 
--   <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
--   <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
+- <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
 
 If a third-party script is [slowing down](/third-party-javascript/) your page load, you have two options to improve performance:
 
--   Remove it if it doesn't add clear value to your site.
+- Remove it if it doesn't add clear value to your site.
 
--   Optimize the loading process.
+- Optimize the loading process.
 
 This post explains how to optimize the loading process of third-party scripts with the following techniques:
 
@@ -62,8 +60,7 @@ This post explains how to optimize the loading process of third-party scripts wi
 
 4.  Optimizing how you serve third-party scripts
 
-Use `async` or `defer` <a href="#use-async-or-defer" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Use `async` or `defer` <a href="#use-async-or-defer" class="w-headline-link">#</a>
 
 Because [synchronous scripts](/third-party-javascript/) delay DOM construction and rendering, you should always load third-party scripts asynchronously unless the script has to run before the page can be rendered.
 
@@ -87,24 +84,23 @@ Scripts with the `defer` attribute execute after HTML parsing is completely fini
 
 <img src="https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format" alt="Diagram of parser flow with a script with defer attribute" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Eq0mcvDALKibHe15HspN.png?auto=format&amp;w=1600 1600w" width="800" height="253" />
 
--   Use `async` if it's important to have the script run earlier in the loading process.
+- Use `async` if it's important to have the script run earlier in the loading process.
 
--   Use `defer` for less critical resources. A video player that's below-the-fold, for example.
+- Use `defer` for less critical resources. A video player that's below-the-fold, for example.
 
 Using these attributes can significantly speed up page load. For example, [Telegraph recently deferred all of their scripts](https://medium.com/p/a0a1000be5#4123), including ads and analytics, and improved the ad loading time by an average of four seconds.
 
 Analytics scripts are usually loaded early so you don't miss any valuable analytics data. Fortunately, there are [patterns to initialize analytics lazily](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/) while retaining early page-load data.
 
-Establish early connections to required origins <a href="#establish-early-connections-to-required-origins" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------
+## Establish early connections to required origins <a href="#establish-early-connections-to-required-origins" class="w-headline-link">#</a>
 
 You can save 100–500 ms by [establishing early connections](/preconnect-and-dns-prefetch/) to important third-party origins.
 
 Two [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) types can help here:
 
--   `preconnect`
+- `preconnect`
 
--   `dns-prefetch`
+- `dns-prefetch`
 
 ### `preconnect` <a href="#preconnect" class="w-headline-link">#</a>
 
@@ -127,8 +123,7 @@ The `preconnect` hint is best used for only the most critical connections; for l
     <link rel="preconnect" href="http://example.com">
     <link rel="dns-prefetch" href="http://example.com">
 
-Lazy-load third-party resources <a href="#lazy-load-third-party-resources" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------
+## Lazy-load third-party resources <a href="#lazy-load-third-party-resources" class="w-headline-link">#</a>
 
 Embedded third-party resources can be a big contributor to slow page speed when constructed poorly. If they aren't critical or are below the fold (that is, if users have to scroll to view them), lazy-loading is a good way to improve page speed and paint metrics. This way, users will get the main page content faster and have a better experience.
 
@@ -144,8 +139,7 @@ An alternative approach is to load third-party content only when users scroll do
 
 Using the [`loading` attribute for lazy-loading images and iframes](/browser-level-image-lazy-loading/) is a great alternative to JavaScript techniques, and it has recently become available in Chrome 76!
 
-Optimize how you serve third-party scripts <a href="#optimize-how-you-serve-third-party-scripts" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------
+## Optimize how you serve third-party scripts <a href="#optimize-how-you-serve-third-party-scripts" class="w-headline-link">#</a>
 
 ### Third-party CDN hosting <a href="#third-party-cdn-hosting" class="w-headline-link">#</a>
 
@@ -159,9 +153,9 @@ When you use files from third-party servers, you rarely have control over cachin
 
 Self-hosting third-party scripts is an option that gives you more control over a script's loading process. By self-hosting you can:
 
--   Reduce DNS lookup and round-trip times.
--   Improve [HTTP caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching) headers.
--   Take advantage of [HTTP/2 server push](https://developers.google.com/web/fundamentals/performance/http2/).
+- Reduce DNS lookup and round-trip times.
+- Improve [HTTP caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching) headers.
+- Take advantage of [HTTP/2 server push](https://developers.google.com/web/fundamentals/performance/http2/).
 
 For example, Casper managed to [shave 1.7 seconds](https://medium.com/caspertechteam/we-shaved-1-7-seconds-off-casper-com-by-self-hosting-optimizely-2704bcbff8ec) off load time by self-hosting an A/B testing script.
 
@@ -179,46 +173,45 @@ An alternative to self-hosting that allows you greater control over caching whil
 
 <span class="w-mr--sm">Last updated: Aug 14, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/fast/efficiently-load-third-party-javascript/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-optimize-third-party-javascript/" class="w-callout__link w-callout__link--codelab">Optimize third-party JavaScript</a>
+- <a href="/codelab-optimize-third-party-javascript/" class="w-callout__link w-callout__link--codelab">Optimize third-party JavaScript</a>
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,45 +1,31 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
 <img src="https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/IhujMvzGa5Mf0aNWYRXW.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#customize-media-notifications-and-playback-controls-with-the-media-session-api" class="w-toc__header--link">Customize media notifications and playback controls with the Media Session API</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#customize-media-notifications-and-playback-controls-with-the-media-session-api" class="w-toc__header--link">Customize media notifications and playback controls with the Media Session API</a>
 
--   [Cross-browser support](#cross-browser-support)
--   [About the Media Session API](#about-the-media-session-api)
--   [Let users know what's playing](#let-users-know-what's-playing)
--   [Let users control what's playing](#let-users-control-what's-playing)
--   [Play / pause](#play-pause)
--   [Previous track](#previous-track)
--   [Next track](#next-track)
--   [Stop](#stop)
--   [Seek backward / forward](#seek-backward-forward)
--   [Seek to a specific time](#seek-to-a-specific-time)
--   [Set playback position](#set-playback-position)
--   [Video conferencing actions](#video-conferencing-actions)
--   [Toggle microphone](#toggle-microphone)
--   [Toggle camera](#toggle-camera)
--   [Hang up](#hang-up)
--   [Samples](#samples)
--   [Resources](#resources)
+- [Cross-browser support](#cross-browser-support)
+- [About the Media Session API](#about-the-media-session-api)
+- [Let users know what's playing](#let-users-know-what's-playing)
+- [Let users control what's playing](#let-users-control-what's-playing)
+- [Play / pause](#play-pause)
+- [Previous track](#previous-track)
+- [Next track](#next-track)
+- [Stop](#stop)
+- [Seek backward / forward](#seek-backward-forward)
+- [Seek to a specific time](#seek-to-a-specific-time)
+- [Set playback position](#set-playback-position)
+- [Video conferencing actions](#video-conferencing-actions)
+- [Toggle microphone](#toggle-microphone)
+- [Toggle camera](#toggle-camera)
+- [Hang up](#hang-up)
+- [Samples](#samples)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Customize media notifications and playback controls with the Media Session API
-==============================================================================
+# Customize media notifications and playback controls with the Media Session API
 
 How to integrate with hardware media keys, customize media notifications, and more.
 
@@ -49,26 +35,24 @@ Mar 6, 2020 <span class="w-author__separator">•</span> Updated Jul 1, 2021
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 To let users know what's currently playing in their browser and control it without returning to the page that launched it, the Media Session API has been introduced. It allows web developers to customize this experience through metadata in custom media notifications, media events such as playing, pausing, seeking, track changing, and video conferencing events such as mute/unmute microphone, turnon/turnoff camera, and hang up. These customizations are available in several contexts including desktop media hubs, media notifications on mobile, and even on wearable devices. I'll describe these customizations in this article.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format" alt="Media hub on desktop, media notification on mobile, and a wearable device." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1600 1600w" width="800" height="330" /><figcaption>Media hub on desktop, media notification on mobile, and a wearable device.</figcaption></figure>Cross-browser support <a href="#cross-browser-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format" alt="Media hub on desktop, media notification on mobile, and a wearable device." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/qwTz64KKq4rq7WeA3rlT.jpg?auto=format&amp;w=1600 1600w" width="800" height="330" /><figcaption>Media hub on desktop, media notification on mobile, and a wearable device.</figcaption></figure>Cross-browser support <a href="#cross-browser-support" class="w-headline-link">#</a>
 
 At the time of writing, Chrome is the only browser that supports the Media Session API both on desktop and mobile. Firefox has partial support for the Media Session API on desktop behind a flag, and Samsung Internet also has partial support. See [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/MediaSession#Browser_compatibility) for up-to-date information.
 
-About the Media Session API <a href="#about-the-media-session-api" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## About the Media Session API <a href="#about-the-media-session-api" class="w-headline-link">#</a>
 
 The Media session API provides several benefits and capabilities:
 
--   Hardware media keys are supported.
--   Media notifications are customized on mobile, Chrome OS, and paired wearable device.
--   The [media hub](https://blog.google/products/chrome/manage-audio-and-video-in-chrome/) is available on desktop.
--   Lock screen media controls are available on [Chrome OS](https://www.blog.google/products/chromebooks/whats-new-december2019/) and mobile.
--   Picture-in-Picture window controls are available for both [audio playback](https://developers.google.com/web/updates/2018/10/watch-video-using-picture-in-picture#show_canvas_element_in_picture-in-picture_window) and [video conferencing](#video-conferencing-actions).
--   Assistant integration on mobile is available.
+- Hardware media keys are supported.
+- Media notifications are customized on mobile, Chrome OS, and paired wearable device.
+- The [media hub](https://blog.google/products/chrome/manage-audio-and-video-in-chrome/) is available on desktop.
+- Lock screen media controls are available on [Chrome OS](https://www.blog.google/products/chromebooks/whats-new-december2019/) and mobile.
+- Picture-in-Picture window controls are available for both [audio playback](https://developers.google.com/web/updates/2018/10/watch-video-using-picture-in-picture#show_canvas_element_in_picture-in-picture_window) and [video conferencing](#video-conferencing-actions).
+- Assistant integration on mobile is available.
 
 A few examples will illustrate some of these points.
 
@@ -84,8 +68,7 @@ This is all done through two different interfaces: The `MediaSession` interface 
 
 To illustrate, the image below shows how these interfaces relate to specific media controls, in this case a media notification on mobile.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format" alt="Anatomy of a media notification on mobile." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1600 1600w" width="800" height="353" /><figcaption>Anatomy of a media notification on mobile.</figcaption></figure>Let users know what's playing <a href="#let-users-know-what&#39;s-playing" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format" alt="Anatomy of a media notification on mobile." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/eiavbbCE6TlI8osR1tYT.jpg?auto=format&amp;w=1600 1600w" width="800" height="353" /><figcaption>Anatomy of a media notification on mobile.</figcaption></figure>Let users know what's playing <a href="#let-users-know-what&#39;s-playing" class="w-headline-link">#</a>
 
 When a website is playing audio or video, users automatically get media notifications either in the notification tray on mobile, or the media hub on desktop. Chrome does its best to show appropriate information by using the document's title and the largest icon image it can find. With the Media Session API, it's possible to customize the media notification with some richer media metadata such as the title, artist name, album name, and artwork as shown below.
 
@@ -116,11 +99,11 @@ When playback ends, there is no need to "release" the media session as the notif
 
 There are a few things to note about the media metadata.
 
--   Notification artwork array supports blob URLs and data URLs.
--   If no artwork is defined and there is an icon image (specified using `<link rel=icon>`) at a desirable size, media notifications will use it.
--   Notification artwork target size in Chrome for Android is `512x512`. For low-end devices, it is `256x256`.
--   The `title` attribute of the media HTML element is used in the "Now playing" macOS widget.
--   If the media resource is embedded (for example in a iframe), Media Session API information must be set from the embedded context. See snippet below.
+- Notification artwork array supports blob URLs and data URLs.
+- If no artwork is defined and there is an icon image (specified using `<link rel=icon>`) at a desirable size, media notifications will use it.
+- Notification artwork target size in Chrome for Android is `512x512`. For low-end devices, it is `256x256`.
+- The `title` attribute of the media HTML element is used in the "Now playing" macOS widget.
+- If the media resource is embedded (for example in a iframe), Media Session API information must be set from the embedded context. See snippet below.
 
 <!-- -->
 
@@ -134,8 +117,7 @@ There are a few things to note about the media metadata.
       });
     </script>
 
-Let users control what's playing <a href="#let-users-control-what&#39;s-playing" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## Let users control what's playing <a href="#let-users-control-what&#39;s-playing" class="w-headline-link">#</a>
 
 A media session action is an action (for example "play" or "pause") that a website can handle for users when they interact with the current media playback. Actions are analogous to and work much the same as events. Like events, actions are implemented by setting handlers on an appropriate object, an instance of `MediaSession`, in this case. Some actions are triggered when users press buttons from a headset, another remote device, a keyboard, or interact with a media notification.
 
@@ -268,8 +250,7 @@ The `fastSeek` boolean provided in the action handler is true if the action is b
       // TODO: Update playback state.
     });
 
-Set playback position <a href="#set-playback-position" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Set playback position <a href="#set-playback-position" class="w-headline-link">#</a>
 
 Accurately displaying the media playback position in a notification is as simple as setting the position state at an appropriate time as shown below. The position state is a combination of the media playback rate, duration, and current time.
 
@@ -319,8 +300,7 @@ Resetting the position state is as easy as setting it to `null`.
     // Reset position state when media is reset.
     navigator.mediaSession.setPositionState(null);
 
-Video conferencing actions <a href="#video-conferencing-actions" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Video conferencing actions <a href="#video-conferencing-actions" class="w-headline-link">#</a>
 
 When the user puts their video call into a Picture-in-Picture window, the browser may display controls for the microphone and camera, and for hanging up. When the user clicks those, the website handles them through the video conferencing actions below.
 
@@ -366,19 +346,17 @@ The `"hangup"` action indicates that the user wants to end a call.
       // End the call.
     });
 
-Samples <a href="#samples" class="w-headline-link">#</a>
---------------------------------------------------------
+## Samples <a href="#samples" class="w-headline-link">#</a>
 
 Check out some [Media Session samples](https://googlechrome.github.io/samples/media-session/) featuring [Blender Foundation](http://www.blender.org/) and [Jan Morgenstern's work](http://www.wavemage.com/category/music/).
 
 A screencast illustrating the Media Session API.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   Media Session Spec: [wicg.github.io/mediasession](https://wicg.github.io/mediasession)
--   Spec Issues: [github.com/WICG/mediasession/issues](https://github.com/WICG/mediasession/issues)
--   Chrome Bugs: [crbug.com](https://crbug.com/?q=component:Internals%3EMedia%3ESession)
+- Media Session Spec: [wicg.github.io/mediasession](https://wicg.github.io/mediasession)
+- Spec Issues: [github.com/WICG/mediasession/issues](https://github.com/WICG/mediasession/issues)
+- Chrome Bugs: [crbug.com](https://crbug.com/?q=component:Internals%3EMedia%3ESession)
 
 <a href="/tags/media/" class="w-chip">Media</a> <a href="/tags/audio/" class="w-chip">Audio</a>
 
@@ -386,35 +364,35 @@ Resources <a href="#resources" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

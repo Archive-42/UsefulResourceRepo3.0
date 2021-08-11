@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,15 +28,13 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Function Pointers in Java
-=========================
+# Function Pointers in Java
 
 Java does not provide function pointers in the same way C/C++ does.
 
 Instead of passing a function pointer `f`, you create an object with an instance method `f` and pass the object instead. With lambdas and method refernecs the syntactical overhead for doing this is close to zero.
 
-Using a method reference
-------------------------
+## Using a method reference
 
     class Example {
         // Method that takes a "method" as argument
@@ -57,8 +52,7 @@ Using a method reference
         }
     }
 
-Using a lambda
---------------
+## Using a lambda
 
 You may also invoke the `exampleMethod` above as follows:
 
@@ -66,8 +60,7 @@ You may also invoke the `exampleMethod` above as follows:
 
 For similar examples with different method signatures, see the [Lambda Cheat Sheet](lambda-cheat-sheet.html).
 
-Using ordinary objects
-----------------------
+## Using ordinary objects
 
 The above examples requires Java 8. Here's how to do it in Java 7:
 
@@ -78,8 +71,7 @@ The above examples requires Java 8. Here's how to do it in Java 7:
         }
     });
 
-Using reflection
-----------------
+## Using reflection
 
 You can use reflection to pass actual [`Method`](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html) objects and [`Method.invoke`](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html#invoke-java.lang.Object-java.lang.Object%3AA-) to invoke the method. This is not recommended and often seen as a hack / last resort.
 
@@ -100,10 +92,9 @@ You can use reflection to pass actual [`Method`](https://docs.oracle.com/javase/
             // prints "Hello"
             exampleMethod(Example.class.getMethod("sayHello"));
         }
-    }       
+    }
 
-A real world use case
----------------------
+## A real world use case
 
 Let's take a look at a more realistic use case.
 
@@ -136,8 +127,7 @@ Let's take a look at a more realistic use case.
         }
     }
 
-Comments (1)
-------------
+## Comments (1)
 
 ![User avatar](https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp)
 

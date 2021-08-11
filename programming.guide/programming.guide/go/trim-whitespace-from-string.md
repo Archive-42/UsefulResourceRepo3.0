@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Remove duplicate whitespace from a string](remove-duplicate-whitespace.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: How to trim leading and trailing whitespace from a string
-=============================================================
+# Go: How to trim leading and trailing whitespace from a string
 
 Use the [`strings.TrimSpace`](https://golang.org/pkg/strings/#TrimSpace) function to remove leading and trailing whitespace (as defined by Unicode):
 
@@ -43,8 +39,7 @@ Use the [`strings.TrimSpace`](https://golang.org/pkg/strings/#TrimSpace) functio
 
 To remove other leading and trailing characters, use [`strings.Trim`](https://golang.org/pkg/strings/#Trim). To remove only the leading or the trailing characters, use [`strings.TrimLeft`](https://golang.org/pkg/strings/#TrimLeft) or [`strings.TrimRight`](https://golang.org/pkg/strings/#TrimRight).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

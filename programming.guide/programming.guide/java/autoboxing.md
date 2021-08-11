@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Types in Java
--------------
+## Types in Java
 
 1.  [Java Basics: Types](types.html)
 2.  [Primitive Types](primitive-types.html)
@@ -22,17 +21,15 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-External Resources
-------------------
+## External Resources
 
 [Autoboxing and Unboxing](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Java™ Tutorials</span>
@@ -43,8 +40,7 @@ External Resources
 [Unboxing Conversion](https://docs.oracle.com/javase/specs/jls/se9/html/jls-5.html#jls-5.1.8)  
 <span style="color: grey; font-style: italic; font-size: smaller">Java Language Specification</span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -54,8 +50,7 @@ Top Java Articles
 
 [**See all Java articles**](index.html)
 
-Java: Autoboxing and unboxing
-=============================
+# Java: Autoboxing and unboxing
 
 If a value of primitive type (`int`, `double`, `boolean`, …) is provided where a value of wrapper type (a “boxed value” such as `Integer`, `Double`, `Boolean`, …) is expected, the compiler will automatically convert it. This is called **autoboxing**.
 
@@ -71,8 +66,7 @@ The opposite conversion is called **unboxing**.
 
 Without these automatic conversions, code would quickly get cluttered, especially when working with collections.
 
-Unboxing a null reference
--------------------------
+## Unboxing a null reference
 
 If you try to unbox a `null` reference, a `NullPointerException` will be thrown.
 
@@ -81,8 +75,7 @@ If you try to unbox a `null` reference, a `NullPointerException` will be thrown.
     Integer i = null;
     int j = i;
 
-Behind the scenes
------------------
+## Behind the scenes
 
 The Java Language Specification does not specify exactly how the conversion should be done, but the `javac` reference implementation uses the following methods:
 
@@ -98,8 +91,7 @@ The Java Language Specification does not specify exactly how the conversion shou
     Integer j = Integer.valueOf(2);
     Integer k = Integer.valueOf(i.intValue() + j.intValue());
 
-Caching
--------
+## Caching
 
 The `valueOf` methods of `Byte`, `Short`, `Integer`, `Long` and `Character` **caches values** between −128 and 127. This means that two calls to `Integer.valueOf(5)` will return **the same** reference, while two calls to `Integer.valueOf(5000)` **may not**.
 
@@ -107,8 +99,7 @@ This can give rise to some surprising semantics when comparing boxed values usin
 
 Recommended reading: [Java: Boxed values and equality](boxed-values-equality.html).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

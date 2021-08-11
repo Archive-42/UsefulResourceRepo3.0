@@ -1,37 +1,29 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/k3hWnnwqTvg7w7URsbIK.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#using-the-crux-dashboard-on-data-studio" class="w-toc__header--link">Using the CrUX Dashboard on Data Studio</a>
---------------------------------------------------------------------------------------------------------------------------
+## <a href="#using-the-crux-dashboard-on-data-studio" class="w-toc__header--link">Using the CrUX Dashboard on Data Studio</a>
 
--   [Creating a dashboard](#creating-a-dashboard)
--   [Using the dashboard](#using-the-dashboard)
--   [Core Web Vitals overview](#core-web-vitals-overview)
--   [Metric performance](#metric-performance)
--   [User demographics](#user-demographics)
--   [FAQ](#faq)
--   [When would I use the CrUX Dashboard as opposed to other tools?](#when-would-i-use-the-crux-dashboard-as-opposed-to-other-tools)
--   [Are there any limitations to using the CrUX Dashboard?](#are-there-any-limitations-to-using-the-crux-dashboard)
--   [Where can I learn more about Data Studio?](#where-can-i-learn-more-about-data-studio)
+- [Creating a dashboard](#creating-a-dashboard)
+- [Using the dashboard](#using-the-dashboard)
+- [Core Web Vitals overview](#core-web-vitals-overview)
+- [Metric performance](#metric-performance)
+- [User demographics](#user-demographics)
+- [FAQ](#faq)
+- [When would I use the CrUX Dashboard as opposed to other tools?](#when-would-i-use-the-crux-dashboard-as-opposed-to-other-tools)
+- [Are there any limitations to using the CrUX Dashboard?](#are-there-any-limitations-to-using-the-crux-dashboard)
+- [Where can I learn more about Data Studio?](#where-can-i-learn-more-about-data-studio)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Using the CrUX Dashboard on Data Studio
-=======================================
+# Using the CrUX Dashboard on Data Studio
 
 Jun 22, 2020
 
@@ -41,8 +33,8 @@ Jun 22, 2020
 
 <a href="/authors/rviscomi/" class="w-author__name-link">Rick Viscomi</a>
 
--   <a href="https://twitter.com/rick_viscomi" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rviscomi" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/rick_viscomi" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rviscomi" class="w-author__link">GitHub</a>
 
 [Data Studio](https://marketingplatform.google.com/about/data-studio/) is a powerful data visualization tool that enables you to build dashboards on top of big data sources, like the [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report/) (CrUX). In this guide, learn how to create your own custom CrUX Dashboard to track an origin's user experience trends.
 
@@ -50,8 +42,7 @@ Jun 22, 2020
 
 The CrUX Dashboard is built with a Data Studio feature called [Community Connectors](https://developers.google.com/datastudio/connector/). This connector is a pre-established link between the raw CrUX data on [BigQuery](https://console.cloud.google.com/bigquery?p=chrome-ux-report) and the visualizations of Data Studio. It eliminates the need for users of the dashboard to write any queries or generate any charts. Everything is built for you; all you need is to provide an origin and a custom dashboard will be generated for you.
 
-Creating a dashboard <a href="#creating-a-dashboard" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Creating a dashboard <a href="#creating-a-dashboard" class="w-headline-link">#</a>
 
 To get started, go to [g.co/chromeuxdash](https://g.co/chromeuxdash). This will take you to the CrUX community connector page where you can provide the origin for which the dashboard will be generated. Note that first-time users may need to complete permission or marketing preference prompts.
 
@@ -79,8 +70,7 @@ If the origin exists, you'll be taken to the schema page for the dashboard. This
 
 <img src="https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format" alt="CrUX Dashboard schema" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/DTNigYO4gUwovCuCgyhH.png?auto=format&amp;w=1600 1600w" width="800" height="403" />
 
-Using the dashboard <a href="#using-the-dashboard" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Using the dashboard <a href="#using-the-dashboard" class="w-headline-link">#</a>
 
 Each dashboard comes with three types of pages:
 
@@ -118,10 +108,9 @@ The most recent month's percentages of "good" and "poor" experiences are shown a
 
 **Caution**: Due to a quirk with Data Studio, you may sometimes see `No Data` here. This is normal and due to the previous month's release not being available until the second Tuesday.
 
-Additionally, for metrics like LCP and other Core Web Vitals that provide explicit percentile recommendations, you'll find the "P75" metric between the "good" and "poor" percentages. This value corresponds to the origin's 75th percentile of user experiences. In other words, 75% of experiences are better than this value. One thing to note is that this applies to the overall distribution across *all devices* on the origin. Toggling specific devices with the **Device** filter will not recalculate the percentile.
+Additionally, for metrics like LCP and other Core Web Vitals that provide explicit percentile recommendations, you'll find the "P75" metric between the "good" and "poor" percentages. This value corresponds to the origin's 75th percentile of user experiences. In other words, 75% of experiences are better than this value. One thing to note is that this applies to the overall distribution across _all devices_ on the origin. Toggling specific devices with the **Device** filter will not recalculate the percentile.
 
-Boring technical caveats about percentiles
-------------------------------------------
+## Boring technical caveats about percentiles
 
 Be aware that the percentile metrics are based on the histogram data from [BigQuery](/chrome-ux-report-bigquery/), so the granularity will be coarse: 1000ms for LCP, 100ms for FID, and 0.05 for CLS. In other words, a P75 LCP of 3800ms indicates that the true 75th percentile is somewhere between 3800ms and 3900ms.
 
@@ -139,12 +128,11 @@ The device distribution page shows you the breakdown of phone, desktop, and tabl
 
 Similarly, the ECT distribution page shows you the breakdown of 4G, 3G, 2G, slow 2G, and offline experiences.
 
-**Key Term**: Effective connection types are considered *effective* because they're based on bandwidth measurements on users' devices, and don't imply any particular technology used. For example, a desktop user on fast Wi-Fi may be labelled as 4G while a slower mobile connection might be labelled as 2G.
+**Key Term**: Effective connection types are considered _effective_ because they're based on bandwidth measurements on users' devices, and don't imply any particular technology used. For example, a desktop user on fast Wi-Fi may be labelled as 4G while a slower mobile connection might be labelled as 2G.
 
 The distributions for these dimensions are calculated using segments of the [First Contentful Paint](/fcp/) (FCP) histogram data.
 
-FAQ <a href="#faq" class="w-headline-link">#</a>
-------------------------------------------------
+## FAQ <a href="#faq" class="w-headline-link">#</a>
 
 ### When would I use the CrUX Dashboard as opposed to other tools? <a href="#when-would-i-use-the-crux-dashboard-as-opposed-to-other-tools" class="w-headline-link">#</a>
 
@@ -166,35 +154,35 @@ Check out the [Data Studio features page](https://marketingplatform.google.com/a
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

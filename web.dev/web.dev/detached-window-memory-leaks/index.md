@@ -12,30 +12,28 @@
 
 <img src="https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format" alt="Cat contemplating how to fix a leak" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Dnk2j14tUTNqqSYN8FHj.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#detached-window-memory-leaks" class="w-toc__header--link">Detached window memory leaks</a>
-----------------------------------------------------------------------------------------------------
+## <a href="#detached-window-memory-leaks" class="w-toc__header--link">Detached window memory leaks</a>
 
--   [What's a memory leak in JavaScript?](#whats-a-memory-leak)
--   [What's a detached window?](#whats-a-detached-window)
--   [How detached windows cause memory leaks](#how-detached-windows-cause-leaks)
--   [Detecting memory leaks caused by detached windows](#detect-leaks)
--   [Measure memory programmatically](#measure-memory)
--   [Solutions for avoiding detached window leaks](#solutions)
--   [Example: Closing a popup](#solution-example)
--   [Solution: Unset references](#solution-unset-references)
--   [Solution: Monitor and dispose](#solution-monitor-dispose)
--   [Solution: Use WeakRef](#solution-weakref)
--   [Solution: Communicate over postMessage](#solution-postmessage)
--   [Solution: Avoid references using noopener](#solution-noopener)
--   [Feedback](#feedback)
+- [What's a memory leak in JavaScript?](#whats-a-memory-leak)
+- [What's a detached window?](#whats-a-detached-window)
+- [How detached windows cause memory leaks](#how-detached-windows-cause-leaks)
+- [Detecting memory leaks caused by detached windows](#detect-leaks)
+- [Measure memory programmatically](#measure-memory)
+- [Solutions for avoiding detached window leaks](#solutions)
+- [Example: Closing a popup](#solution-example)
+- [Solution: Unset references](#solution-unset-references)
+- [Solution: Monitor and dispose](#solution-monitor-dispose)
+- [Solution: Use WeakRef](#solution-weakref)
+- [Solution: Communicate over postMessage](#solution-postmessage)
+- [Solution: Avoid references using noopener](#solution-noopener)
+- [Feedback](#feedback)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Detached window memory leaks
-============================
+# Detached window memory leaks
 
 Find and fix tricky memory leaks caused by detached windows.
 
@@ -45,16 +43,15 @@ Sep 29, 2020
 
 <a href="/authors/developit/" class="w-author__name-link">Jason Miller</a>
 
--   <a href="https://twitter.com/_developit" class="w-author__link">Twitter</a>
--   <a href="https://github.com/developit" class="w-author__link">GitHub</a>
--   <a href="https://jasonformat.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/_developit" class="w-author__link">Twitter</a>
+- <a href="https://github.com/developit" class="w-author__link">GitHub</a>
+- <a href="https://jasonformat.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/T5PegmVyKW3nxjuHZF14.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Bartek Nowierski" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/T5PegmVyKW3nxjuHZF14.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/T5PegmVyKW3nxjuHZF14.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/T5PegmVyKW3nxjuHZF14.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/T5PegmVyKW3nxjuHZF14.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/T5PegmVyKW3nxjuHZF14.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/bartekn/)
 
 <a href="/authors/bartekn/" class="w-author__name-link">Bartek Nowierski</a>
 
-What's a memory leak in JavaScript? <a href="#whats-a-memory-leak" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## What's a memory leak in JavaScript? <a href="#whats-a-memory-leak" class="w-headline-link">#</a>
 
 A memory leak is an unintentional increase in the amount of memory used by an application over time. In JavaScript, memory leaks happen when objects are no longer needed, but are still referenced by functions or other objects. These references prevent the unneeded objects from being reclaimed by the garbage collector.
 
@@ -75,8 +72,7 @@ The job of the garbage collector is to identify and reclaim objects that are no 
 
 A particularly tricky class of memory leak occurs when an application references objects that have their own lifecycle, like DOM elements or popup windows. It's possible for these types of objects to become unused without the application knowing, which means application code may have the only remaining references to an object that could otherwise be garbage collected.
 
-What's a detached window? <a href="#whats-a-detached-window" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## What's a detached window? <a href="#whats-a-detached-window" class="w-headline-link">#</a>
 
 In the following example, a slideshow viewer application includes buttons to open and close a presenter notes popup. Imagine a user clicks **Show Notes**, then closes the popup window directly instead of clicking the **Hide Notes** button–the `notesWindow` variable still holds a reference to the popup that could be accessed, even though the popup is no longer in use.
 
@@ -104,8 +100,7 @@ Demonstration of how an event handler can retain an iframe's document, even afte
 
 In cases where a reference to the `document` within a window or iframe is retained from JavaScript, that document will be kept in-memory even if the containing window or iframe navigates to a new URL. This can be particularly troublesome when the JavaScript holding that reference doesn't detect that the window/frame has navigated to a new URL, since it doesn't know when it becomes the last reference keeping a document in memory.
 
-How detached windows cause memory leaks <a href="#how-detached-windows-cause-leaks" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------
+## How detached windows cause memory leaks <a href="#how-detached-windows-cause-leaks" class="w-headline-link">#</a>
 
 When working with windows and iframes on the same domain as the primary page, it's common to listen for events or access properties across document boundaries. For example, let's revisit a variation on the presentation viewer example from the beginning of this guide. The viewer opens a second window for displaying speaker notes. The speaker notes window listens for`click` events as its cue to move to the next slide. If the user closes this notes window, the JavaScript running in the original parent window still has full access to the speaker notes document:
 
@@ -134,34 +129,33 @@ See [Solution: communicate over postMessage](#solution-communicate-over-postmess
 
 There are a number of other scenarios where references are accidentally retained that prevent detached windows from being eligible for garbage collection:
 
--   Event handlers can be registered on an iframe's initial document prior to the frame navigating to its intended URL, resulting in accidental references to the document and the iframe persisting after other references have been cleaned up.
+- Event handlers can be registered on an iframe's initial document prior to the frame navigating to its intended URL, resulting in accidental references to the document and the iframe persisting after other references have been cleaned up.
 
--   A memory-heavy document loaded in a window or iframe can be accidentally kept in-memory long after navigating to a new URL. This is often caused by the parent page retaining references to the document in order to allow for listener removal.
+- A memory-heavy document loaded in a window or iframe can be accidentally kept in-memory long after navigating to a new URL. This is often caused by the parent page retaining references to the document in order to allow for listener removal.
 
--   When passing a JavaScript object to another window or iframe, the Object's prototype chain includes references to the environment it was created in, including the window that created it. This means it's just as important to avoid holding references to objects from other windows as it is to avoid holding references to the windows themselves.
+- When passing a JavaScript object to another window or iframe, the Object's prototype chain includes references to the environment it was created in, including the window that created it. This means it's just as important to avoid holding references to objects from other windows as it is to avoid holding references to the windows themselves.
 
-    index.html:
+  index.html:
 
-        <script>
-          let currentFiles;
-          function load(files) {
-            // this retains the popup:
-            currentFiles = files;
-          }
-          window.open('upload.html');
-        </script>
+      <script>
+        let currentFiles;
+        function load(files) {
+          // this retains the popup:
+          currentFiles = files;
+        }
+        window.open('upload.html');
+      </script>
 
-    upload.html:
+  upload.html:
 
-        <input type="file" id="file" />
-        <script>
-          file.onchange = () => {
-            parent.load(file.files);
-          };
-        </script>
+      <input type="file" id="file" />
+      <script>
+        file.onchange = () => {
+          parent.load(file.files);
+        };
+      </script>
 
-Detecting memory leaks caused by detached windows <a href="#detect-leaks" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------
+## Detecting memory leaks caused by detached windows <a href="#detect-leaks" class="w-headline-link">#</a>
 
 Tracking down memory leaks can be tricky. It is often difficult to construct isolated reproductions of these issues, particularly when multiple documents or windows are involved. To make things more complicated, inspecting potential leaked references can end up creating additional references that prevent the inspected objects from being garbage collected. To that end, it's useful to start with tools that specifically avoid introducing this possibility.
 
@@ -181,8 +175,7 @@ Heap snapshots provide a high level of detail and are excellent for figuring out
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format" alt="Checking the used JS heap size in DevTools as a popup is created, closed and unreferenced." sizes="(min-width: 621px) 621px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/TIypz58ucRgAnnNu1LwR.png?auto=format&amp;w=1242 1242w" width="621" height="394" /><figcaption>Checking the used JS heap size in DevTools as a popup is created, closed and unreferenced.</figcaption></figure>The `performance.memory` API only provides information about the JavaScript heap size, which means it doesn't include memory used by the popup's document and resources. To get the full picture, we'd need to use the new [`performance.measureUserAgentSpecificMemory()` API](/monitor-total-page-memory-usage/) currently being trialled in Chrome.
 
-Solutions for avoiding detached window leaks <a href="#solutions" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------
+## Solutions for avoiding detached window leaks <a href="#solutions" class="w-headline-link">#</a>
 
 The two most common cases where detached windows cause memory leaks are when the parent document retains references to a closed popup or removed iframe, and when unexpected navigation of a window or iframe results in event handlers never being unregistered.
 
@@ -229,7 +222,7 @@ In many situations, the JavaScript responsible for opening windows or creating f
 
 **Caution**: There's another event called`unload` which is similar to`pagehide` but is considered harmful and should be avoided as much as possible. See [Legacy lifecycle APIs to avoid: the unload event](https://developers.google.com/web/updates/2018/07/page-lifecycle-api#the-unload-event) for details.
 
-The `pagehide` event can be used to detect closed windows and navigation away from the current document. However, there is one important caveat: all newly-created windows and iframes contain an empty document, then asynchronously navigate to the given URL if provided. As a result, an initial `pagehide` event is fired shortly after creating the window or frame, just before the target document has loaded. Since our reference cleanup code needs to run when the *target* document is unloaded, we need to ignore this first `pagehide` event. There are a number of techniques for doing so, the simplest of which is to ignore pagehide events originating from the initial document's `about:blank` URL. Here's how it would look in our [popup example](#solution-example):
+The `pagehide` event can be used to detect closed windows and navigation away from the current document. However, there is one important caveat: all newly-created windows and iframes contain an empty document, then asynchronously navigate to the given URL if provided. As a result, an initial `pagehide` event is fired shortly after creating the window or frame, just before the target document has loaded. Since our reference cleanup code needs to run when the _target_ document is unloaded, we need to ignore this first `pagehide` event. There are a number of techniques for doing so, the simplest of which is to ignore pagehide events originating from the initial document's `about:blank` URL. Here's how it would look in our [popup example](#solution-example):
 
     let popup;
     open.onclick = () => {
@@ -327,7 +320,7 @@ A more holistic alternative approach is available that avoids stale references b
     }
     document.body.onclick = nextSlide;
 
-While this still requires the windows to reference each other, neither retains a reference to the current *document* from another window. A message-passing approach also encourages designs where window references are held in a single place, meaning only a single reference needs to be unset when windows are closed or navigate away. In the above example, only `showNotes()` retains a reference to the notes window, and it uses the `pagehide` event to ensure that reference is cleaned up.
+While this still requires the windows to reference each other, neither retains a reference to the current _document_ from another window. A message-passing approach also encourages designs where window references are held in a single place, meaning only a single reference needs to be unset when windows are closed or navigate away. In the above example, only `showNotes()` retains a reference to the notes window, and it uses the `pagehide` event to ensure that reference is cleaned up.
 
 ### Solution: Avoid references using `noopener` <a href="#solution-noopener" class="w-headline-link">#</a>
 
@@ -337,8 +330,7 @@ In cases where a popup window is opened that your page doesn't need to communica
 
 The `"noopener"` option causes `window.open()` to return `null`, making it impossible to accidentally store a reference to the popup. It also prevents the popup window from getting a reference to its parent window, since the `window.opener` property will be `null`.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 Hopefully some of the suggestions in this article help with finding and fixing memory leaks. If you have another technique for debugging detached windows or this article helped uncover leaks in your app, I'd love to know! You can find me on Twitter [@\_developit](https://twitter.com/_developit).
 
@@ -348,35 +340,35 @@ Hopefully some of the suggestions in this article help with finding and fixing m
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

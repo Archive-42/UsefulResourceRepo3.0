@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Default value of struct, string, slice, map](default-zero-value.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Methods explained](methods-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,21 +35,18 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Structs explained
-=====================
+# Go: Structs explained
 
 A **struct** is a typed collection of fields. It's useful for grouping data to form records.
 
-Defining a struct
------------------
+## Defining a struct
 
     type Person struct {
         name string
         age  int
     }
 
-Using a struct
---------------
+## Using a struct
 
     var x Person      // x is initialized to the zero value: Person{"", 0}
         x.name = "Alice"
@@ -60,20 +54,19 @@ Using a struct
         var px *Person    // px is initialized to nil
         px = new(Person)  // px points to the new struct Person{"", 0}
         px.name = "Bob"
-        
+
         y := Person{       // y is initialized to Person{"Alice", 0}.
             name: "Alice",
         }
-        
+
         py := &Person{     // py points to the new struct Person{"Bob", 8}.
             name: "Bob",
             age:  8,
         }
-        
+
         z := Person{"Cecilia", 5} // One element for each field, in given order.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

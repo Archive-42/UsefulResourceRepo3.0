@@ -1,39 +1,31 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/QDbWuORGDrUkKquHEeAU.jpeg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#breaking-down-barriers-using-the-datatransfer-api" class="w-toc__header--link">Breaking down barriers using the DataTransfer API</a>
-----------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#breaking-down-barriers-using-the-datatransfer-api" class="w-toc__header--link">Breaking down barriers using the DataTransfer API</a>
 
--   [Transferring data](#transferring-data)
--   [Transfer using copy and paste](#transfer-using-copy-and-paste)
--   [Custom data formats](#custom-data-formats)
--   [Connecting the web](#connecting-the-web)
--   [Concerns](#concerns)
--   [Browser compatibility](#browser-compatibility)
--   [Discoverability](#discoverability)
--   [Accessibility](#accessibility)
--   [Security and privacy](#security-and-privacy)
--   [Getting started with the Transmat helper library](#getting-started-with-the-transmat-helper-library)
--   [Acknowledgements](#acknowledgements)
+- [Transferring data](#transferring-data)
+- [Transfer using copy and paste](#transfer-using-copy-and-paste)
+- [Custom data formats](#custom-data-formats)
+- [Connecting the web](#connecting-the-web)
+- [Concerns](#concerns)
+- [Browser compatibility](#browser-compatibility)
+- [Discoverability](#discoverability)
+- [Accessibility](#accessibility)
+- [Security and privacy](#security-and-privacy)
+- [Getting started with the Transmat helper library](#getting-started-with-the-transmat-helper-library)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Breaking down barriers using the DataTransfer API
-=================================================
+# Breaking down barriers using the DataTransfer API
 
 Enable the user to share data beyond the browser window.
 
@@ -43,18 +35,18 @@ Apr 21, 2021
 
 <a href="/authors/joriktangelder/" class="w-author__name-link">Jorik Tangelder</a>
 
--   <a href="https://twitter.com/jorikdelaporik" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jtangelder" class="w-author__link">GitHub</a>
--   <a href="https://jorik.dev/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jorikdelaporik" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jtangelder" class="w-author__link">GitHub</a>
+- <a href="https://jorik.dev/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Thomas Steiner" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/thomassteiner/)
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 You might have heard about the [DataTransfer API](https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer) before, that is part of the [HTML5 Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) and [Clipboard events](https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event). It can be used to transfer data between source and receiving targets. This API [ready to use](https://caniuse.com/mdn-api_datatransfer_setdata) in all modern desktop browsers.
 
@@ -66,8 +58,7 @@ This capability can change the way we think about sharing and interoperability i
 
 An example of interactions that are possible with the DataTransfer API.
 
-Transferring data <a href="#transferring-data" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Transferring data <a href="#transferring-data" class="w-headline-link">#</a>
 
 To get started with transferring data, you'll need to implement drag-drop or copy-paste. The examples below show drag-drop interactions, but the process for copy-paste is similar. If you are unfamiliar with the Drag and Drop API, there's a great article [explaining HTML5 Drag and Drop](https://web.dev/drag-and-drop/) that details the ins and outs.
 
@@ -97,9 +88,9 @@ Receiving the data transfer works almost the same as providing it. Listen to the
 
 Three MIME-types are widely supported across applications:
 
--   **`text/html`:** Renders the HTML payload in `contentEditable` elements and rich text (WYSIWYG) editors like Google Docs, Microsoft Word, and others.
--   **`text/plain:`** Sets the value of input elements, content of code editors, and the fallback from `text/html`.
--   **`text/uri-list`:** Navigates to the URL when dropping on the URL bar or browser page. A URL shortcut will be created when dropping on a directory or the desktop.
+- **`text/html`:** Renders the HTML payload in `contentEditable` elements and rich text (WYSIWYG) editors like Google Docs, Microsoft Word, and others.
+- **`text/plain:`** Sets the value of input elements, content of code editors, and the fallback from `text/html`.
+- **`text/uri-list`:** Navigates to the URL when dropping on the URL bar or browser page. A URL shortcut will be created when dropping on a directory or the desktop.
 
 The widespread adoption of `text/html` by WYSIWYG editors makes it very useful. Like in HTML documents, you can embed resources by using [Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) or publicly accessible URLs. This works well with exporting visuals (for example from a canvas) to editors like Google Docs.
 
@@ -114,7 +105,7 @@ For posterity, using the DataTransfer API with copy-paste interactions looks lik
     // Listen to copy-paste events on the document.
     document.addEventListener('copy', (event) => {
       const copySource = document.querySelector('#copySource');
-      // Only copy when the `activeElement` (i.e., focused element) is, 
+      // Only copy when the `activeElement` (i.e., focused element) is,
       // or is within, the `copySource` element.
       if (copySource.contains(document.activeElement)) {
         event.clipboardData.setData('text/plain', 'Foo bar');
@@ -130,8 +121,7 @@ For posterity, using the DataTransfer API with copy-paste interactions looks lik
       }
     });
 
-Custom data formats <a href="#custom-data-formats" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Custom data formats <a href="#custom-data-formats" class="w-headline-link">#</a>
 
 You are not limited to the primitive MIME types, but can use any key to identify the transferred data. This can be useful for cross-browser interactions within your application. As shown below, you can transfer more complex data using the `JSON.stringify()` and `JSON.parse()` functions.
 
@@ -156,8 +146,7 @@ You are not limited to the primitive MIME types, but can use any key to identify
       }
     });
 
-Connecting the web <a href="#connecting-the-web" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Connecting the web <a href="#connecting-the-web" class="w-headline-link">#</a>
 
 While custom formats are great for communication between applications you have in your control, it also limits the user when transferring data to applications that aren't using your format. If you want to connect with third-party applications across the web, you need a universal data format.
 
@@ -180,8 +169,7 @@ By transmitting and receiving JSON-LD data, you will support a more connected an
 
 Think of all the possibilities for transferring data between any (web) application with no restrictions: sharing events from a calendar to your favorite ToDo app, attaching virtual files to emails, sharing contacts. That would be great, right? This starts with you! 🙌
 
-Concerns <a href="#concerns" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Concerns <a href="#concerns" class="w-headline-link">#</a>
 
 While the DataTransfer API is available today, there are some things to be aware of before integrating.
 
@@ -203,12 +191,11 @@ Drag-drop is not a very accessible interaction, but the DataTransfer API works w
 
 There are some security and privacy considerations you should be aware of when using the technique.
 
--   Clipboard data is available to other applications on the user's device.
--   Web applications you are dragging over have access to the type keys, not the data. The data only becomes available on drop or paste.
--   The received data should be treated like any other user input; sanitize and validate before using.
+- Clipboard data is available to other applications on the user's device.
+- Web applications you are dragging over have access to the type keys, not the data. The data only becomes available on drop or paste.
+- The received data should be treated like any other user input; sanitize and validate before using.
 
-Getting started with the Transmat helper library <a href="#getting-started-with-the-transmat-helper-library" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------
+## Getting started with the Transmat helper library <a href="#getting-started-with-the-transmat-helper-library" class="w-headline-link">#</a>
 
 Are you excited about using the DataTransfer API in your application? Consider taking a look at the [Transmat library on GitHub](https://google.github.io/transmat). This open-source library aligns browser differences, provides JSON-LD utilities, contains an observer to respond to transfer events for highlighting drop-areas, and lets you integrate the data transfer operations among existing drag and drop implementations.
 
@@ -243,8 +230,7 @@ Are you excited about using the DataTransfer API in your application? Consider t
     });
     obs.observe(myElement);
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Hero image by [Luba Ertel](https://unsplash.com/@ertelier) on [Unsplash](https://unsplash.com/photos/WlL8aHeMcVM).
 
@@ -254,35 +240,35 @@ Hero image by [Luba Ertel](https://unsplash.com/@ertelier) on [Unsplash](https:/
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

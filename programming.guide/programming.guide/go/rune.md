@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [String handling cheat sheet](string-functions-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further Reading
 [UTF-8: Bits, Bytes, and Benefits](https://research.swtch.com/utf8)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Russ Cox</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,11 +38,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: What is a rune?
-===================
+# Go: What is a rune?
 
-Unicode code points
--------------------
+## Unicode code points
 
 A rune is a type meant to represent a Unicode code point.
 
@@ -55,19 +50,17 @@ The `rune` type is an alias for `int32`, and is used to emphasize than an intege
 
 **Unicode**, which is a superset of ASCII, defines a codespace of 1,114,112 code points. Unicode version 10.0 covers 139 modern and historic scripts, as well as multiple symbol sets.
 
-Strings and UTF-8
------------------
+## Strings and UTF-8
 
-A Go string is an immutable sequence of bytes. It *typically* contains text encoded as UTF-8.
+A Go string is an immutable sequence of bytes. It _typically_ contains text encoded as UTF-8.
 
 Note that a `string` is a sequence of bytes, not runes.
 
-However, strings often contain Unicode text encoded in [*UTF-8*](https://research.swtch.com/utf8), which encodes all Unicode code points using one to four bytes, and Go source code is always encoded in UTF-8. This encoding was in fact designed by Ken Thompson and Rob Pike, two of the main creators of Go.
+However, strings often contain Unicode text encoded in [_UTF-8_](https://research.swtch.com/utf8), which encodes all Unicode code points using one to four bytes, and Go source code is always encoded in UTF-8. This encoding was in fact designed by Ken Thompson and Rob Pike, two of the main creators of Go.
 
-The [*String handling cheat sheet*](string-functions-reference-cheat-sheet.html) covers the principal ways to handle strings and runes in Go.
+The [_String handling cheat sheet_](string-functions-reference-cheat-sheet.html) covers the principal ways to handle strings and runes in Go.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

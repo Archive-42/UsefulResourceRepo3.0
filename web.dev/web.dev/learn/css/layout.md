@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,47 +52,46 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#layout:-a-brief-history" class="toc__anchor">Layout: a brief history</a>
--   <a href="#layout:-the-present-and-future" class="toc__anchor">Layout: the present and future</a>
--   <a href="#understanding-the-display-property" class="toc__anchor">Understanding the display property</a>
--   <a href="#flexbox-and-grid" class="toc__anchor">Flexbox and Grid</a>
-    -   <a href="#flexbox" class="toc__anchor">Flexbox</a>
-    -   <a href="#grid" class="toc__anchor">Grid</a>
--   <a href="#flow-layout" class="toc__anchor">Flow layout</a>
-    -   <a href="#inline-block" class="toc__anchor">Inline block</a>
-    -   <a href="#floats" class="toc__anchor">Floats</a>
-    -   <a href="#multicolumn-layout" class="toc__anchor">Multicolumn layout</a>
-    -   <a href="#positioning" class="toc__anchor">Positioning</a>
--   <a href="#wrap-up" class="toc__anchor">Wrap-up</a>
+- <a href="#layout:-a-brief-history" class="toc__anchor">Layout: a brief history</a>
+- <a href="#layout:-the-present-and-future" class="toc__anchor">Layout: the present and future</a>
+- <a href="#understanding-the-display-property" class="toc__anchor">Understanding the display property</a>
+- <a href="#flexbox-and-grid" class="toc__anchor">Flexbox and Grid</a>
+  - <a href="#flexbox" class="toc__anchor">Flexbox</a>
+  - <a href="#grid" class="toc__anchor">Grid</a>
+- <a href="#flow-layout" class="toc__anchor">Flow layout</a>
+  - <a href="#inline-block" class="toc__anchor">Inline block</a>
+  - <a href="#floats" class="toc__anchor">Floats</a>
+  - <a href="#multicolumn-layout" class="toc__anchor">Multicolumn layout</a>
+  - <a href="#positioning" class="toc__anchor">Positioning</a>
+- <a href="#wrap-up" class="toc__anchor">Wrap-up</a>
 
 008
 
-Layout
-======
+# Layout
 
 An overview of the various layout methods you have to choose from when building a component or page layout.
 
 On this page
 
--   <a href="#layout:-a-brief-history" class="toc__anchor">Layout: a brief history</a>
--   <a href="#layout:-the-present-and-future" class="toc__anchor">Layout: the present and future</a>
--   <a href="#understanding-the-display-property" class="toc__anchor">Understanding the display property</a>
--   <a href="#flexbox-and-grid" class="toc__anchor">Flexbox and Grid</a>
-    -   <a href="#flexbox" class="toc__anchor">Flexbox</a>
-    -   <a href="#grid" class="toc__anchor">Grid</a>
--   <a href="#flow-layout" class="toc__anchor">Flow layout</a>
-    -   <a href="#inline-block" class="toc__anchor">Inline block</a>
-    -   <a href="#floats" class="toc__anchor">Floats</a>
-    -   <a href="#multicolumn-layout" class="toc__anchor">Multicolumn layout</a>
-    -   <a href="#positioning" class="toc__anchor">Positioning</a>
--   <a href="#wrap-up" class="toc__anchor">Wrap-up</a>
+- <a href="#layout:-a-brief-history" class="toc__anchor">Layout: a brief history</a>
+- <a href="#layout:-the-present-and-future" class="toc__anchor">Layout: the present and future</a>
+- <a href="#understanding-the-display-property" class="toc__anchor">Understanding the display property</a>
+- <a href="#flexbox-and-grid" class="toc__anchor">Flexbox and Grid</a>
+  - <a href="#flexbox" class="toc__anchor">Flexbox</a>
+  - <a href="#grid" class="toc__anchor">Grid</a>
+- <a href="#flow-layout" class="toc__anchor">Flow layout</a>
+  - <a href="#inline-block" class="toc__anchor">Inline block</a>
+  - <a href="#floats" class="toc__anchor">Floats</a>
+  - <a href="#multicolumn-layout" class="toc__anchor">Multicolumn layout</a>
+  - <a href="#positioning" class="toc__anchor">Positioning</a>
+- <a href="#wrap-up" class="toc__anchor">Wrap-up</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -106,8 +103,7 @@ Imagine you're working as a developer, and a designer colleague hands you a desi
 
 CSS provides us with various ways to solve layout problems, on a horizontal axis, vertical axis, or even both. Choosing the right layout method for a context can be hard, and often you may need more than one layout method to solve your problem. To help with this, in the following modules, you'll learn about the unique features of each CSS layout mechanism to inform those decisions.
 
-Layout: a brief history <a href="#layout:-a-brief-history" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Layout: a brief history <a href="#layout:-a-brief-history" class="w-headline-link">#</a>
 
 In the early days of the web, designs more complex than a simple document were laid out with `<table>` elements. Separating HTML from visual styles was made easier when CSS was widely adopted by browsers in the late '90s. CSS opened the door to developers being able to completely change the look and feel of a website without ever touching HTML. This new capability inspired projects such as [The CSS Zen Garden](http://www.csszengarden.com), which was created to demonstrate the power of CSS to encourage more developers to learn it.
 
@@ -115,13 +111,11 @@ CSS has evolved as our needs for web design and browser technology have evolved.
 
 <img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/vDDoFFoPVgJEuEaqcP4H.svg" alt="A timeline showing how CSS has evolved over the years, starting in 1996 up to 2021" width="760" height="270" />
 
-Layout: the present and future <a href="#layout:-the-present-and-future" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Layout: the present and future <a href="#layout:-the-present-and-future" class="w-headline-link">#</a>
 
 Modern CSS has exceptionally powerful layout tooling. We have dedicated systems for layout and we're going to have a high-level look at what we have at our disposal, before digging into more detail of Flexbox and Grid in the next modules.
 
-Understanding the `display` property <a href="#understanding-the-display-property" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Understanding the `display` property <a href="#understanding-the-display-property" class="w-headline-link">#</a>
 
 The `display` property does two things. The first thing it does is determine if the box it is applied to acts as inline or block.
 
@@ -147,10 +141,9 @@ Block elements don't sit alongside each other. They create a new line for themse
 
 The `display` property also determines how an element's children should behave. For example, setting the `display` property to `display: flex` makes the box a block-level box, and also converts its children to flex items. This enables the flex properties that control alignment, ordering and flow.
 
-Flexbox and Grid <a href="#flexbox-and-grid" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Flexbox and Grid <a href="#flexbox-and-grid" class="w-headline-link">#</a>
 
-There are two main layout mechanisms that create layout rules for multiple elements, *[flexbox](/learn/css/flexbox)* and *[grid](/learn/css/grid)*. They share similarities, but are designed to solve different layout problems.
+There are two main layout mechanisms that create layout rules for multiple elements, _[flexbox](/learn/css/flexbox)_ and _[grid](/learn/css/grid)_. They share similarities, but are designed to solve different layout problems.
 
 We will be going into much more detail for both of these in future modules, but here is a high-level overview of what both are and what they are useful for.
 
@@ -205,14 +198,13 @@ This example above shows a single axis layout. Where flexbox mostly treats items
 
 The `grid-row` and `grid-column` properties instruct the first element in the grid to span to the start of the fourth column, from the first column, then span to the third row, from the first row.
 
-Flow layout <a href="#flow-layout" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Flow layout <a href="#flow-layout" class="w-headline-link">#</a>
 
 If not using grid or flexbox, your elements display in normal flow. There are a number of layout methods that you can use to adjust the behavior and position of items when in normal flow.
 
 ### Inline block <a href="#inline-block" class="w-headline-link">#</a>
 
-Remember how surrounding elements don't respect block margin and padding on an inline element? With `inline-block` you *can* cause that to happen.
+Remember how surrounding elements don't respect block margin and padding on an inline element? With `inline-block` you _can_ cause that to happen.
 
     p span {
       display: inline-block;
@@ -235,13 +227,13 @@ If you have an image that sits within a paragraph of text, wouldn't it be handy 
 
 The `float` property instructs an element to "float" to the direction specified. The image in this example is instructed to float left, which then allows sibling elements to "wrap" around it. You can instruct an element to float `left`, `right` or `inherit`.
 
-**Warning**: When you use `float`, keep in mind that any elements following the floated element may have their layout adjusted. To prevent this, you can clear the float, either by using `clear: both` on an element that follows your floated element *or* with `display: flow-root` on the parent of your floated elements.
+**Warning**: When you use `float`, keep in mind that any elements following the floated element may have their layout adjusted. To prevent this, you can clear the float, either by using `clear: both` on an element that follows your floated element _or_ with `display: flow-root` on the parent of your floated elements.
 
 Find out more in the article [The end of the clearfix hack](https://rachelandrew.co.uk/archives/2017/01/24/the-end-of-the-clearfix-hack/).
 
 ### Multicolumn layout <a href="#multicolumn-layout" class="w-headline-link">#</a>
 
-If you have a really long list of elements, such as a list of all of the countries of the world, it can result in *a lot* of scrolling and time wasted for a user. It can also create excess whitespace on the page. With CSS multicolumn, you can split this into multiple columns to help with both of these issues.
+If you have a really long list of elements, such as a list of all of the countries of the world, it can result in _a lot_ of scrolling and time wasted for a user. It can also create excess whitespace on the page. With CSS multicolumn, you can split this into multiple columns to help with both of these issues.
 
     <h1>All countries</h1>
     <ul class="countries">
@@ -303,8 +295,7 @@ An element with a `position` value of `fixed` behaves in a similar way to `absol
 
 You can achieve the anchored, fixed aspects of `fixed` and the more predictable document flow-honoring aspects of `relative` by using `sticky`. With this value, as the viewport scrolls past the element, it stays anchored to the `top`, `right`, `bottom` and `left` values that you set.
 
-Wrap-up <a href="#wrap-up" class="w-headline-link">#</a>
---------------------------------------------------------
+## Wrap-up <a href="#wrap-up" class="w-headline-link">#</a>
 
 There's a lot of choice and flexibility with CSS layout. To dive further into the power of CSS [Flexbox](/learn/css/flexbox) and [Grid](/learn/css/grid), continue into the next few modules.
 
@@ -366,35 +357,35 @@ Flexbox
 
 Flexbox is a layout mechanism designed for laying out groups of items in one dimension. Learn how to use it in this module.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

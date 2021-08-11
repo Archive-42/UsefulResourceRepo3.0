@@ -2,30 +2,26 @@
 
 <span class="underline"></span>
 
-Related Articles
-----------------
+## Related Articles
 
-[Why's Double.​MIN\_VALUE is positive? Integer.​MIN\_VALUE is negative!](integer-minvalue-negative-double-minvalue-positive.html)  
+[Why's Double.​MIN_VALUE is positive? Integer.​MIN_VALUE is negative!](integer-minvalue-negative-double-minvalue-positive.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Floating Point Values
----------------------
+## Floating Point Values
 
 1.  [Bits of a Floating Point Value](../bits-of-a-floating-point-value.html)
 2.  [Normal vs Subnormal Floats](../normal-vs-subnormal-floats.html)
 3.  [Why is it called Floating Point? And what is Fixed Point?](../why-is-it-called-floating-point-and-what-is-fixed-point.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -35,8 +31,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +39,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Float.MIN\_VALUE vs Float.MIN\_NORMAL
-===========================================
+# Java: Float.MIN_VALUE vs Float.MIN_NORMAL
 
 [`Float.MIN_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#MIN_VALUE) represents the value 2<sup>−149</sup>. This is a **subnormal** value, and it is the overall smallest possible value that a `float` can represent.
 
@@ -57,8 +51,7 @@ A **normal** value has a 1 before the binary point: <span style="white-space: no
 
 For details, see full article here: [Normal vs Subnormal Floats](../normal-vs-subnormal-floats.html)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,25 +2,22 @@
 
 <span class="underline"></span>
 
-Uses of super in Java
----------------------
+## Uses of super in Java
 
 1.  [Calling super()](super-call.html)
 2.  Calling super.someMethod()
 3.  [Calling super method of outer class from inner class](calling-super-method-of-outer-class-from-inner-class.html)
 4.  [Calling a default interface method from implementing class](calling-default-interface-method-implementation-from-implementing-class.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -30,8 +27,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -39,8 +35,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Calling super.someMethod()
-================================
+# Java: Calling super.someMethod()
 
 `super.someMethod()` calls `someMethod` of the base class. It is often used in an overriding method.
 
@@ -56,11 +51,10 @@ You can **not** reach in to the base class of the base class by doing `super.sup
 
 Not to be confused with
 
--   `super()`, see [Calling super()](super-call.html), or
--   `SomeClass.super.someMethod()`, see [Calling super method of outer class from inner class](calling-super-method-of-outer-class-from-inner-class.html)
+- `super()`, see [Calling super()](super-call.html), or
+- `SomeClass.super.someMethod()`, see [Calling super method of outer class from inner class](calling-super-method-of-outer-class-from-inner-class.html)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

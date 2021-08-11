@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,45 +52,44 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#border-properties" class="toc__anchor">Border properties</a>
-    -   <a href="#style" class="toc__anchor">Style</a>
-    -   <a href="#shorthand" class="toc__anchor">Shorthand</a>
-    -   <a href="#color" class="toc__anchor">Color</a>
-    -   <a href="#width" class="toc__anchor">Width</a>
--   <a href="#logical-properties" class="toc__anchor">Logical properties</a>
--   <a href="#border-radius" class="toc__anchor">Border radius</a>
--   <a href="#border-images" class="toc__anchor">Border images</a>
-    -   <a href="#border-image-source" class="toc__anchor">border-image-source</a>
-    -   <a href="#border-image-slice" class="toc__anchor">border-image-slice</a>
-    -   <a href="#border-image-repeat" class="toc__anchor">border-image-repeat</a>
+- <a href="#border-properties" class="toc__anchor">Border properties</a>
+  - <a href="#style" class="toc__anchor">Style</a>
+  - <a href="#shorthand" class="toc__anchor">Shorthand</a>
+  - <a href="#color" class="toc__anchor">Color</a>
+  - <a href="#width" class="toc__anchor">Width</a>
+- <a href="#logical-properties" class="toc__anchor">Logical properties</a>
+- <a href="#border-radius" class="toc__anchor">Border radius</a>
+- <a href="#border-images" class="toc__anchor">Border images</a>
+  - <a href="#border-image-source" class="toc__anchor">border-image-source</a>
+  - <a href="#border-image-slice" class="toc__anchor">border-image-slice</a>
+  - <a href="#border-image-repeat" class="toc__anchor">border-image-repeat</a>
 
 015
 
-Borders
-=======
+# Borders
 
 A border provides a frame for your boxes. In this module find out how to change the size, style and color of borders using CSS.
 
 On this page
 
--   <a href="#border-properties" class="toc__anchor">Border properties</a>
-    -   <a href="#style" class="toc__anchor">Style</a>
-    -   <a href="#shorthand" class="toc__anchor">Shorthand</a>
-    -   <a href="#color" class="toc__anchor">Color</a>
-    -   <a href="#width" class="toc__anchor">Width</a>
--   <a href="#logical-properties" class="toc__anchor">Logical properties</a>
--   <a href="#border-radius" class="toc__anchor">Border radius</a>
--   <a href="#border-images" class="toc__anchor">Border images</a>
-    -   <a href="#border-image-source" class="toc__anchor">border-image-source</a>
-    -   <a href="#border-image-slice" class="toc__anchor">border-image-slice</a>
-    -   <a href="#border-image-repeat" class="toc__anchor">border-image-repeat</a>
+- <a href="#border-properties" class="toc__anchor">Border properties</a>
+  - <a href="#style" class="toc__anchor">Style</a>
+  - <a href="#shorthand" class="toc__anchor">Shorthand</a>
+  - <a href="#color" class="toc__anchor">Color</a>
+  - <a href="#width" class="toc__anchor">Width</a>
+- <a href="#logical-properties" class="toc__anchor">Logical properties</a>
+- <a href="#border-radius" class="toc__anchor">Border radius</a>
+- <a href="#border-images" class="toc__anchor">Border images</a>
+  - <a href="#border-image-source" class="toc__anchor">border-image-source</a>
+  - <a href="#border-image-slice" class="toc__anchor">border-image-slice</a>
+  - <a href="#border-image-repeat" class="toc__anchor">border-image-repeat</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -106,8 +103,7 @@ In the [box model](/learn/css/box-model) module, we considered a frame analogy t
 
 The border box is the frame of your boxes, and the `border` properties give you a huge array of options to create that frame in nearly any style that you can think of.
 
-Border properties <a href="#border-properties" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Border properties <a href="#border-properties" class="w-headline-link">#</a>
 
 The individual `border` properties provide a way to style the various parts of a border.
 
@@ -153,8 +149,7 @@ The width of a border is how thick the line is, and is controlled by [`border-wi
 
 The `border-width` properties also accept a length unit such as `px`, `em`, `rem` or `%`. To set border width on each side of your box, use [`border-top-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width), [`border-right-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width), [`border-left-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width) and [`border-bottom-width`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width).
 
-Logical properties <a href="#logical-properties" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Logical properties <a href="#logical-properties" class="w-headline-link">#</a>
 
 In the [Logical Properties](/learn/css/logical-properties) module you discovered how to refer to block flow and inline flow, rather than explicit top, right, bottom or left sides.
 
@@ -169,8 +164,7 @@ In this example, `.my-element` has all sides defined as having a `2px`, dotted b
 
 Browser support is varied for logical properties in borders, so make sure you check support before using.
 
-Border radius <a href="#border-radius" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Border radius <a href="#border-radius" class="w-headline-link">#</a>
 
 To give a box rounded corners use the [`border-radius`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) property.
 
@@ -203,8 +197,7 @@ You can define these values in the `border-radius` shorthand, using a `/` to def
       border-radius: 95px 155px 148px 103px / 48px 95px 130px 203px;
     }
 
-Border images <a href="#border-images" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Border images <a href="#border-images" class="w-headline-link">#</a>
 
 You don't just have to use a stroke-based border in CSS. You can also use any type of image, using [`border-image`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image). This shorthand property allows you to set the source image, how that image is sliced, the image width, how far the border is outset from the edge and how it should repeat.
 
@@ -249,10 +242,10 @@ Lastly, the `fill` keyword determines whether the middle section, left by the sl
 
 [`border-image-repeat`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-repeat) is how you instruct CSS how you would like your border image to repeat. It works the same as `background-repeat`.
 
--   The initial value is `stretch`, which stretches the source image to fill available space where possible.
--   The `repeat` value tiles the source image's edges as many times as possible, and may clip the edge regions to achieve this.
--   The `round` value is the same as repeat, but instead of clipping the image edge regions to fit as many as possible, it stretches the image as well as repeating it to achieve a seamless repeat
--   The `space` value is again, the same as repeat, but this value adds space between each edge region to create a seamless pattern.
+- The initial value is `stretch`, which stretches the source image to fill available space where possible.
+- The `repeat` value tiles the source image's edges as many times as possible, and may clip the edge regions to achieve this.
+- The `round` value is the same as repeat, but instead of clipping the image edge regions to fit as many as possible, it stretches the image as well as repeating it to achieve a seamless repeat
+- The `space` value is again, the same as repeat, but this value adds space between each edge region to create a seamless pattern.
 
 Test your knowledge of borders
 
@@ -308,35 +301,35 @@ Shadows
 
 There are a number of ways to add shadows to text and elements in CSS. In this module you'll learn how to use each option, and the tasks they were designed for.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

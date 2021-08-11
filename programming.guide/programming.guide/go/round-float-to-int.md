@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Conversions](conversions.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [The trouble with rounding floating point numbers](https://www.theregister.co.uk/2006/08/12/floating_point_approximation/)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Register</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,16 +35,14 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Round float to integer value
-================================
+# Go: Round float to integer value
 
--   [Round away from zero](round-float-to-int.html#round-away-from-zero)
--   [Round to an even number](round-float-to-int.html#round-to-an-even-number)
--   [Convert to an int type](round-float-to-int.html#convert-to-an-int-type)
--   [Before Go 1.10](round-float-to-int.html#before-go-110)
+- [Round away from zero](round-float-to-int.html#round-away-from-zero)
+- [Round to an even number](round-float-to-int.html#round-to-an-even-number)
+- [Convert to an int type](round-float-to-int.html#convert-to-an-int-type)
+- [Before Go 1.10](round-float-to-int.html#before-go-110)
 
-Round away from zero
---------------------
+## Round away from zero
 
 Use [`math.Round`](https://tip.golang.org/pkg/math/#Round), which will be introduced in [**Go 1.10**](https://tip.golang.org/doc/go1.10), to return the nearest integer, rounding ties away from zero.
 
@@ -66,16 +61,14 @@ Note the special cases:
     Round(±Inf) = ±Inf
     Round(NaN) = NaN
 
-Round to an even number
------------------------
+## Round to an even number
 
 Use [`math.RoundToEven`](https://tip.golang.org/pkg/math/#RoundToEven), which will be introduced in [**Go 1.10**](https://tip.golang.org/doc/go1.10), to return the nearest integer, rounding ties to an even number.
 
     fmt.Println(math.RoundToEven(0.5), math.RoundToEven(1.5))
     // Output: 0 2
 
-Convert to an int type
-----------------------
+## Convert to an int type
 
 Note that when converting a floating-point number to an `int` type, the fraction is discarded (truncation towards zero):
 
@@ -85,8 +78,7 @@ Note that when converting a floating-point number to an `int` type, the fraction
 
 **Warning:** If the result type cannot represent the value the conversion succeeds but the result is implementation-dependent.
 
-Before Go 1.10
---------------
+## Before Go 1.10
 
 The following implementations are equivalent to [`math.Round`](https://tip.golang.org/pkg/math/#Round) and [`math.RoundToEven`](https://tip.golang.org/pkg/math/#RoundToEven), but less efficient.
 
@@ -111,8 +103,7 @@ The following implementations are equivalent to [`math.Round`](https://tip.golan
             return t
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

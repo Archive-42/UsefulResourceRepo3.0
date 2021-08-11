@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Command-line arguments](command-line-arguments.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -20,8 +19,7 @@ Further Reading
 [Access environment variables](environment-variables.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +41,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Write a command-line (CLI) application
-==========================================
+# Go: Write a command-line (CLI) application
 
 This example is a simplified version of the Unix `grep` command. The program searches the input file for lines containing the given pattern and prints these lines.
 
@@ -81,8 +77,7 @@ This example is a simplified version of the Unix `grep` command. The program sea
             }
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

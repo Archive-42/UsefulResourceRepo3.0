@@ -1,32 +1,18 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+## <a href="#how-chrome-handles-updates-to-the-web-app-manifest" class="w-toc__header--link">How Chrome handles updates to the web app manifest</a>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#how-chrome-handles-updates-to-the-web-app-manifest" class="w-toc__header--link">How Chrome handles updates to the web app manifest</a>
-------------------------------------------------------------------------------------------------------------------------------------------------
-
--   [Updates on desktop Chrome](#cr-desktop)
--   [Which properties will trigger an update?](#cr-desktop-trigger)
--   [What happens when the display field is updated?](#what-happens-when-the-display-field-is-updated)
--   [Testing manifest updates](#cr-desktop-test)
--   [References](#cr-desktop-ref)
--   [Updates on Chrome for Android](#cr-android)
--   [Which properties will trigger an update?](#cr-android-trigger)
--   [Testing manifest updates](#cr-android-test)
--   [References](#cr-android-ref)
+- [Updates on desktop Chrome](#cr-desktop)
+- [Which properties will trigger an update?](#cr-desktop-trigger)
+- [What happens when the display field is updated?](#what-happens-when-the-display-field-is-updated)
+- [Testing manifest updates](#cr-desktop-test)
+- [References](#cr-desktop-ref)
+- [Updates on Chrome for Android](#cr-android)
+- [Which properties will trigger an update?](#cr-android-trigger)
+- [Testing manifest updates](#cr-android-test)
+- [References](#cr-android-ref)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-How Chrome handles updates to the web app manifest
-==================================================
+# How Chrome handles updates to the web app manifest
 
 What it takes to change icons, shortcuts, colors, and other metadata for your PWA
 
@@ -38,17 +24,17 @@ Oct 14, 2020 <span class="w-author__separator">•</span> Updated Apr 5, 2021
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Adriana Jara" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/ajara/)
 
 <a href="/authors/ajara/" class="w-author__name-link">Adriana Jara</a>
 
--   <a href="https://twitter.com/tropicadri" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tropicadri" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/tropicadri" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tropicadri" class="w-author__link">GitHub</a>
 
 We are currently gathering data on browsers other than Chrome. If you would like to help us gather this data or add content to this page, please leave a comment in [issue \#4038](https://github.com/GoogleChrome/web.dev/issues/4038).
 
@@ -58,8 +44,7 @@ When a PWA is installed, the browser uses information from the web app manifest 
 
 In most cases, changes should be reflected within a day or two of the PWA being launched, after the manifest has been updated.
 
-Updates on desktop Chrome <a href="#cr-desktop" class="w-headline-link">#</a>
------------------------------------------------------------------------------
+## Updates on desktop Chrome <a href="#cr-desktop" class="w-headline-link">#</a>
 
 When the PWA is launched, or opened in a browser tab, Chrome determines the last time the local manifest was checked for changes. If the manifest hasn't been checked since the browser last started, or it hasn't been checked in the last 24 hours, Chrome will make a network request for the manifest, then compare it against the local copy.
 
@@ -67,10 +52,10 @@ If select properties in the manifest have changed (see list below), Chrome queue
 
 ### Which properties will trigger an update? <a href="#cr-desktop-trigger" class="w-headline-link">#</a>
 
--   `display` (see below)
--   `scope`
--   `shortcuts`
--   `theme_color`
+- `display` (see below)
+- `scope`
+- `shortcuts`
+- `theme_color`
 
 **Caution**: Changes to `name`, `short_name`, `icons` and `start_url` are **not** currently supported on desktop Chrome, though work is underway to support them.
 
@@ -86,10 +71,9 @@ To manually force Chrome to check for an updated manifest, restart Chrome (use `
 
 ### References <a href="#cr-desktop-ref" class="w-headline-link">#</a>
 
--   [Updatable Web Manifest Fields](https://docs.google.com/document/d/1twU_yAoTDp4seZMmqrDzJFQtrM7Z60jXHkXjMIO2VpM/preview)
+- [Updatable Web Manifest Fields](https://docs.google.com/document/d/1twU_yAoTDp4seZMmqrDzJFQtrM7Z60jXHkXjMIO2VpM/preview)
 
-Updates on Chrome for Android <a href="#cr-android" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## Updates on Chrome for Android <a href="#cr-android" class="w-headline-link">#</a>
 
 When the PWA is launched, Chrome determines the last time the local manifest was checked for changes. If the manifest hasn't been checked in the last 24 hours, Chrome will schedule a network request for the manifest, then compare it against the local copy.
 
@@ -97,14 +81,14 @@ If select properties in the manifest have changed (see list below), Chrome queue
 
 ### Which properties will trigger an update? <a href="#cr-android-trigger" class="w-headline-link">#</a>
 
--   `background_color`
--   `display`
--   `orientation`
--   `scope`
--   `shortcuts`
--   `start_url`
--   `theme_color`
--   `web_share_target`
+- `background_color`
+- `display`
+- `orientation`
+- `scope`
+- `shortcuts`
+- `start_url`
+- `theme_color`
+- `web_share_target`
 
 If Chrome is unable to get an updated manifest from the server, it may increase the time between checks to 30 days.
 
@@ -126,7 +110,7 @@ The PWA usually updates within a few minutes, once the update has completed, "Up
 
 ### References <a href="#cr-android-ref" class="w-headline-link">#</a>
 
--   [`UpdateReason` enum](https://cs.chromium.org/chromium/src/chrome/browser/android/webapk/webapk.proto?l=35) for Chrome on Android
+- [`UpdateReason` enum](https://cs.chromium.org/chromium/src/chrome/browser/android/webapk/webapk.proto?l=35) for Chrome on Android
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a>
 
@@ -134,35 +118,35 @@ The PWA usually updates within a few minutes, once the update has completed, "Up
 
 <a href="/progressive-web-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

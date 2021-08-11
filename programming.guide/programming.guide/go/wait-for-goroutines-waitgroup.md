@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -20,8 +19,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Wait for goroutines
-=======================
+# Go: Wait for goroutines
 
 A [sync.WaitGroup](https://golang.org/pkg/sync/) waits for a group of goroutines to finish.
 
@@ -51,10 +48,10 @@ A [sync.WaitGroup](https://golang.org/pkg/sync/) waits for a group of goroutines
 
     wg.Wait()
 
--   First the main goroutine calls [`Add`](https://golang.org/pkg/sync/#WaitGroup.Add) to set the number of goroutines to wait for.
--   Then two new goroutines run and call [`Done`](https://golang.org/pkg/sync/#WaitGroup.Done) when finished.
+- First the main goroutine calls [`Add`](https://golang.org/pkg/sync/#WaitGroup.Add) to set the number of goroutines to wait for.
+- Then two new goroutines run and call [`Done`](https://golang.org/pkg/sync/#WaitGroup.Done) when finished.
 
-*At the same time*, [`Wait`](https://golang.org/pkg/sync/#WaitGroup.Wait) is used to block until these two goroutines have finished.
+_At the same time_, [`Wait`](https://golang.org/pkg/sync/#WaitGroup.Wait) is used to block until these two goroutines have finished.
 
 **Note:** A WaitGroup must not be copied after first use.
 
@@ -78,8 +75,7 @@ Next »
 
 Broadcast a signal on a channel
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

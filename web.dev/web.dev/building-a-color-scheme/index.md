@@ -1,58 +1,50 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/wURg4Z43zI5ge137BuaG.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-color-scheme" class="w-toc__header--link">Building a color scheme</a>
-------------------------------------------------------------------------------------------
+## <a href="#building-a-color-scheme" class="w-toc__header--link">Building a color scheme</a>
 
--   [Overview](#overview)
--   [The Brand](#the-brand)
--   [Light theme](#light-theme)
--   [Brand](#brand)
--   [Text colors](#text-colors)
--   [Surface colors](#surface-colors)
--   [Shadows](#shadows)
--   [Light colors all together](#light-colors-all-together)
--   [Dark theme](#dark-theme)
--   [Brand](#brand-2)
--   [Text colors](#text-colors-2)
--   [Surface colors](#surface-colors-2)
--   [Shadows](#shadows-2)
--   [Dark colors all together](#dark-colors-all-together)
--   [Dim theme](#dim-theme)
--   [Brand](#brand-3)
--   [Text colors](#text-colors-3)
--   [Surface colors](#surface-colors-3)
--   [Shadows](#shadows-3)
--   [Dim colors all together](#dim-colors-all-together)
--   [Accessible colors](#accessible-colors)
--   [Rad Shadow](#rad-shadow)
--   [Using of the color schemes](#using-of-the-color-schemes)
--   [Light theme (auto)](#light-theme-(auto))
--   [Dark theme (auto)](#dark-theme-(auto))
--   [Light theme](#light-theme-2)
--   [Dark theme](#dark-theme-2)
--   [Dim theme](#dim-theme-2)
--   [Conclusion](#conclusion)
--   [Source](#source)
+- [Overview](#overview)
+- [The Brand](#the-brand)
+- [Light theme](#light-theme)
+- [Brand](#brand)
+- [Text colors](#text-colors)
+- [Surface colors](#surface-colors)
+- [Shadows](#shadows)
+- [Light colors all together](#light-colors-all-together)
+- [Dark theme](#dark-theme)
+- [Brand](#brand-2)
+- [Text colors](#text-colors-2)
+- [Surface colors](#surface-colors-2)
+- [Shadows](#shadows-2)
+- [Dark colors all together](#dark-colors-all-together)
+- [Dim theme](#dim-theme)
+- [Brand](#brand-3)
+- [Text colors](#text-colors-3)
+- [Surface colors](#surface-colors-3)
+- [Shadows](#shadows-3)
+- [Dim colors all together](#dim-colors-all-together)
+- [Accessible colors](#accessible-colors)
+- [Rad Shadow](#rad-shadow)
+- [Using of the color schemes](#using-of-the-color-schemes)
+- [Light theme (auto)](<#light-theme-(auto)>)
+- [Dark theme (auto)](<#dark-theme-(auto)>)
+- [Light theme](#light-theme-2)
+- [Dark theme](#dark-theme-2)
+- [Dim theme](#dim-theme-2)
+- [Conclusion](#conclusion)
+- [Source](#source)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a color scheme
-=======================
+# Building a color scheme
 
 A foundational overview of how to establish a dynamic and configurable color scheme
 
@@ -62,10 +54,10 @@ Jun 9, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share thinking on ways to manage multiple color schemes in CSS. [Try the demo](https://gui-challenges.web.app/color-schemes/dist/).
 
@@ -73,8 +65,7 @@ In this post I want to share thinking on ways to manage multiple color schemes i
 
 If you prefer video, here's a YouTube version of this post:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 We'll build an accessible color system with custom properties and `calc()`, to make a webpage that's adaptive to user preferences while keeping the authoring experience minimal. We start with a base brand color and build a system of variants from it: 2 text colors, 4 surface colors and a matching shadow.
 
@@ -82,7 +73,7 @@ This guide begins with defining all of the colors for each color scheme up front
 
 ### The Brand <a href="#the-brand" class="w-headline-link">#</a>
 
-Often, a brand color has already been established and is delivered as [hex](https://web.dev/learn/css/color/#hex-colors) or [rgb](https://web.dev/learn/css/color/#rgb-(red-green-blue)). This GUI Challenge has a base brand color of `#0af`. Firstly, for this color system, the hex value needs converted to [hsl](https://web.dev/learn/css/color/#hsl-(hue-saturation-lightness)).
+Often, a brand color has already been established and is delivered as [hex](https://web.dev/learn/css/color/#hex-colors) or [rgb](<https://web.dev/learn/css/color/#rgb-(red-green-blue)>). This GUI Challenge has a base brand color of `#0af`. Firstly, for this color system, the hex value needs converted to [hsl](<https://web.dev/learn/css/color/#hsl-(hue-saturation-lightness)>).
 
     * {
       --brand: #0af;
@@ -99,8 +90,7 @@ In order to enable a concept of darkening or lightening the brand color, by say 
 
 CSS can do math on those color properties, for example `calc(var(--brand-lightness) - 20%)` to decrease the lightness value by 20%. This is foundational to building a color scheme as CSS can keep all colors in the same hue family by adjusting the hsl saturation and lightness amounts.
 
-Light theme <a href="#light-theme" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Light theme <a href="#light-theme" class="w-headline-link">#</a>
 
 Each color variant will be marked with its matching scheme, in this case, each is appended with `-light`.
 
@@ -169,8 +159,7 @@ No need to hunt around to find how any of the light colors are made, they are al
       --shadow-strength-light: .02;
     }
 
-<figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format" alt="Sandbox on CodePen" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1600 1600w" width="800" height="144" /><figcaption><a href="https://codepen.io/argyleink/pen/WNpyypP">Sandbox on CodePen</a></figcaption></figure>Dark theme <a href="#dark-theme" class="w-headline-link">#</a>
---------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format" alt="Sandbox on CodePen" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/f0H9hh4Qi0aQ61hZwOlU.png?auto=format&amp;w=1600 1600w" width="800" height="144" /><figcaption><a href="https://codepen.io/argyleink/pen/WNpyypP">Sandbox on CodePen</a></figcaption></figure>Dark theme <a href="#dark-theme" class="w-headline-link">#</a>
 
 Most brands don't begin with a dark theme, it's a variant of their primary, usually lighter, theme. Users, on the other hand, often choose a dark theme for different contexts, like night time. These factors have led me to keeping two things in mind with dark themes:
 
@@ -185,7 +174,7 @@ The light theme used the 3 brand hsl color channels values without alteration, t
 
     * {
       --brand-dark: hsl(
-        var(--brand-hue) 
+        var(--brand-hue)
         calc(var(--brand-saturation) / 2)
         calc(var(--brand-lightness) / 1.5)
       );
@@ -236,8 +225,7 @@ Also, look at how much saturation is in that shadow. Can you notice the color wh
       --shadow-strength-dark: .8;
     }
 
-<figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format" alt="Sandbox on CodePen" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1600 1600w" width="800" height="160" /><figcaption><a href="https://codepen.io/argyleink/pen/WNpyypP">Sandbox on CodePen</a></figcaption></figure>Dim theme <a href="#dim-theme" class="w-headline-link">#</a>
-------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format" alt="Sandbox on CodePen" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CHAQlRXJKvclpyaChVyv.png?auto=format&amp;w=1600 1600w" width="800" height="160" /><figcaption><a href="https://codepen.io/argyleink/pen/WNpyypP">Sandbox on CodePen</a></figcaption></figure>Dim theme <a href="#dim-theme" class="w-headline-link">#</a>
 
 This color scheme is all about orchestrating lightness and saturation. There should be enough saturation present to still have a hue visible, but should also just barely pass [contrast scores](https://web.dev/color-contrast/) since it's intended to be dim and low contrast anyway.
 
@@ -247,7 +235,7 @@ This color scheme is all about orchestrating lightness and saturation. There sho
 
     * {
       --brand-dim: hsl(
-        var(--brand-hue) 
+        var(--brand-hue)
         calc(var(--brand-saturation) / 1.25)
         calc(var(--brand-lightness) / 1.25)
       );
@@ -290,8 +278,7 @@ This color scheme is all about orchestrating lightness and saturation. There sho
       --shadow-strength-dim: .2;
     }
 
-<figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format" alt="Sandbox on CodePen" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1600 1600w" width="800" height="150" /><figcaption><a href="https://codepen.io/argyleink/pen/WNpyypP">Sandbox on CodePen</a></figcaption></figure>Accessible colors <a href="#accessible-colors" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format" alt="Sandbox on CodePen" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/MCCNiyM5zQwnVlr86O8k.png?auto=format&amp;w=1600 1600w" width="800" height="150" /><figcaption><a href="https://codepen.io/argyleink/pen/WNpyypP">Sandbox on CodePen</a></figcaption></figure>Accessible colors <a href="#accessible-colors" class="w-headline-link">#</a>
 
 Notice how the lowest lightness in the dark text color set is 65% and the highlest lightness in the dark surfaces is 25%. That's 40% of lightness breathing room between them. In the light theme, there's 55% breathing room in the light theme. Keeping lightness differences between text and surface colors at around 40-50% can help keep color contrast ratios high, while also being a subtle lever to adjust in case scores are poor.
 
@@ -321,8 +308,7 @@ Each of the themes created in this challenge pass contrast scores. The dim color
       color: var(--text1);
     }
 
-<figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format" alt="Screenshot of the dim surface and text pairings with VisBug" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1600 1600w" width="800" height="560" /><figcaption>Screenshot of the dim surface and text pairings with <a href="https://a.nerdy.dev/gimme-visbug">VisBug</a></figcaption></figure>Rad Shadow <a href="#rad-shadow" class="w-headline-link">#</a>
---------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format" alt="Screenshot of the dim surface and text pairings with VisBug" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/zrOv3KCNHU8lXELRTkvF.png?auto=format&amp;w=1600 1600w" width="800" height="560" /><figcaption>Screenshot of the dim surface and text pairings with <a href="https://a.nerdy.dev/gimme-visbug">VisBug</a></figcaption></figure>Rad Shadow <a href="#rad-shadow" class="w-headline-link">#</a>
 
 The themes use a utility class called `.rad-shadow`. This shadow was generated at this [Smooth Shadow](https://shadows.brumm.af/) tool, which I appreciate very much. I took its generated snippet and customized it with my own colors and, opacity calculations. The reason for this was to create a shadow I could adjust within each color scheme.
 
@@ -348,8 +334,7 @@ To accomplish this, I created 2 variables for each color scheme to adjust, a sha
 
 If I were to go further with shadows in my color scheme, I'd make the shadow angles a design token constant too, as the light direction should be the same between all the shadows of the design.
 
-Using of the color schemes <a href="#using-of-the-color-schemes" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Using of the color schemes <a href="#using-of-the-color-schemes" class="w-headline-link">#</a>
 
 With the predefining of colors complete, it's time to turn them into scheme agnostic properties. What I mean is, as a CSS author inside this color scheme project, one should rarely need to access a specific color scheme's value. I want to make it easy to stay within the theme.
 
@@ -412,7 +397,7 @@ The site is now using the light theme. This is a very fun successful moment! Let
 
     [color-scheme="dark"] {
       color-scheme: dark;
-      
+
       --brand: var(--brand-dark);
       --text1: var(--text1-dark);
       --text2: var(--text2-dark);
@@ -442,8 +427,7 @@ The site is now using the light theme. This is a very fun successful moment! Let
 
 At this point, authors are free to use the provided color scheme generics as needed, and should never need to worry about themes again.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Now that you know how I did it, how would you?! 🙂
 
@@ -451,8 +435,8 @@ Let's diversify our approaches and learn all the ways to build on the web. Creat
 
 ### Source <a href="#source" class="w-headline-link">#</a>
 
--   [GUI Challenges source on GitHub](https://github.com/argyleink/gui-challenges)
--   [Color scheme Codepen starter](https://codepen.io/argyleink/pen/vYxrrpd)
+- [GUI Challenges source on GitHub](https://github.com/argyleink/gui-challenges)
+- [Color scheme Codepen starter](https://codepen.io/argyleink/pen/vYxrrpd)
 
 Community remixes Nothing to see here yet!
 
@@ -462,35 +446,35 @@ Community remixes Nothing to see here yet!
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

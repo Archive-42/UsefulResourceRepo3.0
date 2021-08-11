@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Exceptions
----------------
+## Java Exceptions
 
 1.  [Throw, Try and Catch](exceptions-throw-try-catch.html)
 2.  Java Exception Types
@@ -20,8 +19,7 @@ Java Exceptions
 13. [throw vs throws vs Throwable](throw-vs-throws-vs-throwable.html)
 14. [List of Java Exceptions](list-of-java-exceptions.html)
 
-Exception Related Keywords
---------------------------
+## Exception Related Keywords
 
 1.  [throw](throw.html)
 2.  [throws](throws.html)
@@ -29,17 +27,15 @@ Exception Related Keywords
 4.  [try](try.html)
 5.  [finally](finally.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -49,8 +45,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -58,15 +53,13 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java Exception Types
-====================
+# Java Exception Types
 
 [`Throwable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html), [`Error`](https://docs.oracle.com/javase/8/docs/api/java/lang/Error.html), [`Exception`](https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html) and [`RuntimeException`](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html) are classes with special meaning in the Java language. The compiler imposes different constraints on these classes when used in `throw` statements and `catch` blocks. The classes have the following inheritance hierarchy:
 
 ![Illustration of Exception Hierarchy](exception-types/hierarchy.svg)
 
-Throwable
----------
+## Throwable
 
 In Java you can only `throw` and `catch` objects of type, or subtype of, [`Throwable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html).
 
@@ -74,8 +67,7 @@ The only `Throwable` subclasses provided by the Java API are `Error` and `Except
 
 `Throwable` is regarded as a [checked exception](difference-between-checked-and-unchecked-exceptions.html).
 
-Error
------
+## Error
 
 An [`Error`](https://docs.oracle.com/javase/8/docs/api/java/lang/Error.html) is thrown to indicate a serious problem that the application should not try to resolve.
 
@@ -83,14 +75,13 @@ An [`Error`](https://docs.oracle.com/javase/8/docs/api/java/lang/Error.html) is 
 
 **Example Errors**
 
--   [`StackOverflowError`](https://docs.oracle.com/javase/8/docs/api/java/lang/StackOverflowError.html), typically due to infinite recursion
--   [`OutOfMemoryError`](https://docs.oracle.com/javase/8/docs/api/java/lang/OutOfMemoryError.html)
--   [`AssertionError`](https://docs.oracle.com/javase/8/docs/api/java/lang/AssertionError.html)
--   [`NoClassDefFoundError`](https://docs.oracle.com/javase/8/docs/api/java/lang/NoClassDefFoundError.html), typically due to a classpath configuration error
--   [`NoSuchMethodError`](https://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchMethodError.html)/[`NoSuchFieldError`](https://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchFieldError.html), typically due to wrong version of a class being loaded
+- [`StackOverflowError`](https://docs.oracle.com/javase/8/docs/api/java/lang/StackOverflowError.html), typically due to infinite recursion
+- [`OutOfMemoryError`](https://docs.oracle.com/javase/8/docs/api/java/lang/OutOfMemoryError.html)
+- [`AssertionError`](https://docs.oracle.com/javase/8/docs/api/java/lang/AssertionError.html)
+- [`NoClassDefFoundError`](https://docs.oracle.com/javase/8/docs/api/java/lang/NoClassDefFoundError.html), typically due to a classpath configuration error
+- [`NoSuchMethodError`](https://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchMethodError.html)/[`NoSuchFieldError`](https://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchFieldError.html), typically due to wrong version of a class being loaded
 
-Exception
----------
+## Exception
 
 [`Exception`](https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html)s are used for conditions that a reasonable application might want to catch.
 
@@ -98,14 +89,13 @@ Exception
 
 **Example Exceptions**
 
--   [`InterruptedException`](https://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html), thread was interrupted while in a blocking call
--   [`IOException`](https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html), top level exception for all I/O related errors
--   [`EOFException`](https://docs.oracle.com/javase/8/docs/api/java/io/EOFException.html)
--   [`FileNotFoundException`](https://docs.oracle.com/javase/8/docs/api/java/io/FileNotFoundException.html)
--   [`UnknownHostException`](https://docs.oracle.com/javase/8/docs/api/java/net/UnknownHostException.html), check your internet connection :)
+- [`InterruptedException`](https://docs.oracle.com/javase/8/docs/api/java/lang/InterruptedException.html), thread was interrupted while in a blocking call
+- [`IOException`](https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html), top level exception for all I/O related errors
+- [`EOFException`](https://docs.oracle.com/javase/8/docs/api/java/io/EOFException.html)
+- [`FileNotFoundException`](https://docs.oracle.com/javase/8/docs/api/java/io/FileNotFoundException.html)
+- [`UnknownHostException`](https://docs.oracle.com/javase/8/docs/api/java/net/UnknownHostException.html), check your internet connection :)
 
-RuntimeException
-----------------
+## RuntimeException
 
 The [`RuntimeException`](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html) is a subclass of `Exception`. It is special because it is an [unchecked exception](difference-between-checked-and-unchecked-exceptions.html).
 
@@ -113,13 +103,12 @@ The [`RuntimeException`](https://docs.oracle.com/javase/8/docs/api/java/lang/Run
 
 **Example RuntimeExceptions**
 
--   [`ClassCastException`](https://docs.oracle.com/javase/8/docs/api/java/lang/ClassCastException.html), invalid cast
--   [`NullPointerException`](https://docs.oracle.com/javase/8/docs/api/java/lang/NullPointerException.html)
--   [`ArithmeticException`](https://docs.oracle.com/javase/8/docs/api/java/lang/ArithmeticException.html), typically due to a division by zero
--   [`IndexOutOfBoundsException`](https://docs.oracle.com/javase/8/docs/api/java/lang/IndexOutOfBoundsException.html)
+- [`ClassCastException`](https://docs.oracle.com/javase/8/docs/api/java/lang/ClassCastException.html), invalid cast
+- [`NullPointerException`](https://docs.oracle.com/javase/8/docs/api/java/lang/NullPointerException.html)
+- [`ArithmeticException`](https://docs.oracle.com/javase/8/docs/api/java/lang/ArithmeticException.html), typically due to a division by zero
+- [`IndexOutOfBoundsException`](https://docs.oracle.com/javase/8/docs/api/java/lang/IndexOutOfBoundsException.html)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

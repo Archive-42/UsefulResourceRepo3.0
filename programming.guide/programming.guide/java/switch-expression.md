@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Switch Expression
-=======================
+# Java: Switch Expression
 
 **Note:** Not to be confused with [switch statements](switch-statement.html). (What's the [difference between statements and expressions?](../statements-vs-expressions.html))
 
@@ -47,29 +43,26 @@ Let's start with an example:
 
 You can switch on integers, strings and enums.
 
-Need to cover all cases
------------------------
+## Need to cover all cases
 
-`int i =             1;`  
-  
+`int i = 1;`
 
 // Compiles
 
 // error: does not cover all possible input values
 
-`String str = switch (i)             {`  
-`    case             1 ->             "one";`  
-`    case             2 ->             "two";`  
-`    case             3 ->             "three";`  
+`String str = switch (i) {`  
+` case 1 -> "one";`  
+` case 2 -> "two";`  
+` case 3 -> "three";`
 
-    <span class="keyword">default</span> -&gt; <span class="text_lit">"Something else"</span>;
+<span class="keyword">default</span> -&gt; <span class="text_lit">"Something else"</span>;
 
-`}`  
+`}`
 
- 
 
-Multiple case expressions
--------------------------
+
+## Multiple case expressions
 
 You can have multiple case expressions in one case line:
 
@@ -78,8 +71,7 @@ You can have multiple case expressions in one case line:
         default -> "Something else";
     }
 
-Blocks statements and `break`
------------------------------
+## Blocks statements and `break`
 
 You can use `break` to "return" values.
 
@@ -99,8 +91,7 @@ This allows for use of block statements.
         default -> "Something else";
     };
 
-Throw
------
+## Throw
 
 Statements must be wrapped in `{ ... }` **except** for a single `throw` statement.
 
@@ -111,8 +102,7 @@ Statements must be wrapped in `{ ... }` **except** for a single `throw` statemen
         default -> throw new IllegalArgumentException();
     };
 
-Colon syntax
-------------
+## Colon syntax
 
 Colon syntax allows for statements even without `{ ... }`.
 
@@ -135,8 +125,7 @@ You must use **break**.
 
 You can **not** mix arrow and colon syntax in the same switch.
 
-Enhanced Switch Statement
--------------------------
+## Enhanced Switch Statement
 
 Switch **expressions** should not be confused with switch **statements**. (See [Statements vs Expressions](../statements-vs-expressions.html).)
 
@@ -144,8 +133,7 @@ The arrow syntax can be used in **switch statements** too, in which case fall th
 
 See article [Switch Statement](switch-statement.html).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

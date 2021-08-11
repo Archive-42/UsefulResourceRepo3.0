@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Difference between a.getClass() and A.class
-=================================================
+# Java: Difference between a.getClass() and A.class
 
 `a.getClass()` returns the **runtime type** of `a`. If you for example have `A a = new B();` then `a.getClass()` will return the `B` class.
 
@@ -40,8 +36,7 @@ Java: Difference between a.getClass() and A.class
 
 Use `a.getClass()` only if you need the runtime type of `a` but don't know it in advance.
 
-Example 1: `getClass`
----------------------
+## Example 1: `getClass`
 
 To for instance decide if a given `Object` is of a class in the default package, you could do
 
@@ -50,15 +45,13 @@ To for instance decide if a given `Object` is of a class in the default package,
         return o.getClass().getPackage() == null;
     }
 
-Example 2: `A.class`
---------------------
+## Example 2: `A.class`
 
 Use `A.class` if you know in advance (when writing the code) which class object you're interested in. In example below, we're clearly interested in the `DayOfWeek` class object.
 
     Set<DayOfWeek> allDays = EnumSet.allOf(DayOfWeek.class);
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

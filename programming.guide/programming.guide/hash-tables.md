@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Hash Tables
------------
+## Hash Tables
 
 1.  Hash Tables
 2.  [Complexity](hash-tables-complexity.html)
@@ -20,8 +19,7 @@ Hash Tables
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
 
-Related
--------
+## Related
 
 [Hash Table vs Hash Set](hash-table-vs-hash-set.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -34,8 +32,7 @@ Related
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -45,8 +42,7 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-Hash Tables
-===========
+# Hash Tables
 
 Hash tables (also known as hash maps) are associative arrays, or dictionaries, that allow for fast insertion, lookup and removal regardless of the number of items stored.
 
@@ -60,8 +56,7 @@ Here’s an example of how they can be used:
 
 Internally they are similar to card indexes: An item can be found quickly by first jumping to its approximate location, and then searching locally from there.
 
-Representation
---------------
+## Representation
 
 The simplest way to implement a hash table is to use an **array of linked lists**.
 
@@ -71,12 +66,11 @@ Following the analogy from the previous section, the array cells that can be acc
 
 (k, v) Array of buckets Nodes of key-value pairs
 
-Finding the right bucket
-------------------------
+## Finding the right bucket
 
 Which bucket a given key belongs to, is determined by a **hash function** as follows…
 
-*bucket index* = hash(*key*) % length(*bucket array*)
+_bucket index_ = hash(_key_) % length(_bucket array_)
 
 …where % denotes the remainder operator.
 
@@ -86,8 +80,7 @@ For efficiency reasons, an additional variable is used to keep track of the curr
 
 There are other ways to implement hash tables, but this is the representation that will be used here to introduce the subject. See section [Other Collision Resolution Strategies](hash-tables.html#other-impl) for alternatives.
 
-Insertion
----------
+## Insertion
 
 Here's how a mapping from key `k` to value `v` is inserted in a hash table:
 
@@ -95,7 +88,7 @@ Here's how a mapping from key `k` to value `v` is inserted in a hash table:
 
 Rehash if load factor is too high. (Explained in separate section.)
 
-rehash\_if\_needed()
+rehash_if_needed()
 
 2.
 
@@ -111,8 +104,8 @@ i = h % length(buckets)
 
 4.
 
-Look for key among existing nodes.  
-  
+Look for key among existing nodes.
+
 If found update value of existing node.
 
 last = NULL  
@@ -128,16 +121,15 @@ while n ≠ NULL:
 
 If not found, append new node to list
 
-new\_node = new Node(k, v)  
+new_node = new Node(k, v)  
 if last == NULL:  
-    bucket\[i\] = new\_node  
+    bucket\[i\] = new_node  
 else:  
-    last.next = new\_node
+    last.next = new_node
 
 Insert (new key) Insert (update existing key) k,v Wrong key Key not found Append new node Update value Key found \# First (new) k, v k ,v \# Second (new) k, v k ,v \# First (update) k, v k ,v \# Second (update) k, v k ,v \# Third k, v k , v
 
-Lookup
-------
+## Lookup
 
 Here's how the value for a key `k` is retrieved from a hash table:
 
@@ -162,12 +154,11 @@ while n ≠ NULL:
     if n.key == k:  
         return n.value  
     n = n.next  
-return NOT\_FOUND
+return NOT_FOUND
 
 Wrong key Key found Return value \# First k, v k ,v \# Second k, v k ,v \# Third k, v k , v
 
-Remove
-------
+## Remove
 
 Here's how a key-value pair is removed from a hash table:
 
@@ -197,8 +188,7 @@ while n ≠ NULL:
             last.next = n.next  
     n = n.next
 
-Rehashing
----------
+## Rehashing
 
 As the lengths of the linked lists grow, the average lookup time increases.
 
@@ -208,8 +198,8 @@ To keep the linked lists short and lookups fast, the number of buckets must be i
 
 Allocate a new bucket array.
 
-new\_size = 2 \* length(buckets)  
-new\_buckets = new Bucket\[new\_size\]
+new_size = 2 \* length(buckets)  
+new_buckets = new Bucket\[new_size\]
 
 2.
 
@@ -220,22 +210,21 @@ for i in 0..buckets.length - 1:
         n = buckets\[i\]  
         buckets\[i\] = n.next  
         h = hash(n.k)  
-        i = h % new\_length  
-        n.next = new\_buckets\[i\]  
-        new\_buckets\[i\] = n  
+        i = h % new_length  
+        n.next = new_buckets\[i\]  
+        new_buckets\[i\] = n
 
 3.
 
 Replace old array with new array
 
-buckets = new\_buckets
+buckets = new_buckets
 
-buckets new\_buckets
+buckets new_buckets
 
 During rehashing the number of buckets is increased by some factor, typically 2. As shown in the article [Hash Tables: Complexity](hash-tables-complexity.html), it is important that the growth is exponential.
 
-Traversal
----------
+## Traversal
 
 1.
 
@@ -247,15 +236,14 @@ for i in 0..buckets.length - 1:
 
 …traverse each node
 
-    n = buckets\[i\]:  
+n = buckets\[i\]:  
     while n ≠ NULL:  
         process(n)  
         n = n.next
 
 Note that the order in which the key-value pairs are traversed is **unpredictable** due to the nature of hashing and rehashing.
 
-Load Factor and Capacity
-------------------------
+## Load Factor and Capacity
 
 The **load factor** is the average number of key-value pairs per bucket.
 
@@ -295,21 +283,19 @@ The default initial capacity for a Java [`HashMap`](https://docs.oracle.com/java
 
 Current load factor: 24 / 8 = 3 Configured limit: 4 Current capacity: 8 × 4 = 32
 
-Complexity Analysis
--------------------
+## Complexity Analysis
 
-As is clear from the way insert, lookup and remove works, the run time is proportional to the length of the linked lists. In worst case all keys hash to the same bucket, i.e. the whole data structure becomes equivalent to a linked list. This means that all operations run in *O*(*n*).
+As is clear from the way insert, lookup and remove works, the run time is proportional to the length of the linked lists. In worst case all keys hash to the same bucket, i.e. the whole data structure becomes equivalent to a linked list. This means that all operations run in _O_(_n_).
 
-Assuming however that keys are dispersed evenly among the buckets, it can be shown that the complexity of the expected run time is *O*(1) for all operations.
+Assuming however that keys are dispersed evenly among the buckets, it can be shown that the complexity of the expected run time is _O_(1) for all operations.
 
 See article [Hash Tables: Complexity](hash-tables-complexity.html) for a detailed analysis.
 
-Other Collision Resolution Strategies
--------------------------------------
+## Other Collision Resolution Strategies
 
 When two keys hash to the same bucket, i.e. when
 
-hash(*k*<sub>1</sub>) ≡ hash(*k*<sub>2</sub>) (mod number of buckets)
+hash(_k_<sub>1</sub>) ≡ hash(_k_<sub>2</sub>) (mod number of buckets)
 
 it’s called a **collision**. The collision handling strategy described so far (one linked list per bucket) is an example of **closed addressing** using separate chains. Instead of linked lists, one can also use binary search trees, or as in the case of Java 9, a linked list up to a certain limit, and then convert it to a BST when more elements are added.
 
@@ -321,8 +307,7 @@ See [Open vs Closed Addressing](hash-tables-open-vs-closed-addressing.html) for 
 
 A third option, which is more of theoretical interest but mentioned here for completeness, is to use a hash function that maps each key to slot of its own, and thus avoiding collisions all together. This is called **perfect hashing**.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

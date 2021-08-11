@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,63 +52,62 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#what-can-you-do-with-a-flex-layout" class="toc__anchor">What can you do with a flex layout?</a>
--   <a href="#the-main-axis-and-the-cross-axis" class="toc__anchor">The main axis and the cross axis</a>
--   <a href="#creating-a-flex-container" class="toc__anchor">Creating a flex container</a>
--   <a href="#controlling-the-direction-of-items" class="toc__anchor">Controlling the direction of items</a>
-    -   <a href="#reversing-the-flow-of-items-and-accessibility" class="toc__anchor">Reversing the flow of items and accessibility</a>
-    -   <a href="#writing-modes-and-direction" class="toc__anchor">Writing modes and direction</a>
--   <a href="#wrapping-flex-items" class="toc__anchor">Wrapping flex items</a>
-    -   <a href="#the-flex-flow-shorthand" class="toc__anchor">The flex-flow shorthand</a>
--   <a href="#controlling-space-inside-flex-items" class="toc__anchor">Controlling space inside flex items</a>
-    -   <a href="#allowing-items-to-grow-at-different-rates" class="toc__anchor">Allowing items to grow at different rates</a>
--   <a href="#reordering-flex-items" class="toc__anchor">Reordering flex items</a>
--   <a href="#flexbox-alignment-overview" class="toc__anchor">Flexbox alignment overview</a>
--   <a href="#distributing-space-on-the-main-axis" class="toc__anchor">Distributing space on the main axis</a>
-    -   <a href="#with-flex-direction:-column" class="toc__anchor">With flex-direction: column</a>
--   <a href="#distributing-space-between-flex-lines" class="toc__anchor">Distributing space between flex lines</a>
-    -   <a href="#the-place-content-shorthand" class="toc__anchor">The place-content shorthand</a>
--   <a href="#aligning-items-on-the-cross-axis" class="toc__anchor">Aligning items on the cross-axis</a>
--   <a href="#why-is-there-no-justify-self-in-flexbox" class="toc__anchor">Why is there no justify-self in flexbox?</a>
--   <a href="#how-to-center-an-item-vertically-and-horizontally" class="toc__anchor">How to center an item vertically and horizontally</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#what-can-you-do-with-a-flex-layout" class="toc__anchor">What can you do with a flex layout?</a>
+- <a href="#the-main-axis-and-the-cross-axis" class="toc__anchor">The main axis and the cross axis</a>
+- <a href="#creating-a-flex-container" class="toc__anchor">Creating a flex container</a>
+- <a href="#controlling-the-direction-of-items" class="toc__anchor">Controlling the direction of items</a>
+  - <a href="#reversing-the-flow-of-items-and-accessibility" class="toc__anchor">Reversing the flow of items and accessibility</a>
+  - <a href="#writing-modes-and-direction" class="toc__anchor">Writing modes and direction</a>
+- <a href="#wrapping-flex-items" class="toc__anchor">Wrapping flex items</a>
+  - <a href="#the-flex-flow-shorthand" class="toc__anchor">The flex-flow shorthand</a>
+- <a href="#controlling-space-inside-flex-items" class="toc__anchor">Controlling space inside flex items</a>
+  - <a href="#allowing-items-to-grow-at-different-rates" class="toc__anchor">Allowing items to grow at different rates</a>
+- <a href="#reordering-flex-items" class="toc__anchor">Reordering flex items</a>
+- <a href="#flexbox-alignment-overview" class="toc__anchor">Flexbox alignment overview</a>
+- <a href="#distributing-space-on-the-main-axis" class="toc__anchor">Distributing space on the main axis</a>
+  - <a href="#with-flex-direction:-column" class="toc__anchor">With flex-direction: column</a>
+- <a href="#distributing-space-between-flex-lines" class="toc__anchor">Distributing space between flex lines</a>
+  - <a href="#the-place-content-shorthand" class="toc__anchor">The place-content shorthand</a>
+- <a href="#aligning-items-on-the-cross-axis" class="toc__anchor">Aligning items on the cross-axis</a>
+- <a href="#why-is-there-no-justify-self-in-flexbox" class="toc__anchor">Why is there no justify-self in flexbox?</a>
+- <a href="#how-to-center-an-item-vertically-and-horizontally" class="toc__anchor">How to center an item vertically and horizontally</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 009
 
-Flexbox
-=======
+# Flexbox
 
 Flexbox is a layout mechanism designed for laying out groups of items in one dimension. Learn how to use it in this module.
 
 On this page
 
--   <a href="#what-can-you-do-with-a-flex-layout" class="toc__anchor">What can you do with a flex layout?</a>
--   <a href="#the-main-axis-and-the-cross-axis" class="toc__anchor">The main axis and the cross axis</a>
--   <a href="#creating-a-flex-container" class="toc__anchor">Creating a flex container</a>
--   <a href="#controlling-the-direction-of-items" class="toc__anchor">Controlling the direction of items</a>
-    -   <a href="#reversing-the-flow-of-items-and-accessibility" class="toc__anchor">Reversing the flow of items and accessibility</a>
-    -   <a href="#writing-modes-and-direction" class="toc__anchor">Writing modes and direction</a>
--   <a href="#wrapping-flex-items" class="toc__anchor">Wrapping flex items</a>
-    -   <a href="#the-flex-flow-shorthand" class="toc__anchor">The flex-flow shorthand</a>
--   <a href="#controlling-space-inside-flex-items" class="toc__anchor">Controlling space inside flex items</a>
-    -   <a href="#allowing-items-to-grow-at-different-rates" class="toc__anchor">Allowing items to grow at different rates</a>
--   <a href="#reordering-flex-items" class="toc__anchor">Reordering flex items</a>
--   <a href="#flexbox-alignment-overview" class="toc__anchor">Flexbox alignment overview</a>
--   <a href="#distributing-space-on-the-main-axis" class="toc__anchor">Distributing space on the main axis</a>
-    -   <a href="#with-flex-direction:-column" class="toc__anchor">With flex-direction: column</a>
--   <a href="#distributing-space-between-flex-lines" class="toc__anchor">Distributing space between flex lines</a>
-    -   <a href="#the-place-content-shorthand" class="toc__anchor">The place-content shorthand</a>
--   <a href="#aligning-items-on-the-cross-axis" class="toc__anchor">Aligning items on the cross-axis</a>
--   <a href="#why-is-there-no-justify-self-in-flexbox" class="toc__anchor">Why is there no justify-self in flexbox?</a>
--   <a href="#how-to-center-an-item-vertically-and-horizontally" class="toc__anchor">How to center an item vertically and horizontally</a>
--   <a href="#resources" class="toc__anchor">Resources</a>
+- <a href="#what-can-you-do-with-a-flex-layout" class="toc__anchor">What can you do with a flex layout?</a>
+- <a href="#the-main-axis-and-the-cross-axis" class="toc__anchor">The main axis and the cross axis</a>
+- <a href="#creating-a-flex-container" class="toc__anchor">Creating a flex container</a>
+- <a href="#controlling-the-direction-of-items" class="toc__anchor">Controlling the direction of items</a>
+  - <a href="#reversing-the-flow-of-items-and-accessibility" class="toc__anchor">Reversing the flow of items and accessibility</a>
+  - <a href="#writing-modes-and-direction" class="toc__anchor">Writing modes and direction</a>
+- <a href="#wrapping-flex-items" class="toc__anchor">Wrapping flex items</a>
+  - <a href="#the-flex-flow-shorthand" class="toc__anchor">The flex-flow shorthand</a>
+- <a href="#controlling-space-inside-flex-items" class="toc__anchor">Controlling space inside flex items</a>
+  - <a href="#allowing-items-to-grow-at-different-rates" class="toc__anchor">Allowing items to grow at different rates</a>
+- <a href="#reordering-flex-items" class="toc__anchor">Reordering flex items</a>
+- <a href="#flexbox-alignment-overview" class="toc__anchor">Flexbox alignment overview</a>
+- <a href="#distributing-space-on-the-main-axis" class="toc__anchor">Distributing space on the main axis</a>
+  - <a href="#with-flex-direction:-column" class="toc__anchor">With flex-direction: column</a>
+- <a href="#distributing-space-between-flex-lines" class="toc__anchor">Distributing space between flex lines</a>
+  - <a href="#the-place-content-shorthand" class="toc__anchor">The place-content shorthand</a>
+- <a href="#aligning-items-on-the-cross-axis" class="toc__anchor">Aligning items on the cross-axis</a>
+- <a href="#why-is-there-no-justify-self-in-flexbox" class="toc__anchor">Why is there no justify-self in flexbox?</a>
+- <a href="#how-to-center-an-item-vertically-and-horizontally" class="toc__anchor">How to center an item vertically and horizontally</a>
+- <a href="#resources" class="toc__anchor">Resources</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -124,21 +121,19 @@ The Flexible Box Layout Model (flexbox) is a layout model designed for one-dimen
 
 This is the ideal layout model for this sidebar pattern. Flexbox not only helps lay the sidebar and content out inline, but where there's not enough space remaining, the sidebar will break onto a new line. Instead of setting rigid dimensions for the browser to follow, with flexbox, you can instead provide flexible boundaries to hint how the content could display.
 
-What can you do with a flex layout? <a href="#what-can-you-do-with-a-flex-layout" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------------
+## What can you do with a flex layout? <a href="#what-can-you-do-with-a-flex-layout" class="w-headline-link">#</a>
 
 Flex layouts have the following features, which you will be able to explore in this guide.
 
--   They can display as a row, or a column.
--   They respect the writing mode of the document.
--   They are single line by default, but can be asked to wrap onto multiple lines.
--   Items in the layout can be visually reordered, away from their order in the DOM.
--   Space can be distributed inside the items, so they become bigger and smaller according to the space available in their parent.
--   Space can be distributed around the items and flex lines in a wrapped layout, using the Box Alignment properties.
--   The items themselves can be aligned on the cross axis.
+- They can display as a row, or a column.
+- They respect the writing mode of the document.
+- They are single line by default, but can be asked to wrap onto multiple lines.
+- Items in the layout can be visually reordered, away from their order in the DOM.
+- Space can be distributed inside the items, so they become bigger and smaller according to the space available in their parent.
+- Space can be distributed around the items and flex lines in a wrapped layout, using the Box Alignment properties.
+- The items themselves can be aligned on the cross axis.
 
-The main axis and the cross axis <a href="#the-main-axis-and-the-cross-axis" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## The main axis and the cross axis <a href="#the-main-axis-and-the-cross-axis" class="w-headline-link">#</a>
 
 The key to understanding flexbox is to understand the concept of a main axis and a cross axis. The main axis is the one set by your `flex-direction` property. If that is `row` your main axis is along the row, if it is `column` your main axis is along the column.
 
@@ -148,8 +143,7 @@ The cross axis runs in the other direction to the main axis, so if `flex-directi
 
 <figure><img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/5wCsZcBmK5L33LS7nOmP.svg" width="800" height="320" /></figure>You can do two things on the cross axis. You can move the items individually or as a group so they align against each other and the flex container. Also, if you have wrapped flex lines, you can treat those lines as a group in order to control how space is assigned to those lines. You will see how this all works in practice throughout this guide, for now just keep in mind that the main axis follows your `flex-direction`.
 
-Creating a flex container <a href="#creating-a-flex-container" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Creating a flex container <a href="#creating-a-flex-container" class="w-headline-link">#</a>
 
 Let's see how flexbox behaves by taking a group of different sized items and using flexbox to lay them out.
 
@@ -171,20 +165,19 @@ All CSS properties have initial values which control how they behave "out of the
 
 The initial values mean that:
 
--   Items display as a row.
--   They do not wrap.
--   They do not grow to fill the container.
--   They line up at the start of the container.
+- Items display as a row.
+- They do not wrap.
+- They do not grow to fill the container.
+- They line up at the start of the container.
 
-Controlling the direction of items <a href="#controlling-the-direction-of-items" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## Controlling the direction of items <a href="#controlling-the-direction-of-items" class="w-headline-link">#</a>
 
 Even though you haven't added a `flex-direction` property yet, the items display as a row because the initial value of `flex-direction` is `row`. If you want a row then you don't need to add the property. To change the direction, add the property and one of the four values:
 
--   `row`: the items lay out as a row.
--   `row-reverse:` the items lay out as a row from the end of the flex container.
--   `column`: the items lay out as a column.
--   `column-reverse` : the items lay out as a column from the end of the flex container.
+- `row`: the items lay out as a row.
+- `row-reverse:` the items lay out as a row from the end of the flex container.
+- `column`: the items lay out as a column.
+- `column-reverse` : the items lay out as a column from the end of the flex container.
 
 You can try out all of the values using our group of items in the demo below.
 
@@ -198,8 +191,8 @@ Anything which can change the order of items in flexbox or grid can cause this p
 
 For more information see:
 
--   [Content reordering](https://web.dev/content-reordering/)
--   [Flexbox and the keyboard navigation disconnect](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/)
+- [Content reordering](https://web.dev/content-reordering/)
+- [Flexbox and the keyboard navigation disconnect](https://tink.uk/flexbox-the-keyboard-navigation-disconnect/)
 
 ### Writing modes and direction <a href="#writing-modes-and-direction" class="w-headline-link">#</a>
 
@@ -213,8 +206,7 @@ With the main and cross axis plus the writing mode to consider, the fact that we
 
 <img src="https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/uSH4TxRv8KNQDTK7Vn8h.svg" alt="A labelled diagram of the above terms" width="800" height="382" />
 
-Wrapping flex items <a href="#wrapping-flex-items" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Wrapping flex items <a href="#wrapping-flex-items" class="w-headline-link">#</a>
 
 The initial value of the `flex-wrap` property is `nowrap`. This means that if there is not enough space in the container the items will overflow.
 
@@ -238,30 +230,29 @@ You can set the `flex-direction` and `flex-wrap` properties using the shorthand 
       flex-flow: column wrap;
     }
 
-Controlling space inside flex items <a href="#controlling-space-inside-flex-items" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Controlling space inside flex items <a href="#controlling-space-inside-flex-items" class="w-headline-link">#</a>
 
 Assuming our container has more space than is needed to display the items, the items line up at the start and do not grow to fill the space. They stop growing at their max-content size. This is because the initial value of the `flex-` properties is:
 
--   `flex-grow: 0`: items do not grow.
--   `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
--   `flex-basis: auto`: items have a base size of `auto`.
+- `flex-grow: 0`: items do not grow.
+- `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
+- `flex-basis: auto`: items have a base size of `auto`.
 
 This can be represented by a keyword value of `flex: initial`. The `flex` shorthand property, or the longhands of `flex-grow`, `flex-shrink` and `flex-basis` are applied to the children of the flex container.
 
 To cause the items to grow, while allowing large items to have more space than small ones use `flex:auto`. You can try this using the demo above. This sets the properties to:
 
--   `flex-grow: 1`: items can grow larger than their `flex-basis`.
--   `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
--   `flex-basis: auto`: items have a base size of `auto`.
+- `flex-grow: 1`: items can grow larger than their `flex-basis`.
+- `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
+- `flex-basis: auto`: items have a base size of `auto`.
 
-Using `flex: auto` will mean that items end up different sizes, as the space that is shared between the items is shared out *after* each item is laid out as max-content size. So a large item will gain more space. To force all of the items to be a consistent size and ignore the size of the content change `flex:auto` to `flex: 1` in the demo.
+Using `flex: auto` will mean that items end up different sizes, as the space that is shared between the items is shared out _after_ each item is laid out as max-content size. So a large item will gain more space. To force all of the items to be a consistent size and ignore the size of the content change `flex:auto` to `flex: 1` in the demo.
 
 This unpacks to:
 
--   `flex-grow: 1`: items can grow larger than their `flex-basis`.
--   `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
--   `flex-basis: 0`: items have a base size of `0`.
+- `flex-grow: 1`: items can grow larger than their `flex-basis`.
+- `flex-shrink: 1`: items can shrink smaller than their `flex-basis`.
+- `flex-basis: 0`: items have a base size of `0`.
 
 Using `flex: 1` says that all items have zero size, therefore all of the space in the flex container is available to be distributed. As all items have a `flex-grow` factor of `1` they all grow equally and the space is shared equally.
 
@@ -283,8 +274,7 @@ You can do the same thing from a `flex-basis` of `auto`, though you will need to
 
 This is a less common use case as the reason to use a `flex-basis` of `auto` is to allow the browser to figure out space distribution. If you wanted to cause an item to grow a little more than the algorithm decides however it might be useful.
 
-Reordering flex items <a href="#reordering-flex-items" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Reordering flex items <a href="#reordering-flex-items" class="w-headline-link">#</a>
 
 Items in your flex container can be reordered using the `order` property. This property allows the ordering of items in **ordinal groups**. Items are laid out in the direction dictated by `flex-direction`, lowest values first. If more than one item has the same value it will be displayed with the other items with that value.
 
@@ -320,26 +310,24 @@ Yes, this property describes how to handle sizing if the width is going below th
 
 This provides the starting point of sizing, but not how to handle sizing scenarios where width goes below basis, like in a squished scenario.
 
-Flexbox alignment overview <a href="#flexbox-alignment-overview" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Flexbox alignment overview <a href="#flexbox-alignment-overview" class="w-headline-link">#</a>
 
 Flexbox brought with it a set of properties for aligning items and distributing space between items. These properties were so useful they have since been moved into their own specification, you'll encounter them in Grid Layout too. Here you can find out how they work when you are using flexbox.
 
 The set of properties can be placed into two groups. Properties for space distribution, and properties for alignment. The properties which distribute space are:
 
--   `justify-content`: space distribution on the main axis.
--   `align-content`: space distribution on the cross axis.
--   `place-content`: a shorthand for setting both of the above properties.
+- `justify-content`: space distribution on the main axis.
+- `align-content`: space distribution on the cross axis.
+- `place-content`: a shorthand for setting both of the above properties.
 
 The properties used for alignment in flexbox:
 
--   `align-self`: aligns a single item on the cross axis
--   `align-items`: aligns all of the items as a group on the cross axis
+- `align-self`: aligns a single item on the cross axis
+- `align-items`: aligns all of the items as a group on the cross axis
 
 If you are working on the main axis then the properties begin with `justify-`. On the cross axis they begin with `align-`.
 
-Distributing space on the main axis <a href="#distributing-space-on-the-main-axis" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Distributing space on the main axis <a href="#distributing-space-on-the-main-axis" class="w-headline-link">#</a>
 
 With the HTML used earlier, the flex items laid out as a row, there is space on the main axis. The items are not big enough to completely fill the flex container. The items line up at the start of the flex container because the initial value of `justify-content` is `flex-start`. The items line up at the start and any extra space is at the end.
 
@@ -362,8 +350,7 @@ If you have changed your `flex-direction` to `column` then `justify-content` wil
 
 Try the different values, this time with a flexbox column layout.
 
-Distributing space between flex lines <a href="#distributing-space-between-flex-lines" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------
+## Distributing space between flex lines <a href="#distributing-space-between-flex-lines" class="w-headline-link">#</a>
 
 With a wrapped flex container you might have space to distribute on the cross axis. In this case you can use the `align-content` property with the same values as `justify-content`. Unlike `justify-content` which aligns items to `flex-start` by default, the initial value of `align-content` is `stretch`. Add the property `align-content` to the flex container to change that default behavior.
 
@@ -388,8 +375,7 @@ To set both `justify-content` and `align-content` you can use `place-content` wi
       on the main axis items are aligned to the end of the flex container */
     }
 
-Aligning items on the cross-axis <a href="#aligning-items-on-the-cross-axis" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## Aligning items on the cross-axis <a href="#aligning-items-on-the-cross-axis" class="w-headline-link">#</a>
 
 On the cross axis you can also align your items within the flex line using `align-items` and `align-self`. The space available for this alignment will depend on the height of the flex container, or flex line in the case of a wrapped set of items.
 
@@ -405,11 +391,11 @@ The initial value of `align-self` is `stretch`, which is why flex items in a row
 
 Use any of the following values to align the item:
 
--   `flex-start`
--   `flex-end`
--   `center`
--   `stretch`
--   `baseline`
+- `flex-start`
+- `flex-end`
+- `center`
+- `stretch`
+- `baseline`
 
 See [the full list of values on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self).
 
@@ -424,8 +410,7 @@ The `align-self` property is applied to individual items. The `align-items` prop
 
 In this next demo try changing the value of `align-items` to align all of the items on the cross axis as a group.
 
-Why is there no justify-self in flexbox? <a href="#why-is-there-no-justify-self-in-flexbox" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------
+## Why is there no justify-self in flexbox? <a href="#why-is-there-no-justify-self-in-flexbox" class="w-headline-link">#</a>
 
 Flex items act as a group on the main axis. So there is no concept of splitting an individual item out of that group.
 
@@ -433,8 +418,7 @@ In grid layout the `justify-self` and `justify-items` properties work on the inl
 
 It is worth knowing that flexbox does work very nicely with auto margins. If you come across a need to split off one item from a group, or separate the group into two groups you can apply a margin to do this. In the example below the last item has a left margin of `auto`. The auto margin absorbs all space in the direction it is applied. This means that it pushes the item over to the right, thus splitting the groups.
 
-How to center an item vertically and horizontally <a href="#how-to-center-an-item-vertically-and-horizontally" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------
+## How to center an item vertically and horizontally <a href="#how-to-center-an-item-vertically-and-horizontally" class="w-headline-link">#</a>
 
 The alignment properties can be used to center an item inside another box. The `justify-content` property aligns the item on the main axis, which is row. The `align-items` property on the cross axis.
 
@@ -493,15 +477,14 @@ This will have no effect.
 
 Yes, we want to vertically align them to the 'top' or start, which removes the default stretch value and instead uses the content height.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [MDN CSS Flexible Box Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) includes a series of detailed guides with examples.
--   [CSS Tricks Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
--   [What Happens When You Create a Flexbox Flex Container](https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/)
--   [Everything You Need To Know About Alignment In Flexbox](https://www.smashingmagazine.com/2018/08/flexbox-alignment/)
--   [How Big Is That Flexible Box?](https://www.smashingmagazine.com/2018/09/flexbox-sizing-flexible-box/)
--   [Use Cases For Flexbox](https://www.smashingmagazine.com/2018/10/flexbox-use-cases/)
+- [MDN CSS Flexible Box Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) includes a series of detailed guides with examples.
+- [CSS Tricks Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [What Happens When You Create a Flexbox Flex Container](https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/)
+- [Everything You Need To Know About Alignment In Flexbox](https://www.smashingmagazine.com/2018/08/flexbox-alignment/)
+- [How Big Is That Flexible Box?](https://www.smashingmagazine.com/2018/09/flexbox-sizing-flexible-box/)
+- [Use Cases For Flexbox](https://www.smashingmagazine.com/2018/10/flexbox-use-cases/)
 
 <a href="/learn/css/layout/" class="course-pagination-control"></a>
 
@@ -517,35 +500,35 @@ Grid
 
 CSS Grid Layout provides a two dimensional layout system, controlling layout in rows and columns. In this module discover everything grid has to offer.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

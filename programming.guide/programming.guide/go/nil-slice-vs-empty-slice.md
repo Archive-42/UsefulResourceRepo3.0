@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,14 +29,13 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Empty slice vs. nil slice
-=============================
+# Go: Empty slice vs. nil slice
 
 In practice, **nil slices** and **empty slices** can often be treated in the same way:
 
--   they have zero length and capacity,
--   they can be used with the same effect in for loops and append functions,
--   and they even look the same when printed.
+- they have zero length and capacity,
+- they can be used with the same effect in for loops and append functions,
+- and they even look the same when printed.
 
 <!-- -->
 
@@ -67,8 +63,7 @@ The official Go wiki recommends using nil slices over empty slices:
 >
 > When designing interfaces, avoid making a distinction between a nil slice and a non-nil, zero-length slice, as this can lead to subtle programming errors. <a href="https://github.com/golang/go/wiki/CodeReviewComments#declaring-empty-slices" class="quote-source">The Go wiki: Declaring empty slices</a>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

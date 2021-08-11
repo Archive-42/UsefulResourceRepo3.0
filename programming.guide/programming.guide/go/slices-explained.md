@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Append function explained](append-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -20,8 +19,7 @@ Further Reading
 [Go Slices: usage and internals](https://blog.golang.org/go-slices-usage-and-internals)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,18 +41,16 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Slices explained
-====================
+# Go: Slices explained
 
 A slice is a view of an underlying array. You can use `s[i]` to view and modify an element of a slice `s`. Modifications will affect the underlying array as well.
 
 You may think of a slice as a **descriptor of an array segment**:
 
--   passing a slice as argument to a method does not cause the data to be copied (as with arrays),
--   and a slice can grow and shrink within the bounds of the underlying array.
+- passing a slice as argument to a method does not cause the data to be copied (as with arrays),
+- and a slice can grow and shrink within the bounds of the underlying array.
 
-Create
-------
+## Create
 
 The type of a slice is `[]T`. Here's a simple way to declare and initialize a slice:
 
@@ -69,8 +64,7 @@ You can also create a slice backed by an existing array.
 
 a := \[...\]int{0, 1, 2, 3, 4, 5} s1 := a\[1:4\] 0 1 2 3 4 5 s2 := a\[:4\] 0 1 2 3 4 5 s3 := a\[4:\] 0 1 2 3 4 5 s4 := a\[:\] 0 1 2 3 4 5
 
-Length and capacity
--------------------
+## Length and capacity
 
 0 1 2 3 4 5 6 7 8 9 length capacity
 
@@ -78,8 +72,7 @@ The **length** and **capacity** can be retrieved using the built-in functions [`
 
 The [`make`](https://golang.org/pkg/builtin/#make) function optionally takes a capacity as a third argument. `make([]int, 10, 100)` for example, is the same as `new([100]int)[:10]`.
 
-Reslice and extend
-------------------
+## Reslice and extend
 
 You can slice a slice:
 
@@ -91,20 +84,17 @@ The indices in the last line are relative to the slice itself, not to the backin
 
 Trying to extend beyond the capacity will cause a panic. You can not use a negative start index.
 
-Append
-------
+## Append
 
 There's a built-in function called [`append`](append-explained.html) which appends elements to a slice. It will automatically allocate a larger backing array if the capacity is exceeded.
 
 s := make(\[\]int, 0, 3) 0 0 0 s = append(s, 1) 1 0 0 s = append(s, 2) 1 2 0 s = append(s, 3, 4, 5) 1 2 3 4 5 0 0 0
 
-Zero value
-----------
+## Zero value
 
 The default value of a slice is `nil`. The functions `len`, `cap` and `append` all regard `nil` as an empty slice with 0 capacity.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

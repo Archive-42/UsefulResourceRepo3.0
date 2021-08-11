@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Resources
----------
+## Resources
 
 [Shallow vs Deep Copy (with examples)](../shallow-vs-deep-copy.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,7 +10,7 @@ Resources
 [Clone and Cloneable](clone-and-cloneable.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-[Javadoc for Object.clone](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#clone())  
+[Javadoc for Object.clone](<https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#clone()>)  
 <span style="color: grey; font-style: italic; font-size: smaller">docs.oracle.com</span>
 
 [Javadoc for the Cloneable interface](https://docs.oracle.com/javase/10/docs/api/java/lang/Cloneable.html)  
@@ -25,8 +24,7 @@ Resources
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -36,8 +34,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -45,22 +42,20 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Copying Objects
-=====================
+# Java: Copying Objects
 
 Unlike C++ and JavaScript, there's no easy and direct way of copying objects. The built-in clone capability is poorly designed and is rarely the best alternative.
 
 This article lists the pros and cons of all the common approaches, with examples.
 
--   Copy Constructors
--   Copy Factory Methods
--   Serialization
--   Cloning
--   Copy methods
--   Builders
+- Copy Constructors
+- Copy Factory Methods
+- Serialization
+- Cloning
+- Copy methods
+- Builders
 
-Copy Constructors
------------------
+## Copy Constructors
 
 A simple example:
 
@@ -120,17 +115,16 @@ You could use `instanceof` (often considered bad practice) or the visitor patter
 
 ### Pros
 
--   Simple and straight forward
--   Easy to get right, debug and maintain
--   No casts required
+- Simple and straight forward
+- Easy to get right, debug and maintain
+- No casts required
 
 ### Cons
 
--   You need to know the runtime type
--   Requires some boilerplate
+- You need to know the runtime type
+- Requires some boilerplate
 
-Copy Factory Methods
---------------------
+## Copy Factory Methods
 
 A copy factory method encapsulates the object copying logic and provides finer control over the process. In the example below, this capability is used to tacle the problem of inheritance mentioned in the previous section.
 
@@ -172,17 +166,16 @@ A copy factory method encapsulates the object copying logic and provides finer c
 
 ### Pros
 
--   Finer control over object creation
--   All copying logic in one place
+- Finer control over object creation
+- All copying logic in one place
 
 ### Cons
 
--   Another level of indirection
--   Not as easy to extend
--   Might require access to internal state
+- Another level of indirection
+- Not as easy to extend
+- Might require access to internal state
 
-Serialization / Deserialization
--------------------------------
+## Serialization / Deserialization
 
 By serializing an object into a byte array, then deserializing the byte array back into an object, you end up with a deep copy of the original.
 
@@ -205,25 +198,24 @@ Note that the serialization mechanism does not call any constructors. Customizin
 
 ### Pros
 
--   Handles inheritance
--   Very little boilerplate
--   Provides deep copying out of the box
-    -   Even object graphs with cycles!
+- Handles inheritance
+- Very little boilerplate
+- Provides deep copying out of the box
+  - Even object graphs with cycles!
 
 ### Cons
 
--   All objects must be `Serializable`
--   Requires extra temporary memory
--   Relies on black magic
-    -   Overriding private methods
-    -   No constructor calls
--   No compile time checks
--   Requires casts
+- All objects must be `Serializable`
+- Requires extra temporary memory
+- Relies on black magic
+  - Overriding private methods
+  - No constructor calls
+- No compile time checks
+- Requires casts
 
 That being said, **any serialization library would do**. If you already have for example Jackson or Gson set up, you can reuse your `ObjectMapper` or `Gson` objects for copying purposes, and do away without "black magic" and casts.
 
-Object.clone
-------------
+## Object.clone
 
 `Object.clone` offers a shortcut for creating exact, field-by-field, copies of objects. A lot of the boilerplate otherwise required in copy constructors or static factory methods goes away.
 
@@ -247,8 +239,8 @@ Object.clone
                 c.gearbox = gearbox.clone();
 
                 // No need to clone immutable objects
-                // c.make = make; 
-                
+                // c.make = make;
+
                 return c;
             } catch (CloneNotSupportedException e) {
                 // Will not happen in this case
@@ -268,20 +260,19 @@ Continue reading here: [Java: Clone and Cloneable](clone-and-cloneable.html)
 
 ### Pros
 
--   Automatic shallow copying
--   Deals with inheritance
--   Works well for arrays
+- Automatic shallow copying
+- Deals with inheritance
+- Works well for arrays
 
 ### Cons
 
--   Casts required
--   No constructors called
--   Incompatible with final fields
--   CloneNotSupported is checked
--   Can't opt out from being Cloneable
+- Casts required
+- No constructors called
+- Incompatible with final fields
+- CloneNotSupported is checked
+- Can't opt out from being Cloneable
 
-Simple copy method
-------------------
+## Simple copy method
 
     class Car {
         …
@@ -336,18 +327,17 @@ In the above example, the public `copy` method delegates to the protected `copyF
 
 ### Pros
 
--   Simple and straight forward
--   Easy to understand and debug
--   No casts required
--   Don't need to know the runtime type
+- Simple and straight forward
+- Easy to understand and debug
+- No casts required
+- Don't need to know the runtime type
 
 ### Cons
 
--   A bit clumbsy with inheritance
--   Requires some boilerplate
+- A bit clumbsy with inheritance
+- Requires some boilerplate
 
-Builders
---------
+## Builders
 
 If the class has a builder, you could add a `from` method that initiates the builder with the values from a given object.
 
@@ -399,17 +389,16 @@ This is precisely what the [Immutables library](https://immutables.github.io) do
 
 ### Pros
 
--   Easy to tweak the copy
--   Good if there's already a builder
+- Easy to tweak the copy
+- Good if there's already a builder
 
 ### Cons
 
--   Builder pattern is verbose
--   Another level of indirection
--   Not easy to extend
+- Builder pattern is verbose
+- Another level of indirection
+- Not easy to extend
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

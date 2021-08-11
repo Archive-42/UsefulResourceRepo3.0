@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Arrays
------------
+## Java Arrays
 
 1.  [Java Arrays (with examples)](arrays.html)
 2.  [Maximum length of array](array-maximum-length.html)
@@ -15,17 +14,15 @@ Java Arrays
 8.  [Inserting an element in an array at a given index](array-insert-at-index.html)
 9.  Testing array equality
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -35,8 +32,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +40,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Testing array equality
-============================
+# Java: Testing array equality
 
     if (Arrays.equals(arr1, arr2)) {
         ...
@@ -53,14 +48,13 @@ Java: Testing array equality
 
 Note that this performs a **shalow comparison**, i.e. it checks
 
--   `arr1[0].equals(arr2[0])`,
--   `arr1[1].equals(arr2[1])`,
--   ...
+- `arr1[0].equals(arr2[0])`,
+- `arr1[1].equals(arr2[1])`,
+- ...
 
 This is **not suitable for multidimensional arrays**.
 
-Multidimensional arrays
------------------------
+## Multidimensional arrays
 
     if (Arrays.deepEquals(arr1, arr2)) {
         ...
@@ -68,8 +62,7 @@ Multidimensional arrays
 
 This method recurses on the arrays and compares the actual elements.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

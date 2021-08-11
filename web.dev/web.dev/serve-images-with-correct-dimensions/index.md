@@ -1,4 +1,4 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
+
 
 <a href="/" class="header-default__logo-link gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 

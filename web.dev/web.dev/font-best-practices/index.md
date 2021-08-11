@@ -1,34 +1,24 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format" alt="A photo of letterpress type." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/T4kc8pjG9mvfZwynORjM.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#best-practices-for-fonts" class="w-toc__header--link">Best practices for fonts</a>
---------------------------------------------------------------------------------------------
+## <a href="#best-practices-for-fonts" class="w-toc__header--link">Best practices for fonts</a>
 
--   [Font loading](#font-loading)
--   [Best practices](#best-practices)
--   [Font delivery](#font-delivery)
--   [Best practices](#best-practices-2)
--   [Font rendering](#font-rendering)
--   [Best practices](#best-practices-3)
+- [Font loading](#font-loading)
+- [Best practices](#best-practices)
+- [Font delivery](#font-delivery)
+- [Best practices](#best-practices-2)
+- [Font rendering](#font-rendering)
+- [Best practices](#best-practices-3)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Best practices for fonts
-========================
+# Best practices for fonts
 
 Optimize web fonts for Core Web Vitals.
 
@@ -40,20 +30,19 @@ Jun 3, 2021
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 This article discusses performance best practices for fonts. There are a variety of ways in which web fonts impact performance:
 
--   **Delayed text rendering:** If a web font has not loaded, browsers typically delay text rendering. In many situations, this delays [First Contentful Paint (FCP)](/fcp). In some situations, this delays [Largest Contentful Paint (LCP)](/lcp/).
--   **Layout shifts:** The practice of font swapping has the potential to [cause layout shifts](/debug-layout-shifts/#identifying-the-cause-of-a-layout-shift). These layout shifts occur when a web font and its fallback font take up different amounts of space on the page.
+- **Delayed text rendering:** If a web font has not loaded, browsers typically delay text rendering. In many situations, this delays [First Contentful Paint (FCP)](/fcp). In some situations, this delays [Largest Contentful Paint (LCP)](/lcp/).
+- **Layout shifts:** The practice of font swapping has the potential to [cause layout shifts](/debug-layout-shifts/#identifying-the-cause-of-a-layout-shift). These layout shifts occur when a web font and its fallback font take up different amounts of space on the page.
 
 This article is broken down into three sections: font loading, font delivery, and font rendering. Each section explains how that particular aspect of the font lifecycle works and provides corresponding best practices.
 
-Font loading <a href="#font-loading" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Font loading <a href="#font-loading" class="w-headline-link">#</a>
 
 Before diving into best practices for font loading it's important to understand how [`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) works and how this impacts font loading.
 
@@ -141,8 +130,7 @@ In most scenarios, inlining font declarations and adjusting stylesheets is a mor
 
 In addition, using `preload` as a font-loading strategy should also be used carefully as it bypasses some of the browser's built-in content negotiation strategies. For example, `preload` ignores `unicode-range` declarations, and if used prudently, should only be used to load a single font format.
 
-Font delivery <a href="#font-delivery" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Font delivery <a href="#font-delivery" class="w-headline-link">#</a>
 
 Faster font delivery yields faster text rendering. In addition, if a font is delivered early enough, this can help eliminate layout shifts resulting from font swapping.
 
@@ -188,12 +176,11 @@ To use the system font in your CSS, list `system-ui` as the font-family:
 
 The idea behind **[variable fonts](/variable-fonts/)** is that a single variable font can be used as a replacement for multiple font files. Variable fonts work by defining a "default" font style and providing ["axes"](/variable-fonts/#axes-definitions) for manipulating the font. For example, a variable font with a `Weight` axis could be used to implement lettering that would previously require separate fonts for light, regular, bold, and extra bold.
 
-We often refer to "Times New Roman" and "Helvetica" as fonts. However, technically speaking, these are font *families*. A family is composed of styles, which are particular variations of the typeface (for example, light, medium, or bold italic). A font file contains a single style unless it is a variable font. A typeface is the underlying design, which can be expressed as digital fonts - and in physical type, like carved woodblocks or metal.
+We often refer to "Times New Roman" and "Helvetica" as fonts. However, technically speaking, these are font _families_. A family is composed of styles, which are particular variations of the typeface (for example, light, medium, or bold italic). A font file contains a single style unless it is a variable font. A typeface is the underlying design, which can be expressed as digital fonts - and in physical type, like carved woodblocks or metal.
 
 Not everyone will benefit from switching to variable fonts. [Variable fonts](/variable-fonts/) contain many styles, so typically have larger file sizes than individual non-variable fonts that only contain one style. Sites that will see the largest improvement from using variable fonts are those that use (and need to use) a variety of font styles and weights.
 
-Font rendering <a href="#font-rendering" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Font rendering <a href="#font-rendering" class="w-headline-link">#</a>
 
 When faced with a web font that has not yet loaded, the browser is faced with a dilemma: should it hold off on rendering text until the web font has arrived? Or should it render the text in a fallback font until the web font arrives?
 
@@ -217,16 +204,16 @@ There are five possible values for `font-display`:
 
 <table><thead><tr class="header"><th><strong>Value</strong></th><th><strong>Block period</strong></th><th><strong>Swap period</strong></th></tr></thead><tbody><tr class="odd"><td>Auto</td><td>Varies by browser</td><td>Varies by browser</td></tr><tr class="even"><td>Block</td><td>3 seconds</td><td>Infinite</td></tr><tr class="odd"><td>Swap</td><td>0ms</td><td>Infinite</td></tr><tr class="even"><td>Fallback</td><td>100ms</td><td>3 seconds</td></tr><tr class="odd"><td>Optional</td><td>100ms</td><td>None</td></tr></tbody></table>
 
--   **Block period**: The block period begins when the browser requests a web font. During the block period, if the web font is not available, the font is rendered in an *invisible* fallback font and thus the text will not be visible to the user. If the font is not available at the end of the block period, it will be rendered in the fallback font.
--   **Swap period**: The swap period comes after the block period. If the web font becomes available during the swap period, it will be "swapped" in.
+- **Block period**: The block period begins when the browser requests a web font. During the block period, if the web font is not available, the font is rendered in an _invisible_ fallback font and thus the text will not be visible to the user. If the font is not available at the end of the block period, it will be rendered in the fallback font.
+- **Swap period**: The swap period comes after the block period. If the web font becomes available during the swap period, it will be "swapped" in.
 
 ##### Recommendation <a href="#recommendation" class="w-headline-link">#</a>
 
 `font-display` strategies reflect different viewpoints about the tradeoff between performance and aesthetics. For most sites, these are the two strategies that will be most applicable:
 
--   **If performance is a top priority:** Use `font-display: optional`. This is the most "performant" approach: text render is delayed for no longer than 100ms and there is assurance that there will be no font-swap related layout shifts.
+- **If performance is a top priority:** Use `font-display: optional`. This is the most "performant" approach: text render is delayed for no longer than 100ms and there is assurance that there will be no font-swap related layout shifts.
 
--   **If displaying text in a web font is a top priority:** Use `font-display: swap` but make sure to deliver the font early enough that it does not cause a layout shift.
+- **If displaying text in a web font is a top priority:** Use `font-display: swap` but make sure to deliver the font early enough that it does not cause a layout shift.
 
 `font-display: auto`, `font-display: block`, `font-display: swap`, and `font-display: fallback` all have the potential to cause layout shifts when the font is swapped. However, of these approaches, `font-display: swap` will delay text render the least. Thus, it is the preferred approach for situations where it is important that text ultimately gets rendered as a web font.
 
@@ -240,35 +227,35 @@ The `font-display` strategies that work well for traditional web fonts don't wor
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

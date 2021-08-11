@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Arrays
------------
+## Java Arrays
 
 1.  [Java Arrays (with examples)](arrays.html)
 2.  [Maximum length of array](array-maximum-length.html)
@@ -15,17 +14,15 @@ Java Arrays
 8.  [Inserting an element in an array at a given index](array-insert-at-index.html)
 9.  [Testing array equality](testing-array-equality.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -35,8 +32,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,12 +40,11 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: ArrayIndexOutOfBoundsException
-====================================
+# Java: ArrayIndexOutOfBoundsException
 
 An `ArrayIndexOutOfBoundsException` is thrown when the program tries to access an element at an invalid index.
 
-The array indexes are **zero-based**, so for an array with *N* elements (`array.length == N`) the valid indexes are <span class="no-wrap">0…*N* − 1</span>.
+The array indexes are **zero-based**, so for an array with _N_ elements (`array.length == N`) the valid indexes are <span class="no-wrap">0…*N* − 1</span>.
 
 **Example:** For an array created like this:
 
@@ -61,8 +56,7 @@ the memory looks like this:
 
 That is, with **4 elements**, the greatest valid index is **3**.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

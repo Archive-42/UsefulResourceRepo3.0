@@ -1,38 +1,30 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format" alt="Hand about to press a key in a keyboard" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/TwRpOuLV9Z5GEZkGmAXi.jpeg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#towards-a-better-responsiveness-metric" class="w-toc__header--link">Towards a better responsiveness metric</a>
-------------------------------------------------------------------------------------------------------------------------
+## <a href="#towards-a-better-responsiveness-metric" class="w-toc__header--link">Towards a better responsiveness metric</a>
 
--   [What is First Input Delay?](#what-is-first-input-delay)
--   [Why did we choose FID?](#why-did-we-choose-fid)
--   [What improvements are we considering?](#what-improvements-are-we-considering)
--   [Capture the full event duration](#capture-the-full-event-duration)
--   [Group events into interactions](#group-events-into-interactions)
--   [Aggregate all interactions per page](#aggregate-all-interactions-per-page)
--   [How does this look like on web performance APIs?](#how-does-this-look-like-on-web-performance-apis)
--   [What's missing from Event Timing?](#what's-missing-from-event-timing)
--   [What can you try right now?](#what-can-you-try-right-now)
--   [Feedback](#feedback)
+- [What is First Input Delay?](#what-is-first-input-delay)
+- [Why did we choose FID?](#why-did-we-choose-fid)
+- [What improvements are we considering?](#what-improvements-are-we-considering)
+- [Capture the full event duration](#capture-the-full-event-duration)
+- [Group events into interactions](#group-events-into-interactions)
+- [Aggregate all interactions per page](#aggregate-all-interactions-per-page)
+- [How does this look like on web performance APIs?](#how-does-this-look-like-on-web-performance-apis)
+- [What's missing from Event Timing?](#what's-missing-from-event-timing)
+- [What can you try right now?](#what-can-you-try-right-now)
+- [Feedback](#feedback)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Towards a better responsiveness metric
-======================================
+# Towards a better responsiveness metric
 
 Learn about our thoughts on measuring responsiveness and give us feedback.
 
@@ -42,23 +34,23 @@ Jun 21, 2021
 
 <a href="/authors/npm/" class="w-author__name-link">Nicolás Peña Moreno</a>
 
--   <a href="https://twitter.com/NicPenaM" class="w-author__link">Twitter</a>
--   <a href="https://github.com/npm1" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/NicPenaM" class="w-author__link">Twitter</a>
+- <a href="https://github.com/npm1" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/Elo3rfkiDHm148ov4IZU.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Annie Sullivan" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Elo3rfkiDHm148ov4IZU.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/Elo3rfkiDHm148ov4IZU.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/Elo3rfkiDHm148ov4IZU.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/Elo3rfkiDHm148ov4IZU.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/Elo3rfkiDHm148ov4IZU.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/anniesullie/)
 
 <a href="/authors/anniesullie/" class="w-author__name-link">Annie Sullivan</a>
 
--   <a href="https://twitter.com/anniesullie" class="w-author__link">Twitter</a>
--   <a href="https://github.com/anniesullie" class="w-author__link">GitHub</a>
--   <a href="https://anniesullie.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/anniesullie" class="w-author__link">Twitter</a>
+- <a href="https://github.com/anniesullie" class="w-author__link">GitHub</a>
+- <a href="https://anniesullie.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/ieAP4AO0so7own9kFVW4.png?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Hongbo Song" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/ieAP4AO0so7own9kFVW4.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/ieAP4AO0so7own9kFVW4.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/ieAP4AO0so7own9kFVW4.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/ieAP4AO0so7own9kFVW4.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/ieAP4AO0so7own9kFVW4.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/hbsong/)
 
 <a href="/authors/hbsong/" class="w-author__name-link">Hongbo Song</a>
 
--   <a href="https://twitter.com/HongboSong" class="w-author__link">Twitter</a>
--   <a href="https://github.com/debugtive0517" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/HongboSong" class="w-author__link">Twitter</a>
+- <a href="https://github.com/debugtive0517" class="w-author__link">GitHub</a>
 
 On the Chrome Speed Metrics team, we're working on deepening our understanding of how quickly web pages respond to user input. We'd like to share some ideas for improving responsiveness metrics and hear your feedback.
 
@@ -67,15 +59,14 @@ This post will cover two main topics:
 1.  Review our current responsiveness metric, First Input Delay (FID), and explain why we chose FID rather than some of the alternatives.
 2.  Present some improvements we've been considering that should better capture the end-to-end latency of individual events. These improvements also aim to capture a more holistic picture of the overall responsiveness of a page throughout its lifetime.
 
-What is First Input Delay? <a href="#what-is-first-input-delay" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------
+## What is First Input Delay? <a href="#what-is-first-input-delay" class="w-headline-link">#</a>
 
 The [First Input Delay (FID)](/fid/) metric measures how long it takes the browser to begin processing the first user interaction on a page. In particular, it measures the difference between the time when the user interacts with the device and the time when the browser is actually able to begin processing event handlers. FID is just measured for taps and key presses, which means that it only considers the very first occurrence of the following events:
 
--   `click`
--   `keydown`
--   `mousedown`
--   `pointerdown` (only if it is followed by `pointerup`)
+- `click`
+- `keydown`
+- `mousedown`
+- `pointerdown` (only if it is followed by `pointerup`)
 
 The following diagram illustrates FID:
 
@@ -99,8 +90,7 @@ If you're interested in a deeper dive into some of the metrics we looked into, h
 
 Measuring TTI on real users in the field is problematic because it occurs very late in the page load. A 5-second network quiet window is required before TTI can even be computed. In the lab, you can choose to unload the page whenever you have all the data that you need, but that's not the case with real-user monitoring in the field. A user may choose to leave the page or interact with it at any time. In particular, users may choose to leave pages that take a long time to load, and an accurate TTI will not be recorded in those cases. When we measured TTI for real users in Chrome, we found that only about half of page loads reached TTI.
 
-What improvements are we considering? <a href="#what-improvements-are-we-considering" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------
+## What improvements are we considering? <a href="#what-improvements-are-we-considering" class="w-headline-link">#</a>
 
 We would like to develop a new metric that extends what FID measures today yet still retains its strong connection to user experience.
 
@@ -129,9 +119,9 @@ The following are steps Chrome takes to process an input:
 4.  The renderer processes the event by running its handlers. These handlers may queue additional asynchronous work, such as `setTimeout` and fetches, that are part of the input handling. But at this point, the synchronous work is complete.
 5.  A frame is painted to the screen that reflects the result of event handlers running. Note that any asynchronous tasks queued by the event handlers may still be unfinished.
 
-The time between steps (1) and (3) above is an event's *delay*, which is what FID measures.
+The time between steps (1) and (3) above is an event's _delay_, which is what FID measures.
 
-The time between steps (1) and (5) above is an event's *duration*. This is what our new metric will measure.
+The time between steps (1) and (5) above is an event's _duration_. This is what our new metric will measure.
 
 The event's duration includes the delay, but it also includes the work occurring in event handlers and the work the browser needs to do to paint the next frame after those handlers have run. The duration of an event is currently available in the [Event Timing API](/custom-metrics/#event-timing-api) via the entry's [duration](https://w3c.github.io/performance-timeline/#dom-performanceentry-duration) attribute.
 
@@ -143,9 +133,9 @@ It's worth noting that, in many cases, work should be executed synchronously. In
 
 ### Group events into interactions <a href="#group-events-into-interactions" class="w-headline-link">#</a>
 
-Extending the metric measurement from *delay* to *duration* is a good first step, but it still leaves a critical gap in the metric: it focuses on individual events and not the user experience of interacting with the page.
+Extending the metric measurement from _delay_ to _duration_ is a good first step, but it still leaves a critical gap in the metric: it focuses on individual events and not the user experience of interacting with the page.
 
-Many different events can fire as a result of a single user interaction, and separately measuring each doesn't build a clear picture of what the user experiences. We want to make sure our metric captures the full amount of time a user has to wait for a response when tapping, pressing keys, scrolling, and dragging as accurately as possible. So we're introducing the concept of ***interactions*** to measure the latency of each.
+Many different events can fire as a result of a single user interaction, and separately measuring each doesn't build a clear picture of what the user experiences. We want to make sure our metric captures the full amount of time a user has to wait for a response when tapping, pressing keys, scrolling, and dragging as accurately as possible. So we're introducing the concept of **_interactions_** to measure the latency of each.
 
 #### Interaction types <a href="#interaction-types" class="w-headline-link">#</a>
 
@@ -279,9 +269,9 @@ The `keydown` and `keyup` durations may overlap as well. This may happen for ins
 
 There's are pros and cons to this approach of using the maximum, and we're interested in [hearing your feedback](#feedback):
 
--   **Pro**: It is aligned with how we intend to measure scroll in that it only measures a single duration value.
--   **Pro**: It aims to reduce noise for cases like keyboard interactions, where the `keyup` usually does nothing and where the user may execute the key press and release quickly or slowly.
--   **Con**: It does not capture the full wait time of the user. For instance, it will capture the start or end of a drag, but not both.
+- **Pro**: It is aligned with how we intend to measure scroll in that it only measures a single duration value.
+- **Pro**: It aims to reduce noise for cases like keyboard interactions, where the `keyup` usually does nothing and where the user may execute the key press and release quickly or slowly.
+- **Con**: It does not capture the full wait time of the user. For instance, it will capture the start or end of a drag, but not both.
 
 For scrolling (which just has a single associated event) we'd like to define its latency as the time it takes for the browser to produce the first frame as a result of scrolling. That is, the latency is the delta between the event `timeStamp` of the first DOM event (like `touchmove`, if using a finger) that is large enough to trigger a scroll and the first paint which reflects the scrolling taking place.
 
@@ -289,9 +279,9 @@ For scrolling (which just has a single associated event) we'd like to define its
 
 Once we've defined what the latency of an interaction is, we'll need to compute an aggregate value for a page load, which may have many user interactions. Having an aggregated value enables us to:
 
--   Form correlations with business metrics.
--   Evaluate correlations with other performance metrics. Ideally, our new metric will be sufficiently independent that it adds value to the existing metrics.
--   Easily expose values in tooling in ways that are easy to digest.
+- Form correlations with business metrics.
+- Evaluate correlations with other performance metrics. Ideally, our new metric will be sufficiently independent that it adds value to the existing metrics.
+- Easily expose values in tooling in ways that are easy to digest.
 
 In order to perform this aggregation we need to solve two questions:
 
@@ -304,8 +294,7 @@ One option is to define a budget for the latency of an interaction, which may de
 
 Another option is to compute the average or median latency of the interactions throughout the life of the page. So if we had latencies of 80 ms, 90 ms, and 100 ms, then the average latency for the page would be 90 ms. We could also consider the average or median "over budget" to account for different expectations depending on the type of interaction.
 
-How does this look like on web performance APIs? <a href="#how-does-this-look-like-on-web-performance-apis" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------------
+## How does this look like on web performance APIs? <a href="#how-does-this-look-like-on-web-performance-apis" class="w-headline-link">#</a>
 
 ### What's missing from Event Timing? <a href="#what&#39;s-missing-from-event-timing" class="w-headline-link">#</a>
 
@@ -340,8 +329,7 @@ Right now, it is still possible to compute the maximum latency for taps/drags an
     // We can report maxTapDragDuration and maxKeyboardDuration when sending
     // metrics to analytics.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 Let us know what you think about these ideas by emailing: web-vitals-feedback@googlegroups.com!
 
@@ -351,35 +339,35 @@ Let us know what you think about these ideas by emailing: web-vitals-feedback@go
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

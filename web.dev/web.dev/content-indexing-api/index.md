@@ -1,41 +1,33 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format" alt="Index cards in a filing cabinet." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/tuIkBEm2DdHBYy62dDac.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#indexing-your-offline-capable-pages-with-the-content-indexing-api" class="w-toc__header--link">Indexing your offline-capable pages with the Content Indexing API</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#indexing-your-offline-capable-pages-with-the-content-indexing-api" class="w-toc__header--link">Indexing your offline-capable pages with the Content Indexing API</a>
 
--   [What is the Content Indexing API?](#what)
--   [See it in action](#see-it-in-action)
--   [Using the API](#using-the-api)
--   [What type of URLs can be indexed as offline-capable?](#offline-capable-urls)
--   [Overview](#api-overview)
--   [Adding to the index](#adding-items)
--   [Listing the index's contents](#listing-items)
--   [Removing items from the index](#removing-items)
--   [Handling a user delete event](#handling-contentdelete)
--   [Feedback about the API design](#feedback-design)
--   [Problem with the implementation?](#feedback-implementation)
--   [Planning to use the API?](#planning-to-use)
--   [What are some security and privacy implications of content indexing?](#security-privacy)
+- [What is the Content Indexing API?](#what)
+- [See it in action](#see-it-in-action)
+- [Using the API](#using-the-api)
+- [What type of URLs can be indexed as offline-capable?](#offline-capable-urls)
+- [Overview](#api-overview)
+- [Adding to the index](#adding-items)
+- [Listing the index's contents](#listing-items)
+- [Removing items from the index](#removing-items)
+- [Handling a user delete event](#handling-contentdelete)
+- [Feedback about the API design](#feedback-design)
+- [Problem with the implementation?](#feedback-implementation)
+- [Planning to use the API?](#planning-to-use)
+- [What are some security and privacy implications of content indexing?](#security-privacy)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Indexing your offline-capable pages with the Content Indexing API
-=================================================================
+# Indexing your offline-capable pages with the Content Indexing API
 
 Enabling service workers to tell browsers which pages work offline
 
@@ -45,15 +37,14 @@ Dec 12, 2019 <span class="w-author__separator">•</span> Updated Jun 14, 2021
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
 **Success**: The Content Indexing API, part of the [capabilities project](/fugu-status/), launched in Chrome 84 for Android.
 
-What is the Content Indexing API? <a href="#what" class="w-headline-link">#</a>
--------------------------------------------------------------------------------
+## What is the Content Indexing API? <a href="#what" class="w-headline-link">#</a>
 
 Using a [progressive web app](https://developers.google.com/web/progressive-web-apps) means having access to information people care about—images, videos, articles, and more—regardless of the current state of your network connection. Technologies like [service workers](https://developers.google.com/web/fundamentals/primers/service-workers), the [Cache Storage API](https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) provide you with the building blocks for storing and serving data when folks interact directly with a PWA. But building a high-quality, offline-first PWA is only part of the story. If folks don't realize that a web app's content is available while they're offline, they won't take full advantage of the work you put into implementing that functionality.
 
@@ -69,8 +60,7 @@ The Content Indexing API **is not an alternative way of caching content**. It's 
 
 The Content Indexing API is not a searchable index. While you can get a list of all indexed entries, there's no way to query against indexed metadata directly.
 
-See it in action <a href="#see-it-in-action" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## See it in action <a href="#see-it-in-action" class="w-headline-link">#</a>
 
 The best way to get a feel for the Content Indexing API is to try a sample application.
 
@@ -85,8 +75,7 @@ You can view [the source of the sample application on GitHub](https://github.com
 
 Another sample application, a [Scrapbook PWA](https://scrapbook-pwa.web.app/), illustrates the use of the Content Indexing API with the [Web Share Target API](/web-share-target/). The [code demonstrates a technique](https://github.com/GoogleChrome/samples/blob/gh-pages/web-share/src/js/contentIndexing.js) for keeping the Content Indexing API in sync with items stored by a web app using the [Cache Storage API](https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api).
 
-Using the API <a href="#using-the-api" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Using the API <a href="#using-the-api" class="w-headline-link">#</a>
 
 To use the API your app must have a service worker and URLs that are navigable offline. If your web app does not currently have a service worker, the [Workbox libraries](https://developers.google.com/web/tools/workbox/) can simplify creating one.
 
@@ -148,9 +137,9 @@ Adding an entry only affects the content index; it does not add anything to the 
 
 When you call `add()`, Chrome will make a request for each icon's URL to ensure that it has a copy of the icon to use when displaying a list of indexed content.
 
--   If you call `add()` from the `window` context (in other words, from your web page), this request will trigger a `fetch` event on your service worker.
+- If you call `add()` from the `window` context (in other words, from your web page), this request will trigger a `fetch` event on your service worker.
 
--   If you call `add()` within your service worker (perhaps inside another event handler), the request will **not** trigger the service worker's `fetch` handler. The icons will be fetched directly, without any service worker involvement. Keep this in mind if your icons rely on your `fetch` handler, perhaps because they only exist in the local cache and not on the network. If they do, make sure that you only call `add()` from the `window` context.
+- If you call `add()` within your service worker (perhaps inside another event handler), the request will **not** trigger the service worker's `fetch` handler. The icons will be fetched directly, without any service worker involvement. Keep this in mind if your icons rely on your `fetch` handler, perhaps because they only exist in the local cache and not on the network. If they do, make sure that you only call `add()` from the `window` context.
 
 ### Listing the index's contents <a href="#listing-items" class="w-headline-link">#</a>
 
@@ -187,7 +176,7 @@ You do not need to call `registration.index.delete()` inside your `contentdelete
       // the Cache Storage API or perhaps IndexedDB.
     });
 
-The `contentdelete` event is only fired when the deletion happens due to interaction with the browser's built-in user interface. It is *not* fired when `registration.index.delete()` is called. If your web app triggers the index deletion using that API method, it should also [clean up cached content](https://developer.mozilla.org/en-US/docs/Web/API/Cache/delete) at the same time.
+The `contentdelete` event is only fired when the deletion happens due to interaction with the browser's built-in user interface. It is _not_ fired when `registration.index.delete()` is called. If your web app triggers the index deletion using that API method, it should also [clean up cached content](https://developer.mozilla.org/en-US/docs/Web/API/Cache/delete) at the same time.
 
 ### Feedback about the API design <a href="#feedback-design" class="w-headline-link">#</a>
 
@@ -205,14 +194,13 @@ File a bug at <https://new.crbug.com>. Include as much detail as you can, simple
 
 Planning to use the Content Indexing API in your web app? Your public support helps Chrome prioritize features, and shows other browser vendors how critical it is to support them.
 
--   Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#ContentIndexingAPI`](https://twitter.com/search?q=%23ContentIndexingAPI&src=typed_query&f=live) and details on where and how you're using it.
+- Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#ContentIndexingAPI`](https://twitter.com/search?q=%23ContentIndexingAPI&src=typed_query&f=live) and details on where and how you're using it.
 
-What are some security and privacy implications of content indexing? <a href="#security-privacy" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------
+## What are some security and privacy implications of content indexing? <a href="#security-privacy" class="w-headline-link">#</a>
 
 Check out [the answers](https://github.com/WICG/content-index/blob/main/SECURITY_AND_PRIVACY.md) provided in response to the W3C's [Security and Privacy questionnaire](https://www.w3.org/TR/security-privacy-questionnaire/). If you have further questions, please start a discussion via the project's [GitHub repo](https://github.com/WICG/content-index/issues).
 
-*Hero image by Maksym Kaharlytskyi on [Unsplash](https://unsplash.com/photos/Q9y3LRuuxmg).*
+_Hero image by Maksym Kaharlytskyi on [Unsplash](https://unsplash.com/photos/Q9y3LRuuxmg)._
 
 <a href="/tags/capabilities/" class="w-chip">Capabilities</a> <a href="/tags/service-worker/" class="w-chip">Service Worker</a>
 
@@ -220,35 +208,35 @@ Check out [the answers](https://github.com/WICG/content-index/blob/main/SECURITY
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

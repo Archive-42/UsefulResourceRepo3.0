@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -20,8 +18,7 @@ Top Java Articles
 4.  [Handling InterruptedException](handling-interrupted-exceptions.html)
 5.  [Why wait must be called in a synchronized block](why-wait-must-be-in-synchronized.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -29,13 +26,11 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java
-====
+# Java
 
 Here's an index of all Java specific articles on Programming.Guide.
 
-Java Arrays
------------
+## Java Arrays
 
 1.  [Java Arrays (with examples)](arrays.html)
 2.  [Maximum length of array](array-maximum-length.html)
@@ -47,8 +42,7 @@ Java Arrays
 8.  [Inserting an element in an array at a given index](array-insert-at-index.html)
 9.  [Testing array equality](testing-array-equality.html)
 
-Types in Java
--------------
+## Types in Java
 
 1.  [Java Basics: Types](types.html)
 2.  [Primitive Types](primitive-types.html)
@@ -67,8 +61,7 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Java Keywords
--------------
+## Java Keywords
 
 1.  [this](this.html)
 2.  [catch](catch.html)
@@ -77,8 +70,7 @@ Java Keywords
 5.  [throws](throws.html)
 6.  [try](try.html)
 
-Java Exceptions
----------------
+## Java Exceptions
 
 1.  [Throw, Try and Catch](exceptions-throw-try-catch.html)
 2.  [Java Exception Types](exception-types.html)
@@ -95,8 +87,7 @@ Java Exceptions
 13. [throw vs throws vs Throwable](throw-vs-throws-vs-throwable.html)
 14. [List of Java Exceptions](list-of-java-exceptions.html)
 
-Loops in Java
--------------
+## Loops in Java
 
 1.  [while loop](while-loop.html)
 2.  [for loop](for-loop.html)
@@ -106,8 +97,7 @@ Loops in Java
 6.  [continue](continue.html)
 7.  [Beware of accidental semicolons in while and for loops!](beware-of-accidental-semicolons-in-while-and-for-loops.html)
 
-Unsigned integers in Java
--------------------------
+## Unsigned integers in Java
 
 1.  [Unsigned byte](unsigned-byte.html)
 2.  [Unsigned short](unsigned-short.html)
@@ -140,10 +130,9 @@ Unsigned integers in Java
 29. [Convert unsigned long to BigInteger](convert-unsigned-long-to-biginteger.html)
 30. [Compare unsigned longs](compare-unsigned-longs.html)
 
-Miscellaneous Java Articles
----------------------------
+## Miscellaneous Java Articles
 
-1.  [Why's Double.MIN\_VALUE is positive? Integer.MIN\_VALUE is negative!](integer-minvalue-negative-double-minvalue-positive.html)
+1.  [Why's Double.MIN_VALUE is positive? Integer.MIN_VALUE is negative!](integer-minvalue-negative-double-minvalue-positive.html)
 2.  [Is it wrong to use deprecated methods or classes?](is-it-wrong-to-use-deprecated-api.html)
 3.  [Convert from Number to long](convert-number-to-long.html)
 4.  [Converting a char to an int](converting-char-to-int.html)
@@ -189,7 +178,7 @@ Miscellaneous Java Articles
 44. [ArrayIndexOutOfBoundsException in for loop](arrayindexoutofboundsexception-in-for-loop.html)
 45. [Function Pointers in Java](function-pointers-in-java.html)
 46. [The meaning of 'this' (with examples)](the-meaning-of-this.html)
-47. [-Integer.MIN\_VALUE == Integer.MIN\_VALUE but -Byte.MIN\_VALUE != Byte.MIN\_VALUE](minus-min-value.html)
+47. [-Integer.MIN_VALUE == Integer.MIN_VALUE but -Byte.MIN_VALUE != Byte.MIN_VALUE](minus-min-value.html)
 48. [Switch Statement](switch-statement.html)
 49. [Local methods (or submethods, or inner methods, or nested methods)](local-methods.html)
 50. [Executing code in comments?!](executing-code-in-comments.html)
@@ -208,7 +197,7 @@ Miscellaneous Java Articles
 63. [Convert from BigInteger to byte](convert-biginteger-to-byte.html)
 64. [Find number of regex matches in a String](number-of-regex-matches.html)
 65. [Functional Interfaces](functional-interfaces.html)
-66. [Double.MIN\_VALUE vs Double.MIN\_NORMAL](double-min-value-vs-double-min-normal.html)
+66. [Double.MIN_VALUE vs Double.MIN_NORMAL](double-min-value-vs-double-min-normal.html)
 67. [Initialize list with zeroes](initialize-list-with-zeroes.html)
 68. [Accessing private fields through reflection](accessing-private-fields-through-reflection.html)
 69. [Print 2D Matrix](print-2d-matrix.html)
@@ -217,7 +206,7 @@ Miscellaneous Java Articles
 72. [AtomicInteger and equals / Comparable](atomicinteger-equals.html)
 73. [What is effectively final?](effectively-final.html)
 74. [Clone and Cloneable](clone-and-cloneable.html)
-75. [Float.MIN\_VALUE vs Float.MIN\_NORMAL](float-min-value-vs-float-min-normal.html)
+75. [Float.MIN_VALUE vs Float.MIN_NORMAL](float-min-value-vs-float-min-normal.html)
 76. [The 'this' reference (with examples)](this-reference-with-examples.html)
 77. [Removing elements from multiple indexes in a list](removing-elements-from-multiple-indexes.html)
 78. [Convert from BigInteger to BigDecimal](convert-biginteger-to-bigdecimal.html)

@@ -1,22 +1,8 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#media-file-basics" class="w-toc__header--link">Media file basics</a>
-------------------------------------------------------------------------------
+## <a href="#media-file-basics" class="w-toc__header--link">Media file basics</a>
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Media file basics
-=================
+# Media file basics
 
 Jun 19, 2020 <span class="w-author__separator">•</span> Updated Aug 27, 2020
 
@@ -26,18 +12,18 @@ Jun 19, 2020 <span class="w-author__separator">•</span> Updated Aug 27, 2020
 
 <a href="/authors/joemedley/" class="w-author__name-link">Joe Medley</a>
 
--   <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
 
 You might think that you can take a video camera and upload it to the web as is. Indeed, video streaming sites such as [YouTube](https://www.youtube.com/) or [Vimeo](https://vimeo.com/) let you do this. These sites simplify video processing and uploading for the sake of customer service. Preparing a video for serving from your own site is a bit more complicated.
 
 Video files come in a variety of formats. The format that comes off your camera, typically a `.mov` file, is good for recording and for editing and other early post-production processes. Its size means it's not good for streaming over the web. Because browsers support different file formats, you'll need to create multiple files. Before converting files you need to understand a few basics about them and about their characteristics.
 
-The file that you see in your operating system shell is a *container*, identified by a file extension (`.mp4`, `.webm`, etc.). The container houses one or more *streams*. A media file can have any number of streams, of [more types](https://developer.mozilla.org/en-US/docs/Web/Media/Formats) than I will go into here.
+The file that you see in your operating system shell is a _container_, identified by a file extension (`.mp4`, `.webm`, etc.). The container houses one or more _streams_. A media file can have any number of streams, of [more types](https://developer.mozilla.org/en-US/docs/Web/Media/Formats) than I will go into here.
 
 The sample files used later in this section contain at most two streams: an audio stream and a video stream. Among the other types you might encounter are captions and data, both of which are beyond the scope of this article. There are instances where audio and video streams are dealt with separately. Most files you'll encounter will only contain a single audio stream and a single video stream.
 
-Within the audio and video streams, the actual data is compressed using a codec. A *codec*, or coder/decoder, is a compression format for video or audio data. The distinction between a container and a codec is important because files with the same container can have their contents encoded with different codecs.
+Within the audio and video streams, the actual data is compressed using a codec. A _codec_, or coder/decoder, is a compression format for video or audio data. The distinction between a container and a codec is important because files with the same container can have their contents encoded with different codecs.
 
 The image below illustrates this structure. On the left is the basic structure. On the right are the specifics of that structure for a single WebM file.
 
@@ -51,9 +37,9 @@ Many file formats support multiple codecs for the same container type. A complet
 
 \* Indicates the preferred video codec.
 
-*Bitrate* is the maximum number of bits used to encode one second of a stream. The more bits used to encode a second of stream, the higher the potential detail and fidelity.
+_Bitrate_ is the maximum number of bits used to encode one second of a stream. The more bits used to encode a second of stream, the higher the potential detail and fidelity.
 
-*Resolution* is the amount of information in a single frame of video, given as the number of logical pixels in each dimension. I provide more information about this concept in [Resolution](/resolution).
+_Resolution_ is the amount of information in a single frame of video, given as the number of logical pixels in each dimension. I provide more information about this concept in [Resolution](/resolution).
 
 In [Media application basics](/media-application-basics/), I'll show you how to examine these characteristics using two command line tools: Shaka Packager and FFmpeg.
 
@@ -63,35 +49,35 @@ In [Media application basics](/media-application-basics/), I'll show you how to 
 
 <a href="/media" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

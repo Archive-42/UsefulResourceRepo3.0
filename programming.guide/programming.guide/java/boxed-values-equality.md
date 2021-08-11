@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Types in Java
--------------
+## Types in Java
 
 1.  [Java Basics: Types](types.html)
 2.  [Primitive Types](primitive-types.html)
@@ -22,17 +21,15 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -42,8 +39,7 @@ Top Java Articles
 
 [**See all Java articles**](index.html)
 
-Java: Boxed values and equality
-===============================
+# Java: Boxed values and equality
 
 When comparing wrapper types such as `Integer`s, `Long`s or `Boolean`s using `==` or `!=`, you're **comparing them as references**, not as values.
 
@@ -82,8 +78,7 @@ Arithmetic (`+`, `*`, …), logical (`&&`, `||`, …), bitwise (`&`, `<<`, …) 
     Integer j = new Integer(10);
     System.out.println(i <= j); // true
 
-Caching
--------
+## Caching
 
 To complicate matters further, autoboxing **reuses cached objects** for values between −128 and 127. This causes reference equality to "work" for some boxed values but not for others.
 
@@ -99,8 +94,7 @@ To complicate matters further, autoboxing **reuses cached objects** for values b
     Integer l = 300; // = Integer.valueOf(300) - result not cached
     System.out.println(k == l); // false
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

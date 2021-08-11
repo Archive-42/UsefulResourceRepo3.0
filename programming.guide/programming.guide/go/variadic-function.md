@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further Reading
 [Appending to and copying slices](https://golang.org/ref/spec#Appending_and_copying_slices)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,8 +38,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Variadic functions (...T)
-=============================
+# Go: Variadic functions (...T)
 
 If the **last parameter** of a function has type `...T` like this:
 
@@ -66,8 +62,7 @@ You can pass a slice `s` directly to a variadic funtion using the `s...` notatio
     primes := []int{2, 3, 5, 7}
     fmt.Println(Sum(primes...)) // 17
 
-Append is variadic
-------------------
+## Append is variadic
 
 As a special case, you can append a string to a byte slice using the built-in `append` function:
 
@@ -76,8 +71,7 @@ As a special case, you can append a string to a byte slice using the built-in `a
     buf = append(buf, "cd"...)
     fmt.Println(buf) // [97 98 99 100]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

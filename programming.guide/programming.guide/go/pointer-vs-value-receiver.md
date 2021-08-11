@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Pointers explained](pointers-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further Reading
 [Methods explained](methods-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,43 +38,38 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Pointer vs. value receiver
-==============================
+# Go: Pointer vs. value receiver
 
-Basics
-------
+## Basics
 
--   For a given type, *don't mix* value and pointer receivers.
--   If in doubt, *use pointer receivers* (they are safe and extendable).
+- For a given type, _don't mix_ value and pointer receivers.
+- If in doubt, _use pointer receivers_ (they are safe and extendable).
 
-Pointer receivers
------------------
+## Pointer receivers
 
-You *must* use pointer receivers
+You _must_ use pointer receivers
 
--   if any method needs to mutate the receiver,
--   for structs that contain a `sync.Mutex` or similar synchronizing field (they musn't be copied).
+- if any method needs to mutate the receiver,
+- for structs that contain a `sync.Mutex` or similar synchronizing field (they musn't be copied).
 
-You *probably want* to use pointer receivers
+You _probably want_ to use pointer receivers
 
--   for large structs or arrays (it can be more efficient),
--   in all other cases.
+- for large structs or arrays (it can be more efficient),
+- in all other cases.
 
-Value receivers
----------------
+## Value receivers
 
-You *probably want* to use value receivers
+You _probably want_ to use value receivers
 
--   for `map`, `func` and `chan` types,
--   for simple basic types such as `int` or `string`,
--   for small arrays or structs that are value types, with no mutable fields and no pointers.
+- for `map`, `func` and `chan` types,
+- for simple basic types such as `int` or `string`,
+- for small arrays or structs that are value types, with no mutable fields and no pointers.
 
-You *may want* to use value receivers
+You _may want_ to use value receivers
 
--   for slices with methods that do not reslice or reallocate the slice.
+- for slices with methods that do not reslice or reallocate the slice.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

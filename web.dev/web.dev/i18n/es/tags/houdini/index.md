@@ -1,7 +1,5 @@
 <span class="w-tooltip w-tooltip--left">Abrir menú</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
 <a href="/learn/" class="gc-analytics-event header-default__link">Aprender</a> <a href="/measure/" class="gc-analytics-event header-default__link">Medir</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
 <span class="w-tooltip">Cerrar</span>
@@ -12,8 +10,7 @@
 
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>suscribir</span></a>
 
-Houdini
-=======
+# Houdini
 
 Our latest news, updates, and stories about Houdini.
 
@@ -25,8 +22,7 @@ Our latest news, updates, and stories about Houdini.
 
 <a href="/houdini-how/" class="w-card-base__link"></a>
 
-Cross-browser paint worklets and Houdini.how
---------------------------------------------
+## Cross-browser paint worklets and Houdini.how
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -46,8 +42,7 @@ Supercharging your CSS with Houdini paint worklets is just a few clicks away.
 
 <a href="/at-property/" class="w-card-base__link"></a>
 
-@property: giving superpowers to CSS variables
-----------------------------------------------
+## @property: giving superpowers to CSS variables
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -67,8 +62,7 @@ The Houdini Properties and Values API is coming to your CSS file in Chromium 85.
 
 <a href="/next-gen-css-2019/" class="w-card-base__link"></a>
 
-Next-generation web styling
----------------------------
+## Next-generation web styling
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -90,8 +84,7 @@ Get up to date on some of the exciting features in modern CSS.
 
 <a href="/css-props-and-vals/" class="w-card-base__link"></a>
 
-Smarter custom properties with Houdini’s new API
-------------------------------------------------
+## Smarter custom properties with Houdini’s new API
 
 [<img src="https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Sam Richard" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/samrichard/)
 
@@ -109,35 +102,35 @@ Transitions and data protection in CSS
 
 <a href="/tags" class="w-button">Ver más Tags</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">Presentar un error</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">Ver fuente</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">Presentar un error</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">Ver fuente</a>
 
--   ### Contenido relevante
+- ### Contenido relevante
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome Actualizaciones</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome Actualizaciones</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Conectar
+- ### Conectar
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">Todos los productos</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">Todos los productos</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Condiciones y privacidad</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Principios de la Comunidad</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Condiciones y privacidad</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Principios de la Comunidad</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

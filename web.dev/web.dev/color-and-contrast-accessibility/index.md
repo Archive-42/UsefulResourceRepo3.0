@@ -1,26 +1,18 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#color-and-contrast-accessibility" class="w-toc__header--link">Color and contrast accessibility</a>
-------------------------------------------------------------------------------------------------------------
+## <a href="#color-and-contrast-accessibility" class="w-toc__header--link">Color and contrast accessibility</a>
 
--   [Advanced Perceptual Contrast Algorithm (APCA)](#advanced-perceptual-contrast-algorithm-(apca))
--   [Don't convey information with color alone](#don't-convey-information-with-color-alone)
--   [High contrast mode](#high-contrast-mode)
+- [Advanced Perceptual Contrast Algorithm (APCA)](<#advanced-perceptual-contrast-algorithm-(apca)>)
+- [Don't convey information with color alone](#don't-convey-information-with-color-alone)
+- [High contrast mode](#high-contrast-mode)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Color and contrast accessibility
-================================
+# Color and contrast accessibility
 
 Mar 31, 2020 <span class="w-author__separator">•</span> Updated May 29, 2020
 
@@ -34,25 +26,25 @@ Mar 31, 2020 <span class="w-author__separator">•</span> Updated May 29, 2020
 
 <a href="/authors/megginkearney/" class="w-author__name-link">Meggin Kearney</a>
 
--   <a href="https://twitter.com/megginkearney" class="w-author__link">Twitter</a>
+- <a href="https://twitter.com/megginkearney" class="w-author__link">Twitter</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Rachel Andrew" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/rachelandrew/)
 
 <a href="/authors/rachelandrew/" class="w-author__name-link">Rachel Andrew</a>
 
--   <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
--   <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
+- <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/1Yk1TThRpbQr08rC9tmL.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Rob Dodson" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/1Yk1TThRpbQr08rC9tmL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/1Yk1TThRpbQr08rC9tmL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/1Yk1TThRpbQr08rC9tmL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/1Yk1TThRpbQr08rC9tmL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/1Yk1TThRpbQr08rC9tmL.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/robdodson/)
 
 <a href="/authors/robdodson/" class="w-author__name-link">Rob Dodson</a>
 
--   <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
--   <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
--   <a href="https://robdodson.me" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
+- <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
+- <a href="https://robdodson.me" class="w-author__link">Blog</a>
 
 If you have good vision, it's easy to assume that everyone perceives colors, or text legibility, the same way you do—but of course that's not the case.
 
@@ -68,8 +60,7 @@ You can use the Accessibility Audit in Lighthouse to check your color contrast. 
 
 <figure><img src="https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/VYZeK2l2vs6pIoWhH2hO.png?auto=format&amp;w=1600 1600w" width="800" height="521" /></figure>For a more complete report, install the [Accessibility Insights Extension](https://accessibilityinsights.io/). One of the checks in the Fastpass report, is color contrast. You will get a detailed report of any failing elements.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1600 1600w" width="800" height="473" /></figure>Advanced Perceptual Contrast Algorithm (APCA) <a href="#advanced-perceptual-contrast-algorithm-(apca)" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/CR21TFMZw8gWsSTWOGIF.jpg?auto=format&amp;w=1600 1600w" width="800" height="473" /></figure>Advanced Perceptual Contrast Algorithm (APCA) <a href="#advanced-perceptual-contrast-algorithm-(apca)" class="w-headline-link">#</a>
 
 The [Advanced Perceptual Contrast Algorithm (APCA)](https://w3c.github.io/silver/guidelines/methods/Method-font-characteristic-contrast.html) is a new way to compute contrast based on modern research on color perception.
 
@@ -77,14 +68,13 @@ Compared to [AA](https://www.w3.org/WAI/WCAG21/quickref/#contrast-minimum)/[AAA]
 
 The contrast is calculated based on the following features:
 
--   Spatial properties (font weight and text size)
--   Text color (perceived lightness difference between text and background)
--   Context (ambient light, surroundings, and intended purpose of the text)
+- Spatial properties (font weight and text size)
+- Text color (perceived lightness difference between text and background)
+- Context (ambient light, surroundings, and intended purpose of the text)
 
 Chrome includes an [experimental feature to replace the AA/AAA contrast ratio guidelines with APCA](https://developers.google.com/web/updates/2021/01/devtools#apca).
 
-<figure><img src="https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1600 1600w" width="800" height="543" /></figure>Don't convey information with color alone <a href="#don&#39;t-convey-information-with-color-alone" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/YhGKRLYvt37j3ldlwiXE.png?auto=format&amp;w=1600 1600w" width="800" height="543" /></figure>Don't convey information with color alone <a href="#don&#39;t-convey-information-with-color-alone" class="w-headline-link">#</a>
 
 There are roughly 320 million people worldwide with color vision deficiency. About 1 in 12 men and 1 in 200 women have some form of "color blindness"; that means about 1/20th, or 5%, of your users will not experience your site the way you intended. When we rely on color to convey information, we push that number to unacceptable levels.
 
@@ -100,13 +90,12 @@ An easy way to fix the previous example is to add an additional message to the f
 
 If you're curious about how your site looks to different people, or if you rely heavily on the use of color in your UI, you can use DevTools to simulate various forms of visual impairment, including different types of color blindness. Chrome includes an [Emulate Vision Deficiencies feature](https://developers.google.com/web/updates/2020/03/devtools#vision-deficiencies). To access it open DevTools and then open the **Rendering** tab in the Drawer, you can then emulate the following color deficiencies.
 
--   Protanopia: the inability to perceive any red light.
--   Deuteranopia: the inability to perceive any green light.
--   Tritanopia: the inability to perceive any blue light.
--   Achromatopsia: the inability to perceive any color except for shades of grey (extremely rare).
+- Protanopia: the inability to perceive any red light.
+- Deuteranopia: the inability to perceive any green light.
+- Tritanopia: the inability to perceive any blue light.
+- Achromatopsia: the inability to perceive any color except for shades of grey (extremely rare).
 
-<figure><img src="https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format" class="w-screenshot--filled" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1600 1600w" width="800" height="393" /></figure>High contrast mode <a href="#high-contrast-mode" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format" class="w-screenshot--filled" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/VAnFxYhzFcpovdTCToPl.jpg?auto=format&amp;w=1600 1600w" width="800" height="393" /></figure>High contrast mode <a href="#high-contrast-mode" class="w-headline-link">#</a>
 
 High-contrast mode allows a user to invert foreground and background colors, which often helps text stand out better. For someone with a low vision impairment, high-contrast mode can make it much easier to navigate the content on the page. There are a few ways to get a high-contrast setup on your machine.
 
@@ -126,35 +115,35 @@ For example, a navigation bar might use a subtle background color to indicate wh
 
 <a href="/accessible" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

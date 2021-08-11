@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,35 +52,34 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#box-shadow" class="toc__anchor">Box shadow</a>
-    -   <a href="#multiple-shadows" class="toc__anchor">Multiple shadows</a>
-    -   <a href="#properties-affecting-box-shadow" class="toc__anchor">Properties affecting box-shadow</a>
--   <a href="#text-shadow" class="toc__anchor">Text shadow</a>
-    -   <a href="#multiple-shadows-2" class="toc__anchor">Multiple shadows</a>
--   <a href="#drop-shadow" class="toc__anchor">Drop shadow</a>
+- <a href="#box-shadow" class="toc__anchor">Box shadow</a>
+  - <a href="#multiple-shadows" class="toc__anchor">Multiple shadows</a>
+  - <a href="#properties-affecting-box-shadow" class="toc__anchor">Properties affecting box-shadow</a>
+- <a href="#text-shadow" class="toc__anchor">Text shadow</a>
+  - <a href="#multiple-shadows-2" class="toc__anchor">Multiple shadows</a>
+- <a href="#drop-shadow" class="toc__anchor">Drop shadow</a>
 
 016
 
-Shadows
-=======
+# Shadows
 
 There are a number of ways to add shadows to text and elements in CSS. In this module you'll learn how to use each option, and the tasks they were designed for.
 
 On this page
 
--   <a href="#box-shadow" class="toc__anchor">Box shadow</a>
-    -   <a href="#multiple-shadows" class="toc__anchor">Multiple shadows</a>
-    -   <a href="#properties-affecting-box-shadow" class="toc__anchor">Properties affecting box-shadow</a>
--   <a href="#text-shadow" class="toc__anchor">Text shadow</a>
-    -   <a href="#multiple-shadows-2" class="toc__anchor">Multiple shadows</a>
--   <a href="#drop-shadow" class="toc__anchor">Drop shadow</a>
+- <a href="#box-shadow" class="toc__anchor">Box shadow</a>
+  - <a href="#multiple-shadows" class="toc__anchor">Multiple shadows</a>
+  - <a href="#properties-affecting-box-shadow" class="toc__anchor">Properties affecting box-shadow</a>
+- <a href="#text-shadow" class="toc__anchor">Text shadow</a>
+  - <a href="#multiple-shadows-2" class="toc__anchor">Multiple shadows</a>
+- <a href="#drop-shadow" class="toc__anchor">Drop shadow</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -92,12 +89,11 @@ The CSS Podcast - 017: Shadows
 
 Say you've been sent a design to build and in that design there's a picture of a t-shirt, cut out, with a drop shadow. The designer tells you that the product image is dynamic and can be updated via the content management system, so the drop shadow needs to be dynamic too. Instead of a t-shirt, the image could be a visor or shorts, or any other item. How do you do that with CSS?
 
-CSS has the [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) and [`text-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow) properties, but the picture isn't text, so you can't use `text-shadow`. If you use `box-shadow`, the shadow is on the surrounding box, *not* around the t-shirt.
+CSS has the [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) and [`text-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow) properties, but the picture isn't text, so you can't use `text-shadow`. If you use `box-shadow`, the shadow is on the surrounding box, _not_ around the t-shirt.
 
-Luckily, there is another option: the [`drop-shadow()`](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow()) filter. This enables you to do exactly what the designer asked for. There are plenty of options when it comes to shadows in CSS, each designed for a different use case.
+Luckily, there is another option: the [`drop-shadow()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow()>) filter. This enables you to do exactly what the designer asked for. There are plenty of options when it comes to shadows in CSS, each designed for a different use case.
 
-Box shadow <a href="#box-shadow" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Box shadow <a href="#box-shadow" class="w-headline-link">#</a>
 
 The `box-shadow` property is for adding shadows to the box of an HTML element. It works on block elements and inline elements.
 
@@ -163,8 +159,7 @@ If your box with `box-shadow` is in a container that has `overflow: hidden`, the
       overflow: hidden;
     }
 
-Text shadow <a href="#text-shadow" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Text shadow <a href="#text-shadow" class="w-headline-link">#</a>
 
 The `text-shadow` property is very similar to the `box-shadow` property. It only works on text nodes.
 
@@ -191,8 +186,7 @@ You can add as many shadows as you like with `text-shadow`, just as with `box-sh
       color: darkslategray;
     }
 
-Drop shadow <a href="#drop-shadow" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Drop shadow <a href="#drop-shadow" class="w-headline-link">#</a>
 
 To achieve a drop shadow that follows any potential curves of an image, use the CSS `drop-shadow` filter. This shadow is applied to an alpha mask which makes it very useful for adding a shadow to a cutout image, as in the case in the intro of this module.
 
@@ -244,35 +238,35 @@ Focus
 
 Understand the importance of focus in your web applications. You'll find out how to manage focus, and how to make sure the path through your page works for people using a mouse, and those using the keyboard to navigate.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

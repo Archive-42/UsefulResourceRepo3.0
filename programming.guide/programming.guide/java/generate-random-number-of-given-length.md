@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Generating a random number of a certain length
-====================================================
+# Java: Generating a random number of a certain length
 
 To generate a random number with, for example 5 digits, you can do:
 
@@ -41,8 +37,7 @@ To generate a random number with, for example 5 digits, you can do:
 
 Since the upper bound given to [`nextInt`](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html#nextInt-int-) is exclusive, the maximum is indeed 99999.
 
-Generalized version
--------------------
+## Generalized version
 
     // Generates a random int with n digits
     public static int generateRandomDigits(int n) {
@@ -50,17 +45,15 @@ Generalized version
         return m + new Random().nextInt(9 * m);
     }
 
-**Warning:** The above method breaks for *n* &gt; 9, since 10<sup>9</sup> is the largest power of 10 that an int can store.
+**Warning:** The above method breaks for _n_ &gt; 9, since 10<sup>9</sup> is the largest power of 10 that an int can store.
 
-More than 9 digits
-------------------
+## More than 9 digits
 
 You can adapt the above method to work with `long`. This would get you up to 18 digits.
 
 Alternatively you can work with strings. See this article: [Generating a random String (password, booking reference, etc)](generating-a-random-string.html). The resulting string can be converted to a `BigDecimal` if needed.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

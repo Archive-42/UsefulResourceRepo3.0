@@ -1,36 +1,24 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format" alt="Phone outline with loading image and assets" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/dMCW2Qqi5Qp2DB3w4DyE.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#it&#39;s-time-to-lazy-load-offscreen-iframes!" class="w-toc__header--link">It's time to lazy-load offscreen iframes!</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## <a href="#it&#39;s-time-to-lazy-load-offscreen-iframes!" class="w-toc__header--link">It's time to lazy-load offscreen iframes!</a>
 
--   [Why should we lazy-load iframes?](#why-should-we-lazy-load-iframes)
--   [How does built-in lazy-loading for iframes work?](#how-does-built-in-lazy-loading-for-iframes-work)
--   [What impact might we see from lazy-loading popular iframe embeds?](#what-impact-might-we-see-from-lazy-loading-popular-iframe-embeds)
--   [Case study: Lazy-loading the Facebook's social plugins](#case-study:-lazy-loading-the-facebook's-social-plugins)
--   [Wait, can't browsers just automatically lazy-load offscreen iframes?](#wait-can't-browsers-just-automatically-lazy-load-offscreen-iframes)
--   [Can I lazy-load iframes cross-browser? Yes](#can-i-lazy-load-iframes-cross-browser-yes)
--   [An option for WordPress users](#wordpress)
--   [Conclusion](#conclusion)
+- [Why should we lazy-load iframes?](#why-should-we-lazy-load-iframes)
+- [How does built-in lazy-loading for iframes work?](#how-does-built-in-lazy-loading-for-iframes-work)
+- [What impact might we see from lazy-loading popular iframe embeds?](#what-impact-might-we-see-from-lazy-loading-popular-iframe-embeds)
+- [Case study: Lazy-loading the Facebook's social plugins](#case-study:-lazy-loading-the-facebook's-social-plugins)
+- [Wait, can't browsers just automatically lazy-load offscreen iframes?](#wait-can't-browsers-just-automatically-lazy-load-offscreen-iframes)
+- [Can I lazy-load iframes cross-browser? Yes](#can-i-lazy-load-iframes-cross-browser-yes)
+- [An option for WordPress users](#wordpress)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-It's time to lazy-load offscreen iframes!
-=========================================
+# It's time to lazy-load offscreen iframes!
 
 Browser-level built-in lazy-loading for iframes is here
 
@@ -40,8 +28,8 @@ Jul 24, 2020
 
 <a href="/authors/addyosmani/" class="w-author__name-link">Addy Osmani</a>
 
--   <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
--   <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
+- <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
 
 [Standardized lazy-loading for images](/browser-level-image-lazy-loading/) landed in Chrome 76 via the `loading` attribute and later came to Firefox. We are happy to share that **browser-level lazy-loading for iframes** is now [standardized](https://github.com/whatwg/html/pull/5579) and is also supported in Chrome and Chromium-based browsers.
 
@@ -64,9 +52,9 @@ Third-party embeds cover a wide range of use cases, from video players, to socia
 
 The `loading` attribute allows a browser to defer loading offscreen iframes and images until users scroll near them. `loading` supports three values:
 
--   `lazy`: is a good candidate for lazy-loading.
--   `eager`: is not a good candidate for lazy-loading. Load right away.
--   `auto`: browser will determine whether or not to lazily load.
+- `lazy`: is a good candidate for lazy-loading.
+- `eager`: is not a good candidate for lazy-loading. Load right away.
+- `auto`: browser will determine whether or not to lazily load.
 
 `auto` is currently a non-standard value, but is the default in Chrome today. Chrome intends on bringing a proposal for this value to the standards table.
 
@@ -92,7 +80,7 @@ Using the `loading` attribute on iframes works as follows:
 
 Not specifying the attribute at all will have the same impact as explicitly eagerly loading the resource, except for [Lite Mode](https://blog.chromium.org/2019/04/data-saver-is-now-lite-mode.html) users, where Chrome will use the `auto` value to decide whether it should be lazy-loaded.
 
-If you need to *dynamically* create iframes via JavaScript, setting `iframe.loading = 'lazy'` on the element is also [supported](https://bugs.chromium.org/p/chromium/issues/detail?id=993273):
+If you need to _dynamically_ create iframes via JavaScript, setting `iframe.loading = 'lazy'` on the element is also [supported](https://bugs.chromium.org/p/chromium/issues/detail?id=993273):
 
     var iframe = document.createElement('iframe');
     iframe.src = 'https://example.com';
@@ -103,10 +91,10 @@ If you need to *dynamically* create iframes via JavaScript, setting `iframe.load
 
 The loading attribute affects iframes differently than images, depending on whether the iframe is hidden. (Hidden iframes are often used for analytics or communication purposes.) Chrome uses the following criteria to determine whether an iframe is hidden:
 
--   The iframe's width and height are `4px` or smaller.
--   `display: none` or `visibility: hidden` is applied.
--   The iframe is placed off-screen using negative X or Y positioning.
--   This criteria applies to both `loading=lazy` and `loading=auto`.
+- The iframe's width and height are `4px` or smaller.
+- `display: none` or `visibility: hidden` is applied.
+- The iframe is placed off-screen using negative X or Y positioning.
+- This criteria applies to both `loading=lazy` and `loading=auto`.
 
 If an iframe meets any of these conditions, Chrome considers it hidden and won't lazy-load it in most cases. iframes that aren't hidden will only load when they're within the [load-in distance threshold](/browser-level-image-lazy-loading/#load-in-distance-threshold). Chrome shows a placeholder for lazy-loaded iframes that are still being fetched.
 
@@ -148,7 +136,7 @@ Although the above embeds illustrate the potential benefits to lazy-loading ifra
 
 ### Case study: Lazy-loading the Facebook's social plugins <a href="#case-study:-lazy-loading-the-facebook&#39;s-social-plugins" class="w-headline-link">#</a>
 
-Facebook's *social plugins* allow developers to embed Facebook content in their web pages. There's a number of these plugins offered, such as embedded posts, photos, videos, comments… The most popular is the [Like plugin](https://developers.facebook.com/docs/plugins/like-button/) - a button that shows a count of who has "liked" the page. By default, embedding the Like plugin in a webpage (using the FB JSSDK) pulls in ~215KB of resources, 197KB of which is JavaScript. In many cases, the plugin may appear at the end of an article or near the end of a page, so loading it eagerly when it's offscreen may be suboptimal.
+Facebook's _social plugins_ allow developers to embed Facebook content in their web pages. There's a number of these plugins offered, such as embedded posts, photos, videos, comments… The most popular is the [Like plugin](https://developers.facebook.com/docs/plugins/like-button/) - a button that shows a count of who has "liked" the page. By default, embedding the Like plugin in a webpage (using the FB JSSDK) pulls in ~215KB of resources, 197KB of which is JavaScript. In many cases, the plugin may appear at the end of an article or near the end of a page, so loading it eagerly when it's offscreen may be suboptimal.
 
 <figure><img src="https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/fdy8o61jxPN560IkF2Ne.png?auto=format&amp;w=1600 1600w" width="800" height="71" /></figure>Thanks to engineer Stoyan Stefanov, [all of Facebook's social plugins now support standardized iframe lazy-loading](https://developers.facebook.com/docs/plugins/like-button#settings). Developers who opt in to lazy-loading via the plugins' `data-lazy` configuration will now be able to avoid it loading until the user scrolls nearby. This enables the embed to still fully function for users that need it, while offering data-savings for those who are not scrolling all the way down a page. We are hopeful this is the first of many embeds to explore standardized iframe lazy-loading in production.
 
@@ -166,8 +154,8 @@ iframe lazy-loading can be applied as a progressive enhancement. Browsers which 
 
 It is also possible to lazy-load offscreen iframes using the [lazysizes](/use-lazysizes-to-lazyload-images/) JavaScript library. This may be desirable if you:
 
--   require more custom lazy-loading thresholds than what standardized lazy-loading currently offers
--   wish to offer users a consistent iframe lazy-loading experience across browsers
+- require more custom lazy-loading thresholds than what standardized lazy-loading currently offers
+- wish to offer users a consistent iframe lazy-loading experience across browsers
 
 <!-- -->
 
@@ -235,7 +223,7 @@ Baking in standardized support for lazy-loading iframes makes it significantly e
 
 And, in case you missed it, check out web.dev's [image and video lazy-loading collection](/fast/#lazy-load-images-and-video) for more lazy-loading ideas.
 
-*With thanks to Dom Farolino, Scott Little, Houssein Djirdeh, Simon Pieters, Kayce Basques, Joe Medley and Stoyan Stefanov for their reviews.*
+_With thanks to Dom Farolino, Scott Little, Houssein Djirdeh, Simon Pieters, Kayce Basques, Joe Medley and Stoyan Stefanov for their reviews._
 
 <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/memory/" class="w-chip">Memory</a>
 
@@ -243,35 +231,35 @@ And, in case you missed it, check out web.dev's [image and video lazy-loading co
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

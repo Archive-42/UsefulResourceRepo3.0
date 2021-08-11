@@ -1,40 +1,30 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format" alt="The hands of a person playing the Chrome dino game on a game console." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/nnmBquEmUtTIh89pkhvp.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#play-the-chrome-dino-game-with-your-gamepad" class="w-toc__header--link">Play the Chrome dino game with your gamepad</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## <a href="#play-the-chrome-dino-game-with-your-gamepad" class="w-toc__header--link">Play the Chrome dino game with your gamepad</a>
 
--   [Using the Gamepad API](#using-the-gamepad-api)
--   [Feature detection and browser support](#feature-detection-and-browser-support)
--   [How the browser represents a gamepad](#how-the-browser-represents-a-gamepad)
--   [Being notified when a gamepad gets connected](#being-notified-when-a-gamepad-gets-connected)
--   [Being notified when a gamepad gets disconnected](#being-notified-when-a-gamepad-gets-disconnected)
--   [The gamepad in your game loop](#the-gamepad-in-your-game-loop)
--   [Making use of the vibration actuator](#making-use-of-the-vibration-actuator)
--   [Integration with Permissions Policy](#integration-with-permissions-policy)
--   [Demo](#demo)
--   [Bonus: play Chrome dino on web.dev](#bonus:-play-chrome-dino-on-web.dev)
--   [Useful links](#useful-links)
--   [Acknowledgements](#acknowledgements)
+- [Using the Gamepad API](#using-the-gamepad-api)
+- [Feature detection and browser support](#feature-detection-and-browser-support)
+- [How the browser represents a gamepad](#how-the-browser-represents-a-gamepad)
+- [Being notified when a gamepad gets connected](#being-notified-when-a-gamepad-gets-connected)
+- [Being notified when a gamepad gets disconnected](#being-notified-when-a-gamepad-gets-disconnected)
+- [The gamepad in your game loop](#the-gamepad-in-your-game-loop)
+- [Making use of the vibration actuator](#making-use-of-the-vibration-actuator)
+- [Integration with Permissions Policy](#integration-with-permissions-policy)
+- [Demo](#demo)
+- [Bonus: play Chrome dino on web.dev](#bonus:-play-chrome-dino-on-web.dev)
+- [Useful links](#useful-links)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Play the Chrome dino game with your gamepad
-===========================================
+# Play the Chrome dino game with your gamepad
 
 Learn how to use the Gamepad API to push your web games to the next level.
 
@@ -44,17 +34,16 @@ Nov 3, 2020 <span class="w-author__separator">•</span> Updated Nov 4, 2020
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 Chrome's offline page easter egg is one of the worst-kept secrets in history (`[citation needed]`, but claim made for the dramatic effect). If you press the space key or, on mobile devices, tap the dinosaur, the offline page becomes a playable arcade game. You might be aware that you do not actually have to go offline when you feel like playing: in Chrome, you can just navigate to `about://dino`, or, for the geek in you, browse to `about://network-error/-106`. But did you know that there are currently [270 million Chrome dino games played every month](https://www.blog.google/products/chrome/chrome-dino#jump-content:~:text=There%20are%20currently%20270%20million%20games%20played%20every%20month)?
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format" alt="Press the space bar to play!" class="w-screenshot w-screenshot--filled" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/BQ9zVNGfI0PjH6LTwxj5.png?auto=format&amp;w=1600 1600w" width="800" height="647" /><figcaption>Press the space bar to play!</figcaption></figure>Another fact that arguably is more useful to know and that you might not be aware of is that in arcade mode you can play the game with a gamepad. Gamepad support was added roughly one year ago as of the time of this writing in a [commit](https://github.com/chromium/chromium/commit/fcafd36b23c535e307da4213b7d639f8c13b8da2) by [Reilly Grant](https://github.com/reillyeon). As you can see, the game, just like the rest of the Chromium project, is fully [open source](https://github.com/chromium/chromium/tree/master/components/neterror/resources). In this post, I want to show you how to use the Gamepad API.
 
-Using the Gamepad API <a href="#using-the-gamepad-api" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Using the Gamepad API <a href="#using-the-gamepad-api" class="w-headline-link">#</a>
 
 The [Gamepad API](https://w3c.github.io/gamepad/) has been around for a long time. This post disregards all the legacy features and vendor prefixes.
 
@@ -70,19 +59,19 @@ The Gamepad API has universally great [browser support](https://caniuse.com/game
 
 The browser represents gamepads as `Gamepad` objects. A `Gamepad` has the following fields:
 
--   `id`: An identification string for the gamepad. This string identifies the brand or style of connected gamepad device.
--   `index`: The index of the gamepad in the navigator.
--   `connected`: Indicates whether the gamepad is still connected to the system.
--   `timestamp`: The last time the data for this gamepad was updated.
--   `mapping`: The button and axes mapping in use for this device. Currently the only mapping is `"standard"`.
--   `axes`: An array of values for all axes of the gamepad, linearly normalized to the range of `-1.0`–`1.0`.
--   `buttons`: An array of button states for all buttons of the gamepad.
+- `id`: An identification string for the gamepad. This string identifies the brand or style of connected gamepad device.
+- `index`: The index of the gamepad in the navigator.
+- `connected`: Indicates whether the gamepad is still connected to the system.
+- `timestamp`: The last time the data for this gamepad was updated.
+- `mapping`: The button and axes mapping in use for this device. Currently the only mapping is `"standard"`.
+- `axes`: An array of values for all axes of the gamepad, linearly normalized to the range of `-1.0`–`1.0`.
+- `buttons`: An array of button states for all buttons of the gamepad.
 
 Note that buttons can be digital (pressed or not pressed) or analog (for example, 78% pressed). This is why buttons are reported as `GamepadButton` objects, with the following attributes:
 
--   `pressed`: The pressed state of the button (`true` if the button is currently pressed, and `false` if it is not pressed.
--   `touched`: The touched state of the button. If the button is capable of detecting touch, this property is `true` if the button is currently being touched, and `false` otherwise.
--   `value`: For buttons that have an analog sensor, this property represents the amount by which the button has been pressed, linearly normalized to the range of `0.0`–`1.0`.
+- `pressed`: The pressed state of the button (`true` if the button is currently pressed, and `false` if it is not pressed.
+- `touched`: The touched state of the button. If the button is capable of detecting touch, this property is `true` if the button is currently being touched, and `false` otherwise.
+- `value`: For buttons that have an analog sensor, this property represents the amount by which the button has been pressed, linearly normalized to the range of `0.0`–`1.0`.
 
 One additional thing that you might encounter, depending on your browser and the gamepad you have, is a `vibrationActuator` property. This field is currently implemented in Chrome and earmarked for [merging](https://github.com/w3c/gamepad/pull/68) into the [Gamepad Extensions](https://w3c.github.io/gamepad/extensions.html) spec.
 
@@ -128,7 +117,7 @@ Being notified of gamepad disconnects happens analogously to the way connections
 
 ### The gamepad in your game loop <a href="#the-gamepad-in-your-game-loop" class="w-headline-link">#</a>
 
-Getting a hold of a gamepad starts with a call to `navigator.getGamepads()`, which returns a `GamepadList` object with `Gamepad` items. The `GamepadList` object in Chrome *always* has a fixed length of four items. If zero or less than four gamepads are connected, an item may just be `null`. Always be sure to check all items of the `GamepadList` and be aware that gamepads "remember" their slot and may not always be present at the first available slot.
+Getting a hold of a gamepad starts with a call to `navigator.getGamepads()`, which returns a `GamepadList` object with `Gamepad` items. The `GamepadList` object in Chrome _always_ has a fixed length of four items. If zero or less than four gamepads are connected, an item may just be `null`. Always be sure to check all items of the `GamepadList` and be aware that gamepads "remember" their slot and may not always be present at the first available slot.
 
     // When no gamepads are connected:
     navigator.getGamepads();
@@ -157,15 +146,15 @@ If one or several gamepads are connected, but `navigator.getGamepads()` still re
 
 **Gotchas!**
 
-Do not store a lasting reference to the `GamepadList` result *outside* of the game loop, since the method returns a static snapshot, not a live object. Call `navigator.getGamepads()` each time anew *in your game loop*.
+Do not store a lasting reference to the `GamepadList` result _outside_ of the game loop, since the method returns a static snapshot, not a live object. Call `navigator.getGamepads()` each time anew _in your game loop_.
 
 ### Making use of the vibration actuator <a href="#making-use-of-the-vibration-actuator" class="w-headline-link">#</a>
 
 The `vibrationActuator` property returns a `GamepadHapticActuator` object, which corresponds to a configuration of motors or other actuators that can apply a force for the purposes of haptic feedback. Haptic effects can be played by calling `Gamepad.vibrationActuator.playEffect()`. The only currently valid effect type is `'dual-rumble'`. Dual-rumble describes a haptic configuration with an eccentric rotating mass vibration motor in each handle of a standard gamepad. In this configuration, either motor is capable of vibrating the whole gamepad. The two masses are unequal so that the effects of each can be combined to create more complex haptic effects. Dual-rumble effects are defined by four parameters:
 
--   `duration`: Sets the duration of the vibration effect in milliseconds.
--   `startDelay`: Sets the duration of the delay until the vibration is started.
--   `strongMagnitude` and `weakMagnitude`: Set the vibration intensity levels for the heavier and lighter eccentric rotating mass motors, normalized to the range `0.0`–`1.0`.
+- `duration`: Sets the duration of the vibration effect in milliseconds.
+- `startDelay`: Sets the duration of the delay until the vibration is started.
+- `strongMagnitude` and `weakMagnitude`: Set the vibration intensity levels for the heavier and lighter eccentric rotating mass motors, normalized to the range `0.0`–`1.0`.
 
 <!-- -->
 
@@ -192,27 +181,23 @@ The Gamepad API spec defines a [policy-controlled feature](https://w3c.github.io
 
     <iframe src="index.html" allow="gamepad"></iframe>
 
-Demo <a href="#demo" class="w-headline-link">#</a>
---------------------------------------------------
+## Demo <a href="#demo" class="w-headline-link">#</a>
 
 A simple [gamepad tester demo](https://gamepad-demo.glitch.me/) is embedded below. The source code is available [on Glitch](https://glitch.com/edit/#!/gamepad-demo). Try the demo by connecting a gamepad via USB or Bluetooth and pressing any of its buttons or moving any of its axis.
 
-Bonus: play Chrome dino on web.dev <a href="#bonus:-play-chrome-dino-on-web.dev" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## Bonus: play Chrome dino on web.dev <a href="#bonus:-play-chrome-dino-on-web.dev" class="w-headline-link">#</a>
 
 You can play [Chrome dino](https://tomayac.github.io/chrome-dino-gamepad/) with your gamepad on this very site. The source code is available [on GitHub](https://github.com/tomayac/chrome-dino-gamepad). Check out the gamepad polling implementation in [`trex-runner.js`](https://github.com/tomayac/chrome-dino-gamepad/blob/885eb6134805345bf31eeb9971830adeb84747ab/trex-runner.js#L529-L571) and note how it is emulating key presses.
 
 For the [Chrome dino gamepad](https://tomayac.github.io/chrome-dino-gamepad/) demo to work, I have ripped out the Chrome dino game from the core Chromium project (updating an [earlier effort](https://github.com/arnellebalane/trex-runner) by [Arnelle Ballane](https://arnellebalane.com/)), placed it on a standalone site, extended the existing gamepad API implementation by adding ducking and vibration effects, created a full screen mode, and [Mehul Satardekar](https://github.com/mehulsatardekar) contributed a dark mode implementation. Happy gaming!
 
-Useful links <a href="#useful-links" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Useful links <a href="#useful-links" class="w-headline-link">#</a>
 
--   [Gamepad API spec](https://w3c.github.io/gamepad/)
--   [Gamepad API extensions spec](https://w3c.github.io/gamepad/extensions.html)
--   [GitHub repository](https://github.com/w3c/gamepad/)
+- [Gamepad API spec](https://w3c.github.io/gamepad/)
+- [Gamepad API extensions spec](https://w3c.github.io/gamepad/extensions.html)
+- [GitHub repository](https://github.com/w3c/gamepad/)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [François Beaufort](https://github.com/beaufortfrancois) and [Joe Medley](https://github.com/jpmedley). The Gamepad API spec is currently edited by [Steve Agoston](https://github.com/sagoston), [James Hollyer](https://www.linkedin.com/in/james-hollyer-981110a3/), and [Matt Reynolds](https://github.com/nondebug). The former spec editors are [Brandon Jones](https://blog.tojicode.com/), [Scott Graham](https://h4ck3r.net/), and [Ted Mielczarek](http://ted.mielczarek.org/). The Gamepad Extensions spec is edited by [Brandon Jones](https://blog.tojicode.com/). Hero image by Laura Torrent Puig.
 
@@ -222,35 +207,35 @@ This article was reviewed by [François Beaufort](https://github.com/beaufortfra
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

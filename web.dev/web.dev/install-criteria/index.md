@@ -1,24 +1,12 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
+## <a href="#what-does-it-take-to-be-installable" class="w-toc__header--link">What does it take to be installable?</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#what-does-it-take-to-be-installable" class="w-toc__header--link">What does it take to be installable?</a>
--------------------------------------------------------------------------------------------------------------------
-
--   [Install criteria](#criteria)
+- [Install criteria](#criteria)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-What does it take to be installable?
-====================================
+# What does it take to be installable?
 
 Feb 14, 2020 <span class="w-author__separator">•</span> Updated May 19, 2021
 
@@ -28,10 +16,10 @@ Feb 14, 2020 <span class="w-author__separator">•</span> Updated May 19, 2021
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
 Progressive Web Apps (PWAs) are modern, high quality applications built using web technology. PWAs offer similar capabilities to iOS/Android/desktop apps, they are reliable even in unstable network conditions, and are installable making it easier for users to find and use them.
 
@@ -43,29 +31,28 @@ Most browsers indicate to the user that your Progressive Web App (PWA) is instal
 
 In addition, when the criteria is met, many browsers will fire a `beforeinstallprompt` event, allowing you to provide a custom in-app UX that that will trigger the install flow within your app.
 
-Install criteria <a href="#criteria" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Install criteria <a href="#criteria" class="w-headline-link">#</a>
 
 In Chrome, your Progressive Web App must meet the following criteria before it will fire the `beforeinstallprompt` event and show the in-browser install promotion:
 
--   The web app is not already installed
--   Meets a user engagement heuristic
--   Be served over HTTPS
--   Includes a [web app manifest](/add-manifest/) that includes:
-    -   `short_name` or `name`
-    -   `icons` - must include a 192px and a 512px icon
-    -   `start_url`
-    -   `display` - must be one of `fullscreen`, `standalone`, or `minimal-ui`
-    -   `prefer_related_applications` must not be present, or be `false`
--   Registers a service worker with a `fetch` handler
+- The web app is not already installed
+- Meets a user engagement heuristic
+- Be served over HTTPS
+- Includes a [web app manifest](/add-manifest/) that includes:
+  - `short_name` or `name`
+  - `icons` - must include a 192px and a 512px icon
+  - `start_url`
+  - `display` - must be one of `fullscreen`, `standalone`, or `minimal-ui`
+  - `prefer_related_applications` must not be present, or be `false`
+- Registers a service worker with a `fetch` handler
 
 Other browsers have similar criteria for installation, though there may be minor differences. Check the respective sites for full details:
 
--   [Edge](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps#requirements)
--   [Firefox](https://developer.mozilla.org/en-US/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready)
--   [Opera](https://dev.opera.com/articles/installable-web-apps/)
--   [Samsung Internet](https://hub.samsunginter.net/docs/ambient-badging/)
--   [UC Browser](https://plus.ucweb.com/docs/pwa/docs-en/zvrh56)
+- [Edge](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps#requirements)
+- [Firefox](https://developer.mozilla.org/en-US/Apps/Progressive/Add_to_home_screen#How_do_you_make_an_app_A2HS-ready)
+- [Opera](https://dev.opera.com/articles/installable-web-apps/)
+- [Samsung Internet](https://hub.samsunginter.net/docs/ambient-badging/)
+- [UC Browser](https://plus.ucweb.com/docs/pwa/docs-en/zvrh56)
 
 On Android, if the web app manifest includes `related_applications` and `"prefer_related_applications": true`, the user will be directed to the Google Play store and [prompted to install the specified Android app](https://developers.google.com/web/fundamentals/app-install-banners/native) instead.
 
@@ -75,35 +62,35 @@ On Android, if the web app manifest includes `related_applications` and `"prefer
 
 <a href="/progressive-web-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

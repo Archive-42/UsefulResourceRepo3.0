@@ -1,21 +1,14 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
 <img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format" alt="Una Kravets" class="w-author-page__image" sizes="(min-width: 481px) 192px, 128px" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=128 128w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=146 146w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=166 166w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=190 190w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=216 216w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=246 246w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=281 281w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=320 320w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=365 365w, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;w=384 384w" width="192" height="192" />
 
-Una Kravets
-===========
+# Una Kravets
 
 Developer Advocate for CSS, UI & DevTools at Chrome
 
@@ -27,8 +20,7 @@ Developer Advocate for CSS, UI & DevTools at Chrome
 
 <a href="/css-web-vitals/" class="w-card-base__link"></a>
 
-CSS for Web Vitals
-------------------
+## CSS for Web Vitals
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -50,8 +42,7 @@ CSS-related techniques for optimizing Web Vitals
 
 <a href="/new-responsive/" class="w-card-base__link"></a>
 
-The new responsive: Web design in a component-driven world
-----------------------------------------------------------
+## The new responsive: Web design in a component-driven world
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -71,8 +62,7 @@ Controlling macro and micro layout in a new era of responsive web design.
 
 <a href="/aspect-ratio/" class="w-card-base__link"></a>
 
-New aspect-ratio CSS property supported in Chromium, Safari Technology Preview, and Firefox Nightly
----------------------------------------------------------------------------------------------------
+## New aspect-ratio CSS property supported in Chromium, Safari Technology Preview, and Firefox Nightly
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -92,8 +82,7 @@ The new CSS property that helps maintain spacing in responsive layouts.
 
 <a href="/houdini-how/" class="w-card-base__link"></a>
 
-Cross-browser paint worklets and Houdini.how
---------------------------------------------
+## Cross-browser paint worklets and Houdini.how
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -113,8 +102,7 @@ Supercharging your CSS with Houdini paint worklets is just a few clicks away.
 
 <a href="/min-max-clamp/" class="w-card-base__link"></a>
 
-min(), max(), and clamp(): three logical CSS functions to use today
--------------------------------------------------------------------
+## min(), max(), and clamp(): three logical CSS functions to use today
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -134,8 +122,7 @@ Learn how to control element sizing, maintain proper spacing, and implement flui
 
 <a href="/content-visibility/" class="w-card-base__link"></a>
 
-\`content-visibility\`: the new CSS property that boosts your rendering performance
------------------------------------------------------------------------------------
+## \`content-visibility\`: the new CSS property that boosts your rendering performance
 
 [<img src="https://web-dev.imgix.net/image/admin/dmYne3aSCS1fj5ZfL8If.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Vladimir Levin" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/dmYne3aSCS1fj5ZfL8If.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/dmYne3aSCS1fj5ZfL8If.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/dmYne3aSCS1fj5ZfL8If.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/dmYne3aSCS1fj5ZfL8If.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/dmYne3aSCS1fj5ZfL8If.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/vladimirlevin/)
 
@@ -157,8 +144,7 @@ Improve initial load time by skipping the rendering of offscreen content.
 
 <a href="/at-property/" class="w-card-base__link"></a>
 
-@property: giving superpowers to CSS variables
-----------------------------------------------
+## @property: giving superpowers to CSS variables
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -178,8 +164,7 @@ The Houdini Properties and Values API is coming to your CSS file in Chromium 85.
 
 <a href="/one-line-layouts/" class="w-card-base__link"></a>
 
-Ten modern layouts in one line of CSS
--------------------------------------
+## Ten modern layouts in one line of CSS
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -199,8 +184,7 @@ This post highlights a few powerful lines of CSS that do some serious heavy lift
 
 <a href="/web-animations/" class="w-card-base__link"></a>
 
-Web Animations API improvements in Chromium 84
-----------------------------------------------
+## Web Animations API improvements in Chromium 84
 
 [<img src="https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Kevin Ellis" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/kevinellis/)
 
@@ -222,8 +206,7 @@ Orchestrating animations with promises, performance improvements with replaceabl
 
 <a href="/next-gen-css-2019/" class="w-card-base__link"></a>
 
-Next-generation web styling
----------------------------
+## Next-generation web styling
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Una Kravets" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/una/)
 
@@ -243,35 +226,35 @@ Get up to date on some of the exciting features in modern CSS.
 
 <a href="/authors" class="w-button">See more Authors</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

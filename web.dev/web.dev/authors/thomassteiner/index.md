@@ -1,21 +1,14 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
 <img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format" alt="Thomas Steiner" class="w-author-page__image" sizes="(min-width: 481px) 192px, 128px" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=128 128w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=146 146w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=166 166w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=190 190w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=216 216w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=246 246w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=281 281w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=320 320w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=365 365w, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;w=384 384w" width="192" height="192" />
 
-Thomas Steiner
-==============
+# Thomas Steiner
 
 Tom is a Developer Advocate
 
@@ -27,8 +20,7 @@ Tom is a Developer Advocate
 
 <a href="/user-preference-media-features-headers/" class="w-card-base__link"></a>
 
-User preference media features client hints headers
----------------------------------------------------
+## User preference media features client hints headers
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -50,8 +42,7 @@ The \`Sec-CH-Prefers-Color-Scheme\` client hint header allows sites to obtain th
 
 <a href="/storage-foundation/" class="w-card-base__link"></a>
 
-High performance storage for your app: the Storage Foundation API
------------------------------------------------------------------
+## High performance storage for your app: the Storage Foundation API
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -71,8 +62,7 @@ The Storage Foundation API resembles a basic file system, with direct access to 
 
 <a href="/pwa-url-handler/" class="w-card-base__link"></a>
 
-PWAs as URL Handlers
---------------------
+## PWAs as URL Handlers
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -92,8 +82,7 @@ Let installed PWAs handle URLs for a more integrated experience.
 
 <a href="/declarative-link-capturing/" class="w-card-base__link"></a>
 
-Choose how in-scope links open your PWA with Declarative Link Capturing
------------------------------------------------------------------------
+## Choose how in-scope links open your PWA with Declarative Link Capturing
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -103,7 +92,7 @@ Updated: Jun 18, 2021
 
 <a href="/declarative-link-capturing/" class="w-card-base__link"></a>
 
-Declarative Link Capturing is a proposal for a web app manifest property called \`"capture\_links"\` that lets developers determine declaratively what should happen when the browser navigates to a URL that is within the application's navigation scope, from a context outside of the navigation scope.
+Declarative Link Capturing is a proposal for a web app manifest property called \`"capture_links"\` that lets developers determine declaratively what should happen when the browser navigates to a URL that is within the application's navigation scope, from a context outside of the navigation scope.
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a> <a href="/tags/web-app-manifest/" class="w-chip">Web App Manifest</a> <a href="/tags/capabilities/" class="w-chip">Capabilities</a>
 
@@ -113,8 +102,7 @@ Declarative Link Capturing is a proposal for a web app manifest property called 
 
 <a href="/excalidraw-and-fugu/" class="w-card-base__link"></a>
 
-Excalidraw and Fugu: Improving Core User Journeys
--------------------------------------------------
+## Excalidraw and Fugu: Improving Core User Journeys
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -134,8 +122,7 @@ Any sufficiently advanced technology is indistinguishable from magic. Unless you
 
 <a href="/handwriting-recognition/" class="w-card-base__link"></a>
 
-Recognize your users' handwriting
----------------------------------
+## Recognize your users' handwriting
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -157,8 +144,7 @@ The Handwriting Recognition API allows you to recognize text from handwritten in
 
 <a href="/url-protocol-handler/" class="w-card-base__link"></a>
 
-URL protocol handler registration for PWAs
-------------------------------------------
+## URL protocol handler registration for PWAs
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -178,8 +164,7 @@ Let installed PWAs handle links that use a specific protocol for a more integrat
 
 <a href="/mediastreamtrack-insertable-media-processing/" class="w-card-base__link"></a>
 
-Insertable streams for MediaStreamTrack
----------------------------------------
+## Insertable streams for MediaStreamTrack
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -199,8 +184,7 @@ The content of a \`MediaStreamTrack\` is exposed as a stream that can be manipul
 
 <a href="/window-controls-overlay/" class="w-card-base__link"></a>
 
-Customize the window controls overlay of your PWA's title bar
--------------------------------------------------------------
+## Customize the window controls overlay of your PWA's title bar
 
 [<img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Amanda Baker" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/amandabaker/)
 
@@ -222,8 +206,7 @@ Make use of the title bar area next to the window controls to make your PWA feel
 
 <a href="/datatransfer/" class="w-card-base__link"></a>
 
-Breaking down barriers using the DataTransfer API
--------------------------------------------------
+## Breaking down barriers using the DataTransfer API
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -245,8 +228,7 @@ Enable the user to share data beyond the browser window.
 
 <a href="/mainline-mensware/" class="w-card-base__link"></a>
 
-Mainline Menswear implements PWA and sees a 55% conversion rate uplift
-----------------------------------------------------------------------
+## Mainline Menswear implements PWA and sees a 55% conversion rate uplift
 
 <span class="w-author__name"><a href="/authors/charistheodoulou/" class="w-author__name-link">Charis Theodoulou</a>, <a href="/authors/natashakosoglov/" class="w-author__name-link">Natasha Kosoglov</a>, <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a></span>
 
@@ -256,8 +238,7 @@ Updated: May 19, 2021
 
 <a href="/mini-app-conclusion/" class="w-card-base__link"></a>
 
-Concluding thoughts about mini apps from a web developer
---------------------------------------------------------
+## Concluding thoughts about mini apps from a web developer
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -269,8 +250,7 @@ Updated: Jun 12, 2021
 
 <a href="/mini-app-components/" class="w-card-base__link"></a>
 
-Mini app components
--------------------
+## Mini app components
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -282,8 +262,7 @@ Updated: Mar 17, 2021
 
 <a href="/mini-app-about/" class="w-card-base__link"></a>
 
-What are mini apps?
--------------------
+## What are mini apps?
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -295,8 +274,7 @@ Mar 3, 2021
 
 <a href="/mini-app-alternative-runtime-environments/" class="w-card-base__link"></a>
 
-Other mini app runtime environments
------------------------------------
+## Other mini app runtime environments
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -308,8 +286,7 @@ Mar 3, 2021
 
 <a href="/mini-app-devtools/" class="w-card-base__link"></a>
 
-Mini app DevTools
------------------
+## Mini app DevTools
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -321,8 +298,7 @@ Mar 3, 2021
 
 <a href="/mini-app-example-project/" class="w-card-base__link"></a>
 
-Applying the mini app programming principles to an example project
-------------------------------------------------------------------
+## Applying the mini app programming principles to an example project
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -334,8 +310,7 @@ Mar 3, 2021
 
 <a href="/mini-app-markup-styling-and-scripting/" class="w-card-base__link"></a>
 
-Mini app markup, styling, and scripting
----------------------------------------
+## Mini app markup, styling, and scripting
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -347,8 +322,7 @@ Mar 3, 2021
 
 <a href="/mini-app-open-source-projects/" class="w-card-base__link"></a>
 
-Mini app open source projects
------------------------------
+## Mini app open source projects
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -360,8 +334,7 @@ Mar 3, 2021
 
 <a href="/mini-app-programming-way/" class="w-card-base__link"></a>
 
-Programming the mini app way
-----------------------------
+## Programming the mini app way
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -373,8 +346,7 @@ Mar 3, 2021
 
 <a href="/mini-app-project-structure-lifecycle-and-bundling/" class="w-card-base__link"></a>
 
-Project structure, lifecycle, and bundling
-------------------------------------------
+## Project structure, lifecycle, and bundling
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -386,8 +358,7 @@ Mar 3, 2021
 
 <a href="/mini-app-standardization/" class="w-card-base__link"></a>
 
-Mini app standardization
-------------------------
+## Mini app standardization
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -399,8 +370,7 @@ Mar 3, 2021
 
 <a href="/mini-app-super-apps/" class="w-card-base__link"></a>
 
-Mini apps and super apps
-------------------------
+## Mini apps and super apps
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -412,8 +382,7 @@ Mar 3, 2021
 
 <a href="/mini-app-what-are-h5-and-quickapp/" class="w-card-base__link"></a>
 
-What are H5 and QuickApp?
--------------------------
+## What are H5 and QuickApp?
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -427,35 +396,35 @@ Mar 3, 2021
 
 <a href="/authors" class="w-button">See more Authors</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Regular expressions](regexp-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,16 +29,14 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Replace all substrings matching a regexp
-============================================
+# Go: Replace all substrings matching a regexp
 
 Use the [`ReplaceAllString`](https://golang.org/pkg/regexp/#Regexp.ReplaceAllString) method to **replace the text of all matches**. It returns a copy, replacing all matches of the regexp with a replacement string.
 
     re := regexp.MustCompile(`ab*`)
     fmt.Printf("%q\n", re.ReplaceAllString("-a-abb-", "T")) // "-T-T-"
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

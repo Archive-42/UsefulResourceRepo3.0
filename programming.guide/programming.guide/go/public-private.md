@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Methods explained](methods-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Inheritance and object-oriented programming](inheritance-object-oriented.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,8 +35,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Public vs. private
-======================
+# Go: Public vs. private
 
 All identifiers defined within a package are visible throughout that package.
 
@@ -47,8 +43,7 @@ When importing a package you can access only its **exported** identifiers.
 
 An identifier is exported if it begins with a capital letter.
 
-Example
--------
+## Example
 
 In this package, the only exported identifiers are `StopWatch` and `Start`:
 
@@ -88,8 +83,7 @@ The `StopWatch` and its exported methods can be imported and used in a different
 
     ../main.go:8:15: clock.running undefined (cannot refer to unexported field or method clock.running)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

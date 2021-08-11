@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Round float to integer value](round-float-to-int.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [The trouble with rounding floating point numbers](https://www.theregister.co.uk/2006/08/12/floating_point_approximation/)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Register</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,11 +35,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Round float to 2 decimal places
-===================================
+# Go: Round float to 2 decimal places
 
-String
-------
+## String
 
 To display the value as a string, use the [`fmt.Sprintf`](https://golang.org/pkg/fmt/#Sprintf) method.
 
@@ -50,8 +45,7 @@ To display the value as a string, use the [`fmt.Sprintf`](https://golang.org/pkg
 
 The [Print with fmt cheat sheet](fmt-printf-reference-cheat-sheet.html) lists the most common formatting verbs and flags.
 
-Float
------
+## Float
 
 To round to a floating-point value, use one of these techniques:
 
@@ -64,8 +58,7 @@ Due to the quirks of floating point representation, these rounded values may be 
 
 The [`math.Round`](https://tip.golang.org/pkg/math/#Round) function will be introduced in Go 1.10. The article [Round float to nearest int](round-float-to-int.html) contains equivalent code.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

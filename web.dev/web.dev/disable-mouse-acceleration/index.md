@@ -12,25 +12,23 @@
 
 <img src="https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format" alt="Gamer girl is playing FPS online video game on her computer" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/8cpTXMJGUfcdNXLc6obE.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#disable-mouse-acceleration-to-provide-a-better-fps-gaming-experience" class="w-toc__header--link">Disable mouse acceleration to provide a better FPS gaming experience</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#disable-mouse-acceleration-to-provide-a-better-fps-gaming-experience" class="w-toc__header--link">Disable mouse acceleration to provide a better FPS gaming experience</a>
 
--   [Using the API](#use)
--   [Request a pointer lock](#request)
--   [Disable mouse acceleration](#disable-mouse-acceleration)
--   [Browser support](#browser-support)
--   [Operating system support](#os-support)
--   [Sample](#sample)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [Using the API](#use)
+- [Request a pointer lock](#request)
+- [Disable mouse acceleration](#disable-mouse-acceleration)
+- [Browser support](#browser-support)
+- [Operating system support](#os-support)
+- [Sample](#sample)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Disable mouse acceleration to provide a better FPS gaming experience
-====================================================================
+# Disable mouse acceleration to provide a better FPS gaming experience
 
 Web apps can now disable mouse acceleration when capturing pointer events.
 
@@ -40,18 +38,17 @@ Nov 26, 2020
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 Accelerated movement is an ergonomic feature when using a mouse or trackpad to move the pointer on screen. It allows precise movement by moving slowly while also allowing the pointer to cross the entire screen with a quick short motion. Specifically, for the same physical distance that you move the mouse, the pointer on screen travels further if the distance was traveled faster.
 
-Operating systems enable mouse acceleration by default. For some [first-party perspective](https://en.wikipedia.org/wiki/First-person_(video_games)) games, commonly first party shooters (FPS), raw mouse input data is used to control camera rotation without an acceleration adjustment. The same physical motion, slow or fast, results in the same rotation. This results in a better gaming experience and higher accuracy according to professional gamers.
+Operating systems enable mouse acceleration by default. For some [first-party perspective](<https://en.wikipedia.org/wiki/First-person_(video_games)>) games, commonly first party shooters (FPS), raw mouse input data is used to control camera rotation without an acceleration adjustment. The same physical motion, slow or fast, results in the same rotation. This results in a better gaming experience and higher accuracy according to professional gamers.
 
 <figure><img src="https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format" alt="Pointer motion control in Windows 10 settings." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/4x9YZ7nC3SJMN9FI46zN.png?auto=format&amp;w=1600 1600w" width="800" height="260" /><figcaption>Pointer motion control in Windows 10 settings.</figcaption></figure>Starting in Chrome 88, web apps can switch back and forth between accelerated and non-accelerated mouse movement data thanks to the [updated Pointer Lock API](https://github.com/w3c/pointerlock/pull/49).
 
 Web-based gaming platforms such as [Google Stadia](https://en.wikipedia.org/wiki/Google_Stadia) and [Nvidia GeForce Now](https://en.wikipedia.org/wiki/GeForce_Now) already use these new capabilities to please FPS gamers.
 
-Using the API <a href="#use" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Using the API <a href="#use" class="w-headline-link">#</a>
 
 ### Request a pointer lock <a href="#request" class="w-headline-link">#</a>
 
@@ -123,25 +120,22 @@ The Pointer Lock API is [well supported across browsers](https://caniuse.com/?se
 
 Disabling OS-level adjustment for mouse acceleration is supported on Chrome OS, macOS Catalina 10.15.1, and Windows. Linux will follow.
 
-Sample <a href="#sample" class="w-headline-link">#</a>
-------------------------------------------------------
+## Sample <a href="#sample" class="w-headline-link">#</a>
 
 You can play with the Pointer Lock API by running the [sample](https://unadjusted-movement.glitch.me/) on Glitch. Be sure to [check out the source code](https://glitch.com/edit/#!/unadjusted-movement?path=script.js).
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [Explainer](https://github.com/slightlyoff/unadjusted_pointer_lock_explainer)
--   [Specification PR](https://github.com/w3c/pointerlock/pull/49)
--   [GitHub repository](https://github.com/w3c/pointerlock)
--   [ChromeStatus entry](https://www.chromestatus.com/feature/5723553087356928)
--   [Chrome tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=982379)
--   [Intent to ship](https://groups.google.com/a/chromium.org/d/msg/blink-dev/cQn7OwcMQ64/OWmA9KMKBQAJ)
--   [Mozilla's position](https://github.com/mozilla/standards-positions/issues/448)
--   [WebKit's position](https://lists.webkit.org/pipermail/webkit-dev/2020-October/031473.html)
+- [Explainer](https://github.com/slightlyoff/unadjusted_pointer_lock_explainer)
+- [Specification PR](https://github.com/w3c/pointerlock/pull/49)
+- [GitHub repository](https://github.com/w3c/pointerlock)
+- [ChromeStatus entry](https://www.chromestatus.com/feature/5723553087356928)
+- [Chrome tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=982379)
+- [Intent to ship](https://groups.google.com/a/chromium.org/d/msg/blink-dev/cQn7OwcMQ64/OWmA9KMKBQAJ)
+- [Mozilla's position](https://github.com/mozilla/standards-positions/issues/448)
+- [WebKit's position](https://lists.webkit.org/pipermail/webkit-dev/2020-October/031473.html)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Thanks to [James Hollyer](https://github.com/jameshollyergoogle), [Thomas Steiner](https://github.com/tomayac), [Joe Medley](https://github.com/jpmedley), [Kayce Basques](https://github.com/kaycebasques), and [Vincent Scheib](https://github.com/scheib) for their reviews of this article.
 
@@ -151,35 +145,35 @@ Thanks to [James Hollyer](https://github.com/jameshollyergoogle), [Thomas Steine
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

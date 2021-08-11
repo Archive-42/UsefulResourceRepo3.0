@@ -1,17 +1,10 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-Codelab: Preload critical assets to improve loading speed
-=========================================================
+# Codelab: Preload critical assets to improve loading speed
 
 Apr 24, 2019
 
@@ -19,10 +12,10 @@ Apr 24, 2019
 
 <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a>
 
--   <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
--   <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
--   <a href="https://houssein.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
+- <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
+- <a href="https://houssein.me/" class="w-author__link">Blog</a>
 
 This codelab uses Chrome DevTools. [Download Chrome](https://www.google.com/chrome) if you don't already have it.
 
@@ -30,12 +23,11 @@ In this codelab, the performance of the following web page is improved by preloa
 
 <img src="https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format" alt="App Screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Ln5Oxy5vp8QWTn0GoOFh.png?auto=format&amp;w=1600 1600w" width="800" height="578" />
 
-Measure <a href="#measure" class="w-headline-link">#</a>
---------------------------------------------------------
+## Measure <a href="#measure" class="w-headline-link">#</a>
 
 First measure how the website performs before adding any optimizations.
 
--   To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
+- To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
 
 Run the Lighthouse performance audit (**Lighthouse &gt; Options &gt; Performance**) on the live version of your Glitch (see also [Discover performance opportunities with Lighthouse](/discover-performance-opportunities-with-lighthouse)).
 
@@ -43,12 +35,12 @@ Lighthouse shows the following failed audit for a resource that is fetched late:
 
 <img src="https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format" alt="Lighthouse: Preload key requests audit" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/AMhzorWlWYejd0tA11rY.png?auto=format&amp;w=1600 1600w" width="800" height="231" />
 
--   Press `Control+Shift+J` (or `Command+Option+J` on Mac) to open DevTools.
--   Click the **Network** tab.
+- Press `Control+Shift+J` (or `Command+Option+J` on Mac) to open DevTools.
+- Click the **Network** tab.
 
 <img src="https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format" alt="Network panel with late-discovered resource" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/pO1f6x9pOqzYwPciKnTy.png?auto=format&amp;w=1600 1600w" width="800" height="166" />
 
-The `main.css` file is not fetched by a Link element (`<link>`) placed in the HTML document, but a separate JavaScript file, `fetch-css.js`, attaches the Link element to the DOM after the `window.onLoad` event. This means that the file is only fetched *after* the browser finishes parsing and executing the JS file. Similarly, a web font (`K2D.woff2`) specified within `main.css` is only fetched once the CSS file has finished downloading.
+The `main.css` file is not fetched by a Link element (`<link>`) placed in the HTML document, but a separate JavaScript file, `fetch-css.js`, attaches the Link element to the DOM after the `window.onLoad` event. This means that the file is only fetched _after_ the browser finishes parsing and executing the JS file. Similarly, a web font (`K2D.woff2`) specified within `main.css` is only fetched once the CSS file has finished downloading.
 
 The **critical request chain** represents the order of resources that are prioritized and fetched by the browser. For this web page, it currently looks like this:
 
@@ -59,8 +51,7 @@ The **critical request chain** represents the order of resources that are priori
 
 Since the CSS file is on the third level of the request chain, Lighthouse has identified it as a late-discovered resource.
 
-Preload critical resources <a href="#preload-critical-resources" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Preload critical resources <a href="#preload-critical-resources" class="w-headline-link">#</a>
 
 The `main.css` file is a critical asset that's needed immediately as soon as the page is loaded. For important files like this resource that are fetched late in your application, use a link preload tag to inform the browser to download it sooner by adding a Link element to the head of the document.
 
@@ -109,8 +100,7 @@ For a list of all the types of resources that can be fetched along with the corr
 
 Cross-origin resources can also be preloaded using the `crossorigin` attribute. Moreover, same-origin font resources must be fetched using anonymous mode CORS which is why the `crossorigin` attribute is also used in this preload tag. The [Cross Origin Resource Sharing](/cross-origin-resource-sharing) guide explains the topic of same-origin and cross-origin requests in more detail.
 
-Prefetch future resources <a href="#prefetch-future-resources" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Prefetch future resources <a href="#prefetch-future-resources" class="w-headline-link">#</a>
 
 **Prefetch** is another browser hint that can be used to make a request for an asset used for a different navigation route but at a lower priority than other important assets needed for the current page.
 
@@ -143,8 +133,7 @@ Click the `details.css` network request in DevTools to view its details. You'll 
 
 By taking advantage of browser idle time, prefetch makes an early request for a resource needed for a different page. This speeds up future navigation requests by allowing the browser to cache the asset sooner and serve it from the cache when needed.
 
-Preloading and prefetching with webpack <a href="#preloading-and-prefetching-with-webpack" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------
+## Preloading and prefetching with webpack <a href="#preloading-and-prefetching-with-webpack" class="w-headline-link">#</a>
 
 The [Reduce JavaScript payloads with code splitting](/reduce-javascript-payloads-with-code-splitting) post explores the use of dynamic imports to split a bundle into multiple chunks. This is demonstrated with a simple application that dynamically imports a module from [Lodash](https://lodash.com/) when a form is submitted.
 
@@ -186,57 +175,56 @@ Although prefetch makes more sense for this use case, webpack also provides supp
 
     import(/* webpackPreload: true */ 'module')
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 With this codelab, you should have a solid understanding of how preloading or prefetching certain assets can improve the user experience of your site. It is important to mention that these techniques should not be used for every resource and using them incorrectly can harm performance. The best results are noticed by only preloading or prefetching selectively.
 
 To summarize:
 
--   Use **preload** for resources that are discovered late but are critical to the current page.
--   Use **prefetch** for resources that are needed for a future navigation route or user action.
+- Use **preload** for resources that are discovered late but are critical to the current page.
+- Use **prefetch** for resources that are needed for a future navigation route or user action.
 
 Not all browsers currently support both preload and prefetch. This means that not all users of your application may notice performance improvements.
 
--   [Browser support: Preload](https://caniuse.com/#feat=link-rel-preload)
--   [Browser support: Prefetch](https://caniuse.com/#feat=link-rel-prefetch)
+- [Browser support: Preload](https://caniuse.com/#feat=link-rel-preload)
+- [Browser support: Prefetch](https://caniuse.com/#feat=link-rel-prefetch)
 
 If you would like more information about specific aspects of how preloading and prefetching can affect your web page, refer to these articles:
 
--   [Preload, Prefetch and Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)
--   [&lt;link rel="prefetch/preload"&gt; in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
+- [Preload, Prefetch and Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)
+- [&lt;link rel="prefetch/preload"&gt; in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 
 <a href="/preload-critical-assets" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to article</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

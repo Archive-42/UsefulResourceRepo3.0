@@ -1,45 +1,37 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/22YYRBuQy8gvQhgllLKq.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#content-delivery-networks-(cdns)" class="w-toc__header--link">Content delivery networks (CDNs)</a>
-------------------------------------------------------------------------------------------------------------
+## <a href="#content-delivery-networks-(cdns)" class="w-toc__header--link">Content delivery networks (CDNs)</a>
 
--   [Overview](#overview)
--   [Resource delivery](#resource-delivery)
--   [Caching](#caching)
--   [Choosing a CDN](#choosing-a-cdn)
--   [Performance](#performance)
--   [Additional features](#additional-features)
--   [How to setup and configure a CDN](#how-to-setup-and-configure-a-cdn)
--   [Improving cache hit ratio](#improving-cache-hit-ratio)
--   [Initial audit](#initial-audit)
--   [Fine tuning](#fine-tuning)
--   [Performance features](#performance-features)
--   [Compression](#compression)
--   [TLS 1.3](#tls-1.3)
--   [HTTP/2 and HTTP/3](#http2-and-http3)
--   [Image optimization](#image-optimization)
--   [Minification](#minification)
--   [Conclusion](#conclusion)
+- [Overview](#overview)
+- [Resource delivery](#resource-delivery)
+- [Caching](#caching)
+- [Choosing a CDN](#choosing-a-cdn)
+- [Performance](#performance)
+- [Additional features](#additional-features)
+- [How to setup and configure a CDN](#how-to-setup-and-configure-a-cdn)
+- [Improving cache hit ratio](#improving-cache-hit-ratio)
+- [Initial audit](#initial-audit)
+- [Fine tuning](#fine-tuning)
+- [Performance features](#performance-features)
+- [Compression](#compression)
+- [TLS 1.3](#tls-1.3)
+- [HTTP/2 and HTTP/3](#http2-and-http3)
+- [Image optimization](#image-optimization)
+- [Minification](#minification)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Content delivery networks (CDNs)
-================================
+# Content delivery networks (CDNs)
 
 Improve performance by using a content delivery network.
 
@@ -51,15 +43,14 @@ Sep 22, 2020
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 Content delivery networks (CDNs) improve site performance by using a distributed network of servers to deliver resources to users. Because CDNs reduce server load, they reduce server costs and are well-suited to handling traffic spikes. This article discusses how CDNs work and provides platform-agnostic guidance on choosing, configuring, and optimizing a CDN setup.
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 A content delivery network consists of a network of servers that are optimized for quickly delivering content to users. Although CDNs are arguably best known for serving cached content, CDNs can also improve the delivery of uncacheable content. Generally speaking, the more of your site delivered by your CDN, the better.
 
@@ -87,17 +78,17 @@ The most commonly used method of populating CDN caches is to have the CDN "pull"
 
 CDNs use cache eviction to periodically remove not-so-useful resources from the cache. In addition, site owners can use purging to explicitly remove resources.
 
--   **Cache eviction**
+- **Cache eviction**
 
-    Caches have a finite storage capacity. When a cache nears its capacity, it makes room for new resources by removing resources that haven't been accessed recently, or which take up a lot of space. This process is known as cache eviction. A resource being evicted from one cache does not necessarily mean that it has been evicted from all caches in a CDN network.
+  Caches have a finite storage capacity. When a cache nears its capacity, it makes room for new resources by removing resources that haven't been accessed recently, or which take up a lot of space. This process is known as cache eviction. A resource being evicted from one cache does not necessarily mean that it has been evicted from all caches in a CDN network.
 
--   **Purging**
+- **Purging**
 
-    Purging (also known as "cache invalidation") is a mechanism for removing a resource from a CDN's caches without having to wait for it to expire or be evicted. It is typically executed via an API. Purging is critical in situations where content needs to be retracted (for example, correcting typos, pricing errors, or incorrect news articles). On top of that, it can also play a crucial role in a site's caching strategy.
+  Purging (also known as "cache invalidation") is a mechanism for removing a resource from a CDN's caches without having to wait for it to expire or be evicted. It is typically executed via an API. Purging is critical in situations where content needs to be retracted (for example, correcting typos, pricing errors, or incorrect news articles). On top of that, it can also play a crucial role in a site's caching strategy.
 
-    If a CDN supports near instant purging, purging can be used as a mechanism for managing the caching of dynamic content: cache dynamic content using a long TTL, then purge the resource whenever it is updated. In this way, it is possible to maximize the caching duration of a dynamic resource, despite not knowing in advance when the resource will change. This technique is sometimes referred to as "hold-till-told caching".
+  If a CDN supports near instant purging, purging can be used as a mechanism for managing the caching of dynamic content: cache dynamic content using a long TTL, then purge the resource whenever it is updated. In this way, it is possible to maximize the caching duration of a dynamic resource, despite not knowing in advance when the resource will change. This technique is sometimes referred to as "hold-till-told caching".
 
-    When purging is used at scale it is typically used in conjunction with a concept known as "cache tags" or "surrogate cache keys". This mechanism allows site owners to associate one or more additional identifiers (sometimes referred to as "tags") with a cached resource. These tags can then be used to carry out highly granular purging. For example, you might add a "footer" tag to all resources (for example, `/about`, `/blog`) that contain your site footer. When the footer is updated, instruct your CDN to purge all resources associated with the "footer" tag.
+  When purging is used at scale it is typically used in conjunction with a concept known as "cache tags" or "surrogate cache keys". This mechanism allows site owners to associate one or more additional identifiers (sometimes referred to as "tags") with a cached resource. These tags can then be used to carry out highly granular purging. For example, you might add a "footer" tag to all resources (for example, `/about`, `/blog`) that contain your site footer. When the footer is updated, instruct your CDN to purge all resources associated with the "footer" tag.
 
 #### Cacheable resources <a href="#cacheable-resources" class="w-headline-link">#</a>
 
@@ -105,26 +96,25 @@ If and how a resource should be cached depends on whether it is public or privat
 
 ##### Private and public resources <a href="#private-and-public-resources" class="w-headline-link">#</a>
 
--   **Private Resources**
+- **Private Resources**
 
-    Private resources contain data intended for a single user and therefore should not be cached by a CDN. Private resources are indicated by the `Cache-Control: private` header.
+  Private resources contain data intended for a single user and therefore should not be cached by a CDN. Private resources are indicated by the `Cache-Control: private` header.
 
--   **Public Resources**
+- **Public Resources**
 
-    Public resources do not contain user-specific information and therefore are cacheable by a CDN. A resource may be considered cacheable by a CDN if it does not have a `Cache-Control: no-store` or `Cache-Control: private` header. The length of time that a public resource can be cached depends on how frequently the asset changes.
+  Public resources do not contain user-specific information and therefore are cacheable by a CDN. A resource may be considered cacheable by a CDN if it does not have a `Cache-Control: no-store` or `Cache-Control: private` header. The length of time that a public resource can be cached depends on how frequently the asset changes.
 
 ##### Dynamic and static content <a href="#dynamic-and-static-content" class="w-headline-link">#</a>
 
--   **Dynamic content**
+- **Dynamic content**
 
-    Dynamic content is content that changes frequently. An API response and a store homepage are examples of this content type. However, the fact that this content changes frequently doesn't necessarily preclude it from being cached. During periods of heavy traffic, caching these responses for very short periods of time (for example, 5 seconds) can significantly reduce the load on the origin server, while having minimal impact on data freshness.
+  Dynamic content is content that changes frequently. An API response and a store homepage are examples of this content type. However, the fact that this content changes frequently doesn't necessarily preclude it from being cached. During periods of heavy traffic, caching these responses for very short periods of time (for example, 5 seconds) can significantly reduce the load on the origin server, while having minimal impact on data freshness.
 
--   **Static content**
+- **Static content**
 
-    Static content changes infrequently, if ever. Images, videos, and versioned libraries are typically examples of this content type. Because static content does not change, it should be cached with a long Time to Live (TTL) - for example, 6 months or 1 year.
+  Static content changes infrequently, if ever. Images, videos, and versioned libraries are typically examples of this content type. Because static content does not change, it should be cached with a long Time to Live (TTL) - for example, 6 months or 1 year.
 
-Choosing a CDN <a href="#choosing-a-cdn" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Choosing a CDN <a href="#choosing-a-cdn" class="w-headline-link">#</a>
 
 Performance is typically a top consideration when choosing a CDN. However, the other features that a CDN offers (for example, security and analytics features), as well as a CDN's pricing, support, and onboarding are all important to consider when choosing a CDN.
 
@@ -142,8 +132,7 @@ It's also worth noting that CDN performance can vary significantly depending on 
 
 CDNs typically offer a wide variety of features in addition to their core CDN offering. Commonly offered features include: load balancing, image optimization, video streaming, edge computing, and security products.
 
-How to setup and configure a CDN <a href="#how-to-setup-and-configure-a-cdn" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## How to setup and configure a CDN <a href="#how-to-setup-and-configure-a-cdn" class="w-headline-link">#</a>
 
 Ideally you should use a CDN to serve your entire site. At a high-level, the setup process for this consists of signing up with a CDN provider, then updating your CNAME DNS record to point at the CDN provider. For example, the CNAME record for `www.example.com` might point to `example.my-cdn.com`. As a result of this DNS change, traffic to your site will be routed through the CDN.
 
@@ -151,8 +140,7 @@ If using a CDN to serve all resources is not an option, you can configure a CDN 
 
 Although your CDN will be set up at this point, there will likely be inefficiencies in your configuration. The next two sections of this article will explain how to get the most out of your CDN by increasing cache hit ratio and enabling performance features.
 
-Improving cache hit ratio <a href="#improving-cache-hit-ratio" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Improving cache hit ratio <a href="#improving-cache-hit-ratio" class="w-headline-link">#</a>
 
 An effective CDN setup will serve as many resources as possible from the cache. This is commonly measured by cache hit ratio (CHR). Cache hit ratio is defined as the number of cache hits divided by the number of total requests during a given time interval.
 
@@ -168,9 +156,9 @@ Most CDNs will provide cache analytics. In addition, tools like [WebPageTest](ht
 
 At a minimum, one of these headers typically needs to be set in order for a resource to be cached by a CDN:
 
--   `Cache-Control: max-age=`
--   `Cache-Control: s-maxage=`
--   `Expires`
+- `Cache-Control: max-age=`
+- `Cache-Control: s-maxage=`
+- `Expires`
 
 In addition, although it does not impact if or how a resource is cached by a CDN, it is good practice to also set the [`Cache-Control: immutable`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Revalidation_and_reloading) directive.`Cache-Control: immutable` indicates that a resource "will not be updated during its freshness lifetime". As a result, the browser will not revalidate the resource when serving it from the browser cache, thereby eliminating an unnecessary server request. Unfortunately, this directive is only [supported](https://caniuse.com/#feat=mdn-http_headers_cache-control_immutable) by Firefox and Safari - it is not supported by Chromium-based browsers. This [issue](https://bugs.chromium.org/p/chromium/issues/detail?id=611416) tracks Chromium support for `Cache-Control: immutable`. Starring this issue can help encourage support for this feature.
 
@@ -184,13 +172,13 @@ A slightly simplified explanation of how CDN caches work is that the URL of a re
 
 By default, CDNs take query params into consideration when caching a resource. However, small adjustments to query param handling can have a significant impact on CHR. For example:
 
--   **Unnecessary query params**
+- **Unnecessary query params**
 
-    By default, a CDN would cache `example.com/blog` and `example.com/blog?referral_id=2zjk` separately even though they are likely the same underlying resource. This is fixed by adjusting a CDN's configuration to ignore the `referral\_id` query param.
+  By default, a CDN would cache `example.com/blog` and `example.com/blog?referral_id=2zjk` separately even though they are likely the same underlying resource. This is fixed by adjusting a CDN's configuration to ignore the `referral\_id` query param.
 
--   **Query param order**
+- **Query param order**
 
-    A CDN will cache `example.com/blog?id=123&query=dogs` separately from `example.com/blog?query=dogs&id=123`. For most sites, query param order does not matter, so configuring the CDN to sort the query params (thereby normalizing the URL used to cache the server response) will increase CHR.
+  A CDN will cache `example.com/blog?id=123&query=dogs` separately from `example.com/blog?query=dogs&id=123`. For most sites, query param order does not matter, so configuring the CDN to sort the query params (thereby normalizing the URL used to cache the server response) will increase CHR.
 
 #### Vary <a href="#vary" class="w-headline-link">#</a>
 
@@ -202,8 +190,7 @@ Although the Vary header can be a useful tool, inappropriate usage hurts CHR. In
 
 Cookies are set on requests via the [`Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie) header; they are set on responses via the `Set-Cookie` header. Unnecessary use of [`Set-Cookie`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) header should be avoided given that caches will typically not cache server responses containing this header.
 
-Performance features <a href="#performance-features" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Performance features <a href="#performance-features" class="w-headline-link">#</a>
 
 This section discusses performance features that are commonly offered by CDNs as part of their core product offering. Many sites forget to enable these features, thereby losing out on easy performance wins.
 
@@ -237,33 +224,33 @@ TLS 1.3 shortens the TLS handshake from two roundtrips to one. For connections u
 
 <figure><img src="https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/FnCSj1W23jXaiOWCp0Bw.png?auto=format&amp;w=1600 1600w" width="800" height="448" /></figure>### HTTP/2 and HTTP/3 <a href="#http2-and-http3" class="w-headline-link">#</a>
 
-HTTP/2 and HTTP/3 both provide performance benefits over HTTP/1. Of the two, HTTP/3 offers greater *potential* performance benefits. HTTP/3 isn't fully standardized yet, but it will be widely [supported](https://caniuse.com/#feat=http3) once this occurs.
+HTTP/2 and HTTP/3 both provide performance benefits over HTTP/1. Of the two, HTTP/3 offers greater _potential_ performance benefits. HTTP/3 isn't fully standardized yet, but it will be widely [supported](https://caniuse.com/#feat=http3) once this occurs.
 
 #### HTTP/2 <a href="#http2" class="w-headline-link">#</a>
 
 If your CDN hasn't already enabled [HTTP/2](https://almanac.httparchive.org/en/2019/http2) by default, you should consider turning it on. HTTP/2 provides multiple [performance benefits](https://hpbn.co/http2) over HTTP/1 and is [supported](https://caniuse.com/#feat=http2) by all major browsers. Performance features of HTTP/2 include: [multiplexing](https://hpbn.co/http2/#request-and-response-multiplexing), [stream prioritization](https://hpbn.co/http2/#stream-prioritization), [server push](https://almanac.httparchive.org/en/2019/http2#http2-push), and [header compression](https://tools.ietf.org/html/rfc7541/).
 
--   **Multiplexing**
+- **Multiplexing**
 
-    Multiplexing is arguably the most important feature of HTTP/2. Multiplexing enables a single TCP connection to serve multiple request-response pairs at the same time. This eliminates the overhead of unnecessary connection setups; given that the number of connections that a browser can have open at a given time is limited, this also has the implication that the browser is now able to request more of a page's resources in parallel. Multiplexing theoretically removes the need for HTTP/1 optimizations like concatenation and sprite sheets - however, in practice, these techniques will remain relevant given that larger files compress better.
+  Multiplexing is arguably the most important feature of HTTP/2. Multiplexing enables a single TCP connection to serve multiple request-response pairs at the same time. This eliminates the overhead of unnecessary connection setups; given that the number of connections that a browser can have open at a given time is limited, this also has the implication that the browser is now able to request more of a page's resources in parallel. Multiplexing theoretically removes the need for HTTP/1 optimizations like concatenation and sprite sheets - however, in practice, these techniques will remain relevant given that larger files compress better.
 
--   **Stream prioritization**
+- **Stream prioritization**
 
-    Multiplexing enables multiple concurrent streams; [stream prioritization](https://httpwg.org/specs/rfc7540.html#StreamPriority) provides an interface for communicating relative priority of each of these streams. This helps the server to send the most important resources first - even if they weren't requested first.
+  Multiplexing enables multiple concurrent streams; [stream prioritization](https://httpwg.org/specs/rfc7540.html#StreamPriority) provides an interface for communicating relative priority of each of these streams. This helps the server to send the most important resources first - even if they weren't requested first.
 
-Stream prioritization is expressed by the browser via a dependency tree and is merely a statement of *preference*: in other words, the server is not obligated to meet (or even consider) the priorities supplied by the browser. Stream prioritization becomes more effective when more of a site is served through a CDN.
+Stream prioritization is expressed by the browser via a dependency tree and is merely a statement of _preference_: in other words, the server is not obligated to meet (or even consider) the priorities supplied by the browser. Stream prioritization becomes more effective when more of a site is served through a CDN.
 
 CDN implementations of HTTP/2 resource prioritization vary wildly. To identify whether your CDN fully and properly supports HTTP/2 resource prioritization, check out [Is HTTP/2 Fast Yet?](https://ishttp2fastyet.com/).
 
-Although switching your CDN instance to HTTP/2 is largely a matter of flipping a switch, it's important to thoroughly test this change before enabling it in production. HTTP/1 and HTTP/2 use the same conventions for request and response headers - but HTTP/2 is far less forgiving when these conventions aren't adhered to. As a result, non-spec practices like including non-ASCII or uppercase characters in headers may begin causing errors once HTTP/2 is enabled. If this occurs, a browser's attempts to download the resource will fail. The failed download attempt will be visible in the "Network" tab of DevTools. In addition, the error message "ERR\_HTTP2\_PROTOCOL\_ERROR" will be displayed in the console.
+Although switching your CDN instance to HTTP/2 is largely a matter of flipping a switch, it's important to thoroughly test this change before enabling it in production. HTTP/1 and HTTP/2 use the same conventions for request and response headers - but HTTP/2 is far less forgiving when these conventions aren't adhered to. As a result, non-spec practices like including non-ASCII or uppercase characters in headers may begin causing errors once HTTP/2 is enabled. If this occurs, a browser's attempts to download the resource will fail. The failed download attempt will be visible in the "Network" tab of DevTools. In addition, the error message "ERR_HTTP2_PROTOCOL_ERROR" will be displayed in the console.
 
 #### HTTP/3 <a href="#http3" class="w-headline-link">#</a>
 
 [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3) is the successor to [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2). As of September 2020, all major browsers have experimental [support](https://caniuse.com/#feat=http3) for HTTP/3 and some CDNs support it. Performance is the primary benefit of HTTP/3 over HTTP/2. Specifically, HTTP/3 eliminates head-of-line blocking at the connection level and reduces connection setup time.
 
--   **Elimination of head-of-line blocking**
+- **Elimination of head-of-line blocking**
 
-    HTTP/2 introduced multiplexing, a feature that allows a single connection to be used to transmit multiple streams of data simultaneously. However, with HTTP/2, a single dropped packet blocks all streams on a connection (a phenomena known as a head-of-line blocking). With HTTP/3, a dropped packet only blocks a single stream. This improvement is largely the result of HTTP/3 using [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) (HTTP/3 uses UDP via [QUIC](https://en.wikipedia.org/wiki/QUIC)) rather than [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol). This makes HTTP/3 particularly useful for data transfer over congested or lossy networks.
+  HTTP/2 introduced multiplexing, a feature that allows a single connection to be used to transmit multiple streams of data simultaneously. However, with HTTP/2, a single dropped packet blocks all streams on a connection (a phenomena known as a head-of-line blocking). With HTTP/3, a dropped packet only blocks a single stream. This improvement is largely the result of HTTP/3 using [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) (HTTP/3 uses UDP via [QUIC](https://en.wikipedia.org/wiki/QUIC)) rather than [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol). This makes HTTP/3 particularly useful for data transfer over congested or lossy networks.
 
 <figure><img src="https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/B7YKfqGG4eS2toSoTDdS.png?auto=format&amp;w=1600 1600w" width="800" height="449" /></figure>-   **Reduced connection setup time**
 
@@ -279,12 +266,11 @@ CDN image optimization services typically focus on image optimizations that can 
 
 [Minification](/reduce-network-payloads-using-text-compression/#minification) removes unnecessary characters from JavaScript, CSS, and HTML. It's preferable to do minification at the origin server, rather than the CDN. Site owners have more context about the code to be minified and therefore can often use more aggressive minification techniques than those employed by CDNs. However, if minifying code at the origin is not an option, minification by the CDN is a good alternative.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
--   **Use a CDN:** CDNs deliver resources quickly, reduce load on the origin server, and are helpful for dealing with traffic spikes.
--   **Cache content as aggressively as possible:** Both static and dynamic content can and should be cached - albeit for varying durations. Periodically audit your site to make sure that you are optimally cacheing content.
--   **Enable CDN performance features:** Features like Brotli, TLS 1.3, HTTP/2, and HTTP/3 further improve performance.
+- **Use a CDN:** CDNs deliver resources quickly, reduce load on the origin server, and are helpful for dealing with traffic spikes.
+- **Cache content as aggressively as possible:** Both static and dynamic content can and should be cached - albeit for varying durations. Periodically audit your site to make sure that you are optimally cacheing content.
+- **Enable CDN performance features:** Features like Brotli, TLS 1.3, HTTP/2, and HTTP/3 further improve performance.
 
 <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/network/" class="w-chip">Network</a>
 
@@ -292,35 +278,35 @@ Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

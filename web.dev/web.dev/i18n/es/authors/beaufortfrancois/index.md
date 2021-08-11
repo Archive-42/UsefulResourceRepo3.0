@@ -1,7 +1,5 @@
 <span class="w-tooltip w-tooltip--left">Abrir menú</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
 <a href="/learn/" class="gc-analytics-event header-default__link">Aprender</a> <a href="/measure/" class="gc-analytics-event header-default__link">Medir</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
 <span class="w-tooltip">Cerrar</span>
@@ -14,8 +12,7 @@
 
 <img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format" alt="François Beaufort" class="w-author-page__image" sizes="(min-width: 481px) 192px, 128px" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=128 128w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=146 146w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=166 166w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=190 190w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=216 216w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=246 246w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=281 281w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=320 320w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=365 365w, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;w=384 384w" width="192" height="192" />
 
-François Beaufort
-=================
+# François Beaufort
 
 Dives into Chromium source code
 
@@ -27,8 +24,7 @@ Dives into Chromium source code
 
 <a href="/user-preference-media-features-headers/" class="w-card-base__link"></a>
 
-User preference media features client hints headers
----------------------------------------------------
+## User preference media features client hints headers
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -50,8 +46,7 @@ The \`Sec-CH-Prefers-Color-Scheme\` client hint header allows sites to obtain th
 
 <a href="/devices-introduction/" class="w-card-base__link"></a>
 
-Accessing hardware devices on the web
--------------------------------------
+## Accessing hardware devices on the web
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -71,8 +66,7 @@ Pick the appropriate API to communicate with a hardware device of your choice.
 
 <a href="/disable-mouse-acceleration/" class="w-card-base__link"></a>
 
-Disable mouse acceleration to provide a better FPS gaming experience
---------------------------------------------------------------------
+## Disable mouse acceleration to provide a better FPS gaming experience
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -92,8 +86,7 @@ Web apps can now disable mouse acceleration when capturing pointer events.
 
 <a href="/camera-pan-tilt-zoom/" class="w-card-base__link"></a>
 
-Control camera pan, tilt, and zoom
-----------------------------------
+## Control camera pan, tilt, and zoom
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -113,8 +106,7 @@ Pan, tilt, and zoom features on cameras are finally controllable on the web.
 
 <a href="/hid/" class="w-card-base__link"></a>
 
-Connecting to uncommon HID devices
-----------------------------------
+## Connecting to uncommon HID devices
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -134,8 +126,7 @@ The WebHID API allows websites to access alternative auxiliary keyboards and exo
 
 <a href="/serial/" class="w-card-base__link"></a>
 
-Read from and write to a serial port
-------------------------------------
+## Read from and write to a serial port
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -155,8 +146,7 @@ The Web Serial API allows websites to communicate with serial devices.
 
 <a href="/app-shortcuts/" class="w-card-base__link"></a>
 
-Get things done quickly with app shortcuts
-------------------------------------------
+## Get things done quickly with app shortcuts
 
 [<img src="https://web-dev.imgix.net/image/admin/n1MFAKkwQLIbMeIvdkQ2.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Jungkee Song" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/n1MFAKkwQLIbMeIvdkQ2.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/n1MFAKkwQLIbMeIvdkQ2.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/n1MFAKkwQLIbMeIvdkQ2.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/n1MFAKkwQLIbMeIvdkQ2.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/n1MFAKkwQLIbMeIvdkQ2.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/jungkees/)
 
@@ -178,8 +168,7 @@ App shortcuts give quick access to a handful of common actions that users need f
 
 <a href="/media-session/" class="w-card-base__link"></a>
 
-Customize media notifications and playback controls with the Media Session API
-------------------------------------------------------------------------------
+## Customize media notifications and playback controls with the Media Session API
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -199,8 +188,7 @@ How to integrate with hardware media keys, customize media notifications, and mo
 
 <a href="/nfc/" class="w-card-base__link"></a>
 
-Interact with NFC devices on Chrome for Android
------------------------------------------------
+## Interact with NFC devices on Chrome for Android
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -220,8 +208,7 @@ Reading and writing to NFC tags is now possible.
 
 <a href="/youtube-media-capabilities/" class="w-card-base__link"></a>
 
-How YouTube improved video performance with the Media Capabilities API
-----------------------------------------------------------------------
+## How YouTube improved video performance with the Media Capabilities API
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -237,8 +224,7 @@ Ensuring buttery smooth video playback across all devices.
 
 <a href="/add-manifest/" class="w-card-base__link"></a>
 
-Add a web app manifest
-----------------------
+## Add a web app manifest
 
 <span class="w-author__name"><a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>, <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>, <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a></span>
 
@@ -248,8 +234,7 @@ Updated: Jun 21, 2021
 
 <a href="/fast-playback-with-preload/" class="w-card-base__link"></a>
 
-Fast playback with audio and video preload
-------------------------------------------
+## Fast playback with audio and video preload
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -269,8 +254,7 @@ How to accelerate your media playback by actively preloading resources.
 
 <a href="/usb/" class="w-card-base__link"></a>
 
-Access USB Devices on the Web
------------------------------
+## Access USB Devices on the Web
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -290,8 +274,7 @@ The WebUSB API makes USB safer and easier to use by bringing it to the Web.
 
 <a href="/bluetooth/" class="w-card-base__link"></a>
 
-Communicating with Bluetooth devices over JavaScript
-----------------------------------------------------
+## Communicating with Bluetooth devices over JavaScript
 
 [<img src="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="François Beaufort" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/mXjY3z3JmrispGtu9yn6.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/beaufortfrancois/)
 
@@ -309,35 +292,35 @@ The Web Bluetooth API allows websites to communicate with Bluetooth devices.
 
 <a href="/authors" class="w-button">Ver más Autores</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">Presentar un error</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">Ver fuente</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">Presentar un error</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">Ver fuente</a>
 
--   ### Contenido relevante
+- ### Contenido relevante
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome Actualizaciones</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome Actualizaciones</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Conectar
+- ### Conectar
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">Todos los productos</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">Todos los productos</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Condiciones y privacidad</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Principios de la Comunidad</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Condiciones y privacidad</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Principios de la Comunidad</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

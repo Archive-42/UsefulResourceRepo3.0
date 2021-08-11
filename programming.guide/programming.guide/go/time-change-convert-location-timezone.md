@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Current time](current-time.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -23,8 +22,7 @@ Further Reading
 [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)  
 <span style="color: grey; font-style: italic; font-size: smaller">Wikipedia</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -36,8 +34,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -47,8 +44,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Time zones
-==============
+# Go: Time zones
 
 Each [`Time`](https://golang.org/pkg/time/#Time) has an associated [`Location`](https://golang.org/pkg/time/#Location), which is used for display purposes.
 
@@ -89,15 +85,13 @@ In use:
     Asia/Shanghai 03:32
     America/Metropolis <time unknown>
 
-Timezone Corner Cases
----------------------
+## Timezone Corner Cases
 
 Note the following warning from the docs:
 
 > A daylight savings time transition skips or repeats times. For example, in the United States, March 13, 2011 2:15am never occurred, while November 6, 2011 1:15am occurred twice. In such cases, the choice of time zone, and therefore the time, is not well-defined. Date returns a time that is correct in one of the two zones involved in the transition, but it does not guarantee which. <a href="https://golang.org/pkg/time/#Date" class="quote-source">Package time: Date</a>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

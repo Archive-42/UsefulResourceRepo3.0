@@ -1,30 +1,22 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#using-the-chrome-ux-report-on-bigquery" class="w-toc__header--link">Using the Chrome UX Report on BigQuery</a>
-------------------------------------------------------------------------------------------------------------------------
+## <a href="#using-the-chrome-ux-report-on-bigquery" class="w-toc__header--link">Using the Chrome UX Report on BigQuery</a>
 
--   [Data organization](#data-organization)
--   [Evaluating performance](#evaluating-performance)
--   [Tracking performance](#tracking-performance)
--   [FAQ](#faq)
--   [When would I use BigQuery as opposed to other tools?](#when-would-i-use-bigquery-as-opposed-to-other-tools)
--   [Are there any limitations to using BigQuery?](#are-there-any-limitations-to-using-bigquery)
--   [Where can I learn more about BigQuery?](#where-can-i-learn-more-about-bigquery)
+- [Data organization](#data-organization)
+- [Evaluating performance](#evaluating-performance)
+- [Tracking performance](#tracking-performance)
+- [FAQ](#faq)
+- [When would I use BigQuery as opposed to other tools?](#when-would-i-use-bigquery-as-opposed-to-other-tools)
+- [Are there any limitations to using BigQuery?](#are-there-any-limitations-to-using-bigquery)
+- [Where can I learn more about BigQuery?](#where-can-i-learn-more-about-bigquery)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Using the Chrome UX Report on BigQuery
-======================================
+# Using the Chrome UX Report on BigQuery
 
 Jun 12, 2020
 
@@ -34,19 +26,18 @@ Jun 12, 2020
 
 <a href="/authors/rviscomi/" class="w-author__name-link">Rick Viscomi</a>
 
--   <a href="https://twitter.com/rick_viscomi" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rviscomi" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/rick_viscomi" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rviscomi" class="w-author__link">GitHub</a>
 
 The raw data of the Chrome UX Report ([CrUX](https://developers.google.com/web/tools/chrome-user-experience-report/)) is available on [BigQuery](https://console.cloud.google.com/bigquery?p=chrome-ux-report), a database on the Google Cloud Platform (GCP). Using BigQuery requires a [GCP project](https://developers.google.com/web/tools/chrome-user-experience-report/getting-started#getting-started) and basic knowledge of SQL.
 
 In this guide, learn how to use BigQuery to write queries against the CrUX dataset to extract insightful results about the state of user experiences on the web:
 
--   Understand how the data is organized
--   Write a basic query to evaluate an origin's performance
--   Write an advanced query to track performance over time
+- Understand how the data is organized
+- Write a basic query to evaluate an origin's performance
+- Write an advanced query to track performance over time
 
-Data organization <a href="#data-organization" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Data organization <a href="#data-organization" class="w-headline-link">#</a>
 
 Start by looking at a basic query:
 
@@ -58,29 +49,29 @@ To run the query, enter it into the query editor and press the "Run query" butto
 
 There are two parts to this query:
 
--   `SELECT COUNT(DISTINCT origin)` means querying for the number of origins in the table. Roughly speaking, two URLs are part of the same origin if they have the same scheme, host, and port.
+- `SELECT COUNT(DISTINCT origin)` means querying for the number of origins in the table. Roughly speaking, two URLs are part of the same origin if they have the same scheme, host, and port.
 
--   `FROM`chrome-ux-report.all.201809\`\` specifies the address of the source table, which has three parts:
+- `FROM`chrome-ux-report.all.201809\`\` specifies the address of the source table, which has three parts:
 
-    -   The Cloud project name `chrome-ux-report` within which all CrUX data is organized
-    -   The dataset `all`, representing data across all countries
-    -   The table `201809`, the year and month of the data in YYYYMM format
+  - The Cloud project name `chrome-ux-report` within which all CrUX data is organized
+  - The dataset `all`, representing data across all countries
+  - The table `201809`, the year and month of the data in YYYYMM format
 
 There are also datasets for every country. For example, `chrome-ux-report.country_ca.201809` represents only the user experience data originating from Canada.
 
 Within each dataset there are tables for every month since 201710. New tables for the previous calendar month are published regularly.
 
-The structure of the data tables (also known as the *schema*) contains:
+The structure of the data tables (also known as the _schema_) contains:
 
--   The origin, e.g., `origin = 'https://www.example.com'`, which represents the aggregate user experience distribution for all pages on that website
--   The connection speed at the time of page load, e.g., `effective_connection_type.name = '4G'`
--   The device type, e.g., `form_factor.name = 'desktop'`
--   The UX metrics themselves
-    -   first\_paint (FP)
-    -   first\_contentful\_paint (FCP)
-    -   dom\_content\_loaded (DCL)
-    -   onload (OL)
-    -   experimental.first\_input\_delay (FID)
+- The origin, e.g., `origin = 'https://www.example.com'`, which represents the aggregate user experience distribution for all pages on that website
+- The connection speed at the time of page load, e.g., `effective_connection_type.name = '4G'`
+- The device type, e.g., `form_factor.name = 'desktop'`
+- The UX metrics themselves
+  - first_paint (FP)
+  - first_contentful_paint (FCP)
+  - dom_content_loaded (DCL)
+  - onload (OL)
+  - experimental.first_input_delay (FID)
 
 The data for each metric is organized as an array of objects. In JSON notation, `first_contentful_paint.histogram.bin` would look similar to this:
 
@@ -94,8 +85,7 @@ Each bin contains a start and an end time in milliseconds and a density represen
 
 [Browse the structure of the tables in BigQuery.](https://bigquery.cloud.google.com/table/chrome-ux-report:all.201809?tab=preview)
 
-Evaluating performance <a href="#evaluating-performance" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Evaluating performance <a href="#evaluating-performance" class="w-headline-link">#</a>
 
 Let's use our knowledge of the table schema to write a query that extracts this performance data.
 
@@ -140,8 +130,7 @@ The result is `0.0399`, or 3.99% across all devices and connection types. Let's 
 
 This gives us `0.3913`. In other words, 39.13% of the FCP user experiences on developers.google.com are considered "fast" according to the FCP range definition.
 
-Tracking performance <a href="#tracking-performance" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Tracking performance <a href="#tracking-performance" class="w-headline-link">#</a>
 
 Now that we've extracted performance data about an origin, let's compare it to the historical data available in older tables. To do that, we could rewrite the table address to an earlier month, or we could use the wildcard syntax to query all months:
 
@@ -167,8 +156,7 @@ Here, we see that the percent of fast FCP experiences varies by a few percentage
 
 With these techniques, you're able to look up the performance for an origin, calculate the percent of fast experiences, and track it over time. As a next step, try querying for two or more origins and comparing their performance.
 
-FAQ <a href="#faq" class="w-headline-link">#</a>
-------------------------------------------------
+## FAQ <a href="#faq" class="w-headline-link">#</a>
 
 ### When would I use BigQuery as opposed to other tools? <a href="#when-would-i-use-bigquery-as-opposed-to-other-tools" class="w-headline-link">#</a>
 
@@ -188,35 +176,35 @@ Check out the [BigQuery documentation](https://cloud.google.com/bigquery/) for m
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

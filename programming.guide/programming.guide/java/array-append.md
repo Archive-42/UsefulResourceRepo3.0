@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Java Arrays
------------
+## Java Arrays
 
 1.  [Java Arrays (with examples)](arrays.html)
 2.  [Maximum length of array](array-maximum-length.html)
@@ -15,17 +14,15 @@ Java Arrays
 8.  [Inserting an element in an array at a given index](array-insert-at-index.html)
 9.  [Testing array equality](testing-array-equality.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -35,8 +32,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +40,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Appending to an array
-===========================
+# Java: Appending to an array
 
 In Java arrays can't grow, so you need to create a **new array**, larger array, copy over the content, and insert the new element.
 
@@ -58,8 +53,7 @@ In Java arrays can't grow, so you need to create a **new array**, larger array, 
 
     // arr == [ 10, 20, 30, 40 ]
 
-Apache Commons Lang
--------------------
+## Apache Commons Lang
 
 If you have [Commons Lang](https://commons.apache.org/proper/commons-lang/) on your class path, you can use one of the [`ArrayUtils.add`](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/ArrayUtils.html#add-int:A-int-) methods.
 
@@ -69,8 +63,7 @@ If you have [Commons Lang](https://commons.apache.org/proper/commons-lang/) on y
 
     arr = ArrayUtils.add(arr, 40);
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

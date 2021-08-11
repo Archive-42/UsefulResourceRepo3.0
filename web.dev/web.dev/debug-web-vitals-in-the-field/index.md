@@ -1,36 +1,28 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format" alt="Laptop screen showing an analytics interface" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/pOHexwZOflz5RGf6FT4P.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#debug-web-vitals-in-the-field" class="w-toc__header--link">Debug Web Vitals in the field</a>
-------------------------------------------------------------------------------------------------------
+## <a href="#debug-web-vitals-in-the-field" class="w-toc__header--link">Debug Web Vitals in the field</a>
 
--   [APIs for attribution and debugging](#apis-for-attribution-and-debugging)
--   [CLS](#cls)
--   [LCP](#lcp)
--   [FID](#fid)
--   [Usage with the web-vitals JavaScript library](#usage-with-the-web-vitals-javascript-library)
--   [Report and visualize the data](#report-and-visualize-the-data)
--   [The Web Vitals Report tool](#the-web-vitals-report-tool)
--   [Summary](#summary)
+- [APIs for attribution and debugging](#apis-for-attribution-and-debugging)
+- [CLS](#cls)
+- [LCP](#lcp)
+- [FID](#fid)
+- [Usage with the web-vitals JavaScript library](#usage-with-the-web-vitals-javascript-library)
+- [Report and visualize the data](#report-and-visualize-the-data)
+- [The Web Vitals Report tool](#the-web-vitals-report-tool)
+- [Summary](#summary)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Debug Web Vitals in the field
-=============================
+# Debug Web Vitals in the field
 
 Learn how to attribute your Web Vitals data with debug information  
 to help you identify and fix real-user issues with analytics
@@ -43,18 +35,18 @@ Apr 1, 2021 <span class="w-author__separator">•</span> Updated Apr 1, 2021
 
 <a href="/authors/philipwalton/" class="w-author__name-link">Philip Walton</a>
 
--   <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
--   <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
--   <a href="https://philipwalton.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
+- <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
+- <a href="https://philipwalton.com" class="w-author__link">Blog</a>
 
 Google currently provides two categories of tools to measure and debug Web Vitals:
 
--   **Lab tools:** Tools such as Lighthouse, where your page is loaded in a simulated environment that can mimic various conditions (for example, a slow network and a low-end mobile device).
--   **Field tools:** Tools such as [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) (CrUX), which is based on aggregate, real-user data from Chrome. (Note that the field data reported by tools such as [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) and [Search Console](https://support.google.com/webmasters/answer/9205520) is sourced from CrUX data.)
+- **Lab tools:** Tools such as Lighthouse, where your page is loaded in a simulated environment that can mimic various conditions (for example, a slow network and a low-end mobile device).
+- **Field tools:** Tools such as [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) (CrUX), which is based on aggregate, real-user data from Chrome. (Note that the field data reported by tools such as [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) and [Search Console](https://support.google.com/webmasters/answer/9205520) is sourced from CrUX data.)
 
 While field tools offer more accurate data—data which actually represents what real users experience—lab tools are often better at helping you identify and fix issues.
 
-CrUX data is more representative of your page's real performance, but knowing your CrUX scores is unlikely to help you figure out *how* to improve your performance.
+CrUX data is more representative of your page's real performance, but knowing your CrUX scores is unlikely to help you figure out _how_ to improve your performance.
 
 Lighthouse, on the other hand, will identify issues and make specific suggestions for how to improve. However, Lighthouse will only make suggestions for performance issues it discovers at page load time. It does not detect issues that only manifest as a result of user interaction such as scrolling or clicking buttons on the page.
 
@@ -62,8 +54,7 @@ This raises an important question: **how can you capture debug information for t
 
 This post will explain in detail what APIs you can use to collect additional debugging information for each of the current Core Web Vitals metrics and give you ideas for how to capture this data in your existing analytics tool.
 
-APIs for attribution and debugging <a href="#apis-for-attribution-and-debugging" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## APIs for attribution and debugging <a href="#apis-for-attribution-and-debugging" class="w-headline-link">#</a>
 
 ### CLS <a href="#cls" class="w-headline-link">#</a>
 
@@ -131,8 +122,8 @@ Once you've identified and fixed the root cause of the shifts for those elements
 
 Some other metadata that may be useful to capture along with the largest shift source element is:
 
--   The time of the largest shift
--   The URL path at the time of the largest shift (for sites that dynamically update the URL, such as Single Page Applications).
+- The time of the largest shift
+- The URL path at the time of the largest shift (for sites that dynamically update the URL, such as Single Page Applications).
 
 ### LCP <a href="#lcp" class="w-headline-link">#</a>
 
@@ -142,9 +133,9 @@ Note that it's entirely possible—in fact, it's quite common—that the LCP can
 
 This can happen for several reasons:
 
--   User devices have different screen resolutions, which results in different page layouts and thus different elements being visible within the viewport.
--   Users don't always load pages scrolled to the very top. Oftentimes links will contain [fragment identifiers](/text-fragments/#fragment-identifiers) or even [text fragments](/text-fragments/#text-fragments), which means it's possible for your pages to be loaded and displayed at any scroll position on the page.
--   Content may be personalized for the current user, so the LCP candidate element could vary wildly from user to user.
+- User devices have different screen resolutions, which results in different page layouts and thus different elements being visible within the viewport.
+- Users don't always load pages scrolled to the very top. Oftentimes links will contain [fragment identifiers](/text-fragments/#fragment-identifiers) or even [text fragments](/text-fragments/#text-fragments), which means it's possible for your pages to be loaded and displayed at any scroll position on the page.
+- Content may be personalized for the current user, so the LCP candidate element could vary wildly from user to user.
 
 This means you cannot make assumptions about which element or set of elements will be the most common LCP candidate element for a particular page. You have to measure it based on real-user behavior.
 
@@ -165,8 +156,8 @@ Once you know the LCP candidate element, you can send it to your analytics tool 
 
 Some other metadata that may be useful to capture along with the LCP candidate element:
 
--   The image source URL (if the LCP candidate element is an image).
--   The text font family (if the LCP candidate element is text and the page uses web fonts).
+- The image source URL (if the LCP candidate element is an image).
+- The text font family (if the LCP candidate element is text and the page uses web fonts).
 
 ### FID <a href="#fid" class="w-headline-link">#</a>
 
@@ -174,7 +165,7 @@ To debug FID in the field, it's important to remember that FID measures [only th
 
 For example, many JavaScript applications that support server-side rendering (SSR) will deliver static HTML that can be rendered to the screen before it's interactive to user input—that is, before the JavaScript required to make the content interactive has finished loading.
 
-For these types of applications, it can be very important to know whether the first input occurred before or after [hydration](https://en.wikipedia.org/wiki/Hydration_(web_development)). If it turns out that many people are attempting to interact with the page before hydration completes, consider rendering your pages in a disabled or loading state rather than in a state that looks interactive.
+For these types of applications, it can be very important to know whether the first input occurred before or after [hydration](<https://en.wikipedia.org/wiki/Hydration_(web_development)>). If it turns out that many people are attempting to interact with the page before hydration completes, consider rendering your pages in a disabled or loading state rather than in a state that looks interactive.
 
 If your application framework exposes the hydration timestamp, you can easily compare that with the timestamp of the `first-input` entry to determine whether the first input happened before or after hydration. If your framework doesn't expose that timestamp, or doesn't use hydration at all, another useful signal may be whether input occurred before or after JavaScript finished loading.
 
@@ -203,11 +194,10 @@ To get the element associated with the first input event, you can reference the 
 
 Some other metadata that may be useful to capture along with the FID target element:
 
--   The type of event (such as `mousedown`, `keydown`, `pointerdown`).
--   Any relevant [long task attribution](https://w3c.github.io/longtasks/#taskattributiontiming) data for the long task that occurred at the same time as the first input (useful if the page loads third-party scripts).
+- The type of event (such as `mousedown`, `keydown`, `pointerdown`).
+- Any relevant [long task attribution](https://w3c.github.io/longtasks/#taskattributiontiming) data for the long task that occurred at the same time as the first input (useful if the page loads third-party scripts).
 
-Usage with the web-vitals JavaScript library <a href="#usage-with-the-web-vitals-javascript-library" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## Usage with the web-vitals JavaScript library <a href="#usage-with-the-web-vitals-javascript-library" class="w-headline-link">#</a>
 
 The sections above offer some suggestions for additional debug info to include in the data you send to your analytics tool. Each of the examples includes some code that uses one or more performance entries associated with a particular Web Vitals metric and returns a DOM element that can be used to help debug issues affecting that metric.
 
@@ -304,8 +294,7 @@ The specific format required to send the data will vary by analytics tool, but t
 
 The code above also includes a `getSelector()` function (not mentioned in previous sections), which takes a DOM node and returns a CSS selector representing that node and its place in the DOM. It also takes an optional maximum length parameter (defaulting to 100 characters) in the event that your analytics provider has length restrictions on the data you send it.
 
-Report and visualize the data <a href="#report-and-visualize-the-data" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Report and visualize the data <a href="#report-and-visualize-the-data" class="w-headline-link">#</a>
 
 Once you've started collecting debug information along with your Web Vitals metrics, the next step is aggregating the data across all your users to start looking for patterns and trends.
 
@@ -321,14 +310,13 @@ Here's a screenshot from the Web Vitals Report debug info section, showing data 
 
 Using the data above, you can see that whatever is causing the `section.Intro` element to shift is contributing the most to CLS on this page, so identifying and fixing the cause of that shift will yield the greatest improvement to the score.
 
-Summary <a href="#summary" class="w-headline-link">#</a>
---------------------------------------------------------
+## Summary <a href="#summary" class="w-headline-link">#</a>
 
 Hopefully this post has helped outline the specific ways you can use the existing performance APIs to get debug information for each of the Core Web Vitals metrics based on real-user interactions in the field. While it's focused on the Core Web Vitals, the concepts also apply to debugging any performance metric that's measurable in JavaScript.
 
 If you're just getting started measuring performance, and you're already a Google Analytics user, the Web Vitals Report tool may be a good place to start because it already supports reporting debug information for each of the Core Web Vitals metrics.
 
-If you're an analytics vendor and you're looking to improve your products and provide more debugging information to your users, consider some of the techniques described here but don't limit yourself to *just* the ideas presented here. This post is intended to be generally applicable to all analytics tools; however, individual analytics tools likely can (and should) capture and report even more debug information.
+If you're an analytics vendor and you're looking to improve your products and provide more debugging information to your users, consider some of the techniques described here but don't limit yourself to _just_ the ideas presented here. This post is intended to be generally applicable to all analytics tools; however, individual analytics tools likely can (and should) capture and report even more debug information.
 
 Lastly, if you feel there are gaps in your ability to debug these metrics due to missing features or information in the APIs themselves send your feedback to <web-vitals-feedback@googlegroups.com>.
 
@@ -338,35 +326,35 @@ Lastly, if you feel there are gaps in your ability to debug these metrics due to
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

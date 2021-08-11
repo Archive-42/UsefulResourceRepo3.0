@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-External Resources
-------------------
+## External Resources
 
 [The Catch or Specify Requirement](https://docs.oracle.com/javase/tutorial/essential/exceptions/catchOrDeclare.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Java Tutorials</span>
@@ -13,8 +12,7 @@ External Resources
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -24,8 +22,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -33,13 +30,12 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Difference between Checked and Unchecked Exceptions
-===================================================
+# Difference between Checked and Unchecked Exceptions
 
 A **checked exception** must either be
 
--   caught within the method, *or*
--   declared to be thrown by the method
+- caught within the method, _or_
+- declared to be thrown by the method
 
 This is enforced ("checked") by the compiler.
 
@@ -83,8 +79,7 @@ An **unchecked exception** does **not** have this requirement.
 
 Checked exceptions are often used as "alternative return values" for unpredictable errors from which client can recover. Unchecked exceptions are usually an indication of a programming error or other condition from which the client can't be expected to recover.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

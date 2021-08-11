@@ -1,30 +1,18 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
+## <a href="#incorporate-performance-budgets-into-your-build-process" class="w-toc__header--link">Incorporate performance budgets into your build process</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#incorporate-performance-budgets-into-your-build-process" class="w-toc__header--link">Incorporate performance budgets into your build process</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------
-
--   [Lighthouse performance budgets](#lighthouse-performance-budgets)
--   [Webpack performance hints](#webpack-performance-hints)
--   [Bundlesize](#bundlesize)
--   [Bundlesize CLI](#bundlesize-cli)
--   [Bundlesize for CI](#bundlesize-for-ci)
--   [Lighthouse Bot](#lighthouse-bot)
--   [Summary](#summary)
+- [Lighthouse performance budgets](#lighthouse-performance-budgets)
+- [Webpack performance hints](#webpack-performance-hints)
+- [Bundlesize](#bundlesize)
+- [Bundlesize CLI](#bundlesize-cli)
+- [Bundlesize for CI](#bundlesize-for-ci)
+- [Lighthouse Bot](#lighthouse-bot)
+- [Summary](#summary)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Incorporate performance budgets into your build process
-=======================================================
+# Incorporate performance budgets into your build process
 
 Feb 1, 2019
 
@@ -34,38 +22,36 @@ Feb 1, 2019
 
 <a href="/authors/mihajlija/" class="w-author__name-link">Milica Mihajlija</a>
 
--   <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
--   <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
+- <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
 
 Once you've defined a performance budget, it's time to set up the build process to keep track of it. There are a number of tools that let you define thresholds for chosen performance metrics and warn you if you go over budget. Find out how to choose one that best fits your needs and current setup. 🕵️‍♀️
 
-Lighthouse performance budgets <a href="#lighthouse-performance-budgets" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Lighthouse performance budgets <a href="#lighthouse-performance-budgets" class="w-headline-link">#</a>
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) is an auditing tool that tests sites in a few key areas—performance, accessibility, best practices and how well your site performs as a progressive web application.
 
 The [command line version](https://developers.google.com/web/tools/lighthouse/#cli) of Lighthouse (v5+) supports setting [performance budgets](https://developers.google.com/web/tools/lighthouse/audits/budgets) based on:
 
--   resource size
--   resource count
+- resource size
+- resource count
 
 You can set budgets for any of the following resource types:
 
--   `document`
--   `font`
--   `image`
--   `media`
--   `other`
--   `script`
--   `stylesheet`
--   `third-party`
--   `total`
+- `document`
+- `font`
+- `image`
+- `media`
+- `other`
+- `script`
+- `stylesheet`
+- `third-party`
+- `total`
 
 Budgets are set in a JSON file and after defining them the new "Over Budget" column tells you whether you're exceeding any limits.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format" alt="&quot;Budgets&quot; section in Lighthouse report" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1600 1600w" width="800" height="199" /><figcaption>"Budgets" section in Lighthouse report</figcaption></figure>Webpack performance hints <a href="#webpack-performance-hints" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format" alt="&quot;Budgets&quot; section in Lighthouse report" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/fsRNXJXQ5JESUuwsIlLn.png?auto=format&amp;w=1600 1600w" width="800" height="199" /><figcaption>"Budgets" section in Lighthouse report</figcaption></figure>Webpack performance hints <a href="#webpack-performance-hints" class="w-headline-link">#</a>
 
 [Webpack](https://developers.google.com/web/fundamentals/performance/webpack/) is a powerful build tool for optimizing how your code is delivered to the users. It also supports setting performance budgets based on **asset size**.
 
@@ -79,8 +65,7 @@ After the build step, webpack outputs a color-coded list of assets and their siz
 
 Compressed asset sizes affect the transfer time, which is very important on slow networks.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format" alt="Bonus feature: webpack won’t only warn you, it will give you a recommendation on how to downsize your bundles. 💁" class="w-screenshot w-screenshot--filled" sizes="(min-width: 556px) 556px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=1112 1112w" width="556" height="84" /><figcaption>Bonus feature: webpack won’t only warn you, it will give you a recommendation on how to downsize your bundles. 💁</figcaption></figure>Bundlesize <a href="#bundlesize" class="w-headline-link">#</a>
---------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format" alt="Bonus feature: webpack won’t only warn you, it will give you a recommendation on how to downsize your bundles. 💁" class="w-screenshot w-screenshot--filled" sizes="(min-width: 556px) 556px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ogH1cMiF96iyhj8CiENK.jpg?auto=format&amp;w=1112 1112w" width="556" height="84" /><figcaption>Bonus feature: webpack won’t only warn you, it will give you a recommendation on how to downsize your bundles. 💁</figcaption></figure>Bundlesize <a href="#bundlesize" class="w-headline-link">#</a>
 
 [Bundlesize](https://github.com/siddharthkp/bundlesize) is a simple npm package that tests asset size against a threshold you've set. It can run locally and integrate with your CI.
 
@@ -102,8 +87,7 @@ With bundlesize, it's possible to set thresholds for each file separately. This 
 
 By default, **it tests gzipped asset sizes**. You can use the compression option to switch to [brotli compression](https://css-tricks.com/brotli-static-compression/) or turn it off completely.
 
-Lighthouse Bot <a href="#lighthouse-bot" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Lighthouse Bot <a href="#lighthouse-bot" class="w-headline-link">#</a>
 
 <figure><img src="https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/5zLlIEUm06wEbu3J1WjG.png?auto=format&amp;w=1600 1600w" width="800" height="267" /></figure>[Lighthouse Bot](https://github.com/ebidel/lighthouse-ci) integrates with Travis CI and enforces budgets based on any of the five Lighthouse audit categories. For example, a budget of 100 for your Lighthouse performance score. It's sometimes simpler to keep an eye on a single number than individual asset budgets and Lighthouse scores take many things into account.
 
@@ -119,8 +103,7 @@ If the scores for a pull request on GitHub fall below the threshold you've set, 
 
 <figure><img src="https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format" alt="Lighthouse reporting scores on pull request 💬" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/q1BUp838y2oSs70Suxyb.png?auto=format&amp;w=1600 1600w" width="800" height="383" /><figcaption>Lighthouse reporting scores on pull request 💬</figcaption></figure>If you find your pull request blocked by a poor Lighthouse score, run an audit with [Lighthouse CLI](https://developers.google.com/web/tools/lighthouse/#cli) or in [Dev Tools](https://developers.google.com/web/tools/lighthouse/#devtools). It generates a report with details about bottlenecks and hints for simple optimizations.
 
-Summary <a href="#summary" class="w-headline-link">#</a>
---------------------------------------------------------
+## Summary <a href="#summary" class="w-headline-link">#</a>
 
 <table><colgroup><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /><col style="width: 25%" /></colgroup><thead><tr class="header"><th>Tool</th><th>CLI</th><th>CI</th><th>Summary</th></tr></thead><tbody><tr class="odd"><td>Lighthouse</td><td>✔️</td><td>❌</td><td><ul><li>Budgets for different types of resources based on their size or count.</li></ul></td></tr><tr class="even"><td>webpack</td><td>✔️</td><td>❌</td><td><ul><li>Budgets based on sizes of assets generated by webpack.</li><li>Checks uncompressed sizes.</li></ul></td></tr><tr class="odd"><td>bundlesize</td><td>✔️</td><td>✔️</td><td><ul><li>Budgets based on sizes of specific resources.</li><li>Checks compressed or uncompressed sizes.</li></ul></td></tr><tr class="even"><td>Lighthouse Bot</td><td>❌</td><td>✔️</td><td><ul><li>Budgets based on Lighthouse scores.</li></ul></td></tr></tbody></table>
 
@@ -128,46 +111,45 @@ Summary <a href="#summary" class="w-headline-link">#</a>
 
 <span class="w-mr--sm">Last updated: Feb 1, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/fast/incorporate-performance-budgets-into-your-build-tools/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-setting-performance-budgets-with-webpack/" class="w-callout__link w-callout__link--codelab">Setting performance budgets with webpack</a>
+- <a href="/codelab-setting-performance-budgets-with-webpack/" class="w-callout__link w-callout__link--codelab">Setting performance budgets with webpack</a>
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

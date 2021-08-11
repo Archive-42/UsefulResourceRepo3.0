@@ -1,58 +1,50 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/gNjyaiykXSBUPVhSOinL.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-switch-component" class="w-toc__header--link">Building a switch component</a>
---------------------------------------------------------------------------------------------------
+## <a href="#building-a-switch-component" class="w-toc__header--link">Building a switch component</a>
 
--   [Overview](#overview)
--   [Custom properties](#custom-properties)
--   [Markup](#markup)
--   [Layouts](#layouts)
--   [.gui-switch](#.gui-switch)
--   [Track](#track-2)
--   [Thumb](#thumb-2)
--   [Styles](#styles)
--   [Touch interaction styles](#touch-interaction-styles)
--   [Track](#track-3)
--   [Thumb](#thumb-3)
--   [Thumb position](#thumb-position)
--   [Vertical](#vertical)
--   [(RTL) right-to-left](#(rtl)-right-to-left)
--   [States](#states)
--   [Checked](#checked)
--   [Disabled](#disabled)
--   [Indeterminate](#indeterminate)
--   [Hover](#hover)
--   [JavaScript](#javascript)
--   [Draggable thumbs](#draggable-thumbs)
--   [touch-action](#touch-action)
--   [Pixel value style utilities](#pixel-value-style-utilities)
--   [dragging](#dragging)
--   [dragEnd](#dragend)
--   [determineChecked()](#determinechecked())
--   [Extra thoughts](#extra-thoughts)
--   [Conclusion](#conclusion)
--   [Community remixes](#community-remixes)
--   [Resources](#resources)
+- [Overview](#overview)
+- [Custom properties](#custom-properties)
+- [Markup](#markup)
+- [Layouts](#layouts)
+- [.gui-switch](#.gui-switch)
+- [Track](#track-2)
+- [Thumb](#thumb-2)
+- [Styles](#styles)
+- [Touch interaction styles](#touch-interaction-styles)
+- [Track](#track-3)
+- [Thumb](#thumb-3)
+- [Thumb position](#thumb-position)
+- [Vertical](#vertical)
+- [(RTL) right-to-left](<#(rtl)-right-to-left>)
+- [States](#states)
+- [Checked](#checked)
+- [Disabled](#disabled)
+- [Indeterminate](#indeterminate)
+- [Hover](#hover)
+- [JavaScript](#javascript)
+- [Draggable thumbs](#draggable-thumbs)
+- [touch-action](#touch-action)
+- [Pixel value style utilities](#pixel-value-style-utilities)
+- [dragging](#dragging)
+- [dragEnd](#dragend)
+- [determineChecked()](<#determinechecked()>)
+- [Extra thoughts](#extra-thoughts)
+- [Conclusion](#conclusion)
+- [Community remixes](#community-remixes)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a switch component
-===========================
+# Building a switch component
 
 A foundational overview of how to build a responsive and accessible switch component.
 
@@ -62,10 +54,10 @@ Aug 11, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share thinking on a way to build switch components. [Try the demo](https://gui-challenges.web.app/switch/dist/).
 
@@ -73,8 +65,7 @@ In this post I want to share thinking on a way to build switch components. [Try 
 
 If you prefer video, here's a YouTube version of this post:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 A [switch](https://w3c.github.io/aria/#switch) functions similar to a checkbox but explicitly represents boolean on and off states.
 
@@ -98,7 +89,7 @@ The length (`--track-size`), padding, and two colors:
       --track-color-inactive: var(--track-inactive);
       --track-color-active: var(--track-active);
 
-      @media (prefers-color-scheme: dark) { 
+      @media (prefers-color-scheme: dark) {
         --track-inactive: hsl(80 0% 35%);
         --track-active: hsl(80 60% 60%);
       }
@@ -116,7 +107,7 @@ The size, background color, and interaction highlight colors:
       --thumb-color: var(--thumb);
       --thumb-color-highlight: var(--thumb-highlight);
 
-      @media (prefers-color-scheme: dark) { 
+      @media (prefers-color-scheme: dark) {
         --thumb: hsl(0 0% 5%);
         --thumb-highlight: hsl(0 0% 100% / 25%);
       }
@@ -141,8 +132,7 @@ I chose to wrap my `<input type="checkbox" role="switch">` element with a `<labe
 
 `<input type="checkbox">` comes prebuilt with an [API](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) and [state](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked). The browser manages the [`checked`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#checked) property and [input events](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement#input_events) such as `oninput`and `onchanged`.
 
-Layouts <a href="#layouts" class="w-headline-link">#</a>
---------------------------------------------------------
+## Layouts <a href="#layouts" class="w-headline-link">#</a>
 
 [Flexbox](/learn/css/flexbox/), [grid](/learn/css/grid/), and [custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) are critical in maintaining the styles of this component. They centralize values, give names to otherwise ambiguous calculations or areas, and enable a small custom property API for easy component customizations.
 
@@ -152,7 +142,7 @@ The top-level layout for the switch is flexbox. The class `.gui-switch` contains
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format" alt="Flexbox DevTools overlaying a horizontal label and switch, showing their layout distribution of space." class="w-screenshot" sizes="(min-width: 746px) 746px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/aIpui6HjdmtoELmVX59U.png?auto=format&amp;w=1492 1492w" width="746" height="218" />
 
-    .gui-switch { 
+    .gui-switch {
       display: flex;
       align-items: center;
       gap: 2ch;
@@ -207,8 +197,7 @@ The thumb is a pseudo-element child attached to the `input[type="checkbox"]` and
 **Warning**:  
 Not all inputs can have pseudo-elements, [learn more here](https://webplatform.news/issues/2020-08-26).
 
-Styles <a href="#styles" class="w-headline-link">#</a>
-------------------------------------------------------
+## Styles <a href="#styles" class="w-headline-link">#</a>
 
 Custom properties enable a versatile switch component that adapts to color schemes, right-to-left languages and motion preferences.
 
@@ -266,7 +255,7 @@ Use custom properties to prepare for interactions which will show hover highligh
       box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
 
       @media (--motionOK) { & {
-        transition: 
+        transition:
           transform var(--thumb-transition-duration) ease,
           box-shadow .25s ease;
       }}
@@ -360,8 +349,7 @@ The `translateX` transforms on the thumb pseudo-element also need updated to acc
 
 While this approach won't work to solve all needs regarding a concept like logical CSS transforms, it does offer some [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principles for many use cases.
 
-States <a href="#states" class="w-headline-link">#</a>
-------------------------------------------------------
+## States <a href="#states" class="w-headline-link">#</a>
 
 Using the built in `input[type="checkbox"]` wouldn't be complete without handling the various states it can be in: `:checked`, `:disabled`, `:indeterminate` and `:hover`. `:focus` was intentionally left alone, with an adjustment only made to its offset; the focus ring looked great on Firefox and Safari:
 
@@ -445,7 +433,7 @@ The "highlight" effect is done with `box-shadow`. On hover, of an non-disabled i
       box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight);
 
       @media (--motionOK) { & {
-        transition: 
+        transition:
           transform var(--thumb-transition-duration) ease,
           box-shadow .25s ease;
       }}
@@ -455,8 +443,7 @@ The "highlight" effect is done with `box-shadow`. On hover, of an non-disabled i
       --highlight-size: .5rem;
     }
 
-JavaScript <a href="#javascript" class="w-headline-link">#</a>
---------------------------------------------------------------
+## JavaScript <a href="#javascript" class="w-headline-link">#</a>
 
 This script is optional
 
@@ -567,7 +554,7 @@ This function, called by `dragEnd`, determines where the thumb current lies with
     const determineChecked = () => {
       let {bounds} = switches.get(state.activethumb.parentElement)
 
-      let curpos = 
+      let curpos =
         Math.abs(
           parseInt(
             state.activethumb.style.getPropertyValue('--thumb-position')))
@@ -595,7 +582,7 @@ The drag gesture incurred a bit of code debt due to the initial HTML structure c
 
 This is to account for the label getting this later click, as it would uncheck, or check, the interaction a user performed.
 
-If I was to do this again, I *might* consider adjusting DOM with JavaScript during the UX upgrade, as to create an element that handles label clicks itself and doesn't fight with built-in behavior.
+If I was to do this again, I _might_ consider adjusting DOM with JavaScript during the UX upgrade, as to create an element that handles label clicks itself and doesn't fight with built-in behavior.
 
 This kind of JavaScript is my least favorite to write, I don't want to manage conditional event bubbling:
 
@@ -604,8 +591,7 @@ This kind of JavaScript is my least favorite to write, I don't want to manage co
         event.preventDefault() && event.stopPropagation()
     }
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 This teeny switch component ended up being the most work of all GUI Challenges so far! Now that you know how I did it, how would you‽ 🙂
 
@@ -613,7 +599,7 @@ Let's diversify our approaches and learn all the ways to build on the web. Creat
 
 ### Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
-*Nothing to see here yet.*
+_Nothing to see here yet._
 
 ### Resources <a href="#resources" class="w-headline-link">#</a>
 
@@ -625,35 +611,35 @@ Find the `.gui-switch` [source code on Github](https://github.com/argyleink/gui-
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

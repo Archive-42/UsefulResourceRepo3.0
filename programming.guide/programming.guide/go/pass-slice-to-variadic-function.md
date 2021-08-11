@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Variadic functions (...T)](variadic-function.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,15 +29,14 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Pass a slice to a variadic function
-=======================================
+# Go: Pass a slice to a variadic function
 
 You can pass a slice `s` directly to a variadic funtion using the `s...` notation.
 
     func main() {
             primes := []int{2, 3, 5, 7}
             fmt.Println(Sum(primes...)) // 17
-    }       
+    }
 
     func Sum(nums ...int) int {
             res := 0
@@ -54,8 +50,7 @@ The `...` syntax can't be applied directly to an array. You must use an intermed
 
     fmt.Println(Sum(myArray[:]...))
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

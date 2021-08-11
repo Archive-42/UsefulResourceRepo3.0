@@ -1,37 +1,29 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format" alt="Well used letters from a letterpress, set into rows" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/fL3dWSY7YBfagFP0ikMW.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#css-lesscodegreatersize-adjustlesscodegreater-for-lesscodegreater@font-facelesscodegreater" class="w-toc__header--link">CSS <code>size-adjust</code> for <code>@font-face</code></a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#css-lesscodegreatersize-adjustlesscodegreater-for-lesscodegreater@font-facelesscodegreater" class="w-toc__header--link">CSS <code>size-adjust</code> for <code>@font-face</code></a>
 
--   [How to scale fonts with size-adjust](#how-to-scale-fonts-with-size-adjust)
--   [Mitigating CLS with seamless font swapping](#mitigating-cls-with-seamless-font-swapping)
--   [Calibrating fonts](#calibrating-fonts)
--   [Finer tuning with ascent-override, descent-override and line-gap-override](#finer-tuning-with-ascent-override-descent-override-and-line-gap-override)
--   [ascent-override](#ascent-override)
--   [descent-override](#descent-override)
--   [line-gap-override](#line-gap-override)
--   [Putting it all together](#putting-it-all-together)
--   [Conclusion](#conclusion)
+- [How to scale fonts with size-adjust](#how-to-scale-fonts-with-size-adjust)
+- [Mitigating CLS with seamless font swapping](#mitigating-cls-with-seamless-font-swapping)
+- [Calibrating fonts](#calibrating-fonts)
+- [Finer tuning with ascent-override, descent-override and line-gap-override](#finer-tuning-with-ascent-override-descent-override-and-line-gap-override)
+- [ascent-override](#ascent-override)
+- [descent-override](#descent-override)
+- [line-gap-override](#line-gap-override)
+- [Putting it all together](#putting-it-all-together)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-CSS `size-adjust` for `@font-face`
-==================================
+# CSS `size-adjust` for `@font-face`
 
 As a web font loads, you can now adjust its scale, to normalize the document font sizes and prevent layout shift when switching between fonts
 
@@ -41,10 +33,10 @@ Jun 9, 2021 <span class="w-author__separator">•</span> Updated Jun 9, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 Consider the following [demo](https://codepen.io/argyleink/pen/8ace843980e2fd24bf15c8bd1bd072e4?editors=1100) where the `font-size` is a consistent `64px`, and the only difference between each of these headers is the `font-family`. The examples on the left have not been adjusted and have an inconsistent final size. The examples on the right use `size-adjust` to ensure `64px` is the consistent final size.
 
@@ -61,8 +53,7 @@ Here's an interactive [demo](https://codepen.io/argyleink/pen/rNyMjxR) of the pr
 **Key Term**:  
 Font family vs Typeface: A **typeface** is referred to by its family name plus its font face. `Helvetica Bold` is referring to the specific bold typeface while `Helvetica` is generically referring to the entire family of 8+ typefaces (normal, bold, italic, etc). With CSS `@font-face` you'll be dealing with typefaces, even though to use them you need to write `font-family`.
 
-How to scale fonts with `size-adjust` <a href="#how-to-scale-fonts-with-size-adjust" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## How to scale fonts with `size-adjust` <a href="#how-to-scale-fonts-with-size-adjust" class="w-headline-link">#</a>
 
 An introduction to the syntax:
 
@@ -103,7 +94,7 @@ At the beginning of this post, fixing the font size issue was done by trial and 
 
     @font-face {
       font-family: 'Adjusted Arial';
-      size-adjust: 86%; 
+      size-adjust: 86%;
       src: local(Arial);
     }
 
@@ -197,8 +188,7 @@ Consider the following snippet which adjusts a brand custom font to match Arial:
 
 This strategy has the advantage of rendering without any adjustments, then adjusting any incoming fonts to match.
 
-Finer tuning with `ascent-override`, `descent-override` and `line-gap-override` <a href="#finer-tuning-with-ascent-override-descent-override-and-line-gap-override" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Finer tuning with `ascent-override`, `descent-override` and `line-gap-override` <a href="#finer-tuning-with-ascent-override-descent-override-and-line-gap-override" class="w-headline-link">#</a>
 
 If generic scaling of glyphs isn't enough adjustment for your design or loading strategies, here are some finer tuning options that work along with `size-adjust`. The [`ascent-override`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/ascent-override), [`descent-override`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/descent-override), and [`line-gap-override`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/line-gap-override) properties are currently implemented in Chromium 87+, and Firefox 89+.
 
@@ -226,7 +216,7 @@ The `descent-override` descriptor defines the height below the baseline of the f
       descent-override: 0%;
     }
 
-The red headline (unadjusted) has space below it's D and O [baselines](https://en.wikipedia.org/wiki/Baseline_(typography)), while the blue headline has been adjusted so it's letters rest snug on the baseline.
+The red headline (unadjusted) has space below it's D and O [baselines](<https://en.wikipedia.org/wiki/Baseline_(typography)>), while the blue headline has been adjusted so it's letters rest snug on the baseline.
 
 ### `line-gap-override` <a href="#line-gap-override" class="w-headline-link">#</a>
 
@@ -246,18 +236,17 @@ Each of these overrides offer an additional way to trim excess from the web's sa
 
 **Warning**: If any of the above demos aren't showing differences, your browser does not support the overrides.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 The `@font-face` `size-adjust` CSS feature is an exciting way to customize the text bounding box of your web layouts to improve the font swapping experience thus avoiding layout shift for your users. To learn more, check out these resources:
 
--   [CSS Fonts Level 5 Spec](https://drafts.csswg.org/css-fonts-5/#size-adjust-desc)
--   [Size Adjust on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust)
--   [Seamless swap @font-face generator](https://deploy-preview-15--upbeat-shirley-608546.netlify.app/perfect-ish-font-fallback/?font=Montserrat)
--   [Cumulative Layout Shift (CLS) on web.dev](https://web.dev/cls/)
--   [A New Way To Reduce Font Loading Impact: CSS Font Descriptors](https://www.smashingmagazine.com/2021/05/reduce-font-loading-impact-css-descriptors/)
+- [CSS Fonts Level 5 Spec](https://drafts.csswg.org/css-fonts-5/#size-adjust-desc)
+- [Size Adjust on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust)
+- [Seamless swap @font-face generator](https://deploy-preview-15--upbeat-shirley-608546.netlify.app/perfect-ish-font-fallback/?font=Montserrat)
+- [Cumulative Layout Shift (CLS) on web.dev](https://web.dev/cls/)
+- [A New Way To Reduce Font Loading Impact: CSS Font Descriptors](https://www.smashingmagazine.com/2021/05/reduce-font-loading-impact-css-descriptors/)
 
-*Photo by [Kristian Strand](https://unsplash.com/@kristianstrand) on [Unsplash](https://unsplash.com/photos/p8gzCnZf39k)*
+_Photo by [Kristian Strand](https://unsplash.com/@kristianstrand) on [Unsplash](https://unsplash.com/photos/p8gzCnZf39k)_
 
 <a href="/tags/css/" class="w-chip">CSS</a>
 
@@ -265,35 +254,35 @@ The `@font-face` `size-adjust` CSS feature is an exciting way to customize the t
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -2,17 +2,15 @@
 
 <span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,19 +28,16 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Removing elements from multiple indexes in a list
-=======================================================
+# Java: Removing elements from multiple indexes in a list
 
 Use [`List.remove(int)`](https://docs.oracle.com/javase/8/docs/api/java/util/List.html#remove-int-) on indexes in descending order:
 
-Java 8
-------
+## Java 8
 
     indexes.sort(Comparator.reverseOrder());
     indexes.stream().mapToInt(i -> i).forEach(list::remove);
 
-Java 7
-------
+## Java 7
 
     Collections.sort(indexes, Collections.reverseOrder());
     for (int i : indexes)
@@ -51,8 +45,7 @@ Java 7
 
 See also [Removing a range of elements from a list](removing-a-range-of-elements-from-a-list.html)
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

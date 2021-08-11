@@ -1,30 +1,20 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
+## <a href="#new-capabilities-status" class="w-toc__header--link">New capabilities status</a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
-
-<a href="#new-capabilities-status" class="w-toc__header--link">New capabilities status</a>
-------------------------------------------------------------------------------------------
-
--   [Capabilities available behind a flag](#flag)
--   [Capabilities available as an origin trial](#origin-trial)
--   [Capabilities available in stable](#in-stable)
--   [Suggest a new capability](#suggest-new)
+- [Capabilities available behind a flag](#flag)
+- [Capabilities available as an origin trial](#origin-trial)
+- [Capabilities available in stable](#in-stable)
+- [Suggest a new capability](#suggest-new)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-New capabilities status
-=======================
+# New capabilities status
 
 Web apps should be able to do anything iOS/Android/desktop apps can. The members of the cross-company capabilities project want to make it possible for you to build and deliver apps on the open web that have never been possible before.
 
@@ -36,15 +26,13 @@ The [capabilities project](https://developers.google.com/web/updates/capabilitie
 
 You can see the full list of new and potential capabilities at the [Fugu API Tracker](https://goo.gle/fugu-api-tracker).
 
-Capabilities available behind a flag <a href="#flag" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Capabilities available behind a flag <a href="#flag" class="w-headline-link">#</a>
 
 These APIs are only available behind a flag. They're experimental and still under development. They are not ready for use in production. There's a good chance there are bugs, that these APIs will break, or the API surface will change.<span id="shape-face-text"></span>
 
 <table><colgroup><col style="width: 50%" /><col style="width: 50%" /></colgroup><thead><tr class="header"><th>Capability</th><th>Description</th></tr></thead><tbody><tr class="odd"><td><a href="/shape-detection/">Shape Detection (Face and Text)</a></td><td>Shape detection opens up standardized implementations of shape detection services and exposes them through a set of JavaScript interfaces. In additon to the APIs below, the Barcode Detection API is available in stable. For more information, see <a href="#shape-barcode">Shape Detection (Barcode)</a>.<ul><li><a href="https://www.chromestatus.com/feature/5678216012365824">Face Detection API</a></li><li><a href="https://www.chromestatus.com/feature/5644087665360896">Text Detection API</a></li></ul><em>Updated April 14, 2020</em></td></tr></tbody></table>
 
-Capabilities available as an origin trial <a href="#origin-trial" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------
+## Capabilities available as an origin trial <a href="#origin-trial" class="w-headline-link">#</a>
 
 These APIs are available as an [origin trial](https://developers.chrome.com/origintrials/#/trials/active) in Chrome. Origin trials provide an opportunity for Chrome to validate experimental features and APIs, and make it possible for you to provide feedback on their usability and effectiveness in broader deployment.
 
@@ -55,8 +43,7 @@ Opting into an origin trial allows you to build demos and prototypes that your b
 <em>Updated August 11, 2020</em></td></tr><tr class="odd"><td><a href="/notification-triggers/">Notification Triggers</a></td><td>Notification Triggers let you schedule notifications in advance, so that the operating system will deliver the notification at the right time-even if there is no network connectivity, or the device is in battery saver mode.<br />
 <em>Updated September 28, 2020</em></td></tr></tbody></table>
 
-Capabilities available in stable <a href="#in-stable" class="w-headline-link">#</a>
------------------------------------------------------------------------------------
+## Capabilities available in stable <a href="#in-stable" class="w-headline-link">#</a>
 
 The following APIs have graduated from origin trial and are available in the latest version of Chrome, and in many cases other Chromium based browsers.
 
@@ -78,8 +65,7 @@ The following APIs have graduated from origin trial and are available in the lat
 <em>Updated November 8, 2019</em></td></tr><tr class="even"><td><a href="/hid/">WebHID API</a></td><td>There is a long tail of human interface devices (HIDs), such as alternative keyboards or exotic gamepads, that are too new, too old, or too uncommon to be accessible by systems' device drivers. The WebHID API solves this by providing a way to implement device-specific logic in JavaScript.<br />
 <em>Updated January 21, 2021</em></td></tr></tbody></table>
 
-Suggest a new capability <a href="#suggest-new" class="w-headline-link">#</a>
------------------------------------------------------------------------------
+## Suggest a new capability <a href="#suggest-new" class="w-headline-link">#</a>
 
 Do you have a suggestion for a capability you think Chromium should consider? Tell us about it by filing a [new feature request](https://goo.gl/qWhHXU). Please be sure to include as much detail as you can, such as the problem you're trying to solve, suggested use cases, and anything else that might be helpful.
 
@@ -91,35 +77,35 @@ Want to try some of these new capabilities? Check out the [Web Capabilities Code
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

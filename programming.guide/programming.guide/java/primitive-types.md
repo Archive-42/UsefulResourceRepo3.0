@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Types in Java
--------------
+## Types in Java
 
 1.  [Java Basics: Types](types.html)
 2.  Primitive Types
@@ -22,17 +21,15 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -42,8 +39,7 @@ Top Java Articles
 
 [**See all Java articles**](index.html)
 
-Java: Primitive Types
-=====================
+# Java: Primitive Types
 
 `byte`
 
@@ -55,19 +51,19 @@ Range
 
 −128
 
- … 
+…
 
 127
 
 −2<sup>7</sup>
 
- … 
+…
 
 2<sup>7</sup>−1
 
 [`Byte.MIN_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html#MIN_VALUE)
 
- … 
+…
 
 [`Byte.MAX_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html#MAX_VALUE)
 
@@ -97,19 +93,19 @@ Range
 
 −32,768
 
- … 
+…
 
 32,767
 
 −2<sup>15</sup>
 
- … 
+…
 
 2<sup>15</sup>−1
 
 [`Short.MIN_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#MIN_VALUE)
 
- … 
+…
 
 [`Short.MAX_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#MAX_VALUE)
 
@@ -139,19 +135,19 @@ Range
 
 −2,147,483,648
 
- … 
+…
 
 2,147,483,647
 
 −2<sup>31</sup>
 
- … 
+…
 
 2<sup>31</sup>−1
 
 [`Integer.MIN_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#MIN_VALUE)
 
- … 
+…
 
 [`Integer.MAX_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#MAX_VALUE)
 
@@ -189,19 +185,19 @@ Range
 
 <span class="dynamic-font-size">−9,223,372,036,854,775,808</span>
 
- … 
+…
 
 <span class="dynamic-font-size">9,223,372,036,854,775,807</span>
 
 −2<sup>63</sup>
 
- … 
+…
 
 2<sup>63</sup>−1
 
 [`Long.MIN_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html#MIN_VALUE)
 
- … 
+…
 
 [`Long.MAX_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html#MAX_VALUE)
 
@@ -337,25 +333,25 @@ Range
 
 `\u0000`
 
- … 
+…
 
 `\uFFFF`
 
 0
 
- … 
+…
 
 65,535
 
 0
 
- … 
+…
 
 2<sup>16</sup>−1
 
 [`Character.MIN_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#MIN_VALUE)
 
- … 
+…
 
 [`Character.MAX_VALUE`](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#MAX_VALUE)
 
@@ -407,8 +403,7 @@ Example Literals
 
 `true`   `false`
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

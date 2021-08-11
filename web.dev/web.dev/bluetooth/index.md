@@ -1,51 +1,43 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format" alt="A Bluetooth chip on a coin" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/CME5IVhdn0pngs7jAlFX.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#communicating-with-bluetooth-devices-over-javascript" class="w-toc__header--link">Communicating with Bluetooth devices over JavaScript</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#communicating-with-bluetooth-devices-over-javascript" class="w-toc__header--link">Communicating with Bluetooth devices over JavaScript</a>
 
--   [Before we start](#before-we-start)
--   [Available for origin trials](#available-for-origin-trials)
--   [Security requirements](#security-requirements)
--   [HTTPS only](#https-only)
--   [User gesture required](#user-gesture-required)
--   [Get into the code](#get-into-the-code)
--   [Request Bluetooth devices](#request)
--   [Connect to a Bluetooth device](#connect)
--   [Read a Bluetooth Characteristic](#read)
--   [Write to a Bluetooth Characteristic](#write)
--   [Receive GATT notifications](#notifications)
--   [Disconnect from a Bluetooth Device](#disconnect)
--   [Read and write to Bluetooth descriptors](#descriptors)
--   [Samples, demos and codelabs](#samples-demos-and-codelabs)
--   [Beginner](#beginner)
--   [Combining multiple operations](#combining-multiple-operations)
--   [Libraries](#libraries)
--   [Tools](#tools)
--   [Tips](#tips)
--   [What's next](#what's-next)
--   [Show support for the API](#show-support-for-the-api)
--   [Resources](#resources)
--   [Acknowledgements](#acknowledgements)
+- [Before we start](#before-we-start)
+- [Available for origin trials](#available-for-origin-trials)
+- [Security requirements](#security-requirements)
+- [HTTPS only](#https-only)
+- [User gesture required](#user-gesture-required)
+- [Get into the code](#get-into-the-code)
+- [Request Bluetooth devices](#request)
+- [Connect to a Bluetooth device](#connect)
+- [Read a Bluetooth Characteristic](#read)
+- [Write to a Bluetooth Characteristic](#write)
+- [Receive GATT notifications](#notifications)
+- [Disconnect from a Bluetooth Device](#disconnect)
+- [Read and write to Bluetooth descriptors](#descriptors)
+- [Samples, demos and codelabs](#samples-demos-and-codelabs)
+- [Beginner](#beginner)
+- [Combining multiple operations](#combining-multiple-operations)
+- [Libraries](#libraries)
+- [Tools](#tools)
+- [Tips](#tips)
+- [What's next](#what's-next)
+- [Show support for the API](#show-support-for-the-api)
+- [Resources](#resources)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Communicating with Bluetooth devices over JavaScript
-====================================================
+# Communicating with Bluetooth devices over JavaScript
 
 The Web Bluetooth API allows websites to communicate with Bluetooth devices.
 
@@ -57,14 +49,13 @@ Jul 21, 2015 <span class="w-author__separator">•</span> Updated May 7, 2021
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 What if I told you websites could communicate with nearby Bluetooth devices in a secure and privacy-preserving way? This way, heart rate monitors, singing lightbulbs, and even [turtles](https://www.youtube.com/watch?v=1LV1Fk5ZXwA) could interact directly with a website.
 
 Until now, the ability to interact with Bluetooth devices has been possible only for platform-specific apps. The Web Bluetooth API aims to change this and brings it to web browsers as well.
 
-Before we start <a href="#before-we-start" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Before we start <a href="#before-we-start" class="w-headline-link">#</a>
 
 This article assumes you have some basic knowledge of how Bluetooth Low Energy (BLE) and the [Generic Attribute Profile](https://www.bluetooth.com/specifications/gatt/) (GATT) work.
 
@@ -80,8 +71,7 @@ In order to get as much feedback as possible from developers using the Web Bluet
 
 The trial has successfully ended in January 2017.
 
-Security requirements <a href="#security-requirements" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Security requirements <a href="#security-requirements" class="w-headline-link">#</a>
 
 To understand the security tradeoffs, I recommend the [Web Bluetooth Security Model](https://medium.com/@jyasskin/the-web-bluetooth-security-model-666b4e7eed2) post from Jeffrey Yasskin, a software engineer on the Chrome team, working on the Web Bluetooth API specification.
 
@@ -97,8 +87,7 @@ As a security feature, discovering Bluetooth devices with `navigator.bluetooth.r
       // Call navigator.bluetooth.requestDevice
     });
 
-Get into the code <a href="#get-into-the-code" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Get into the code <a href="#get-into-the-code" class="w-headline-link">#</a>
 
 The Web Bluetooth API relies heavily on JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). If you're not familiar with them, check out this great [Promises tutorial](/promises). One more thing, `() => {}` are simply ECMAScript 2015 [Arrow functions](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
@@ -340,65 +329,60 @@ Now that we've read the user description of the measurement interval of the devi
     })
     .catch(error => { console.error(error); });
 
-Samples, demos and codelabs <a href="#samples-demos-and-codelabs" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------
+## Samples, demos and codelabs <a href="#samples-demos-and-codelabs" class="w-headline-link">#</a>
 
 All [Web Bluetooth samples](https://googlechrome.github.io/samples/web-bluetooth/index.html) below have been successfully tested. To enjoy these samples to their fullest, I recommend you install the [BLE Peripheral Simulator Android App](https://play.google.com/store/apps/details?id=io.github.webbluetoothcg.bletestperipheral) which simulates a BLE peripheral with a Battery Service, a Heart Rate Service, or a Health Thermometer Service.
 
 ### Beginner <a href="#beginner" class="w-headline-link">#</a>
 
--   [Device Info](https://googlechrome.github.io/samples/web-bluetooth/device-info.html) - retrieve basic device information from a BLE Device.
--   [Battery Level](https://googlechrome.github.io/samples/web-bluetooth/battery-level.html) - retrieve battery information from a BLE Device advertising Battery information.
--   [Reset Energy](https://googlechrome.github.io/samples/web-bluetooth/reset-energy.html) - reset energy expended from a BLE Device advertising Heart Rate.
--   [Characteristic Properties](https://googlechrome.github.io/samples/web-bluetooth/characteristic-properties.html) - display all properties of a specific characteristic from a BLE Device.
--   [Notifications](https://googlechrome.github.io/samples/web-bluetooth/notifications.html) - start and stop characteristic notifications from a BLE Device.
--   [Device Disconnect](https://googlechrome.github.io/samples/web-bluetooth/device-disconnect.html) - disconnect and get notified from a disconnection of a BLE Device after connecting to it.
--   [Get Characteristics](https://googlechrome.github.io/samples/web-bluetooth/get-characteristics.html) - get all characteristics of an advertised service from a BLE Device.
--   [Get Descriptors](https://googlechrome.github.io/samples/web-bluetooth/get-descriptors.html) - get all characteristics' descriptors of an advertised service from a BLE Device.
--   [Manufacturer Data Filter](https://googlechrome.github.io/samples/web-bluetooth/manufacturer-data-filter.html) - retrieve basic device information from a BLE Device that matches manufacturer data.
+- [Device Info](https://googlechrome.github.io/samples/web-bluetooth/device-info.html) - retrieve basic device information from a BLE Device.
+- [Battery Level](https://googlechrome.github.io/samples/web-bluetooth/battery-level.html) - retrieve battery information from a BLE Device advertising Battery information.
+- [Reset Energy](https://googlechrome.github.io/samples/web-bluetooth/reset-energy.html) - reset energy expended from a BLE Device advertising Heart Rate.
+- [Characteristic Properties](https://googlechrome.github.io/samples/web-bluetooth/characteristic-properties.html) - display all properties of a specific characteristic from a BLE Device.
+- [Notifications](https://googlechrome.github.io/samples/web-bluetooth/notifications.html) - start and stop characteristic notifications from a BLE Device.
+- [Device Disconnect](https://googlechrome.github.io/samples/web-bluetooth/device-disconnect.html) - disconnect and get notified from a disconnection of a BLE Device after connecting to it.
+- [Get Characteristics](https://googlechrome.github.io/samples/web-bluetooth/get-characteristics.html) - get all characteristics of an advertised service from a BLE Device.
+- [Get Descriptors](https://googlechrome.github.io/samples/web-bluetooth/get-descriptors.html) - get all characteristics' descriptors of an advertised service from a BLE Device.
+- [Manufacturer Data Filter](https://googlechrome.github.io/samples/web-bluetooth/manufacturer-data-filter.html) - retrieve basic device information from a BLE Device that matches manufacturer data.
 
 ### Combining multiple operations <a href="#combining-multiple-operations" class="w-headline-link">#</a>
 
--   [GAP Characteristics](https://googlechrome.github.io/samples/web-bluetooth/gap-characteristics.html) - get all GAP characteristics of a BLE Device.
--   [Device Information Characteristics](https://googlechrome.github.io/samples/web-bluetooth/device-information-characteristics.html) - get all Device Information characteristics of a BLE Device.
--   [Link Loss](https://googlechrome.github.io/samples/web-bluetooth/link-loss.html) - set the Alert Level characteristic of a BLE Device (readValue & writeValue).
--   [Discover Services & Characteristics](https://googlechrome.github.io/samples/web-bluetooth/discover-services-and-characteristics.html) - discover all accessible primary services and their characteristics from a BLE Device.
--   [Automatic Reconnect](https://googlechrome.github.io/samples/web-bluetooth/automatic-reconnect.html) - reconnect to a disconnected BLE device using an exponential backoff algorithm.
--   [Read Characteristic Value Changed](https://googlechrome.github.io/samples/web-bluetooth/read-characteristic-value-changed.html) - read battery level and be notified of changes from a BLE Device.
--   [Read Descriptors](https://googlechrome.github.io/samples/web-bluetooth/read-descriptors.html) - read all characteristic's descriptors of a service from a BLE Device.
--   [Write Descriptor](https://googlechrome.github.io/samples/web-bluetooth/write-descriptor.html) - write to the descriptor "Characteristic User Description" on a BLE Device.
+- [GAP Characteristics](https://googlechrome.github.io/samples/web-bluetooth/gap-characteristics.html) - get all GAP characteristics of a BLE Device.
+- [Device Information Characteristics](https://googlechrome.github.io/samples/web-bluetooth/device-information-characteristics.html) - get all Device Information characteristics of a BLE Device.
+- [Link Loss](https://googlechrome.github.io/samples/web-bluetooth/link-loss.html) - set the Alert Level characteristic of a BLE Device (readValue & writeValue).
+- [Discover Services & Characteristics](https://googlechrome.github.io/samples/web-bluetooth/discover-services-and-characteristics.html) - discover all accessible primary services and their characteristics from a BLE Device.
+- [Automatic Reconnect](https://googlechrome.github.io/samples/web-bluetooth/automatic-reconnect.html) - reconnect to a disconnected BLE device using an exponential backoff algorithm.
+- [Read Characteristic Value Changed](https://googlechrome.github.io/samples/web-bluetooth/read-characteristic-value-changed.html) - read battery level and be notified of changes from a BLE Device.
+- [Read Descriptors](https://googlechrome.github.io/samples/web-bluetooth/read-descriptors.html) - read all characteristic's descriptors of a service from a BLE Device.
+- [Write Descriptor](https://googlechrome.github.io/samples/web-bluetooth/write-descriptor.html) - write to the descriptor "Characteristic User Description" on a BLE Device.
 
 Check out our [curated Web Bluetooth Demos](https://github.com/WebBluetoothCG/demos) and [official Web Bluetooth Codelabs](https://github.com/search?q=org%3Agooglecodelabs+bluetooth) as well.
 
-Libraries <a href="#libraries" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Libraries <a href="#libraries" class="w-headline-link">#</a>
 
--   [web-bluetooth-utils](https://www.npmjs.com/package/web-bluetooth-utils) is a npm module that adds some convenience functions to the API.
--   A Web Bluetooth API shim is available in [noble](https://github.com/sandeepmistry/noble), the most popular Node.js BLE central module. This allows you to webpack/browserify noble without the need for a WebSocket server or other plugins.
--   [angular-web-bluetooth](https://github.com/manekinekko/angular-web-bluetooth) is a module for [Angular](https://angularjs.org) that abstracts away all the boilerplate needed to configure the Web Bluetooth API.
+- [web-bluetooth-utils](https://www.npmjs.com/package/web-bluetooth-utils) is a npm module that adds some convenience functions to the API.
+- A Web Bluetooth API shim is available in [noble](https://github.com/sandeepmistry/noble), the most popular Node.js BLE central module. This allows you to webpack/browserify noble without the need for a WebSocket server or other plugins.
+- [angular-web-bluetooth](https://github.com/manekinekko/angular-web-bluetooth) is a module for [Angular](https://angularjs.org) that abstracts away all the boilerplate needed to configure the Web Bluetooth API.
 
-Tools <a href="#tools" class="w-headline-link">#</a>
-----------------------------------------------------
+## Tools <a href="#tools" class="w-headline-link">#</a>
 
--   [Get Started with Web Bluetooth](https://beaufortfrancois.github.io/sandbox/web-bluetooth/generator) is a simple Web App that will generate all the JavaScript boilerplate code to start interacting with a Bluetooth device. Enter a device name, a service, a characteristic, define its properties and you're good to go.
--   If you're already a Bluetooth developer, the [Web Bluetooth Developer Studio Plugin](https://github.com/beaufortfrancois/sandbox/tree/gh-pages/web-bluetooth/bluetooth-developer-studio-plugin) will also generate the Web Bluetooth JavaScript code for your Bluetooth device.
+- [Get Started with Web Bluetooth](https://beaufortfrancois.github.io/sandbox/web-bluetooth/generator) is a simple Web App that will generate all the JavaScript boilerplate code to start interacting with a Bluetooth device. Enter a device name, a service, a characteristic, define its properties and you're good to go.
+- If you're already a Bluetooth developer, the [Web Bluetooth Developer Studio Plugin](https://github.com/beaufortfrancois/sandbox/tree/gh-pages/web-bluetooth/bluetooth-developer-studio-plugin) will also generate the Web Bluetooth JavaScript code for your Bluetooth device.
 
-Tips <a href="#tips" class="w-headline-link">#</a>
---------------------------------------------------
+## Tips <a href="#tips" class="w-headline-link">#</a>
 
 A **Bluetooth Internals** page is available in Chrome at `about://bluetooth-internals` so that you can inspect everything about nearby Bluetooth devices: status, services, characteristics, and descriptors.
 
 <figure><img src="https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format" alt="Internal page in Chrome for debugging Bluetooth devices." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/nPX2OfcQKwKtU9xBNhMe.jpg?auto=format&amp;w=1600 1600w" width="800" height="572" /><figcaption>Internal page in Chrome for debugging Bluetooth devices.</figcaption></figure>I also recommend checking out the official [How to file Web Bluetooth bugs](https://sites.google.com/a/chromium.org/dev/developers/how-tos/file-web-bluetooth-bugs) page as debugging Bluetooth can be hard sometimes.
 
-What's next <a href="#what&#39;s-next" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## What's next <a href="#what&#39;s-next" class="w-headline-link">#</a>
 
 Check the [browser and platform implementation status](https://github.com/WebBluetoothCG/web-bluetooth/blob/master/implementation-status.md) first to know which parts of the Web Bluetooth API are currently being implemented.
 
 Though it's still incomplete, here's a sneak peek of what to expect in the near future:
 
--   [Scanning for nearby BLE advertisements](https://github.com/WebBluetoothCG/web-bluetooth/pull/239) will happen with `navigator.bluetooth.requestLEScan()`.
--   A new `serviceadded` event will track newly discovered Bluetooth GATT Services while `serviceremoved` event will track removed ones. A new `servicechanged` event will fire when any characteristic and/or descriptor gets added or removed from a Bluetooth GATT Service.
+- [Scanning for nearby BLE advertisements](https://github.com/WebBluetoothCG/web-bluetooth/pull/239) will happen with `navigator.bluetooth.requestLEScan()`.
+- A new `serviceadded` event will track newly discovered Bluetooth GATT Services while `serviceremoved` event will track removed ones. A new `servicechanged` event will fire when any characteristic and/or descriptor gets added or removed from a Bluetooth GATT Service.
 
 ### Show support for the API <a href="#show-support-for-the-api" class="w-headline-link">#</a>
 
@@ -406,20 +390,18 @@ Are you planning to use the Web Bluetooth API? Your public support helps the Chr
 
 Send a tweet to [@ChromiumDev](https://twitter.com/ChromiumDev) using the hashtag [`#WebBluetooth`](https://twitter.com/search?q=%23WebBluetooth&src=typed_query&f=live) and let us know where and how you are using it.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   Stack Overflow: <https://stackoverflow.com/questions/tagged/web-bluetooth>
--   Chrome Feature Status: <https://www.chromestatus.com/feature/5264933985976320>
--   Chrome Implementation Bugs: <https://crbug.com/?q=component:Blink%3EBluetooth>
--   Web Bluetooth Spec: <https://webbluetoothcg.github.io/web-bluetooth>
--   Spec Issues: <https://github.com/WebBluetoothCG/web-bluetooth/issues>
--   BLE Peripheral Simulator App: <https://github.com/WebBluetoothCG/ble-test-peripheral-android>
+- Stack Overflow: <https://stackoverflow.com/questions/tagged/web-bluetooth>
+- Chrome Feature Status: <https://www.chromestatus.com/feature/5264933985976320>
+- Chrome Implementation Bugs: <https://crbug.com/?q=component:Blink%3EBluetooth>
+- Web Bluetooth Spec: <https://webbluetoothcg.github.io/web-bluetooth>
+- Spec Issues: <https://github.com/WebBluetoothCG/web-bluetooth/issues>
+- BLE Peripheral Simulator App: <https://github.com/WebBluetoothCG/ble-test-peripheral-android>
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
-Thanks to [Kayce Basques](https://github.com/kaycebasques) for reviewing this article. Hero image by [SparkFun Electronics from Boulder, USA](https://commons.wikimedia.org/wiki/File:Bluetooth_4.0_Module_-_BR-LE_4.0-S2A_(16804031059).jpg).
+Thanks to [Kayce Basques](https://github.com/kaycebasques) for reviewing this article. Hero image by [SparkFun Electronics from Boulder, USA](<https://commons.wikimedia.org/wiki/File:Bluetooth_4.0_Module_-_BR-LE_4.0-S2A_(16804031059).jpg>).
 
 Have a question about using this feature? You can get help by [asking a question on Stack Overflow](https://stackoverflow.com/questions/ask?tags=web-bluetooth), or [browsing a list of questions](https://stackoverflow.com/search?q=%5Bweb-bluetooth%5D+is%3Aquestion) asked by other developers.
 
@@ -429,35 +411,35 @@ Have a question about using this feature? You can get help by [asking a question
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

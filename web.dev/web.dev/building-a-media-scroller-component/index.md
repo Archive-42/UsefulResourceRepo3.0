@@ -1,42 +1,34 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/I83Y9EaBPBXbE6TywvLg.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-a-media-scroller-component" class="w-toc__header--link">Building a media scroller component</a>
-------------------------------------------------------------------------------------------------------------------
+## <a href="#building-a-media-scroller-component" class="w-toc__header--link">Building a media scroller component</a>
 
--   [Overview](#overview)
--   [Start with accessible markup](#start-with-accessible-markup)
--   [Support the user's color scheme preference](#support-the-user's-color-scheme-preference)
--   [Add content](#add-content)
--   [Add style with CSS](#add-style-with-css)
--   [Creating the scroller layout](#creating-the-scroller-layout)
--   [Scroll padding](#scroll-padding)
--   [Scroll snapping](#scroll-snapping)
--   [Focus](#focus)
--   [Roving index](#roving-index)
--   [Aspect-ratio](#aspect-ratio)
--   [Prefers reduced data](#prefers-reduced-data)
--   [Conclusion](#conclusion)
--   [Community remixes](#community-remixes)
+- [Overview](#overview)
+- [Start with accessible markup](#start-with-accessible-markup)
+- [Support the user's color scheme preference](#support-the-user's-color-scheme-preference)
+- [Add content](#add-content)
+- [Add style with CSS](#add-style-with-css)
+- [Creating the scroller layout](#creating-the-scroller-layout)
+- [Scroll padding](#scroll-padding)
+- [Scroll snapping](#scroll-snapping)
+- [Focus](#focus)
+- [Roving index](#roving-index)
+- [Aspect-ratio](#aspect-ratio)
+- [Prefers reduced data](#prefers-reduced-data)
+- [Conclusion](#conclusion)
+- [Community remixes](#community-remixes)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building a media scroller component
-===================================
+# Building a media scroller component
 
 A foundational overview of how to build a responsive horizontal scrollview for TVs, phones, desktops, etc.
 
@@ -46,10 +38,10 @@ May 12, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share thinking on ways to create horizontal scrolling experiences for the web that are minimal, responsive, accessible and work across browsers and platforms (like TVs!). Try the [demo](https://gui-challenges.web.app/media-scroller/dist/).
 
@@ -57,13 +49,11 @@ In this post I want to share thinking on ways to create horizontal scrolling exp
 
 If you prefer video, here's a YouTube version of this post:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 We'll be building a horizontal scroll layout meant for hosting thumbnails of media or products. The component begins as a humble `<ul>` list but is transformed with CSS into a satisfying and smooth scroll experience, showcasing images and snapping them to a grid. JavaScript is added to facilitate roving-index interactions, helping keyboard users skip traversing 100+ items. Plus an experimental media query, `prefers-reduced-data`, is used to turn the media scroller into a lightweight title scroller experience.
 
-Start with accessible markup <a href="#start-with-accessible-markup" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## Start with accessible markup <a href="#start-with-accessible-markup" class="w-headline-link">#</a>
 
 A media scroller is made of just a couple of core components, a list with items. A list, in its simplest form, can travel all over the world and be clearly consumed by all. A user landing at this page can browse a list and click a link to view an item. This is our accessible base.
 
@@ -111,8 +101,7 @@ Learn much more from [Thomas Steiner](https://web.dev/authors/thomassteiner/) at
 
 Given the above content structure of `ul > li > a > figure > picture > img`, the next task is to add images and titles to scroll through. I've packed the demo with static placeholder images and text, but feel free to power this from your favorite data source.
 
-Add style with CSS <a href="#add-style-with-css" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Add style with CSS <a href="#add-style-with-css" class="w-headline-link">#</a>
 
 Now it's time for CSS to take this generic list of content and turn it into an experience. Netflix, App stores and many more sites and apps use horizontal scrolling areas to pack the viewport with categories and options.
 
@@ -381,8 +370,7 @@ Here's the site performance after adding the `prefers-reduced-data` CSS:
 
 64 fewer requests, that would be the ~60 images within the viewport (tests taken on a wide screen display) of this browser tab, a page load boost of ~80%, and 10% of the data over the wire. Pretty powerful CSS.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Now that you know how I did it, how would you?! 🙂
 
@@ -390,13 +378,12 @@ Let's diversify our approaches and learn all the ways to build on the web. Creat
 
 **Source**
 
--   [GUI Challenges source on GitHub](https://github.com/argyleink/gui-challenges)
--   [Media scroller Codepen starter](https://codepen.io/argyleink/pen/bGgyOGP)
+- [GUI Challenges source on GitHub](https://github.com/argyleink/gui-challenges)
+- [Media scroller Codepen starter](https://codepen.io/argyleink/pen/bGgyOGP)
 
-Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
-*Nothing to see here yet!*
+_Nothing to see here yet!_
 
 <a href="/tags/css/" class="w-chip">CSS</a> <a href="/tags/dom/" class="w-chip">DOM</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a>
 
@@ -404,35 +391,35 @@ Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

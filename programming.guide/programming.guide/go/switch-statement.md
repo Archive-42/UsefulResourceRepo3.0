@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Switch statements](https://golang.org/ref/spec#Switch_statements)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
@@ -14,8 +13,7 @@ Further Reading
 [Select explained](select-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,13 +35,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Switch statement
-====================
+# Go: Switch statement
 
 A switch statement is a shorter way to write a sequence of if-else statements.
 
-Basics
-------
+## Basics
 
     switch time.Now().Weekday() {
     case time.Saturday:
@@ -55,13 +50,12 @@ Basics
             fmt.Println("Today is a weekday.")
     }
 
--   A switch statement runs the first case equal to the condition expression.
--   The cases are evaluated from top to bottom, stopping when a case succeeds.
+- A switch statement runs the first case equal to the condition expression.
+- The cases are evaluated from top to bottom, stopping when a case succeeds.
 
 Unlike C and Java, the case expressions do not need to be constants. They can be arbitrary expressions as will be seen in the section below.
 
-No condition
-------------
+## No condition
 
     hour := time.Now().Hour()
     switch { // Same as: switch true
@@ -73,8 +67,7 @@ No condition
             fmt.Println("Good evening!")
     }
 
-Case lists
-----------
+## Case lists
 
     func whiteSpace(c rune) bool {
         switch c {
@@ -84,8 +77,7 @@ Case lists
         return false
     }
 
-Fall through
-------------
+## Fall through
 
     switch 2 {
     case 1:
@@ -101,16 +93,14 @@ Fall through
     2
     3
 
--   A `fallthrough` statement transfers control to the next case.
--   It may be used only as the final statement in a clause.
+- A `fallthrough` statement transfers control to the next case.
+- It may be used only as the final statement in a clause.
 
-Exit a switch
--------------
+## Exit a switch
 
 A `break` statement terminates execution of the innermost `for`, `switch`, or `select` statement.
 
-Execution order
----------------
+## Execution order
 
     func Foo(n int) int {
             fmt.Println(n)
@@ -133,12 +123,11 @@ Execution order
     First case
     Second case
 
--   First the switch expression is evaluated once.
--   Then case expressions are evaluated left-to-right and top-to-bottom;
--   the first one that equals the switch expression triggers execution of the statements of the associated case; the other cases are skipped.
+- First the switch expression is evaluated once.
+- Then case expressions are evaluated left-to-right and top-to-bottom;
+- the first one that equals the switch expression triggers execution of the statements of the associated case; the other cases are skipped.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

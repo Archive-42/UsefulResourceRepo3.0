@@ -1,45 +1,37 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/XHfyVzz2S49XK7jRl9Xx.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#building-split-text-animations" class="w-toc__header--link">Building split text animations</a>
---------------------------------------------------------------------------------------------------------
+## <a href="#building-split-text-animations" class="w-toc__header--link">Building split text animations</a>
 
--   [Overview](#overview)
--   [Preparing motion conditionals](#preparing-motion-conditionals)
--   [Splitting Text](#splitting-text)
--   [Splitting letters utility function](#splitting-letters-utility-function)
--   [Splitting words utility function](#splitting-words-utility-function)
--   [Making boxes utility function](#making-boxes-utility-function)
--   [Utilities conclusion](#utilities-conclusion)
--   [Split orchestration](#split-orchestration)
--   [Finding Elements](#finding-elements)
--   [Finding elements from JavaScript](#finding-elements-from-javascript)
--   [Finding elements from CSS](#finding-elements-from-css)
--   [Splitting text in place](#splitting-text-in-place)
--   [Splitting animations and transitions](#splitting-animations-and-transitions)
--   [Split letters](#split-letters)
--   [Split words](#split-words)
--   [Conclusion](#conclusion)
--   [Community remixes](#community-remixes)
+- [Overview](#overview)
+- [Preparing motion conditionals](#preparing-motion-conditionals)
+- [Splitting Text](#splitting-text)
+- [Splitting letters utility function](#splitting-letters-utility-function)
+- [Splitting words utility function](#splitting-words-utility-function)
+- [Making boxes utility function](#making-boxes-utility-function)
+- [Utilities conclusion](#utilities-conclusion)
+- [Split orchestration](#split-orchestration)
+- [Finding Elements](#finding-elements)
+- [Finding elements from JavaScript](#finding-elements-from-javascript)
+- [Finding elements from CSS](#finding-elements-from-css)
+- [Splitting text in place](#splitting-text-in-place)
+- [Splitting animations and transitions](#splitting-animations-and-transitions)
+- [Split letters](#split-letters)
+- [Split words](#split-words)
+- [Conclusion](#conclusion)
+- [Community remixes](#community-remixes)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Building split text animations
-==============================
+# Building split text animations
 
 A foundational overview of how to build split letter and word animations.
 
@@ -49,10 +41,10 @@ Apr 20, 2021
 
 <a href="/authors/adamargyle/" class="w-author__name-link">Adam Argyle</a>
 
--   <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
--   <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
--   <a href="https://nerdy.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/argyleink" class="w-author__link">Twitter</a>
+- <a href="https://github.com/argyleink" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@argyleink" class="w-author__link">Glitch</a>
+- <a href="https://nerdy.dev" class="w-author__link">Blog</a>
 
 In this post I want to share thinking on ways to solve split text animations and interactions for the web that are minimal, accessible, and work across browsers. Try the [demo](https://gui-challenges.web.app/split-text/dist/).
 
@@ -60,8 +52,7 @@ In this post I want to share thinking on ways to solve split text animations and
 
 If you prefer video, here's a YouTube version of this post:
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 Split text animations can be amazing. We'll be barely scratching the surface of animation potential in this post, but it does provide a foundation to build upon. The goal is to animate progressively. The text should be readable by default, with the animation built on top. Split text motion effects can get extravagant and potentially disruptive, so we will only manipulate HTML, or apply motion styles if the user is OK with motion.
 
@@ -112,8 +103,7 @@ I can check the same value by using PostCSS to enable the `@nest` syntax from [N
 
 With the PostCSS custom property and a JavaScript boolean, we're ready to conditionally upgrade the effect. That rolls us into the next section where I break down the JavaScript for transforming strings into elements.
 
-Splitting Text <a href="#splitting-text" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Splitting Text <a href="#splitting-text" class="w-headline-link">#</a>
 
 Text letters, words, lines, etc., cannot be individually animated with CSS or JS. To achieve the effect, we need boxes. If we want to animate each letter, then each letter needs to be an element. If we want to animate each word, then each word needs to be an element.
 
@@ -176,8 +166,7 @@ The `splitting.js` module in completion:
 
 Next is importing and using these `byLetter()` and `byWord()` functions.
 
-Split orchestration <a href="#split-orchestration" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Split orchestration <a href="#split-orchestration" class="w-headline-link">#</a>
 
 With the splitting utilities ready to use, putting it all together means:
 
@@ -266,8 +255,7 @@ The JavaScript could be read in the following English:
     1.  Split them based on how they want to be split.
     2.  Replace text with elements.
 
-Splitting animations and transitions <a href="#splitting-animations-and-transitions" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Splitting animations and transitions <a href="#splitting-animations-and-transitions" class="w-headline-link">#</a>
 
 The above splitting document manipulation has just unlocked a multitude of potential animations and effects with CSS or JavaScript. There are a few links at the bottom of this article to help inspire your splitting potential.
 
@@ -389,8 +377,7 @@ In this animation example I use CSS `@keyframes` again to create a staggered inf
       }
     }
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Now that you know how I did it, how would you?! 🙂
 
@@ -398,18 +385,17 @@ Let's diversify our approaches and learn all the ways to build on the web. Creat
 
 Source
 
--   [GUI Challenges source on GitHub](https://github.com/argyleink/gui-challenges)
--   [Splitting text Codepen starter](https://codepen.io/argyleink/pen/poRLyOM)
+- [GUI Challenges source on GitHub](https://github.com/argyleink/gui-challenges)
+- [Splitting text Codepen starter](https://codepen.io/argyleink/pen/poRLyOM)
 
 More demos and inspiration
 
--   [Splitting text Codepen collection](https://codepen.io/collection/XpROaV/)
--   [Splitting.js](https://splitting.js.org/)
+- [Splitting text Codepen collection](https://codepen.io/collection/XpROaV/)
+- [Splitting.js](https://splitting.js.org/)
 
-Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
--   `<text-hover>` web component by [gnehcwu](https://twitter.com/gnehcwu) on [CodeSandbox](https://codesandbox.io/s/texthover-webcomponent-gkpm2)
+- `<text-hover>` web component by [gnehcwu](https://twitter.com/gnehcwu) on [CodeSandbox](https://codesandbox.io/s/texthover-webcomponent-gkpm2)
 
 <a href="/tags/css/" class="w-chip">CSS</a> <a href="/tags/dom/" class="w-chip">DOM</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a>
 
@@ -417,35 +403,35 @@ Community remixes <a href="#community-remixes" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

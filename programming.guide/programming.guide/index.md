@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Top Java Articles
------------------
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -11,8 +10,7 @@ Top Java Articles
 4.  [Handling InterruptedException](java/handling-interrupted-exceptions.html)
 5.  [Why wait must be called in a synchronized block](java/why-wait-must-be-in-synchronized.html)
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go/go-gotcha.html)
 2.  [String handling cheat sheet](go/string-functions-reference-cheat-sheet.html)
@@ -22,8 +20,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -31,21 +28,19 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](random-point-within-circle.html)
 
-Programming.Guide
-=================
+# Programming.Guide
 
 Articles on Programming Guide strive to…
 
--   …put examples up front
--   …be of highest possible quality
--   …be concise and to the point
--   …the reader should not have to look further in the search results
--   …the reader should as quickly as possible be unblocked and be able to switch back to his/her IDE and continue programming
+- …put examples up front
+- …be of highest possible quality
+- …be concise and to the point
+- …the reader should not have to look further in the search results
+- …the reader should as quickly as possible be unblocked and be able to switch back to his/her IDE and continue programming
 
 Currently serving **430** articles on [Java](java/index.html), [Go](go/index.html) and [algorithms](algorithms.html).
 
-Authors
--------
+## Authors
 
 ![Andreas Lundblad](images/andreas-lundblad.jpg)
 
@@ -55,8 +50,7 @@ Authors
 
 **Stefan Nilsson** is an [associate professor](https://www.nada.kth.se/~snilsson/) of Computer Science at the Royal Institute of Technology. Stefan has taught programming and algorithms for over two decades and is a contributor to the Go project.
 
-Background
-----------
+## Background
 
 Back in the days there was a popular site called [Example Depot](http://web.archive.org/web/20120113091817/http://www.exampledepot.com/). It was a great resource for ready-to-use code snippets, conveniently available for copy/paste. It was also straight to the point with example code up front.
 

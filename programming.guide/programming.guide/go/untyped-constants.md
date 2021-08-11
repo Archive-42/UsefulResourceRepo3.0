@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Constants](https://blog.golang.org/constants)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Blog</span>
@@ -20,8 +19,7 @@ Further Reading
 [iota](iota.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +41,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Untyped numeric constants with no limits
-============================================
+# Go: Untyped numeric constants with no limits
 
 Constants may be **typed** or **untyped**.
 
@@ -68,8 +64,7 @@ An untyped constant has **no limits**. When it's used in a context that requires
 
 The inferred type is determined by the syntax of the value. `123` for instance gets type `int` and `123.4` becomes a `float64`. The other possibilities are `rune` (alias for `int32`) and `complex128`.
 
-Enumerations
-------------
+## Enumerations
 
 Go does not have enumerated types. Instead, you can use the special name `iota` in a single `const` declaration to get a series of increasing values. When an initialization expression is omitted for a `const`, it reuses the preceding expression.
 
@@ -81,8 +76,7 @@ Go does not have enumerated types. Instead, you can use the special name `iota` 
 
 The article [Define an enumeration (enum) with a string representation](define-enumeration-string.html) has a detailed example.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Pointer vs. value receiver](pointer-vs-value-receiver.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,25 +29,23 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Pointers explained
-======================
+# Go: Pointers explained
 
 A pointer is a vari­able that con­tains the address of an object.
 
--   [Basics](pointers-explained.html#basics)
--   [Address operator](pointers-explained.html#address-operator)
--   [Pointer indirection](pointers-explained.html#pointer-indirection)
--   [Pointers as parameters](pointers-explained.html#pointers-as-parameters)
+- [Basics](pointers-explained.html#basics)
+- [Address operator](pointers-explained.html#address-operator)
+- [Pointer indirection](pointers-explained.html#pointer-indirection)
+- [Pointers as parameters](pointers-explained.html#pointers-as-parameters)
 
-Basics
-------
+## Basics
 
 Structs and arrays are **copied** when used in assignments and passed as arguments to functions. With pointers this can be **avoided**.
 
 Pointers store **addresses** of objects, which can be passed around efficiently, rather than actual objects:
 
--   use `*T` as type for a pointer,
--   and `new` to allocate and get the address of an object.
+- use `*T` as type for a pointer,
+- and `new` to allocate and get the address of an object.
 
 <!-- -->
 
@@ -64,28 +59,25 @@ The variable declaration can be written more compactly:
 
     pp := new(Person)
 
-Address operator
-----------------
+## Address operator
 
 To get the address of an object, use the `&amp;` operator like this:
 
-    p := Person{"Alice"} // p holds the actual struct 
-    pp := &p             // pp holds the address of the struct 
+    p := Person{"Alice"} // p holds the actual struct
+    pp := &p             // pp holds the address of the struct
 
 The `&amp;` operator can also be used with **composite literals**. The above two lines can be written as:
 
     pp := &Person{"Alice"}
 
-Pointer indirection
--------------------
+## Pointer indirection
 
 For a pointer `x`, the **pointer indirection** `*x` denotes the value which `x` points to. Pointer indirection is rarely used, since Go can automatically take the address of a variable:
 
     pp := new(Person)
     pp.Name = "Alice" // same as (*pp).Name = "Alice"
 
-Pointers as parameters
-----------------------
+## Pointers as parameters
 
 When using a pointer to modify an object, you're affecting everybody that uses that object.
 
@@ -109,8 +101,7 @@ When using a pointer to modify an object, you're affecting everybody that uses t
             fmt.Println(p) // prints {Charlie}
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

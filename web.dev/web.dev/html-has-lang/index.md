@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -10,17 +8,15 @@
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
-<a href="#lesscodegreaterandlthtmlandgtlesscodegreater-element-does-not-have-a-lesscodegreaterlanglesscodegreater-attribute" class="w-toc__header--link"><code>&lt;html&gt;</code> element does not have a <code>[lang]</code> attribute</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#lesscodegreaterandlthtmlandgtlesscodegreater-element-does-not-have-a-lesscodegreaterlanglesscodegreater-attribute" class="w-toc__header--link"><code>&lt;html&gt;</code> element does not have a <code>[lang]</code> attribute</a>
 
--   [How the Lighthouse missing &lt;html&gt; lang audit fails](#how-the-lighthouse-missing-lesshtmlgreater-lang-audit-fails)
--   [How to add an HTML lang attribute](#how-to-add-an-html-lang-attribute)
--   [Resources](#resources)
+- [How the Lighthouse missing &lt;html&gt; lang audit fails](#how-the-lighthouse-missing-lesshtmlgreater-lang-audit-fails)
+- [How to add an HTML lang attribute](#how-to-add-an-html-lang-attribute)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-`<html>` element does not have a `[lang]` attribute
-===================================================
+# `<html>` element does not have a `[lang]` attribute
 
 May 2, 2019 <span class="w-author__separator">•</span> Updated Sep 19, 2019
 
@@ -30,8 +26,7 @@ To ensure correct pronunciation, screen readers use a different sound library fo
 
 If a page doesn't specify a language for the `<html>` element, a screen reader assumes the page is in the default language that the user chose when setting up the screen reader, often making it impossible to understand the content.
 
-How the Lighthouse missing `<html>` `lang` audit fails <a href="#how-the-lighthouse-missing-lesshtmlgreater-lang-audit-fails" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------------------------------
+## How the Lighthouse missing `<html>` `lang` audit fails <a href="#how-the-lighthouse-missing-lesshtmlgreater-lang-audit-fails" class="w-headline-link">#</a>
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse/) flags pages whose `<html>` element doesn't have a `lang` attribute:
 
@@ -39,8 +34,7 @@ How the Lighthouse missing `<html>` `lang` audit fails <a href="#how-the-lightho
 
 The Lighthouse Accessibility score is a weighted average of all the accessibility audits. See the [Lighthouse accessibility scoring](/accessibility-scoring) post for more information.
 
-How to add an HTML `lang` attribute <a href="#how-to-add-an-html-lang-attribute" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## How to add an HTML `lang` attribute <a href="#how-to-add-an-html-lang-attribute" class="w-headline-link">#</a>
 
 To ensure your page's content is pronounced correctly for screen reader users, use a [valid language code](https://www.w3.org/International/questions/qa-choosing-language-tags#question) in the `lang` attribute of the `<html>` element.
 
@@ -48,45 +42,44 @@ For example, this sample code sets the language of the document to English:
 
     <html lang="en">
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Source code for **`<html>` element does not have a `[lang]` attribute** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/html-has-lang.js)
--   [`<html>` element must have a lang attribute (Deque University)](https://dequeuniversity.com/rules/axe/3.3/html-has-lang)
+- [Source code for **`<html>` element does not have a `[lang]` attribute** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/html-has-lang.js)
+- [`<html>` element must have a lang attribute (Deque University)](https://dequeuniversity.com/rules/axe/3.3/html-has-lang)
 
 <span class="w-mr--sm">Last updated: Sep 19, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/lighthouse-accessibility/html-has-lang/index.md)
 
 <a href="/lighthouse-accessibility" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

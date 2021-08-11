@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Hash Tables](hash-tables.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Hash Tables: Open Addressing](hash-tables-open-addressing.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Hash Tables
------------
+## Hash Tables
 
 1.  [Hash Tables](hash-tables.html)
 2.  [Complexity](hash-tables-complexity.html)
@@ -31,8 +29,7 @@ Hash Tables
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -42,11 +39,9 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-Open Addressing
-===============
+# Open Addressing
 
-Closed Addressing
-=================
+# Closed Addressing
 
 Also known as **closed hashing**.
 
@@ -88,19 +83,19 @@ Characteristic structure (colors denote "home" bucket):
 
 Example techniques:
 
--   Linear Probing
--   Quadratic Probing
--   Double hashing
--   Hopscotch hashing
--   Robin Hood hashing
--   Cuckoo hashing
--   2-Choice hashing
+- Linear Probing
+- Quadratic Probing
+- Double hashing
+- Hopscotch hashing
+- Robin Hood hashing
+- Cuckoo hashing
+- 2-Choice hashing
 
 Example techniques:
 
--   Separate chaining using linked lists
--   Separate chaining using dynamic arrays
--   Using self-balancing binary search trees
+- Separate chaining using linked lists
+- Separate chaining using dynamic arrays
+- Using self-balancing binary search trees
 
 Theoretical maximum load factor of 1.
 
@@ -112,22 +107,21 @@ Performance degrades as load factor grows.
 
 Benefits:
 
--   No size overhead apart from the hash table array.
--   Better memory locality and cache performance. All elements laid out linearly in memory.
--   Performs better than closed addressing when the number of keys is known in advance and the churn is low.
+- No size overhead apart from the hash table array.
+- Better memory locality and cache performance. All elements laid out linearly in memory.
+- Performs better than closed addressing when the number of keys is known in advance and the churn is low.
 
 Benefits:
 
--   Easier removal (no need for deleted markings)
--   Typically performs better with high load factor.
--   No issues with clustering.
+- Easier removal (no need for deleted markings)
+- Typically performs better with high load factor.
+- No issues with clustering.
 
 For more details on open addressing, see [Hash Tables: Open Addressing](hash-tables-open-addressing.html).
 
 The most common closed addressing implementation uses separate chaining with linked lists. This approach is described in detail the [introductory article](hash-tables.html).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -12,37 +10,35 @@
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format" alt="A hand draws letters in calligraphic script on paper." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/k1gdvpBMneFVrOC5h4yQ.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#recognize-your-users&#39;-handwriting" class="w-toc__header--link">Recognize your users' handwriting</a>
-------------------------------------------------------------------------------------------------------------------
+## <a href="#recognize-your-users&#39;-handwriting" class="w-toc__header--link">Recognize your users' handwriting</a>
 
--   [What is the Handwriting Recognition API?](#what)
--   [Suggested use cases for the Handwriting Recognition API](#use-cases)
--   [Current status](#status)
--   [How to use the Handwriting Recognition API](#use)
--   [Enabling via about://flags](#enabling-via-about:flags)
--   [Enabling support during the origin trial phase](#enabling-support-during-the-origin-trial-phase)
--   [Register for the origin trial](#register-for-ot)
--   [Feature detection](#feature-detection)
--   [Core concepts](#core-concepts)
--   [Demo](#demo)
--   [Security and permissions](#security-and-permissions)
--   [User control](#user-control)
--   [Transparency](#transparency)
--   [Permission persistence](#permission-persistence)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Report a problem with the implementation](#report-a-problem-with-the-implementation)
--   [Show support for the API](#show-support-for-the-api)
--   [Helpful Links](#helpful-links)
--   [Acknowledgements](#acknowledgements)
+- [What is the Handwriting Recognition API?](#what)
+- [Suggested use cases for the Handwriting Recognition API](#use-cases)
+- [Current status](#status)
+- [How to use the Handwriting Recognition API](#use)
+- [Enabling via about://flags](#enabling-via-about:flags)
+- [Enabling support during the origin trial phase](#enabling-support-during-the-origin-trial-phase)
+- [Register for the origin trial](#register-for-ot)
+- [Feature detection](#feature-detection)
+- [Core concepts](#core-concepts)
+- [Demo](#demo)
+- [Security and permissions](#security-and-permissions)
+- [User control](#user-control)
+- [Transparency](#transparency)
+- [Permission persistence](#permission-persistence)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Report a problem with the implementation](#report-a-problem-with-the-implementation)
+- [Show support for the API](#show-support-for-the-api)
+- [Helpful Links](#helpful-links)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Recognize your users' handwriting
-=================================
+# Recognize your users' handwriting
 
 The Handwriting Recognition API allows you to recognize text from handwritten input as it happens.
 
@@ -52,24 +48,23 @@ May 17, 2021
 
 <a href="/authors/christianliebel/" class="w-author__name-link">Christian Liebel</a>
 
--   <a href="https://twitter.com/christianliebel" class="w-author__link">Twitter</a>
--   <a href="https://github.com/christianliebel" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@christianliebel" class="w-author__link">Glitch</a>
--   <a href="https://christianliebel.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/christianliebel" class="w-author__link">Twitter</a>
+- <a href="https://github.com/christianliebel" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@christianliebel" class="w-author__link">Glitch</a>
+- <a href="https://christianliebel.com/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Thomas Steiner" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/thomassteiner/)
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 The Handwriting Recognition API is part of the [capabilities project](/fugu-status/) and is currently in development. This post will be updated as the implementation progresses.
 
-What is the Handwriting Recognition API? <a href="#what" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## What is the Handwriting Recognition API? <a href="#what" class="w-headline-link">#</a>
 
 The Handwriting Recognition API allows you to convert handwriting (ink) from your users into text. Some operating systems have long included such APIs, and with this new capability, your web apps can finally use this functionality. The conversion takes place directly on the user's device, works even in offline mode, all without adding any third-party libraries or services.
 
@@ -79,17 +74,15 @@ This API implements so-called "on-line" or near real-time recognition. This mean
 
 Example uses include:
 
--   Note-taking applications where users want to capture handwritten notes and have them translated into text.
--   Forms applications where users can use pen or finger input due to time constraints.
--   Games that require filling in letters or numbers, such as crosswords, hangman, or sudoku.
+- Note-taking applications where users want to capture handwritten notes and have them translated into text.
+- Forms applications where users can use pen or finger input due to time constraints.
+- Games that require filling in letters or numbers, such as crosswords, hangman, or sudoku.
 
-Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td><a href="https://github.com/WICG/handwriting-recognition/blob/main/explainer.md">Complete</a></td></tr><tr class="even"><td>2. Create initial draft of specification</td><td>Not started</td></tr><tr class="odd"><td>3. Gather feedback &amp; iterate on design</td><td><a href="#feedback">In progress</a></td></tr><tr class="even"><td>4. Origin trial</td><td><a href="https://developer.chrome.com/origintrials/#/view_trial/3207688834594635777">In progress</a></td></tr><tr class="odd"><td>5. Launch</td><td>Not started</td></tr></tbody></table>
 
-How to use the Handwriting Recognition API <a href="#use" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------
+## How to use the Handwriting Recognition API <a href="#use" class="w-headline-link">#</a>
 
 ### Enabling via about://flags <a href="#enabling-via-about:flags" class="w-headline-link">#</a>
 
@@ -107,10 +100,10 @@ Origin trials allow you to try new features and give feedback on their usability
 
 1.  [Request a token](https://developer.chrome.com/origintrials/#/view_trial/3207688834594635777) for your origin.
 2.  Add the token to your pages. There are two ways to do that:
-    -   Add an `origin-trial` `<meta>` tag to the head of each page. For example, this may look something like:  
-        `<meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">`
-    -   If you can configure your server, you can also add the token using an `Origin-Trial` HTTP header. The resulting response header should look something like:  
-        `Origin-Trial: TOKEN_GOES_HERE`
+    - Add an `origin-trial` `<meta>` tag to the head of each page. For example, this may look something like:  
+      `<meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">`
+    - If you can configure your server, you can also add the token using an `Origin-Trial` HTTP header. The resulting response header should look something like:  
+      `Origin-Trial: TOKEN_GOES_HERE`
 
 ### Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
 
@@ -124,10 +117,10 @@ Detect browser support by checking for the existence of the `createHandwritingRe
 
 The Handwriting Recognition API converts handwritten input into text, regardless of the input method (mouse, touch, pen). The API has four main entities:
 
-1.  A *point* represents where the pointer was at a particular time.
-2.  A *stroke* consists of one or more points. The recording of a stroke starts when the user puts the pointer down (i.e., clicks the primary mouse button, or touches the screen with their pen or finger) and ends when they raise the pointer back up.
-3.  A *drawing* consists of one or more strokes. The actual recognition takes place at this level.
-4.  The *recognizer* is configured with the expected input language. It is used to create an instance of a drawing with the recognizer configuration applied.
+1.  A _point_ represents where the pointer was at a particular time.
+2.  A _stroke_ consists of one or more points. The recording of a stroke starts when the user puts the pointer down (i.e., clicks the primary mouse button, or touches the screen with their pen or finger) and ends when they raise the pointer back up.
+3.  A _drawing_ consists of one or more strokes. The actual recognition takes place at this level.
+4.  The _recognizer_ is configured with the expected input language. It is used to create an instance of a drawing with the recognizer configuration applied.
 
 These concepts are implemented as specific interfaces and dictionaries, which I'll cover shortly.
 
@@ -149,9 +142,9 @@ The method returns a promise resolving with an instance of a `HandwritingRecogni
 
 By calling `navigator.queryHandwritingRecognizerSupport()`, you can check if the target platform supports the handwriting recognition features you intend to use. In the following example, the developer:
 
--   wants to detect texts in English
--   get alternative, less likely predictions when available
--   gain access to the segmentation result, i.e., the recognized characters, including the points and strokes that make them up
+- wants to detect texts in English
+- get alternative, less likely predictions when available
+- gain access to the segmentation result, i.e., the recognized characters, including the points and strokes that make them up
 
 <!-- -->
 
@@ -176,11 +169,11 @@ Within your application, you should offer an input area where the user makes the
 
 To start a new drawing, call the `startDrawing()` method on the recognizer. This method takes an object containing different hints to fine-tune the recognition algorithm. All hints are optional:
 
--   The kind of text being entered: text, email addresses, numbers, or an individual character (`recognitionType`)
--   The type of input device: mouse, touch, or pen input (`inputType`)
--   The preceding text (`textContext`)
--   The number of less-likely alternative predictions that should be returned (`alternatives`)
--   A list of user-identifiable characters ("graphemes") the user will most likely enter (`graphemeSet`)
+- The kind of text being entered: text, email addresses, numbers, or an individual character (`recognitionType`)
+- The type of input device: mouse, touch, or pen input (`inputType`)
+- The preceding text (`textContext`)
+- The number of less-likely alternative predictions that should be returned (`alternatives`)
+- A list of user-identifiable characters ("graphemes") the user will most likely enter (`graphemeSet`)
 
 The Handwriting Recognition API plays well with [Pointer Events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events) which provide an abstract interface to consume input from any pointing device. The pointer event arguments contain the type of pointer being used. This means you can use pointer events to determine the input type automatically. In the following example, the drawing for handwriting recognition is automatically created on the first occurrence of a `pointerdown` event on the handwriting area. As the `pointerType` may be empty or set to a proprietary value, I introduced a consistency check to make sure only supported values are set for the drawing's input type.
 
@@ -284,8 +277,7 @@ After the recognition has completed, you can free resources by calling the `clea
     drawing.clear();
     recognizer.finish();
 
-Demo <a href="#demo" class="w-headline-link">#</a>
---------------------------------------------------
+## Demo <a href="#demo" class="w-headline-link">#</a>
 
 The web component `<handwriting-textarea>` implements a [progressively enhanced](/progressively-enhance-your-pwa/), editing control capable of handwriting recognition. By clicking the button in the lower right corner of the editing control, you activate the drawing mode. When you complete the drawing, the web component will automatically start the recognition and add the recognized text back to the editing control. If the Handwriting Recognition API is not supported at all, or the platform doesn't support the requested features, the edit button will be hidden. But the basic editing control remains usable as a `<textarea>`.
 
@@ -297,8 +289,7 @@ To be informed about any changes to the value, you can listen to the `input` eve
 
 You can try the component using [this demo on Glitch](https://handwriting-recognition.glitch.me/). Also be sure to have a look at the [source code](https://github.com/christianliebel/handwriting-textarea). To use the control in your application, [obtain it from npm](https://www.npmjs.com/package/handwriting-textarea).
 
-Security and permissions <a href="#security-and-permissions" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Security and permissions <a href="#security-and-permissions" class="w-headline-link">#</a>
 
 The Chromium team has designed and implemented the Handwriting Recognition API using the core principles defined in [Controlling Access to Powerful Web Platform Features](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md), including user control, transparency, and ergonomics.
 
@@ -314,8 +305,7 @@ There is no indication if handwriting recognition is active. To prevent fingerpr
 
 The Handwriting Recognition API currently does not show any permissions prompts. Thus, permission does not need to be persisted in any way.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 The Chromium team wants to hear about your experiences with the Handwriting Recognition API.
 
@@ -333,20 +323,18 @@ Are you planning to use the Handwriting Recognition API? Your public support hel
 
 Share how you plan to use it on the [WICG Discourse thread](https://discourse.wicg.io/t/proposal-handwriting-recognition-api/4935). Send a tweet to [@ChromiumDev](https://twitter.com/ChromiumDev) using the hashtag [`#HandwritingRecognition`](https://twitter.com/search?q=%23HandwritingRecognition&src=recent_search_click&f=live) and let us know where and how you're using it.
 
-Helpful Links <a href="#helpful-links" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Helpful Links <a href="#helpful-links" class="w-headline-link">#</a>
 
--   [Explainer](https://github.com/WICG/handwriting-recognition/blob/main/explainer.md)
--   [GitHub repo](https://github.com/WICG/handwriting-recognition)
--   [ChromeStatus](https://www.chromestatus.com/features/5263213807534080)
--   [Chromium bug](https://crbug.com/1207667)
--   [TAG review](https://github.com/w3ctag/design-reviews/issues/591)
--   [Intent to Prototype](https://groups.google.com/a/chromium.org/g/blink-dev/c/VXUq1UY4m7Y)
--   [WebKit-Dev thread](https://lists.webkit.org/pipermail/webkit-dev/2021-March/031762.html)
--   [Mozilla standards position](https://github.com/mozilla/standards-positions/issues/507)
+- [Explainer](https://github.com/WICG/handwriting-recognition/blob/main/explainer.md)
+- [GitHub repo](https://github.com/WICG/handwriting-recognition)
+- [ChromeStatus](https://www.chromestatus.com/features/5263213807534080)
+- [Chromium bug](https://crbug.com/1207667)
+- [TAG review](https://github.com/w3ctag/design-reviews/issues/591)
+- [Intent to Prototype](https://groups.google.com/a/chromium.org/g/blink-dev/c/VXUq1UY4m7Y)
+- [WebKit-Dev thread](https://lists.webkit.org/pipermail/webkit-dev/2021-March/031762.html)
+- [Mozilla standards position](https://github.com/mozilla/standards-positions/issues/507)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [Joe Medley](https://github.com/jpmedley), Honglin Yu and Jiewei Qian. Hero image by [Samir Bouaked](https://unsplash.com/@sbouaked) on [Unsplash](https://unsplash.com/photos/MFvflDBZdyM).
 
@@ -356,35 +344,35 @@ This article was reviewed by [Joe Medley](https://github.com/jpmedley), Honglin 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

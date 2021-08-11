@@ -1,5 +1,3 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
@@ -12,37 +10,35 @@
 
 <img src="https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format" alt="Elgato Stream Deck photo." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/05NRg2Lw0w5Rv6TToabY.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#connecting-to-uncommon-hid-devices" class="w-toc__header--link">Connecting to uncommon HID devices</a>
-----------------------------------------------------------------------------------------------------------------
+## <a href="#connecting-to-uncommon-hid-devices" class="w-toc__header--link">Connecting to uncommon HID devices</a>
 
--   [Suggested use cases](#use-cases)
--   [Current status](#status)
--   [Terminology](#terminology)
--   [Using the WebHID API](#use)
--   [Feature detection](#feature-detection)
--   [Open a HID connection](#open)
--   [Receive input reports](#receive-input-reports)
--   [Send output reports](#send-output-reports)
--   [Send and receive feature reports](#feature-reports)
--   [Listen to connection and disconnection](#connection-disconnection)
--   [Dev Tips](#dev-tips)
--   [Browser support](#browser-support)
--   [Demos](#demos)
--   [Security and privacy](#security-privacy)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Report a problem with the implementation](#report-a-problem-with-the-implementation)
--   [Show support](#show-support)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [Suggested use cases](#use-cases)
+- [Current status](#status)
+- [Terminology](#terminology)
+- [Using the WebHID API](#use)
+- [Feature detection](#feature-detection)
+- [Open a HID connection](#open)
+- [Receive input reports](#receive-input-reports)
+- [Send output reports](#send-output-reports)
+- [Send and receive feature reports](#feature-reports)
+- [Listen to connection and disconnection](#connection-disconnection)
+- [Dev Tips](#dev-tips)
+- [Browser support](#browser-support)
+- [Demos](#demos)
+- [Security and privacy](#security-privacy)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Report a problem with the implementation](#report-a-problem-with-the-implementation)
+- [Show support](#show-support)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Connecting to uncommon HID devices
-==================================
+# Connecting to uncommon HID devices
 
 The WebHID API allows websites to access alternative auxiliary keyboards and exotic gamepads.
 
@@ -54,26 +50,23 @@ Sep 15, 2020 <span class="w-author__separator">•</span> Updated Feb 27, 2021
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 **Success**: The WebHID API, part of the [capabilities project](/fugu-status/), launched in Chrome 89.
 
 There is a long tail of human interface devices (HIDs), such as alternative keyboards or exotic gamepads, that are too new, too old, or too uncommon to be accessible by systems' device drivers. The WebHID API solves this by providing a way to implement device-specific logic in JavaScript.
 
-Suggested use cases <a href="#use-cases" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Suggested use cases <a href="#use-cases" class="w-headline-link">#</a>
 
 A HID device takes input from or provides output to humans. Examples of devices include keyboards, pointing devices (mice, touchscreens, etc.), and gamepads. The [HID protocol](https://www.usb.org/hid) makes it possible to access these devices on desktop computers using operating system drivers. The web platform supports HID devices by relying on these drivers.
 
 The inability to access uncommon HID devices is particularly painful when it comes to alternative auxiliary keyboards (e.g. [Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck), [Jabra headsets](https://www.jabra.com/business/office-headsets), [X-keys](https://xkeys.com/xkeys.html)) and exotic gamepad support. Gamepads designed for desktop often use HID for gamepad inputs (buttons, joysticks, triggers) and outputs (LEDs, rumble). Unfortunately, gamepad inputs and outputs are not well standardized and web browsers often require custom logic for specific devices. This is unsustainable and results in poor support for the long tail of older and uncommon devices. It also causes the browser to depend on quirks in the behavior of specific devices.
 
-Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td><a href="https://github.com/WICG/webhid/blob/master/EXPLAINER.md">Complete</a></td></tr><tr class="even"><td>2. Create initial draft of specification</td><td><a href="https://wicg.github.io/webhid/">Complete</a></td></tr><tr class="odd"><td>3. Gather feedback &amp; iterate on design</td><td><a href="#feedback">Complete</a></td></tr><tr class="even"><td>4. Origin trial</td><td><a href="https://developers.chrome.com/origintrials/#/register_trial/1074108511127863297">Complete</a></td></tr><tr class="odd"><td><strong>5. Launch</strong></td><td><strong>Complete</strong></td></tr></tbody></table>
 
-Terminology <a href="#terminology" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Terminology <a href="#terminology" class="w-headline-link">#</a>
 
 HID consists of two fundamental concepts: reports and report descriptors. Reports are the data that is exchanged between a device and a software client. The report descriptor describes the format and meaning of data that the device supports.
 
@@ -87,8 +80,7 @@ A report descriptor describes the binary format of reports supported by the devi
 
 A HID usage is a numeric value referring to a standardized input or output. Usage values allow a device to describe the intended use of the device and the purpose of each field in its reports. For example, one is defined for the left button of a mouse. Usages are also organized into usage pages, which provide an indication of the high-level category of the device or report.
 
-Using the WebHID API <a href="#use" class="w-headline-link">#</a>
------------------------------------------------------------------
+## Using the WebHID API <a href="#use" class="w-headline-link">#</a>
 
 ### Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
 
@@ -239,23 +231,19 @@ When the website has been granted permission to access a HID device, it can acti
       // Remove |event.device| from the UI.
     });
 
-Dev Tips <a href="#dev-tips" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Dev Tips <a href="#dev-tips" class="w-headline-link">#</a>
 
 Debugging HID in Chrome is easy with the internal page, `about://device-log` where you can see all HID and USB device related events in one single place.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format" alt="Internal page in Chrome to debug HID." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1600 1600w" width="800" height="575" /><figcaption>Internal page in Chrome to debug HID.</figcaption></figure>Browser support <a href="#browser-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format" alt="Internal page in Chrome to debug HID." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/zwpr1W7oDsRw0DKsFQ9D.jpg?auto=format&amp;w=1600 1600w" width="800" height="575" /><figcaption>Internal page in Chrome to debug HID.</figcaption></figure>Browser support <a href="#browser-support" class="w-headline-link">#</a>
 
 The WebHID API is available on all desktop platforms (Chrome OS, Linux, macOS, and Windows) in Chrome 89.
 
-Demos <a href="#demos" class="w-headline-link">#</a>
-----------------------------------------------------
+## Demos <a href="#demos" class="w-headline-link">#</a>
 
 Some WebHID demos are listed at [web.dev/hid-examples](/hid-examples/). Go have a look!
 
-Security and privacy <a href="#security-privacy" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Security and privacy <a href="#security-privacy" class="w-headline-link">#</a>
 
 The spec authors have designed and implemented the WebHID API using the core principles defined in [Controlling Access to Powerful Web Platform Features](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md), including user control, transparency, and ergonomics. The ability to use this API is primarily gated by a permission model that grants access to only a single HID device at a time. In response to a user prompt, the user must take active steps to select a particular HID device.
 
@@ -265,8 +253,7 @@ On top of this, Chrome inspects the usage of each top-level collection and if a 
 
 Note that security-sensitive HID devices (such as FIDO HID devices used for stronger authentication) are also blocked in Chrome. See the [USB blocklist](https://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/usb/usb_blocklist.cc) and [HID blocklist](https://source.chromium.org/chromium/chromium/src/+/master:services/device/public/cpp/hid/hid_blocklist.cc) files.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 The Chrome team would love to hear about your thoughts and experiences with the WebHID API.
 
@@ -280,7 +267,7 @@ File a spec issue on the [WebHID API GitHub repo](https://github.com/wicg/webhid
 
 Did you find a bug with Chrome's implementation? Or is the implementation different from the spec?
 
-File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3EHID). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and have *Components* set to `Blink>HID`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
+File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3EHID). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and have _Components_ set to `Blink>HID`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
 
 ### Show support <a href="#show-support" class="w-headline-link">#</a>
 
@@ -288,16 +275,14 @@ Are you planning to use the WebHID API? Your public support helps the Chrome tea
 
 Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#WebHID`](https://twitter.com/search?q=%23WebHID&src=typed_query&f=live) and let us know where and how you're using it.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [Specification](https://wicg.github.io/webhid/)
--   [Tracking bug](https://crbug.com/890096)
--   [ChromeStatus.com entry](https://chromestatus.com/feature/5172464636133376)
--   Blink Component: [`Blink>HID`](https://chromestatus.com/features#component%3ABlink%3EHID)
+- [Specification](https://wicg.github.io/webhid/)
+- [Tracking bug](https://crbug.com/890096)
+- [ChromeStatus.com entry](https://chromestatus.com/feature/5172464636133376)
+- Blink Component: [`Blink>HID`](https://chromestatus.com/features#component%3ABlink%3EHID)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Thanks to [Matt Reynolds](https://github.com/nondebug) and [Joe Medley](https://github.com/jpmedley) for their reviews of this article. Red and blue Nintendo Switch photo by [Sara Kurfeß](https://unsplash.com/photos/jqpRECmiNEU), and black and silver laptop computer photo by [Athul Cyriac Ajay](https://unsplash.com/photos/ndokCrfQWrI) on Unsplash.
 
@@ -309,35 +294,35 @@ Have a question about using this feature? You can get help by [asking a question
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

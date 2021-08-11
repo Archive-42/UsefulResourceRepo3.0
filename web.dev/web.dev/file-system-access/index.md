@@ -1,57 +1,47 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format" alt="Image of hard disk platters" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/qn7E0q1EWJUqdzsuHwx4.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#the-file-system-access-api:-simplifying-access-to-local-files" class="w-toc__header--link">The File System Access API: simplifying access to local files</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#the-file-system-access-api:-simplifying-access-to-local-files" class="w-toc__header--link">The File System Access API: simplifying access to local files</a>
 
--   [What is the File System Access API?](#what-is-it)
--   [Current status](#status)
--   [Browser support](#browser-support)
--   [Using the File System Access API](#how-to-use)
--   [Try it](#try-it)
--   [Read a file from the local file system](#read-file)
--   [Write the file to the local file system](#write-file)
--   [Specifying a suggested file name and start directory](#specifying-a-suggested-file-name-and-start-directory)
--   [Specifying the purpose of different file pickers](#specifying-the-purpose-of-different-file-pickers)
--   [Storing file handles or directory handles in IndexedDB](#storing-file-handles-or-directory-handles-in-indexeddb)
--   [Stored file or directory handles and permissions](#stored-file-or-directory-handles-and-permissions)
--   [Opening a directory and enumerating its contents](#opening-a-directory-and-enumerating-its-contents)
--   [Creating or accessing files and folders in a directory](#creating-or-accessing-files-and-folders-in-a-directory)
--   [Resolving the path of an item in a directory](#resolving-the-path-of-an-item-in-a-directory)
--   [Deleting files and folders in a directory](#deleting-files-and-folders-in-a-directory)
--   [Drag and drop integration](#drag-and-drop-integration)
--   [Accessing the origin private file system](#accessing-the-origin-private-file-system)
--   [Polyfilling](#polyfilling)
--   [Security and permissions](#security-considerations)
--   [Opening a file or saving a new file](#opening-a-file-or-saving-a-new-file)
--   [Modifying an existing file or directory](#modifying-an-existing-file-or-directory)
--   [Transparency](#transparency)
--   [Permission persistence](#permission-persistence)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Problem with the implementation?](#problem-with-the-implementation)
--   [Planning to use the API?](#planning-to-use-the-api)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [What is the File System Access API?](#what-is-it)
+- [Current status](#status)
+- [Browser support](#browser-support)
+- [Using the File System Access API](#how-to-use)
+- [Try it](#try-it)
+- [Read a file from the local file system](#read-file)
+- [Write the file to the local file system](#write-file)
+- [Specifying a suggested file name and start directory](#specifying-a-suggested-file-name-and-start-directory)
+- [Specifying the purpose of different file pickers](#specifying-the-purpose-of-different-file-pickers)
+- [Storing file handles or directory handles in IndexedDB](#storing-file-handles-or-directory-handles-in-indexeddb)
+- [Stored file or directory handles and permissions](#stored-file-or-directory-handles-and-permissions)
+- [Opening a directory and enumerating its contents](#opening-a-directory-and-enumerating-its-contents)
+- [Creating or accessing files and folders in a directory](#creating-or-accessing-files-and-folders-in-a-directory)
+- [Resolving the path of an item in a directory](#resolving-the-path-of-an-item-in-a-directory)
+- [Deleting files and folders in a directory](#deleting-files-and-folders-in-a-directory)
+- [Drag and drop integration](#drag-and-drop-integration)
+- [Accessing the origin private file system](#accessing-the-origin-private-file-system)
+- [Polyfilling](#polyfilling)
+- [Security and permissions](#security-considerations)
+- [Opening a file or saving a new file](#opening-a-file-or-saving-a-new-file)
+- [Modifying an existing file or directory](#modifying-an-existing-file-or-directory)
+- [Transparency](#transparency)
+- [Permission persistence](#permission-persistence)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Problem with the implementation?](#problem-with-the-implementation)
+- [Planning to use the API?](#planning-to-use-the-api)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-The File System Access API: simplifying access to local files
-=============================================================
+# The File System Access API: simplifying access to local files
 
 The File System Access API allows web apps to read or save changes directly to files and folders on the user's device.
 
@@ -61,22 +51,21 @@ Aug 20, 2019 <span class="w-author__separator">•</span> Updated Aug 6, 2021
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Thomas Steiner" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/thomassteiner/)
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
-What is the File System Access API? <a href="#what-is-it" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------
+## What is the File System Access API? <a href="#what-is-it" class="w-headline-link">#</a>
 
 The [File System Access API](https://wicg.github.io/file-system-access/) (formerly known as Native File System API and prior to that it was called Writeable Files API) enables developers to build powerful web apps that interact with files on the user's local device, like IDEs, photo and video editors, text editors, and more. After a user grants a web app access, this API allows them to read or save changes directly to files and folders on the user's device. Beyond reading and writing files, the File System Access API provides the ability to open a directory and enumerate its contents.
 
@@ -88,20 +77,17 @@ If you've worked with reading and writing files before, much of what I'm about t
 
 We've put a lot of thought into the design and implementation of the File System Access API to ensure that people can easily manage their files. See the [security and permissions](#security-considerations) section for more information.
 
-Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td><a href="https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md">Complete</a></td></tr><tr class="even"><td>2. Create initial draft of specification</td><td><a href="https://wicg.github.io/file-system-access/">Complete</a></td></tr><tr class="odd"><td>3. Gather feedback &amp; iterate on design</td><td><a href="https://wicg.github.io/file-system-access/">Complete</a></td></tr><tr class="even"><td>4. Origin trial</td><td>Complete</td></tr><tr class="odd"><td><strong>5. Launch</strong></td><td><strong>Complete</strong></td></tr></tbody></table>
 
 During the origin trial phase, there was a universal method named `Window.chooseFileSystemEntries()` that has been replaced with the three specialized methods `Window.showOpenFilePicker()`, `Window.showSaveFilePicker()`, and `Window.showDirectoryPicker()`. There were a number of other [changes](https://github.com/WICG/file-system-access/blob/main/changes.md) that you can read up on.
 
-Browser support <a href="#browser-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Browser support <a href="#browser-support" class="w-headline-link">#</a>
 
 The File System Access API is currently supported on most Chromium browsers on Windows, macOS, Chrome OS, and Linux. A notable exception is Brave ([brave/brave-browser\#11407](https://github.com/brave/brave-browser/issues/11407)). Android support is planned; you can track progress by starring [crbug.com/1011535](https://crbug.com/1011535).
 
-Using the File System Access API <a href="#how-to-use" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Using the File System Access API <a href="#how-to-use" class="w-headline-link">#</a>
 
 To show off the power and usefulness of the File System Access API, I wrote a single file [text editor](https://googlechromelabs.github.io/text-editor/). It lets you open a text file, edit it, save the changes back to disk, or start a new file and save the changes to disk. It's nothing fancy, but provides enough to help you understand the concepts.
 
@@ -137,7 +123,7 @@ Now that you have a handle to a file, you can get the file's properties, or acce
     const file = await fileHandle.getFile();
     const contents = await file.text();
 
-For the majority of use cases, you can read files in *sequential* order with the `stream()`, `text()`, or `arrayBuffer()` methods. For getting *random access* to a file's contents, use the `slice()` method.
+For the majority of use cases, you can read files in _sequential_ order with the `stream()`, `text()`, or `arrayBuffer()` methods. For getting _random access_ to a file's contents, use the `slice()` method.
 
 The `File` object returned by `FileSystemFileHandle.getFile()` is only readable as long as the underlying file on disk hasn't changed. If the file on disk is modified, the `File` object becomes unreadable and you'll need to call `getFile()` again to get a new `File` object to read the changed data.
 
@@ -176,7 +162,7 @@ To save a file, call [`showSaveFilePicker()`](https://wicg.github.io/file-system
       return handle;
     }
 
-undefined Sometimes processing the to-be-saved data takes some time after the user clicks the **Save** button in your app. A common gotcha is to do this work *before* the `showSaveFilePicker()` code has run, resulting in a `SecurityError Failed to execute 'showSaveFilePicker' on 'Window': Must be handling a user gesture to show a file picker.`. Instead, get the file handle first, and only *after* obtaining the file handle start processing the data.
+undefined Sometimes processing the to-be-saved data takes some time after the user clicks the **Save** button in your app. A common gotcha is to do this work _before_ the `showSaveFilePicker()` code has run, resulting in a `SecurityError Failed to execute 'showSaveFilePicker' on 'Window': Must be handling a user gesture to show a file picker.`. Instead, get the file handle first, and only _after_ obtaining the file handle start processing the data.
 
 #### Save changes to disk <a href="#save-to-disk" class="w-headline-link">#</a>
 
@@ -231,12 +217,12 @@ The same goes for the default start directory. If you're building a text editor,
 
 The list of the well-known system directories is:
 
--   `desktop`: The user's desktop directory, if such a thing exists.
--   `documents`: Directory in which documents created by the user would typically be stored.
--   `downloads`: Directory where downloaded files would typically be stored.
--   `music`: Directory where audio files would typically be stored.
--   `pictures`: Directory where photos and other still images would typically be stored.
--   `videos`: Directory where videos/movies would typically be stored.
+- `desktop`: The user's desktop directory, if such a thing exists.
+- `documents`: Directory in which documents created by the user would typically be stored.
+- `downloads`: Directory where downloaded files would typically be stored.
+- `music`: Directory where audio files would typically be stored.
+- `pictures`: Directory where photos and other still images would typically be stored.
+- `videos`: Directory where videos/movies would typically be stored.
 
 Apart from well-known system directories, you can also pass an existing file or directory handle as a value for `startIn`. The dialog would then open in the same directory.
 
@@ -371,7 +357,7 @@ If you have obtained access to a directory, you can delete the contained files a
 
 ### Drag and drop integration <a href="#drag-and-drop-integration" class="w-headline-link">#</a>
 
-The [HTML Drag and Drop interfaces](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) enable web applications to accept [dragged and dropped files](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop) on a web page. During a drag and drop operation, dragged file and directory items are associated with file entries and directory entries respectively. The `DataTransferItem.getAsFileSystemHandle()` method returns a promise with a `FileSystemFileHandle` object if the dragged item is a file, and a promise with a `FileSystemDirectoryHandle` object if the dragged item is a directory. The listing below shows this in action. Note that the Drag and Drop interface's [`DataTransferItem.kind`](https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem/kind) will be `"file"` for both files *and* directories, whereas the File System Access API's [`FileSystemHandle.kind`](https://wicg.github.io/file-system-access/#dom-filesystemhandle-kind) will be `"file"` for files and `"directory"` for directories.
+The [HTML Drag and Drop interfaces](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) enable web applications to accept [dragged and dropped files](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop) on a web page. During a drag and drop operation, dragged file and directory items are associated with file entries and directory entries respectively. The `DataTransferItem.getAsFileSystemHandle()` method returns a promise with a `FileSystemFileHandle` object if the dragged item is a file, and a promise with a `FileSystemDirectoryHandle` object if the dragged item is a directory. The listing below shows this in action. Note that the Drag and Drop interface's [`DataTransferItem.kind`](https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem/kind) will be `"file"` for both files _and_ directories, whereas the File System Access API's [`FileSystemHandle.kind`](https://wicg.github.io/file-system-access/#dom-filesystemhandle-kind) will be `"file"` for files and `"directory"` for directories.
 
     elem.addEventListener('dragover', (e) => {
       // Prevent navigation.
@@ -398,7 +384,7 @@ The [HTML Drag and Drop interfaces](https://developer.mozilla.org/en-US/docs/Web
 
 ### Accessing the origin private file system <a href="#accessing-the-origin-private-file-system" class="w-headline-link">#</a>
 
-The origin private file system is a storage endpoint that, as the name suggests, is private to the origin of the page. While browsers will typically implement this by persisting the contents of this origin private file system to disk somewhere, it is *not* intended that the contents be easily user accessible. Similarly, there is *no* expectation that files or directories with names matching the names of children of the origin private file system exist. While the browser might make it seem that there are files, internally—since this is an origin private file system—the browser might store these "files" in a database or any other data structure. Essentially: what you create with this API, do *not* expect to find it 1:1 somewhere on the hard disk. You can operate as usual on the origin private file system once you have access to the root `FileSystemDirectoryHandle`.
+The origin private file system is a storage endpoint that, as the name suggests, is private to the origin of the page. While browsers will typically implement this by persisting the contents of this origin private file system to disk somewhere, it is _not_ intended that the contents be easily user accessible. Similarly, there is _no_ expectation that files or directories with names matching the names of children of the origin private file system exist. While the browser might make it seem that there are files, internally—since this is an origin private file system—the browser might store these "files" in a database or any other data structure. Essentially: what you create with this API, do _not_ expect to find it 1:1 somewhere on the hard disk. You can operate as usual on the origin private file system once you have access to the root `FileSystemDirectoryHandle`.
 
     const root = await navigator.storage.getDirectory();
     // Create a new file handle.
@@ -408,19 +394,17 @@ The origin private file system is a storage endpoint that, as the name suggests,
     // Recursively remove a directory.
     await root.removeEntry('Old Stuff', { recursive: true });
 
-Polyfilling <a href="#polyfilling" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Polyfilling <a href="#polyfilling" class="w-headline-link">#</a>
 
 It is not possible to completely polyfill the File System Access API methods.
 
--   The `showOpenFilePicker()` method can be approximated with an `<input type="file">` element.
--   The `showSaveFilePicker()` method can be simulated with a `<a download="file_name">` element, albeit this will trigger a programmatic download and not allow for overwriting existing files.
--   The `showDirectoryPicker()` method can be somewhat emulated with the non-standard `<input type="file" webkitdirectory>` element.
+- The `showOpenFilePicker()` method can be approximated with an `<input type="file">` element.
+- The `showSaveFilePicker()` method can be simulated with a `<a download="file_name">` element, albeit this will trigger a programmatic download and not allow for overwriting existing files.
+- The `showDirectoryPicker()` method can be somewhat emulated with the non-standard `<input type="file" webkitdirectory>` element.
 
 We have developed a library called [browser-fs-access](/browser-fs-access/) that uses the File System Access API wherever possible and that falls back to these next best options in all other cases.
 
-Security and permissions <a href="#security-considerations" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------
+## Security and permissions <a href="#security-considerations" class="w-headline-link">#</a>
 
 The Chrome team has designed and implemented the File System Access API using the core principles defined in [Controlling Access to Powerful Web Platform Features](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md), including user control and transparency, and user ergonomics.
 
@@ -454,8 +438,7 @@ If the user chooses Cancel, and does not grant write access, the web app cannot 
 
 The web app can continue to save changes to the file without prompting until all tabs for that origin are closed. Once a tab is closed, the site loses all access. The next time the user uses the web app, they will be re-prompted for access to the files.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 We want to hear about your experiences with the File System Access API.
 
@@ -463,35 +446,33 @@ We want to hear about your experiences with the File System Access API.
 
 Is there something about the API that doesn't work like you expected? Or are there missing methods or properties that you need to implement your idea? Have a question or comment on the security model?
 
--   File a spec issue on the [WICG File System Access GitHub repo](https://github.com/wicg/file-system-access/issues/), or add your thoughts to an existing issue.
+- File a spec issue on the [WICG File System Access GitHub repo](https://github.com/wicg/file-system-access/issues/), or add your thoughts to an existing issue.
 
 ### Problem with the implementation? <a href="#problem-with-the-implementation" class="w-headline-link">#</a>
 
 Did you find a bug with Chrome's implementation? Or is the implementation different from the spec?
 
--   File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3EStorage%3EFileSystem). Be sure to include as much detail as you can, simple instructions for reproducing, and set *Components* to `Blink>Storage>FileSystem`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
+- File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3EStorage%3EFileSystem). Be sure to include as much detail as you can, simple instructions for reproducing, and set _Components_ to `Blink>Storage>FileSystem`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
 
 ### Planning to use the API? <a href="#planning-to-use-the-api" class="w-headline-link">#</a>
 
 Planning to use the File System Access API on your site? Your public support helps us to prioritize features, and shows other browser vendors how critical it is to support them.
 
--   Share how you plan to use it on the [WICG Discourse thread](https://discourse.wicg.io/t/writable-file-api/1433).
--   Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#FileSystemAccess`](https://twitter.com/search?q=%23FileSystemAccess&src=typed_query&f=live) and let us know where and how you're using it.
+- Share how you plan to use it on the [WICG Discourse thread](https://discourse.wicg.io/t/writable-file-api/1433).
+- Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#FileSystemAccess`](https://twitter.com/search?q=%23FileSystemAccess&src=typed_query&f=live) and let us know where and how you're using it.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [Public explainer](https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md)
--   [File System Access specification](https://wicg.github.io/file-system-access/) & [File specification](https://w3c.github.io/FileAPI/)
--   [Tracking bug](https://crbug.com/853326)
--   [ChromeStatus.com entry](https://www.chromestatus.com/feature/6284708426022912)
--   Request an [origin trial token]()
--   [TypeScript definitions](https://www.npmjs.com/package/@types/wicg-file-system-access)
--   [File System Access API - Chromium Security Model](https://docs.google.com/document/d/1NJFd-EWdUlQ7wVzjqcgXewqC5nzv_qII4OvlDtK6SE8/edit)
--   Blink Component: `Blink>Storage>FileSystem`
+- [Public explainer](https://github.com/WICG/file-system-access/blob/main/EXPLAINER.md)
+- [File System Access specification](https://wicg.github.io/file-system-access/) & [File specification](https://w3c.github.io/FileAPI/)
+- [Tracking bug](https://crbug.com/853326)
+- [ChromeStatus.com entry](https://www.chromestatus.com/feature/6284708426022912)
+- Request an [origin trial token]()
+- [TypeScript definitions](https://www.npmjs.com/package/@types/wicg-file-system-access)
+- [File System Access API - Chromium Security Model](https://docs.google.com/document/d/1NJFd-EWdUlQ7wVzjqcgXewqC5nzv_qII4OvlDtK6SE8/edit)
+- Blink Component: `Blink>Storage>FileSystem`
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 The File System Access API spec was written by [Marijn Kruisselbrink](https://github.com/mkruisselbrink).
 
@@ -503,35 +484,35 @@ Have a question about using this feature? You can get help by [asking a question
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

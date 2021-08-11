@@ -1,6 +1,6 @@
 <span class="w-tooltip w-tooltip--left">Abrir menú</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
+
 
 <a href="/learn/" class="gc-analytics-event header-default__link">Aprender</a> <a href="/measure/" class="gc-analytics-event header-default__link">Medir</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 

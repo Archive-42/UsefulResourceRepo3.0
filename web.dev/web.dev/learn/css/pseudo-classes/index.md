@@ -1,7 +1,5 @@
 <a href="#main" class="skip-link w-button">Skip to main</a>
 
-<span class="w-tooltip w-tooltip--left">Open menu</span>
-
 <span class="w-tooltip">Close</span>
 
 <span class="font-mono drawer-course__link-counter">000</span> <span class="drawer-course__link-title gap-left-400">Learn CSS</span>
@@ -54,69 +52,68 @@
 
 <span class="font-mono drawer-course__link-counter">024</span> <span class="drawer-course__link-title gap-left-400">Conclusion and next steps</span>
 
--   -   [Learn](/learn/)
--   [Learn CSS!](/learn/css/)
+- - [Learn](/learn/)
+- [Learn CSS!](/learn/css/)
 
 Share
 
 On this page
 
--   <a href="#interactive-states" class="toc__anchor">Interactive states</a>
-    -   <a href="#:hover" class="toc__anchor">:hover</a>
-    -   <a href="#:active" class="toc__anchor">:active</a>
-    -   <a href="#:focus-:focus-within-and-:focus-visible" class="toc__anchor">:focus, :focus-within, and :focus-visible</a>
-    -   <a href="#:target" class="toc__anchor">:target</a>
--   <a href="#historic-states" class="toc__anchor">Historic states</a>
-    -   <a href="#:link" class="toc__anchor">:link</a>
--   <a href="#form-states" class="toc__anchor">Form states</a>
-    -   <a href="#:disabled-and-:enabled" class="toc__anchor">:disabled and :enabled</a>
-    -   <a href="#:checked-and-:indeterminate" class="toc__anchor">:checked and :indeterminate</a>
-    -   <a href="#:placeholder-shown" class="toc__anchor">:placeholder-shown</a>
-    -   <a href="#validation-states" class="toc__anchor">Validation states</a>
--   <a href="#selecting-elements-by-their-index-order-and-occurrence" class="toc__anchor">Selecting elements by their index, order and occurrence</a>
-    -   <a href="#first-child-and-last-child" class="toc__anchor">first-child and last-child</a>
-    -   <a href="#only-child" class="toc__anchor">only-child</a>
-    -   <a href="#:first-of-type-and-:last-of-type" class="toc__anchor">:first-of-type and :last-of-type</a>
-    -   <a href="#nth-child-and-nth-of-type" class="toc__anchor">nth-child and nth-of-type</a>
-    -   <a href="#only-of-type" class="toc__anchor">only-of-type</a>
--   <a href="#finding-empty-elements" class="toc__anchor">Finding empty elements</a>
-    -   <a href="#:empty" class="toc__anchor">:empty</a>
--   <a href="#finding-and-excluding-multiple-elements" class="toc__anchor">Finding and excluding multiple elements</a>
-    -   <a href="#:is()" class="toc__anchor">:is()</a>
-    -   <a href="#:not()" class="toc__anchor">:not()</a>
+- <a href="#interactive-states" class="toc__anchor">Interactive states</a>
+  - <a href="#:hover" class="toc__anchor">:hover</a>
+  - <a href="#:active" class="toc__anchor">:active</a>
+  - <a href="#:focus-:focus-within-and-:focus-visible" class="toc__anchor">:focus, :focus-within, and :focus-visible</a>
+  - <a href="#:target" class="toc__anchor">:target</a>
+- <a href="#historic-states" class="toc__anchor">Historic states</a>
+  - <a href="#:link" class="toc__anchor">:link</a>
+- <a href="#form-states" class="toc__anchor">Form states</a>
+  - <a href="#:disabled-and-:enabled" class="toc__anchor">:disabled and :enabled</a>
+  - <a href="#:checked-and-:indeterminate" class="toc__anchor">:checked and :indeterminate</a>
+  - <a href="#:placeholder-shown" class="toc__anchor">:placeholder-shown</a>
+  - <a href="#validation-states" class="toc__anchor">Validation states</a>
+- <a href="#selecting-elements-by-their-index-order-and-occurrence" class="toc__anchor">Selecting elements by their index, order and occurrence</a>
+  - <a href="#first-child-and-last-child" class="toc__anchor">first-child and last-child</a>
+  - <a href="#only-child" class="toc__anchor">only-child</a>
+  - <a href="#:first-of-type-and-:last-of-type" class="toc__anchor">:first-of-type and :last-of-type</a>
+  - <a href="#nth-child-and-nth-of-type" class="toc__anchor">nth-child and nth-of-type</a>
+  - <a href="#only-of-type" class="toc__anchor">only-of-type</a>
+- <a href="#finding-empty-elements" class="toc__anchor">Finding empty elements</a>
+  - <a href="#:empty" class="toc__anchor">:empty</a>
+- <a href="#finding-and-excluding-multiple-elements" class="toc__anchor">Finding and excluding multiple elements</a>
+  - <a href="#:is()" class="toc__anchor">:is()</a>
+  - <a href="#:not()" class="toc__anchor">:not()</a>
 
 014
 
-Pseudo-classes
-==============
+# Pseudo-classes
 
 Pseudo-classes let you apply CSS based on state changes. This means that your design can react to user input such as an invalid email address.
 
 On this page
 
--   <a href="#interactive-states" class="toc__anchor">Interactive states</a>
-    -   <a href="#:hover" class="toc__anchor">:hover</a>
-    -   <a href="#:active" class="toc__anchor">:active</a>
-    -   <a href="#:focus-:focus-within-and-:focus-visible" class="toc__anchor">:focus, :focus-within, and :focus-visible</a>
-    -   <a href="#:target" class="toc__anchor">:target</a>
--   <a href="#historic-states" class="toc__anchor">Historic states</a>
-    -   <a href="#:link" class="toc__anchor">:link</a>
--   <a href="#form-states" class="toc__anchor">Form states</a>
-    -   <a href="#:disabled-and-:enabled" class="toc__anchor">:disabled and :enabled</a>
-    -   <a href="#:checked-and-:indeterminate" class="toc__anchor">:checked and :indeterminate</a>
-    -   <a href="#:placeholder-shown" class="toc__anchor">:placeholder-shown</a>
-    -   <a href="#validation-states" class="toc__anchor">Validation states</a>
--   <a href="#selecting-elements-by-their-index-order-and-occurrence" class="toc__anchor">Selecting elements by their index, order and occurrence</a>
-    -   <a href="#first-child-and-last-child" class="toc__anchor">first-child and last-child</a>
-    -   <a href="#only-child" class="toc__anchor">only-child</a>
-    -   <a href="#:first-of-type-and-:last-of-type" class="toc__anchor">:first-of-type and :last-of-type</a>
-    -   <a href="#nth-child-and-nth-of-type" class="toc__anchor">nth-child and nth-of-type</a>
-    -   <a href="#only-of-type" class="toc__anchor">only-of-type</a>
--   <a href="#finding-empty-elements" class="toc__anchor">Finding empty elements</a>
-    -   <a href="#:empty" class="toc__anchor">:empty</a>
--   <a href="#finding-and-excluding-multiple-elements" class="toc__anchor">Finding and excluding multiple elements</a>
-    -   <a href="#:is()" class="toc__anchor">:is()</a>
-    -   <a href="#:not()" class="toc__anchor">:not()</a>
+- <a href="#interactive-states" class="toc__anchor">Interactive states</a>
+  - <a href="#:hover" class="toc__anchor">:hover</a>
+  - <a href="#:active" class="toc__anchor">:active</a>
+  - <a href="#:focus-:focus-within-and-:focus-visible" class="toc__anchor">:focus, :focus-within, and :focus-visible</a>
+  - <a href="#:target" class="toc__anchor">:target</a>
+- <a href="#historic-states" class="toc__anchor">Historic states</a>
+  - <a href="#:link" class="toc__anchor">:link</a>
+- <a href="#form-states" class="toc__anchor">Form states</a>
+  - <a href="#:disabled-and-:enabled" class="toc__anchor">:disabled and :enabled</a>
+  - <a href="#:checked-and-:indeterminate" class="toc__anchor">:checked and :indeterminate</a>
+  - <a href="#:placeholder-shown" class="toc__anchor">:placeholder-shown</a>
+  - <a href="#validation-states" class="toc__anchor">Validation states</a>
+- <a href="#selecting-elements-by-their-index-order-and-occurrence" class="toc__anchor">Selecting elements by their index, order and occurrence</a>
+  - <a href="#first-child-and-last-child" class="toc__anchor">first-child and last-child</a>
+  - <a href="#only-child" class="toc__anchor">only-child</a>
+  - <a href="#:first-of-type-and-:last-of-type" class="toc__anchor">:first-of-type and :last-of-type</a>
+  - <a href="#nth-child-and-nth-of-type" class="toc__anchor">nth-child and nth-of-type</a>
+  - <a href="#only-of-type" class="toc__anchor">only-of-type</a>
+- <a href="#finding-empty-elements" class="toc__anchor">Finding empty elements</a>
+  - <a href="#:empty" class="toc__anchor">:empty</a>
+- <a href="#finding-and-excluding-multiple-elements" class="toc__anchor">Finding and excluding multiple elements</a>
+  - <a href="#:is()" class="toc__anchor">:is()</a>
+  - <a href="#:not()" class="toc__anchor">:not()</a>
 
 <img src="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format" class="web-audio-fab__thumbnail" sizes="(min-width: 56px) 56px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=56 56w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=64 64w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=73 73w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=83 83w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=95 95w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=108 108w, https://web-dev.imgix.net/image/foR0vJZKULb5AGJExlazy1xYDgI2/ECDb0qa4TB7yUsHwBic8.png?auto=format&amp;w=112 112w" width="56" height="56" />
 
@@ -128,10 +125,9 @@ Say you've got an email sign up form, and you want the email form field to have 
 
 A pseudo-class lets you apply styles based on state changes and external factors. This means that your design can react to user input such as an invalid email address. These are covered in the [selectors](/learn/css/selectors) module, and this module will take you through them in more detail.
 
-Unlike pseudo-elements, which you can learn more about in the [previous module](/learn/css/pseudo-elements), pseudo-*classes* hook onto specific *states* that an element might be in, rather than generally style parts of that element.
+Unlike pseudo-elements, which you can learn more about in the [previous module](/learn/css/pseudo-elements), pseudo-_classes_ hook onto specific _states_ that an element might be in, rather than generally style parts of that element.
 
-Interactive states <a href="#interactive-states" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Interactive states <a href="#interactive-states" class="w-headline-link">#</a>
 
 The following pseudo-classes apply due to an interaction a user has with your page.
 
@@ -181,8 +177,7 @@ You can attach styles to that element when the url contains `#content`.
 
 This is useful for highlighting areas that might have been specifically linked to, such as the main content on a website, via a skip link.
 
-Historic states <a href="#historic-states" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Historic states <a href="#historic-states" class="w-headline-link">#</a>
 
 ### `:link` <a href="#:link" class="w-headline-link">#</a>
 
@@ -201,8 +196,7 @@ If you define a `:visited` style, it can be overridden by a link pseudo-class wi
 
 For security reasons, you can only change styles defined by a `:link` or unvisited state with the `:visited` pseudo-class, so making sure you define changeable styles first is important. Sticking to the LVHA rule will help with that.
 
-Form states <a href="#form-states" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Form states <a href="#form-states" class="w-headline-link">#</a>
 
 The following pseudo-classes can select form elements, in the various states that these elements might be in during interaction with them.
 
@@ -228,14 +222,13 @@ If a form field has a `placeholder` attribute and **no value**, the [`:placehold
 
 You can respond to HTML form validation with pseudo-classes such as [`:valid`](https://developer.mozilla.org/en-US/docs/Web/CSS/:valid), [`:invalid`](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid) and [`:in-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/:in-range). The `:valid` and `:invalid` pseudo-classes are useful for contexts such as an email field that has a `pattern` that needs to be matched, for it to be a valid field. This valid value state can be shown to the user, helping them understand they can safely move to the next field.
 
-The `:in-range` pseudo-class is available if an input has a `min` and `max`, such as a numeric input *and* the value is within those bounds.
+The `:in-range` pseudo-class is available if an input has a `min` and `max`, such as a numeric input _and_ the value is within those bounds.
 
 With HTML forms, you can determine that a field is required with the `required` attribute. The [`:required`](https://developer.mozilla.org/en-US/docs/Web/CSS/:required) pseudo-class will be available for required fields. Fields that are not required can be selected with the [`:optional`](https://developer.mozilla.org/en-US/docs/Web/CSS/:optional) pseudo-class.
 
 It's not a good idea to rely solely on color to signify state changes— especially red and green—because colorblind and low-vision users can struggle to see a state change, or even miss it completely. A good idea is to use color to support state changes, along with text changes and icon changes to visually signify change
 
-Selecting elements by their index, order and occurrence <a href="#selecting-elements-by-their-index-order-and-occurrence" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------------------------------------
+## Selecting elements by their index, order and occurrence <a href="#selecting-elements-by-their-index-order-and-occurrence" class="w-headline-link">#</a>
 
 There is a group of pseudo-classes that select items based on where they are in the document.
 
@@ -293,8 +286,7 @@ You can play around with this sort of selector on this [nth-child tester](https:
 
 Lastly, you can find the only element of a certain type in a group of siblings with [`:only-of-type`](https://developer.mozilla.org/en-US/docs/Web/CSS/:only-of-type). This is useful if you want to select lists with only one item, or if you want to find the only bold element in a paragraph.
 
-Finding empty elements <a href="#finding-empty-elements" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Finding empty elements <a href="#finding-empty-elements" class="w-headline-link">#</a>
 
 It can sometimes be useful to identify completely empty elements, and there is a pseudo-class for that too.
 
@@ -321,8 +313,7 @@ With `:empty`, you can find that and hide it.
       display: none;
     }
 
-Finding and excluding multiple elements <a href="#finding-and-excluding-multiple-elements" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------
+## Finding and excluding multiple elements <a href="#finding-and-excluding-multiple-elements" class="w-headline-link">#</a>
 
 Some pseudo-classes help you to write more compact CSS.
 
@@ -368,7 +359,7 @@ Watch for the use of a single or double `:` as a key distinguishing character in
 
 Pseudo-elements are for parts, Pseudo-classes are for state.
 
-Which of the following are a *functional* pseudo-class?
+Which of the following are a _functional_ pseudo-class?
 
 <span data-role="option">`:is()`</span> <span data-role="option">`:target`</span> <span data-role="option">`:empty`</span> <span data-role="option">`:not()`</span>
 
@@ -426,35 +417,35 @@ Borders
 
 A border provides a frame for your boxes. In this module find out how to change the size, style and color of borders using CSS.
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

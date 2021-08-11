@@ -1,41 +1,33 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
 
-<span class="w-tooltip">Close</span>
 
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
 
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format" alt="Multi-colored gradient" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/uq7JQlKJo7KBETXnVuTf.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#css-for-web-vitals" class="w-toc__header--link">CSS for Web Vitals</a>
---------------------------------------------------------------------------------
+## <a href="#css-for-web-vitals" class="w-toc__header--link">CSS for Web Vitals</a>
 
--   [Layout](#layout)
--   [Inserting content into the DOM](#inserting-content-into-the-dom)
--   [Images](#images)
--   [Images and Largest Contentful Paint (LCP)](#images-and-largest-contentful-paint-(lcp))
--   [Images and layout shifts](#images-and-layout-shifts)
--   [Fonts](#fonts)
--   [Delayed text rendering](#delayed-text-rendering)
--   [Layout shifts](#layout-shifts)
--   [Animations](#animations)
--   [Identify](#identify-4)
--   [Fix](#fix-5)
--   [Critical CSS](#critical-css)
--   [Conclusion](#conclusion)
+- [Layout](#layout)
+- [Inserting content into the DOM](#inserting-content-into-the-dom)
+- [Images](#images)
+- [Images and Largest Contentful Paint (LCP)](<#images-and-largest-contentful-paint-(lcp)>)
+- [Images and layout shifts](#images-and-layout-shifts)
+- [Fonts](#fonts)
+- [Delayed text rendering](#delayed-text-rendering)
+- [Layout shifts](#layout-shifts)
+- [Animations](#animations)
+- [Identify](#identify-4)
+- [Fix](#fix-5)
+- [Critical CSS](#critical-css)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-CSS for Web Vitals
-==================
+# CSS for Web Vitals
 
 CSS-related techniques for optimizing Web Vitals
 
@@ -47,18 +39,18 @@ Jun 2, 2021
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Una Kravets" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/c4bzyDkOZ9MhBaqp0HfW.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/una/)
 
 <a href="/authors/una/" class="w-author__name-link">Una Kravets</a>
 
--   <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
--   <a href="https://github.com/una" class="w-author__link">GitHub</a>
--   <a href="https://una.im/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
+- <a href="https://github.com/una" class="w-author__link">GitHub</a>
+- <a href="https://una.im/" class="w-author__link">Blog</a>
 
 The way you write your styles and build layouts can have a major impact on [Core Web Vitals](/learn-web-vitals). This is particularly true for [Cumulative Layout Shift (CLS)](/cls) and [Largest Contentful Paint (LCP)](/lcp).
 
@@ -66,8 +58,7 @@ This article covers CSS-related techniques for optimizing Web Vitals. These opti
 
 <img src="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format" alt="Screenshot of example site" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/pgmpMOmweK7BVBsVkQ5g.png?auto=format&amp;w=1600 1600w" width="800" height="646" />
 
-Layout <a href="#layout" class="w-headline-link">#</a>
-------------------------------------------------------
+## Layout <a href="#layout" class="w-headline-link">#</a>
 
 ### Inserting content into the DOM <a href="#inserting-content-into-the-dom" class="w-headline-link">#</a>
 
@@ -109,8 +100,7 @@ Another way to fix this layout shift would be to reserve space for the cookie no
 
 The cookie notice is one of multiple page elements that are triggering layout shifts when it loads. To help us get a closer look at these page elements, subsequent demo steps will not include the cookie notice.
 
-Images <a href="#images" class="w-headline-link">#</a>
-------------------------------------------------------
+## Images <a href="#images" class="w-headline-link">#</a>
 
 ### Images and Largest Contentful Paint (LCP) <a href="#images-and-largest-contentful-paint-(lcp)" class="w-headline-link">#</a>
 
@@ -166,8 +156,7 @@ The image now loads without causing a layout shift.
 
 Another approach to loading images is to use the [`srcset`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset) and [`sizes`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/sizes) attributes in conjunction with specifying `width` and `height` attributes. This has the additional performance advantage of allowing you to serve different sized images to different devices. For more information, see [Serve responsive images](/serve-responsive-images/).
 
-Fonts <a href="#fonts" class="w-headline-link">#</a>
-----------------------------------------------------
+## Fonts <a href="#fonts" class="w-headline-link">#</a>
 
 Fonts can delay text rendering and cause layout shifts. As a result, it is important to deliver fonts quickly.
 
@@ -215,8 +204,7 @@ These link tags instruct the browser to establish an early connection to the ori
 
 To only load a subset of a font from Google Fonts, add the [`?text=`](https://developers.google.com/fonts/docs/getting_started) API parameter. For example, `?text=ABC` loads only the characters necessary to render "ABC". This is a good way to reduce the file size of a font.
 
-Animations <a href="#animations" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Animations <a href="#animations" class="w-headline-link">#</a>
 
 The primary way that animations affect Web Vitals is when they cause layout shifts. There are two types of animations that you should avoid using: [animations that trigger layout](/animations-guide/#triggers) and "animation-like" effects that move page elements. Typically these animations can be replaced with more performant equivalents by using CSS properties like [`transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform), [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity), and [`filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/filter). For more information, see [How to create high-performance CSS animations](/animations/).
 
@@ -228,7 +216,7 @@ The Lighthouse "Avoid non-composited animations" audit may be helpful for identi
 
 **Caution**:
 
-The Lighthouse "Avoid non-composited animations" audit only identifies non-performant *CSS animations*; JavaScript-driven animations (for example, using [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) to "animate" an element) are bad for performance but will not be flagged by this audit.
+The Lighthouse "Avoid non-composited animations" audit only identifies non-performant _CSS animations_; JavaScript-driven animations (for example, using [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) to "animate" an element) are bad for performance but will not be flagged by this audit.
 
 ### Fix <a href="#fix-5" class="w-headline-link">#</a>
 
@@ -265,13 +253,11 @@ After:
       }
     }
 
-Critical CSS <a href="#critical-css" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Critical CSS <a href="#critical-css" class="w-headline-link">#</a>
 
 Stylesheets are render-blocking. This means that the browser encounters a stylesheet, it will stop downloading other resources until the browser has downloaded and parsed the stylesheet. This may delay LCP. To improve performance, consider [removing unused CSS](https://css-tricks.com/how-do-you-remove-unused-css-from-a-site/), [inlining critical CSS](/extract-critical-css/), and [deferring non-critical CSS](/defer-non-critical-css/#optimize).
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Although there is still room for further improvements (for example, using [image compression](/use-imagemin-to-compress-images/) to deliver images more quickly), these changes have significantly improved the Web Vitals of this site. If this were a real site, the next step would be to [collect performance data from real users](/vitals-measurement-getting-started/#measuring-web-vitals-using-rum-data) to assess whether it is [meeting the Web Vitals thresholds for most users](/vitals-measurement-getting-started/#data-interpretation). For more information about Web Vitals, see [Learn Web Vitals](/learn-web-vitals).
 
@@ -281,35 +267,35 @@ Although there is still room for further improvements (for example, using [image
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

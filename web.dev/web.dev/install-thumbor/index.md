@@ -1,36 +1,24 @@
-<span class="w-tooltip w-tooltip--left">Open menu</span>
 
-<a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event header-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event header-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
-
-<span class="w-tooltip">Close</span>
-
-<a href="/" class="gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="drawer-default__logo" width="125" height="30" /></a>
-
-<a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
 <img src="https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format" alt="A pile of photos." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/prjXX7rGf0hOFVZVoxUe.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#how-to-install-the-thumbor-image-cdn" class="w-toc__header--link">How to install the Thumbor image CDN</a>
---------------------------------------------------------------------------------------------------------------------
+## <a href="#how-to-install-the-thumbor-image-cdn" class="w-toc__header--link">How to install the Thumbor image CDN</a>
 
--   [Intro](#intro)
--   [Prerequisites](#prerequisites)
--   [Install Thumbor Dependencies](#install-thumbor-dependencies)
--   [Install Thumbor](#install-thumbor)
--   [Run Thumbor](#run-thumbor)
--   [Open Firewall Port](#open-firewall-port)
--   [Try It Out](#try-it-out)
--   [Appendix: Configuring Systemd](#appendix:-configuring-systemd)
+- [Intro](#intro)
+- [Prerequisites](#prerequisites)
+- [Install Thumbor Dependencies](#install-thumbor-dependencies)
+- [Install Thumbor](#install-thumbor)
+- [Run Thumbor](#run-thumbor)
+- [Open Firewall Port](#open-firewall-port)
+- [Try It Out](#try-it-out)
+- [Appendix: Configuring Systemd](#appendix:-configuring-systemd)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-How to install the Thumbor image CDN
-====================================
+# How to install the Thumbor image CDN
 
 Thumbor can be used for free to resize, compress, and transform images on-demand.
 
@@ -40,27 +28,24 @@ Aug 14, 2019
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 Image CDNs make it easy to dynamically optimize the aesthetics and performance of your images. Unlike most image CDNs, [Thumbor](http://thumbor.org/) is open-source and can be used for free to resize, compress, and transform images. It's suitable for production use; [Wikipedia](https://wikitech.wikimedia.org/wiki/Thumbor) and [Square](https://medium.com/square-corner-blog/dynamic-images-with-thumbor-a430a1cfcd87) both use Thumbor.
 
 This guide explains how to install Thumbor on your own server. Once installed, you'll be able to use Thumbor as an API for transforming your images.
 
-Intro <a href="#intro" class="w-headline-link">#</a>
-----------------------------------------------------
+## Intro <a href="#intro" class="w-headline-link">#</a>
 
 You'll be installing Thumbor on a VM running Ubuntu 16.04. Ubuntu 16.04 is a very common image and these instructions are intended to work on any cloud provider. Creating a VM might sound like more work than installing Thumbor on your local machine, but the minutes that you take to create a VM will probably save you hours or days of frustration trying to get Thumbor to properly install on your local machine. Although easy to use, Thumbor is notoriously difficult to install but these instructions simplify the process. If dependencies download quickly, the installation can be completed in 5 to 10 minutes.
 
-Prerequisites <a href="#prerequisites" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Prerequisites <a href="#prerequisites" class="w-headline-link">#</a>
 
 This post assumes that you know how to create a Ubuntu 16.04 LTS VM on a cloud platform like [Google Cloud](https://cloud.google.com/compute/docs/instances/create-start-instance), [AWS,](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/) or [Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json) and how to use command line tools to set up the VM.
 
-Install Thumbor Dependencies <a href="#install-thumbor-dependencies" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## Install Thumbor Dependencies <a href="#install-thumbor-dependencies" class="w-headline-link">#</a>
 
 Update and upgrade Ubuntu's already-installed packages:
 
@@ -81,8 +66,7 @@ Install Thumbor's dependencies. Thumbor's documentation does not explicitly ment
     # image format packages
     sudo apt-get install -y libjpeg-dev libpng-dev libwebp-dev webp
 
-Install Thumbor <a href="#install-thumbor" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Install Thumbor <a href="#install-thumbor" class="w-headline-link">#</a>
 
 Install Thumbor using pip.
 
@@ -94,8 +78,7 @@ If you've successfully installed Thumbor, this should work:
 
     thumbor --help
 
-Run Thumbor <a href="#run-thumbor" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Run Thumbor <a href="#run-thumbor" class="w-headline-link">#</a>
 
 Run Thumbor. Debug logging is optional but can be helpful when you're getting started.
 
@@ -103,8 +86,7 @@ Run Thumbor. Debug logging is optional but can be helpful when you're getting st
 
 Thumbor is now running.
 
-Open Firewall Port <a href="#open-firewall-port" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Open Firewall Port <a href="#open-firewall-port" class="w-headline-link">#</a>
 
 By default, Thumbor runs on port 8888. If your VM's IP address is `12.123.12.122`, then you would access Thumbor from the web browser at `http://12.123.12.123:8888/.../$IMAGE`.
 
@@ -112,8 +94,7 @@ However, this probably won't work for you (yet) because cloud providers usually 
 
 Update the firewall to expose port 8888. Here's more information on how to do this for: [Google Cloud](https://cloud.google.com/vpc/docs/using-firewalls), [AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html), and [Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal). Note that for Google Cloud you need to first [assign a static IP address to your VM](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address) and then [allow an external HTTP connection](https://cloud.google.com/vpc/docs/special-configurations#externalhttpconnection).
 
-Try It Out <a href="#try-it-out" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Try It Out <a href="#try-it-out" class="w-headline-link">#</a>
 
 Thumbor is now accessible and ready for use. Try it out by visiting the following URL:
 
@@ -125,8 +106,7 @@ You should see an image that is 100 pixels wide by 100 pixels tall. Thumbor has 
 
 The [Optimize images with Thumbor](/use-thumbor/#thumbor-url-format) article has more information on using the Thumbor API. In particular, you may be interested in [setting up a Thumbor configuration file](/use-thumbor/#appendix:-thumbor.conf).
 
-Appendix: Configuring Systemd <a href="#appendix:-configuring-systemd" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Appendix: Configuring Systemd <a href="#appendix:-configuring-systemd" class="w-headline-link">#</a>
 
 This step explains how to make sure that the Thumbor process keeps running, even after the VM has been restarted. This step is important for production sites, but optional if you're just playing around with Thumbor.
 
@@ -184,35 +164,35 @@ If you've successfully set up thumbor.service to use `systemd`, the [status](htt
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).
