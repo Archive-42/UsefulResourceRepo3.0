@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 from urllib.parse import quote
 
-DEFAULT_OUTPUT_FILE = "index.html"
+DEFAULT_OUTPUT_FILE = "nav.html"
 
 
 def process_dir(top_dir, opts):
