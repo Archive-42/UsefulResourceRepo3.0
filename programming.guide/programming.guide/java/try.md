@@ -88,6 +88,6 @@ The "resource" (the `FileWriter` in the snippet above) must implement the [`Auto
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

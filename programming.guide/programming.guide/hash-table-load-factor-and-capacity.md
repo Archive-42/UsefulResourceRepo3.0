@@ -1,7 +1,3 @@
-
-
-
-
 ## Related
 
 [Hash Tables](hash-tables.html)  
@@ -16,8 +12,6 @@
 5.  [Generating a random point within a circle (uniformly)](random-point-within-circle.html)
 
 [**See all algorithm articles**](algorithms.html)
-
-
 
 ## Top Java Articles
 
@@ -78,7 +72,5 @@ Here’s the structure of a hash table, configured with load factor limit of 4.
 Current load factor: 24 / 8 = 3 Configured limit: 4 Current capacity: 8 × 4 = 32
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

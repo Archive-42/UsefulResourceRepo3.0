@@ -123,6 +123,6 @@ For division and remainder, use [`Long.divideUnsigned`](https://docs.oracle.com/
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

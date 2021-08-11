@@ -1,5 +1,3 @@
-
-
 ## <a href="#prevent-unnecessary-network-requests-with-the-http-cache" class="w-toc__header--link">Prevent unnecessary network requests with the HTTP Cache</a>
 
 - [Browser compatibility](#browser-compatibility)

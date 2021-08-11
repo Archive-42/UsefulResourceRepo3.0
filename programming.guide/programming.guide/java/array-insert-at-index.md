@@ -66,6 +66,6 @@ If you have [Commons Lang](https://commons.apache.org/proper/commons-lang/) on y
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

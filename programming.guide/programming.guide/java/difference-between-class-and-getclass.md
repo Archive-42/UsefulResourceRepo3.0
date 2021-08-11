@@ -53,6 +53,6 @@ Use `A.class` if you know in advance (when writing the code) which class object 
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

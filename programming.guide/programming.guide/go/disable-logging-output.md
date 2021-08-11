@@ -37,6 +37,6 @@ To turn off all output from a [`log.Logger`](https://golang.org/pkg/log/#Logger)
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Command-line arguments](command-line-arguments.html)  
@@ -28,8 +24,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -78,7 +72,5 @@ This example is a simplified version of the Unix `grep` command. The program sea
     }
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

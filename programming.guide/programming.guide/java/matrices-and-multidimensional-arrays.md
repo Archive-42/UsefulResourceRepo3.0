@@ -131,6 +131,6 @@ There's no matrix class in the standard API. However, there are plenty of 3rd pa
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

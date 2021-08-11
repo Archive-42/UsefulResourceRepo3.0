@@ -62,6 +62,6 @@ Note that `super.method()` does **not** work since that attempts to invoke `meth
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

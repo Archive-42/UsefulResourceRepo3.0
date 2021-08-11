@@ -82,6 +82,6 @@ A map is an **unordered** collection of **key-value** pairs, where each key is *
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

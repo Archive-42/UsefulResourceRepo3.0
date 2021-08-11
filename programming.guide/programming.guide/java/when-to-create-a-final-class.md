@@ -93,6 +93,6 @@ Concluding with a quote from [Effective Java](https://books.google.se/books?id=B
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

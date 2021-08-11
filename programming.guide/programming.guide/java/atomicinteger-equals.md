@@ -62,6 +62,6 @@ The reason for this is covered in the same email thread as mentioned above ([sou
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

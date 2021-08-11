@@ -1,7 +1,3 @@
-
-
-
-
 ## Related
 
 [How to sort in Go](how-to-sort-in-go.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -175,6 +169,6 @@ The optimal break point depends on many factors (how the code is written, the na
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

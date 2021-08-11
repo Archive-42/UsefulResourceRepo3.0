@@ -39,6 +39,6 @@ In fact, the same technique can be used to get a string representation of any da
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

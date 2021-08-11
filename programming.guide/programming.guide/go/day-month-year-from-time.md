@@ -87,6 +87,6 @@ The [`time.Month`](https://golang.org/pkg/time/#Month) type specifies a month of
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

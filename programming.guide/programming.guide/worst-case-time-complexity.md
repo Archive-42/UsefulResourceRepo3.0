@@ -53,6 +53,6 @@ The worst-cast time complexity thus becomes W(_n_) = *n*. We often use [**asym
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

@@ -65,6 +65,6 @@ From the [OpenJDK implementation of `Long`](https://github.com/AdoptOpenJDK/open
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

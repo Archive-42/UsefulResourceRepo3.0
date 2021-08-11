@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Variadic functions (...T)](variadic-function.html)  
@@ -19,8 +15,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -47,6 +41,6 @@ The idiomatic way to emulate optional parameters and method overloading in Go is
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

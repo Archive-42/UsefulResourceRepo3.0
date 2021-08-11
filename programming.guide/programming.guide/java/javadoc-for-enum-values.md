@@ -66,6 +66,6 @@ This is described in JLS which in fact also includes the "hidden" javadoc:
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

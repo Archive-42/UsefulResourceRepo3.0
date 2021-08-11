@@ -98,6 +98,6 @@ In Java this is not possible. In C++ however, it is:
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

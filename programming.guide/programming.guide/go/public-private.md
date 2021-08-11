@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Methods explained](methods-explained.html)  
@@ -22,8 +18,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -85,6 +79,6 @@ The `StopWatch` and its exported methods can be imported and used in a different
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

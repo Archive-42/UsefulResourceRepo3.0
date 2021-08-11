@@ -55,6 +55,6 @@ The `rand.Read` call returns an error if the underlying system call fails. For i
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

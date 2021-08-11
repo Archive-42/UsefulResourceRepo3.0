@@ -69,6 +69,6 @@ This has to be decided on a case by case basis. Here are a few pro’s and con�
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

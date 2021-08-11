@@ -85,6 +85,6 @@ In this example, the function literal uses the local variable `n` from the encl
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

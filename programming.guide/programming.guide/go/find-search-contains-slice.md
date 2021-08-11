@@ -68,6 +68,6 @@ If you are doing many searches, consider using a [**map**](maps-explained.html) 
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

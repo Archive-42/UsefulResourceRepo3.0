@@ -176,6 +176,6 @@ See [_Beware of accidental semicolons in while and for loops!_](beware-of-accide
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

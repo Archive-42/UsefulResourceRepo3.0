@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [How to Write Go Code: Testing](https://golang.org/doc/code.html#Testing)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 

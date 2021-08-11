@@ -191,6 +191,6 @@ If you're after the advantages that wrapper types provide, but need **mutability
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

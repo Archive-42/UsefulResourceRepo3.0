@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#requests-the-geolocation-permission-on-page-load" class="w-toc__header--link">Requests the geolocation permission on page load</a>
 
 - [How the Lighthouse geolocation audit fails](#how-the-lighthouse-geolocation-audit-fails)

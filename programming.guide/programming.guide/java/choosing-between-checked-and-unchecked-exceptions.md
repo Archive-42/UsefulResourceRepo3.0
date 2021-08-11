@@ -75,6 +75,6 @@ Many conditions should be met for a checked exception to be a good fit. If you o
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

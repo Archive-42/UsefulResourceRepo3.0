@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [What is a rune?](rune.html)  
@@ -25,8 +21,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 

@@ -82,6 +82,6 @@ For an automatic solution, use the [goimports](https://godoc.org/golang.org/x/to
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

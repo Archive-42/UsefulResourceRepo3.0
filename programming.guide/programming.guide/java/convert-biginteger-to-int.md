@@ -41,6 +41,6 @@ Note that this simply **discards all but the lowest 32 bits**. If the `BigIntege
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Stack Traces in Go](https://www.goinggo.net/2015/01/stack-traces-in-go.html)  
@@ -24,8 +20,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 

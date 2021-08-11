@@ -91,6 +91,6 @@ A common choice is to use 3 or 4 bits per counter.
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

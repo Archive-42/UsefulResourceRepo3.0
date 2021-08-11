@@ -53,6 +53,6 @@ See also: [Calling super method of outer class from inner class](calling-super-m
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

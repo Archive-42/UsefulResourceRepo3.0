@@ -400,6 +400,6 @@ This is precisely what the [Immutables library](https://immutables.github.io) do
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

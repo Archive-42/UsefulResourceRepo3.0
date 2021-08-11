@@ -261,6 +261,6 @@ Another alternative is to use the `Serializable` mechanism and `ObjectInputStrea
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

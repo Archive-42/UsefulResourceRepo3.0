@@ -53,6 +53,6 @@ By choosing a large prime number, we avoid this problem, since a prime number is
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

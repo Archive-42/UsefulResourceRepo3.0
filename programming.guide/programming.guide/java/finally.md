@@ -79,6 +79,6 @@ It can also be used together with `catch` blocks and try-with-resources. See [Ja
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

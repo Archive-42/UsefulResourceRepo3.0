@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Defer statement](defer.html)  
@@ -33,8 +29,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -96,6 +90,6 @@ Recover from a panic
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

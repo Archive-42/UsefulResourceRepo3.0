@@ -58,6 +58,6 @@ That is, with **4 elements**, the greatest valid index is **3**.
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

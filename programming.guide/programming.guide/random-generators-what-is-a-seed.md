@@ -44,6 +44,6 @@ To get _truly_ random numbers, the computer needs some source of [entropy](<http
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

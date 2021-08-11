@@ -1,7 +1,3 @@
-
-
-
-
 ## In a Nutshell
 
 <table><colgroup><col style="width: 33%" /><col style="width: 33%" /><col style="width: 33%" /></colgroup><thead><tr class="header"><th style="text-align: left;"> </th><th style="text-align: center;">Worst case</th><th style="text-align: center;">Expected case</th></tr></thead><tbody><tr class="odd"><td style="text-align: left;">Insert</td><td style="text-align: center;"><p><em>O</em>(<em>n</em>)</p></td><td style="text-align: center;"><p><em>O</em>(1)</p></td></tr><tr class="even"><td style="text-align: left;">Lookup</td><td style="text-align: center;"><p><em>O</em>(<em>n</em>)</p></td><td style="text-align: center;"><p><em>O</em>(1)</p></td></tr><tr class="odd"><td style="text-align: left;">Remove</td><td style="text-align: center;"><p><em>O</em>(<em>n</em>)</p></td><td style="text-align: center;"><p><em>O</em>(1)</p></td></tr></tbody></table>
@@ -22,8 +18,6 @@
 12. [2-Left Hashing](2-left-hashing.html)
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -111,7 +105,5 @@ In practice this is only relevant if the hash table is initialized with a very l
 One can avoid traversing the empty buckets by using an additional linked list. For details see article [Linked Hash Table](linked-hash-table.html).
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

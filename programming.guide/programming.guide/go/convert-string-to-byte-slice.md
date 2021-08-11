@@ -40,6 +40,6 @@ When you convert a string to a byte slice, you get a slice that contains the byt
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

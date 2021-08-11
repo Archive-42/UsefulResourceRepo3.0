@@ -41,6 +41,6 @@ Note that this simply **discards all but the lowest 64 bits**. If the `Number` i
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

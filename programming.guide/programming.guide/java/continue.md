@@ -88,6 +88,6 @@ outer: while (…) { … while (…) { … continue outer; … } … }
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

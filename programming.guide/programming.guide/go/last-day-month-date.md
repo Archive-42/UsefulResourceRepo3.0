@@ -52,6 +52,6 @@ To compute the last day of a month, you can use the fact that [`time.Date`](http
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

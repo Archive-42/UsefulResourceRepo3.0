@@ -1,6 +1,6 @@
 <a href="/" class="gc-analytics-event header-default__logo-link"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
-og/" class="gc-analytics-event header-default__link">Blog</a> <a href="/about/" class="gc-analytics-event header-default__link">About</a>
+og/" class="gc-analytics-event header-default**link">Blog</a> <a href="/about/" class="gc-analytics-event header-default**link">About</a>
 
 <span class="w-tooltip">Close</span>
 

@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Round float to integer value](round-float-to-int.html)  
@@ -22,8 +18,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -60,6 +54,6 @@ The [`math.Round`](https://tip.golang.org/pkg/math/#Round) function will be intr
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

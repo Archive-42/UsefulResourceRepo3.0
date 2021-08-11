@@ -32,6 +32,6 @@ Use the [`strconv.Itoa`](https://golang.org/pkg/strconv/#Itoa) function:
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

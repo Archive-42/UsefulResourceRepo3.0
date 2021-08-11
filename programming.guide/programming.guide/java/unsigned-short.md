@@ -135,6 +135,6 @@ For division and remainder, convert operands to `int`, and then convert the resu
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

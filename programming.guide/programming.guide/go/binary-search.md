@@ -89,6 +89,6 @@ Binary search runs in worst-case logarithmic time, making _O_(log *n*) comparis
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

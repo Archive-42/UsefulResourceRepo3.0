@@ -1,7 +1,3 @@
-
-
-
-
 ## Hash Tables
 
 1.  [Hash Tables](hash-tables.html)
@@ -18,8 +14,6 @@
 12. [2-Left Hashing](2-left-hashing.html)
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -59,7 +53,5 @@ A hash set stores values. The value is also the key, i.e. the hashing is based o
 **Note:** The literature on these types of data structures (including many of the articles here on Programming.Guide) mostly focus on hash sets rather than hash tables. This is because the actual values are never really relevant to the discussion, and it's easy to generalize an implementation that works only with keys, into one that works with key-value pairs.
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

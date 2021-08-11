@@ -38,6 +38,6 @@ See also [Removing elements from multiple indexes in a list](removing-elements-f
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

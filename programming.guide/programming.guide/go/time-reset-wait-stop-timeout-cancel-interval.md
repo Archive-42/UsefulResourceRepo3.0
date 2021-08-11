@@ -1,7 +1,3 @@
-
-
-
-
 ## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
@@ -16,8 +12,6 @@
 10. Timer and Ticker explained
 11. [Mutual exclusion lock (mutex)](mutex-explained.html)
 12. [Efficient parallel computation](efficient-parallel-computation.html)
-
-
 
 ## Top Algorithm Articles
 

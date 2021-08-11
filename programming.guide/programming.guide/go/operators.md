@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Operator precedence](operator-priority.html)  
@@ -19,8 +15,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -74,6 +68,6 @@ Logical operators apply to boolean values. The right operand is evaluated condit
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

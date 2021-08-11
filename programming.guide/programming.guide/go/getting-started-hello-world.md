@@ -68,6 +68,6 @@ _"Go is an open source pro­gram­ming language that makes it easy to build simp
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

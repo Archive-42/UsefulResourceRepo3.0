@@ -62,6 +62,6 @@ If the type is left out, as below, the type is **inferred**:
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

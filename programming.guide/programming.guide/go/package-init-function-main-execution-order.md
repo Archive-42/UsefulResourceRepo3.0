@@ -1,7 +1,3 @@
-
-
-
-
 ## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
@@ -11,8 +7,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -94,6 +88,6 @@ To ensure reproducible initialization behavior, build systems are encouraged to 
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

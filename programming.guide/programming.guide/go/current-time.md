@@ -62,6 +62,6 @@ Use the [`time.Now`](https://golang.org/pkg/time/#Now) function and the [`time.U
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

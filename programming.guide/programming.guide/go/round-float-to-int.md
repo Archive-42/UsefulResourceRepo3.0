@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Conversions](conversions.html)  
@@ -22,8 +18,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -105,6 +99,6 @@ The following implementations are equivalent to [`math.Round`](https://tip.golan
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

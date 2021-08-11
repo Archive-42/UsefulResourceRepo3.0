@@ -40,6 +40,6 @@ Here's how to count the number of matches for a regular expression in a string:
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

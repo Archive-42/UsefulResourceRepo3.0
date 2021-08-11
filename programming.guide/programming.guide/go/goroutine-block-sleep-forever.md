@@ -44,6 +44,6 @@ This works since select statements block until **at least one** of it's cases be
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

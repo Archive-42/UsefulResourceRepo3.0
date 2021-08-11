@@ -118,6 +118,6 @@ In this example we use a [`bufio.Scanner`](https://golang.org/pkg/bufio/#Scanner
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

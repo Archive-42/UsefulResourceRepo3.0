@@ -1,7 +1,3 @@
-
-
-
-
 ## Hash Tables
 
 1.  [Hash Tables](hash-tables.html)
@@ -18,8 +14,6 @@
 12. [2-Left Hashing](2-left-hashing.html)
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -152,7 +146,5 @@ Examples of open addressing techniques (strongly recommended reading):
 - [Hopscotch Hashing](hopscotch-hashing.html)
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

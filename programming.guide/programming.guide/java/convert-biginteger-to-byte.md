@@ -41,6 +41,6 @@ Note that this simply **discards all but the lowest 8 bits**. If the `BigInteger
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

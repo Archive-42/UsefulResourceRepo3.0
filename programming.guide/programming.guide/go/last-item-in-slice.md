@@ -51,6 +51,6 @@ If the slice is permanent and the element temporary, you may want to remove the 
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

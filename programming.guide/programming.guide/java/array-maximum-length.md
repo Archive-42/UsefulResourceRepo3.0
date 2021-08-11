@@ -74,6 +74,6 @@ You don't always know what JVM your code will be running on, so to be safe you c
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

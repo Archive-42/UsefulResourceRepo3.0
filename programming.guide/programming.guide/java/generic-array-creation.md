@@ -76,6 +76,6 @@ Here however, `oa[0] = 5` throws an `ArrayStoreException` in runtime. In other w
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

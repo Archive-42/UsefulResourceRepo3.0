@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Variadic functions (...T)](variadic-function.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -52,6 +46,6 @@ The `...` syntax can't be applied directly to an array. You must use an intermed
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

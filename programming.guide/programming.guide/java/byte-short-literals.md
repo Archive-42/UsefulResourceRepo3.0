@@ -68,6 +68,6 @@ So, technically speaking there’s no `byte` or `short` literals. However, a reg
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

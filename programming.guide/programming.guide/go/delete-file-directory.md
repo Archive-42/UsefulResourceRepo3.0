@@ -38,6 +38,6 @@ The error, if any, will be of type [`*os.PathError`](https://golang.org/pkg/os/#
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

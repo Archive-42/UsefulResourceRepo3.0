@@ -1,7 +1,3 @@
-
-
-
-
 ## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
@@ -16,8 +12,6 @@
 10. [Timer and Ticker explained](time-reset-wait-stop-timeout-cancel-interval.html)
 11. [Mutual exclusion lock (mutex)](mutex-explained.html)
 12. [Efficient parallel computation](efficient-parallel-computation.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -76,7 +70,5 @@ Next »
 Broadcast a signal on a channel
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -136,6 +136,6 @@ Since [`AutoCloseable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Auto
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

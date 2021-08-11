@@ -89,6 +89,6 @@ Because a bit array uses bit-level parallelism, limits memory access, and effici
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

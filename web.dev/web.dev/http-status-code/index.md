@@ -1,5 +1,3 @@
-
-
 ## <a href="#page-has-unsuccessful-http-status-code" class="w-toc__header--link">Page has unsuccessful HTTP status code</a>
 
 - [How the Lighthouse HTTP status code audit fails](#how-the-lighthouse-http-status-code-audit-fails)

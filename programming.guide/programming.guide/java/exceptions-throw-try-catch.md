@@ -101,6 +101,6 @@ This will throw a [`NumberFormatException`](https://docs.oracle.com/javase/8/doc
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

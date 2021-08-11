@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Slices explained](slices-explained.html)  
@@ -25,8 +21,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -72,7 +66,5 @@ As a special case, you can append a string to a byte slice using the built-in `a
     fmt.Println(buf) // [97 98 99 100]
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

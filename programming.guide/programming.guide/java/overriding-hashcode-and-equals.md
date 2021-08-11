@@ -76,6 +76,6 @@ This will not _break_ the code as above, but may degrade performance.
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

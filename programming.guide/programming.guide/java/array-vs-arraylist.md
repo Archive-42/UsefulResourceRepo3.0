@@ -133,6 +133,6 @@ Note however, that since the backing array can't shrink or grow, operations such
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

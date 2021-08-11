@@ -79,6 +79,6 @@ The [`container/list`](https://golang.org/pkg/container/list/) package implement
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -1,7 +1,3 @@
-
-
-
-
 ## Further reading
 
 [Blank identifier (underscore)](underscore.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -57,7 +51,5 @@ There's no compiler option to allow unused local variables. If you don't want to
     }
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

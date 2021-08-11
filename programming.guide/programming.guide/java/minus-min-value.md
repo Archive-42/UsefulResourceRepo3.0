@@ -85,6 +85,6 @@ ints 0 −128 128 bytes 0 cast promote −128 128 Overflow roll over
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

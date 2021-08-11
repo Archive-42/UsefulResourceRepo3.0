@@ -1,7 +1,3 @@
-
-
-
-
 ## Related
 
 [Hash Tables](hash-tables.html)  
@@ -26,8 +22,6 @@
 12. [2-Left Hashing](2-left-hashing.html)
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -122,7 +116,5 @@ For more details on open addressing, see [Hash Tables: Open Addressing](hash-tab
 The most common closed addressing implementation uses separate chaining with linked lists. This approach is described in detail the [introductory article](hash-tables.html).
 
 ## Comments
-
-Be the first to comment!
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

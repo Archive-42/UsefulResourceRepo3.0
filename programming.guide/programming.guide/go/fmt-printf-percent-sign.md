@@ -37,6 +37,6 @@ Use the special verb `%%`, which consumes no argument, to write a literal percen
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

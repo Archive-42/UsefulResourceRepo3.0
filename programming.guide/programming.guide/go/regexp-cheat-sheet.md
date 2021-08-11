@@ -1,7 +1,3 @@
-
-
-
-
 ## Related
 
 [String handling cheat sheet](string-functions-reference-cheat-sheet.html)  
@@ -25,8 +21,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -181,6 +175,6 @@ The method takes an integer argument `n`; if `n >= 0`, the function returns at m
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

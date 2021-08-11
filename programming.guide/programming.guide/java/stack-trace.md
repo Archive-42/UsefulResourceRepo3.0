@@ -96,6 +96,6 @@ You can also examine the current stack trace programatically by calling [`Thread
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

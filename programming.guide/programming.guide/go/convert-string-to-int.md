@@ -38,6 +38,6 @@ Use [`strconv.Atoi`](https://golang.org/pkg/strconv/#Atoi) to convert a string t
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

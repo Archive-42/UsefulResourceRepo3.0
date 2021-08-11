@@ -1,7 +1,3 @@
-
-
-
-
 ## Further reading
 
 [How to Write Go Code](https://golang.org/doc/code.html)  
@@ -25,8 +21,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -155,6 +149,6 @@ For more on how to access and create documentation, see [Go: Package documentati
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

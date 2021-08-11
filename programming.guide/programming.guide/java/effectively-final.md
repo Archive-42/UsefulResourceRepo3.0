@@ -71,6 +71,6 @@ Here's the formal definition from [JLS §4.12.4](https://docs.oracle.com/javase/
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -57,6 +57,6 @@ Casting to `short` throws away all but the lowest 16 bits.
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

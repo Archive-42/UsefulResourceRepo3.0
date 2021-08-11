@@ -63,6 +63,6 @@ You could also use `new String[yourList.size()]` instead of `new String[0]`. [Th
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

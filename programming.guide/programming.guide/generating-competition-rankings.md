@@ -91,6 +91,6 @@ The key desirable property in ordinal ranking is that it's [stable](https://en.w
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

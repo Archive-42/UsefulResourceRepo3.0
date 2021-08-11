@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Go Concurrency Patterns: Context](https://blog.golang.org/context)  
@@ -24,8 +20,6 @@
 10. [Timer and Ticker explained](time-reset-wait-stop-timeout-cancel-interval.html)
 11. [Mutual exclusion lock (mutex)](mutex-explained.html)
 12. [Efficient parallel computation](efficient-parallel-computation.html)
-
-
 
 ## Top Algorithm Articles
 

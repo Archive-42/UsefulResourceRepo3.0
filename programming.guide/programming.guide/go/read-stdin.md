@@ -1,7 +1,3 @@
-
-
-
-
 ## Related
 
 [Read a file line by line](read-file-line-by-line.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -43,6 +37,6 @@ Use a [`bufio.Scanner`](https://golang.org/pkg/bufio/#Scanner) to read one line 
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

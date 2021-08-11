@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Pointer vs. value receiver](pointer-vs-value-receiver.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -103,6 +97,6 @@ When using a pointer to modify an object, you're affecting everybody that uses t
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

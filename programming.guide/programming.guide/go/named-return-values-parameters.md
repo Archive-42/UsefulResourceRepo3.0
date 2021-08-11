@@ -54,6 +54,6 @@ This version of [`io.ReadFull`](https://golang.org/pkg/io/#ReadFull), taken from
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -47,6 +47,6 @@ See also [Removing a range of elements from a list](removing-a-range-of-elements
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

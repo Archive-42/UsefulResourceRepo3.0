@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Maps explained](maps-explained.html)  
@@ -19,8 +15,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 

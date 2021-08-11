@@ -87,6 +87,6 @@ There's also a more complex scenario where `this` is prefixed with a class to di
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

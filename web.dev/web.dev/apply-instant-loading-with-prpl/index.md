@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#apply-instant-loading-with-the-prpl-pattern" class="w-toc__header--link">Apply instant loading with the PRPL pattern</a>
 
 - [Audit your page with Lighthouse](#audit-your-page-with-lighthouse)

@@ -65,6 +65,6 @@ The message is passed to the `AssertionError` constructor and is for instance pr
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

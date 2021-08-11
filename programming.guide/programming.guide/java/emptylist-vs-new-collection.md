@@ -48,6 +48,6 @@ In summary I'd say `List.of` is preferrable (if you're on 9) over `Collections.e
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

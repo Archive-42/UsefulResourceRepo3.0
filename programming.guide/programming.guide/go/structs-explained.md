@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Default value of struct, string, slice, map](default-zero-value.html)  
@@ -22,8 +18,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 

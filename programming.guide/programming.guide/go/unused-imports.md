@@ -78,6 +78,6 @@ Use the [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports) tool, wh
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

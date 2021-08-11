@@ -60,6 +60,6 @@ For larger numbers, you need to provide the desired number of tests `n` to [`Pr
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

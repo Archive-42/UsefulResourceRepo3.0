@@ -74,6 +74,6 @@ If all characters can be represented by a single byte, e.g. ASCII characters, yo
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

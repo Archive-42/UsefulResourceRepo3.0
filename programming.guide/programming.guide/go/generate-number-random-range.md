@@ -43,6 +43,6 @@ Without the call to `rand.Seed`, a program will produce the same sequence of pse
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

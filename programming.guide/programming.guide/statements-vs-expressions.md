@@ -93,6 +93,6 @@ or in PHP where the following is a common pattern
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

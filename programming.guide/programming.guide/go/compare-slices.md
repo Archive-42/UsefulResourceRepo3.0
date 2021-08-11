@@ -80,6 +80,6 @@ The performance of this function is much worse than for the code above, but it's
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

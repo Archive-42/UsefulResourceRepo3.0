@@ -54,6 +54,6 @@ That is, `a % b` should always represent the remainder of an integer division, a
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

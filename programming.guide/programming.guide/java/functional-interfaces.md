@@ -109,6 +109,6 @@ If you want to make sure you're not accidentally turning a functional interface 
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

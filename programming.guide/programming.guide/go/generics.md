@@ -81,6 +81,6 @@ If none of these solutions are effective, consider submitting an experience repo
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -149,6 +149,6 @@ If all you want to do is to skip the remaining part of a sequence of statements:
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

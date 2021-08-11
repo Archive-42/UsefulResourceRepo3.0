@@ -54,6 +54,6 @@ The binary number 00010000 can be written as `020`, `16` or `0x10`.
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -48,6 +48,6 @@ Type aliases are not meant for everyday use. They were introduced to support gra
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

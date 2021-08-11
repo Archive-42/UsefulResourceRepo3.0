@@ -55,6 +55,6 @@ Here is an example from the [`time`](https://golang.org/pkg/time/) package:
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

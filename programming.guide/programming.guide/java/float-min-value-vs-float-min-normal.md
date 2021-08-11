@@ -53,6 +53,6 @@ For details, see full article here: [Normal vs Subnormal Floats](../normal-vs-su
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

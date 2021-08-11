@@ -51,6 +51,6 @@ The [`fmt.Println`](https://golang.org/pkg/fmt/#Println) function is a chief exa
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

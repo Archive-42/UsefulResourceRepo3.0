@@ -1,7 +1,3 @@
-
-
-
-
 ## Further reading
 
 [Regular expressions](regexp-cheat-sheet.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 
@@ -43,6 +37,6 @@ There are several more search functions available in the [`regexp`](https://gola
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -39,6 +39,6 @@ The [`fmt.Sprintf`](https://golang.org/pkg/fmt/#Sprintf) function formats a stri
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

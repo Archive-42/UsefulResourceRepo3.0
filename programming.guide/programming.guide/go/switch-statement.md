@@ -1,7 +1,3 @@
-
-
-
-
 ## Further Reading
 
 [Switch statements](https://golang.org/ref/spec#Switch_statements)  
@@ -22,8 +18,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-
 
 ## Top Algorithm Articles
 

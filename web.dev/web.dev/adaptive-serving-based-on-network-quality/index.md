@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#adaptive-serving-based-on-network-quality" class="w-toc__header--link">Adaptive serving based on network quality</a>
 
 - [Usage](#usage)

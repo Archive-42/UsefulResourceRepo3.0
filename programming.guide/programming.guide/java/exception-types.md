@@ -110,6 +110,6 @@ The [`RuntimeException`](https://docs.oracle.com/javase/8/docs/api/java/lang/Run
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

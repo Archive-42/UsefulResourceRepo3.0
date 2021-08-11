@@ -50,6 +50,6 @@ Cast numerator as above, and use [`Math.round`](https://docs.oracle.com/javase/8
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

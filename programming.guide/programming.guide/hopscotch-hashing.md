@@ -158,6 +158,6 @@ To quickly find suitable candidates for swapping during insert, the implementati
 
 ## Comments
 
-Be the first to comment!
+
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)
