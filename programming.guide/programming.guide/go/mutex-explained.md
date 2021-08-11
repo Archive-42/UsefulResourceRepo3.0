@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Use a sync.Mutex or a channel?](https://github.com/golang/go/wiki/MutexOrChannel)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Wiki</span>
 
-Concurrency in Go
------------------
+## Concurrency in Go
 
 1.  [Goroutines explained](goroutines-explained.html)
 2.  [Channels explained](channels-explained.html)
@@ -26,8 +24,7 @@ Concurrency in Go
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -37,8 +34,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Mutual exclusion lock (mutex)
-=================================
+# Go: Mutual exclusion lock (mutex)
 
 Mutexes let you synchronize data access by explicit locking, without channels.
 
@@ -58,8 +54,7 @@ Mutexes let you synchronize data access by explicit locking, without channels.
 
 `"In main"` will be printed before `"In goroutine"`, despite the fact that the main routine sleeps for a second before the call to `Println`.
 
-Use with caution!
------------------
+## Use with caution!
 
 For this type of locking to be safe, it's crucial that all accesses to the shared data, both reads and writes, are performed only when a goroutine holds the lock. One mistake by a single goroutine is enough to introduce a data race and break the program.
 
@@ -121,8 +116,7 @@ Next »
 
 Efficient parallel computation
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

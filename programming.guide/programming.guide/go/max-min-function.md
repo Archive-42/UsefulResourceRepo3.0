@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Compute absolute values](absolute-value-int-float.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,11 +29,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Compute min and max
-=======================
+# Go: Compute min and max
 
-Integers
---------
+## Integers
 
 Go has no built-in min or max library functions for integers. It is simple to write your own:
 
@@ -56,15 +51,14 @@ Go has no built-in min or max library functions for integers. It is simple to wr
             return x
     }
 
-Floats
-------
+## Floats
 
 For floats, use [`math.Min`](https://golang.org/pkg/math/#Min) and [`math.Max`](https://golang.org/pkg/math/#Max) from the standard library:
 
     // Min returns the smaller of x or y.
     func Min(x, y float64) float64
 
-    // Max returns the larger of x or y. 
+    // Max returns the larger of x or y.
     func Max(x, y float64) float64
 
 Note the special cases:
@@ -78,8 +72,7 @@ Note the special cases:
     Max(+0, ±0) = Max(±0, +0) = +0
     Max(-0, -0) = -0
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

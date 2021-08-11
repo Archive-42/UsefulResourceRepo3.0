@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Implement a FIFO queue](implement-fifo-queue.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,13 +32,12 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Implement a stack (LIFO)
-============================
+# Go: Implement a stack (LIFO)
 
 The idiomatic way to implement a stack in Go is to use a slice:
 
--   to push you use the built-in `append` function, and
--   to pop you slice off the top element.
+- to push you use the built-in `append` function, and
+- to pop you slice off the top element.
 
 <!-- -->
 
@@ -62,8 +58,7 @@ The idiomatic way to implement a stack in Go is to use a slice:
     }
     // Output: Hello world!
 
-Watch out for memory leaks
---------------------------
+## Watch out for memory leaks
 
 If the stack is permanent and the elements temporary, you may want to remove the top element before popping the stack.
 
@@ -73,8 +68,7 @@ If the stack is permanent and the elements temporary, you may want to remove the
     stack = stack[:n]
     …
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Interfaces explained](interfaces-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Error handling tutorial](go-errors-tutorial.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Go gotcha
----------
+## Go gotcha
 
 1.  [Why can't I add elements to my map?](gotcha-assignment-entry-nil-map.html)
 2.  [What's a nil pointer dereference?](gotcha-nil-pointer-dereference.html)
@@ -43,8 +41,7 @@ Go gotcha
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [Go: String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -54,8 +51,7 @@ Top Go Articles
 
 [**See all 197 Go articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -65,8 +61,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go gotcha: Why is nil not equal to nil?
-=======================================
+# Go gotcha: Why is nil not equal to nil?
 
 Why is nil not equal to nil in this example?
 
@@ -92,8 +87,7 @@ You can think of the interface value `nil` as typed, and `nil` **without type** 
     fmt.Println(err == (*os.PathError)(nil)) // true
     …
 
-A better approach
------------------
+## A better approach
 
 To avoid this problem use a variable of type `error` instead, for example a named return value:
 
@@ -126,8 +120,7 @@ Go gotcha
 
 26 of 26
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

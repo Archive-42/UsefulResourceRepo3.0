@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Interfaces explained](interfaces-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Related
 [Public vs. private](public-private.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,8 +35,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Methods explained
-=====================
+# Go: Methods explained
 
 Any type declared in a type definition can have methods attached.
 
@@ -76,8 +72,7 @@ You may define methods on any type declared in a type definition. If you convert
 
     ../main.go:14:4: cannot use m (type MyInt) as type int in assignment
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

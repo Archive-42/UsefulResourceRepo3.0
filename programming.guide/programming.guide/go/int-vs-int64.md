@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [What’s the maximum value of an int?](max-min-int-uint.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Numeric types](https://golang.org/ref/spec#Numeric_types)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,15 +32,14 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: int vs. int64
-=================
+# Go: int vs. int64
 
 An `int` is either 32 or 64 bits depending on the platform. The length of an array can always be represented by an `int`.
 
--   An **index**, a **length** or a **capacity** should normally be an `int`.
+- An **index**, a **length** or a **capacity** should normally be an `int`.
 
--   The types `int8`, `int16`, `int32`, and `int64` are best suited for **data**.  
-    When memory isn't an issue, `int64` is often the natural choice.
+- The types `int8`, `int16`, `int32`, and `int64` are best suited for **data**.  
+  When memory isn't an issue, `int64` is often the natural choice.
 
 In this example the data has type `int64`, while the index and the length of the slice has type `int`:
 
@@ -63,8 +59,7 @@ Here is an example from the [`time`](https://golang.org/pkg/time/) package:
 
 [**What's the maximum value of an int?**](max-min-int-uint.html) shows how to compute the size and limit values of an `int` as untyped constants.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

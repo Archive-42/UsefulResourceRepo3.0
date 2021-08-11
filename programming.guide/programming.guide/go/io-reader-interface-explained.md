@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [The io.Writer interface](io-writer-interface-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Go Walkthrough: io package](https://medium.com/go-walkthrough/go-walkthrough-io-package-8ac5e95a9fbd)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Ben Johnson</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: The io.Reader interface
-===========================
+# Go: The io.Reader interface
 
 The [`io.Reader`](https://golang.org/pkg/io/#Reader) interface represents an entity from which you can read a stream of bytes:
 
@@ -46,8 +42,7 @@ The [`io.Reader`](https://golang.org/pkg/io/#Reader) interface represents an ent
 
 `Read` reads up to `len(buf)` bytes into `buf` and returns the number of bytes read; it returns an [`io.EOF`](https://golang.org/pkg/io/#pkg-variables) error when the stream ends.
 
-Example
--------
+## Example
 
 The standard library provides numerous Reader [implementations](https://golang.org/search?q=Read#Global) (including in-memory byte buffers, files and network connections), and Readers are accepted as input by many utilities (including the HTTP client and server implementations).
 
@@ -58,8 +53,7 @@ As an example, you can create a Reader from a string using the [`strings.Reader`
 
 Since `http.Post` uses a Reader instead of a `[]byte` it's trivial to, for instance, use the contents of a file.
 
-Reading directly from a byte stream
------------------------------------
+## Reading directly from a byte stream
 
 You can use the `Read` function directly (this is the least common use case):
 
@@ -106,8 +100,7 @@ Use [`ioutil.ReadAll`](https://golang.org/pkg/io/ioutil/#ReadAll) to read everyt
     fmt.Println(buf)
     // Output: [97 98 99 100 101]
 
-Buffered reading and scanning
------------------------------
+## Buffered reading and scanning
 
 The [`bufio.Reader`](https://golang.org/pkg/bufio/#Reader) and [`bufio.Scanner`](https://golang.org/pkg/bufio/#Scanner) types wrap a Reader creating another Reader that also implements the interface but provides buffering and some help for textual input.
 
@@ -129,8 +122,7 @@ In this example we use a [`bufio.Scanner`](https://golang.org/pkg/bufio/#Scanner
     fmt.Println(count)
     // Output: 16
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Clear a slice](clear-slice.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,8 +35,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Last item in slice
-======================
+# Go: Last item in slice
 
 To read the last element:
 
@@ -52,16 +48,14 @@ To remove it:
 
 (Go doesn't have negative indexing like Python does.)
 
-Watch out for memory leaks
---------------------------
+## Watch out for memory leaks
 
 If the slice is permanent and the element temporary, you may want to remove the reference before removing the element from the slice:
 
     a[len(a)-1] = "" // write zero value to avoid memory leak
     a = a[:len(a)-1] // [A B]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

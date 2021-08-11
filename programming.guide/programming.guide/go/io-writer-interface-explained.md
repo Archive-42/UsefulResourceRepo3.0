@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [The io.Reader interface](io-reader-interface-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Go Walkthrough: io package](https://medium.com/go-walkthrough/go-walkthrough-io-package-8ac5e95a9fbd)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Ben Johnson</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: The io.Writer interface
-===========================
+# Go: The io.Writer interface
 
 The [`io.Writer`](https://golang.org/pkg/io/#Writer) interface represents an entity to which you can write a stream of bytes:
 
@@ -46,8 +42,7 @@ The [`io.Writer`](https://golang.org/pkg/io/#Writer) interface represents an ent
 
 `Write` writes up to `len(p)` bytes from `p` to the underlying data stream; it returns the number of bytes written and any error encountered that caused the write to stop early.
 
-Example
--------
+## Example
 
 The standard library provides many Writer [implementations](https://golang.org/search?q=Write#Global), and Writers are accepted as input by many utilities.
 
@@ -57,8 +52,7 @@ For example, since [`bytes.Buffer`](https://golang.org/pkg/bytes/#Buffer) has a 
     fmt.Fprintf(&buf, "Size: %d MB.", 85)
     str := buf.String()) // str == "Size: 85 MB."
 
-Optimizing string writes
-------------------------
+## Optimizing string writes
 
 Some Writers in the standard library have an additional `WriteString` method. This method can be more efficient than the standard `Write` method since it writes a string directly without allocating a byte slice.
 
@@ -68,8 +62,7 @@ You can take direct advantage of this optimization by using the [`io.WriteString
 
 If `w` implements a `WriteString` method, it is invoked directly. Otherwise, `w.Write` is called exactly once.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

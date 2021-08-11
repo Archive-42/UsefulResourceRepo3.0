@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Methods explained](methods-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -20,8 +19,7 @@ Further Reading
 [Interface types](https://golang.org/ref/spec#Interface_types)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,19 +41,17 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Interfaces explained
-========================
+# Go: Interfaces explained
 
 An **interface type** is a named set of method signatures.
 
--   [Basics](interfaces-explained.html#basics)
--   [Structural typing](interfaces-explained.html#structural-typing)
--   [The empty interface](interfaces-explained.html#the-empty-interface)
--   [Interface values](interfaces-explained.html#interface-values)
--   [Equality](interfaces-explained.html#equality)
+- [Basics](interfaces-explained.html#basics)
+- [Structural typing](interfaces-explained.html#structural-typing)
+- [The empty interface](interfaces-explained.html#the-empty-interface)
+- [Interface values](interfaces-explained.html#interface-values)
+- [Equality](interfaces-explained.html#equality)
 
-Basics
-------
+## Basics
 
 You can declare an interface like this:
 
@@ -94,8 +89,7 @@ A variable of interface type can hold any value that implements the interface me
     x = &Point{1, 2}
     fmt.Println(x.String()) // "(1,2)"
 
-Structural typing
------------------
+## Structural typing
 
 Any type that provides the methods named in an interface may be treated as an implementation of that interface. No explicit declaration is required.
 
@@ -109,8 +103,7 @@ In fact, the `Temp`, `*Temp` and `*Point` types also implement the [`fmt.Stringe
     x = &Point{1, 2}
     fmt.Println(x) // "(1,2)"
 
-The empty interface
--------------------
+## The empty interface
 
 The interface type that specifies zero methods is known as the **empty interface**:
 
@@ -130,8 +123,7 @@ The [`fmt.Println`](https://golang.org/pkg/fmt/#Println) function is a chief exa
 
     func Println(a ...interface{}) (n int, err error)
 
-Interface values
-----------------
+## Interface values
 
 A **interface value** is represented as a pair of a **concrete value** and a **dynamic type**:
 
@@ -157,15 +149,14 @@ Calling a method on a nil interface is a run-time error. However, it's quite com
 
 You can also use **type assertions**, **type switches** and **reflection** to access the dynamic type of an interface value. The article [Find the type of an object](find-type-of-object.html) has more details.
 
-Equality
---------
+## Equality
 
 Two interface values are equal if they have equal concrete values and identical dynamic types, or if both are nil.
 
 A value `t` of interface type `T` and a value `x` of non-interface type `X` are equal if
 
--   `t`'s concrete value is equal to `x` and
--   `t`'s dynamic type is identical to `X`.
+- `t`'s concrete value is equal to `x` and
+- `t`'s dynamic type is identical to `X`.
 
 <!-- -->
 
@@ -177,8 +168,7 @@ A value `t` of interface type `T` and a value `x` of non-interface type `X` are 
 
 In the second print statement, the concrete value of `x` equals `nil`, but its dynamic type is `*Point`, which is not `nil`.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

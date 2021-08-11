@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Implement a stack (LIFO)](implement-stack.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Implement a FIFO queue
-==========================
+# Go: Implement a FIFO queue
 
 A simple way to implement a temporary queue in Go is to use a slice: - to enqueue you use the built-in `append` function, and - to dequeue you slice off the first element.
 
@@ -56,8 +52,7 @@ A simple way to implement a temporary queue in Go is to use a slice: - to enqueu
     }
     // Output: Hello world!
 
-Watch out for memory leaks
---------------------------
+## Watch out for memory leaks
 
 You may want to remove the first element before dequeuing:
 
@@ -67,8 +62,7 @@ You may want to remove the first element before dequeuing:
 
 Also, note that the memory allocated for the array is never returned. For a long-living queue you should probably use a dynamic data structure, such as a linked list.
 
-Linked list
------------
+## Linked list
 
 The [`container/list`](https://golang.org/pkg/container/list/) package implements a doubly linked list which can be used as a queue.
 
@@ -89,8 +83,7 @@ The [`container/list`](https://golang.org/pkg/container/list/) package implement
     }
     // Output: Hello world!
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Constructors](constructor-best-practice.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -20,8 +19,7 @@ Further Reading
 [Embedding](https://golang.org/doc/effective_go.html#embedding)  
 <span style="color: grey; font-style: italic; font-size: smaller">Effective Go</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +41,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Inheritance and object-oriented programming
-===============================================
+# Go: Inheritance and object-oriented programming
 
 Inheritance in traditional object-oriented programming offers three features in one. When a `Dog` inherits from an `Animal`:
 
@@ -57,11 +53,10 @@ In object-oriented lingo, these features are known as **code reuse**, **poly­mo
 
 All of these are available in Go, using separate constructs:
 
--   **composition** and **embedding** provide code reuse,
--   **interfaces** take care of polymorphism and dynamic dispatch.
+- **composition** and **embedding** provide code reuse,
+- **interfaces** take care of polymorphism and dynamic dispatch.
 
-Code reuse: composition
------------------------
+## Code reuse: composition
 
 Don't worry about type hierarchies when starting a new Go project; it's easy to introduce polymorphism and dynamic dispatch later on.
 
@@ -78,8 +73,7 @@ If a `Dog` needs some or all of the functionality of an `Animal`, simply use **c
 
 This gives you full freedom to use the `Animal` part of your `Dog` as needed. Yes, it's that simple.
 
-Code reuse: embedding
----------------------
+## Code reuse: embedding
 
 If the `Dog` class inherits **the exact behavior** of an `Animal`, this approach can result in some tedious coding:
 
@@ -109,8 +103,7 @@ Go uses **embedding** for situations like this. The declaration of the `Dog` str
             // …
     }
 
-Polymorphism and dynamic dispatch: interfaces
----------------------------------------------
+## Polymorphism and dynamic dispatch: interfaces
 
 Keep your interfaces short, and introduce them only when needed.
 
@@ -133,8 +126,7 @@ No explicit declaration is required by the `Cat` and `Dog` types. Any type that 
 
 > When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.<span class="quote-source">James Whitcomb Riley</span>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

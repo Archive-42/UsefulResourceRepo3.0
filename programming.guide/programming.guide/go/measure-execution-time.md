@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Current time](current-time.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -23,8 +22,7 @@ Further Reading
 [Proposal: Monotonic Elapsed Time Measurements in Go](https://golang.org/design/12914-monotonic)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Russ Cox</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -36,8 +34,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -47,11 +44,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Measure execution time
-==========================
+# Go: Measure execution time
 
-Measure a piece of code
------------------------
+## Measure a piece of code
 
     start := time.Now()
     …Code to measure elapsed time of…
@@ -63,8 +58,7 @@ Measure a piece of code
     // Nanoseconds as int64
     fmt.Println(duration.Nanoseconds())
 
-Measure a function call
------------------------
+## Measure a function call
 
 You can track the execution time of a complete function call with this one-liner, which logs the result to the standard error stream.
 
@@ -83,13 +77,11 @@ The helper functions `track` and `duration` are defined as
             log.Printf("%v: %v\n", msg, time.Since(start))
     }
 
-Benchmarks
-----------
+## Benchmarks
 
 The [`testing`](https://golang.org/pkg/testing/) package has support for benchmarking that can be used to examine the performance of your code.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

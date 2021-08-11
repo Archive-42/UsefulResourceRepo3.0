@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Hash Tables](../hash-tables.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further Reading
 [Amortized time complexity](../amortized-time-complexity-analysis.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,13 +32,11 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Maps explained
-==================
+# Go: Maps explained
 
 A map is an **unordered** collection of **key-value** pairs, where each key is **unique**.
 
-Basics
-------
+## Basics
 
     m := make(map[string]float64)
 
@@ -61,42 +56,37 @@ Basics
     delete(m, "pi")
     fmt.Println(m) // "map[]"
 
--   The default zero value of a map is `nil`. A nil map is equivalent to an empty map except that no elements may be added.
--   Use `make(mapType, n)` to preallocate room for `n` entries.
+- The default zero value of a map is `nil`. A nil map is equivalent to an empty map except that no elements may be added.
+- Use `make(mapType, n)` to preallocate room for `n` entries.
 
-Literals
---------
+## Literals
 
     m := map[string]float64{
             "e":  2.71828,
             "pi": 3.1416,
     }
 
-Size
-----
+## Size
 
     n := len(m) // n == number of elements in m
 
-Iteration
----------
+## Iteration
 
     for key, value := range m {
             fmt.Println(key, ": ", value)
     }
 
--   Iteration order is not specified and may vary from iteration to iteration.
--   If an entry that has not yet been reached is removed during iteration, the corresponding iteration value will not be produced.
--   If an entry is created during iteration, that entry may or may not be produced during the iteration.
+- Iteration order is not specified and may vary from iteration to iteration.
+- If an entry that has not yet been reached is removed during iteration, the corresponding iteration value will not be produced.
+- If an entry is created during iteration, that entry may or may not be produced during the iteration.
 
-Implementation
---------------
+## Implementation
 
--   Maps are backed by [hash tables](../hash-tables.html).
--   They provide lookup, insert, and delete operations in **constant** [amortized time](../amortized-time-complexity-analysis.html).
--   The comparison operators `==` and `!=` must be defined for the key type.
+- Maps are backed by [hash tables](../hash-tables.html).
+- They provide lookup, insert, and delete operations in **constant** [amortized time](../amortized-time-complexity-analysis.html).
+- The comparison operators `==` and `!=` must be defined for the key type.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

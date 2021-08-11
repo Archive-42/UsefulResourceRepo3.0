@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [How to Write Go Code](https://golang.org/doc/code.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language</span>
@@ -11,8 +10,7 @@ Related
 [Your basic API: Thoughts on effective API design](https://github.com/yourbasic/api)  
 <span style="color: grey; font-style: italic; font-size: smaller">Your basic</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,29 +32,27 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Library package example
-===========================
+# Go: Library package example
 
 The repository at <https://github.com/yourbasic/fenwick> is a small but complete Go library package. It is intended to be used as a template for larger projects.
 
 In addition to source code and resources, it includes
 
--   a [README](https://github.com/yourbasic/fenwick/blob/master/README.md) file with section on
--   installation
--   documentation and
--   roadmap sections
--   unit tests
--   benchmarks
--   godoc links
--   a testable doc example, and
--   a licence
+- a [README](https://github.com/yourbasic/fenwick/blob/master/README.md) file with section on
+- installation
+- documentation and
+- roadmap sections
+- unit tests
+- benchmarks
+- godoc links
+- a testable doc example, and
+- a licence
 
 To install the package:
 
     go get github.com/yourbasic/fenwick
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

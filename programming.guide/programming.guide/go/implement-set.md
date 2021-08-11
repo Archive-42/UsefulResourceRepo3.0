@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Maps explained](maps-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Implement a stack (LIFO)](implement-stack.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: How to implement a set
-==========================
+# Go: How to implement a set
 
 The idiomatic way to implement a set in Go is to use a **map**, where the keys in the map represent the elements in the set.
 
@@ -44,8 +40,7 @@ For simplicity `true` is typically used as dummy value.
 
 Set operations are then encoded as operations on a map.
 
-Alternative representation
---------------------------
+## Alternative representation
 
 If the memory used by the booleans is an issue (which seems unlikely) you could replace them with empty structs. In Go, an empty struct typically doesn't require any memory.
 
@@ -60,8 +55,7 @@ Some set operations differ slighly. You typically declare…
 
 <table><colgroup><col style="width: 50%" /><col style="width: 50%" /></colgroup><thead><tr class="header"><th>Operation</th><th>Code</th></tr></thead><tbody><tr class="odd"><td>Create empty set</td><td><p><code>mySet := make(map[string]void)</code></p></td></tr><tr class="even"><td>Add an element</td><td><p><code>mySet["Foo"] = member</code></p></td></tr><tr class="odd"><td>Remove an element</td><td><p><code>delete(mySet, "Foo")</code></p></td></tr><tr class="even"><td>Iterate over a set</td><td><p><code>for e := range mySet { fmt.Println(e) }</code></p></td></tr><tr class="odd"><td>Size of set</td><td><p><code>size := len(mySet)</code></p></td></tr><tr class="even"><td>Check containment</td><td><p><code>_, exists := mySet["Foo"]</code></p></td></tr></tbody></table>
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [List all files and folders in a directory](list-files-in-directory.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,14 +29,13 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Visit all files and folders in a directory tree
-===================================================
+# Go: Visit all files and folders in a directory tree
 
 Use the [`filepath.Walk`](https://golang.org/pkg/path/filepath/#Walk) function in package [`path/filepath`](https://golang.org/pkg/path/filepath/):
 
--   It walks a file tree calling a function of type [`filepath.WalkFunc`](https://golang.org/pkg/path/filepath/#WalkFunc) for each file or directory in the tree, including the root.
--   The files are walked in lexical order.
--   Symbolic links are not followed.
+- It walks a file tree calling a function of type [`filepath.WalkFunc`](https://golang.org/pkg/path/filepath/#WalkFunc) for each file or directory in the tree, including the root.
+- The files are walked in lexical order.
+- Symbolic links are not followed.
 
 The code in this example lists the paths and sizes of all files and directories in the file tree rooted at the current directory:
 
@@ -75,8 +71,7 @@ Example output:
     usr/local/go/lib/time 822
     usr/local/go/lib/time/zoneinfo.zip 366776
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

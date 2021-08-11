@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Convert byte slice (array) to string](convert-byte-slice-to-string.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Related
 [The io.Writer interface](io-writer-interface-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,11 +35,9 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Hash checksums
-==================
+# Go: Hash checksums
 
-String
-------
+## String
 
 To compute the checksum of a **string** or **byte slice**, use the `Sum` function from a crypto package such as [`crypto/md5`](https://golang.org/pkg/crypto/md5/), [`crypto/sha1`](https://golang.org/pkg/crypto/sha1/), or [`crypto/sha256`](https://golang.org/pkg/crypto/sha256/):
 
@@ -60,14 +55,13 @@ To compute the checksum of a **string** or **byte slice**, use the `Sum` functio
     201a6b3053cc1422d2c3670b62616221d2290929
     1cbec737f863e4922cee63cc2ebbfaafcd1cff8b790d8cfd2e6a5d550b648afa
 
-File
-----
+## File
 
 To compute the checksum of a **file** or other **input stream**:
 
--   create a new [`hash.Hash`](https://golang.org/pkg/hash/#Hash) from a crypto package such as [`crypto/md5`](https://golang.org/pkg/crypto/md5/), [`crypto/sha1`](https://golang.org/pkg/crypto/sha1/), or [`crypto/sha256`](https://golang.org/pkg/crypto/sha256/),
--   add data by writing to its `io.Writer` function,
--   extract the checksum by calling its `Sum` function.
+- create a new [`hash.Hash`](https://golang.org/pkg/hash/#Hash) from a crypto package such as [`crypto/md5`](https://golang.org/pkg/crypto/md5/), [`crypto/sha1`](https://golang.org/pkg/crypto/sha1/), or [`crypto/sha256`](https://golang.org/pkg/crypto/sha256/),
+- add data by writing to its `io.Writer` function,
+- extract the checksum by calling its `Sum` function.
 
 <!-- -->
 
@@ -83,8 +77,7 @@ To compute the checksum of a **file** or other **input stream**:
 
     1cbec737f863e4922cee63cc2ebbfaafcd1cff8b790d8cfd2e6a5d550b648afa
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

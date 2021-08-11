@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Introducing JSON](http://json.org/)  
 <span style="color: grey; font-style: italic; font-size: smaller">json.org</span>
@@ -17,8 +16,7 @@ Further Reading
 [The io.Writer interface](io-writer-interface-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,25 +38,23 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: JSON by example
-===================
+# Go: JSON by example
 
--   [Basic types](json-example.html#basic-types)
--   [Struct to JSON](json-example.html#struct-to-json)
--   [Pretty print](json-example.html#pretty-print)
--   [JSON to struct](json-example.html#json-to-struct)
--   [Arbitrary objects and arrays](json-example.html#arbitrary-objects-and-arrays)
--   [Files](json-example.html#files)
+- [Basic types](json-example.html#basic-types)
+- [Struct to JSON](json-example.html#struct-to-json)
+- [Pretty print](json-example.html#pretty-print)
+- [JSON to struct](json-example.html#json-to-struct)
+- [Arbitrary objects and arrays](json-example.html#arbitrary-objects-and-arrays)
+- [Files](json-example.html#files)
 
-Basic types
------------
+## Basic types
 
 The default Go types for coding and encoding JSON are:
 
--   `bool` for JSON booleans,
--   `float64` for JSON numbers,
--   `string` for JSON strings, and
--   `nil` for JSON null.
+- `bool` for JSON booleans,
+- `float64` for JSON numbers,
+- `string` for JSON strings, and
+- `nil` for JSON null.
 
 Additionally, [`time.Time`](https://golang.org/pkg/time/#Time) and the numeric types in the [`math/big`](https://golang.org/pkg/math/big/) package can be automatically coded and encoded as JSON strings.
 
@@ -69,8 +64,7 @@ Note that JSON doesn't support basic integer types. They can often be approximat
 >
 > Note that when such software is used, numbers that are integers and are in the range \[-2<sup>53</sup> + 1, 2<sup>53</sup> - 1\] are interoperable in the sense that implementations will agree exactly on their numeric values. <a href="https://tools.ietf.org/html/rfc7159#section-6" class="quote-source">RFC 7159: The JSON Data Interchange Format</a>
 
-Struct to JSON
---------------
+## Struct to JSON
 
 The [`json.Marshal`](https://golang.org/pkg/encoding/json/#Marshal) function in package [`encoding/json`](https://golang.org/pkg/encoding/json/) generates JSON data:
 
@@ -103,13 +97,12 @@ Output:
 
 Only data that can be represented as JSON will be encoded; see [`json.Marshal`](https://golang.org/pkg/encoding/json/#Marshal) for the complete rules.
 
--   **Only the exported (public) fields** of a struct will be present in the JSON output.
--   A field with a `json:` tag is stored with its tag name instead of its variable name.
--   JSON objects only support strings as keys: a map must be of the form `map[string]T`.
--   Pointers will be encoded as the values they point to, or `null` if the pointer is `nil`.
+- **Only the exported (public) fields** of a struct will be present in the JSON output.
+- A field with a `json:` tag is stored with its tag name instead of its variable name.
+- JSON objects only support strings as keys: a map must be of the form `map[string]T`.
+- Pointers will be encoded as the values they point to, or `null` if the pointer is `nil`.
 
-Pretty print
-------------
+## Pretty print
 
 Replace `json.Marshal` with [`json.MarshalIndent`](https://golang.org/pkg/encoding/json/#MarshalIndent) in the example above to indent the JSON output.
 
@@ -130,8 +123,7 @@ Output:
         "Created": "2009-11-10T23:00:00Z"
     }
 
-JSON to struct
---------------
+## JSON to struct
 
 The [`json.Unmarshal`](https://golang.org/pkg/encoding/json/#Unmarshal) function in package [`encoding/json`](https://golang.org/pkg/encoding/json/) parses JSON data:
 
@@ -177,11 +169,10 @@ For a given JSON key `Foo`, `Unmarshal` will attempt to match the struct fields 
 
 Only fields thar are found in the destination type will be decoded:
 
--   This is useful when you wish to pick only a few specific fields.
--   In particular, any unexported fields in the destination struct will be unaffected.
+- This is useful when you wish to pick only a few specific fields.
+- In particular, any unexported fields in the destination struct will be unaffected.
 
-Arbitrary objects and arrays
-----------------------------
+## Arbitrary objects and arrays
 
 The [encoding/json](https://golang.org/pkg/encoding/json/) package uses - `map[string]interface{}` to store arbitrary JSON objects, and - `[]interface{}` to store arbitrary JSON arrays.
 
@@ -241,16 +232,15 @@ Output:
          0 Alice
          1 Bob
 
-Files
------
+## Files
 
 The [`json.Decoder`](https://golang.org/pkg/encoding/json/#Decoder) and [`json.Encoder`](https://golang.org/pkg/encoding/json/#Encoder) types in package [`encoding/json`](https://golang.org/pkg/encoding/json/) offer support for reading and writing streams, e.g. files, of JSON data.
 
 The code in this example
 
--   reads a stream of JSON objects from a [Reader](io-reader-interface-explained.html) ([`strings.Reader`](https://golang.org/pkg/strings/#Reader)),
--   removes the `Age` field from each object,
--   and then writes the objects to a [Writer](io-writer-interface-explained.html) ([`os.Stdout`](https://golang.org/pkg/os/#pkg-variables)).
+- reads a stream of JSON objects from a [Reader](io-reader-interface-explained.html) ([`strings.Reader`](https://golang.org/pkg/strings/#Reader)),
+- removes the `Age` field from each object,
+- and then writes the objects to a [Writer](io-writer-interface-explained.html) ([`os.Stdout`](https://golang.org/pkg/os/#pkg-variables)).
 
 <!-- -->
 
@@ -291,8 +281,7 @@ Output:
     {"Name":"Alice"}
     {"Name":"Bob"}
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

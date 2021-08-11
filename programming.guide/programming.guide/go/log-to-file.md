@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Disable logging](disable-logging-output.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Related
 [Defer statement](defer.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,8 +32,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Write log to file
-=====================
+# Go: Write log to file
 
 This code appends a log message to the file `text.log`. It creates the file if it doesn't already exist.
 
@@ -55,12 +51,11 @@ Contents of `text.log`:
     prefix: 2017/10/20 07:52:58 text to append
     prefix: 2017/10/20 07:52:58 more text to append
 
--   [`log.New`](https://golang.org/pkg/log/#New) creates a new [`log.Logger`](https://golang.org/pkg/log/#Logger) that writes to `f`.
--   The prefix appears at the beginning of each generated log line.
--   The [`flag`](https://golang.org/pkg/log/#pkg-constants) argument defines which text to prefix to each log entry.
+- [`log.New`](https://golang.org/pkg/log/#New) creates a new [`log.Logger`](https://golang.org/pkg/log/#Logger) that writes to `f`.
+- The prefix appears at the beginning of each generated log line.
+- The [`flag`](https://golang.org/pkg/log/#pkg-constants) argument defines which text to prefix to each log entry.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

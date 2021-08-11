@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [String handling cheat sheet](string-functions-reference-cheat-sheet.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Convert interface to string
-===============================
+# Go: Convert interface to string
 
 Use [`fmt.Sprintf`](https://golang.org/pkg/fmt/#Sprintf) to convert an interface value to a string:
 
@@ -47,8 +43,7 @@ In fact, the same technique can be used to get a string representation of any da
     fmt.Println(str)
     // Output: [1 2 3]
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Related / Further Reading
--------------------------
+## Related / Further Reading
 
 [Slices explained](slices-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -20,8 +19,7 @@ Related / Further Reading
 [Composite literals](https://golang.org/ref/spec#Composite_literals)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -33,8 +31,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -44,8 +41,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Make slices, maps and channels
-==================================
+# Go: Make slices, maps and channels
 
 Slices, maps and channels can be created with the built-in `make` function. The memory is initialized with [zero values](default-zero-value.html).
 
@@ -64,8 +60,7 @@ Slices, arrays and maps can also be created with [composite literals](https://go
             "pi": 3.1416,
     }
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

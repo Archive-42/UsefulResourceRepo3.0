@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Range loops (for each loops) explained](for-loop-range-array-slice-map-channel.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Iterators in Go](https://ewencp.org/blog/golang-iterators/)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Ewen Cheslack-Postava</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -27,8 +25,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -38,15 +35,13 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Iterator pattern
-====================
+# Go: Iterator pattern
 
 Go has built-in range loops for iterating over slices, arrays, strings, maps and channels. See [Range loops explained](for-loop-range-array-slice-map-channel.html).
 
 To iterate over other types of data, an iterator function with callbacks is a clean and fairly efficient abstraction.
 
-Basic iterator pattern
-----------------------
+## Basic iterator pattern
 
     // Iterate calls the f function with n = 1, 2, and 3.
     func Iterate(f func(n int)) {
@@ -63,8 +58,7 @@ In use:
     2
     3
 
-Iterator with break
--------------------
+## Iterator with break
 
     // Iterate calls the f function with n = 1, 2, and 3.
     // If f returns true, Iterate returns immediately
@@ -87,8 +81,7 @@ In use:
     1
     2
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

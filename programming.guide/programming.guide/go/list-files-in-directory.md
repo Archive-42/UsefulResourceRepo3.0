@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related
--------
+## Related
 
 [Visit all files and folders in a directory tree](list-directory-recursive.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -21,8 +19,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -32,8 +29,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: List all files and folders in a directory
-=============================================
+# Go: List all files and folders in a directory
 
 Use the [`ioutil.ReadDir`](https://golang.org/pkg/io/ioutil/#ReadDir) function in package [`io/ioutil`](https://golang.org/pkg/io/ioutil/). It returns a sorted slice containing elements of type [`os.FileInfo`](https://golang.org/pkg/os/#FileInfo).
 
@@ -54,8 +50,7 @@ Example output:
     tmp
     usr
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Format a time or date](format-parse-string-time-date-example.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -17,8 +16,7 @@ Further Reading
 [Days between two dates](days-between-dates.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -30,8 +28,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -41,8 +38,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: Days in a month
-===================
+# Go: Days in a month
 
 To compute the last day of a month, you can use the fact that [`time.Date`](https://golang.org/pkg/time/#Date) accepts values outside their usual ranges; the values are normalized during the conversion. For example, March 0 converts to the last day of February:
 
@@ -60,8 +56,7 @@ To compute the last day of a month, you can use the fact that [`time.Date`](http
     t = Date(2000, 10, 31).AddDate(0, 1, 0) // a month after October 31
     fmt.Println(t)                          // 2000-12-01 00:00:00 +0000 UTC
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

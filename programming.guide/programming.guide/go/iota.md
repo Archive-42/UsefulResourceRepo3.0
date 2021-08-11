@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further reading
----------------
+## Further reading
 
 [Enumeration (enum) with string representation](define-enumeration-string.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -11,8 +10,7 @@ Further reading
 [Iota](https://golang.org/ref/spec#Iota)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language Specification</span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -24,8 +22,7 @@ Top Go Articles
 
 <span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -35,18 +32,16 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go: iota
-========
+# Go: iota
 
 Iota is a basic tool for enumerated constants.
 
--   [Basics](iota.html#basics)
--   [Start at 1](iota.html#start-at-1)
--   [Skip value](iota.html#skip-value)
--   [Enumeration](iota.html#enumeration)
+- [Basics](iota.html#basics)
+- [Start at 1](iota.html#start-at-1)
+- [Skip value](iota.html#skip-value)
+- [Enumeration](iota.html#enumeration)
 
-Basics
-------
+## Basics
 
 The predeclared `iota` identifier resets to 0 whenever the word `const` appears in the source code and increments after each const specification:
 
@@ -67,8 +62,7 @@ This can be simplified to
 
 In a parenthesized const declaration expressions can be implicitly repeated—this indicates a repetition of the preceding expression.
 
-Start at 1
-----------
+## Start at 1
 
     const (
             C1 = iota + 1
@@ -77,8 +71,7 @@ Start at 1
     )
     fmt.Println(C1, C2, C3) // "1 2 3"
 
-Skip value
-----------
+## Skip value
 
     const (
             C1 = iota + 1
@@ -88,8 +81,7 @@ Skip value
     )
     fmt.Println(C1, C3, C4) // "1 3 4"
 
-Enumeration
------------
+## Enumeration
 
     type Suite int
 
@@ -106,8 +98,7 @@ Enumeration
 
 See [Define an enumeration (enum) with a string representation](define-enumeration-string.html) for more details on how to create and use enumerations in Go.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 
