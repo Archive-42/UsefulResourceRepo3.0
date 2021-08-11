@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Felix Arntz on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Felix Arntz</name>
+  </author>
+  <link href="https://web.dev/authors/felixarntz/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/rAUzMzFAA67M36n66uVT.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Developer Programs Engineer at Google, contributing to the CMS ecosystem</subtitle>
+  
+  
+  <entry>
+    <title>Browser-level lazy-loading for CMSs</title>
+    <link href="https://web.dev/browser-level-lazy-loading-for-cmss/"/>
+    <updated>2020-11-20T00:00:00Z</updated>
+    <id>https://web.dev/browser-level-lazy-loading-for-cmss/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;My goal with this post is to persuade CMS platform developers and contributors
+(i.e. the people who develop CMS cores) that
+&lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#the-case-for-implementing-lazy-loading-now&quot;&gt;now is the time to implement support for the browser-level image lazy-loading feature&lt;/a&gt;.
+I&#39;ll also share recommendations on how to &lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#user-experience-recommendations&quot;&gt;ensure high-quality user
+experiences&lt;/a&gt; and &lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#technical-recommendations&quot;&gt;enable customization by other
+developers&lt;/a&gt; while implementing lazy-loading. These
+guidelines come from our experience adding support to WordPress as well as
+helping Joomla, Drupal, and TYPO3 implement the feature.&lt;/p&gt;
+&lt;p&gt;Regardless of whether you&#39;re a CMS platform developer or a CMS user (i.e. a
+person who builds websites with a CMS), you can use this post to learn more
+about the benefits of browser-level lazy-loading in your CMS. Check out the
+&lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#next-steps&quot;&gt;Next steps&lt;/a&gt; section for suggestions on how you can
+encourage your CMS platform to implement lazy-loading.&lt;/p&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Over the past year,
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/&quot;&gt;lazy-loading images and iframes using the &lt;code&gt;loading&lt;/code&gt; attribute&lt;/a&gt;
+has
+&lt;a href=&quot;https://html.spec.whatwg.org/multipage/urls-and-fetching.html#lazy-loading-attributes&quot; rel=&quot;noopener&quot;&gt;become part of the WHATWG HTML Standard&lt;/a&gt;
+and
+&lt;a href=&quot;https://caniuse.com/#feat=loading-lazy-attr&quot; rel=&quot;noopener&quot;&gt;seen growing adoption by various browsers&lt;/a&gt;.
+These milestones however only lay the groundwork for a
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/#why-browser-level-lazy-loading&quot;&gt;faster and more resource-saving web&lt;/a&gt;.
+It is now on the distributed web ecosystem to make use of the &lt;code&gt;loading&lt;/code&gt;
+attribute.&lt;/p&gt;
+&lt;p&gt;Content management systems
+&lt;a href=&quot;https://w3techs.com/technologies/overview/content_management&quot; rel=&quot;noopener&quot;&gt;power about 60% of websites&lt;/a&gt;,
+so these platforms play a vital role in bringing adoption of modern browser
+features to the web. With a few popular open-source CMSs such as
+&lt;a href=&quot;https://make.wordpress.org/core/2020/07/14/lazy-loading-images-in-5-5/&quot; rel=&quot;noopener&quot;&gt;WordPress&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/joomla/joomla-cms/pull/28838&quot; rel=&quot;noopener&quot;&gt;Joomla&lt;/a&gt;, and
+&lt;a href=&quot;https://review.typo3.org/c/Packages/TYPO3.CMS/+/63317&quot; rel=&quot;noopener&quot;&gt;TYPO3&lt;/a&gt; having already
+implemented support for the &lt;code&gt;loading&lt;/code&gt; attribute on images, let&#39;s have a look at
+their approaches and the takeaways which are relevant for adopting the feature
+in other CMS platforms as well. Lazy-loading media is a key web performance
+feature that sites should benefit from at a large scale, which is why adopting
+it at the CMS core level is recommended.&lt;/p&gt;
+&lt;h2 id=&quot;the-case-for-implementing-lazy-loading-now&quot;&gt;The case for implementing lazy-loading now &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#the-case-for-implementing-lazy-loading-now&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;standardization&quot;&gt;Standardization &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#standardization&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Adoption of non-standardized browser features in CMSs facilitates widespread
+testing and can surface potential areas of improvement. However, the general
+consensus across CMSs is that, as long as a browser feature is not standardized,
+it should preferably be implemented in the form of an extension or plugin for
+the respective platform. Only once standardized can a feature be considered for
+adoption in the platform core.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--success&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Success&lt;/strong&gt;:
+Browser-level lazy-loading is now part of the WHATWG HTML Standard for
+both
+&lt;a href=&quot;https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-loading&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;img&lt;/code&gt;&lt;/a&gt;
+and
+&lt;a href=&quot;https://html.spec.whatwg.org/multipage/iframe-embed-object.html#attr-iframe-loading&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;iframe&lt;/code&gt;&lt;/a&gt;
+elements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;browser-support&quot;&gt;Browser support &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#browser-support&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Browser support of the feature is a similar concern: The majority of CMS users
+should be able to benefit from the feature. If there is a considerable
+percentage of browsers where the feature is not yet supported, the feature has
+to ensure that it at least has no adverse effect for those.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--success&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Success&lt;/strong&gt;:
+&lt;a href=&quot;https://caniuse.com/#feat=loading-lazy-attr&quot; rel=&quot;noopener&quot;&gt;Browser-level lazy-loading is widely supported by browsers&lt;/a&gt;
+and
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/#browser-compatibility&quot;&gt;the &lt;code&gt;loading&lt;/code&gt; attribute is simply ignored&lt;/a&gt;
+by those browsers that have not adopted it yet.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;distance-from-viewport-thresholds&quot;&gt;Distance-from-viewport thresholds &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#distance-from-viewport-thresholds&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A common concern with lazy-loading implementations is that they in principle
+increase the likelihood that an image will not be loaded once it becomes visible
+in the user&#39;s viewport because the loading cycle starts at a later stage.
+Contrary to previous JavaScript-based solutions,
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/#distance-from-viewport-thresholds&quot;&gt;browsers approach this conservatively&lt;/a&gt;
+and furthermore can fine-tune their approach based on real-world user experience data,
+minimizing the impact, so browser-level lazy-loading should be safe to adopt
+by CMS platforms.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--success&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Success&lt;/strong&gt;:
+Experiments using Chrome on Android indicated that on 4G networks, 97.5% of
+below-the-fold lazy-loaded images were fully loaded within 10ms of becoming
+visible, compared to 97.6% for non lazy-loaded images. In other words, there was
+virtually no difference (0.1%) in the user experience of eagerly-loaded images
+and lazy-loaded images.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;user-experience-recommendations&quot;&gt;User experience recommendations &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#user-experience-recommendations&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;require-dimension-attributes-on-elements&quot;&gt;Require dimension attributes on elements &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#require-dimension-attributes-on-elements&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;In order to avoid &lt;a href=&quot;https://web.dev/cls/&quot;&gt;layout shifts&lt;/a&gt;, it has been a
+long-standing recommendation that
+&lt;a href=&quot;https://web.dev/optimize-cls/#images-without-dimensions&quot;&gt;embedded content such as images or iframes should always include the dimension attributes &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt;&lt;/a&gt;,
+so that the browser can infer the aspect ratio of those elements before actually
+loading them. This recommendation is relevant regardless of whether an element
+is being lazy-loaded or not. However, due to the
+&lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#distance-from-viewport-thresholds&quot;&gt;0.1% greater likelihood of an image not being fully loaded once in the viewport&lt;/a&gt;
+it becomes slightly more applicable with lazy-loading in place.&lt;/p&gt;
+&lt;p&gt;CMSs should preferably provide dimension attributes on all images and iframes.
+If this is not possible for every such element, they are recommended to skip
+lazy-loading images which do not provide both of these attributes.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:
+If the CMS is unable to provide &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt; attributes on
+images and iframes on a large scale, you will have to weigh the trade-offs
+between saving additional network resources and a slightly higher chance for
+layout shifts to decide whether lazy-loading is worth it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;avoid-lazy-loading-above-the-fold-elements&quot;&gt;Avoid lazy-loading above-the-fold elements &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#avoid-lazy-loading-above-the-fold-elements&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;At the moment CMSs are recommended to only add &lt;code&gt;loading=&amp;quot;lazy&amp;quot;&lt;/code&gt; attributes to
+images and iframes which are positioned below-the-fold, to avoid a delay
+in the &lt;a href=&quot;https://web.dev/lcp/&quot;&gt;Largest Contentful Paint&lt;/a&gt; metric, which in some cases can be
+significant &lt;a href=&quot;https://web.dev/lcp-lazy-loading/&quot;&gt;as discovered in July 2021&lt;/a&gt;. However, it has
+to be acknowledged that it&#39;s complex to assess the position of an element
+relative to the viewport before the rendering process. This applies especially
+if the CMS uses an automated approach for adding &lt;code&gt;loading&lt;/code&gt; attributes, but even
+based on manual intervention several factors such as the different viewport
+sizes and aspect ratios have to be considered. Still, it is strongly recommended to omit hero images and other images or iframes that are likely to appear above the fold from being lazy-loaded.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Depending on the capabilities and audience of the CMS, try to define reasonable
+estimates for whether an image or iframe is likely to be in the initial
+viewport, for example never lazy-loading elements in a header template or the hero image of the main content. In
+addition, offer either a UI or API which allows modifying the existence of the
+&lt;code&gt;loading&lt;/code&gt; attribute on elements.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;avoid-a-javascript-fallback&quot;&gt;Avoid a JavaScript fallback &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#avoid-a-javascript-fallback&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;While JavaScript can be used to
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/#how-do-i-handle-browsers-that-don&#39;t-yet-support-lazy-loading&quot;&gt;provide lazy-loading to browsers which do not (yet) support the &lt;code&gt;loading&lt;/code&gt; attribute&lt;/a&gt;,
+such mechanisms always rely on initially removing the &lt;code&gt;src&lt;/code&gt; attribute of an
+image or iframe, which causes a delay for the browsers that &lt;em&gt;do&lt;/em&gt; support the
+attribute. In addition, rolling out such a JavaScript-based solution in the
+frontends of a large-scale CMS increases the surface area for potential issues,
+which is part of why no major CMS had adopted lazy-loading in its core prior to
+the standardized browser feature.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:
+Avoid providing a JavaScript-based fallback in the CMS. With
+growing adoption of the &lt;code&gt;loading&lt;/code&gt; attribute and no adverse effects on browser
+versions that do not support it yet, it is safer to not provide the feature to
+those browsers and instead encourage updating to a newer browser version.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;technical-recommendations&quot;&gt;Technical recommendations &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#technical-recommendations&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;enable-lazy-loading-by-default&quot;&gt;Enable lazy-loading by default &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#enable-lazy-loading-by-default&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The overall recommendation for CMSs implementing browser-level lazy-loading is to
+enable it by default, i.e. &lt;code&gt;loading=&amp;quot;lazy&amp;quot;&lt;/code&gt; should be added to images and
+iframes, preferably
+&lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#require-dimension-attributes-on-elements&quot;&gt;only for those elements that include dimension attributes&lt;/a&gt;.
+Having the feature enabled by default will result in greater network resource
+savings than if it had to be enabled manually, for example on a per-image
+basis.&lt;/p&gt;
+&lt;p&gt;As much as possible, &lt;code&gt;loading=&amp;quot;lazy&amp;quot;&lt;/code&gt; should
+&lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#avoid-lazy-loading-above-the-fold-elements&quot;&gt;only be added to elements which likely appear below-the-fold&lt;/a&gt;.
+While this requirement can be complex to implement for a CMS due to lack of client-side awareness and various viewport sizes, it is recommended to at least &lt;a href=&quot;https://web.dev/lcp-lazy-loading/#testing-a-fix&quot;&gt;use approximate heuristics to omit elements such as hero images that will likely appear above-the-fold from being lazy-loaded&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;allow-per-element-modifications&quot;&gt;Allow per-element modifications &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#allow-per-element-modifications&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;While &lt;code&gt;loading=&amp;quot;lazy&amp;quot;&lt;/code&gt; should be added to images and iframes by default, it is
+crucial to allow omitting the attribute on certain images, for example to
+optimize for &lt;a href=&quot;https://web.dev/lcp/&quot;&gt;LCP&lt;/a&gt;. If the audience of the CMS is on
+average considered more tech-savvy, this could be a UI control exposed for every
+image and iframe allowing to opt out of lazy-loading for that element.
+Alternatively or in addition, an API could be exposed to third-party developers
+so that they can make similar changes through code.&lt;/p&gt;
+&lt;p&gt;WordPress for example allows to skip the &lt;code&gt;loading&lt;/code&gt; attribute either for an
+&lt;a href=&quot;https://developer.wordpress.org/reference/hooks/wp_lazy_loading_enabled/&quot; rel=&quot;noopener&quot;&gt;entire HTML tag or context&lt;/a&gt;
+or for a
+&lt;a href=&quot;https://developer.wordpress.org/reference/hooks/wp_img_tag_add_loading_attr/&quot; rel=&quot;noopener&quot;&gt;specific HTML element in the content&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:
+If an element should not be lazy-loaded, require or encourage
+skipping the &lt;code&gt;loading&lt;/code&gt; attribute entirely. While using &lt;code&gt;loading=&amp;quot;eager&amp;quot;&lt;/code&gt; is a
+supported alternative, this would tell the browser explicitly to always load the
+image right away, which would prevent potential benefits if browsers implemented
+further mechanisms and heuristics to automatically decide which elements to
+lazy-load.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;retrofit-existing-content&quot;&gt;Retrofit existing content &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#retrofit-existing-content&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;At a high level, there are two approaches for adding the &lt;code&gt;loading&lt;/code&gt; attribute to
+HTML elements in a CMS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Either add the attribute from within the content editor in the
+backend, persistently saving it in the database.&lt;/li&gt;
+&lt;li&gt;Add the attribute on the fly when rendering content from the database in
+the frontend.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is recommended for CMS to opt for adding the attribute on the fly when
+rendering, in order to bring the lazy-loading benefits to any existing content
+as well. If the attribute could solely be added through the editor, only new or
+recently modified pieces of content would receive the benefits, drastically
+reducing the CMS&#39;s impact on saving network resources. Furthermore, adding the
+attribute on the fly will easily allow for future modifications, should the
+capabilities of browser-level lazy-loading be further expanded.&lt;/p&gt;
+&lt;p&gt;Adding the attribute on the fly should cater for a potentially existing
+&lt;code&gt;loading&lt;/code&gt; attribute on an element though and let such an attribute take
+precedence. This way, the CMS or an extension for it could also implement the
+editor-driven approach without causing a conflict with duplicate attributes.&lt;/p&gt;
+&lt;h4 id=&quot;optimize-server-side-performance&quot;&gt;Optimize server-side performance &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#optimize-server-side-performance&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When adding the &lt;code&gt;loading&lt;/code&gt; attribute to content on the fly using (for example) a
+server-side middleware, speed is a consideration. Depending on the CMS, the
+attribute could be added either via DOM traversal or regular expressions, with
+the latter being recommended for performance.&lt;/p&gt;
+&lt;p&gt;Regular expressions use should be kept to a minimum, for example a single regex
+which collects all &lt;code&gt;img&lt;/code&gt; and &lt;code&gt;iframe&lt;/code&gt; tags in the content including their
+attributes and then adds the &lt;code&gt;loading&lt;/code&gt; attribute to each tag string as
+applicable. WordPress for example goes as far as
+&lt;a href=&quot;https://developer.wordpress.org/reference/functions/wp_filter_content_tags/&quot; rel=&quot;noopener&quot;&gt;having a single general regular expression to perform various on-the-fly operations to certain elements&lt;/a&gt;,
+of which adding &lt;code&gt;loading=&amp;quot;lazy&amp;quot;&lt;/code&gt; is just one, using a single regular expression
+to facilitate multiple features. This form of optimization furthermore is
+another reason why adopting lazy-loading in a CMS&#39;s core is recommended over an
+extension - it allows for better server-side performance optimization.&lt;/p&gt;
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#next-steps&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;See if there is an existing feature request ticket to add support for the
+feature in your CMS, or open a new one if there is none yet. Use references to
+this post as needed to support your proposal.&lt;/p&gt;
+&lt;p&gt;Tweet me (&lt;a href=&quot;https://twitter.com/felixarntz&quot; rel=&quot;noopener&quot;&gt;felixarntz@&lt;/a&gt;) for questions or
+comments, or to get your CMS listed on this page if support for browser-level
+lazy-loading has been added. If you encounter other challenges, I am also
+curious to learn more about them to hopefully find a solution.&lt;/p&gt;
+&lt;p&gt;If you&#39;re a CMS platform developer, study how other CMSs have implemented
+lazy-loading:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://make.wordpress.org/core/2020/07/14/lazy-loading-images-in-5-5/&quot; rel=&quot;noopener&quot;&gt;WordPress Core&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/joomla/joomla-cms/pull/28838&quot; rel=&quot;noopener&quot;&gt;Joomla&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://review.typo3.org/c/Packages/TYPO3.CMS/+/63317&quot; rel=&quot;noopener&quot;&gt;TYPO3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can use the learnings from your research and the technical recommendations
+from this post to start contributing code to your CMS, for example in form of a
+patch or pull-request.&lt;/p&gt;
+&lt;p&gt;Hero photo by &lt;a href=&quot;https://unsplash.com/@imagefactory?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot; rel=&quot;noopener&quot;&gt;Colin Watts&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/lazy?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot; rel=&quot;noopener&quot;&gt;Unsplash&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <author>
+      <name>Felix Arntz</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>The performance effects of too much lazy-loading</title>
+    <link href="https://web.dev/lcp-lazy-loading/"/>
+    <updated>2021-07-15T00:00:00Z</updated>
+    <id>https://web.dev/lcp-lazy-loading/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Lazy-loading is a technique to defer downloading a resource until it&#39;s needed, which conserves data
+and reduces network contention for critical assets. It became a web standard in
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/&quot;&gt;2019&lt;/a&gt; and today &lt;code&gt;loading=&amp;quot;lazy&amp;quot;&lt;/code&gt; for images is
+&lt;a href=&quot;https://caniuse.com/loading-lazy-attr&quot; rel=&quot;noopener&quot;&gt;supported&lt;/a&gt; by most major browsers. That sounds great,
+but is there such a thing as too much lazy loading?&lt;/p&gt;
+&lt;p&gt;This post summarizes how we analyzed publicly available web transparency data and ad hoc A/B testing
+to understand the adoption and performance characteristics of native image lazy-loading. What we
+found is that lazy-loading can be an amazingly effective tool for reducing unneeded image bytes, but
+overuse can negatively affect performance. Concretely, our analysis shows that more eagerly
+loading images within the initial viewport—while liberally lazy-loading the rest—can give us the
+best of both worlds: fewer bytes loaded and improved &lt;a href=&quot;https://web.dev/vitals/#core-web-vitals&quot;&gt;Core Web Vitals&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;adoption&quot;&gt;Adoption &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lcp-lazy-loading/#adoption&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;According to the most recent data in &lt;a href=&quot;https://httparchive.org/&quot; rel=&quot;noopener&quot;&gt;HTTP Archive&lt;/a&gt;,
+native image lazy-loading is used by &lt;a href=&quot;https://httparchive.org/reports/state-of-images?start=2020_01_01&amp;amp;end=2021_06_01#imgLazy&quot; rel=&quot;noopener&quot;&gt;17%&lt;/a&gt;
+of websites and adoption is growing rapidly. This much of a foothold in the ecosystem is remarkable
+for a relatively new API.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Pie chart showing WordPress making up 84.1% of lazy-loading adoption, other CMSs 2.3%, and non-CMSs 13.5%.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;491&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/9RDh3CEC9vb1jCjVAIIi.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Breakdown of the types of websites that make use of native image lazy-loading.
+    &lt;em&gt;(&lt;a href=&quot;https://gist.github.com/rviscomi/44d80c1a0f4dec9cbafb37347c770278#file-lazy-loading-wp-cms-sql&quot;&gt;Source&lt;/a&gt;)&lt;/em&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/rviscomi/44d80c1a0f4dec9cbafb37347c770278#file-lazy-loading-wp-cms-sql&quot; rel=&quot;noopener&quot;&gt;Querying&lt;/a&gt;
+the raw data in the HTTP Archive project gives us a clearer understanding of what kinds of websites
+are driving adoption: 84% of sites that use native image lazy-loading use WordPress, 2% use another
+CMS, and the remaining 14% don&#39;t use a known CMS. These results make clear how
+&lt;a href=&quot;https://make.wordpress.org/core/2020/07/14/lazy-loading-images-in-5-5/&quot; rel=&quot;noopener&quot;&gt;WordPress is leading the charge&lt;/a&gt;
+in adoption.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Timeseries chart of lazy-loading adoption with WordPress being the predominant player compared to other CMSs and non-CMSs, with similar proportions to the previous chart. Total adoption is shown to have rapidly increased from 1% to 17% from July 2020 to June 2021.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;507&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/XgHvIF8JyybNZCNwXL35.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Breakdown of the types of websites that make use of native image lazy-loading.
+    &lt;em&gt;(&lt;a href=&quot;https://gist.github.com/rviscomi/44d80c1a0f4dec9cbafb37347c770278#file-lazy-loading-wp-cms-timeseries-sql&quot;&gt;Source&lt;/a&gt;)&lt;/em&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The
+&lt;a href=&quot;https://gist.github.com/rviscomi/44d80c1a0f4dec9cbafb37347c770278#file-lazy-loading-wp-cms-timeseries-sql&quot; rel=&quot;noopener&quot;&gt;rate of adoption&lt;/a&gt;
+is also worth noting. One year ago in July 2020, WordPress sites that use lazy-loading made up tens
+of thousands websites in the corpus of about 6 million (1% of total). Lazy-loading adoption in
+WordPress alone has since grown to over 1 million websites (14% of total).&lt;/p&gt;
+&lt;h2 id=&quot;correlational-performance&quot;&gt;Correlational performance &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lcp-lazy-loading/#correlational-performance&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/rviscomi/44d80c1a0f4dec9cbafb37347c770278#file-lazy-loading-crux-lcp-sql&quot; rel=&quot;noopener&quot;&gt;Digging deeper&lt;/a&gt;
+into HTTP Archive, we can compare how pages with and without native image lazy loading perform with
+the &lt;a href=&quot;https://web.dev/lcp/&quot;&gt;Largest Contentful Paint&lt;/a&gt; (LCP) metric. The LCP data comes from real-user
+experiences from the &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report&quot; rel=&quot;noopener&quot;&gt;Chrome User Experience Report&lt;/a&gt; (CrUX) as opposed to synthetic testing in the lab. The chart
+below uses a box-and-whisker plot to visualize the distributions of each pages&#39; 75th percentile LCP:
+the lines represent the 10th and 90th percentiles and the boxes represent the 25th and 75th
+percentiles.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Box and whisker chart showing the 10, 25, 75, and 90th percentiles for pages that do and do not use native image lazy-loading. Comparatively, the LCP distribution of pages that do not use it is faster than those that do.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;488&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/W8gsHQn1IjlRuAgnSizY.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Distribution of all pages&#39; 75th percentile LCP experience, broken down by whether they use native image lazy-loading.
+    &lt;em&gt;(&lt;a href=&quot;https://gist.github.com/rviscomi/44d80c1a0f4dec9cbafb37347c770278#file-lazy-loading-crux-lcp-sql&quot;&gt;Source&lt;/a&gt;)&lt;/em&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The median page without lazy-loading has a 75th percentile LCP of 2,922 ms, compared to 3,546 ms for
+the median page with lazy-loading. Overall, websites that use lazy-loading tend to have worse LCP
+performance.&lt;/p&gt;
+&lt;p&gt;It&#39;s important to point out that these are &lt;em&gt;correlational&lt;/em&gt; results and they don&#39;t necessarily point
+to lazy-loading as being the &lt;em&gt;cause&lt;/em&gt; of the slower performance. Hypothetically, if WordPress sites
+tend to be a bit slower, and given how much they make up the lazy-loading cohort, that could explain
+the difference. So let&#39;s try to eliminate that variability by looking only at WordPress sites.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Box and whisker chart showing the 10, 25, 75, and 90th percentiles for WordPress pages that do and do not use native image lazy-loading. Comparatively, the LCP distribution of pages that do not use it is faster than those that do, similar to the previous chart.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;488&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/STd8eW8CSiNp5B1bX0R6Dww2eH32/k1YlIULhqpx3CJV2OPYc.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Distribution of WordPress pages&#39; 75th percentile LCP experience, broken down by whether they use native image lazy-loading.
+    &lt;em&gt;(&lt;a href=&quot;https://gist.github.com/rviscomi/44d80c1a0f4dec9cbafb37347c770278#file-lazy-loading-crux-lcp-wordpress-sql&quot;&gt;Source&lt;/a&gt;)&lt;/em&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Unfortunately, the same pattern emerges when we drill down into WordPress pages; those that use
+lazy-loading tend to have slower LCP performance. The median WordPress page without lazy-loading has
+a 75th percentile LCP of 3,495 ms, compared to 3,768 ms for the median page with lazy-loading.&lt;/p&gt;
+&lt;p&gt;This still doesn&#39;t prove that lazy-loading &lt;em&gt;causes&lt;/em&gt; pages to get slower, but using it does coincide
+with having slower performance. To try to answer the causality question, we set up a lab-based A/B
+test.&lt;/p&gt;
+&lt;h2 id=&quot;causal-performance&quot;&gt;Causal performance &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lcp-lazy-loading/#causal-performance&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The goal for the A/B test was to prove or disprove the hypothesis that native image lazy-loading, as
+implemented in WordPress core, resulted in slower LCP performance and fewer image bytes. The
+methodology we used was to test a demo WordPress website with the &lt;a href=&quot;https://wordpress.org/themes/twentytwentyone/&quot; rel=&quot;noopener&quot;&gt;twentytwentyone&lt;/a&gt;
+theme. We tested
+both archive and single page types, which are like the home and article pages, on desktop and
+emulated mobile devices using &lt;a href=&quot;https://webpagetest.org/&quot; rel=&quot;noopener&quot;&gt;WebPageTest&lt;/a&gt;. We tested each combination of
+pages with and without lazy-loading enabled and ran each test nine times to get the median LCP value
+and number of image bytes.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Series&lt;/th&gt;
+        &lt;th&gt;default&lt;/th&gt;
+        &lt;th&gt;disabled&lt;/th&gt;
+        &lt;th&gt;Difference from default&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcQM_859caf47f070026732f4da3f70b8afe3-l:fix,210625_BiDcPT_2b89f12170b7180acf06cb35d3125d6a-l:disabled,210625_AiDc28_df202856ac4f0da4748c7a84a7a455a8-l:default&quot;&gt;twentytwentyone-archive-desktop&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;2,029&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,759&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #8fd1b1;&quot;&gt;-13%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcV5_003a2ee20d6ee7323fca102afe3ef511-l:fix,210625_BiDcET_810fe76322f8a6003c38f0bc901e4025-l:disabled,210625_BiDc99_44b0562e9077eb01e1e18dceec69bca9-l:default&quot;&gt;twentytwentyone-archive-mobile&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,657&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,403&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #7ecaa5;&quot;&gt;-15%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_AiDcR8_47e248c3211951b7af3bc9a87f205cc7-l:fix,210625_AiDcXB_3d9db18bf36397fcdc5d3db207d0d9e7-l:disabled,210625_AiDc2G_ee59429fac9a388b2184758078610b61-l:default&quot;&gt;twentytwentyone-single-desktop&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,655&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,726&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #fae3e1;&quot;&gt;4%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcR1_c349d38d4c7151772f2678fa7767ff42-l:fix,210625_AiDcD9_502bb504fc87aebafc5f8c9aaa70faa5-l:disabled,210625_BiDcPS_de2a3e5a526e470287d850d1dbc96fb7-l:default&quot;&gt;twentytwentyone-single-mobile&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,352&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,384&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #fdf0ef;&quot;&gt;2%&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;caption&gt;Change in LCP (ms) by disabling native image lazy-loading on sample WordPress pages.&lt;/caption&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The results above compare the median LCP in milliseconds for tests on archive and single pages for
+desktop and mobile. When we disabled lazy-loading on archive pages, we observed LCP improving by a
+significant margin. On single pages, however, the difference was more neutral.&lt;/p&gt;
+&lt;p&gt;It&#39;s worth noting that the effect of disabling lazy-loading actually appears to make the single
+pages slightly faster. However, the difference in LCP is less than one standard deviation for both
+desktop and mobile tests, so we attribute this to variance and consider the change neutral overall.
+By comparison, the difference for archive pages is more like two to three standard deviations.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Series&lt;/th&gt;
+        &lt;th&gt;default&lt;/th&gt;
+        &lt;th&gt;disabled&lt;/th&gt;
+        &lt;th&gt;Difference from default&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcQM_859caf47f070026732f4da3f70b8afe3-l:fix,210625_BiDcPT_2b89f12170b7180acf06cb35d3125d6a-l:disabled,210625_AiDc28_df202856ac4f0da4748c7a84a7a455a8-l:default&quot;&gt;twentytwentyone-archive-desktop&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;577&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1173&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #e67c73;&quot;&gt;103%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcV5_003a2ee20d6ee7323fca102afe3ef511-l:fix,210625_BiDcET_810fe76322f8a6003c38f0bc901e4025-l:disabled,210625_BiDc99_44b0562e9077eb01e1e18dceec69bca9-l:default&quot;&gt;twentytwentyone-archive-mobile&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;172&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;378&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #e67c73;&quot;&gt;120%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_AiDcR8_47e248c3211951b7af3bc9a87f205cc7-l:fix,210625_AiDcXB_3d9db18bf36397fcdc5d3db207d0d9e7-l:disabled,210625_AiDc2G_ee59429fac9a388b2184758078610b61-l:default&quot;&gt;twentytwentyone-single-desktop&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;301&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;850&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #e67c73;&quot;&gt;183%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcR1_c349d38d4c7151772f2678fa7767ff42-l:fix,210625_AiDcD9_502bb504fc87aebafc5f8c9aaa70faa5-l:disabled,210625_BiDcPS_de2a3e5a526e470287d850d1dbc96fb7-l:default&quot;&gt;twentytwentyone-single-mobile&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;114&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;378&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #e67c73;&quot;&gt;233%&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;caption&gt;Change in the number of image bytes (KB) by disabling native image lazy-loading on sample WordPress pages.&lt;/caption&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The results above compare the median number of image bytes (in KB) for each test. As expected,
+lazy-loading has a very clear positive effect on reducing the number of image bytes. If a real user
+were to scroll the entire page down, all images would load anyway as they cross into the viewport,
+but these results show the improved performance of the initial page load.&lt;/p&gt;
+&lt;p&gt;To summarize the results of the A/B test, the lazy-loading technique used by WordPress very clearly
+helps reduce image bytes but at the cost of a delayed LCP.&lt;/p&gt;
+&lt;h2 id=&quot;testing-a-fix&quot;&gt;Testing a fix &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lcp-lazy-loading/#testing-a-fix&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Before we get into how the fix was implemented, let&#39;s look at how lazy-loading works in WordPress
+today. The most important aspect of the current implementation is that it lazy-loads images above
+the fold (within the viewport). The CMS blog post
+&lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/#avoid-lazy-loading-above-the-fold-elements&quot;&gt;acknowledges&lt;/a&gt;
+this as a pattern to avoid, but experimental data at the time indicated that the effect on LCP was
+minimal and worth simplifying the implementation in WordPress core.&lt;/p&gt;
+&lt;p&gt;Given this new data, we created an experimental fix that avoids lazy-loading images that are above
+the fold and we tested it under the same conditions as the first A/B test.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Series&lt;/th&gt;
+        &lt;th&gt;default&lt;/th&gt;
+        &lt;th&gt;disabled&lt;/th&gt;
+        &lt;th&gt;fix&lt;/th&gt;
+        &lt;th&gt;Difference from default&lt;/th&gt;
+        &lt;th&gt;Difference from disabled&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcQM_859caf47f070026732f4da3f70b8afe3-l:fix,210625_BiDcPT_2b89f12170b7180acf06cb35d3125d6a-l:disabled,210625_AiDc28_df202856ac4f0da4748c7a84a7a455a8-l:default&quot;&gt;twentytwentyone-archive-desktop&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;2,029&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,759&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,749&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #8bd0ae;&quot;&gt;-14%&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #fafdfb;&quot;&gt;-1%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcV5_003a2ee20d6ee7323fca102afe3ef511-l:fix,210625_BiDcET_810fe76322f8a6003c38f0bc901e4025-l:disabled,210625_BiDc99_44b0562e9077eb01e1e18dceec69bca9-l:default&quot;&gt;twentytwentyone-archive-mobile&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,657&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,403&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,352&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #64c093;&quot;&gt;-18%&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #e0f2e9;&quot;&gt;-4%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_AiDcR8_47e248c3211951b7af3bc9a87f205cc7-l:fix,210625_AiDcXB_3d9db18bf36397fcdc5d3db207d0d9e7-l:disabled,210625_AiDc2G_ee59429fac9a388b2184758078610b61-l:default&quot;&gt;twentytwentyone-single-desktop&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,655&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,726&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,676&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #fef7f7;&quot;&gt;1%&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #e6f5ee;&quot;&gt;-3%&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcR1_c349d38d4c7151772f2678fa7767ff42-l:fix,210625_AiDcD9_502bb504fc87aebafc5f8c9aaa70faa5-l:disabled,210625_BiDcPS_de2a3e5a526e470287d850d1dbc96fb7-l:default&quot;&gt;twentytwentyone-single-mobile&lt;/a&gt;&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,352&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,384&lt;/td&gt;
+        &lt;td style=&quot;text-align: right;&quot;&gt;1,342&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #f8fcfa;&quot;&gt;-1%&lt;/td&gt;
+        &lt;td style=&quot;text-align: right; background-color: #e6f5ee;&quot;&gt;-3%&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;caption&gt;Change in LCP (ms) by the proposed fix for native image lazy-loading on sample WordPress pages.&lt;/caption&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;These results are much more promising. Lazy-loading only the images below the fold results in a
+complete reversal of the LCP regression and possibly even a slight &lt;em&gt;improvement&lt;/em&gt; over disabling LCP
+entirely. How could it be faster than not lazy-loading at all? One explanation is that by not
+loading below-the-fold images, there&#39;s less network contention with the LCP image, which enables it
+to load more quickly.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Series&lt;/th&gt;
+      &lt;th&gt;default&lt;/th&gt;
+      &lt;th&gt;disabled&lt;/th&gt;
+      &lt;th&gt;fix&lt;/th&gt;
+      &lt;th&gt;Difference from default&lt;/th&gt;
+      &lt;th&gt;Difference from disabled&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcQM_859caf47f070026732f4da3f70b8afe3-l:fix,210625_BiDcPT_2b89f12170b7180acf06cb35d3125d6a-l:disabled,210625_AiDc28_df202856ac4f0da4748c7a84a7a455a8-l:default&quot;&gt;twentytwentyone-archive-desktop&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;577&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;1173&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;577&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right; background-color: #a9dcc3;&quot;&gt;-51%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcV5_003a2ee20d6ee7323fca102afe3ef511-l:fix,210625_BiDcET_810fe76322f8a6003c38f0bc901e4025-l:disabled,210625_BiDc99_44b0562e9077eb01e1e18dceec69bca9-l:default&quot;&gt;twentytwentyone-archive-mobile&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;172&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;378&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;172&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right; background-color: #a3d9bf;&quot;&gt;-54%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_AiDcR8_47e248c3211951b7af3bc9a87f205cc7-l:fix,210625_AiDcXB_3d9db18bf36397fcdc5d3db207d0d9e7-l:disabled,210625_AiDc2G_ee59429fac9a388b2184758078610b61-l:default&quot;&gt;twentytwentyone-single-desktop&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;301&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;850&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;301&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right; background-color: #92d3b3;&quot;&gt;-65%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.webpagetest.org/video/compare.php?medianMetric=chromeUserTiming.LargestContentfulPaint&amp;highlightLCP=1&amp;thumbSize=200&amp;ival=100&amp;end=visual&amp;tests=210625_BiDcR1_c349d38d4c7151772f2678fa7767ff42-l:fix,210625_AiDcD9_502bb504fc87aebafc5f8c9aaa70faa5-l:disabled,210625_BiDcPS_de2a3e5a526e470287d850d1dbc96fb7-l:default&quot;&gt;twentytwentyone-single-mobile&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;114&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;378&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;114&lt;/td&gt;
+      &lt;td style=&quot;text-align: right;&quot;&gt;0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right; background-color: #89cfad;&quot;&gt;-70%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;caption&gt;Change in the number of image bytes (KB) by the proposed fix for native image lazy-loading on sample WordPress pages.&lt;/caption&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;In terms of image bytes, the fix has absolutely no change as compared to the default behavior. This
+is great because that was one of the strengths of the current approach.&lt;/p&gt;
+&lt;p&gt;There are some caveats with this fix. WordPress determines which images to lazy-load on the
+server-side, which means that it doesn&#39;t know anything about the user&#39;s viewport size or whether
+images will initially load within it. So the fix uses heuristics about the images&#39; relative location
+in the markup to guess whether it will be in the viewport. Specifically, if the image is the first
+featured image on the page or the first image in the main content, it&#39;s assumed to be above the fold
+(or close to it), and it will not be lazy-loaded. Page-level conditions like the number of words in
+the heading or the amount of paragraph text early in the main content may affect whether the image
+is within the viewport. There are also user-level conditions that may affect the accuracy of the
+heuristics, especially the viewport size and the usage of anchor links that change the scroll
+position of the page. For those reasons, it&#39;s important to acknowledge that the fix is only
+calibrated to provide good performance in the general case and fine-tuning may be needed to make
+these results applicable to all real-world scenarios.&lt;/p&gt;
+&lt;h2 id=&quot;rolling-it-out&quot;&gt;Rolling it out &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lcp-lazy-loading/#rolling-it-out&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Now that we&#39;ve identified a better way to lazy-load images, all of the image savings and faster LCP
+performance, how can we get sites to start using it? The highest priority change is to submit a
+patch to WordPress core to implement the experimental fix. We&#39;ll also be updating the guidance in
+the &lt;a href=&quot;https://web.dev/browser-level-lazy-loading-for-cmss/&quot;&gt;Browser-level lazy-loading for CMSs&lt;/a&gt; blog
+post to clarify the negative effects of above-the-fold lazy-loading and how CMSs can use heuristics
+to avoid it.&lt;/p&gt;
+&lt;p&gt;Since these best practices are applicable to all web developers, it may also be worth flagging
+lazy-loading antipatterns in tools like Lighthouse. Refer to the &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse/issues/12785&quot; rel=&quot;noopener&quot;&gt;feature
+request&lt;/a&gt; on GitHub if you&#39;re interested to
+follow along with progress on that audit. Until then, one thing developers could do to find
+instances of LCP elements being lazy-loaded is to add more detailed logging to their field data.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;webVitals&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getLCP&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;lcp&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; latestEntry &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; lcp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;entries&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;lcp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;entries&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;latestEntry&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;element&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getAttribute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;loading&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;lazy&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Warning: LCP element was lazy loaded&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; latestEntry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The JavaScript snippet above will evaluate the most recent LCP element and log a warning if it was
+lazy-loaded.&lt;/p&gt;
+&lt;p&gt;This also highlights a sharp edge of the lazy-loading technique and the potential for API
+improvements at the platform level. For example, there&#39;s an open issue in Chromium to
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=996963&quot; rel=&quot;noopener&quot;&gt;experiment&lt;/a&gt; with natively loading the
+first few images eagerly, similar to the fix, despite the &lt;code&gt;loading&lt;/code&gt; attribute.&lt;/p&gt;
+&lt;h2 id=&quot;wrapping-it-up&quot;&gt;Wrapping it up &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lcp-lazy-loading/#wrapping-it-up&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If your site uses native image lazy-loading, check how it&#39;s implemented and run A/B tests to better
+understand its performance costs. It may benefit from more eagerly loading images above the fold. If
+you have a WordPress site, there will hopefully be a patch landing in WordPress core soon. And if
+you&#39;re using another CMS, make sure they&#39;re aware of the potential performance issues described
+here.&lt;/p&gt;
+&lt;p&gt;Trying out relatively new web platform APIs can come with both risks and rewards—they&#39;re called
+cutting edge features for a reason. While we&#39;re starting to get a sense of the thorniness of native
+image lazy-loading, we&#39;re also seeing the upsides of how to use it to achieve better performance.&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;&lt;em&gt;Photo by &lt;a href=&quot;https://unsplash.com/@frankielopez?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&quot;&gt;Frankie Lopez&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/prickly-pear?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/small&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Rick Viscomi</name>
+    </author><author>
+      <name>Felix Arntz</name>
+    </author>
+  </entry>
+</feed>

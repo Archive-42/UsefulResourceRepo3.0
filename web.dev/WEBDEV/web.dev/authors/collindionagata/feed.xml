@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Collin Dion Agata on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Collin Dion Agata</name>
+  </author>
+  <link href="https://web.dev/authors/collindionagata/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ZpE2N6yjkaqQNcSiaxvR.jpeg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Our latest news, updates, and stories by Collin Dion Agata.</subtitle>
+  
+  
+  <entry>
+    <title>Blibli&#39;s PWA generates 10x more revenue per user than their previous mobile website</title>
+    <link href="https://web.dev/blibli/"/>
+    <updated>2021-06-15T19:59:43Z</updated>
+    <id>https://web.dev/blibli/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://www.blibli.com/&quot; rel=&quot;noopener&quot;&gt;Blibli&lt;/a&gt; is a well known e-commerce marketplace in
+Indonesia. The company had over 29 million average monthly website visits in
+2019. In a recent study, Blibli&#39;s web team found that their mobile web platform
+is a significant visitor and user acquisition platform, with 70% of web
+users landing on mobile and 30% of web users landing on desktop.&lt;/p&gt;
+&lt;p&gt;With that insight, Blibli embarked on a journey to develop a better web
+experience and improve conversions. As a result, they were able to achieve some
+exceptional results:&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;42&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Reduction in bounce rates&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;8&lt;sub class=&quot;w-stat__sub&quot;&gt;x&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Better mCVR in installed PWA compared to browser mobile web&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;2.5&lt;sub class=&quot;w-stat__sub&quot;&gt;x&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;More pages/sessions on installed PWA&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;highlighting-the-opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/blibli/#highlighting-the-opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Blibli identified the following areas of opportunities:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For Blibli, the mobile web platform was important for user
+acquisition with many users on mid- to low-tier devices.&lt;/li&gt;
+&lt;li&gt;Indonesia&#39;s internet economy was &lt;a href=&quot;https://storage.googleapis.com/gweb-economy-sea.appspot.com/assets/pdf/Indonesia-e-Conomy_SEA_2020_Country_Insights.pdf&quot; rel=&quot;noopener&quot;&gt;expanding rapidly beyond tier 1
+cities&lt;/a&gt;.
+Hence, PWA and fast pages were a good investment to support user needs like
+limited storage and slow networks.&lt;/li&gt;
+&lt;li&gt;50% of users that are coming to the Blibli web platform are returning users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-approach-they-used&quot;&gt;The approach they used &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/blibli/#the-approach-they-used&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The team took a staged strategy of short- to medium-term improvements on the
+mobile web platform. This included:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A performance optimized website including a UX revamped &lt;a href=&quot;https://www.blibli.com/&quot; rel=&quot;noopener&quot;&gt;home
+page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A lite version of the home page for new users with a
+&lt;a href=&quot;https://developers.google.com/web/fundamentals/primers/service-workers&quot; rel=&quot;noopener&quot;&gt;service worker&lt;/a&gt;
+to cache critical assets for subsequent navigation.&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&quot;https://web.dev/progressive-web-apps/&quot;&gt;Progressive Web App&lt;/a&gt; (PWA) for
+returning users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;user-flow&quot;&gt;User flow &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/blibli/#user-flow&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;New visitors are presented with a lightweight page which is three times faster
+when compared to the old home page.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A lightweight page that is three times faster than the old.&quot; decoding=&quot;async&quot; height=&quot;1422&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/bfL1ZGsRjv3QcbACnRGu.png?auto=format&amp;w=400&quot; srcset=&quot;https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/bfL1ZGsRjv3QcbACnRGu.png?w=400&amp;auto=format&amp;dpr=1&amp;q=75 1x, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/bfL1ZGsRjv3QcbACnRGu.png?w=400&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/bfL1ZGsRjv3QcbACnRGu.png?w=400&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/bfL1ZGsRjv3QcbACnRGu.png?w=400&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/bfL1ZGsRjv3QcbACnRGu.png?w=400&amp;auto=format&amp;dpr=5&amp;q=20 5x&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    A lightweight page that is three times faster than the old.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;On subsequent pages, Blibli prompts users to add the PWA shortcut
+to their home screen.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot; style=&quot;width:800px;&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/blibli/save-to-home-screen.webm&quot; type=&quot;video/webm&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/blibli/save-to-home-screen.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    The add to home screen prompt.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;If users lose the network connection, they are presented with an elegant offline
+fallback page.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;An elegent offline fallback page.&quot; decoding=&quot;async&quot; height=&quot;468&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/biDb6f1owQWxmRNXUauu.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    An elegent offline fallback page.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Blibli&#39;s lite page created a first impression that Blibli.com is fast and
+responsive. Moreover, the lite page streamlined the number of features by only
+focusing on those that deliver the value proposition of Blibli.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot; style=&quot;width:800px;&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/blibli/responsive-comparison.webm&quot; type=&quot;video/webm&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/blibli/responsive-comparison.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Comparison of loading times before and after streamlining.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Blibli&#39;s PWA is installable, giving it an app-like look and feel. It is also
+fast and reliable which was achieved using service worker caching and graceful
+offline fallback.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;The offline fallback&quot; decoding=&quot;async&quot; height=&quot;1778&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/sQ51XsLqKMgSQMCZjIN0B7hlBO02/ONCtI6MryOS5wCLPd3Ep.jpeg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    The offline fallback.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This comes as a delight for web users, a large proportion of whom use mid-tier
+devices. Since Blibli&#39;s PWA is less than 1MB in size (that&#39;s a whopping 24 times
+lighter than their Android app!), there is much less friction for users to
+install it. It also makes it easier for Blibli to retain users while providing
+them with a seamless app-like experience.&lt;/p&gt;
+&lt;h3 id=&quot;set-performance-budgets&quot;&gt;Set performance budgets &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/blibli/#set-performance-budgets&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Blibli made performance budgeting a performance standard within the tech
+development and management, where the standard was reviewed on a regular basis.
+It&#39;s set as the KPI of internal tech development, with the guidance
+of top management to ensure the best platform for all of our users.&lt;/p&gt;
+&lt;h2 id=&quot;overall-business-results&quot;&gt;Overall business results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/blibli/#overall-business-results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;3x reduction in page load times.&lt;/li&gt;
+&lt;li&gt;42% reduction in bounce rates.&lt;/li&gt;
+&lt;li&gt;8x Better mobile conversion rates in installed PWA compared to browser
+mobile web.&lt;/li&gt;
+&lt;li&gt;2.5x more pages/sessions on installed PWA.&lt;/li&gt;
+&lt;li&gt;10x more revenue per user compared to the previous mobile website.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;quot;Speed and PWA were a valuable investment for us to provide the best mobile
+experience and representing our mission, to deliver the best platform for our
+users&amp;quot;
+&lt;em&gt;—Collin Dion Agata, Lead Product Manager, Blibli&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Photo by &lt;a href=&quot;https://unsplash.com/@cristian1&quot; rel=&quot;noopener&quot;&gt;Cristian Escobar&lt;/a&gt; on Unsplash.&lt;/p&gt;
+</content>
+    <author>
+      <name>Collin Dion Agata</name>
+    </author><author>
+      <name>Swetha Gopalakrishnan</name>
+    </author>
+  </entry>
+</feed>
