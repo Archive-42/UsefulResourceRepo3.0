@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java Basics: Types | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="A types tell the compiler how to interpret data. It allows the compiler to catch a whole class of errors before the program starts executing." name="description">
+  <meta content="java, type, types, typesystem, type system, primitive, reference, object, byte, int, long, boolean, short, char, float, double, inheritance" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Types in Java</h2>
+      <ol class="nostyle">
+        <li class="current">Java Basics: Types</li>
+        <li>
+          <a href="primitive-types.html">Primitive Types</a>
+        </li>
+        <li>
+          <a href="primitives-vs-objects-references.html">Primitives vs Objects and References</a>
+        </li>
+        <li>
+          <a href="primitive-ranges.html">Ranges of Primitive Types</a>
+        </li>
+        <li>
+          <a href="wrapper-types.html">Wrapper Types</a>
+        </li>
+        <li>
+          <a href="autoboxing.html">Autoboxing and unboxing</a>
+        </li>
+        <li>
+          <a href="boxed-values-equality.html">Boxed values and equality</a>
+        </li>
+        <li>
+          <a href="byte-short-literals.html">No byte or short literals?</a>
+        </li>
+        <li>
+          <a href="byte-vs-byte.html">Byte (class) vs byte (primitive)</a>
+        </li>
+        <li>
+          <a href="short-vs-short.html">Short (class) vs short (primitive)</a>
+        </li>
+        <li>
+          <a href="integer-vs-int.html">Integer vs int</a>
+        </li>
+        <li>
+          <a href="long-vs-long.html">Long (class) vs long (primitive)</a>
+        </li>
+        <li>
+          <a href="float-vs-float.html">Float (class) vs float (primitive)</a>
+        </li>
+        <li>
+          <a href="double-vs-double.html">Double (class) vs double (primitive)</a>
+        </li>
+        <li>
+          <a href="character-vs-char.html">Character vs char</a>
+        </li>
+        <li>
+          <a href="boolean-vs-boolean.html">Boolean (class) vs boolean (primitive)</a>
+        </li>
+      </ol>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><b>See all Java articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Java Basics: Types</h1>
+      <p>A computer only knows about ones and zeros (<em>bits</em>). Still, it's able to tell you 1+1 equals <strong>2</strong>. How is that possible?</p>
+      <div class="codeblock centered-content" style="font-size: 90%; line-height: 1.5em;">
+        <code>11100010010011011001010011111010001010</code><br>
+        <code>10001100101001111111110111000101000110</code><br>
+        <code>10010010010001101110110101100110011100</code><br>
+        <code>10110110110010011101111000<span style="font-weight: bolder; color: red">2</span>01100110111</code><br>
+        <code>10001000101000100110111010011110110101</code>
+      </div>
+      <p>The answer is that it can put many bits together and <strong>interpret</strong> them as something else. <code>1100001</code> for example can be interpreted as a number in base 2: <code>97</code>. The curious part is that the same bits can just as well be interpreted as an ASCII character, in which case they represent the letter <code>a</code>!</p>
+      <p>So, if I have a variable containing <code>1100001</code>, what does it represent? The letter <code>a</code> or <code>97</code>?!</p>
+      <p>Here's where <strong>types</strong> come in. Each variable has a type associated with it, which specifies how its data should be interpreted.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Declaration of two variables: <code>i</code> and <code>c</code></p>
+        <pre><code><span class="keyword">int</span>  <span class="type">i</span> = <span class="num_lit">0b1100001</span>; <span class="comment">// interpret as an integer</span>
+<span class="keyword">char</span> <span class="type">c</span> = <span class="num_lit">0b1100001</span>; <span class="comment">// interpret as a character</span>
+
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<span class="type">i</span>); <span class="comment">// prints 97</span>
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(char)"><span class="method">println</span></a>(<span class="type">c</span>); <span class="comment">// prints 'a'</span>
+</code></pre>
+      </div>
+      <h2>Type Checking</h2>
+      <p>Since the computer knows how to interpret the data, it can check whether or not the program treats the data sensibly. For example, multiplying an integer with a boolean value (true/false) doesn't make sense. If you try to do so you get a <strong>type error</strong>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> A type error</p>
+        <pre><code><span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">5</span>;
+<span class="keyword">boolean</span> <span class="type">b</span> = <span class="keyword">true</span>;
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(char:A)"><span class="method">println</span></a>(<span class="type">i</span> * <span class="type">b</span>);
+
+<span class="comment">// Error: Operator '*' cannot be</span>
+<span class="comment">// applied to 'int', 'boolean'</span>
+</code></pre>
+      </div>
+      <p>Parts of the Java type system is quite complicated. Some type errors are in fact so complicated that even experienced programmers have trouble deciphering the meaning.</p>
+      <h2>Dynamic vs Static Typing</h2>
+      <p>Some programming languages (Python, JavaScript, PHP, …) lets you run code containing type errors, and doesn't complain unless the faulty instruction is actually executed. This is called <strong>dynamic typing</strong>. Others, like Java (and C, C++, Scala, …), refuses to even start executing code that contain a type error. This is called <strong>static typing</strong>.</p>
+      <div class="article-box">
+        <div class="side-by-side">
+          <div>
+            <strong>Example:</strong> Valid Python code
+            <pre><code>print(<span class="text_lit">"Begin"</span>)
+<span class="keyword">if</span> False:
+    print(<span class="text_lit">"2"</span> / 2)
+print(<span class="text_lit">"End"</span>)</code></pre>
+          </div>
+          <div>
+            <strong>Example:</strong> Invalid Java code
+            <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Begin"</span>);
+<span class="keyword">if</span> (<span class="keyword">false</span>)
+    <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(char:A)"><span class="method">println</span></a>(<span class="text_lit">"2"</span> / <span class="num_lit">2</span>);
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"End"</span>);
+</code></pre>
+          </div>
+        </div>
+      </div>
+      <p>The static approach trades some flexibility for robustness: It's more restrictive in terms of what's acceptable to write, but a program that passes compilation is guaranteed to be free of a whole class of common errors.</p>
+      <h2>Weak vs Strong Typing</h2>
+      <p>In some programming languages (like JavaScript or Perl) the type of a value is determined by how it's used. If you for instance do <code>if (x) …</code>, then <code>x</code> is treated as a boolean, but if you do <code>y = x * 5</code>, then <code>x</code> is treated as a number. This is called <strong>weak typing</strong>.</p>
+      <p>In other languages, like Java, it's the other way around: The type determines what you can do with a value. If, for example, the type of <code>x</code> is a number, then <code>if (x) …</code> will result in a compilation error. This is called <strong>strong typing</strong>.</p>
+      <h2>Primitive vs Reference Types</h2>
+      <p>Java provides 8 built-in <strong>primitive types</strong> and lets you define your own custom <strong>reference types</strong>.</p>
+      <h3>Primitive Types</h3>
+      <p>The primitive types are:</p>
+      <ul>
+        <li>Integers
+          <ul>
+            <li><code>byte</code> (−128–127)</li>
+            <li><code>short</code> (±32 thousand)</li>
+            <li><code>int</code> (±2 billion)</li>
+            <li><code>long</code> (±9 quintillion)</li>
+          </ul>
+        </li>
+        <li>Reals
+          <ul>
+            <li><code>float</code> (~6 digits precision)</li>
+            <li><code>double</code> (~15 digits precision)</li>
+          </ul>
+        </li>
+        <li><code>char</code> (unicode characters: <code>a</code> <code>5</code>, <code>ξ</code>, <code>♪</code>, …)</li>
+        <li><code>boolean</code> (true/false)</li>
+      </ul>
+      <p>Java is able to convert between some of these types automatically, but apart from that, they have nothing in common.</p>
+      <p>Further details: <a href="primitive-types.html">Java: Primitive Types</a></p>
+      <h3>Reference Types</h3>
+      <p>Sometimes simple numbers and characters aren't enough. You may want your data to represent products, people, buttons, etc. For these situations we have <strong>classes</strong>. Classes can be thought of as blueprints for <strong>objects</strong>. Classes and objects are the foundation of what is called Object Oriented Programming and is a whole topic of it's own. In this article we'll just cover the basics and refer to other articles for details.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Here's a <code>Person</code> class with variables, or <em>fields</em>, for name and age</p>
+        <pre><code><span class="keyword">class</span> <span class="type">Person</span> {
+    <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="field">name</span>;
+    <span class="keyword">int</span> <span class="field">age</span>;
+}
+</code></pre>
+        <p>This class can be used as follows:</p>
+        <pre><code><span class="type">Person</span> <span class="type">me</span> = <span class="keyword">new</span> <span class="type">Person</span>();
+<span class="type">me</span>.<span class="field">name</span> = <span class="text_lit">"Andreas"</span>;
+<span class="type">me</span>.<span class="field">age</span> = <span class="num_lit">34</span>;
+</code></pre>
+        <p>In the above snippet the type of the <code>me</code> variable is <code>Person</code> which means it contains references to <code>Person</code> objects. Doing something like <code>me = new Banana();</code> would give a type error.</p>
+      </div>
+      <p>What's important in regards to Javas type system is the fact that all classes are arranged in a <strong>class hierarchy</strong>. Classes like <code>Banana</code> or <code>Apple</code> could for example be subclasses of <code>Fruit</code>. The <code>Fruit</code> class could in turn be a subclass of something like <code>Edible</code>.</p>
+      <div class="codeblock" style="text-align: center">
+        <svg height="230" width="420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <line id="v-line" stroke="black" stroke-width="2" x1="0" x2="0" y1="0" y2="30"></line>
+          <g id="v-line-dot">
+            <line stroke="black" stroke-width="2" x1="0" x2="0" y1="0" y2="12"></line>
+            <line stroke="black" stroke-dasharray="2,2" stroke-width="2" x1="0" x2="0" y1="12" y2="30"></line>
+          </g>
+        </defs>
+        <rect fill="none" height="30" stroke="black" stroke-width="2" width="100" x="140" y="10"></rect>
+        <text alignment-baseline="central" height="50" text-anchor="middle" width="100" x="190" y="30">
+          Object
+        </text>
+        <use href="#v-line" x="190" y="40"></use>
+        <line stroke="black" stroke-width="2" x1="10" x2="410" y1="70" y2="70"></line>
+        <use href="#v-line-dot" x="10" y="70"></use>
+        <use href="#v-line-dot" x="90" y="70"></use>
+        <use href="#v-line" x="170" y="70"></use>
+        <use href="#v-line-dot" x="250" y="70"></use>
+        <use href="#v-line-dot" x="330" y="70"></use>
+        <use href="#v-line-dot" x="410" y="70"></use>
+        <rect fill="none" height="30" stroke="black" stroke-width="2" width="100" x="120" y="100"></rect>
+        <text alignment-baseline="central" height="50" text-anchor="middle" width="100" x="170" y="120">
+          Edible
+        </text>
+        <use href="#v-line" x="170" y="130"></use>
+        <line stroke="black" stroke-width="2" x1="70" x2="390" y1="160" y2="160"></line>
+        <use href="#v-line" x="70" y="160"></use>
+        <rect fill="none" height="30" stroke="black" stroke-width="2" width="100" x="20" y="190"></rect>
+        <text alignment-baseline="central" height="50" text-anchor="middle" width="100" x="70" y="210">
+          Banana
+        </text>
+        <use href="#v-line" x="190" y="160"></use>
+        <rect fill="none" height="30" stroke="black" stroke-width="2" width="100" x="140" y="190"></rect>
+        <text alignment-baseline="central" height="50" text-anchor="middle" width="100" x="190" y="210">
+          Apple
+        </text>
+        <use href="#v-line-dot" x="290" y="160"></use>
+        <use href="#v-line-dot" x="390" y="160"></use></svg>
+      </div>
+      <p>At the top of this hierarchy we have a class called <code>Object</code> which has special status in the language. It is for example what you implicitly subclass if you don't explicitly specify anything else. Unlike C++, the hierarchy forms a proper tree; Each class has precisely one "parent" class.</p>
+      <p>If you have a variable of type <code>Fruit</code>, you could assign a <code>Banana</code>, or an <code>Apple</code> reference to it.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong></p>
+        <pre><code><span class="type">Fruit</span> <span class="type">toEat</span> = <span class="keyword">new</span> <span class="type">Banana</span>();
+
+<span class="comment">// Changed my mind</span>
+<span class="type">toEat</span> = <span class="keyword">new</span> <span class="type">Apple</span>();
+</code></pre>
+      </div>
+      <p>It would however be an error to try to assign a <code>Car</code> reference to the <code>toEat</code> variable, since a <code>Car</code> is not a <code>Fruit</code>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong></p>
+        <pre><code>Fruit toEat = <span class="badCode"><span class="keyword">new</span> Car()</span>;
+<span class="comment">// error: incompatible types: Car cannot be converted to Fruit</span></code></pre>
+      </div>
+      <p>Finally, a slighly more intricate example:</p>
+      <div class="article-box">
+        <p><strong>Example:</strong></p>
+        <pre><code>Edible e = <span class="keyword">new</span> Banana();
+Fruit toEat = <span class="badCode">e</span>;
+<span class="comment">// error: incompatible types: Edible cannot be converted to Fruit</span></code></pre>
+      </div>
+      <p>Looking at the snippet as a whole, it's clear that the second assignment is safe. The type checker however has a quite narrow field of view, and looks at each assignment in isolation. In the last assignment it refuses to let us assign an arbitrary <code>Edible</code> to a <code>Fruit</code>. It basically want's to play it safe and make sure we don't assign something like a <code>Cake</code> reference to a <code>Fruit</code> variable.</p>
+      <p>What's different here compared to the example where we tried to assign a <code>Car</code> to a <code>Fruit</code> is that an <code>Edible</code> <em>could conceivably</em> contain a valid <code>Fruit</code> reference. While the type checker won't allow it by default, you can force it through with a <strong>cast</strong> as explained in the next section.</p>
+      <p><br>
+      <strong>Further Reading:</strong> <a href="primitives-vs-objects-references.html">Java: Primitives vs Objects and References</a>.</p>
+      <h2>Conversions</h2>
+      <p>Java allows you to convert between types that are similar. There are different ways such conversions can be expressed.</p>
+      <h3>Explicit Casts</h3>
+      <p>You can tell the compiler to reinterpret the data by doing an explicit cast. The syntax is <code>(TargetType) expression</code>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Reinterpret an <code>int</code> as a <code>char</code></p>
+        <pre><code><span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">97</span>;
+<span class="keyword">char</span> <span class="type">c</span> = (<span class="keyword">char</span>) <span class="type">i</span>; <span class="comment">// cast from int to char</span>
+<span class="comment">// c == 'a'</span>
+</code></pre>
+      </div>
+      <p>Perhaps more common is to use casts with reference types. As mentioned earlier, it might for example make sense to force an <code>Edible</code> into a <code>Fruit</code>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Downcast</p>
+        <pre><code>Edible e = …
+<span class="keyword">if</span> (e <span class="keyword">instanceof</span> Fruit) {
+    Fruit fruit = (Fruit) e;
+    <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html#println-java.lang.Object-"><span class="method">println</span></a>(fruit.getNumSeeds());
+}</code></pre>
+      </div>
+      <p>If the cast is illegal, i.e. if you try to cast a <code>Cake</code> into a <code>Fruit</code> you would get a <code>ClassCastException</code>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Illegal cast (runtime)</p>
+        <pre><code><span class="type">Edible</span> <span class="type">e</span> = <span class="keyword">new</span> <span class="type">Cake</span>();
+<span class="type">Fruit</span> <span class="type">f</span> = (<span class="type">Fruit</span>) <span class="type">e</span>;
+</code></pre>
+        <p>Result:</p>
+        <pre style="font-size: 80%">Exception in thread "main" java.lang.ClassCastException: Cake cannot be cast to Fruit</pre>
+      </div>
+      <p>If the <code>e</code> variable was of type <code>Integer</code> the compiler would even reject the program, since it's <em>guaranteed</em> that it would give an error when executed.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Illegal cast (compile time)</p>
+        <pre><code>Integer e = <span class="num_lit">5</span>;
+Fruit f = (Fruit) e;
+<span class="comment">// incompatible types: Integer cannot be converted to Fruit</span></code></pre>
+      </div>
+      <h3>Implicit Widening</h3>
+      <p>A <code>long</code> can store all <code>int</code> values and then some. It has a "wider" range. Therefore it's always safe to assign an <code>int</code> value to a <code>long</code> variable, thus the compiler will do some conversion implicitly for you.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> <span markdown="1">Widening from <code>int</code> to <code>long</code></span></p>
+        <pre><code><span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">1147</span>;
+<span class="keyword">long</span> <span class="type">l</span> = <span class="type">i</span>; <span class="comment">// no explicit cast needed</span>
+</code></pre>
+      </div>
+      <p>Similarly, a <code>byte</code> can be widened to a <code>short</code> or an <code>int</code>, a <code>float</code> to a <code>double</code> and so on.</p>
+      <h3>Narrowing</h3>
+      <p>In cases where it's clearly safe, the compiler will implicitly perform the opposite conversion as well. A numeric literal such as <code>7</code> is for example strictly speaking an <code>int</code>. Since it fits in a <code>byte</code> the compiler converts it for you.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> <span markdown="1">Narrowing from <code>int</code> to <code>byte</code></span></p>
+        <pre><code><span class="keyword">byte</span> <span class="type">b</span> = <span class="num_lit">7</span>; <span class="comment">// no explicit cast needed</span>
+</code></pre>
+      </div>
+      <h3>Boxing</h3>
+      <p>Each primitive type (<code>byte</code>, <code>int</code>, <code>double</code>, …) has a corresponding wrapper class called the boxed type (<code>Byte</code>, <code>Integer</code>, <code>Double</code>, …). Java can automatically convert between the two forms. This is called <strong>autoboxing</strong> and <strong>unboxing</strong></p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Autoboxing / unboxing</p>
+        <pre><code><span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">7</span>;
+
+<span class="comment">// Automatically box an int into an Integer</span>
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">j</span> = <span class="type">i</span>;
+
+<span class="comment">// Unbox j, perform addition, box result</span>
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">k</span> = <span class="type">j</span> + <span class="num_lit">5</span>;
+</code></pre>
+      </div>
+      <p>Continue reading here:</p>
+      <p><span class="pointer"><a href="autoboxing.html">Java: Autoboxing / unboxing</a></span></p>
+      <h3>Promotion</h3>
+      <p>Promotion is a collective name for widening and unboxing conversions. For example, <code>+</code> is defined for <code>int</code>, <code>float</code> and <code>double</code> operands. If you add two <code>byte</code> variables together, they are first <strong>promoted</strong> to <code>int</code> values.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Promotion of variables:</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Byte.html"><span class="type">Byte</span></a> <span class="type">b1</span> = <span class="num_lit">7</span>;
+<span class="keyword">byte</span> <span class="type">b2</span> = <span class="num_lit">8</span>;
+<span class="keyword">int</span> <span class="type">i</span> = <span class="type">b1</span> + <span class="type">b2</span>; <span class="comment">// i == 15</span>
+
+<span class="keyword">short</span> <span class="type">s1</span> = <span class="num_lit">5</span>;
+<span class="keyword">short</span> <span class="type">s2</span> = <span class="num_lit">7</span>;
+<span class="keyword">short</span> <span class="type">s3</span> = <span class="type">s1</span> + <span class="type">s2</span>; <span class="comment">// error: incompatible types: possible</span>
+                    <span class="comment">// lossy conversion from int to short</span>
+</code></pre>
+      </div>
+      <h2>Summary</h2>
+      <ul>
+        <li>Types give meaning to data</li>
+        <li>All variables (and expressions) have a type</li>
+        <li>The entire program must be free of type errors for it to be compiled and executed</li>
+        <li>There are 8 different primitive types representing numbers, characters and booleans</li>
+        <li>Classes are arranged in a hierrachy</li>
+        <li>Sometimes you're allowed to convert the type of the data from one type to another</li>
+      </ul>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/types.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

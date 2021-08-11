@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Immutable Setters: Naming Conventions | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="A setter for an immutable object is something different from a setter for a mutable object. For this reason they are typically named differently. This article lists the different conventions, with examples from the Java world." name="description">
+  <meta content="immutable, setter, naming, convention, style, examples, java" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="java/functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Immutable Setters: Naming Conventions</h1>
+      <p>A “setter” for an immutable object is something different from a setter for a mutable object. For this reason they are typically named differently.</p>
+      <p>This article lists the different conventions, with examples from the Java world.</p>
+      <h2><code>withX(…)</code></h2>
+      <p>This is the de facto standard naming convention for immutable setters. This is for example the default name for setters generated by the <a href="https://immutables.github.io/">Immutables</a> framework. Here's an example:</p>
+      <pre><code>Foo newFoo = foo.withX(<span class="num_lit">1047</span>);</code></pre>
+      <p>There is a <code>@Value.Style</code> option to change this pattern, but the option itself is called <code>with="…"</code>, which emphasizes what the default convention is.</p>
+      <p>Being the most widespread convention, it's easy to find examples of this. <a href="https://github.com/google/guava">Guava</a> and the Java <a href="https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html">time package</a> being two.</p>
+      <h2>Just <code>x(…)</code></h2>
+      <p>Another approach is to not have a prefix at all. You see this in for example builders generated by the <a href="https://immutables.github.io/">Immutables</a> framework:</p>
+      <pre><code>Foo foo = ImmutableFoo.builder()
+                      .x(<span class="num_lit">1047</span>)
+                      .y(<span class="text_lit">"Hello World"</span>)
+                      .build();</code></pre>
+      <p>If you use this approach directly on the immutable class (that is, no builder involved) you'd typically have it as an overload to the getter:</p>
+      <pre><code>Foo newFoo = foo.x(<span class="num_lit">5</span>);  <span class="comment">// setter - one argument</span>
+<span class="keyword">int</span> x = newFoo.x();     <span class="comment">// getter - no arguments</span></code></pre>
+      <p>This convention is used in for example the <a href="https://sparkjava.com/">Java Spark</a> framework.</p>
+      <h2><code>setX(…)</code></h2>
+      <p>Some APIs use the same naming convention as for setters in mutable classes. This has the obvious drawback that it can be surprising when you're new to a code base. Working with <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html"><code>BigInteger</code></a> and writing…</p>
+      <pre><code><span class="type">bigInt</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigInteger.html#setBit(int)"><span class="method">setBit</span></a>(<span class="num_lit">2</span>);</code></pre>
+      <p>…would for example be a mistake, since the returned object is discarded. With this naming pattern you have to get used to writing</p>
+      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigInteger.html"><span class="type">BigInteger</span></a> <span class="type">newBigInt</span> = <span class="type">bigInt</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigInteger.html#setBit(int)"><span class="method">setBit</span></a>(<span class="num_lit">2</span>);</code></pre>
+      <h2><code>deriveX(…)</code></h2>
+      <p>To highlight the fact that the new value is <em>derived</em> from the existing object, you could use <code>deriveX(…)</code>. The immutable <a href="https://docs.oracle.com/javase/9/docs/api/java/awt/Font.html"><code>Font</code></a> class in the Java API follows this pattern. If you want to create a new font with, for example, a specific size you use</p>
+      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Font.html"><span class="type">Font</span></a> <span class="type">newFont</span> = <span class="type">font</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Font.html#deriveFont(float)"><span class="method">deriveFont</span></a>(<span class="type">newSize</span>);</code></pre>
+      <p>The <code>Font</code> class has been around since the beginning of time. This convention is not very common as of today.</p>
+      <h2>Immutable object being an operand</h2>
+      <p>When the immutable object is itself an operand to the transformation it's not really a setter in the traditional sense, and there's no need to have a prefix for the method. For example…</p>
+      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html"><span class="type">BigDecimal</span></a> <span class="type">newBigDec</span> = <span class="type">bigDec</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html#multiply(java.math.BigDecimal)"><span class="method">multiply</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html"><span class="type">BigDecimal</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html#TEN"><span class="static_final_field">TEN</span></a>);</code></pre>
+      <p>…has the same signature as a setter, but <code>multiply</code> is clearly a better method name than any other alternative.</p>
+      <p>Same with <code>String.substring</code>, <code>Path.resolve</code>, etc.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="immutable-setters-naming-conventions.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

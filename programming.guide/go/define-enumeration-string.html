@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: Enumeration (enum) with string representation | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="How to declare enums and give them a string representation in Go." name="description">
+  <meta content="go, golang, enum, enumeration, iota" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Further reading</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="iota.html">iota</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: Enumeration (enum) with string representation</h1>
+      <p>A group of constants enumerated with <code>iota</code> might do the job:</p>
+      <pre><code>const (
+        Sunday    int = iota // Sunday == 0
+        Monday               // Monday == 1
+        Tuesday              // Tuesday == 2
+        Wednesday            // …
+        Thursday
+        Friday
+        Saturday
+)
+</code></pre>
+      <p><code>iota</code> represents successive integer constants 0, 1, 2,…; it resets to 0 whenever the word <code>const</code> appears in the source code and increments after each const specification.</p>
+      <p>Above, we also rely on the fact that expressions are implicitly repeated in a parenthesized const declaration—this indicates a repetition of the preceding expression and its type.</p>
+      <p>You could also introduce a new type…</p>
+      <pre><code>type Suite int
+
+const (
+        Spades Suite = iota
+        Hearts
+        Diamonds
+        Clubs
+)</code></pre>
+      <p>…and give it a <code>String</code> function:</p>
+      <pre><code>func (s Suite) String() string {
+        return [...]string{"Spades", "Hearts", "Diamonds", "Clubs"}[s]
+}
+</code></pre>
+      <p>Here is the new type in action:</p>
+      <pre><code>var s Suite = Hearts
+fmt.Print(s)
+switch s {
+case Spades:
+        fmt.Println(" are best.")
+case Hearts:
+        fmt.Println(" are second best.")
+default:
+        fmt.Println(" aren't very good.")
+}
+</code></pre>
+      <pre><code>Hearts are second best.
+</code></pre>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/define-enumeration-string.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

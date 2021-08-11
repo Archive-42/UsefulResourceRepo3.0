@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Why large prime numbers are used in hash tables | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="To achieve a good spread of the keys, hash functions must reach the full address space of the hash table. To avoid collisions, the hash value should not have unnecessary factors." name="description">
+  <meta content="hash table, prime number, hash function, spread, prime, algorithm, hash map, hash" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Hash Tables</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="hash-tables.html">Hash Tables</a>
+        </li>
+        <li>
+          <a href="hash-tables-complexity.html">Complexity</a>
+        </li>
+        <li>
+          <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>
+        </li>
+        <li>
+          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-vs-closed-addressing.html">Open vs Closed Addressing</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-addressing.html">Open Addressing</a>
+        </li>
+        <li>
+          <a href="coalesced-hashing.html">Coalesced Hashing</a>
+        </li>
+        <li>
+          <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+        </li>
+        <li>
+          <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
+        </li>
+        <li>
+          <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
+        </li>
+        <li>
+          <a href="2-choice-hashing.html">2-Choice Hashing</a>
+        </li>
+        <li>
+          <a href="2-left-hashing.html">2-Left Hashing</a>
+        </li>
+        <li>
+          <a href="linked-hash-table.html">Linked Hash Table</a>
+        </li>
+        <li class="current">Why large prime numbers are used in hash tables</li>
+      </ol>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Why large prime numbers are used in hash tables</h1>
+      <p>Hash tables store objects in buckets. Which bucket an object ends up in depends on the hash value for the object.</p>
+      <p>To transform a hash value to a valid bucket index you typically just compute modulo <code>numBuckets</code> where <code>numBuckets</code> represents the number of buckets in the hash table.</p>
+      <p>Hash tables perform best when objects are <strong>spread evenly</strong> among the buckets. A hash function should therefore strive for this goal.</p>
+      <h2>Large hash values</h2>
+      <p>A hash function that only returns small values, say between 0 and 10, does not achieve a good spread if <code>numBuckets</code> becomes greater than 10.</p>
+      <p>To maintain a good spread when there's a large number of buckets, hash functions typically scale up the values by multiplying with a large prime number.</p>
+      <h2>Why prime numbers?</h2>
+      <p>If we scaled up the values by a composite number (non-prime), say 1000, there would be many values for <code>numBuckets</code> where the scale would be "cancelled out" in the mod operation. 1000 % <code>numBuckets</code> = 0 for <code>numBuckets</code> = 2, 4, 5, 8, 10, … In other words, similar objects would get similar bucket indexes. This reduces the spread and makes for a poor hash function.</p>
+      <p>By choosing a large prime number, we avoid this problem, since a prime number is not divisible by <code>numBuckets</code> unless <code>numBuckets</code> happens to be a multiple of that particular prime number.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="prime-numbers-in-hash-tables.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

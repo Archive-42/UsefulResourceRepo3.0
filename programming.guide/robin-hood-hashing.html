@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Robin Hood Hashing | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="Robin Hood is an approach for implementing a hash table, based on open addressing, in which all keys are stored close to the slot they originally hash to. This is achieved by shifting around existing keys when inserting new keys." name="description">
+  <meta content="hash table, robin hood hashing, open addressing, closed hashing, probe sequence length, psl, explanation, example, probe sequence, complexity, collision resolution, collision resolution strategy" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+  <style>
+        /* <![CDATA[ */
+            .variable {
+        font-style: italic;
+    }
+    #rh-insert * {
+        animation-duration: 20s;
+    }
+    #rh-insert text {
+        text-anchor: middle;
+        dominant-baseline: central;
+    }
+    @keyframes insert-lbl {
+        from, 3% { opacity: 1; }
+        4%, to { opacity: 0; }
+    }
+    @keyframes key-76-y {
+        from, 4% { transform: translateY(0px); }
+        7% { transform: translateY(130px); }
+        23% { transform: translateY(130px); }
+        26% { transform: translateY(175px); }
+        40% { transform: translateY(175px); }
+        43% { transform: translateY(220px); }
+        57% { transform: translateY(220px); }
+        58.5% { transform: translateY(200px); }
+        60%, to { transform: translateY(220px); }
+    }
+    @keyframes key-76-x {
+        from, 5% { transform: translateX(-80px); }
+        8% { transform: translateX(-50px); }
+        23% { transform: translateX(-50px); }
+        24.5% { transform: translateX(-60px); }
+        26% { transform: translateX(-50px); }
+        40% { transform: translateX(-50px); }
+        41.5% { transform: translateX(-60px); }
+        43% { transform: translateX(-50px); }
+        57% { transform: translateX(-50px); }
+        60%, to { transform: translateX(0px); }
+    }
+    @keyframes psl-76-0 {
+        from, 8% { opacity: 0; }
+        9% { opacity: 1; }
+        11%, 12%, 13%, 14% { opacity: 1; }
+        11.5%, 12.5%, 13.5% { opacity: 0; }
+        22% { opacity: 1 }
+        23%, to { opacity: 0 }
+    }
+    @keyframes psl-17-0 {
+        11%, 12%, 13%, 14% { opacity: 1; }
+        11.5%, 12.5%, 13.5% { opacity: 0; }
+    }
+    @keyframes slot-2-lbl {
+        from, 15% { opacity: 0 }
+        16% { opacity: 1 }
+        22% { opacity: 1 }
+        23% { opacity: 0 }
+        to { opacity: 0 }
+    }
+    @keyframes psl-76-1 {
+        from, 26% { opacity: 0; }
+        27% { opacity: 1; }
+        29%, 30%, 31%, 32% { opacity: 1; }
+        29.5%, 30.5%, 31.5% { opacity: 0; }
+        40% { opacity: 1 }
+        41%, to { opacity: 0 }
+    }
+    @keyframes psl-76-2 {
+        from, 43% { opacity: 0; }
+        44% { opacity: 1; }
+        46%, 47%, 48%, 49% { opacity: 1; }
+        46.5%, 47.5%, 48.5% { opacity: 0; }
+        57%, to { opacity: 1 }
+    }
+    @keyframes psl-31-0 {
+        29%, 30%, 31%, 32% { opacity: 1; }
+        29.5%, 30.5%, 31.5% { opacity: 0; }
+    }
+    @keyframes slot-3-lbl {
+        from, 33%, 41%, to { opacity: 0 }
+        34%, 40% { opacity: 1 }
+    }
+    @keyframes slot-4-lbl {
+        from, 50%, 58%, to { opacity: 0 }
+        51%, 57% { opacity: 1 }
+    }
+    @keyframes slot-5-lbl {
+        from, 72%, 80%, to { opacity: 0 }
+        73%, 79% { opacity: 1 }
+    }
+    @keyframes slot-6-lbl {
+        from, 84%, 92%, to { opacity: 0 }
+        85%, 91% { opacity: 1 }
+    }
+    @keyframes key-10-y {
+        from, 57% { transform: translateY(0px); }
+        58.5% { transform: translateY(20px); }
+        60% { transform: translateY(0px); }
+        60% { transform: translateY(0px); }
+        62% { transform: translateY(0px); }
+        65% { transform: translateY(45px); }
+        79% { transform: translateY(45px); }
+        82% { transform: translateY(90px); }
+        to { transform: translateY(90px); }
+    }
+    @keyframes key-10-x {
+        from, 57% { transform: translateX(0px); }
+        60% { transform: translateX(-50px); }
+        60% { transform: translateX(-50px) }
+        62% { transform: translateX(-50px); }
+        63.5% { transform: translateX(-60px); }
+        65% { transform: translateX(-50px); }
+        79% { transform: translateX(-50px); }
+        80.5% { transform: translateX(-60px); }
+        82% { transform: translateX(-50px); }
+        79%, 90% { transform: translateX(-50px) }
+        93%, to { transform: translateX(0px) }
+    }
+    @keyframes psl-10-0 {
+        46%, 47%, 48%, 49% { opacity: 1; }
+        46.5%, 47.5%, 48.5% { opacity: 0; }
+        62% { opacity: 1 }
+        63%, to { opacity: 0 }
+    }
+    @keyframes psl-10-1 {
+        from, 64% { opacity: 0; }
+        65% { opacity: 1; }
+        68%, 69%, 70%, 71% { opacity: 1; }
+        68.5%, 69.5%, 70.5% { opacity: 0; }
+        79% { opacity: 1 }
+        80%, to { opacity: 0 }
+    }
+    @keyframes psl-28-0 {
+        68%, 69%, 70%, 71% { opacity: 1; }
+        68.5%, 69.5%, 70.5% { opacity: 0; }
+    }
+    @keyframes psl-10-2 {
+        from, 81% { opacity: 0; }
+        82%, to { opacity: 1; }
+    }
+    @keyframes last-rh-cell {
+        from, 91.5% { opacity: 0 }
+        93%, to { opacity: 1 }
+    }
+    @keyframes to-remove-lbl {
+        from, 10% { opacity: 1 }
+        11%, to { opacity: 0 }
+    }
+    @keyframes key-15-x {
+        from, 20% { opacity: 1 }
+        21%, to { opacity: 0 }
+    }
+    @keyframes lbl-remove-0 {
+        from, 12% { opacity: 0 }
+        13%, 20% { opacity: 1 }
+        21%, to { opacity: 0 }
+    }
+    @keyframes psl-33-0 {
+        25%, 26%, 27%, 28% { opacity: 1; }
+        25.5%, 26.5%, 27.5% { opacity: 0; }
+        38% { opacity: 1 }
+        39%, to { opacity: 0 }
+    }
+    @keyframes psl-33--1 {
+        from, 40% { opacity: 0 }
+        41%, to { opacity: 1 }
+    }
+    @keyframes key-33-y {
+        from, 38% { transform: translateY(0px); }
+        41%, to { transform: translateY(-45px); }
+    }
+    @keyframes lbl-remove-1 {
+        from, 25% { opacity: 0 }
+        26%, 36% { opacity: 1 }
+        37%, to { opacity: 0 }
+    }
+    @keyframes psl-19-0 {
+        42%, 43%, 44%, 45% { opacity: 1; }
+        42.5%, 43.5%, 44.5% { opacity: 0; }
+        55% { opacity: 1 }
+        56%, to { opacity: 0 }
+    }
+    @keyframes psl-19--1 {
+        from, 57% { opacity: 0 }
+        58%, to { opacity: 1 }
+    }
+    @keyframes key-19-y {
+        from, 55% { transform: translateY(0px); }
+        58%, to { transform: translateY(-45px); }
+    }
+    @keyframes lbl-remove-2 {
+        from, 42% { opacity: 0 }
+        43%, 53% { opacity: 1 }
+        54%, to { opacity: 0 }
+    }
+    @keyframes psl-92-0 {
+        59%, 60%, 61%, 62% { opacity: 1; }
+        59.5%, 60.5%, 61.5% { opacity: 0; }
+    }
+    @keyframes lbl-remove-3 {
+        from, 59% { opacity: 0 }
+        60%, 75% { opacity: 1 }
+        76%, to { opacity: 0 }
+    }
+    #rh-remove * {
+        animation-duration: 16s;
+    }
+    #rh-remove text {
+        text-anchor: middle;
+        dominant-baseline: central;
+    }
+    @keyframes to-remove-lbl {
+        from, 12.500% { opacity: 1 }
+        13.750%, to { opacity: 0 }
+    }
+    @keyframes key-15-x {
+        from, 25.000% { opacity: 1 }
+        26.250%, to { opacity: 0 }
+    }
+    @keyframes lbl-remove-0 {
+        from, 15.000% { opacity: 0 }
+        16.250%, 25.000% { opacity: 1 }
+        26.250%, to { opacity: 0 }
+    }
+    @keyframes psl-33-0 {
+        31.250%, 32.500%, 33.750%, 35.000% { opacity: 1; }
+        31.875%, 33.125%, 34.375% { opacity: 0; }
+        47.500% { opacity: 1 }
+        48.750%, to { opacity: 0 }
+    }
+    @keyframes psl-33--1 {
+        from, 50.000% { opacity: 0 }
+        51.250%, to { opacity: 1 }
+    }
+    @keyframes key-33-y {
+        from, 47.500% { transform: translateY(0px); }
+        51.250%, to { transform: translateY(-45px); }
+    }
+    @keyframes lbl-remove-1 {
+        from, 31.250% { opacity: 0 }
+        32.500%, 45.000% { opacity: 1 }
+        46.250%, to { opacity: 0 }
+    }
+    @keyframes psl-19-0 {
+        52.500%, 53.750%, 55.000%, 56.250% { opacity: 1; }
+        53.125%, 54.375%, 55.625% { opacity: 0; }
+        68.750% { opacity: 1 }
+        70.000%, to { opacity: 0 }
+    }
+    @keyframes psl-19--1 {
+        from, 71.250% { opacity: 0 }
+        72.500%, to { opacity: 1 }
+    }
+    @keyframes key-19-y {
+        from, 68.750% { transform: translateY(0px); }
+        72.500%, to { transform: translateY(-45px); }
+    }
+    @keyframes lbl-remove-2 {
+        from, 52.500% { opacity: 0 }
+        53.750%, 66.250% { opacity: 1 }
+        67.500%, to { opacity: 0 }
+    }
+    @keyframes psl-92-0 {
+        73.750%, 75.000%, 76.250%, 77.500% { opacity: 1; }
+        74.375%, 75.625%, 76.875% { opacity: 0; }
+    }
+    @keyframes lbl-remove-3 {
+        from, 73.750% { opacity: 0 }
+        75.000%, 91.250% { opacity: 1 }
+        92.500%, 100.000%, to { opacity: 0 }
+    }
+
+        /* ]]> */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Hash Tables</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="hash-tables.html">Hash Tables</a>
+        </li>
+        <li>
+          <a href="hash-tables-complexity.html">Complexity</a>
+        </li>
+        <li>
+          <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>
+        </li>
+        <li>
+          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-vs-closed-addressing.html">Open vs Closed Addressing</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-addressing.html">Open Addressing</a>
+        </li>
+        <li>
+          <a href="coalesced-hashing.html">Coalesced Hashing</a>
+        </li>
+        <li>
+          <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+        </li>
+        <li class="current">Robin Hood Hashing</li>
+        <li>
+          <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
+        </li>
+        <li>
+          <a href="2-choice-hashing.html">2-Choice Hashing</a>
+        </li>
+        <li>
+          <a href="2-left-hashing.html">2-Left Hashing</a>
+        </li>
+        <li>
+          <a href="linked-hash-table.html">Linked Hash Table</a>
+        </li>
+        <li>
+          <a href="prime-numbers-in-hash-tables.html">Why large prime numbers are used in hash tables</a>
+        </li>
+      </ol>
+      <h2>Resources</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="https://cs.uwaterloo.ca/research/tr/1986/CS-86-14.pdf">Robin Hood Hashing</a> (pdf)<br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by Pedro Celis</span>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Robin Hood Hashing</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <rect fill="white" height="30" id="cell" stroke="black" width="30"></rect>
+        <rect fill="white" height="20" id="node" rx="5" ry="5" stroke="black" width="25" x="17" y="5.0"></rect>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
+        <path d="M -1 -3 l 0 6 l 10 -3 l -10 -3" fill="black" id="r-arrow-head-black"></path>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
+        <g id="arrow-and-node">
+          <line stroke="black" x1="0" x2="10" y1="15.0" y2="15.0"></line>
+          <use href="#r-arrow-head-black" x="10" y="15.0"></use>
+          <use href="#node" x="0"></use>
+        </g>
+      </defs></svg>
+      <p>Robin Hood hashing is a technique for implementing hash tables. It is based on <a href="hash-tables-open-addressing.html">open addressing</a> with a simple but clever twist: As new keys are inserted, old keys are shifted around in a way such that all keys stay reasonably close to the slot they originally hash to. In particular, the <strong>variance</strong> of the keys distances from their "home" slots is minimized.</p>
+      <p>Key properties include:</p>
+      <ul>
+        <li>Lookup is <em>O</em>(1) ammortized and <em>O</em>(ln <em>n</em>) in worst case</li>
+        <li>Fast also when looking up keys that does not exist</li>
+        <li>Minimal variance on distances to "home" slots</li>
+        <li>Cache friendly and memory efficient (no linked lists or additional pointers)</li>
+        <li>Performes well under load factors as high as ~0.9</li>
+      </ul>
+      <div class="article-box">
+        <div style="display: flex">
+          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
+            ☞
+          </div>
+          <div>
+            <p>Make sure you have a basic understanding of hash tables in general (see <a href="hash-tables.html">Hash Tables</a>), and of open addressing in particular (see <a href="hash-tables-open-addressing.html">Open Addressing</a>).</p>
+          </div>
+        </div>
+      </div>
+      <h2>Probe Sequence Lengths</h2>
+      <p>The algorithm is based on the notion of <strong>probe sequence lengths</strong> (PSL). The PSL of a key is the number of probes required to find the key during lookup.</p>
+      <p>A key with a low PSL can be thought of as rich, and a key with a high PSL can be thought of as poor. When inserting a new key the algorithm moves the rich in favor of the poor (“takes from the rich and gives to the poor”), hence the name Robin Hood hashing.</p>
+      <h2>Insertion</h2>
+      <p>If the slot that the key hashes to is empty, we insert the key there and return. If not, we start probing for an empty slot. When encountering an occupied slot we compare the PSL of the existing key, with the PSL that the new key would have if inserted in that slot. If the new key has a higher PSL it is "poorer" and it would be unfair to let go on further, so we swap: The new key is inserted, and the existing key is taken out and is now the key to insert. The probing continues until an empty slot is found.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Insertion of key 76 which hashes to the third slot. The PSL for a key is shown below to the right.</p>
+        <div class="centered-content pause-on-hover-animation" style="margin: 2em 0em 0em;">
+          <div class="pause-on-hover-animation-label"></div><svg id="rh-insert" style="max-width: 250px;" viewbox="-190 -50 250.0 415" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <g id="rh-cell">
+              <rect fill="none" height="45" stroke="black" width="45"></rect>
+            </g>
+            <g id="rh-cell-w-psl">
+              <rect fill="none" height="15" stroke="#aaa" width="15" x="30" y="30"></rect>
+              <rect fill="none" height="45" stroke="black" width="45"></rect>
+            </g>
+          </defs>
+          <rect fill="white" height="360" width="45"></rect>
+          <g style="animation-name: last-rh-cell">
+            <use href="#rh-cell-w-psl" y="270"></use>
+          </g>
+          <use href="#rh-cell" y="0"></use>
+          <use href="#rh-cell-w-psl" y="45"></use>
+          <g style="animation-name: key-43-x">
+            <g style="animation-name: key-43-y">
+              <text x="19.5" y="64.5">
+                43
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-43--1" x="37.5" y="82.5">
+                -1
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-43-0" x="37.5" y="82.5">
+                0
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-43-1" x="37.5" y="82.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-43-2" x="37.5" y="82.5">
+                2
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="90"></use>
+          <g style="animation-name: key-17-x">
+            <g style="animation-name: key-17-y">
+              <text x="19.5" y="109.5">
+                17
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-17--1" x="37.5" y="127.5">
+                0
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-17-0" x="37.5" y="127.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-17-1" x="37.5" y="127.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-17-2" x="37.5" y="127.5">
+                3
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="135"></use>
+          <g style="animation-name: key-31-x">
+            <g style="animation-name: key-31-y">
+              <text x="19.5" y="154.5">
+                31
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-31--1" x="37.5" y="172.5">
+                0
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-31-0" x="37.5" y="172.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-31-1" x="37.5" y="172.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-31-2" x="37.5" y="172.5">
+                3
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="180"></use>
+          <g style="animation-name: key-10-x">
+            <g style="animation-name: key-10-y">
+              <text x="19.5" y="199.5">
+                10
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-10--1" x="37.5" y="217.5">
+                0
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-10-0" x="37.5" y="217.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-10-1" x="37.5" y="217.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-10-2" x="37.5" y="217.5">
+                3
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="225"></use>
+          <g style="animation-name: key-28-x">
+            <g style="animation-name: key-28-y">
+              <text x="19.5" y="244.5">
+                28
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-28--1" x="37.5" y="262.5">
+                1
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-28-0" x="37.5" y="262.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-28-1" x="37.5" y="262.5">
+                3
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-28-2" x="37.5" y="262.5">
+                4
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell" y="270"></use>
+          <use href="#rh-cell" y="315"></use>
+          <text style="text-anchor: end; animation-name: insert-lbl;" x="-80" y="-20.5">
+            Key to insert:
+          </text>
+          <g style="animation-name: key-76-x">
+            <g style="animation-name: key-76-y">
+              <text x="19.5" y="-20.5">
+                76
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-76--1" x="37.5" y="-2.5">
+                -1
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-76-0" x="37.5" y="-2.5">
+                0
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-76-1" x="37.5" y="-2.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-76-2" x="37.5" y="-2.5">
+                2
+              </text>
+            </g>
+          </g>
+          <g style="animation-name: slot-2-lbl">
+            <text fill="blue" style="text-anchor: start;" x="-160" y="110.0">
+              Lower PSL →
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-160" y="132.5">
+              Move on!
+            </text>
+          </g>
+          <g style="animation-name: slot-3-lbl">
+            <text fill="blue" style="text-anchor: start;" x="-160" y="155.0">
+              Same PSL →
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-160" y="177.5">
+              Move on!
+            </text>
+          </g>
+          <g style="animation-name: slot-4-lbl">
+            <text fill="blue" style="text-anchor: start;" x="-160" y="200.0">
+              Higher PSL →
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-160" y="222.5">
+              Swap!
+            </text>
+          </g>
+          <g style="animation-name: slot-5-lbl">
+            <text fill="blue" style="text-anchor: start;" x="-160" y="245.0">
+              Same PSL →
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-160" y="267.5">
+              Move on!
+            </text>
+          </g>
+          <g style="animation-name: slot-6-lbl">
+            <text fill="blue" style="text-anchor: start;" x="-160" y="290.0">
+              Free slot
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-160" y="312.5">
+              Insert!
+            </text>
+          </g></svg>
+        </div>
+      </div>
+      <h2>Lookup</h2>
+      <p>The simplest strategy is to look for the key in the slot to which it hashes, and if not found, follow the probing sequence. The probing terminates when an empty slot is found, or a key is encountered which has a PSL higher than the sought key would have in that slot. (If the sought key had been in the table, it would have been located before that key.)</p>
+      <h3>Starting in the middle</h3>
+      <p>The probability of finding a key is the slot it originaly hashed to is low. In fact, the probability of finding the key a certain number of steps into the probe sequence is higher. A simple optimization is therefore to keep track of the overall mean PSL, and probe up and down from that value. The sequence to probe would look as follows:</p>
+      <div class="centered-content">
+        <p><em>mean</em>, <span class="no-wrap"><em>mean</em> − 1</span>, <span class="no-wrap"><em>mean</em> + 1</span>, <span class="no-wrap"><em>mean</em> − 2</span>, <span class="no-wrap"><em>mean</em> + 2</span>, …</p>
+      </div>
+      <p>This technique is called <strong>smart search</strong>.</p>
+      <h3>Optimal probe order</h3>
+      <p>The distribution of keys is not uniform around the mean however, so there's still room for improvement. By keeping track of the distributions of the PSLs, one can probe the slots in order of decreasing probability. The technique is called <strong>organ-pipe search</strong>.</p>
+      <p>As an example, the <a href="https://cs.uwaterloo.ca/research/tr/1986/CS-86-14.pdf">original paper</a> on Robin Hood hashing gives the following distribution for a nearly full table:</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg style="max-width: 485px;" viewbox="-80 -20 485.0 330" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g transform="rotate(-90)">
+          <text text-anchor="middle" x="-132.5" y="-65">
+            Probability
+          </text>
+        </g>
+        <text text-anchor="middle" x="200" y="295">
+          Probe Position
+        </text>
+        <line stroke="black" x1="-5" x2="0" y1="198.75" y2="198.75"></line>
+        <text dominant-baseline="middle" text-anchor="end" x="-8" y="198.75">
+          0.1
+        </text>
+        <line stroke="black" x1="-5" x2="0" y1="132.5" y2="132.5"></line>
+        <text dominant-baseline="middle" text-anchor="end" x="-8" y="132.5">
+          0.2
+        </text>
+        <line stroke="black" x1="-5" x2="0" y1="66.25" y2="66.25"></line>
+        <text dominant-baseline="middle" text-anchor="end" x="-8" y="66.25">
+          0.3
+        </text>
+        <line stroke="black" x1="-5" x2="0" y1="0.0" y2="0.0"></line>
+        <text dominant-baseline="middle" text-anchor="end" x="-8" y="0.0">
+          0.4
+        </text>
+        <line stroke="black" x1="0.0" x2="0.0" y1="265" y2="270"></line>
+        <line stroke="black" x1="28.571428571428573" x2="28.571428571428573" y1="265" y2="270"></line>
+        <line stroke="black" x1="57.142857142857146" x2="57.142857142857146" y1="265" y2="270"></line>
+        <line stroke="black" x1="85.71428571428572" x2="85.71428571428572" y1="265" y2="270"></line>
+        <line stroke="black" x1="114.28571428571429" x2="114.28571428571429" y1="265" y2="270"></line>
+        <line stroke="black" x1="142.85714285714286" x2="142.85714285714286" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="128.57142857142858,265 128.57142857142858,262.35 157.14285714285714,262.35 157.14285714285714,265" stroke="black"></polyline>
+        <line stroke="black" x1="171.42857142857144" x2="171.42857142857144" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="157.14285714285717,265 157.14285714285717,258.375 185.71428571428572,258.375 185.71428571428572,265" stroke="black"></polyline>
+        <line stroke="black" x1="200.0" x2="200.0" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="185.71428571428572,265 185.71428571428572,246.45 214.28571428571428,246.45 214.28571428571428,265" stroke="black"></polyline>
+        <line stroke="black" x1="228.57142857142858" x2="228.57142857142858" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="214.2857142857143,265 214.2857142857143,216.6375 242.85714285714286,216.6375 242.85714285714286,265" stroke="black"></polyline>
+        <line stroke="black" x1="257.14285714285717" x2="257.14285714285717" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="242.8571428571429,265 242.8571428571429,154.3625 271.42857142857144,154.3625 271.42857142857144,265" stroke="black"></polyline>
+        <line stroke="black" x1="285.7142857142857" x2="285.7142857142857" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="271.42857142857144,265 271.42857142857144,68.23750000000001 300.0,68.23750000000001 300.0,265" stroke="black"></polyline>
+        <line stroke="black" x1="314.2857142857143" x2="314.2857142857143" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="300.0,265 300.0,65.25625 328.57142857142856,65.25625 328.57142857142856,265" stroke="black"></polyline>
+        <line stroke="black" x1="342.8571428571429" x2="342.8571428571429" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="328.5714285714286,265 328.5714285714286,192.7875 357.14285714285717,192.7875 357.14285714285717,265" stroke="black"></polyline>
+        <line stroke="black" x1="371.42857142857144" x2="371.42857142857144" y1="265" y2="270"></line>
+        <polyline fill="#f5f5f5" points="357.14285714285717,265 357.14285714285717,260.3625 385.7142857142857,260.3625 385.7142857142857,265" stroke="black"></polyline>
+        <line stroke="black" x1="400.0" x2="400.0" y1="265" y2="270"></line>
+        <rect fill="none" height="265" stroke="black" width="400" x="0" y="0"></rect></svg>
+      </div>
+      <p>While this approach improves slightly on the average number of probes, it requires keeping track of the distribution which incures a constant time overhead and a logarithmic memory overhead.</p>
+      <p>It should also be noted that both smart search and organ-pipe search hop back and forth in memory, so neither of them utilize the cache very well.</p>
+      <h2>Removal</h2>
+      <p>As with normal open addressing, you can't simply clear out a slot, as that could cause future lookups to fail. You can mark slots as deleted (create so called tombstones, see <a href="hash-tables-open-addressing.html">Hash Tables: Open Addressing</a>) but Robin Hood hashing lends itself to an even better technique, called <strong>backward shifting</strong>.</p>
+      <p>Backward shifting works as follows: The slot holding the key to remove is cleared out. The algorithm then starts shifting the keys in the following slots back one step to fill the gap. The backward shifting continues until a key is encountered with PSL 0 (since it would would be shifted before the slot it hashes to), or an empty slot is found.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> The key 15 is to be removed from the hash table below.</p>
+        <div class="centered-content pause-on-hover-animation" style="margin: 2em 0em 0em;">
+          <div class="pause-on-hover-animation-label"></div><svg id="rh-remove" style="max-width: 225px;" viewbox="-170 -5 225.0 370" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect fill="white" height="360" width="45"></rect>
+          <use href="#rh-cell" y="0"></use>
+          <use href="#rh-cell-w-psl" y="45"></use>
+          <g style="animation-name: key-48-x">
+            <g style="animation-name: key-48-y">
+              <text x="19.5" y="64.5">
+                48
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-48--1" x="37.5" y="82.5">
+                -1
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-48-0" x="37.5" y="82.5">
+                0
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-48-1" x="37.5" y="82.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-48-2" x="37.5" y="82.5">
+                2
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="90"></use>
+          <g style="animation-name: key-15-x">
+            <g style="animation-name: key-15-y">
+              <text x="19.5" y="109.5">
+                15
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-15--1" x="37.5" y="127.5">
+                0
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-15-0" x="37.5" y="127.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-15-1" x="37.5" y="127.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-15-2" x="37.5" y="127.5">
+                3
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="135"></use>
+          <g style="animation-name: key-33-x">
+            <g style="animation-name: key-33-y">
+              <text x="19.5" y="154.5">
+                33
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-33--1" x="37.5" y="172.5">
+                0
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-33-0" x="37.5" y="172.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-33-1" x="37.5" y="172.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-33-2" x="37.5" y="172.5">
+                3
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="180"></use>
+          <g style="animation-name: key-19-x">
+            <g style="animation-name: key-19-y">
+              <text x="19.5" y="199.5">
+                19
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-19--1" x="37.5" y="217.5">
+                1
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-19-0" x="37.5" y="217.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-19-1" x="37.5" y="217.5">
+                3
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-19-2" x="37.5" y="217.5">
+                4
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="225"></use>
+          <g style="animation-name: key-92-x">
+            <g style="animation-name: key-92-y">
+              <text x="19.5" y="244.5">
+                92
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-92--1" x="37.5" y="262.5">
+                -1
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-92-0" x="37.5" y="262.5">
+                0
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-92-1" x="37.5" y="262.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-92-2" x="37.5" y="262.5">
+                2
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell-w-psl" y="270"></use>
+          <g style="animation-name: key-72-x">
+            <g style="animation-name: key-72-y">
+              <text x="19.5" y="289.5">
+                72
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-72--1" x="37.5" y="307.5">
+                0
+              </text>
+              <text opacity="1" style="font-size: 70%; animation-name: psl-72-0" x="37.5" y="307.5">
+                1
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-72-1" x="37.5" y="307.5">
+                2
+              </text>
+              <text opacity="0" style="font-size: 70%; animation-name: psl-72-2" x="37.5" y="307.5">
+                3
+              </text>
+            </g>
+          </g>
+          <use href="#rh-cell" y="315"></use>
+          <text fill="blue" style="animation-name: to-remove-lbl" x="-90" y="110.0">
+            Key to remove →
+          </text>
+          <g style="animation-name: lbl-remove-0">
+            <text fill="blue" style="text-anchor: start;" x="-110" y="110.0">
+              Clear slot →
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-110" y="132.5"></text>
+          </g>
+          <g style="animation-name: lbl-remove-1">
+            <text fill="blue" style="text-anchor: start;" x="-120" y="148.0">
+              PSL &gt; 0
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-120" y="170.5">
+              Shift back!
+            </text>
+          </g>
+          <g style="animation-name: lbl-remove-2">
+            <text fill="blue" style="text-anchor: start;" x="-120" y="193.0">
+              PSL &gt; 0
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-120" y="215.5">
+              Shift back!
+            </text>
+          </g>
+          <g style="animation-name: lbl-remove-3">
+            <text fill="blue" style="text-anchor: start;" x="-120" y="238.0">
+              PSL = 0
+            </text>
+            <text fill="blue" style="text-anchor: start;" x="-120" y="260.5">
+              Done!
+            </text>
+          </g></svg>
+        </div>
+      </div>
+      <p>The reason why this works in Robin Hood hashing is because <strong>the keys are always sorted according to the index of the slot they originally hash to</strong>. Here's an illustration:</p>
+      <div class="centered-content" style="margin: 2em 0em 0em;">
+        <svg id="rh-remove" style="max-width: 400px;" viewbox="-70 -95 400.0 530" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <use href="#rh-cell" y="0"></use>
+        <use href="#rh-cell" x="200" y="0"></use>
+        <use href="#rh-cell" y="45"></use>
+        <use href="#rh-cell" x="200" y="45"></use>
+        <use href="#rh-cell" y="90"></use>
+        <use href="#rh-cell" x="200" y="90"></use>
+        <use href="#rh-cell" y="135"></use>
+        <use href="#rh-cell" x="200" y="135"></use>
+        <use href="#rh-cell" y="180"></use>
+        <use href="#rh-cell" x="200" y="180"></use>
+        <use href="#rh-cell" y="225"></use>
+        <use href="#rh-cell" x="200" y="225"></use>
+        <use href="#rh-cell" y="270"></use>
+        <use href="#rh-cell" x="200" y="270"></use>
+        <use href="#rh-cell" y="315"></use>
+        <use href="#rh-cell" x="200" y="315"></use>
+        <mask id="arrows-mask">
+          <rect fill="white" height="360" width="200" x="0" y="0"></rect>
+        </mask>
+        <ellipse cx="122.5" cy="360" fill="#ddd" rx="40" ry="5" stroke="#aaf" stroke-width="2"></ellipse>
+        <ellipse cx="122.5" cy="0" fill="#ddd" rx="40" ry="5" stroke="#ffa530" stroke-width="2"></ellipse>
+        <text text-anchor="middle" x="22.5" y="-70">
+          Slots that keys
+        </text>
+        <text text-anchor="middle" x="22.5" y="-50">
+          originally hash to
+        </text>
+        <text text-anchor="middle" x="222.5" y="-80">
+          Slots where keys
+        </text>
+        <text text-anchor="middle" x="222.5" y="-60">
+          are stored in a Robin
+        </text>
+        <text text-anchor="middle" x="222.5" y="-40">
+          Hood hash table
+        </text>
+        <text x="22.5" y="22.5">
+          14
+        </text>
+        <text x="22.5" y="67.5"></text>
+        <text x="22.5" y="112.5"></text>
+        <text style="font-size: 75%" x="22.5" y="157.5">
+          7,23,4
+        </text>
+        <text x="22.5" y="202.5"></text>
+        <text x="22.5" y="247.5">
+          6,71
+        </text>
+        <text x="22.5" y="292.5"></text>
+        <text x="22.5" y="337.5">
+          58
+        </text>
+        <text x="222.5" y="22.5">
+          58
+        </text>
+        <text x="222.5" y="67.5">
+          14
+        </text>
+        <text x="222.5" y="157.5">
+          7
+        </text>
+        <text x="222.5" y="202.5">
+          23
+        </text>
+        <text x="222.5" y="247.5">
+          4
+        </text>
+        <text x="222.5" y="292.5">
+          6
+        </text>
+        <text x="222.5" y="337.5">
+          71
+        </text>
+        <g mask="url(#arrows-mask)">
+          <line stroke="blue" x1="45" x2="200" y1="-22.5" y2="22.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 22.5) rotate(16.189) translate(-10, 0)"></use>
+          <line stroke="blue" x1="45" x2="200" y1="22.5" y2="67.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 67.5) rotate(16.189) translate(-10, 0)"></use>
+          <line stroke="blue" x1="45" x2="200" y1="157.5" y2="157.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 157.5) rotate(0.0) translate(-10, 0)"></use>
+          <line stroke="blue" x1="45" x2="200" y1="157.5" y2="202.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 202.5) rotate(16.189) translate(-10, 0)"></use>
+          <line stroke="blue" x1="45" x2="200" y1="157.5" y2="247.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 247.5) rotate(30.141) translate(-10, 0)"></use>
+          <line stroke="blue" x1="45" x2="200" y1="247.5" y2="292.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 292.5) rotate(16.189) translate(-10, 0)"></use>
+          <line stroke="blue" x1="45" x2="200" y1="247.5" y2="337.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 337.5) rotate(30.141) translate(-10, 0)"></use>
+          <line stroke="blue" x1="45" x2="200" y1="337.5" y2="382.5"></line>
+          <use href="#r-arrow-head" transform="translate(200 382.5) rotate(16.189) translate(-10, 0)"></use>
+        </g>
+        <text x="122.5" y="410">
+          <tspan style="font-weight: bold">Invariant:</tspan> Arrows will never cross each other
+        </text></svg>
+      </div>
+      <div class="article-box">
+        <p><strong>A note on tombstones</strong></p>
+        <p>The <a href="https://cs.uwaterloo.ca/research/tr/1986/CS-86-14.pdf">original paper</a> suggests using tombstones. While it does provide better performance for removal, it comes with the same drawbacks as when used in standard open addressing. Lookup and insert algorithm gets slightly more complex, and the tombstones causes slightly longer chains (higher PSLs).</p>
+        <p>In Robin Hood hashing, there's a clever trick to mitigate the performance impact due to longer chains. By keeping track of the global min and max PSL, one can limit the probing to that range. The probing can be started min steps into the sequence, and stop early at the max value.</p>
+      </div>
+      <h2>Probing techniques</h2>
+      <p>Different probing techniques usually provide a trade-off between memory locality and avoidance of clustering. Since Robin Hood hashing is relatively resilient to clustering (both primary and secondary), linear probing—the most cache-friendly alternative—is typically used.</p>
+      <h2>Complexity</h2>
+      <p>The worst case runtime complexity is <em>O</em>(<em>n</em>) for all operations. As usual however, the more interesting analysis is on the expected runtime.</p>
+      <p>With smart search, or organ pipe search, the expected lookup time is <em>O</em>(1). The expected length of the <strong>longest PSL</strong> (and thus the expected runtime complexity of lookup, remove and insert) in a full table is Θ(ln <em>n</em>).</p>
+      <p>With linear probing the variance of all probe lengths is minimized. In a full table the variance is Θ(<em>n</em>) which is in fact optimal among all open addressing techniques that do not look ahead in the table.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="robin-hood-hashing.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

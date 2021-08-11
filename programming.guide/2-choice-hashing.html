@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>2-Choice Hashing | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="2-Choice Hashing uses two hash functions and one array. A key hashes to two different slots and is inserted into the one with fewes collisions. The improvement comes with the so called power of two choices."
+      name="description"
+    />
+    <meta
+      content="hash table, 2-choice hashing, two choice hashing, power of choice, power of two choices, collision resolution, collision resolution strategy, d-choice hashing"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+    <style>
+      /* <![CDATA[ */
+      .variable {
+        font-style: italic;
+      }
+      #two-choice-insert * {
+        animation-duration: 7s;
+      }
+      #two-choice-insert text {
+        text-anchor: middle;
+      }
+      @keyframes arrow-h1 {
+        from,
+        12.500% {
+          opacity: 0;
+        }
+        15.000%,
+        60.000% {
+          opacity: 1;
+        }
+        62.500%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes arrow-h2 {
+        from,
+        27.500% {
+          opacity: 0;
+        }
+        30.000%,
+        60.000% {
+          opacity: 1;
+        }
+        62.500%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes key {
+        from,
+        65.000% {
+          transform: translate(0px, 0px);
+        }
+        70.000%,
+        to {
+          transform: translate(253px, 165px);
+        }
+      }
+      @keyframes new-node {
+        from,
+        70.000% {
+          opacity: 0;
+        }
+        72.500%,
+        100.000%,
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fewer-label {
+        from,
+        45.000% {
+          opacity: 0;
+        }
+        47.500%,
+        60.000% {
+          opacity: 1;
+        }
+        62.500%,
+        to {
+          opacity: 0;
+        }
+      }
+      .key-identifier {
+        text-anchor: middle;
+        dominant-baseline: middle;
+        font-style: italic;
+      }
+
+      /* ]]> */
+      svg text {
+        fill: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="ad">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Resources</h2>
+        <div style="margin-bottom: 1em">
+          <a href="https://xlinux.nist.gov/dads/HTML/twoChoiceHashing.html"
+            >2-choice hashing</a
+          >
+          NIST DADS<br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Paul E. Black</span
+          >
+        </div>
+        <h2>Hash Tables</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="hash-tables.html">Hash Tables</a>
+          </li>
+          <li>
+            <a href="hash-tables-complexity.html">Complexity</a>
+          </li>
+          <li>
+            <a href="hash-table-load-factor-and-capacity.html"
+              >Hash Table Load Factor and Capacity</a
+            >
+          </li>
+          <li>
+            <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+          </li>
+          <li>
+            <a href="hash-tables-open-vs-closed-addressing.html"
+              >Open vs Closed Addressing</a
+            >
+          </li>
+          <li>
+            <a href="hash-tables-open-addressing.html">Open Addressing</a>
+          </li>
+          <li>
+            <a href="coalesced-hashing.html">Coalesced Hashing</a>
+          </li>
+          <li>
+            <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+          </li>
+          <li>
+            <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
+          </li>
+          <li>
+            <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
+          </li>
+          <li class="current">2-Choice Hashing</li>
+          <li>
+            <a href="2-left-hashing.html">2-Left Hashing</a>
+          </li>
+          <li>
+            <a href="linked-hash-table.html">Linked Hash Table</a>
+          </li>
+          <li>
+            <a href="prime-numbers-in-hash-tables.html"
+              >Why large prime numbers are used in hash tables</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <article>
+        <h1>2-Choice Hashing</h1>
+        <svg
+          style="display: none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <rect
+              fill="white"
+              height="30"
+              id="cell"
+              stroke="black"
+              width="30"
+            ></rect>
+            <rect
+              fill="white"
+              height="20"
+              id="node"
+              rx="5"
+              ry="5"
+              stroke="black"
+              width="25"
+              x="17"
+              y="5.0"
+            ></rect>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="blue"
+              id="r-arrow-head"
+            ></path>
+            <path
+              d="M -1 -3 l 0 6 l 10 -3 l -10 -3"
+              fill="black"
+              id="r-arrow-head-black"
+            ></path>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="red"
+              id="r-arrow-head-red"
+            ></path>
+            <g id="arrow-and-node">
+              <line stroke="black" x1="0" x2="10" y1="15.0" y2="15.0"></line>
+              <use href="#r-arrow-head-black" x="10" y="15.0"></use>
+              <use href="#node" x="0"></use>
+            </g>
+          </defs>
+        </svg>
+        <p>
+          2-choice hashing is (just as
+          <a href="2-left-hashing.html">2-Left Hashing</a>) more of a variation
+          that can be applied to other hash table implementations, rather than a
+          full implementation itself.
+        </p>
+        <p>
+          It's commonly used with separate chaining, but can technically be used
+          with any resolution strategy.
+        </p>
+        <h2>Insertion</h2>
+        <p>
+          In 2-choice hashing you use <strong>two hash functions</strong>. When
+          inserting a key, you compute which slot to use according to each hash
+          function. You then proceed to insert the key in the slot
+          <strong>with fewest collisions</strong>. Ties are resolved
+          <strong>randomly</strong>.
+        </p>
+        <div class="article-box">
+          <p><strong>Example:</strong> Insertion using 2-Choice Hashing.</p>
+          <div
+            class="centered-content pause-on-hover-animation"
+            style="margin: 2em 0em 0em"
+          >
+            <div class="pause-on-hover-animation-label"></div>
+            <svg
+              id="two-choice-insert"
+              style="max-width: 450px"
+              viewbox="-160 -20 450.0 300"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <use href="#cell" y="0"></use>
+              <use href="#arrow-and-node" x="30" y="0"></use>
+              <use href="#cell" y="30"></use>
+              <use href="#arrow-and-node" x="30" y="30"></use>
+              <use href="#arrow-and-node" x="72" y="30"></use>
+              <use href="#cell" y="60"></use>
+              <use href="#arrow-and-node" x="30" y="60"></use>
+              <use href="#arrow-and-node" x="72" y="60"></use>
+              <use href="#cell" y="90"></use>
+              <use href="#cell" y="120"></use>
+              <use href="#arrow-and-node" x="30" y="120"></use>
+              <use href="#cell" y="150"></use>
+              <use href="#cell" y="180"></use>
+              <use href="#arrow-and-node" x="30" y="180"></use>
+              <use href="#cell" y="210"></use>
+              <use href="#cell" y="240"></use>
+              <use href="#arrow-and-node" x="30" y="240"></use>
+              <use href="#arrow-and-node" x="72" y="240"></use>
+              <use
+                href="#arrow-and-node"
+                style="animation-name: new-node"
+                x="72"
+                y="180"
+              ></use>
+              <text x="-120" y="0">To insert:</text>
+              <text
+                class="key-identifier"
+                style="animation-name: key"
+                x="-152"
+                y="30"
+              >
+                x
+              </text>
+              <text
+                dominant-baseline="middle"
+                style="animation-name: fewer-label"
+                x="180"
+                y="195.0"
+              >
+                ← Fewer collisions
+              </text>
+              <g style="animation-name: arrow-h1">
+                <text
+                  class="key-identifier"
+                  style="animation-name: h1"
+                  text-anchor="middle"
+                  x="-60"
+                  y="55"
+                >
+                  h
+                  <tspan dx="1" dy="5" style="font-size: 75%">1</tspan>
+                </text>
+                <path
+                  d="M -135 40 c 10 10 70 35 120 35"
+                  fill="none"
+                  stroke="blue"
+                ></path>
+                <use href="#r-arrow-head" x="-15" y="75"></use>
+              </g>
+              <g style="animation-name: arrow-h2">
+                <text
+                  class="key-identifier"
+                  text-anchor="middle"
+                  x="-60"
+                  y="165"
+                >
+                  h
+                  <tspan dx="1" dy="5" style="font-size: 75%">2</tspan>
+                </text>
+                <path
+                  d="M -150 45 c 10 90 70 150 135 150"
+                  fill="none"
+                  stroke="blue"
+                ></path>
+                <use href="#r-arrow-head" x="-15" y="195"></use>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <p>
+          By always having a "backup bucket" the insert operation can almost
+          always avoid piling up on an already overloaded bucket.
+        </p>
+        <h2>Lookup</h2>
+        <p>
+          When looking up a key, you hash the key with both hash functions and
+          look through both buckets.
+        </p>
+        <h2>Removal</h2>
+        <p>Similar to how lookup works.</p>
+        <h2>Complexity</h2>
+        <p>
+          Assuming the hash computation and load comparison runs in constant
+          time, the runtime of the insert operation is unaffected. There's a
+          factor two runtime increase for worst case lookup and remove, but the
+          Big-O complexity is unaffected.
+        </p>
+        <p>
+          The longest chain will, with high probability, contain no more than
+          Θ(log(log(<em>n</em>)) keys. (Compare this with the case of a a single
+          hash function, where the longest chain is expected to have
+          Θ(log(<em>n</em>)/log(log(<em>n</em>))) keys.) This follows directly
+          from a more general statistical concept called
+          <strong>The Power of Two Choices</strong>, and is often discussed in
+          the context of load balancing.
+        </p>
+        <p>
+          The intuition for why performance improves with this approach, is that
+          one always "takes the edge off" of the worst case scenario. Outliers
+          are avoided similar to how
+          <a href="https://en.wikipedia.org/wiki/Truncated_mean"
+            >truncated means</a
+          >
+          are used in many sports that rely on scores by judges.
+        </p>
+        <h2>Hash Functions should be independent</h2>
+        <p>
+          In languages like Java and C# where there's always one hash function
+          available, it is tempting to derive the second hash function from the
+          first. For example by using something like:
+        </p>
+        <div class="centered-content">
+          <p>
+            <em>h</em><sub>2</sub>(<em>x</em>) = <em>h</em
+            ><sub>1</sub>(<em>x</em>) xor
+            0xCAFEBABE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              style="color: #c00"
+              >(bad idea!)</span
+            >
+          </p>
+        </div>
+        <p>
+          This is unfortunately not as good as two independent hash functions.
+          Intuitively <em>h</em><sub>2</sub> will always provide the same
+          "backup bucket" whenever <em>h</em><sub>1</sub> produces an
+          unfortunate result. One "mistake" will always follow the footsteps of
+          the last time that mistake was made. The randomness is thus removed
+          which impacts the spread of the keys.
+        </p>
+        <h2>D-Choice Hashing</h2>
+        <p>
+          The approach can be generalized to an arbitrary number of hash
+          functions. Unfortunately additional hash functions only decrease the
+          maximum chain length by a constant factor.
+        </p>
+        <h2>Related Techniques</h2>
+        <p>
+          <a href="2-left-hashing.html">2-Left Hashing</a> and
+          <a href="cuckoo-hashing.html">Cuckoo Hashing</a> are examples of hash
+          table techniques that rely on two hash functions.
+        </p>
+        <p>
+          Cuckoo Hashing relies heavily the assumption that the two hash
+          functions are independent. Implementations of Cuckoo Hashing usually
+          reserv a few slots (called the stash) for dealing with collisions,
+          taking the idea of avoiding the very worst case one step further.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="2-choice-hashing.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
+</html>

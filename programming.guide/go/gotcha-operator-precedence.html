@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go gotcha: Why is my computation wrong? | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="The multiplication, division, and remainder operators have the same precedence." name="description">
+  <meta content="go, golang, operator, precedence, priority, constants" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Further Reading</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="operator-priority.html">Operator precedence</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <h2>Go gotcha</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="gotcha-assignment-entry-nil-map.html">Why can't I add elements to my map?</a>
+        </li>
+        <li>
+          <a href="gotcha-nil-pointer-dereference.html">What's a nil pointer dereference?</a>
+        </li>
+        <li>
+          <a href="gotcha-multiple-value-sinlge-value-context.html">Multiple values in single value context?</a>
+        </li>
+        <li>
+          <a href="gotcha-function-doesnt-change-array.html">Why doesn't this function change my array?</a>
+        </li>
+        <li>
+          <a href="gotcha-shadowing-variables.html">Two variables with the same name?</a>
+        </li>
+        <li>
+          <a href="gotcha-missing-comma-slice-array-map-literal.html">Extra comma in slice literal</a>
+        </li>
+        <li>
+          <a href="gotcha-strings-are-immutable.html">Why can't I update my string?</a>
+        </li>
+        <li>
+          <a href="gotcha-concatenate-rune-string.html">Why aren't the characters concatenated?</a>
+        </li>
+        <li>
+          <a href="gotcha-trim-string.html">What happened to ABBA?</a>
+        </li>
+        <li>
+          <a href="gotcha-copy-missing.html">What happened to my copy?</a>
+        </li>
+        <li>
+          <a href="gotcha-append.html">Why doesn't append work every time?</a>
+        </li>
+        <li>
+          <a href="gotcha-constant-overflows-int.html">Why can't I print large numbers? (constant overflows int)</a>
+        </li>
+        <li>
+          <a href="gotcha-increment-decrement-statement.html">Why doesn't increment (++) and decrement (--) work?</a>
+        </li>
+        <li class="current">Why is my computation wrong?</li>
+        <li>
+          <a href="gotcha-bitwise-operators.html">Why does Go and Pythagoras disagree?</a>
+        </li>
+        <li>
+          <a href="gotcha-integer-overflow-wrap-around.html">Why doesn't this loop end?</a>
+        </li>
+        <li>
+          <a href="gotcha-octal-decimal-hexadecimal-literal.html">Numbers that start with zero</a>
+        </li>
+        <li>
+          <a href="gotcha-remainder-modulo-operator.html">What's wrong with the remainder (modulo) operator?</a>
+        </li>
+        <li>
+          <a href="gotcha-multiply-duration-integer.html">Why can't I multiply a time.Duration with an integer?</a>
+        </li>
+        <li>
+          <a href="gotcha-index-out-of-range.html">Why is this index out of range?</a>
+        </li>
+        <li>
+          <a href="gotcha-unexpected-values-range.html">Unexpected values in range loop</a>
+        </li>
+        <li>
+          <a href="gotcha-change-value-range.html">Can't change entries in range loop</a>
+        </li>
+        <li>
+          <a href="gotcha-range-copy-array.html">Iteration variable doesn't see change in range loop</a>
+        </li>
+        <li>
+          <a href="gotcha-data-race-closure.html">Iteration variables and closures</a>
+        </li>
+        <li>
+          <a href="gotcha-json-marshal-empty.html">Why is the JSON output empty?</a>
+        </li>
+        <li>
+          <a href="gotcha-why-nil-error-not-equal-nil.html">Why is nil not equal to nil?</a>
+        </li>
+      </ol>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">Go: String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Go: Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">Go: For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Go: Concurrent programming</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go gotcha: Why is my computation wrong?</h1>
+      <p>Why doesn't this code compute the number of hours and seconds?</p>
+      <pre><code>n := 43210 <span class="comment">// time in seconds</span>
+fmt.Println(n/60*60, "hours and", n%60*60, "seconds")</code></pre>
+      <pre><code>43200 hours and 600 seconds
+</code></pre>
+      <details class="answer">
+        <summary class="answer">
+          Answer
+        </summary>
+        <p>The <code>*</code>, <code>/</code>, and <code>%</code> operators have the same precedence and are evaluated left to right: <code>n/60*60</code> is the same as <code>(n/60)*60</code>.</p>
+        <p>Insert a pair of parantheses to force the correct evaluation order:</p>
+        <pre><code class="language-go">fmt.Println(n/(60*60), "hours and", n%(60*60), "seconds")
+</code></pre>
+        <pre><code>12 hours and 10 seconds
+</code></pre>
+        <p>Or better yet, use a constant:</p>
+        <pre><code class="language-go">const SecPerHour = 60 * 60
+fmt.Println(n/SecPerHour, "hours and", n%SecPerHour, "seconds")
+</code></pre>
+        <pre><code>12 hours and 10 seconds
+</code></pre>
+        <p>See <a href="operator-priority.html">Operator precedence</a> for a complete explanation of the order of operations in Go expressions.</p>
+      </details>
+      <div class="prev-next-container">
+        <!-- PREV -->
+         <a class="prev" href="gotcha-increment-decrement-statement.html">
+        <div class="button-content">
+          « Prev
+          <div class="prev-next-text">
+            Why doesn't increment (++) and decrement (--) work?
+          </div>
+        </div></a> <!-- TOC -->
+         <a href="go-gotcha.html#toc">
+        <div class="button-content">
+          TOC
+          <div class="prev-next-text">
+            Go gotcha
+          </div>
+          <div class="prev-next-text" style="font-weight: normal">
+            14&nbsp;of&nbsp;26
+          </div>
+        </div></a> <!-- NEXT -->
+         <a class="next" href="gotcha-bitwise-operators.html">
+        <div class="button-content">
+          Next »
+          <div class="prev-next-text">
+            Why does Go and Pythagoras disagree?
+          </div>
+        </div></a>
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/gotcha-operator-precedence.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: Package documentation | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="How to create and download Go package documentation." name="description">
+  <meta content="go, golang, package, documentation, create, generate, download, godoc, web server" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Further reading</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="packages-explained.html">Packages explained</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://blog.golang.org/godoc-documenting-go-code">Godoc: documenting Go code</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Blog</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://golang.org/doc/effective_go.html#commentary">Effective Go: Commentary</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">golang.org</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://blog.golang.org/package-names">Package names</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Blog</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://blog.golang.org/examples">Testable Examples in Go</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Blog</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://golang.org/pkg/testing/#hdr-Examples">Package testing: examples</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">golang.org</span>
+      </div>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: Package documentation</h1>
+      <p>The <a href="https://godoc.org/">GoDoc</a> website hosts docu­men­tation for Go packages on Bitbucket, GitHub, Google Project Hosting and&nbsp;Launchpad:</p>
+      <ul>
+        <li>
+          <a href="https://godoc.org/fmt"><code>https://godoc.org/fmt</code></a>
+        </li>
+        <li>
+          <a href="https://godoc.org/math/rand"><code>https://godoc.org/math/rand</code></a>
+        </li>
+        <li>
+          <a href="https://godoc.org/github.com/yourbasic/graph"><code>https://godoc.org/github.com/yourbasic/graph</code></a>
+        </li>
+      </ul>
+      <h2>Godoc command</h2>
+      <p>The <a href="https://godoc.org/golang.org/x/tools/cmd/godoc">godoc</a> command extracts and generates documentation for all locally installed Go programs, both your own code and the standard libraries.</p>
+      <p>The command</p>
+      <pre><code>$ godoc -http=:6060 &amp;</code></pre>
+      <p>starts a web server that presents the documentation at <code>http://localhost:6060/</code>:</p>
+      <p><img alt="Web browser localhost:6060" class="screenshot" src="package-documentation/localhost-6060.png"></p>
+      <p>The documentation is tightly coupled with the code. For example, you can navigate from a function's documentation to its implementation with a single click.</p>
+      <p>Without the <code>-http</code> flag, <code>godoc</code> prints plain text documentation to standard output:</p>
+      <pre class="dynamic-font-size">$ godoc fmt Println
+func Println(a ...interface{}) (n int, err error)
+    Println formats using the default formats for its operands and writes to
+    standard output. Spaces are always added between operands and a newline
+    is appended. It returns the number of bytes written and any write error
+    encountered.</pre>
+      <h2>Create documentation</h2>
+      <p>To document a function, type, constant, variable, or even a complete package, write a regular comment directly preceding its declaration, with no blank line in between. For example, this is the documentation for the <a href="https://golang.org/src/fmt/print.go?s=7388:7437#L246"><code>fmt.Println</code></a> function:</p>
+      <pre class="dynamic-font-size">// Println formats using the default formats for its operands and writes to standard output.
+// Spaces are always added between operands and a newline is appended.
+// It returns the number of bytes written and any write error encountered.
+func Println(a ...interface{}) (n int, err error) {
+…</pre>
+      <p>For best practices on how to document Go code, see <a href="https://golang.org/doc/effective_go.html#commentary">Effective Go: Commentary</a>.</p>
+      <h2>Godoc examples</h2>
+      <p>You can add example code snippets to the package documentation; this code is verified by running it as a test. For more information on how to create such testable examples, see <a href="https://blog.golang.org/examples">The Go Blog: Testable Examples in Go</a>.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/package-documentation.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

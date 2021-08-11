@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AtomicInteger and equals / Comparable | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="Two AtomicInteger objects are never equal. This is by design. The reason is that this class is designed explicitly to be mutable which makes it unsuitable for use in hash sets." name="description">
+  <meta content="java, AtomicInteger, AtomicLong, AtomicBoolean, equal, equality, hashCode, Comparable, hashset, hashmap" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>AtomicInteger and equals / Comparable</h1>
+      <p>As you may have noticed, two <code>AtomicInteger</code>s (or <code>AtomicLong</code>, or <code>AtomicBoolean</code>) are never equal:</p>
+      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html"><span class="type">AtomicInteger</span></a> <span class="type">i1</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html#AtomicInteger(int)"><span class="type">AtomicInteger</span></a>(<span class="num_lit">0</span>);
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html"><span class="type">AtomicInteger</span></a> <span class="type">i2</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html#AtomicInteger(int)"><span class="type">AtomicInteger</span></a>(<span class="num_lit">0</span>);
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(boolean)"><span class="method">println</span></a>(<span class="type">i1</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)"><span class="method">equals</span></a>(<span class="type">i2</span>)); <span class="comment">// false</span>
+</code></pre>
+      <p>This is because <code>AtomicInteger</code> doesn't override <code>equals</code>, which means it inherits the behavior from <code>Object.equals</code> which has the same semantics as <code>==</code>.</p>
+      <p>Same story for <code>AtomicInteger.hashCode</code>.</p>
+      <h2>So why is that?</h2>
+      <p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html">package summary</a> states that this is an explicit design decision:</p>
+      <blockquote>
+        <p>These classes are not general purpose replacements for <code>java.lang.Integer</code> and related classes. They do not define methods such as <code>equals</code>, <code>hashCode</code> and <code>compareTo</code>. Because atomic variables are expected to be mutated, they are poor choices for hash table keys.</p>
+      </blockquote>
+      <p>Here's what Doug Lea, the principal author of the <code>java.util.concurrent</code> package, wrote on the matter (<a href="http://cs.oswego.edu/pipermail/concurrency-interest/2004-January/000759.html">source</a>):</p>
+      <blockquote>
+        While I can't think offhand of any application where I'd use AtomicIntegers as keys in a hash table (HashMap, Hashtable, ConcurrentHashMap), if I did, I would surely want to be able to find them even if they changed value. Using the default identity-based hashCode and equals methods provides this; so normal usages would almost always be correct, while with value-based versions, they almost never would be. And given this, because you aren't supposed to define a compareTo that returns 0 (equals) in different cases than when equals returns true, the only option is not to provide it. <span class="quote-source">Doug Lea</span>
+      </blockquote>
+      <h2>Comparable</h2>
+      <p>It also doesn't implement <code>Comparable</code> as you may expect when comparing it with the <code>Integer</code> class.</p>
+      <p>The reason for this is covered in the same email thread as mentioned above (<a href="http://cs.oswego.edu/pipermail/concurrency-interest/2004-January/000745.html">source</a>).</p>
+      <blockquote>
+        <div style="border-left: .3em solid lightgrey; font-style: italic; padding-left: 1em; margin-bottom: 1em;">
+          Of course the same arguments can be made for AtomicIntegers being Comparable. Why aren't AtomicIntegers comparable?
+        </div>Because you cannot rely on the result of the comparison anyway, since the values may be immediately changed by other threads after you compare but before you use the comparison result. To avoid this, you would have to use locking, and those classes exist precisely to avoid locking. In particular, comparable suggests that you can sort objects of this type, and the sort operation assumes that these objects are constant (at least for some time), which is clearly the opposite of why those classes are to be used. Again, you would have to lock to make sure that the values do not change at least _during_ sorting. <span class="quote-source">Dawid Kurzyniec</span>
+      </blockquote>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/atomicinteger-equals.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

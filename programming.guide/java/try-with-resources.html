@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java: try-with-resources | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="The try-with-resources feature is used to automatically close a file or other resource, no matter the outcome of a previous operation. It's a convenient way of guaranteeing that a state will be restored such as a resource being released." name="description">
+  <meta content="java, try, close file automatically, close stream automatically, close socket automatically, file, try with resource, try-with-resource, AutoCloseable" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Java Exceptions</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="exceptions-throw-try-catch.html">Throw, Try and Catch</a>
+        </li>
+        <li>
+          <a href="exception-types.html">Java Exception Types</a>
+        </li>
+        <li>
+          <a href="chained-exceptions.html">Chained Exceptions</a>
+        </li>
+        <li>
+          <a href="custom-exception.html">Custom Exception</a>
+        </li>
+        <li>
+          <a href="difference-between-checked-and-unchecked-exceptions.html">Difference between Checked and Unchecked Exceptions</a>
+        </li>
+        <li>
+          <a href="choosing-between-checked-and-unchecked-exceptions.html">Choosing between Checked and Unchecked Exceptions</a>
+        </li>
+        <li>
+          <a href="checked-exceptions-good-or-bad.html">Checked Exceptions: Good or Bad?</a>
+        </li>
+        <li>
+          <a href="return-values-vs-exceptions.html">Return Values vs Exceptions</a>
+        </li>
+        <li>
+          <a href="try-finally.html">try + finally</a>
+        </li>
+        <li class="current">try-with-resources</li>
+        <li>
+          <a href="stack-trace.html">Stack Traces</a>
+        </li>
+        <li>
+          <a href="suppressed-exceptions.html">Suppressed Exceptions</a>
+        </li>
+        <li>
+          <a href="throw-vs-throws-vs-throwable.html">throw vs throws vs Throwable</a>
+        </li>
+        <li>
+          <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
+        </li>
+      </ol>
+      <h2>Exception Related Keywords</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="throw.html">throw</a>
+        </li>
+        <li>
+          <a href="throws.html">throws</a>
+        </li>
+        <li>
+          <a href="catch.html">catch</a>
+        </li>
+        <li>
+          <a href="try.html">try</a>
+        </li>
+        <li>
+          <a href="finally.html">finally</a>
+        </li>
+      </ol>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Java: try-with-resources</h1>
+      <p>A try-with-resource statement automatically closes a "resource" after it has been used. A resource could for instance be a file, stream, reader, writer or socket. Technically it's anything implementing the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html"><code>AutoCloseable</code></a> interface.</p>
+      <pre><code><span class="keyword">try</span> (FileWriter w = <span class="keyword">new</span> FileWriter(<span class="text_lit">"file.txt"</span>)) {
+    w.write(<span class="text_lit">"Hello World"</span>);
+}
+<span class="comment">// w.close() is called automatically</span></code></pre>
+      <p>In the above example, <code>w.close()</code> is called regardless if <code>w.write(...)</code> throws an exception or not. Conceptually it's similar to adding <code>w.close()</code> in a <a href="try-finally.html"><code>finally</code> block</a>.</p>
+      <h2>Multiple Resources</h2>
+      <p>You can use multiple resources in a single try-with-resource by separating the declarations with <code>;</code> as follows:</p>
+      <pre><code><span class="comment">// Copy one byte from src.txt to dst.txt</span>
+<span class="keyword">try</span> (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileReader.html"><span class="type">FileReader</span></a> <span class="type">fr</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileReader.html#FileReader(java.lang.String)"><span class="type">FileReader</span></a>(<span class="text_lit">"src.txt"</span>);
+     <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileWriter.html"><span class="type">FileWriter</span></a> <span class="type">fw</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileWriter.html#FileWriter(java.lang.String)"><span class="type">FileWriter</span></a>(<span class="text_lit">"dst.txt"</span>)) {
+    <span class="type">fw</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/OutputStreamWriter.html#write(int)"><span class="method">write</span></a>(<span class="type">fr</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/InputStreamReader.html#read()"><span class="method">read</span></a>());
+}
+</code></pre>
+      <p>The resources are closed in the reversed order of declarations. In the example above, <code>fw</code> would be closed first, then <code>fr</code>.</p>
+      <h2>Exceptions</h2>
+      <p>In the example at the top of this article an <code>IOException</code> may be thrown by</p>
+      <ul>
+        <li><code><span class="keyword">new</span> FileWriter(<span class="text_lit">"file.txt"</span>)</code></li>
+        <li><code>w.write(<span class="text_lit">"Hello World"</span>)</code></li>
+        <li>The implicit call to <code>w.close()</code></li>
+      </ul>
+      <p><strong>If the constructor throws an exception</strong>, there will be no object to call <code>close</code> on, so the exception propagates without further action:</p>
+      <div class="codeblock">
+        <svg height="132" width="480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">try</tspan> (FileWriter w = <tspan class="keyword">new</tspan> FileWriter(<tspan class="text_lit">"file.txt"</tspan>)) {
+        </text>
+        <path d="M 20 10 m -5 14 c -8 5, -8 10, -8 12.5 l 0 77.0" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 20 10 m -13 110 l -4 -10 l 8 0 l -4 10" fill="red" stroke="red" stroke-width="1"></path>
+        <text class="code-like" x="60" y="49">
+          w.write(<tspan class="text_lit">"Hello World"</tspan>);
+        </text>
+        <text class="code-like" x="20" y="71">
+          }
+        </text>
+        <text class="code-like comment" x="20" y="93">
+          // no call to w.close()
+        </text></svg>
+      </div>
+      <p><strong>If the call to <code>w.write</code> throws an exception</strong>, <code>w.close()</code> will be called, and then the exception will propagate:</p>
+      <div class="codeblock">
+        <svg height="132" width="490" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">try</tspan> (FileWriter fw = <tspan class="keyword">new</tspan> FileWriter(<tspan class="text_lit">"file.txt"</tspan>)) {
+        </text>
+        <path d="M 20 9 m -5 14 q -20 10, 40 23" fill="none" stroke="green" stroke-width="2"></path>
+        <text class="code-like" x="60" y="49">
+          w.write(<tspan class="text_lit">"Hello World"</tspan>);
+        </text>
+        <path d="M 60 33 m -5 14 q -70 5, -40 44" fill="none" stroke="red" stroke-width="2"></path>
+        <text class="code-like" x="20" y="71">
+          }
+        </text>
+        <text class="code-like comment" x="20" y="93">
+          // Implicit call to w.close()
+        </text>
+        <path d="M 20 76 m -5 14 c -8 5, -8 10, -8 12.5 l 0 11.0" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 20 76 m -13 44 l -4 -10 l 8 0 l -4 10" fill="red" stroke="red" stroke-width="1"></path></svg>
+      </div>
+      <p><strong>If the implicit call to <code>w.close()</code> throws an exception</strong> then this exception propagates:</p>
+      <div class="codeblock">
+        <svg height="132" width="490" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">try</tspan> (FileWriter fw = <tspan class="keyword">new</tspan> FileWriter(<tspan class="text_lit">"file.txt"</tspan>)) {
+        </text>
+        <path d="M 20 9 m -5 14 q -20 10, 40 23" fill="none" stroke="green" stroke-width="2"></path>
+        <text class="code-like" x="60" y="49">
+          w.write(<tspan class="text_lit">"Hello World"</tspan>);
+        </text>
+        <path d="M 60 32 m -5 14 q -70 5, -40 44" fill="none" stroke="green" stroke-width="2"></path>
+        <text class="code-like" x="20" y="71">
+          }
+        </text>
+        <text class="code-like comment" x="20" y="93">
+          // Implicit call to w.close()
+        </text>
+        <path d="M 20 76 m -5 14 c -8 5, -8 10, -8 12.5 l 0 11.0" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 20 76 m -13 44 l -4 -10 l 8 0 l -4 10" fill="red" stroke="red" stroke-width="1"></path></svg>
+      </div>
+      <h2>Suppressed Exceptions</h2>
+      <p>Another possibility is that <code>w.write</code> throws an exception, and then the implicit call to <code>w.close</code> <strong>also</strong> throws an exception. In this case the first exception "wins" and the second exception is <strong>suppressed</strong>.</p>
+      <div class="codeblock">
+        <svg height="188" width="500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="30" y="27">
+          <tspan class="keyword">try</tspan> (FileWriter fw = <tspan class="keyword">new</tspan> FileWriter(<tspan class="text_lit">"file.txt"</tspan>)) {
+        </text>
+        <path d="M 30 9 m -5 14 q -20 10, 40 23" fill="none" stroke="green" stroke-width="2"></path>
+        <text class="code-like" x="70" y="49">
+          w.write(<tspan class="text_lit">"Hello World"</tspan>);
+        </text>
+        <path d="M 70 33 m -5 14 q -70 5, -45 44" fill="none" stroke="red" stroke-width="2"></path>
+        <text class="code-like" x="30" y="71">
+          }
+        </text>
+        <text class="code-like comment" x="30" y="93">
+          // Implicit call to w.close()
+        </text>
+        <path d="M 30 76 m 0 14 c -8 5, -8 10, -8 12.5 l 0 17.6 m -4 -4 l 8 8 m -8 0 l 8 -8" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 30 76 m -10 14 c -8 5, -8 10, -8 12.5 l 0 50.599999999999994" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 30 76 m -18 81.4 l -4 -10 l 8 0 l -4 10" fill="red" stroke="red" stroke-width="1"></path>
+        <text fill="red" font-size="80%" x="33" y="133">
+          <tspan class="code-like">w.close</tspan> exception suppressed
+        </text>
+        <text fill="red" font-size="80%" x="20" y="167">
+          <tspan class="code-like">w.write</tspan> exception propagates
+        </text></svg>
+      </div>
+      <p>For details, se separate article: <a href="suppressed-exceptions.html">Suppressed Exceptions</a>.</p>
+      <h2>Custom <code>AutoCloseable</code> implementation</h2>
+      <p>You can roll your own <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html"><code>AutoCloseable</code></a> implementation as well:</p>
+      <pre><code><span class="keyword">class</span> <span class="type">MyResource</span> <span class="keyword">implements</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html"><span class="type">AutoCloseable</span></a> {
+    @<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Override.html"><span class="type">Override</span></a>
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">close</span>() {
+        <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Closing resource"</span>);
+    }
+}
+
+<span class="keyword">class</span> <span class="type">Example</span> {
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">main</span>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">args</span>) {
+        <span class="keyword">try</span> (<span class="type">MyResource</span> <span class="type">r</span> = <span class="keyword">new</span> <span class="type">MyResource</span>()) {
+            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Using resource"</span>);
+        }
+    }
+}
+</code></pre>
+      <p><strong>Output:</strong></p>
+      <pre><code>Using resource
+Closing resource</code></pre>
+      <p>Since <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html"><code>AutoCloseable</code></a> is a <a href="functional-interfaces.html">functional interface</a>, you can initialize it using a lambda:</p>
+      <pre><code><span class="keyword">try</span> (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html"><span class="type">AutoCloseable</span></a> <span class="type">r</span> = () -&gt; <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Closing"</span>)) {
+    <span class="comment">// ...</span>
+}
+</code></pre>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/try-with-resources.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

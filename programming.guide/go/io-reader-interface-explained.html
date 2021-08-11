@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: The io.Reader interface | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="How to read byte streams in Go." name="description">
+  <meta content="go, golang, Reader, interface, read, byte stream, buffer, scanner" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Related</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="io-writer-interface-explained.html">The io.Writer interface</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://medium.com/go-walkthrough/go-walkthrough-io-package-8ac5e95a9fbd">Go Walkthrough: io package</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by Ben Johnson</span>
+      </div>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: The io.Reader interface</h1>
+      <p>The <a href="https://golang.org/pkg/io/#Reader"><code>io.Reader</code></a> interface represents an entity from which you can read a stream of bytes:</p>
+      <pre><code>type Reader interface {
+        Read(buf []byte) (n int, err error)
+}
+</code></pre>
+      <p><code>Read</code> reads up to <code>len(buf)</code> bytes into <code>buf</code> and returns the number of bytes read; it returns an <a href="https://golang.org/pkg/io/#pkg-variables"><code>io.EOF</code></a> error when the stream ends.</p>
+      <h2>Example</h2>
+      <p>The standard library provides numerous Reader <a href="https://golang.org/search?q=Read#Global">implementations</a> (including in-memory byte buffers, files and network connections), and Readers are accepted as input by many utilities (including the HTTP client and server implementations).</p>
+      <p>As an example, you can create a Reader from a string using the <a href="https://golang.org/pkg/strings/#Reader"><code>strings.Reader</code></a> function and then pass the Reader directly to the <a href="https://golang.org/pkg/net/http/#Post"><code>http.Post</code></a> function in package <a href="https://golang.org/pkg/net/http/"><code>net/http</code></a>. The Reader is then used as the source for the data to be posted:</p>
+      <pre><code>r := strings.NewReader("my request")
+resp, err := http.Post("http://foo.bar", "application/x-www-form-urlencoded", r)
+</code></pre>
+      <p>Since <code>http.Post</code> uses a Reader instead of a <code>[]byte</code> it's trivial to, for instance, use the contents of a file.</p>
+      <h2>Reading directly from a byte stream</h2>
+      <p>You can use the <code>Read</code> function directly (this is the least common use case):</p>
+      <pre><code>r := strings.NewReader("abcde")
+
+buf := make([]byte, 4)
+for {
+        n, err := r.Read(buf)
+        fmt.Println(n, err, buf[:n])
+        if err == io.EOF {
+                break
+        }
+}
+// Output:
+// 4 &lt;nil&gt; [97 98 99 100]
+// 1 &lt;nil&gt; [101]
+// 0 EOF []
+</code></pre>
+      <p>Use <a href="https://golang.org/pkg/io/#ReadFull"><code>io.ReadFull</code></a> to read exactly <code>len(buf)</code> bytes into <code>buf</code>:</p>
+      <pre><code>r := strings.NewReader("abcde")
+
+buf := make([]byte, 4)
+if _, err := io.ReadFull(r, buf); err != nil {
+        log.Fatal(err)
+}
+fmt.Println(buf)
+
+if _, err := io.ReadFull(r, buf); err != nil {
+        fmt.Println(err)
+}
+// Output:
+// [97 98 99 100]
+// unexpected EOF
+</code></pre>
+      <p>Use <a href="https://golang.org/pkg/io/ioutil/#ReadAll"><code>ioutil.ReadAll</code></a> to read everything:</p>
+      <pre><code>r := strings.NewReader("abcde")
+
+buf, err := ioutil.ReadAll(r)
+if err != nil {
+        log.Fatal(err)
+}
+fmt.Println(buf)
+// Output: [97 98 99 100 101]
+</code></pre>
+      <h2>Buffered reading and scanning</h2>
+      <p>The <a href="https://golang.org/pkg/bufio/#Reader"><code>bufio.Reader</code></a> and <a href="https://golang.org/pkg/bufio/#Scanner"><code>bufio.Scanner</code></a> types wrap a Reader creating another Reader that also implements the interface but provides buffering and some help for textual input.</p>
+      <p>In this example we use a <a href="https://golang.org/pkg/bufio/#Scanner"><code>bufio.Scanner</code></a> to count the number of words in a text:</p>
+      <pre><code>const input = `Beware of bugs in the above code;
+I have only proved it correct, not tried it.`
+
+scanner := bufio.NewScanner(strings.NewReader(input))
+scanner.Split(bufio.ScanWords) // Set the split function.
+
+count := 0
+for scanner.Scan() {
+        count++
+}
+if err := scanner.Err(); err != nil {
+        fmt.Println(err)
+}
+fmt.Println(count)
+// Output: 16
+</code></pre>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/io-reader-interface-explained.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

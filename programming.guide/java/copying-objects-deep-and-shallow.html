@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java: Copying Objects | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="Examples of all common ways of copying objects in Java, including pros and cons of each method. Copy constructors, copy factory methods, serialization, cloning, copy methods and builders." name="description">
+  <meta content="java, copy, copy constructor, copy factory method, serialization, copy method, clone, cloning, cloneable, deep, shallow, copy object, clone object" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Resources</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="../shallow-vs-deep-copy.html">Shallow vs Deep Copy (with examples)</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="clone-and-cloneable.html">Clone and Cloneable</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#clone()">Javadoc for Object.clone</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">docs.oracle.com</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Cloneable.html">Javadoc for the Cloneable interface</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">docs.oracle.com</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://www.artima.com/intv/bloch13.html">Josh Bloch on Design: Copy Constructor versus Cloning</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by Bill Venners</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://books.google.se/books?id=BIpDDwAAQBAJ">Effective Java, Item 13: Override clone judiciously</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by Joshua Bloch</span>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Java: Copying Objects</h1>
+      <p>Unlike C++ and JavaScript, there's no easy and direct way of copying objects. The built-in clone capability is poorly designed and is rarely the best alternative.</p>
+      <p>This article lists the pros and cons of all the common approaches, with examples.</p>
+      <ul>
+        <li>Copy Constructors</li>
+        <li>Copy Factory Methods</li>
+        <li>Serialization</li>
+        <li>Cloning</li>
+        <li>Copy methods</li>
+        <li>Builders</li>
+      </ul>
+      <h2>Copy Constructors</h2>
+      <p>A simple example:</p>
+      <pre><code><span class="keyword">public</span> <span class="keyword">class</span> Car {
+
+    <span class="keyword">private</span> String make;
+    <span class="keyword">private</span> <span class="keyword">int</span> doors;
+    <span class="keyword">private</span> Motor motor;
+    <span class="keyword">private</span> Gearbox gearbox;
+
+    <span class="keyword">public</span> Car(Car other) {
+        <span class="keyword">this</span>.make = other.make;
+        <span class="keyword">this</span>.doors = other.doors;
+        <span class="keyword">this</span>.motor = other.motor;
+        <span class="keyword">this</span>.gearbox = other.gearbox;
+    }
+    …
+}</code></pre>
+      <p><strong>Usage:</strong></p>
+      <pre><code>Car copy = <span class="keyword">new</span> Car(original);</code></pre>
+      <p>Note that this produces a <strong>shallow copy</strong>. (See <a href="../shallow-vs-deep-copy.html">Shallow vs Deep Copy, with examples</a>.) If you do <code>original.getGearbox().setGear(4)</code>, then <code>copy</code>'s gear will change as well. To get a <strong>deep copy</strong>, change to…</p>
+      <pre><code>…
+    <span class="keyword">public</span> Car(Car other) {
+        <span class="keyword">this</span>.make = other.make;
+        <span class="keyword">this</span>.doors = other.doors;
+        <span class="keyword">this</span>.motor = <span class="highlight"><span class="keyword">new</span> Motor(other.motor)</span>;
+        <span class="keyword">this</span>.gearbox = <span class="highlight"><span class="keyword">new</span> Gearbox(other.gearbox)</span>;
+    }
+…</code></pre>
+      <h3>Copy Constructors and Inheritance</h3>
+      <p>Adding a subclass, <code>Taxi</code> is straight forward:</p>
+      <pre><code><span class="keyword">public</span> <span class="keyword">class</span> Taxi <span class="keyword">extends</span> Car {
+
+    <span class="keyword">boolean</span> isAvailable;
+
+    <span class="keyword">public</span> Taxi(Taxi other) {
+        <span class="comment">// Invoke copy constructor of Car</span>
+        <span class="keyword">super</span>(other);
+
+        <span class="keyword">this</span>.isAvailable = other.isAvailable;
+    }
+    …
+}</code></pre>
+      <p>However, when using a copy constructor you must <strong>know the actual runtime type</strong>. If you're not careful, you may inadvertently create a <code>Car</code> when trying to create a copy of a <code>Taxi</code>.</p>
+      <pre><code>Car copy = <span class="keyword">new</span> Car(someCar); <span class="comment">// What if someCar is a Taxi?!</span></code></pre>
+      <p>You could use <code>instanceof</code> (often considered bad practice) or the visitor pattern to sort it out, but in this case you're probably better off using one of the other techniques described in this article.</p>
+      <div class="article-box">
+        <div class="side-by-side">
+          <div>
+            <h3>Pros</h3>
+            <ul>
+              <li>Simple and straight forward</li>
+              <li>Easy to get right, debug and maintain</li>
+              <li>No casts required</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Cons</h3>
+            <ul>
+              <li>You need to know the runtime type</li>
+              <li>Requires some boilerplate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h2>Copy Factory Methods</h2>
+      <p>A copy factory method encapsulates the object copying logic and provides finer control over the process. In the example below, this capability is used to tacle the problem of inheritance mentioned in the previous section.</p>
+      <pre><code><span class="keyword">public</span> <span class="keyword">class</span> CarFactory {
+    …
+    <span class="keyword">public</span> Car copyOf(Car c) {
+        Class&lt;?&gt; cls = c.getClass();
+        <span class="keyword">if</span> (cls == Car.<span class="keyword">class</span>) {
+            <span class="keyword">return</span> <span class="keyword">new</span> Car(
+                    c.make,
+                    c.doors,
+                    c.motor,
+                    c.gearbox);
+        }
+        <span class="keyword">if</span> (cls == Taxi.<span class="keyword">class</span>) {
+            <span class="keyword">return</span> <span class="keyword">new</span> Taxi(
+                    c.make,
+                    c.doors,
+                    c.motor,
+                    c.gearbox,
+                    ((Taxi) c).isAvailable);
+        }
+        <span class="keyword">if</span> (cls == Ambulance.<span class="keyword">class</span>) {
+            <span class="keyword">return</span> <span class="keyword">new</span> Ambulance(
+                    c.make,
+                    c.doors,
+                    c.motor,
+                    c.gearbox,
+                    ((Ambulance) c).beaconsOn);
+        }
+        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="text_lit">"Can't copy car of type "</span> + cls);
+    }
+    …
+}</code></pre>
+      <p><strong>Usage:</strong></p>
+      <pre><code>Car copy = myCarFactory.<span class="static_method">copyOf</span>(car);</code></pre>
+      <div class="article-box">
+        <div class="side-by-side">
+          <div>
+            <h3>Pros</h3>
+            <ul>
+              <li>Finer control over object creation</li>
+              <li>All copying logic in one place</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Cons</h3>
+            <ul>
+              <li>Another level of indirection</li>
+              <li>Not as easy to extend</li>
+              <li>Might require access to internal state</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h2>Serialization / Deserialization</h2>
+      <p>By serializing an object into a byte array, then deserializing the byte array back into an object, you end up with a deep copy of the original.</p>
+      <pre><code><span class="comment">// Serialize to byte[]</span>
+ByteArrayOutputStream os = <span class="keyword">new</span> ByteArrayOutputStream();
+<span class="keyword">new</span> ObjectOutputStream(os).writeObject(original);
+<span class="keyword">byte</span>[] buf = os.toByteArray();
+
+<span class="comment">// Deserialize back into a Car object</span>
+ByteArrayInputStream is = <span class="keyword">new</span> ByteArrayInputStream(buf);
+Car copy = (Car) <span class="keyword">new</span> ObjectInputStream(is).readObject();
+</code></pre>
+      <p>With <a href="https://commons.apache.org/proper/commons-lang/">Apache Commons Lang</a> the whole snippet can be replaced by…</p>
+      <pre><code class="visibleLinks">Car copy = <a href="https://commons.apache.org/proper/commons-lang/javadocs/api-3.7/org/apache/commons/lang3/SerializationUtils.html#clone-T-">SerializationUtils.clone</a>(original);</code></pre>
+      <p>…which does not throw any checked exceptions and infers the correct return type.</p>
+      <p>Note that the serialization mechanism does not call any constructors. Customizing the serialization / deserialization—which is needed when dealing with non-serializable external classes—requires you to "override" private methods. This kind of unintuitive semantics makes it tricker to understand, debug, and maintain code.</p>
+      <div class="article-box">
+        <div class="side-by-side">
+          <div>
+            <h3>Pros</h3>
+            <ul>
+              <li>Handles inheritance</li>
+              <li>Very little boilerplate</li>
+              <li>Provides deep copying out of the box
+                <ul>
+                  <li>Even object graphs with cycles!</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Cons</h3>
+            <ul>
+              <li>All objects must be <code>Serializable</code></li>
+              <li>Requires extra temporary memory</li>
+              <li>Relies on black magic
+                <ul>
+                  <li>Overriding private methods</li>
+                  <li>No constructor calls</li>
+                </ul>
+              </li>
+              <li>No compile time checks</li>
+              <li>Requires casts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p>That being said, <strong>any serialization library would do</strong>. If you already have for example Jackson or Gson set up, you can reuse your <code>ObjectMapper</code> or <code>Gson</code> objects for copying purposes, and do away without "black magic" and casts.</p>
+      <h2>Object.clone</h2>
+      <p><code>Object.clone</code> offers a shortcut for creating exact, field-by-field, copies of objects. A lot of the boilerplate otherwise required in copy constructors or static factory methods goes away.</p>
+      <pre><code><span class="keyword">class</span> Car <span class="keyword">implements</span> Cloneable {
+
+    <span class="keyword">private</span> String make;
+    <span class="keyword">private</span> <span class="keyword">int</span> doors;
+    <span class="keyword">private</span> Motor motor;
+    <span class="keyword">private</span> Gearbox gearbox;
+
+    …
+    @Override
+    <span class="keyword">public</span> Car clone() {
+        <span class="keyword">try</span> {
+            Car c = (Car) <span class="keyword">super</span>.clone();
+
+            <span class="comment">// Already copied by Object.clone</span>
+            <span class="comment">// c.doors = doors;</span>
+
+            c.motor = motor.clone();
+            c.gearbox = gearbox.clone();
+
+            <span class="comment">// No need to clone immutable objects</span>
+            <span class="comment">// c.make = make; </span>
+            
+            <span class="keyword">return</span> c;
+        } <span class="keyword">catch</span> (CloneNotSupportedException e) {
+            <span class="comment">// Will not happen in this case</span>
+            <span class="keyword">return</span> <span class="keyword">null</span>;
+        }
+    }
+    …
+}</code></pre>
+      <p><strong>Usage:</strong></p>
+      <pre><code>Car copy = (Car) originalCar.clone();</code></pre>
+      <p>Unfortunately the cloning API is poorly designed and should almost always be avoided. Copying arrays is a notable exception where cloning is the preferred method.</p>
+      <p>Continue reading here: <a href="clone-and-cloneable.html">Java: Clone and Cloneable</a></p>
+      <div class="article-box">
+        <div class="side-by-side">
+          <div>
+            <h3>Pros</h3>
+            <ul>
+              <li>Automatic shallow copying</li>
+              <li>Deals with inheritance</li>
+              <li>Works well for arrays</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Cons</h3>
+            <ul>
+              <li>Casts required</li>
+              <li>No constructors called</li>
+              <li>Incompatible with final fields</li>
+              <li>CloneNotSupported is checked</li>
+              <li>Can't opt out from being Cloneable</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h2>Simple copy method</h2>
+      <pre><code><span class="keyword">class</span> Car {
+    …
+    <span class="keyword">public</span> Car copy() {
+        Car copy = <span class="keyword">new</span> Car();
+        copy.make = <span class="keyword">this</span>.make;
+        copy.doors = <span class="keyword">this</span>.doors;
+        copy.motor = <span class="keyword">this</span>.motor.copy();
+        copy.gearbox = <span class="keyword">this</span>.gearbox.copy();
+        <span class="keyword">return</span> copy;
+    }
+    …
+}</code></pre>
+      <p>As it stands, it's not easy to add a subclass to the above example. If a subclass, say <code>Taxi</code>, where to override <code>Car.copy</code>, it would need to call <code>super.copy()</code> to make sure private fields in <code>Car</code> are copied. <code>super.copy()</code> however, would return a <code>Car</code> object, which would be of little use to <code>Taxi.copy</code> since it needs to return a <code>Taxi</code> object.</p>
+      <p>If your situation involves a class hierarchy, a better solution would be:</p>
+      <pre><code><span class="keyword">class</span> Car {
+    …
+    <span class="keyword">protected</span> <span class="keyword">void</span> copyFrom(Car car) {
+        <span class="keyword">this</span>.make = car.make;
+        <span class="keyword">this</span>.doors = car.doors;
+        <span class="keyword">this</span>.motor = car.motor;
+        <span class="keyword">this</span>.gearbox = car.gearbox;
+    }
+
+    <span class="keyword">public</span> Car copy() {
+        Car copy = <span class="keyword">new</span> Car();
+        copy.copyFrom(<span class="keyword">this</span>);
+        <span class="keyword">return</span> copy;
+    }
+    …
+}
+
+<span class="keyword">class</span> Taxi <span class="keyword">extends</span> Car {
+    …
+    <span class="keyword">protected</span> <span class="keyword">void</span> copyFrom(Taxi taxi) {
+        <span class="keyword">super</span>.copyFrom(taxi);
+        <span class="keyword">this</span>.isAvailable = taxi.isAvailable;
+    }
+
+    <span class="keyword">public</span> Taxi copy() {
+        Taxi copy = <span class="keyword">new</span> Taxi();
+        copy.copyFrom(<span class="keyword">this</span>);
+        <span class="keyword">return</span> copy;
+    }
+    …
+}</code></pre>
+      <p>In the above example, the public <code>copy</code> method delegates to the protected <code>copyFrom</code> method which can easily be overridden in subclasses.</p>
+      <div class="article-box">
+        <div class="side-by-side">
+          <div>
+            <h3>Pros</h3>
+            <ul>
+              <li>Simple and straight forward</li>
+              <li>Easy to understand and debug</li>
+              <li>No casts required</li>
+              <li>Don't need to know the runtime type</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Cons</h3>
+            <ul>
+              <li>A bit clumbsy with inheritance</li>
+              <li>Requires some boilerplate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h2>Builders</h2>
+      <p>If the class has a builder, you could add a <code>from</code> method that initiates the builder with the values from a given object.</p>
+      <pre><code><span class="keyword">class</span> Car {
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> Builder {
+
+        <span class="keyword">private</span> String make;
+        <span class="keyword">private</span> <span class="keyword">int</span> doors;
+        …
+
+        <span class="keyword">public</span> Builder() {
+        }
+
+        <span class="keyword">public</span> Builder make(String make) {
+            <span class="keyword">this</span>.make = make;
+            <span class="keyword">return</span> <span class="keyword">this</span>;
+        }
+
+        <span class="comment">// other builder methods…</span>
+
+        <span class="keyword">public</span> Builder from(Car toCopyFrom) {
+            make(toCopyFrom.make);
+            doors(toCopyFrom.doors);
+            …
+            <span class="keyword">return</span> <span class="keyword">this</span>;
+        }
+
+        <span class="keyword">public</span> Car build() {
+            <span class="keyword">return</span> <span class="keyword">new</span> Car(
+                    make,
+                    doors,
+                    buildMotor(),
+                    buildGearbox());
+        }
+    }
+
+    <span class="comment">// Rest of Car class</span>
+    …
+}</code></pre>
+      <p><strong>Usage:</strong></p>
+      <pre><code>Car copy = <span class="keyword">new</span> Car.Builder()
+                  .from(original)
+                  .build();</code></pre>
+      <p>This is precisely what the <a href="https://immutables.github.io">Immutables library</a> does when generating a builder for value classes.</p>
+      <div class="article-box">
+        <div class="side-by-side">
+          <div>
+            <h3>Pros</h3>
+            <ul>
+              <li>Easy to tweak the copy</li>
+              <li>Good if there's already a builder</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Cons</h3>
+            <ul>
+              <li>Builder pattern is verbose</li>
+              <li>Another level of indirection</li>
+              <li>Not easy to extend</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/copying-objects-deep-and-shallow.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Big O notation explained | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="Big O notation is a convenient way to describe how fast a function is growing. In computer science it's common to use the Big O notation in complexity analysis."
+      name="description"
+    />
+    <meta
+      content="asymptotic, ordo, omega, theta, notation, elementary operations, worst-case, constant, logarithmic, linear, quadratic"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div class="ad">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a href="time-complexity-explained.html">Time complexity explained</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="amortized-time-complexity-analysis.html"
+            >Amortized time complexity</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li class="current">Big O notation explained</li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Big O notation explained</h1>
+        <p>
+          Big O notation is a convenient way to describe how fast a function is
+          growing.
+        </p>
+        <p>
+          When studying the time complexity&nbsp;T(<i>n</i>) of an algorithm
+          it's rarely meaningful, or even possible, to compute an exact result.
+          Typically we are only interested in how fast T(<i>n</i>) is growing as
+          a function of the input size&nbsp;<i>n</i>.
+        </p>
+        <p>
+          For example, if an algorithm increments each number in a list of
+          length&nbsp;<i>n</i>, we might say: "This algorithm runs in
+          O(<i>n</i>) time and performs O(1) work for each element".
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Definition:</strong> Let T(<i>n</i>) and f(<i>n</i>) be two
+            positive functions. We write
+            <b>T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(f(<i>n</i>))</b>, and say that
+            T(<i>n</i>) has order of&nbsp;f(<i>n</i>), if there are positive
+            constants M and n₀ such that T(<i>n</i>)&nbsp;≤&nbsp;M·f(<i>n</i>)
+            for all <i>n</i>&nbsp;≥&nbsp;n<sub>0</sub>.
+          </p>
+        </div>
+        <div class="centered-content">
+          <img
+            alt="Big O notation"
+            src="Ordo.png"
+            style="
+              padding: 12px 18px;
+              background: white;
+              border: 1px #eee solid;
+            "
+          />
+        </div>
+        <p>
+          Basically, T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(f(<i>n</i>)) means that
+          T(<i>n</i>) doesn't grow faster than&nbsp;f(<i>n</i>).
+        </p>
+        <h2>Constant time</h2>
+        <p>
+          Let's start with the simplest possible example:
+          <strong>T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(1)</strong>.
+        </p>
+        <p>
+          According to the definition this means that there are constants M and
+          n<sub>0</sub> such that T(<i>n</i>)&nbsp;≤&nbsp;M when
+          <i>n</i>&nbsp;≥&nbsp;n<sub>0</sub>. In other words,
+          T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(1) means that T(<i>n</i>) is smaller
+          than some fixed constants, whose value isn't stated, for all large
+          enough values of&nbsp;<i>n</i>.
+        </p>
+        <p>
+          An algorithm with T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(1) is said to have
+          <strong>constant time complexity</strong>.
+        </p>
+        <h2>Linear time</h2>
+        <p>
+          In
+          <a href="time-complexity-explained.html">Time complexity explained</a>
+          we looked at an algorithm <code>max</code> with time complexity
+          T(<i>n</i>)&nbsp;=&nbsp;<i>n</i>&nbsp;-1. Using Big&nbsp;O notation
+          this can be written as
+          <strong>T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(<i>n</i>)</strong>. (If we
+          choose M&nbsp;=&nbsp;1 and n₀&nbsp;=&nbsp;1, then
+          T(<i>n</i>)&nbsp;=&nbsp;<i>n</i>&nbsp;-&nbsp;1 &nbsp;≤&nbsp;1·<i>n</i>
+          when <i>n</i>&nbsp;≥&nbsp;1.)
+        </p>
+        <p>
+          An algorithm with T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(<i>n</i>) is said
+          to have <strong>linear time complexity</strong>.
+        </p>
+        <h2>Quadratic time</h2>
+        <p>
+          The algorithm <code>reverse</code> from
+          <a href="time-complexity-explained.html">Time complexity explained</a>
+          had time complexity T(<i>n</i>)&nbsp;=&nbsp;<i>n</i
+          ><sup>2</sup>/2&nbsp;-&nbsp;<i>n</i>/2. With Big&nbsp;O notation, this
+          becomes
+          <strong>T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(<i>n</i><sup>2</sup>)</strong
+          >, and we say that the algorithm has
+          <strong>quadratic time complexity</strong>.
+        </p>
+        <h2>Sloppy notation</h2>
+        <p>
+          The notation T(<i>n</i>)&nbsp;∊&nbsp;<i>O</i>(f(<i>n</i>)) can be used
+          even when f(<i>n</i>) grows
+          <strong>much faster</strong> than&nbsp;T(<i>n</i>). For example, we
+          may write T(<i>n</i>)&nbsp;=&nbsp;<i>n</i>&nbsp;-&nbsp;1&nbsp;∊
+          <i>O</i>(<i>n</i><sup>2</sup>). This is indeed true, but not very
+          useful.
+        </p>
+        <h2>Ω and Θ notation</h2>
+        <p>
+          <strong>Big Omega</strong> is used to give a
+          <strong>lower bound</strong> for the growth of a function. It's
+          defined in the same way as Big&nbsp;O, but with the inequality sign
+          turned around:
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Definition:</strong> Let T(<i>n</i>) and f(<i>n</i>) be two
+            positive functions We write
+            <b>T(<i>n</i>)&nbsp;∊&nbsp;Ω(f(<i>n</i>))</b>, and say that
+            T(<i>n</i>) is big omega of&nbsp;f(<i>n</i>), if there are positive
+            constants m and n₀ such that T(<i>n</i>)&nbsp;≥&nbsp;m(f(<i>n</i>))
+            for all <i>n</i>&nbsp;≥&nbsp;n₀.
+          </p>
+        </div>
+        <p>
+          <strong>Big Theta</strong> is used to indicate that an function is
+          bounded both from above and below:
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Definition:</strong> T(<i>n</i>):&nbsp;∊&nbsp;Θ(f(<i>n</i>))
+            if T(<i>n</i>) is both <i>O</i>(f(<i>n</i>)) and Ω(f(<i>n</i>)).
+          </p>
+        </div>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> T(<i>n</i>)&nbsp;=&nbsp;3<i>n</i
+            ><sup>3</sup>&nbsp;+&nbsp;2<i>n</i>&nbsp;+&nbsp;7&nbsp;∊&nbsp;Θ(<i
+              >n</i
+            ><sup>3</sup>)
+          </p>
+          <ul>
+            <li>
+              If <i>n</i>&nbsp;≥&nbsp;1, then T(<i>n</i>)&nbsp;=&nbsp;3<i>n</i
+              ><sup>3</sup>&nbsp;+&nbsp;2<i>n</i>&nbsp;+&nbsp;7&nbsp;≤ 3<i>n</i
+              ><sup>3</sup>&nbsp;+&nbsp;2<i>n</i><sup>3</sup>&nbsp;+&nbsp;7<i
+                >n</i
+              ><sup>3</sup>&nbsp;= 12<i>n</i><sup>3</sup>. Hence
+              T(<i>n</i>)&nbsp;∊ <i>O</i>(<i>n</i><sup>3</sup>).
+            </li>
+            <li>
+              On the other hand, T(<i>n</i>)&nbsp;=&nbsp;3<i>n</i
+              ><sup>3</sup
+              >&nbsp;+&nbsp;2<i>n</i>&nbsp;+&nbsp;7&nbsp;&gt;&nbsp;<i>n</i
+              ><sup>3</sup> for all positive&nbsp;<i>n</i>. Therefore
+              T(<i>n</i>)&nbsp;∊ Ω(<i>n</i><sup>3</sup>).
+            </li>
+            <li>
+              And consequently T(<i>n</i>)&nbsp;∊ Θ(<i>n</i><sup>3</sup>).
+            </li>
+          </ul>
+        </div>
+        <h2>Key takeaways</h2>
+        <p>
+          When analyzing algorithms you often encounter the following time
+          complexities (in order of growth):
+        </p>
+        <ul>
+          <li>Θ(1)</li>
+          <li>Θ(log&nbsp;<i>n</i>)</li>
+          <li>Θ(<i>n</i>)</li>
+          <li>Θ(<i>n</i>&nbsp;log&nbsp;<i>n</i>)</li>
+          <li>Θ(<i>n</i><sup>k</sup>), where k&nbsp;≥&nbsp;2</li>
+          <li>
+            Θ(k<sup><i>n</i></sup
+            >), where k&nbsp;≥&nbsp;2
+          </li>
+          <li>Θ(<i>n</i>!)</li>
+        </ul>
+        <p>The first four indicate an excellent algorithm:</p>
+        <div class="article-box">
+          <p>
+            <strong
+              ><i>O</i>(<i>n</i>&nbsp;log&nbsp;<i>n</i>) is really good</strong
+            >
+          </p>
+          <p>
+            An algorithm with worst-case time complexity W(<i>n</i>)&nbsp;∊
+            <i>O</i>(<i>n</i>&nbsp;log&nbsp;<i>n</i>) scales very well. The
+            logarithm function grows very slowly:
+          </p>
+          <ul>
+            <li>log<sub>2</sub>&nbsp;1,000&nbsp;≈&nbsp;10,</li>
+            <li>log<sub>2</sub>&nbsp;1,000,000&nbsp;≈&nbsp;20,</li>
+            <li>log<sub>2</sub>&nbsp;1,000,000,000&nbsp;≈&nbsp;30.</li>
+          </ul>
+          <p>
+            In fact, <i>O</i>(<i>n</i>&nbsp;log&nbsp;<i>n</i>) time complexity
+            is close to linear: it takes roughly twice the time to solve a
+            problem twice as big.
+          </p>
+        </div>
+        <p>The last three typically spell trouble:</p>
+        <div class="article-box">
+          <p>
+            <strong>Ω(<i>n</i><sup>2</sup>) is pretty bad</strong>
+          </p>
+          <p>
+            Algorithms with time complexity Ω(<i>n</i><sup>2</sup>) are useful
+            only for small input: <i>n</i> shouldn't be more than a few
+            thousand:
+          </p>
+          <ul>
+            <li>10,000<sup>2</sup> = 100,000,000.</li>
+          </ul>
+          <p>
+            An algorithm with quadratic time complexity scales poorly: if you
+            increase the input size by a factor&nbsp;10, the time increases by a
+            factor&nbsp;100.
+          </p>
+        </div>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="big-o-notation-explained.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
+</html>

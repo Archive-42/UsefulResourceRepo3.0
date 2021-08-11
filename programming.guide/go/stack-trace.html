@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: Stack traces | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="A stack trace is a list of active method calls at a certain point in time during the execution of a program." name="description">
+  <meta content="go, stack trace, debugging" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Further Reading</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="https://www.goinggo.net/2015/01/stack-traces-in-go.html">Stack Traces in Go</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Going Go Programming</span>
+      </div>
+      <h2>Error handling</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="errors-explained.html">Errors explained</a>
+        </li>
+        <li>
+          <a href="create-error.html">Create a custom error</a>
+        </li>
+        <li>
+          <a href="panic-explained.html">Panic explained</a>
+        </li>
+        <li>
+          <a href="recover-from-panic.html">Recover from a panic</a>
+        </li>
+        <li class="current">Stack traces</li>
+      </ol>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: Stack traces</h1>
+      <p>A stack trace is the list of functions that the program was in the middle of when the stack trace was printed.</p>
+      <p>Stack traces are typically printed to the console when unexpected error occurs. They can be very useful for debugging: - not only do you see where the error happened, - but also how the program arrived in this place.</p>
+      <h2>Example</h2>
+      <pre><code>goroutine 11 [running]:
+testing.tRunner.func1(0xc420092690)
+        /usr/local/go/src/testing/testing.go:711 +0x2d2
+panic(0x53f820, 0x594da0)
+        /usr/local/go/src/runtime/panic.go:491 +0x283
+github.com/yourbasic/bit.(*Set).Max(0xc42000a940, 0x0)
+        ../src/github.com/bit/set_math_bits.go:137 +0x89
+github.com/yourbasic/bit.TestMax(0xc420092690)
+        ../src/github.com/bit/set_test.go:165 +0x337
+testing.tRunner(0xc420092690, 0x57f5e8)
+        /usr/local/go/src/testing/testing.go:746 +0xd0
+created by testing.(*T).Run
+        /usr/local/go/src/testing/testing.go:789 +0x2de
+</code></pre>
+      <p>The stack trace can be read from the bottom up:</p>
+      <ul>
+        <li><code>testing.(*T).Run</code> has called <code>testing.tRunner</code></li>
+        <li>...which has called <code>bit.TestMax</code></li>
+        <li>...which has called <code>bit.(*Set).Max</code></li>
+        <li>...which has called <code>panic</code></li>
+        <li>...which has called <code>testing.tRunner.func1</code></li>
+      </ul>
+      <p>The indented lines show the source file and line number at which the function was called. The hexadecimal numbers refer to parameter values, including values of pointers and internal data structures. <a href="https://www.goinggo.net/2015/01/stack-traces-in-go.html">Stack Traces in Go</a> has more details.</p>
+      <h2>Print a stack trace</h2>
+      <p>To print the stack trace for the current goroutine, use <a href="https://golang.org/pkg/runtime/debug/#PrintStack"><code>debug.PrintStack</code></a> from package <a href="https://golang.org/pkg/runtime/debug/"><code>runtime/debug</code></a>.</p>
+      <p>You can also examine the current stack trace programatically by calling <a href="https://golang.org/pkg/runtime/#Stack"><code>runtime.Stack</code></a>.</p>
+      <h2>Level of detail</h2>
+      <p>The <a href="https://golang.org/pkg/runtime/#hdr-Environment_Variables"><code>GOTRACEBACK</code></a> variable controls the amount of output generated when a Go program fails.</p>
+      <ul>
+        <li><code>GOTRACEBACK=none</code> omits the goroutine stack traces entirely.</li>
+        <li><code>GOTRACEBACK=single</code> (the default) prints a stack trace for the current goroutine, eliding functions internal to the run-time system. The failure prints stack traces for all goroutines if there is no current goroutine or the failure is internal to the run-time.</li>
+        <li><code>GOTRACEBACK=all</code> adds stack traces for all user-created goroutines.</li>
+        <li><code>GOTRACEBACK=system</code> is like <code>all</code> but adds stack frames for run-time functions and shows goroutines created internally by the run-time.</li>
+      </ul>
+      <div class="prev-next-container">
+        <!-- PREV -->
+         <a class="prev" href="recover-from-panic.html">
+        <div class="button-content">
+          « Prev
+          <div class="prev-next-text">
+            Recover from a panic
+          </div>
+        </div></a> <!-- TOC -->
+         <a href="go-errors-tutorial.html">
+        <div class="button-content">
+          TOC
+          <div class="prev-next-text">
+            Error handling
+          </div>
+          <div class="prev-next-text" style="font-weight: normal">
+            5&nbsp;of&nbsp;5
+          </div>
+        </div></a> <!-- NEXT -->
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/stack-trace.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

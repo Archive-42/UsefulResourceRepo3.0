@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Generating a random value with a custom distribution | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="To generate random values according to a custom distribution using a function that generates uniform random values between 0 and 1 you can use the inverse transform sampling method." name="description">
+  <meta content="random, uniform, distribution, custom distribution, probability density function, pdf, cumulative distribution function, cdf, inverse transform sampling" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+  <style>
+    /* <![CDATA[ */
+    svg {
+        margin: 2em 0em
+    }
+    .area {
+       fill: #eeeeee;
+    }
+    circle.dot {
+        fill: black;
+        stroke: black;
+    }
+    line.axis {
+        stroke: black;
+        stroke-width: 1;
+    }
+    .graph {
+        stroke: blue;
+        stroke-width: 2;
+        fill: none;
+    }
+
+    .bullet {
+        stroke: #aaaaaa;
+        stroke-width: .5;
+        fill: none;
+    }
+
+    .mirrored {
+        stroke: #aaaaaa;
+        stroke-width: 1;
+        fill: none;
+    }
+    /* ]]> */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="java/functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Generating a random value with a custom distribution</h1>
+      <p>To generate random values according to a <strong>custom distribution</strong> using a function that generates <strong>uniform random values between 0 and 1</strong> you can use the <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling">inverse transform sampling</a> method.</p>
+      <h2>Method Outline</h2>
+      <ol>
+        <li>First we create a <a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution function</a> (CDF for short)
+        </li>
+        <li>We then mirror the CDF along <i>y</i> = <i>x</i></li>
+        <li>The resulting function can be applied to a random value between 0 and 1</li>
+      </ol>
+      <h2>Example</h2>
+      <p>Suppose we want to generate a random point with the following distribution:</p>
+      <ul>
+        <li>1/5 of the points uniformly between 1 and 2, and</li>
+        <li>4/5 of the points uniformly between 2 and 3.</li>
+      </ul>
+      <p>The <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a> (PDF) in this case would look like this:</p>
+      <div class="centered-content">
+        <svg style="max-width: 21em;" viewbox="0 0 260 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <line class="axis" x1="30" x2="230" y1="210" y2="210"></line>
+        <line class="axis" x1="30" x2="30" y1="210" y2="30"></line>
+        <text x="25" y="230">
+          0
+        </text>
+        <text x="91.66" y="230">
+          1
+        </text>
+        <text x="158.33" y="230">
+          2
+        </text>
+        <text x="225" y="230">
+          3
+        </text>
+        <path class="area" d="M 30,210 h 66.66 v -45 h 66.66 v -135 h 66.66 v 180"></path>
+        <path class="graph" d="M 30,210 h 66.66 v -45 h 66.66 v -135 h 66.66"></path></svg>
+      </div>
+      <p>For such simple distribution, inverse transform sampling is a bit of an overkill, but let's go with this since a simple example makes it easier to understand the general idea.</p>
+      <p><strong>Step 1: Create the CDF</strong></p>
+      <p>The CDF is, as the name suggests, the cumulative version of the PDF. Intuitively: While PDF(<em>x</em>) describes the number of random values <em>at x</em>, CDF(<em>x</em>) describes the number of random values <em>less than x</em>.</p>
+      <p>Since we're working with reals, the CDF is expressed as the integral of the PDF. In this case the CDF would look like:</p>
+      <div class="centered-content">
+        <svg style="max-width: 21em;" viewbox="0 0 260 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <line class="axis" x1="30" x2="230" y1="210" y2="210"></line>
+        <line class="axis" x1="30" x2="30" y1="210" y2="30"></line>
+        <text x="25" y="230">
+          0
+        </text>
+        <text x="91.66" y="230">
+          1
+        </text>
+        <text x="158.33" y="230">
+          2
+        </text>
+        <text x="225" y="230">
+          3
+        </text>
+        <text x="15" y="35">
+          1
+        </text>
+        <path class="area" d="M 30,210 h 66.66 l 66.66 -36 l 66.66 -144 v 180"></path>
+        <path class="graph" d="M 30,210 h 66.66 l 66.66 -36 l 66.66 -144"></path></svg>
+      </div>
+      <p>To see why the CDF is useful, imagine that we shoot bullets from left to right at uniformly distributed heights. As the bullets hit the line, they drop down to the ground:</p>
+      <div class="centered-content">
+        <svg style="max-width: 21em;" viewbox="0 0 260 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <line class="axis" x1="30" x2="230" y1="210" y2="210"></line>
+        <line class="axis" x1="30" x2="30" y1="210" y2="30"></line>
+        <text x="25" y="230">
+          0
+        </text>
+        <text x="91.66" y="230">
+          1
+        </text>
+        <text x="158.33" y="230">
+          2
+        </text>
+        <text x="225" y="230">
+          3
+        </text>
+        <text x="15" y="35">
+          1
+        </text>
+        <path class="area" d="M 30,210 h 66.66 l 66.66 -36 l 66.66 -144 v 180"></path>
+        <path class="graph" d="M 30,210 h 66.66 l 66.66 -36 l 66.66 -144"></path>
+        <path class="bullet" d="M 30.00 30.00 H 230.00 V 215.00"></path>
+        <circle cx="230.00" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 40.00 H 225.37 V 215.00"></path>
+        <circle cx="225.37" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 50.00 H 220.74 V 215.00"></path>
+        <circle cx="220.74" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 60.00 H 216.11 V 215.00"></path>
+        <circle cx="216.11" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 70.00 H 211.48 V 215.00"></path>
+        <circle cx="211.48" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 80.00 H 206.85 V 215.00"></path>
+        <circle cx="206.85" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 90.00 H 202.22 V 215.00"></path>
+        <circle cx="202.22" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 100.00 H 197.59 V 215.00"></path>
+        <circle cx="197.59" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 110.00 H 192.96 V 215.00"></path>
+        <circle cx="192.96" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 120.00 H 188.32 V 215.00"></path>
+        <circle cx="188.32" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 130.00 H 183.69 V 215.00"></path>
+        <circle cx="183.69" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 140.00 H 179.06 V 215.00"></path>
+        <circle cx="179.06" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 150.00 H 174.43 V 215.00"></path>
+        <circle cx="174.43" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 160.00 H 169.80 V 215.00"></path>
+        <circle cx="169.80" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 170.00 H 165.17 V 215.00"></path>
+        <circle cx="165.17" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 180.00 H 152.21 V 215.00"></path>
+        <circle cx="152.21" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 190.00 H 133.69 V 215.00"></path>
+        <circle cx="133.69" cy="215.00" r="1"></circle>
+        <path class="bullet" d="M 30.00 200.00 H 115.18 V 215.00"></path>
+        <circle cx="115.18" cy="215.00" r="1"></circle></svg>
+      </div>
+      <p>See how the density of the bullets on the ground corresponds to our desired distribution! We're almost there!<br>
+      <br></p>
+      <p><strong>Step 2: Mirror the CDF along <em>y</em> = <em>x</em></strong></p>
+      <p>The problem is that for this function, the <em>x</em> axis is the <em>input</em> and the <em>y</em> axis is the <em>output</em>. We can only “shoot bullets from the ground straight up”! We need the inverse function!</p>
+      <p>This is why we mirror the whole thing; <em>x</em> becomes <em>y</em> and <em>y</em> becomes <em>x</em>:</p>
+      <div class="centered-content">
+        <svg style="max-width: 22em;" viewbox="0 0 280 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text x="25" y="230">
+          0
+        </text>
+        <text x="225" y="230">
+          3
+        </text>
+        <text x="15" y="15">
+          3
+        </text>
+        <line class="axis" x1="30" x2="230" y1="210" y2="210"></line>
+        <line class="axis" x1="30" x2="30" y1="210" y2="10"></line>
+        <path class="graph" d="M 30,210 v -66.666 l 12 -66.66 l 47.333 -66.66"></path>
+        <text x="235" y="150">
+          CDF
+        </text>
+        <line class="mirrored" stroke-dasharray="5,5" x1="10" x2="250" y1="228" y2="12"></line>
+        <path class="graph" d="M 30,208 h 66.66 l 66.66 -12 l 66.66 -47.333" stroke-opacity=".2"></path>
+        <text x="95" y="15">
+          CDF⁻¹
+        </text></svg>
+      </div>
+      <p>We call this <em>CDF</em><sup>-1</sup>.<br>
+      <br></p>
+      <p><strong>Step 3: Apply the resulting function to a uniform value between 0 and 1</strong></p>
+      <p>With the <i>CDF</i><sup>-1</sup> we have all we need. We now simply feed it with uniformly random values between 0 and 1:</p>
+      <div class="centered-content">
+        <i>CDF</i><sup>-1</sup>(<i>random</i>())
+      </div>
+      <p>The result is random values with the desired distribution.</p>
+      <h2>A Real World Example</h2>
+      <p>This technique is used to derive the algorithm for generating a uniformly random point on a disc. See article <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="generate-random-value-with-distribution.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>
