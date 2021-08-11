@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Jungkee Song on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Jungkee Song</name>
+  </author>
+  <link href="https://web.dev/authors/jungkees/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/n1MFAKkwQLIbMeIvdkQ2.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>PM on the Microsoft Edge team</subtitle>
+  
+  
+  <entry>
+    <title>Get things done quickly with app shortcuts</title>
+    <link href="https://web.dev/app-shortcuts/"/>
+    <updated>2020-05-20T00:00:00Z</updated>
+    <id>https://web.dev/app-shortcuts/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;To improve users&#39; productivity and facilitate re-engagement with key tasks, the
+web platform now supports app shortcuts. They allow web developers to provide
+quick access to a handful of common actions that users need frequently.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;At the time of writing, app shortcuts are available on Android (Chrome 84),
+Windows (Chrome 85 and Edge 85), and Chrome OS (Chrome 92).&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This article will teach you how to define those app shortcuts. Additionally,
+you&#39;ll learn some associated best practices.&lt;/p&gt;
+&lt;h2 id=&quot;about-app-shortcuts&quot;&gt;About app shortcuts &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#about-app-shortcuts&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;App shortcuts help users quickly start common or recommended tasks within your
+web app. Easy access to those tasks from anywhere the app icon is displayed will
+enhance users&#39; productivity as well as increase their engagement with the web
+app.&lt;/p&gt;
+&lt;p&gt;The app shortcuts menu is invoked by right-clicking the app icon in the taskbar
+(Windows) or dock (macOS) on the user&#39;s desktop, or long pressing the app&#39;s
+launcher icon on Android.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Screenshot of an app shortcuts menu opened on Android&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;420&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/F4TsJNfRJNJSt2ZpqVAy.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;App shortcuts menu opened on Android&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Screenshot of an app shortcuts menu opened on Windows&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;420&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/RoF6k7Aw6WNvaEcsgIcb.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;App shortcuts menu opened on Windows&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The app shortcuts menu is shown only for &lt;a href=&quot;https://web.dev/progressive-web-apps/&quot;&gt;Progressive Web Apps&lt;/a&gt; that are
+installed on the user&#39;s desktop or mobile device. Check out &lt;a href=&quot;https://web.dev/install-criteria/&quot;&gt;What does it take
+to be installable?&lt;/a&gt; to learn about installability requirements.&lt;/p&gt;
+&lt;p&gt;Each app shortcut expresses a user intent, each of which is associated with a
+URL within the &lt;a href=&quot;https://web.dev/add-manifest/#scope&quot;&gt;scope&lt;/a&gt; of your web app. The URL is opened when users activate
+the app shortcut. Examples of app shortcuts include the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Top-level navigation items (e.g., home, timeline, recent orders)&lt;/li&gt;
+&lt;li&gt;Search&lt;/li&gt;
+&lt;li&gt;Data entry tasks (e.g., compose an email or tweet, add a receipt)&lt;/li&gt;
+&lt;li&gt;Activities (e.g., start a chat with the most popular contacts)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Big thanks to the folks at Microsoft Edge and Intel for designing and
+standardizing app shortcuts. Chrome depends on a community of committers working
+together to move the Chromium project forward. Not every Chromium committer is a
+Googler, and these contributors deserve special recognition!&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;define-app-shortcuts-in-the-web-app-manifest&quot;&gt;Define app shortcuts in the web app manifest &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#define-app-shortcuts-in-the-web-app-manifest&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;App shortcuts are optionally defined in the &lt;a href=&quot;https://web.dev/add-manifest&quot;&gt;web app manifest&lt;/a&gt;, a JSON file that
+tells the browser about your Progressive Web App and how it should behave when
+installed on the user&#39;s desktop or mobile device. More specifically, they are
+declared in the &lt;code&gt;shortcuts&lt;/code&gt; array member. Below is an
+example of a potential web app manifest.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Player FM&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;start_url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://player.fm?utm_source=homescreen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  …&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;shortcuts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Open Play Later&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;short_name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Play Later&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;View the list of podcasts you saved for later&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/play-later?utm_source=homescreen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;icons&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;&quot;src&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/icons/play-later.png&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;&quot;sizes&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;192x192&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;View Subscriptions&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;short_name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Subscriptions&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;View the list of podcasts you listen to&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/subscriptions?utm_source=homescreen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;icons&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;&quot;src&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/icons/subscriptions.png&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;&quot;sizes&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;192x192&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Each member of the &lt;code&gt;shortcuts&lt;/code&gt; array is a dictionary that contains at least a
+&lt;code&gt;name&lt;/code&gt; and a &lt;code&gt;url&lt;/code&gt;. Other members are optional.&lt;/p&gt;
+&lt;h3 id=&quot;name&quot;&gt;name &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#name&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The human-readable label for the app shortcut when
+displayed to the user.&lt;/p&gt;
+&lt;h3 id=&quot;short_name-(optional)&quot;&gt;short_name (optional) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#short_name-(optional)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The human-readable label used where space is limited. It is recommended
+that you provide it, even though it&#39;s
+optional.&lt;/p&gt;
+&lt;h3 id=&quot;description-(optional)&quot;&gt;description (optional) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#description-(optional)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The human-readable purpose for the app shortcut.
+It is not used at the time of writing but may be exposed to assistive technology
+in the future.&lt;/p&gt;
+&lt;h3 id=&quot;url&quot;&gt;url &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#url&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The URL opened when a user activates the app
+shortcut. This URL must exist within the scope of the web app manifest. If it is
+a relative URL, the base URL will be the URL of the web app manifest.&lt;/p&gt;
+&lt;h3 id=&quot;icons-(optional)&quot;&gt;icons (optional) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#icons-(optional)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;An array of image resource objects. Each object must
+include the &lt;code&gt;src&lt;/code&gt; and a &lt;code&gt;sizes&lt;/code&gt; property. Unlike &lt;a href=&quot;https://web.dev/add-manifest/#icons&quot;&gt;web app manifest icons&lt;/a&gt;, the
+&lt;code&gt;type&lt;/code&gt; of image is optional.&lt;/p&gt;
+&lt;p&gt;SVG files are not supported at the time of writing, use PNG instead.&lt;/p&gt;
+&lt;p&gt;If you want pixel-perfect icons, provide them in increments of 48dp (i.e. 36x36,
+48x48, 72x72, 96x96, 144x144, 192x192 pixel icons). Otherwise, it is recommended
+that you use a single 192x192 pixel icon.&lt;/p&gt;
+&lt;p&gt;As a quality measure, icons must be at least half of the device&#39;s ideal size on
+Android, which is 48dp. For example, to display on an &lt;a href=&quot;https://developer.android.com/training/multiscreen/screendensities#TaskProvideAltBmp&quot; rel=&quot;noopener&quot;&gt;xxhdpi screen&lt;/a&gt;, the icon
+must be at least 72 by 72 pixels. (This is derived from the
+&lt;a href=&quot;https://developer.android.com/training/multiscreen/screendensities#dips-pels&quot; rel=&quot;noopener&quot;&gt;formula for converting&lt;/a&gt; dp units for pixel units.)&lt;/p&gt;
+&lt;h2 id=&quot;test-your-app-shortcuts&quot;&gt;Test your app shortcuts &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#test-your-app-shortcuts&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To verify your app shortcuts are setup correctly, use the &lt;strong&gt;Manifest&lt;/strong&gt; pane in the
+&lt;strong&gt;Application&lt;/strong&gt; panel of DevTools.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Screenshot of app shortcuts in DevTools&quot; decoding=&quot;async&quot; height=&quot;534&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/rEL0r8lEfYHlsj0ylLSL.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;App shortcuts shown in DevTools&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This pane provides a human-readable version of many of your manifest&#39;s
+properties, including app shortcuts. It makes it easy to verify that all of the
+shortcut icons, if provided, are loading properly.&lt;/p&gt;
+&lt;p&gt;App shortcuts may not be available right away to all users because Progressive
+Web App updates are capped to once a day.  Find out more about
+&lt;a href=&quot;https://web.dev/manifest-updates&quot;&gt;how Chrome handles updates to the web app manifest&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;best-practices&quot;&gt;Best practices &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#best-practices&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;order-app-shortcuts-by-priority&quot;&gt;Order app shortcuts by priority &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#order-app-shortcuts-by-priority&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You are encouraged to order app shortcuts by priority, with the most critical
+app shortcuts appearing first in the &lt;code&gt;shortcuts&lt;/code&gt; array as the limit on the
+number of app shortcuts displayed varies depending on the platform. Chrome and
+Edge on Windows for instance limit the number of app shortcuts to 10 while
+Chrome for Android only takes the first 4 app shortcuts into account.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Chrome 92 for Android 7 now allow only 3 app shortcuts. A shortcut to the site
+settings was added, taking one of the available shortcut slots for the app.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;use-distinct-app-shortcut-names&quot;&gt;Use distinct app shortcut names &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#use-distinct-app-shortcut-names&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You should not rely on icons to differentiate app shortcuts as they may not
+always be visible. For instance, macOS doesn&#39;t support icons in the dock
+shortcuts menu. Use distinct names for each app shortcut.&lt;/p&gt;
+&lt;h3 id=&quot;measure-app-shortcuts-usage&quot;&gt;Measure app shortcuts usage &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#measure-app-shortcuts-usage&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You should annotate app shortcuts &lt;code&gt;url&lt;/code&gt; entries like you would do with
+&lt;code&gt;start_url&lt;/code&gt; for analytics purposes (e.g. &lt;code&gt;url: &amp;quot;/my-shortcut?utm_source=homescreen&amp;quot;&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 id=&quot;browser-support&quot;&gt;Browser support &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#browser-support&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;App shortcuts are available on Android (Chrome 84), Windows (Chrome 85 and
+Edge 85), and Chrome OS (Chrome 92 behind the experimental
+&lt;code&gt;about://flags/#enable-desktop-pwas-app-icon-shortcuts-menu-ui&lt;/code&gt; flag).
+More desktop platform support will follow.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Screenshot of an app shortcuts menu opened on Chrome OS&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;450&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/6KgvySxUcryuD0gwXa0u.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;App shortcuts menu opened on Chrome OS&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;trusted-web-activity-support&quot;&gt;Trusted Web Activity support &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#trusted-web-activity-support&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/GoogleChromeLabs/bubblewrap&quot; rel=&quot;noopener&quot;&gt;Bubblewrap&lt;/a&gt;, the recommended tool to build Android apps that use &lt;a href=&quot;https://web.dev/using-a-pwa-in-your-android-app/&quot;&gt;Trusted Web
+Activity&lt;/a&gt;, reads app shortcuts from the web app manifest and automatically
+generates the corresponding configuration for the Android app. Note that icons
+for app shortcuts are &lt;a href=&quot;https://github.com/GoogleChromeLabs/bubblewrap/issues/116&quot; rel=&quot;noopener&quot;&gt;required&lt;/a&gt; and must be at least 96 by 96 pixels in
+Bubblewrap.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.pwabuilder.com/&quot; rel=&quot;noopener&quot;&gt;PWABuilder&lt;/a&gt;, a great tool to easily turn a Progressive Web App into a Trusted
+Web Activity, supports app shortcuts with some &lt;a href=&quot;https://github.com/pwa-builder/CloudAPK/issues/25&quot; rel=&quot;noopener&quot;&gt;caveats&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For developers integrating Trusted Web Activity manually into their Android
+application, &lt;a href=&quot;https://developer.android.com/guide/topics/ui/shortcuts&quot; rel=&quot;noopener&quot;&gt;Android app shortcuts&lt;/a&gt; can be used to implement the same
+behaviors.&lt;/p&gt;
+&lt;h2 id=&quot;sample&quot;&gt;Sample &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#sample&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot; src=&quot;https://storage.googleapis.com/web-dev-assets/app-shortcuts/app-shortcuts-recording.mp4&quot;&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://app-shortcuts.glitch.me/&quot; rel=&quot;noopener&quot;&gt;app shortcuts sample&lt;/a&gt; and its &lt;a href=&quot;https://glitch.com/edit/#!/app-shortcuts&quot; rel=&quot;noopener&quot;&gt;source&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;glitch-embed-wrap&quot; style=&quot;height: 480px; width: 100%;&quot;&gt;
+  &lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi&quot; loading=&quot;lazy&quot; src=&quot;https://glitch.com/embed/#!/embed/app-shortcuts?attributionHidden=true&amp;sidebarCollapsed=true&amp;path=public%2Fmanifest.json&amp;previewSize=100&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;app-shortcuts on Glitch&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;helpful-links&quot;&gt;Helpful links &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/app-shortcuts/#helpful-links&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Shortcuts/explainer.md&quot; rel=&quot;noopener&quot;&gt;Explainer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://w3c.github.io/manifest/#shortcuts-member&quot; rel=&quot;noopener&quot;&gt;Spec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://app-shortcuts.glitch.me/&quot; rel=&quot;noopener&quot;&gt;App shortcuts sample&lt;/a&gt; | &lt;a href=&quot;https://glitch.com/edit/#!/app-shortcuts&quot; rel=&quot;noopener&quot;&gt;App shortcuts sample source&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=955497&quot; rel=&quot;noopener&quot;&gt;Tracking bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://chromestatus.com/feature/5706099464339456&quot; rel=&quot;noopener&quot;&gt;ChromeStatus.com entry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Blink Component: &lt;a href=&quot;https://crbug.com/?q=component:UI%3EBrowser%3EWebAppInstalls&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;UI&amp;gt;Browser&amp;gt;WebAppInstalls&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>François Beaufort</name>
+    </author><author>
+      <name>Jungkee Song</name>
+    </author>
+  </entry>
+</feed>
