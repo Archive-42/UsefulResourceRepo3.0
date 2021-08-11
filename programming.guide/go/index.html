@@ -1,1084 +1,2784 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Go | Programming.Guide</title>
-    <link href="../css/base.css" rel="stylesheet" />
-    <link href="../favicon.ico" rel="icon" />
-    <meta
-      content="Go (golang) tutorials, cheat sheets, and articles with production-quality code examples."
-      name="description"
-    />
-    <meta
-      content="go, golang, tutorials, code, examples, references, cheat sheets, gotchas"
-      name="keywords"
-    />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-62262792-2");
-    </script>
-    <script>
-      /**
-       * https://support.google.com/analytics/answer/1136920?hl=en
-       *
-       * Function that tracks a click on an outbound link in Analytics.
-       * This function takes a valid URL string as an argument, and uses that URL string
-       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-       * using 'navigator.sendBeacon' in browser that support it.
-       */
-      var trackOutboundLink = function (url) {
-        ga("send", "event", "outbound", "click", url, {
-          transport: "beacon",
-          hitCallback: function () {
-            document.location = url;
-          },
-        });
-      };
-    </script>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-    ></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-1475100101081278",
-        enable_page_level_ads: true,
-      });
-    </script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="../cookieconsent.min.js"></script>
-    <script>
-      window.addEventListener("load", function () {
-        window.cookieconsent.initialise({
-          palette: {
-            popup: {
-              background: "#006699",
-            },
-            button: {
-              background: "#cccccc",
-            },
-          },
-          theme: "classic",
-          dismissOnScroll: 200,
-          dismissOnWindowClick: true,
-          content: {
-            message:
-              "By interacting with this site you approve the use of cookies.",
-            href: "/terms-and-conditions.html",
-          },
-        });
-      });
-    </script>
-    <link href="../css/go-highlighting.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header>
-      <div class="ad">
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        ></script>
-        <ins
-          class="adsbygoogle"
-          data-ad-client="ca-pub-1475100101081278"
-          data-ad-format="link"
-          data-ad-slot="6424388494"
-          data-full-width-responsive="true"
-          style="display: block"
-        ></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    </header>
-    <main>
-      <aside id="primary-aside">
-        <div class="ad">
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          ></script>
-          <ins
-            class="adsbygoogle"
-            data-ad-client="ca-pub-1475100101081278"
-            data-ad-format="auto"
-            data-ad-slot="4885566806"
-            data-full-width-responsive="true"
-            style="display: block"
-          ></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
-        <h2>Top Go Articles</h2>
-        <ol class="nostyle">
-          <li>
-            <a href="go-gotcha.html">Go gotcha</a>
-          </li>
-          <li>
-            <a href="string-functions-reference-cheat-sheet.html"
-              >String handling cheat sheet</a
-            >
-          </li>
-          <li>
-            <a href="maps-explained.html">Maps explained</a>
-          </li>
-          <li>
-            <a href="for-loop.html">For loops explained</a>
-          </li>
-          <li>
-            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-          </li>
-        </ol>
-      </aside>
-      <aside id="secondary-aside">
-        <div class="ad">
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          ></script>
-          <ins
-            class="adsbygoogle"
-            data-ad-client="ca-pub-1475100101081278"
-            data-ad-format="auto"
-            data-ad-slot="6240200444"
-            data-full-width-responsive="true"
-            style="display: block"
-          ></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
-        <h2>Top Algorithm Articles</h2>
-        <ol class="nostyle">
-          <li>
-            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
-              >Dynamic programming vs memoization vs tabulation</a
-            >
-          </li>
-          <li>
-            <a href="../big-o-notation-explained.html"
-              >Big O notation explained</a
-            >
-          </li>
-          <li>
-            <a href="../sliding-window-example.html"
-              >Sliding Window Algorithm with Example</a
-            >
-          </li>
-          <li>
-            <a href="../what-makes-a-good-loop-invariant.html"
-              >What makes a good loop invariant?</a
-            >
-          </li>
-          <li>
-            <a href="../random-point-within-circle.html"
-              >Generating a random point within a circle (uniformly)</a
-            >
-          </li>
-        </ol>
-        <p>
-          <a href="../index.html"><b>See all articles</b></a>
-        </p>
-      </aside>
-      <article>
-        <h1>Go</h1>
-        <h2>Language basics</h2>
-        <ul class="index">
-          <li>
-            <a href="getting-started-hello-world.html">Get started</a>
-          </li>
-        </ul>
-        <p><em>Statements</em></p>
-        <ul class="index">
-          <li>
-            <a href="package-init-function-main-execution-order.html"
-              >Package initialization and program execution order</a
-            >
-          </li>
-          <li>
-            <a href="for-loop.html">For loops explained</a>
-          </li>
-          <li>
-            <a href="for-loop-range-array-slice-map-channel.html"
-              >Range loops (for each loops) explained</a
-            >
-          </li>
-          <li>
-            <a href="do-while-loop.html">do-while loop</a>
-          </li>
-          <li>
-            <a href="switch-statement.html">Switch statement</a>
-          </li>
-          <li>
-            <a href="defer.html">Defer statement</a>
-          </li>
-          <li>
-            <a href="type-assertion-switch.html"
-              >Type assertions and type switches</a
-            >
-          </li>
-          <li>
-            <a href="type-alias.html">Type alias</a>
-          </li>
-          <li>
-            <a href="ternary-if-else-statement.html"
-              >Where is the ternary conditional operator?</a
-            >
-          </li>
-        </ul>
-        <p><em>Expressions</em></p>
-        <ul class="index">
-          <li>
-            <a href="untyped-constants.html"
-              >Untyped numeric constants with no limits</a
-            >
-          </li>
-          <li>
-            <a href="structs-explained.html">Structs explained</a>
-          </li>
-          <li>
-            <a href="slices-explained.html">Slices explained</a>
-          </li>
-          <li>
-            <a href="maps-explained.html">Maps explained</a>
-          </li>
-          <li>
-            <a href="make-slice-map-channel.html"
-              >Make slices, maps and channels</a
-            >
-          </li>
-          <li>
-            <a href="append-explained.html">Append function explained</a>
-          </li>
-          <li>
-            <a href="copy-explained.html">Copy function explained</a>
-          </li>
-          <li>
-            <a href="default-zero-value.html"
-              >Default value of struct, string, slice, map</a
-            >
-          </li>
-          <li>
-            <a href="operator-priority.html">Operator precedence</a>
-          </li>
-          <li>
-            <a href="find-type-of-object.html">Find the type of an object</a>
-          </li>
-          <li>
-            <a
-              href="https://programming.guide/go/ternary-if-else-statement.htmlgo/conversions.html"
-              >Where is the ternary conditional operator?</a
-            >
-          </li>
-        </ul>
-        <p><em>Methods and interfaces</em></p>
-        <ul class="index">
-          <li>
-            <a href="methods-explained.html">Methods explained</a>
-          </li>
-          <li>
-            <a href="interfaces-explained.html">Interfaces explained</a>
-          </li>
-          <li>
-            <a href="empty-interface.html">The empty interface</a>
-          </li>
-          <li>
-            <a href="named-return-values-parameters.html"
-              >Named return values</a
-            >
-          </li>
-          <li>
-            <a href="overload-overwrite-optional-parameter.html"
-              >Optional parameters and method overloading</a
-            >
-          </li>
-          <li>
-            <a href="variadic-function.html">Variadic functions (...T)</a>
-          </li>
-        </ul>
-        <p><em>Error handling</em></p>
-        <ul class="index">
-          <li>
-            <a href="errors-explained.html">Errors explained</a>
-          </li>
-          <li>
-            <a href="create-error.html">Create a custom error</a>
-          </li>
-          <li>
-            <a href="panic-explained.html">Panic explained</a>
-          </li>
-          <li>
-            <a href="recover-from-panic.html">Recover from a panic</a>
-          </li>
-          <li>
-            <a href="stack-trace.html">Stack traces</a>
-          </li>
-        </ul>
-        <p><em>Bits and pieces</em></p>
-        <ul class="index">
-          <li>
-            <a href="underscore.html">Blank identifier (underscore)</a>
-          </li>
-          <li>
-            <a href="generics.html">Generics (alternatives and workarounds)</a>
-          </li>
-          <li>
-            <a href="iota.html">iota</a>
-          </li>
-          <li>
-            <a href="int-vs-int64.html">int vs. int64</a>
-          </li>
-          <li>
-            <a href="pointers-explained.html">Pointers explained</a>
-          </li>
-          <li>
-            <a href="three-dots-ellipsis.html"
-              >Three dots (ellipsis) notation</a
-            >
-          </li>
-        </ul>
-        <h2>Standard library</h2>
-        <ul class="index">
-          <li>
-            <a href="json-example.html">JSON by example</a>
-          </li>
-          <li>
-            <a href="fmt-printf-reference-cheat-sheet.html"
-              >Print with fmt cheat sheet</a
-            >
-          </li>
-          <li>
-            <a href="io-reader-interface-explained.html"
-              >The io.Reader interface</a
-            >
-          </li>
-          <li>
-            <a href="io-writer-interface-explained.html"
-              >The io.Writer interface</a
-            >
-          </li>
-          <li>
-            <a href="log-to-file.html">Write log to file</a>
-          </li>
-          <li>
-            <a href="disable-logging-output.html">Disable logging</a>
-          </li>
-          <li>
-            <a href="http-server-example.html">HTTP server example</a>
-          </li>
-          <li>
-            <a href="regexp-cheat-sheet.html">Regular expressions</a>
-          </li>
-          <li>
-            <a href="how-to-sort-in-go.html">How to sort in Go</a>
-          </li>
-          <li>
-            <a href="binary-search.html">Binary search</a>
-          </li>
-        </ul>
-        <h2>Tricks of the trade</h2>
-        <ul class="index">
-          <li>
-            <a href="environment-variables.html"
-              >Access environment variables</a
-            >
-          </li>
-          <li>
-            <a href="bitmask-flag-set-clear.html">Bitmasks and flags</a>
-          </li>
-          <li>
-            <a href="check-prime.html">Check if a number is prime</a>
-          </li>
-          <li>
-            <a href="command-line-arguments.html">Command-line arguments</a>
-          </li>
-          <li>
-            <a href="absolute-value-int-float.html">Compute absolute values</a>
-          </li>
-          <li>
-            <a href="max-min-function.html">Compute min and max</a>
-          </li>
-          <li>
-            <a href="define-enumeration-string.html"
-              >Enumeration (enum) with string representation</a
-            >
-          </li>
-          <li>
-            <a href="find-go-build-version.html">Find build version</a>
-          </li>
-          <li>
-            <a href="formatting-byte-size-to-human-readable-format.html"
-              >Format byte size to human readable format</a
-            >
-          </li>
-          <li>
-            <a href="generate-permutation-slice-string.html"
-              >Generate all permutations of a slice or string</a
-            >
-          </li>
-          <li>
-            <a href="hash-md5-sha256-string-file.html">Hash checksums</a>
-          </li>
-          <li>
-            <a href="implement-fifo-queue.html">Implement a FIFO queue</a>
-          </li>
-          <li>
-            <a href="implement-stack.html">Implement a stack (LIFO)</a>
-          </li>
-          <li>
-            <a href="iterator-generator-pattern.html">Iterator pattern</a>
-          </li>
-          <li>
-            <a href="round-float-2-decimal-places.html"
-              >Round float to 2 decimal places</a
-            >
-          </li>
-          <li>
-            <a href="round-float-to-int.html">Round float to integer value</a>
-          </li>
-          <li>
-            <a href="table-driven-unit-test.html">Table-driven unit tests</a>
-          </li>
-          <li>
-            <a href="quicksort-optimizations.html"
-              >Top 3 Quicksort optimizations</a
-            >
-          </li>
-          <li>
-            <a href="max-min-int-uint.html"
-              >What’s the maximum value of an int?</a
-            >
-          </li>
-          <li>
-            <a href="write-command-line-application.html"
-              >Write a command-line (CLI) application</a
-            >
-          </li>
-          <li>
-            <a href="library-package-example-template.html"
-              >Library package example</a
-            >
-          </li>
-          <li>
-            <a href="opening-brace-separate-line.html"
-              >Opening brace on separate line</a
-            >
-          </li>
-          <li>
-            <a href="sort-custom-type.html">How to sort a custom type in Go</a>
-          </li>
-          <li>
-            <a href="packages-explained.html">Packages explained</a>
-          </li>
-          <li>
-            <a href="package-documentation.html">Package documentation</a>
-          </li>
-          <li>
-            <a href="redeclaring-variables.html">Redeclaring variables</a>
-          </li>
-          <li>
-            <a href="short-variable-declaration-outside-function.html"
-              >Variable declaration outside of function body</a
-            >
-          </li>
-          <li>
-            <a href="unused-imports.html">Unused imports</a>
-          </li>
-          <li>
-            <a href="unused-local-variables.html">Unused local variables</a>
-          </li>
-        </ul>
-        <h2>Cheat sheets</h2>
-        <ul class="index">
-          <li>
-            <a href="string-functions-reference-cheat-sheet.html"
-              >String handling cheat sheet</a
-            >
-          </li>
-          <li>
-            <a href="fmt-printf-reference-cheat-sheet.html"
-              >Print with fmt cheat sheet</a
-            >
-          </li>
-          <li>
-            <a href="format-parse-string-time-date-example.html"
-              >Format a time or date</a
-            >
-          </li>
-          <li>
-            <a href="conversions.html">Conversions</a>
-          </li>
-          <li>
-            <a href="regexp-cheat-sheet.html">Regular expressions</a>
-          </li>
-          <li>
-            <a href="operator-priority.html">Operator precedence</a>
-          </li>
-          <li>
-            <a href="bitwise-operator-cheat-sheet.html"
-              >Bitwise operators cheat sheet</a
-            >
-          </li>
-          <li>
-            <a href="operators.html">Operators</a>
-          </li>
-        </ul>
-        <h2>Regular Expressions</h2>
-        <ul class="index">
-          <li>
-            <a href="regexp-find-all-matches.html"
-              >Find all substrings matching a regexp</a
-            >
-          </li>
-          <li>
-            <a href="regexp-find-first-match.html"
-              >Find first substring matching a regexp</a
-            >
-          </li>
-          <li>
-            <a href="regexp-find-index-location.html"
-              >Find the location of a regexp substring match</a
-            >
-          </li>
-          <li>
-            <a href="regexp-replace-string.html"
-              >Replace all substrings matching a regexp</a
-            >
-          </li>
-          <li>
-            <a href="regexp-split-string.html"
-              >Split a string using regexp delimiter</a
-            >
-          </li>
-          <li>
-            <a href="remove-duplicate-whitespace.html"
-              >Remove duplicate whitespace from a string</a
-            >
-          </li>
-          <li>
-            <a href="repeat-multiply-string.html">Repeat string</a>
-          </li>
-          <li>
-            <a href="reverse-utf8-string.html"
-              >Reverse a UTF-8 encoded string</a
-            >
-          </li>
-        </ul>
-        <h2>Tutorials</h2>
-        <ul class="index">
-          <li>
-            <a href="json-example.html">JSON by example</a>
-          </li>
-          <li>
-            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-          </li>
-          <li>
-            <a href="go-errors-tutorial.html">Error handling tutorial</a>
-          </li>
-          <li>
-            <a href="go-gotcha.html">Go gotcha</a>
-          </li>
-        </ul>
-        <h2>Gotchas</h2>
-        <ul class="index">
-          <li>
-            <a href="gotcha-assignment-entry-nil-map.html"
-              >Why can't I add elements to my map?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-nil-pointer-dereference.html"
-              >What's a nil pointer dereference?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-multiple-value-sinlge-value-context.html"
-              >Multiple values in single value context?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-function-doesnt-change-array.html"
-              >Why doesn't this function change my array?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-shadowing-variables.html"
-              >Two variables with the same name?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-missing-comma-slice-array-map-literal.html"
-              >Extra comma in slice literal</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-strings-are-immutable.html"
-              >Why can't I update my string?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-concatenate-rune-string.html"
-              >Why aren't the characters concatenated?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-trim-string.html">What happened to ABBA?</a>
-          </li>
-          <li>
-            <a href="gotcha-copy-missing.html">What happened to my copy?</a>
-          </li>
-          <li>
-            <a href="gotcha-append.html">Why doesn't append work every time?</a>
-          </li>
-          <li>
-            <a href="gotcha-constant-overflows-int.html"
-              >Why can't I print large numbers? (constant overflows int)</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-increment-decrement-statement.html"
-              >Why doesn't increment (++) and decrement (--) work?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-operator-precedence.html"
-              >Why is my computation wrong?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-bitwise-operators.html"
-              >Why does Go and Pythagoras disagree?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-integer-overflow-wrap-around.html"
-              >Why doesn't this loop end?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-octal-decimal-hexadecimal-literal.html"
-              >Numbers that start with zero</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-remainder-modulo-operator.html"
-              >What's wrong with the remainder (modulo) operator?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-multiply-duration-integer.html"
-              >Why can't I multiply a time.Duration with an integer?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-index-out-of-range.html"
-              >Why is this index out of range?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-unexpected-values-range.html"
-              >Unexpected values in range loop</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-change-value-range.html"
-              >Can't change entries in range loop</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-range-copy-array.html"
-              >Iteration variable doesn't see change in range loop</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-data-race-closure.html"
-              >Iteration variables and closures</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-json-marshal-empty.html"
-              >Why is the JSON output empty?</a
-            >
-          </li>
-          <li>
-            <a href="gotcha-why-nil-error-not-equal-nil.html"
-              >Why is nil not equal to nil?</a
-            >
-          </li>
-        </ul>
-        <h2>Concurrency</h2>
-        <ul class="index">
-          <li>
-            <a href="goroutines-explained.html">Goroutines explained</a>
-          </li>
-          <li>
-            <a href="channels-explained.html">Channels explained</a>
-          </li>
-          <li>
-            <a href="select-explained.html">Select explained</a>
-          </li>
-          <li>
-            <a href="close-explained.html">Close a channel</a>
-          </li>
-          <li>
-            <a href="data-races-explained.html">Data races explained</a>
-          </li>
-          <li>
-            <a href="detect-data-races.html">Detect data races</a>
-          </li>
-          <li>
-            <a href="detect-deadlock.html">Deadlock</a>
-          </li>
-          <li>
-            <a href="wait-for-goroutines-waitgroup.html">Wait for goroutines</a>
-          </li>
-          <li>
-            <a href="broadcast-channel.html">Broadcast a signal on a channel</a>
-          </li>
-          <li>
-            <a href="stop-goroutine.html">Stop a goroutine</a>
-          </li>
-          <li>
-            <a href="goroutine-block-sleep-forever.html"
-              >Make a goroutine block or sleep forever</a
-            >
-          </li>
-          <li>
-            <a href="time-reset-wait-stop-timeout-cancel-interval.html"
-              >Timer and Ticker explained</a
-            >
-          </li>
-          <li>
-            <a href="mutex-explained.html">Mutual exclusion lock (mutex)</a>
-          </li>
-          <li>
-            <a href="efficient-parallel-computation.html"
-              >Efficient parallel computation</a
-            >
-          </li>
-        </ul>
-        <h2>Object-oriented programming</h2>
-        <ul class="index">
-          <li>
-            <a href="inheritance-object-oriented.html"
-              >Inheritance and object-oriented programming</a
-            >
-          </li>
-          <li>
-            <a href="methods-explained.html">Methods explained</a>
-          </li>
-          <li>
-            <a href="constructor-best-practice.html">Constructors</a>
-          </li>
-          <li>
-            <a href="public-private.html">Public vs. private</a>
-          </li>
-          <li>
-            <a href="pointer-vs-value-receiver.html"
-              >Pointer vs. value receiver</a
-            >
-          </li>
-          <li>
-            <a href="access-private-field-reflection.html"
-              >Access private fields using reflection</a
-            >
-          </li>
-        </ul>
-        <h2>Functional programming</h2>
-        <ul class="index">
-          <li>
-            <a href="function-pointer-type-declaration.html"
-              >Function types and values</a
-            >
-          </li>
-          <li>
-            <a href="anonymous-function-literal-lambda-closure.html"
-              >Function literals and closures</a
-            >
-          </li>
-          <li>
-            <a href="iterator-generator-pattern.html">Iterator pattern</a>
-          </li>
-        </ul>
-        <h2>Strings</h2>
-        <ul class="index">
-          <li>
-            <a href="fmt-printf-reference-cheat-sheet.html"
-              >Print with fmt cheat sheet</a
-            >
-          </li>
-          <li>
-            <a href="rune.html">What is a rune?</a>
-          </li>
-          <li>
-            <a href="build-append-concatenate-strings-efficiently.html"
-              >Build and concatenate strings efficiently</a
-            >
-          </li>
-          <li>
-            <a href="compare-strings.html">String comparison</a>
-          </li>
-          <li>
-            <a href="convert-string-to-byte-slice.html"
-              >Convert string to byte slice (array)</a
-            >
-          </li>
-          <li>
-            <a href="convert-string-to-int.html">Convert string to int</a>
-          </li>
-          <li>
-            <a href="convert-string-to-int64.html">Convert string to int64</a>
-          </li>
-          <li>
-            <a href="fmt-printf-percent-sign.html"
-              >Percent sign in fmt format</a
-            >
-          </li>
-          <li>
-            <a href="convert-string-to-rune-slice.html"
-              >Convert string to rune slice (array)</a
-            >
-          </li>
-          <li>
-            <a href="multiline-string.html">Multiline strings</a>
-          </li>
-          <li>
-            <a href="string-functions-reference-cheat-sheet.html"
-              >String handling cheat sheet</a
-            >
-          </li>
-          <li>
-            <a href="append-string-byte-slice.html"
-              >Append string to byte slice</a
-            >
-          </li>
-          <li>
-            <a href="format-string-without-printing.html"
-              >Format a string without printing it</a
-            >
-          </li>
-          <li>
-            <a href="split-string-into-slice.html"
-              >How to split a string into a slice</a
-            >
-          </li>
-          <li>
-            <a href="trim-whitespace-from-string.html"
-              >How to trim leading and trailing whitespace from a string</a
-            >
-          </li>
-          <li>
-            <a href="interface-to-string.html">Convert interface to string</a>
-          </li>
-        </ul>
-        <h2>Slices</h2>
-        <ul class="index">
-          <li>
-            <a href="slices-explained.html">Slices explained</a>
-          </li>
-          <li>
-            <a href="clear-slice.html">Clear a slice</a>
-          </li>
-          <li>
-            <a href="compare-slices.html">Compare slices (arrays)</a>
-          </li>
-          <li>
-            <a href="concatenate-slices.html">Concatenate slices</a>
-          </li>
-          <li>
-            <a href="delete-element-slice.html"
-              >Delete an element from a slice</a
-            >
-          </li>
-          <li>
-            <a href="find-search-contains-slice.html"
-              >Find an element in a slice</a
-            >
-          </li>
-          <li>
-            <a href="last-item-in-slice.html">Last item in slice</a>
-          </li>
-          <li>
-            <a href="nil-slice-vs-empty-slice.html"
-              >Empty slice vs. nil slice</a
-            >
-          </li>
-          <li>
-            <a href="pass-slice-to-variadic-function.html"
-              >Pass a slice to a variadic function</a
-            >
-          </li>
-        </ul>
-        <h2>Maps</h2>
-        <ul class="index">
-          <li>
-            <a href="maps-explained.html">Maps explained</a>
-          </li>
-          <li>
-            <a href="check-map-contains-key.html"
-              >Check if a map contains a key</a
-            >
-          </li>
-          <li>
-            <a href="check-empty-map.html">Check if a map is empty</a>
-          </li>
-          <li>
-            <a href="count-items-map.html">Count elements in a map</a>
-          </li>
-          <li>
-            <a href="slice-of-keys-values-from-map.html"
-              >Get slices of keys and values from a map</a
-            >
-          </li>
-          <li>
-            <a href="sort-map-keys-values.html">Sort a map by key or value</a>
-          </li>
-          <li>
-            <a href="implement-set.html">How to implement a set</a>
-          </li>
-        </ul>
-        <h2>Files</h2>
-        <ul class="index">
-          <li>
-            <a href="read-file-line-by-line.html">Read a file line by line</a>
-          </li>
-          <li>
-            <a href="read-file-to-string.html"
-              >Read a whole file into a string (byte slice)</a
-            >
-          </li>
-          <li>
-            <a href="read-stdin.html">Read from stdin</a>
-          </li>
-          <li>
-            <a href="append-to-file.html">Append text to a file</a>
-          </li>
-          <li>
-            <a href="delete-file-directory.html">Delete a file or directory</a>
-          </li>
-          <li>
-            <a href="check-file-exists.html"
-              >Check if a file or directory exists</a
-            >
-          </li>
-          <li>
-            <a href="current-directory.html">Current working directory</a>
-          </li>
-          <li>
-            <a href="list-files-in-directory.html"
-              >List all files and folders in a directory</a
-            >
-          </li>
-          <li>
-            <a href="list-directory-recursive.html"
-              >Visit all files and folders in a directory tree</a
-            >
-          </li>
-          <li>
-            <a href="temporary-file-directory.html"
-              >Create a temporary file or directory</a
-            >
-          </li>
-        </ul>
-        <h2>Time and date</h2>
-        <ul class="index">
-          <li>
-            <a href="current-time.html">Current time</a>
-          </li>
-          <li>
-            <a href="format-parse-string-time-date-example.html"
-              >Format a time or date</a
-            >
-          </li>
-          <li>
-            <a href="time-change-convert-location-timezone.html">Time zones</a>
-          </li>
-          <li>
-            <a href="measure-execution-time.html">Measure execution time</a>
-          </li>
-          <li>
-            <a href="day-month-year-from-time.html"
-              >Get year, month, day from time</a
-            >
-          </li>
-          <li>
-            <a href="day-of-week-int.html">Day of week</a>
-          </li>
-          <li>
-            <a href="days-between-dates.html">Days between two dates</a>
-          </li>
-          <li>
-            <a href="last-day-month-date.html">Days in a month</a>
-          </li>
-        </ul>
-        <h2>Random numbers</h2>
-        <ul class="index">
-          <li>
-            <a href="generate-number-random-range.html"
-              >Generate a random number in a given range</a
-            >
-          </li>
-          <li>
-            <a href="generate-random-character.html"
-              >Generate a random character (rune)</a
-            >
-          </li>
-          <li>
-            <a href="generate-random-string-password-booking-reference.html"
-              >Generate a random string (password, booking reference)</a
-            >
-          </li>
-          <li>
-            <a href="generate-uuid-guid.html">Generate a random UUID (GUID)</a>
-          </li>
-          <li>
-            <a href="crypto-rand-int.html"
-              >Cryptographically secure random numbers</a
-            >
-          </li>
-          <li>
-            <a href="shuffle-slice-array.html">Shuffle slice or array</a>
-          </li>
-        </ul>
-      </article>
-    </main>
-    <footer>
-      © 2016–2021 Programming.Guide,
-      <a
-        href="../terms-and-conditions.html"
-        style="color: inherit; text-decoration: underline"
-        >Terms&nbsp;and&nbsp;Conditions</a
-      >
-    </footer>
-    <script>
-      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-      var test = document.createElement("div");
-      test.innerHTML = "&nbsp;";
-      test.className = "adsbox";
-      document.body.appendChild(test);
-      window.setTimeout(function () {
-        if (test.offsetHeight === 0) {
-          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * { padding: 0; margin: 0; }
+    body {
+        font-family: sans-serif;
+        text-rendering: optimizespeed;
+        background-color: #ffffff;
+    }
+    a {
+        color: #006ed3;
+        text-decoration: none;
+    }
+    a:hover,
+    h1 a:hover {
+        color: #319cff;
+    }
+    header,
+    #summary {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    th:first-child,
+    td:first-child {
+        width: 5%;
+    }
+    th:last-child,
+    td:last-child {
+        width: 5%;
+    }
+    header {
+        padding-top: 25px;
+        padding-bottom: 15px;
+        background-color: #f2f2f2;
+    }
+    h1 {
+        font-size: 20px;
+        font-weight: normal;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        color: #999;
+    }
+    h1 a {
+        color: #000;
+        margin: 0 4px;
+    }
+    h1 a:hover {
+        text-decoration: underline;
+    }
+    h1 a:first-child {
+        margin: 0;
+    }
+    main {
+        display: block;
+    }
+    .meta {
+        font-size: 12px;
+        font-family: Verdana, sans-serif;
+        border-bottom: 1px solid #9C9C9C;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .meta-item {
+        margin-right: 1em;
+    }
+    #filter {
+        padding: 4px;
+        border: 1px solid #CCC;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    tr {
+        border-bottom: 1px dashed #dadada;
+    }
+    tbody tr:hover {
+        background-color: #ffffec;
+    }
+    th,
+    td {
+        text-align: left;
+        padding: 10px 0;
+    }
+    th {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    th a {
+        color: black;
+    }
+    th svg {
+        vertical-align: middle;
+    }
+    td {
+        white-space: nowrap;
+        font-size: 14px;
+    }
+    td:nth-child(2) {
+        width: 80%;
+    }
+    td:nth-child(3) {
+        padding: 0 20px 0 20px;
+    }
+    th:nth-child(4),
+    td:nth-child(4) {
+        text-align: right;
+    }
+    td:nth-child(2) svg {
+        position: absolute;
+    }
+    td .name {
+        margin-left: 1.75em;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    td .goup {
+        margin-left: 1.75em;
+        padding: 0;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    .icon {
+        margin-right: 5px;
+    }
+    tr.clickable { 
+        cursor: pointer; 
+    } 
+    tr.clickable a { 
+        display: block; 
+    } 
+    @media (max-width: 600px) {
+        * {
+            font-size: 1.06rem;
         }
-        test.remove();
-      }, 400);
-    </script>
-  </body>
+        .hideable {
+            display: none;
+        }
+        td:nth-child(2) {
+            width: auto;
+        }
+        th:nth-child(3),
+        td:nth-child(3) {
+            padding-right: 5%;
+            text-align: right;
+        }
+        h1 {
+            color: #000;
+        }
+        h1 a {
+            margin: 0;
+        }
+        #filter {
+            max-width: 100px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="0" width="0" style="position: absolute;">
+    <defs>
+        <!-- Go-up -->
+        <g id="go-up">
+            <path d="M10,9V5L3,12L10,19V14.9C15,14.9 18.5,16.5 21,20C20,15 17,10 10,9Z" fill="#696969"/>
+        </g>
+        <!-- Folder -->
+        <g id="folder" fill-rule="nonzero" fill="none">
+            <path d="M285.22 37.55h-142.6L110.9 0H31.7C14.25 0 0 16.9 0 37.55v75.1h316.92V75.1c0-20.65-14.26-37.55-31.7-37.55z" fill="#FFA000"/>
+            <path d="M285.22 36H31.7C14.25 36 0 50.28 0 67.74v158.7c0 17.47 14.26 31.75 31.7 31.75H285.2c17.44 0 31.7-14.3 31.7-31.75V67.75c0-17.47-14.26-31.75-31.7-31.75z" fill="#FFCA28"/>
+        </g>
+        <g id="folder-shortcut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="folder-shortcut-group" fill-rule="nonzero">
+                <g id="folder-shortcut-shape">
+                    <path d="M285.224876,37.5486902 L142.612438,37.5486902 L110.920785,0 L31.6916529,0 C14.2612438,0 0,16.8969106 0,37.5486902 L0,112.646071 L316.916529,112.646071 L316.916529,75.0973805 C316.916529,54.4456008 302.655285,37.5486902 285.224876,37.5486902 Z" id="Shape" fill="#FFA000"></path>
+                    <path d="M285.224876,36 L31.6916529,36 C14.2612438,36 0,50.2838568 0,67.7419039 L0,226.451424 C0,243.909471 14.2612438,258.193328 31.6916529,258.193328 L285.224876,258.193328 C302.655285,258.193328 316.916529,243.909471 316.916529,226.451424 L316.916529,67.7419039 C316.916529,50.2838568 302.655285,36 285.224876,36 Z" id="Shape" fill="#FFCA28"></path>
+                </g>
+                <path d="M126.154134,250.559184 C126.850974,251.883673 127.300549,253.006122 127.772602,254.106122 C128.469442,255.206122 128.919016,256.104082 129.638335,257.002041 C130.559962,258.326531 131.728855,259 133.100057,259 C134.493737,259 135.415364,258.55102 136.112204,257.67551 C136.809044,257.002041 137.258619,255.902041 137.258619,254.577551 C137.258619,253.904082 137.258619,252.804082 137.033832,251.457143 C136.786566,249.908163 136.561779,249.032653 136.561779,248.583673 C136.089726,242.814286 135.864939,237.920408 135.864939,233.273469 C135.864939,225.057143 136.786566,217.514286 138.180246,210.846939 C139.798713,204.202041 141.889234,198.634694 144.429328,193.763265 C147.216689,188.869388 150.678411,184.873469 154.836973,181.326531 C158.995535,177.779592 163.626149,174.883673 168.481552,172.661224 C173.336954,170.438776 179.113983,168.665306 185.587852,167.340816 C192.061722,166.218367 198.760378,165.342857 205.481514,164.669388 C212.18017,164.220408 219.598146,163.995918 228.162535,163.995918 L246.055591,163.995918 L246.055591,195.514286 C246.055591,197.736735 246.752431,199.510204 248.370899,201.059184 C250.214153,202.608163 252.079886,203.506122 254.372715,203.506122 C256.463236,203.506122 258.531277,202.608163 260.172223,201.059184 L326.102289,137.797959 C327.720757,136.24898 328.642384,134.47551 328.642384,132.253061 C328.642384,130.030612 327.720757,128.257143 326.102289,126.708163 L260.172223,63.4469388 C258.553756,61.8979592 256.463236,61 254.395194,61 C252.079886,61 250.236632,61.8979592 248.393377,63.4469388 C246.77491,64.9959184 246.07807,66.7693878 246.07807,68.9918367 L246.07807,100.510204 L228.162535,100.510204 C166.863084,100.510204 129.166282,117.167347 115.274437,150.459184 C110.666301,161.54898 108.350993,175.310204 108.350993,191.742857 C108.350993,205.279592 113.903236,223.912245 124.760454,247.438776 C125.00772,248.112245 125.457294,249.010204 126.154134,250.559184 Z" id="Shape" fill="#FFFFFF" transform="translate(218.496689, 160.000000) scale(-1, 1) translate(-218.496689, -160.000000) "></path>
+            </g>
+        </g>
+        <!-- File -->
+        <g id="file" stroke="#000" stroke-width="25" fill="#FFF" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 24.12v274.76c0 6.16 5.87 11.12 13.17 11.12H239c7.3 0 13.17-4.96 13.17-11.12V136.15S132.6 13 128.37 13H26.17C18.87 13 13 17.96 13 24.12z"/>
+            <path d="M129.37 13L129 113.9c0 10.58 7.26 19.1 16.27 19.1H249L129.37 13z"/>
+        </g>
+        <g id="file-shortcut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="file-shortcut-group" transform="translate(13.000000, 13.000000)">
+                <g id="file-shortcut-shape" stroke="#000000" stroke-width="25" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M0,11.1214886 L0,285.878477 C0,292.039924 5.87498876,296.999983 13.1728373,296.999983 L225.997983,296.999983 C233.295974,296.999983 239.17082,292.039942 239.17082,285.878477 L239.17082,123.145388 C239.17082,123.145388 119.58541,2.84217094e-14 115.369423,2.84217094e-14 L13.1728576,2.84217094e-14 C5.87500907,-1.71479982e-05 0,4.96022995 0,11.1214886 Z" id="rect1171"></path>
+                    <path d="M116.37005,0 L116,100.904964 C116,111.483663 123.258008,120 132.273377,120 L236,120 L116.37005,0 L116.37005,0 Z" id="rect1794"></path>
+                </g>
+                <path d="M47.803141,294.093878 C48.4999811,295.177551 48.9495553,296.095918 49.4216083,296.995918 C50.1184484,297.895918 50.5680227,298.630612 51.2873415,299.365306 C52.2089688,300.44898 53.3778619,301 54.7490634,301 C56.1427436,301 57.0643709,300.632653 57.761211,299.916327 C58.4580511,299.365306 58.9076254,298.465306 58.9076254,297.381633 C58.9076254,296.830612 58.9076254,295.930612 58.6828382,294.828571 C58.4355724,293.561224 58.2107852,292.844898 58.2107852,292.477551 C57.7387323,287.757143 57.5139451,283.753061 57.5139451,279.95102 C57.5139451,273.228571 58.4355724,267.057143 59.8292526,261.602041 C61.44772,256.165306 63.5382403,251.610204 66.0783349,247.62449 C68.8656954,243.620408 72.3274172,240.35102 76.4859792,237.44898 C80.6445412,234.546939 85.2751561,232.177551 90.1305582,230.359184 C94.9859603,228.540816 100.76299,227.089796 107.236859,226.006122 C113.710728,225.087755 120.409385,224.371429 127.13052,223.820408 C133.829177,223.453061 141.247152,223.269388 149.811542,223.269388 L167.704598,223.269388 L167.704598,249.057143 C167.704598,250.87551 168.401438,252.326531 170.019905,253.593878 C171.86316,254.861224 173.728893,255.595918 176.021722,255.595918 C178.112242,255.595918 180.180284,254.861224 181.82123,253.593878 L247.751296,201.834694 C249.369763,200.567347 250.291391,199.116327 250.291391,197.297959 C250.291391,195.479592 249.369763,194.028571 247.751296,192.761224 L181.82123,141.002041 C180.202763,139.734694 178.112242,139 176.044201,139 C173.728893,139 171.885639,139.734694 170.042384,141.002041 C168.423917,142.269388 167.727077,143.720408 167.727077,145.538776 L167.727077,171.326531 L149.811542,171.326531 C88.5120908,171.326531 50.8152886,184.955102 36.9234437,212.193878 C32.3153075,221.267347 30,232.526531 30,245.971429 C30,257.046939 35.5522422,272.291837 46.4094607,291.540816 C46.6567266,292.091837 47.1063009,292.826531 47.803141,294.093878 Z" id="Shape-Copy" fill="#000000" fill-rule="nonzero" transform="translate(140.145695, 220.000000) scale(-1, 1) translate(-140.145695, -220.000000) "></path>
+            </g>
+        </g>
+    </defs>
+    </svg>
+<header>
+    <h1>go</h1>
+                 </header>
+                 <main>
+                 <div class="listing">
+                     <table aria-describedby="summary">
+                         <thead>
+                         <tr>
+                             <th></th>
+                             <th>Name</th>
+                             <th>Size</th>
+                             <th class="hideable">
+                                 Modified
+                             </th>
+                             <th class="hideable"></th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                         <tr class="clickable">
+                             <td></td>
+                             <td><a href=".."><svg width="1.5em" height="1em" version="1.1" viewBox="0 0 24 24"><use xlink:href="#go-up"></use></svg>
+                 <span class="goup">..</span></a></td>
+                             <td>&mdash;</td>
+                             <td class="hideable">&mdash;</td>
+                             <td class="hideable"></td>
+                         </tr>
+                 
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="data-races-explained/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">data-races-explained</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-08-11T21:33:04">Wed Aug 11 21:33:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="http-server-example/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">http-server-example</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-08-11T21:33:04">Wed Aug 11 21:33:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="package-documentation/">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#folder"></use></svg>
+                    <span class="name">package-documentation</span>
+                </a>
+            </td>
+            <td data-order="-1">&mdash;</td>
+            <td class="hideable"><time datetime="2021-08-11T21:33:04">Wed Aug 11 21:33:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="absolute-value-int-float.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">absolute-value-int-float.html</span>
+                </a>
+            </td>
+            <td data-order="9614">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:00">Wed Aug 11 21:26:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="access-private-field-reflection.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">access-private-field-reflection.html</span>
+                </a>
+            </td>
+            <td data-order="10070">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:00">Wed Aug 11 21:26:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="anonymous-function-literal-lambda-closure.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">anonymous-function-literal-lambda-closure.html</span>
+                </a>
+            </td>
+            <td data-order="10696">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:00">Wed Aug 11 21:26:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="append-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">append-explained.html</span>
+                </a>
+            </td>
+            <td data-order="11030">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:00">Wed Aug 11 21:26:00 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="append-string-byte-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">append-string-byte-slice.html</span>
+                </a>
+            </td>
+            <td data-order="8642">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:01">Wed Aug 11 21:26:01 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="append-to-file.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">append-to-file.html</span>
+                </a>
+            </td>
+            <td data-order="8871">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:01">Wed Aug 11 21:26:01 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="binary-search.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">binary-search.html</span>
+                </a>
+            </td>
+            <td data-order="11648">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:01">Wed Aug 11 21:26:01 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="bitmask-flag-set-clear.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">bitmask-flag-set-clear.html</span>
+                </a>
+            </td>
+            <td data-order="11250">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:01">Wed Aug 11 21:26:01 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="bitwise-operator-cheat-sheet.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">bitwise-operator-cheat-sheet.html</span>
+                </a>
+            </td>
+            <td data-order="15501">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:02">Wed Aug 11 21:26:02 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="broadcast-channel.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">broadcast-channel.html</span>
+                </a>
+            </td>
+            <td data-order="10794">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:02">Wed Aug 11 21:26:02 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="build-append-concatenate-strings-efficiently.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">build-append-concatenate-strings-efficiently.html</span>
+                </a>
+            </td>
+            <td data-order="11443">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:02">Wed Aug 11 21:26:02 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="channels-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">channels-explained.html</span>
+                </a>
+            </td>
+            <td data-order="15066">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:02">Wed Aug 11 21:26:02 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="check-empty-map.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">check-empty-map.html</span>
+                </a>
+            </td>
+            <td data-order="8125">7 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:03">Wed Aug 11 21:26:03 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="check-file-exists.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">check-file-exists.html</span>
+                </a>
+            </td>
+            <td data-order="8749">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:03">Wed Aug 11 21:26:03 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="check-map-contains-key.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">check-map-contains-key.html</span>
+                </a>
+            </td>
+            <td data-order="8439">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:03">Wed Aug 11 21:26:03 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="check-prime.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">check-prime.html</span>
+                </a>
+            </td>
+            <td data-order="9548">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:03">Wed Aug 11 21:26:03 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="clear-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">clear-slice.html</span>
+                </a>
+            </td>
+            <td data-order="9398">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:03">Wed Aug 11 21:26:03 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="close-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">close-explained.html</span>
+                </a>
+            </td>
+            <td data-order="10569">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:04">Wed Aug 11 21:26:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="command-line-arguments.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">command-line-arguments.html</span>
+                </a>
+            </td>
+            <td data-order="8721">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:04">Wed Aug 11 21:26:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="compare-slices.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">compare-slices.html</span>
+                </a>
+            </td>
+            <td data-order="13011">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:04">Wed Aug 11 21:26:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="compare-strings.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">compare-strings.html</span>
+                </a>
+            </td>
+            <td data-order="8960">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:04">Wed Aug 11 21:26:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="concatenate-slices.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">concatenate-slices.html</span>
+                </a>
+            </td>
+            <td data-order="8575">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:04">Wed Aug 11 21:26:04 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="constructor-best-practice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">constructor-best-practice.html</span>
+                </a>
+            </td>
+            <td data-order="10642">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:05">Wed Aug 11 21:26:05 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="conversions.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">conversions.html</span>
+                </a>
+            </td>
+            <td data-order="18189">17 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:05">Wed Aug 11 21:26:05 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="convert-byte-slice-to-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">convert-byte-slice-to-string.html</span>
+                </a>
+            </td>
+            <td data-order="12492">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:05">Wed Aug 11 21:26:05 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="convert-int-to-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">convert-int-to-string.html</span>
+                </a>
+            </td>
+            <td data-order="7990">7 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:06">Wed Aug 11 21:26:06 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="convert-rune-slice-to-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">convert-rune-slice-to-string.html</span>
+                </a>
+            </td>
+            <td data-order="9097">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:06">Wed Aug 11 21:26:06 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="convert-string-to-byte-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">convert-string-to-byte-slice.html</span>
+                </a>
+            </td>
+            <td data-order="8727">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:06">Wed Aug 11 21:26:06 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="convert-string-to-int.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">convert-string-to-int.html</span>
+                </a>
+            </td>
+            <td data-order="8166">7 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:06">Wed Aug 11 21:26:06 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="convert-string-to-int64.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">convert-string-to-int64.html</span>
+                </a>
+            </td>
+            <td data-order="8238">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:06">Wed Aug 11 21:26:06 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="convert-string-to-rune-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">convert-string-to-rune-slice.html</span>
+                </a>
+            </td>
+            <td data-order="10373">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:07">Wed Aug 11 21:26:07 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="copy-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">copy-explained.html</span>
+                </a>
+            </td>
+            <td data-order="9938">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:07">Wed Aug 11 21:26:07 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="count-items-map.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">count-items-map.html</span>
+                </a>
+            </td>
+            <td data-order="8372">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:07">Wed Aug 11 21:26:07 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="create-error.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">create-error.html</span>
+                </a>
+            </td>
+            <td data-order="11748">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:07">Wed Aug 11 21:26:07 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="crypto-rand-int.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">crypto-rand-int.html</span>
+                </a>
+            </td>
+            <td data-order="11214">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:08">Wed Aug 11 21:26:08 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="current-directory.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">current-directory.html</span>
+                </a>
+            </td>
+            <td data-order="9464">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:08">Wed Aug 11 21:26:08 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="current-time.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">current-time.html</span>
+                </a>
+            </td>
+            <td data-order="10299">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:08">Wed Aug 11 21:26:08 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="data-races-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">data-races-explained.html</span>
+                </a>
+            </td>
+            <td data-order="16767">16 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:08">Wed Aug 11 21:26:08 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="day-month-year-from-time.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">day-month-year-from-time.html</span>
+                </a>
+            </td>
+            <td data-order="11085">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:09">Wed Aug 11 21:26:09 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="day-of-week-int.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">day-of-week-int.html</span>
+                </a>
+            </td>
+            <td data-order="10670">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:09">Wed Aug 11 21:26:09 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="days-between-dates.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">days-between-dates.html</span>
+                </a>
+            </td>
+            <td data-order="9566">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:09">Wed Aug 11 21:26:09 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="default-zero-value.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">default-zero-value.html</span>
+                </a>
+            </td>
+            <td data-order="9183">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:10">Wed Aug 11 21:26:10 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="defer.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">defer.html</span>
+                </a>
+            </td>
+            <td data-order="11125">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:10">Wed Aug 11 21:26:10 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="define-enumeration-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">define-enumeration-string.html</span>
+                </a>
+            </td>
+            <td data-order="9001">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:10">Wed Aug 11 21:26:10 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="delete-element-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">delete-element-slice.html</span>
+                </a>
+            </td>
+            <td data-order="10500">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:10">Wed Aug 11 21:26:10 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="delete-file-directory.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">delete-file-directory.html</span>
+                </a>
+            </td>
+            <td data-order="8451">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:11">Wed Aug 11 21:26:11 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="detect-data-races.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">detect-data-races.html</span>
+                </a>
+            </td>
+            <td data-order="11571">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:11">Wed Aug 11 21:26:11 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="detect-deadlock.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">detect-deadlock.html</span>
+                </a>
+            </td>
+            <td data-order="11389">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:12">Wed Aug 11 21:26:12 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="disable-logging-output.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">disable-logging-output.html</span>
+                </a>
+            </td>
+            <td data-order="8489">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:12">Wed Aug 11 21:26:12 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="do-while-loop.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">do-while-loop.html</span>
+                </a>
+            </td>
+            <td data-order="9049">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:12">Wed Aug 11 21:26:12 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="efficient-parallel-computation.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">efficient-parallel-computation.html</span>
+                </a>
+            </td>
+            <td data-order="12899">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:13">Wed Aug 11 21:26:13 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="empty-interface.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">empty-interface.html</span>
+                </a>
+            </td>
+            <td data-order="9080">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:13">Wed Aug 11 21:26:13 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="environment-variables.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">environment-variables.html</span>
+                </a>
+            </td>
+            <td data-order="9604">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:13">Wed Aug 11 21:26:13 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="errors-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">errors-explained.html</span>
+                </a>
+            </td>
+            <td data-order="11245">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:13">Wed Aug 11 21:26:13 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find-go-build-version.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find-go-build-version.html</span>
+                </a>
+            </td>
+            <td data-order="8830">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:13">Wed Aug 11 21:26:13 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find-search-contains-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find-search-contains-slice.html</span>
+                </a>
+            </td>
+            <td data-order="9727">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:14">Wed Aug 11 21:26:14 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="find-type-of-object.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">find-type-of-object.html</span>
+                </a>
+            </td>
+            <td data-order="11207">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:14">Wed Aug 11 21:26:14 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="fmt-printf-percent-sign.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">fmt-printf-percent-sign.html</span>
+                </a>
+            </td>
+            <td data-order="8406">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:14">Wed Aug 11 21:26:14 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="fmt-printf-reference-cheat-sheet.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">fmt-printf-reference-cheat-sheet.html</span>
+                </a>
+            </td>
+            <td data-order="19650">19 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:15">Wed Aug 11 21:26:15 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="for-loop-range-array-slice-map-channel.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">for-loop-range-array-slice-map-channel.html</span>
+                </a>
+            </td>
+            <td data-order="12891">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:15">Wed Aug 11 21:26:15 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="for-loop.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">for-loop.html</span>
+                </a>
+            </td>
+            <td data-order="12241">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:15">Wed Aug 11 21:26:15 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="format-parse-string-time-date-example.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">format-parse-string-time-date-example.html</span>
+                </a>
+            </td>
+            <td data-order="16874">16 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:16">Wed Aug 11 21:26:16 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="format-string-without-printing.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">format-string-without-printing.html</span>
+                </a>
+            </td>
+            <td data-order="8630">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:16">Wed Aug 11 21:26:16 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="formatting-byte-size-to-human-readable-format.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">formatting-byte-size-to-human-readable-format.html</span>
+                </a>
+            </td>
+            <td data-order="9442">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:16">Wed Aug 11 21:26:16 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="function-pointer-type-declaration.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">function-pointer-type-declaration.html</span>
+                </a>
+            </td>
+            <td data-order="11284">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:17">Wed Aug 11 21:26:17 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="generate-number-random-range.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">generate-number-random-range.html</span>
+                </a>
+            </td>
+            <td data-order="9274">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:17">Wed Aug 11 21:26:17 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="generate-permutation-slice-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">generate-permutation-slice-string.html</span>
+                </a>
+            </td>
+            <td data-order="9456">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:17">Wed Aug 11 21:26:17 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="generate-random-character.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">generate-random-character.html</span>
+                </a>
+            </td>
+            <td data-order="8947">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:17">Wed Aug 11 21:26:17 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="generate-random-string-password-booking-reference.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">generate-random-string-password-booking-reference.html</span>
+                </a>
+            </td>
+            <td data-order="10358">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:18">Wed Aug 11 21:26:18 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="generate-uuid-guid.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">generate-uuid-guid.html</span>
+                </a>
+            </td>
+            <td data-order="10461">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:18">Wed Aug 11 21:26:18 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="generics.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">generics.html</span>
+                </a>
+            </td>
+            <td data-order="13142">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:18">Wed Aug 11 21:26:18 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="getting-started-hello-world.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">getting-started-hello-world.html</span>
+                </a>
+            </td>
+            <td data-order="10210">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:18">Wed Aug 11 21:26:18 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="go-concurrency-tutorial.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">go-concurrency-tutorial.html</span>
+                </a>
+            </td>
+            <td data-order="12683">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:19">Wed Aug 11 21:26:19 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="go-errors-tutorial.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">go-errors-tutorial.html</span>
+                </a>
+            </td>
+            <td data-order="8824">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:19">Wed Aug 11 21:26:19 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="go-gotcha.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">go-gotcha.html</span>
+                </a>
+            </td>
+            <td data-order="17356">16 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:19">Wed Aug 11 21:26:19 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="goroutine-block-sleep-forever.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">goroutine-block-sleep-forever.html</span>
+                </a>
+            </td>
+            <td data-order="9010">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:20">Wed Aug 11 21:26:20 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="goroutines-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">goroutines-explained.html</span>
+                </a>
+            </td>
+            <td data-order="12623">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:20">Wed Aug 11 21:26:20 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-append.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-append.html</span>
+                </a>
+            </td>
+            <td data-order="14812">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:20">Wed Aug 11 21:26:20 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-assignment-entry-nil-map.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-assignment-entry-nil-map.html</span>
+                </a>
+            </td>
+            <td data-order="14297">13 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:21">Wed Aug 11 21:26:21 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-bitwise-operators.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-bitwise-operators.html</span>
+                </a>
+            </td>
+            <td data-order="14840">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:21">Wed Aug 11 21:26:21 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-change-value-range.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-change-value-range.html</span>
+                </a>
+            </td>
+            <td data-order="14232">13 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:21">Wed Aug 11 21:26:21 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-concatenate-rune-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-concatenate-rune-string.html</span>
+                </a>
+            </td>
+            <td data-order="15647">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:22">Wed Aug 11 21:26:22 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-constant-overflows-int.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-constant-overflows-int.html</span>
+                </a>
+            </td>
+            <td data-order="15570">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:22">Wed Aug 11 21:26:22 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-copy-missing.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-copy-missing.html</span>
+                </a>
+            </td>
+            <td data-order="14541">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:22">Wed Aug 11 21:26:22 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-data-race-closure.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-data-race-closure.html</span>
+                </a>
+            </td>
+            <td data-order="16407">16 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:23">Wed Aug 11 21:26:23 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-function-doesnt-change-array.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-function-doesnt-change-array.html</span>
+                </a>
+            </td>
+            <td data-order="16310">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:23">Wed Aug 11 21:26:23 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-increment-decrement-statement.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-increment-decrement-statement.html</span>
+                </a>
+            </td>
+            <td data-order="14503">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:24">Wed Aug 11 21:26:24 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-index-out-of-range.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-index-out-of-range.html</span>
+                </a>
+            </td>
+            <td data-order="14413">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:24">Wed Aug 11 21:26:24 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-integer-overflow-wrap-around.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-integer-overflow-wrap-around.html</span>
+                </a>
+            </td>
+            <td data-order="16614">16 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:24">Wed Aug 11 21:26:24 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-json-marshal-empty.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-json-marshal-empty.html</span>
+                </a>
+            </td>
+            <td data-order="14742">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:25">Wed Aug 11 21:26:25 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-missing-comma-slice-array-map-literal.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-missing-comma-slice-array-map-literal.html</span>
+                </a>
+            </td>
+            <td data-order="14218">13 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:25">Wed Aug 11 21:26:25 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-multiple-value-sinlge-value-context.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-multiple-value-sinlge-value-context.html</span>
+                </a>
+            </td>
+            <td data-order="14939">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:26">Wed Aug 11 21:26:26 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-multiply-duration-integer.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-multiply-duration-integer.html</span>
+                </a>
+            </td>
+            <td data-order="14496">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:26">Wed Aug 11 21:26:26 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-nil-pointer-dereference.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-nil-pointer-dereference.html</span>
+                </a>
+            </td>
+            <td data-order="15598">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:26">Wed Aug 11 21:26:26 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-octal-decimal-hexadecimal-literal.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-octal-decimal-hexadecimal-literal.html</span>
+                </a>
+            </td>
+            <td data-order="15430">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:27">Wed Aug 11 21:26:27 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-operator-precedence.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-operator-precedence.html</span>
+                </a>
+            </td>
+            <td data-order="14570">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:27">Wed Aug 11 21:26:27 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-range-copy-array.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-range-copy-array.html</span>
+                </a>
+            </td>
+            <td data-order="14534">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:27">Wed Aug 11 21:26:27 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-remainder-modulo-operator.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-remainder-modulo-operator.html</span>
+                </a>
+            </td>
+            <td data-order="15362">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:28">Wed Aug 11 21:26:28 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-shadowing-variables.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-shadowing-variables.html</span>
+                </a>
+            </td>
+            <td data-order="15300">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:28">Wed Aug 11 21:26:28 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-strings-are-immutable.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-strings-are-immutable.html</span>
+                </a>
+            </td>
+            <td data-order="15100">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:29">Wed Aug 11 21:26:29 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-trim-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-trim-string.html</span>
+                </a>
+            </td>
+            <td data-order="14426">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:29">Wed Aug 11 21:26:29 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-unexpected-values-range.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-unexpected-values-range.html</span>
+                </a>
+            </td>
+            <td data-order="14733">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:29">Wed Aug 11 21:26:29 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="gotcha-why-nil-error-not-equal-nil.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">gotcha-why-nil-error-not-equal-nil.html</span>
+                </a>
+            </td>
+            <td data-order="15456">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:30">Wed Aug 11 21:26:30 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="hash-md5-sha256-string-file.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">hash-md5-sha256-string-file.html</span>
+                </a>
+            </td>
+            <td data-order="10956">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:30">Wed Aug 11 21:26:30 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="how-to-sort-in-go.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">how-to-sort-in-go.html</span>
+                </a>
+            </td>
+            <td data-order="11874">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:30">Wed Aug 11 21:26:30 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="http-server-example.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">http-server-example.html</span>
+                </a>
+            </td>
+            <td data-order="10926">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:30">Wed Aug 11 21:26:30 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="implement-fifo-queue.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">implement-fifo-queue.html</span>
+                </a>
+            </td>
+            <td data-order="10157">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:31">Wed Aug 11 21:26:31 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="implement-set.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">implement-set.html</span>
+                </a>
+            </td>
+            <td data-order="11567">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:31">Wed Aug 11 21:26:31 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="implement-stack.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">implement-stack.html</span>
+                </a>
+            </td>
+            <td data-order="9401">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:31">Wed Aug 11 21:26:31 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="inheritance-object-oriented.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">inheritance-object-oriented.html</span>
+                </a>
+            </td>
+            <td data-order="13406">13 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:32">Wed Aug 11 21:26:32 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="int-vs-int64.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">int-vs-int64.html</span>
+                </a>
+            </td>
+            <td data-order="10081">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:33">Wed Aug 11 21:26:33 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="interface-to-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">interface-to-string.html</span>
+                </a>
+            </td>
+            <td data-order="8691">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:33">Wed Aug 11 21:26:33 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="interfaces-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">interfaces-explained.html</span>
+                </a>
+            </td>
+            <td data-order="16135">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:33">Wed Aug 11 21:26:33 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="io-reader-interface-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">io-reader-interface-explained.html</span>
+                </a>
+            </td>
+            <td data-order="12883">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:34">Wed Aug 11 21:26:34 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="io-writer-interface-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">io-writer-interface-explained.html</span>
+                </a>
+            </td>
+            <td data-order="10725">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:34">Wed Aug 11 21:26:34 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="iota.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">iota.html</span>
+                </a>
+            </td>
+            <td data-order="10424">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:34">Wed Aug 11 21:26:34 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="iterator-generator-pattern.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">iterator-generator-pattern.html</span>
+                </a>
+            </td>
+            <td data-order="10062">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:34">Wed Aug 11 21:26:34 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="json-example.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">json-example.html</span>
+                </a>
+            </td>
+            <td data-order="20506">20 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:35">Wed Aug 11 21:26:35 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="last-day-month-date.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">last-day-month-date.html</span>
+                </a>
+            </td>
+            <td data-order="10158">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:35">Wed Aug 11 21:26:35 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="last-item-in-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">last-item-in-slice.html</span>
+                </a>
+            </td>
+            <td data-order="9367">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:35">Wed Aug 11 21:26:35 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="library-package-example-template.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">library-package-example-template.html</span>
+                </a>
+            </td>
+            <td data-order="9476">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:36">Wed Aug 11 21:26:36 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="list-directory-recursive.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">list-directory-recursive.html</span>
+                </a>
+            </td>
+            <td data-order="9780">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:36">Wed Aug 11 21:26:36 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="list-files-in-directory.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">list-files-in-directory.html</span>
+                </a>
+            </td>
+            <td data-order="8993">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:36">Wed Aug 11 21:26:36 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="log-to-file.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">log-to-file.html</span>
+                </a>
+            </td>
+            <td data-order="9472">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:36">Wed Aug 11 21:26:36 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="make-slice-map-channel.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">make-slice-map-channel.html</span>
+                </a>
+            </td>
+            <td data-order="12506">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:37">Wed Aug 11 21:26:37 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="maps-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">maps-explained.html</span>
+                </a>
+            </td>
+            <td data-order="10851">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:37">Wed Aug 11 21:26:37 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="max-min-function.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">max-min-function.html</span>
+                </a>
+            </td>
+            <td data-order="9335">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:37">Wed Aug 11 21:26:37 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="max-min-int-uint.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">max-min-int-uint.html</span>
+                </a>
+            </td>
+            <td data-order="9362">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:37">Wed Aug 11 21:26:37 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="measure-execution-time.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">measure-execution-time.html</span>
+                </a>
+            </td>
+            <td data-order="10924">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:37">Wed Aug 11 21:26:37 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="methods-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">methods-explained.html</span>
+                </a>
+            </td>
+            <td data-order="9988">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:38">Wed Aug 11 21:26:38 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="multiline-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">multiline-string.html</span>
+                </a>
+            </td>
+            <td data-order="9005">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:38">Wed Aug 11 21:26:38 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="mutex-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">mutex-explained.html</span>
+                </a>
+            </td>
+            <td data-order="12704">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:38">Wed Aug 11 21:26:38 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="named-return-values-parameters.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">named-return-values-parameters.html</span>
+                </a>
+            </td>
+            <td data-order="9683">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:38">Wed Aug 11 21:26:38 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="nil-slice-vs-empty-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">nil-slice-vs-empty-slice.html</span>
+                </a>
+            </td>
+            <td data-order="10070">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:39">Wed Aug 11 21:26:39 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="opening-brace-separate-line.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">opening-brace-separate-line.html</span>
+                </a>
+            </td>
+            <td data-order="9454">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:39">Wed Aug 11 21:26:39 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="operator-priority.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">operator-priority.html</span>
+                </a>
+            </td>
+            <td data-order="11128">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:39">Wed Aug 11 21:26:39 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="operators.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">operators.html</span>
+                </a>
+            </td>
+            <td data-order="15580">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:39">Wed Aug 11 21:26:39 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="overload-overwrite-optional-parameter.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">overload-overwrite-optional-parameter.html</span>
+                </a>
+            </td>
+            <td data-order="10746">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:40">Wed Aug 11 21:26:40 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="package-documentation.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">package-documentation.html</span>
+                </a>
+            </td>
+            <td data-order="13158">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:40">Wed Aug 11 21:26:40 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="package-init-function-main-execution-order.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">package-init-function-main-execution-order.html</span>
+                </a>
+            </td>
+            <td data-order="12431">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:40">Wed Aug 11 21:26:40 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="packages-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">packages-explained.html</span>
+                </a>
+            </td>
+            <td data-order="15184">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:41">Wed Aug 11 21:26:41 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="panic-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">panic-explained.html</span>
+                </a>
+            </td>
+            <td data-order="23631">23 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:41">Wed Aug 11 21:26:41 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pass-slice-to-variadic-function.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pass-slice-to-variadic-function.html</span>
+                </a>
+            </td>
+            <td data-order="8793">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:41">Wed Aug 11 21:26:41 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pointer-vs-value-receiver.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pointer-vs-value-receiver.html</span>
+                </a>
+            </td>
+            <td data-order="10579">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:42">Wed Aug 11 21:26:42 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="pointers-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">pointers-explained.html</span>
+                </a>
+            </td>
+            <td data-order="11549">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:42">Wed Aug 11 21:26:42 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="public-private.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">public-private.html</span>
+                </a>
+            </td>
+            <td data-order="10311">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:42">Wed Aug 11 21:26:42 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="quicksort-optimizations.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">quicksort-optimizations.html</span>
+                </a>
+            </td>
+            <td data-order="15486">15 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:43">Wed Aug 11 21:26:43 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="read-file-line-by-line.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">read-file-line-by-line.html</span>
+                </a>
+            </td>
+            <td data-order="8821">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:43">Wed Aug 11 21:26:43 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="read-file-to-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">read-file-to-string.html</span>
+                </a>
+            </td>
+            <td data-order="8329">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:43">Wed Aug 11 21:26:43 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="read-stdin.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">read-stdin.html</span>
+                </a>
+            </td>
+            <td data-order="8444">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:43">Wed Aug 11 21:26:43 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="recover-from-panic.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">recover-from-panic.html</span>
+                </a>
+            </td>
+            <td data-order="15221">14 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:43">Wed Aug 11 21:26:43 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="redeclaring-variables.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">redeclaring-variables.html</span>
+                </a>
+            </td>
+            <td data-order="9406">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:44">Wed Aug 11 21:26:44 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="regexp-cheat-sheet.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">regexp-cheat-sheet.html</span>
+                </a>
+            </td>
+            <td data-order="27567">26 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:45">Wed Aug 11 21:26:45 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="regexp-find-all-matches.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">regexp-find-all-matches.html</span>
+                </a>
+            </td>
+            <td data-order="9505">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:45">Wed Aug 11 21:26:45 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="regexp-find-first-match.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">regexp-find-first-match.html</span>
+                </a>
+            </td>
+            <td data-order="9136">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:45">Wed Aug 11 21:26:45 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="regexp-find-index-location.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">regexp-find-index-location.html</span>
+                </a>
+            </td>
+            <td data-order="9284">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:45">Wed Aug 11 21:26:45 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="regexp-replace-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">regexp-replace-string.html</span>
+                </a>
+            </td>
+            <td data-order="8648">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:45">Wed Aug 11 21:26:45 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="regexp-split-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">regexp-split-string.html</span>
+                </a>
+            </td>
+            <td data-order="9503">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:46">Wed Aug 11 21:26:46 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="remove-duplicate-whitespace.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">remove-duplicate-whitespace.html</span>
+                </a>
+            </td>
+            <td data-order="9165">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:46">Wed Aug 11 21:26:46 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="repeat-multiply-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">repeat-multiply-string.html</span>
+                </a>
+            </td>
+            <td data-order="8382">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:46">Wed Aug 11 21:26:46 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="reverse-utf8-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">reverse-utf8-string.html</span>
+                </a>
+            </td>
+            <td data-order="9560">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:46">Wed Aug 11 21:26:46 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="round-float-2-decimal-places.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">round-float-2-decimal-places.html</span>
+                </a>
+            </td>
+            <td data-order="10140">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:46">Wed Aug 11 21:26:46 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="round-float-to-int.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">round-float-to-int.html</span>
+                </a>
+            </td>
+            <td data-order="12379">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:47">Wed Aug 11 21:26:47 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="rune.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">rune.html</span>
+                </a>
+            </td>
+            <td data-order="10715">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:47">Wed Aug 11 21:26:47 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="select-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">select-explained.html</span>
+                </a>
+            </td>
+            <td data-order="12039">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:47">Wed Aug 11 21:26:47 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="short-variable-declaration-outside-function.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">short-variable-declaration-outside-function.html</span>
+                </a>
+            </td>
+            <td data-order="8867">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:47">Wed Aug 11 21:26:47 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="shuffle-slice-array.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">shuffle-slice-array.html</span>
+                </a>
+            </td>
+            <td data-order="9879">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:48">Wed Aug 11 21:26:48 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="slice-of-keys-values-from-map.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">slice-of-keys-values-from-map.html</span>
+                </a>
+            </td>
+            <td data-order="8324">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:48">Wed Aug 11 21:26:48 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="slices-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">slices-explained.html</span>
+                </a>
+            </td>
+            <td data-order="48759">47 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:49">Wed Aug 11 21:26:49 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sort-custom-type.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sort-custom-type.html</span>
+                </a>
+            </td>
+            <td data-order="9064">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:50">Wed Aug 11 21:26:50 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="sort-map-keys-values.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">sort-map-keys-values.html</span>
+                </a>
+            </td>
+            <td data-order="9033">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:50">Wed Aug 11 21:26:50 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="split-string-into-slice.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">split-string-into-slice.html</span>
+                </a>
+            </td>
+            <td data-order="9695">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:50">Wed Aug 11 21:26:50 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="stack-trace.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">stack-trace.html</span>
+                </a>
+            </td>
+            <td data-order="13050">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:50">Wed Aug 11 21:26:50 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="stop-goroutine.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">stop-goroutine.html</span>
+                </a>
+            </td>
+            <td data-order="11674">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:50">Wed Aug 11 21:26:50 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="string-functions-reference-cheat-sheet.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">string-functions-reference-cheat-sheet.html</span>
+                </a>
+            </td>
+            <td data-order="23435">22 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:51">Wed Aug 11 21:26:51 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="structs-explained.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">structs-explained.html</span>
+                </a>
+            </td>
+            <td data-order="9440">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:52">Wed Aug 11 21:26:52 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="switch-statement.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">switch-statement.html</span>
+                </a>
+            </td>
+            <td data-order="11576">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:52">Wed Aug 11 21:26:52 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="table-driven-unit-test.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">table-driven-unit-test.html</span>
+                </a>
+            </td>
+            <td data-order="10626">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:52">Wed Aug 11 21:26:52 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="temporary-file-directory.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">temporary-file-directory.html</span>
+                </a>
+            </td>
+            <td data-order="10883">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:52">Wed Aug 11 21:26:52 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="ternary-if-else-statement.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">ternary-if-else-statement.html</span>
+                </a>
+            </td>
+            <td data-order="8336">8 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:52">Wed Aug 11 21:26:52 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="three-dots-ellipsis.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">three-dots-ellipsis.html</span>
+                </a>
+            </td>
+            <td data-order="11870">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:53">Wed Aug 11 21:26:53 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="time-change-convert-location-timezone.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">time-change-convert-location-timezone.html</span>
+                </a>
+            </td>
+            <td data-order="11872">11 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:53">Wed Aug 11 21:26:53 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="time-reset-wait-stop-timeout-cancel-interval.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">time-reset-wait-stop-timeout-cancel-interval.html</span>
+                </a>
+            </td>
+            <td data-order="12532">12 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:53">Wed Aug 11 21:26:53 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="trim-whitespace-from-string.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">trim-whitespace-from-string.html</span>
+                </a>
+            </td>
+            <td data-order="9245">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:53">Wed Aug 11 21:26:53 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="type-alias.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">type-alias.html</span>
+                </a>
+            </td>
+            <td data-order="9357">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:54">Wed Aug 11 21:26:54 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="type-assertion-switch.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">type-assertion-switch.html</span>
+                </a>
+            </td>
+            <td data-order="10125">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:54">Wed Aug 11 21:26:54 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="underscore.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">underscore.html</span>
+                </a>
+            </td>
+            <td data-order="10170">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:54">Wed Aug 11 21:26:54 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="untyped-constants.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">untyped-constants.html</span>
+                </a>
+            </td>
+            <td data-order="11066">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:54">Wed Aug 11 21:26:54 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="unused-imports.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">unused-imports.html</span>
+                </a>
+            </td>
+            <td data-order="10122">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:54">Wed Aug 11 21:26:54 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="unused-local-variables.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">unused-local-variables.html</span>
+                </a>
+            </td>
+            <td data-order="9493">9 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:55">Wed Aug 11 21:26:55 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="variadic-function.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">variadic-function.html</span>
+                </a>
+            </td>
+            <td data-order="10480">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:55">Wed Aug 11 21:26:55 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="wait-for-goroutines-waitgroup.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">wait-for-goroutines-waitgroup.html</span>
+                </a>
+            </td>
+            <td data-order="10579">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:55">Wed Aug 11 21:26:55 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+        <tr class="file">
+            <td></td>
+            <td>
+                <a href="write-command-line-application.html">
+                    <svg width="1.5em" height="1em" version="1.1" viewBox="0 0 265 323"><use xlink:href="#file"></use></svg>
+                    <span class="name">write-command-line-application.html</span>
+                </a>
+            </td>
+            <td data-order="10315">10 KB</td>
+            <td class="hideable"><time datetime="2021-08-11T21:26:55">Wed Aug 11 21:26:55 2021</time></td>
+            <td class="hideable"></td>
+        </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
 </html>

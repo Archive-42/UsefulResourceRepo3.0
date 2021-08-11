@@ -4545,4 +4545,1156 @@ cookie header to the &lt;strong&gt;Custom headers&lt;/strong&gt; field:&lt;/p&gt
 &lt;h4 id=&quot;change-the-test-location&quot;&gt;Change the test location &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#change-the-test-location&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;To change the test location used by WebPageTest, click the &lt;strong&gt;Test Location&lt;/strong&gt;
 dropdown located on the &lt;strong&gt;Advanced Testing&lt;/strong&gt; tab.&lt;/p&gt;
-&lt;img alt=&quot;Screenshot of the &amp;#x27;Test Location&amp;#x27; dropdown in WebPageTest&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;267&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=296 296w, https://web-dev.i
+&lt;img alt=&quot;Screenshot of the &amp;#x27;Test Location&amp;#x27; dropdown in WebPageTest&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;267&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/J27NcDQ5LTtXYloaA1DN.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h3 id=&quot;testing-cookie-notices-with-lighthouse&quot;&gt;Testing cookie notices with Lighthouse &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#testing-cookie-notices-with-lighthouse&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Setting cookies on a Lighthouse run can serve as a mechanism for getting a
+page into a particular state for testing by Lighthouse. Lighthouse&#39;s cookie
+behavior varies slightly by context (DevTools, CLI, or PageSpeed Insights).&lt;/p&gt;
+&lt;h4 id=&quot;devtools&quot;&gt;DevTools &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#devtools&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Cookies are not cleared when Lighthouse is run from DevTools. However, other
+types of storage are cleared by default. This behavior can be changed by using
+the &lt;strong&gt;Clear Storage&lt;/strong&gt; option in the &lt;strong&gt;Lighthouse&lt;/strong&gt; settings panel.&lt;/p&gt;
+&lt;img alt=&quot;Screenshot higlighting the Lighthouse &amp;#x27;Clear Storage&amp;#x27; option&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;304&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/nmNDeSoGEQUVKeTP7q7R.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h4 id=&quot;cli&quot;&gt;CLI &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#cli&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Running Lighthouse from the CLI uses a fresh Chrome instance, so no cookies
+are set by default. To run Lighthouse from the CLI with a particular cookie set,
+use the following
+&lt;a href=&quot;https://github.com/GoogleChrome/lighthouse#cli-options&quot; rel=&quot;noopener&quot;&gt;command&lt;/a&gt;:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;lighthouse &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;url&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; --extra-headers &lt;span class=&quot;token string&quot;&gt;&quot;{&lt;span class=&quot;token entity&quot; title=&quot;\&amp;quot;&quot;&gt;\&quot;&lt;/span&gt;Cookie&lt;span class=&quot;token entity&quot; title=&quot;\&amp;quot;&quot;&gt;\&quot;&lt;/span&gt;:&lt;span class=&quot;token entity&quot; title=&quot;\&amp;quot;&quot;&gt;\&quot;&lt;/span&gt;cookie1=abc; cookie2=def; \_id=foo&lt;span class=&quot;token entity&quot; title=&quot;\&amp;quot;&quot;&gt;\&quot;&lt;/span&gt;}&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;For more information on setting custom request headers in Lighthouse CLI, see
+&lt;a href=&quot;https://github.com/GoogleChrome/lighthouse/blob/master/docs/authenticated-pages.md&quot; rel=&quot;noopener&quot;&gt;Running Lighthouse on Authenticated
+Pages&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;pagespeed-insights&quot;&gt;PageSpeed Insights &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#pagespeed-insights&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Running Lighthouse from PageSpeed Insights uses a fresh Chrome instance and does
+not set any cookies. PageSeed Insights cannot be configured to set particular
+cookies.&lt;/p&gt;
+&lt;h2 id=&quot;user-experience&quot;&gt;User experience &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#user-experience&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The user experience (UX) of different cookie consent notices is primarily the
+result of two decisions: the location of the cookie notice within the page and
+the extent to which the user can customize a site&#39;s use of cookies. This section
+discusses potential approaches to these two decisions.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:
+Cookie notice UX is often heavily influenced by legislation which can vary
+widely by geography. Thus, some of the design patterns discussed in this section
+may not be relevant to your particular situation. This article should not be
+considered a substitute for legal advice.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;When considering potential designs for your cookie notice, here are some things
+to think about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UX: Is this a good user experience? How will this particular design affect
+existing page elements and user flows?&lt;/li&gt;
+&lt;li&gt;Business: What is your site&#39;s cookie strategy? What are your goals for the
+cookie notice?&lt;/li&gt;
+&lt;li&gt;Legal: Does this comply with legal requirements?&lt;/li&gt;
+&lt;li&gt;Engineering: How much work would this be to implement and maintain? How
+difficult would it be to change?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;placement&quot;&gt;Placement &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#placement&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Cookie notices can be displayed as a header, inline element, or footer. They can
+also be displayed on top of page content using a modal or served as an
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Interstitial_webpage&quot; rel=&quot;noopener&quot;&gt;interstitial&lt;/a&gt;.&lt;/p&gt;
+&lt;img alt=&quot;Diagram showing examples of different placement options for cookie notices&quot; decoding=&quot;async&quot; height=&quot;345&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/LLqHAhp7W6x4E3rZh0Oc.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h4 id=&quot;header-footer-and-inline-cookie-notices&quot;&gt;Header, footer, and inline cookie notices &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#header-footer-and-inline-cookie-notices&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Cookie notices are commonly placed in the header or footer. Of these two
+options, the footer placement is generally preferable because it is unobtrusive,
+does not compete for attention with banner ads or notifications, and typically
+does not cause CLS. In addition, it is a common place for placing privacy
+policies and terms of use.&lt;/p&gt;
+&lt;p&gt;Although inline cookie notices are an option, they can be difficult to integrate
+into existing user interfaces, and therefore are uncommon.&lt;/p&gt;
+&lt;h4 id=&quot;modals&quot;&gt;Modals &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#modals&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Modals are cookie consent notices that are displayed on top of page content.
+Modals can look and perform quite differently depending on their size.&lt;/p&gt;
+&lt;p&gt;Smaller, partial-screen modals can be a good alternative for sites that are
+struggling to implement cookie notices in a way that doesn&#39;t cause &lt;a href=&quot;https://web.dev/cls/&quot;&gt;layout
+shifts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On the other hand, large modals that obscure the majority of page content should
+be used carefully. In particular, smaller sites may find that users bounce
+rather than accept the cookie notice of an unfamiliar site with obscured
+content. Although they are not necessarily synonymous concepts, if you are
+considering using a full-screen cookie consent modal, you should be aware of
+legislation regarding &lt;a href=&quot;https://techcrunch.com/2020/05/06/no-cookie-consent-walls-and-no-scrolling-isnt-consent-says-eu-data-protection-body/&quot; rel=&quot;noopener&quot;&gt;cookie
+walls&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Large modals can be considered a type of interstitial. Google Search &lt;a href=&quot;https://developers.google.com/search/blog/2016/08/helping-users-easily-access-content-on&quot; rel=&quot;noopener&quot;&gt;does not
+penalize&lt;/a&gt;
+the usage of interstitials when they are used to comply with legal regulations
+such as in the case of cookie banners. However, ther usage of interstitials in
+other contexts—particularly if they are intrusive or create a poor user
+experience—may be penalized.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;configurability&quot;&gt;Configurability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#configurability&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Cookie notice interfaces give users varying levels of control over which cookies
+they accept.&lt;/p&gt;
+&lt;h4 id=&quot;no-configurability&quot;&gt;No configurability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#no-configurability&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;These notice-style cookie banners do not present users with direct UX controls
+for opting out of cookies. Instead, they typically include a link to the site&#39;s
+cookie policy which may provide users with information about managing cookies
+using their web browser. These notices typically include either a &amp;quot;dismiss&amp;quot; and/or
+&amp;quot;Accept&amp;quot; button.&lt;/p&gt;
+&lt;img alt=&quot;Diagram showing examples of cookie notices with no cookie configurability&quot; decoding=&quot;async&quot; height=&quot;518&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/RlAg8DCjBC0bX7Ki5MuE.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h4 id=&quot;some-configurability&quot;&gt;Some configurability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#some-configurability&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;These cookie notices give the user the option of declining cookies but do not
+support more granular controls. This approach to cookie notices is less common.&lt;/p&gt;
+&lt;img alt=&quot;Diagram showing examples of cookie notices with some cookie configurability&quot; decoding=&quot;async&quot; height=&quot;508&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/MOl8u9NcnyjCWogxzjdz.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h4 id=&quot;full-configurability&quot;&gt;Full configurability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cookie-notice-best-practices/#full-configurability&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;These cookie notices provide users with more fine-grained controls for
+configuring the cookie usage that they accept.&lt;/p&gt;
+&lt;img alt=&quot;Diagram showing examples of chookie notices with full cookie configurability&quot; decoding=&quot;async&quot; height=&quot;467&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/QfFoqkkmdKHAYlftIH0n.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;UX:&lt;/strong&gt;
+Controls for configuring cookie usage are most commonly displayed using a
+separate modal that is launched when the user responds to the initial cookie
+consent notice. However, if space permits, some sites will display these
+controls inline within the initial cookie consent notice.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Granularity:&lt;/strong&gt;
+The most common approach to cookie configurability is to allow users to
+opt-in to cookies by cookie &amp;quot;category&amp;quot;. Examples of common cookie categories
+include functional, targeting, and social media cookies.&lt;/p&gt;
+&lt;p&gt;However, some sites will go a step further and allow users to opt-in on a
+per-cookie basis. Alternatively, another way of providing users with more
+specific controls is to break down cookie categories like &amp;quot;advertising&amp;quot; into
+specific use cases—for example, allowing users to separately opt-in to
+&amp;quot;basic ads&amp;quot; and &amp;quot;personalized ads&amp;quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img alt=&quot;Diagram showing examples of cookie notices with full cookie configurability&quot; decoding=&quot;async&quot; height=&quot;372&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/z7zFPtCkFi8GEpkfubek.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+</content>
+    <author>
+      <name>Katie Hempenius</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Lowe&#39;s website is among fastest performing e-commerce websites</title>
+    <link href="https://web.dev/lowes/"/>
+    <updated>2021-03-23T00:00:00Z</updated>
+    <id>https://web.dev/lowes/</id>
+    <content type="text/html" mode="escaped">&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;This post was authored by &lt;a href=&quot;https://www.linkedin.com/in/choudhuryashish/&quot; rel=&quot;noopener&quot;&gt;Ashish Choudhury&lt;/a&gt;,
+&lt;a href=&quot;https://www.linkedin.com/in/dinakarchandolu/&quot; rel=&quot;noopener&quot;&gt;Dinakar Chandolu&lt;/a&gt;,
+&lt;a href=&quot;https://www.linkedin.com/in/abhimanyuraibahadur/&quot; rel=&quot;noopener&quot;&gt;Abhimanyu Raibahadur&lt;/a&gt;, and
+&lt;a href=&quot;https://www.linkedin.com/in/dhilip-venkatesh-uvarajan-16914624/&quot; rel=&quot;noopener&quot;&gt;Dhilipvenkatesh Uvarajan&lt;/a&gt;
+from Lowe&#39;s.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.lowes.com/&quot; rel=&quot;noopener&quot;&gt;Lowe&#39;s&lt;/a&gt; is a nearly $90B home improvement retailer
+that operates about 2,200 stores and employs more than 300,000 associates.
+By building an automated testing and monitoring system that prevents performance regressions from deploying to production,
+Lowe&#39;s Site Speed Team was able to improve its website performance,
+ranking among the top retail sites.&lt;/p&gt;
+&lt;h2 id=&quot;problem&quot;&gt;Problem &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#problem&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The Site Speed Team&#39;s goal is to make the Lowe&#39;s site one of the fastest e-commerce sites in terms of page load performance.
+Before they built their automated testing and monitoring system,
+Lowe&#39;s website developers were unable to measure performance automatically in pre-production environments.
+Existing tools only conducted tests in the production environment.
+As a result, inferior builds slipped into production, creating a poor user experience.
+These inferior builds would remain in production until they were detected by the Site Speed Team and reverted by the author.&lt;/p&gt;
+&lt;h2 id=&quot;solution&quot;&gt;Solution &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#solution&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The Site Speed Team used open source tools to build an automated performance testing and monitoring system for pre-production environments.
+The system measures the performance of every pull request (PR)
+and gates the PR from shipping to production if it does not meet the Site Speed Team&#39;s
+&lt;a href=&quot;https://web.dev/performance-budgets-101/&quot;&gt;performance budget&lt;/a&gt; and &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;metric criteria&lt;/a&gt;.
+The system also measures SEO and ADA compliance.&lt;/p&gt;
+&lt;h2 id=&quot;impact&quot;&gt;Impact &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#impact&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;From a sample of 1 team over 16 weeks deploying 102 builds,
+the automated performance testing and monitoring system prevented 32 builds with subpar performance from going into production.&lt;/p&gt;
+&lt;p&gt;Where it used to take the Site Speed Team three to five days to inform developers that they had shipped performance regressions into production,
+the system now automatically informs developers of performance problems five minutes after submitting a pull request in a pre-production environment.&lt;/p&gt;
+&lt;p&gt;Code quality is improving over time,
+as measured by the fact that fewer pull requests are being flagged for performance regressions.
+The Site Speed Team is also gradually tightening governance budgets to continuously improve site quality.&lt;/p&gt;
+&lt;p&gt;In general, having clear ownership of problematic code has shifted the engineering culture.
+Instead of begrudging reactive corrections because it was never clear who actually introduced the problems,
+the team can make proactive optimizations with ownership of problematic code being objectively attributable.&lt;/p&gt;
+&lt;h2 id=&quot;implementation&quot;&gt;Implementation &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#implementation&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The heart of the Site Speed Governance (SSG) app is &lt;a href=&quot;https://web.dev/lighthouse-ci/&quot;&gt;Lighthouse CI&lt;/a&gt;.
+The SSG app uses Lighthouse to validate and audit the page performance of every pull request.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A process diagram of the SSG app, the steps shown in the diagram are described later in the article.&quot; decoding=&quot;async&quot; height=&quot;567&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/62alkvo2eRYoyptYeDbZ.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;The SSG app causes a build to fail if the Site Speed Team&#39;s defined
+&lt;a href=&quot;https://web.dev/performance-budgets-101/&quot;&gt;performance budget&lt;/a&gt; and metric targets are not reached.
+It enforces not only load performance but also SEO, PWA, and accessibility.
+It can report status immediately to authors, reviewers, and SRE teams.
+It can also be configured to bypass the checks when exceptions are needed.&lt;/p&gt;
+&lt;h2 id=&quot;automated-speed-governance-(asg)-process-flow&quot;&gt;Automated Speed Governance (ASG) process flow &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#automated-speed-governance-(asg)-process-flow&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;spinnaker&quot;&gt;Spinnaker &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#spinnaker&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Start point. A developer merges their code into a pre-production environment.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deploy the pre-production environment with CDN assets.&lt;/li&gt;
+&lt;li&gt;Check for the successful deployment.&lt;/li&gt;
+&lt;li&gt;Run a &lt;a href=&quot;https://www.docker.com/&quot; rel=&quot;noopener&quot;&gt;Docker&lt;/a&gt;
+container to start building the ASG application or send a notification (in the event of deployment failure).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;jenkins-and-lighthouse&quot;&gt;Jenkins and Lighthouse &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#jenkins-and-lighthouse&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Build the ASG application with &lt;a href=&quot;https://www.jenkins.io/&quot; rel=&quot;noopener&quot;&gt;Jenkins&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Run a custom Docker container that has Chrome and Lighthouse installed.
+Pull &lt;code&gt;lighthouserc.json&lt;/code&gt; from the SSG app and run &lt;code&gt;lhci autorun --collect-url=https://example.com&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;jenkins-and-ssg-app&quot;&gt;Jenkins and SSG app &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lowes/#jenkins-and-ssg-app&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Extract &lt;code&gt;assertion-results.json&lt;/code&gt; from lhci and compare it to predefined budgets in &lt;code&gt;budgets.json&lt;/code&gt;.
+Save the output as a text file and upload it to &lt;a href=&quot;https://www.sonatype.com/nexus/repository-oss&quot; rel=&quot;noopener&quot;&gt;Nexus&lt;/a&gt; for future comparisons.&lt;/li&gt;
+&lt;li&gt;Compare the current &lt;code&gt;assertion-results.json&lt;/code&gt; to the last successful build
+(downloaded from Nexus) and save it as a text file.&lt;/li&gt;
+&lt;li&gt;Build an HTML email with the success or failure information.&lt;/li&gt;
+&lt;li&gt;Send the email to the relevant distribution lists with Jenkins.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    <author>
+      <name>Ashish Choudhury</name>
+    </author><author>
+      <name>Dinakar Chandolu</name>
+    </author><author>
+      <name>Abhimanyu Raibahadur</name>
+    </author><author>
+      <name>Dhilip venkatesh Uvarajan</name>
+    </author><author>
+      <name>Safwan Samla</name>
+    </author><author>
+      <name>Garima Mimani</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Vodafone: A 31% improvement in LCP increased sales by 8%</title>
+    <link href="https://web.dev/vodafone/"/>
+    <updated>2021-03-17T00:00:00Z</updated>
+    <id>https://web.dev/vodafone/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://www.vodafone.com/&quot; rel=&quot;noopener&quot;&gt;Vodafone&lt;/a&gt; is a leading telecommunications company in
+Europe and Africa operating fixed and mobile networks in 21 countries and
+partnering with mobile networks in 48 more. By running an A/B test on a landing
+page (where version A was optimized for Web Vitals and had a 31% better LCP
+score in the
+&lt;a href=&quot;https://www.searchenginejournal.com/google-explains-why-field-data-is-more-reliable-than-lab-data/372404/&quot; rel=&quot;noopener&quot;&gt;field&lt;/a&gt;
+than version B), Vodafone determined that optimizing for Web Vitals generated 8%
+more sales.&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;31&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;A 31% improvement in LCP led to…&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;&lt;sub class=&quot;w-stat__sub&quot;&gt;+&lt;/sub&gt;8&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;Increase in total sales&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;&lt;sub class=&quot;w-stat__sub&quot;&gt;+&lt;/sub&gt;15&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;Uplift in the lead to visit rate&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;&lt;sub class=&quot;w-stat__sub&quot;&gt;+&lt;/sub&gt;11&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;Uplift in the cart to visit rate&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Vodafone knew that faster websites generally correlate to improved business metrics and were
+interested in optimizing their Web Vitals scores as a potential strategy for increasing sales, but
+they needed to determine exactly what kind of ROI they would get.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Two screenshots of the Vodafone website.&quot; decoding=&quot;async&quot; height=&quot;751&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption&gt;
+    Some example screenshots of Vodafone&#39;s website. Note that these are &lt;b&gt;not&lt;/b&gt; version
+    A and version B from the A/B test. Both versions were visually and functionally identical.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;approach&quot;&gt;The approach they used &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#approach&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;ab-test&quot;&gt;A/B test &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#ab-test&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The traffic for the A/B test came from different paid media channels, including display,
+iOS/Android, search, and social. 50% of the traffic was sent to the optimized landing page (version
+A), and 50% was sent to the baseline page (version B). Version A and version B both got around 100K
+clicks and 34K visits per day. As mentioned before, the only difference between version A and
+version B was that version A was optimized for Web Vitals. There were no functional or visual
+differences between the two versions other than that. Vodafone used the
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;PerformanceObserver&lt;/code&gt;&lt;/a&gt; API to
+measure LCP on real user sessions and sent the
+&lt;a href=&quot;https://www.searchenginejournal.com/google-explains-why-field-data-is-more-reliable-than-lab-data/372404/&quot; rel=&quot;noopener&quot;&gt;field data&lt;/a&gt;
+to their analytics provider.&lt;/p&gt;
+&lt;img alt=&quot;A diagram of the A/B test setup.&quot; decoding=&quot;async&quot; height=&quot;398&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h3 id=&quot;optimizations&quot;&gt;Optimizations &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#optimizations&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Vodafone made the following changes on the optimized page (version A):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Moved the rendering logic for a widget from client-side to server-side&lt;/strong&gt;, which resulted in
+less &lt;a href=&quot;https://web.dev/render-blocking-resources/&quot;&gt;render-blocking JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server-side rendered&lt;/strong&gt; critical HTML&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimized images&lt;/strong&gt;, including &lt;a href=&quot;https://web.dev/uses-responsive-images/&quot;&gt;resizing&lt;/a&gt; the hero
+image, &lt;a href=&quot;https://jakearchibald.github.io/svgomg/&quot; rel=&quot;noopener&quot;&gt;optimizing SVG images&lt;/a&gt;, using media queries to
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/&quot;&gt;avoid loading images&lt;/a&gt; that weren&#39;t yet
+visible in the viewport, and &lt;a href=&quot;https://web.dev/squoosh-v2/&quot;&gt;optimizing PNG images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;results&quot;&gt;Overall business results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;div&gt;
+    &lt;p&gt;
+      After optimizing version A for Web Vitals and comparing it to the
+      unoptimized version B, Vodafone found that version A led to:
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;An 8% increase in sales&lt;/li&gt;
+      &lt;li&gt;
+        A 15% improvement in the lead to visit rate (the number of users who became
+        a lead versus the total number of visitors)
+      &lt;/li&gt;
+      &lt;li&gt;
+        An 11% improvement in the cart to visit rate (the number of users
+        who visited their cart versus the total number of visitors)
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;An illustration that reiterates the business results.&quot; decoding=&quot;async&quot; height=&quot;1175&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;p&gt;The following table shows the values for &lt;code&gt;DOMContentLoaded&lt;/code&gt; (&amp;quot;DCL&amp;quot;) and LCP that
+Vodafone observed on version A (&amp;quot;Optimized Page&amp;quot;) and version B (&amp;quot;Default
+Page&amp;quot;). Note that DCL actually &lt;em&gt;increased&lt;/em&gt; 15%. The absolute values related to
+business metrics have been redacted.&lt;/p&gt;
+&lt;img alt=&quot;Optimized Page had a DCL of 4.05s and a LCP of 5.7s. Default Page had a DCL of 3.52s and a LCP of 8.3s.&quot; decoding=&quot;async&quot; height=&quot;413&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;blockquote&gt;
+  &lt;p style=&quot;font-style: italic; font-size: 1.5rem;&quot;&gt;
+    At Vodafone, we test new solutions, measure results, keep what worked and question what didn&#39;t,
+    learning from mistakes. We call it &quot;Experiment, Learn Fast&quot;. Thanks to the collaboration with Google
+    and the introduction of LCP as the main KPI for page performance, it was possible to
+    significantly improve the customer experience of our e-commerce.
+  &lt;/p&gt;
+  &lt;cite&gt;Davide Grossi, Head of Digital Marketing, Business&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/tags/scale-on-web&quot;&gt;Scale on web case studies&lt;/a&gt; page for more
+success stories.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>How CLS optimizations increased Yahoo! JAPAN News&#39;s page views per session by 15%</title>
+    <link href="https://web.dev/yahoo-japan-news/"/>
+    <updated>2021-03-09T00:00:00Z</updated>
+    <id>https://web.dev/yahoo-japan-news/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://www.yahoo.co.jp/&quot; rel=&quot;noopener&quot;&gt;Yahoo! JAPAN&lt;/a&gt; is one of the largest media companies in Japan,
+providing over 79 billion page views per month. Their news platform, &lt;a href=&quot;https://news.yahoo.co.jp/&quot; rel=&quot;noopener&quot;&gt;Yahoo!
+JAPAN News&lt;/a&gt; has more than 22 billion page views per
+month and an engineering team dedicated to improving the user experience.&lt;/p&gt;
+&lt;p&gt;By continuously monitoring Core Web Vitals (CWV), they correlated the site&#39;s
+improved &lt;a href=&quot;https://web.dev/cls&quot;&gt;Cumulative Layout Shift (CLS)&lt;/a&gt; score with a 15%
+increase in page views per session and 13% increase in session duration.&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;0.2&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;CLS improvement&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;15.1&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;More page views per session&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;13.3&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Longer session duration&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://web.dev/cls&quot;&gt;Cumulative Layout Shift&lt;/a&gt; measures how visually stable a
+website is—it helps quantify how often users experience unexpected layout
+shifts.&lt;/p&gt;
+&lt;/div&gt; 
+&lt;p&gt;Page content moving around unexpectedly often causes accidental clicks,
+disorientation on the page, and ultimately user frustration. Frustrated users
+tend not to stick around for long. To keep users happy, the page layout should
+stay stable through the entire lifecycle of the user journey. For Yahoo! JAPAN
+News this improvement had a significant positive impact on business critical
+engagement metrics.&lt;/p&gt;
+&lt;p&gt;For technical details on how they improved the CLS, read the
+&lt;a href=&quot;https://techblog.yahoo.co.jp/entry/2021022230076263/&quot; rel=&quot;noopener&quot;&gt;Yahoo! JAPAN News engineering team&#39;s post&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;identifying-the-issue&quot;&gt;Identifying the issue &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/yahoo-japan-news/#identifying-the-issue&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Monitoring Core Web Vitals, including CLS, is crucial in catching issues and
+identifying where they&#39;re coming from. At Yahoo! JAPAN News, &lt;a href=&quot;https://search.google.com/search-console/about&quot; rel=&quot;noopener&quot;&gt;Search
+Console&lt;/a&gt; provided a great
+overview of groups of pages with performance issues and
+&lt;a href=&quot;https://web.dev/learn/#lighthouse&quot;&gt;Lighthouse&lt;/a&gt; helped identify per-page
+opportunities to improve page experience. Using these tools, they discovered
+that the article detail page had poor CLS.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Google Search Console Core Web Vitals Report showing high CLS for article details page.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;719&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/GhORGAous9gyou5yTmHj.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Google Search Console Core Web Vitals Report.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Lighthouse Avoid large layout shifts audit showing DOm elements that contribute the most to the CLS on the page.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;265&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/3YwmCzVBl78a9TdOKu90.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Lighthouse &quot;Avoid large layout shifts&quot; audit shows which elements are
+    contributing to CLS score and how much.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;It&#39;s important to keep in mind the &lt;em&gt;cumulative&lt;/em&gt; part of the Cumulative Layout
+Shift—the score is captured through the entire page lifecycle. In the
+real-world, the score can include shifts that happen as a result of user
+interactions such as scrolling a page or tapping a button. To collect CLS scores
+from the &lt;a href=&quot;https://web.dev/how-to-measure-speed/#lab-data-vs-field-data&quot;&gt;field
+data&lt;/a&gt;, the team
+integrated &lt;a href=&quot;https://github.com/GoogleChrome/web-vitals/&quot; rel=&quot;noopener&quot;&gt;web-vitals&lt;/a&gt; JavaScript
+library reporting.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;As a part of performance monitoring strategy, they&#39;re also working on building
+an internal tool with &lt;a href=&quot;https://web.dev/lighthouse-ci/&quot;&gt;Lighthouse CI&lt;/a&gt; to
+continuously audit performance across businesses in the company.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The team used Chrome DevTools to identify which elements were making layout
+shifts on the page.
+&lt;a href=&quot;https://developers.google.com/web/updates/2019/07/devtools&quot; rel=&quot;noopener&quot;&gt;Layout Shift Regions&lt;/a&gt;
+in DevTools visualizes elements that contribute to CLS by highlighting them with
+a blue rectangle whenever a layout shift happens.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Article details page with blue rectangles overlayed on the hero image and the text.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;668&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 376px) 376px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/scvRgLxkZVQoGfOtjZ4z.png?auto=format&amp;w=752 752w&quot; width=&quot;376&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Visualized layout shifts.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;They figured out that a layout shift occurred after the hero image at the top of
+the article was loaded for the first view.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Screenshots of the article details page showing side by side comparison before and after layout shift.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;455&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 798px) 798px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/HdGiCh7O8ZhqcOkfVGEv.jpg?auto=format&amp;w=1596 1596w&quot; width=&quot;798&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Layout shift on the article detail page.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;In the example above, when the image finishes loading, the text gets pushed down
+(the position change is indicated with the red line).&lt;/p&gt;
+&lt;h2 id=&quot;improving-cls-for-images&quot;&gt;Improving CLS for images &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/yahoo-japan-news/#improving-cls-for-images&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;For fixed-size images, layout shifts can be prevented by specifying the &lt;code&gt;width&lt;/code&gt;
+and &lt;code&gt;height&lt;/code&gt; attributes in the &lt;code&gt;img&lt;/code&gt; element and using the CSS
+&lt;a href=&quot;https://web.dev/aspect-ratio&quot;&gt;&lt;code&gt;aspect-ratio&lt;/code&gt;&lt;/a&gt;
+property available in modern browsers. However, Yahoo! JAPAN News needed to
+support not only modern browsers, but also browsers installed in relatively old
+operating systems such as iOS 9.&lt;/p&gt;
+&lt;p&gt;They used &lt;a href=&quot;https://css-tricks.com/aspect-ratio-boxes/&quot; rel=&quot;noopener&quot;&gt;Aspect Ratio Boxes&lt;/a&gt;—a
+method which uses markup to reserve the space on the page before the image is
+loaded. This method requires knowing the aspect ratio of the image in advance,
+which they were able to get from the backend API.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Screenshots of the article details page showing side by side comparison before and after CLS optimization.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;439&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/gUbS3jB6zMBZwEU3wmW6.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Left: reserved blank space for the image at the top of the page; right: the
+    hero image loaded in the reserved space without layout shifts.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;results&quot;&gt;Results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/yahoo-japan-news/#results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The number of URLs with poor performance in Search Console decreased by 98% and
+CLS in lab data decreased from about 0.2 to 0. More importantly, there were
+several
+&lt;a href=&quot;https://nicj.net/cumulative-layout-shift-in-the-real-world/&quot; rel=&quot;noopener&quot;&gt;correlated improvements in business metrics&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Search Console report showing a significant drop in pages with performance issues.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;509&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/Q5pRaIvOgzb4tqgv5dWo.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Search Console after improvements.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Search Console doesn&#39;t reflect improvements in real-time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;When Yahoo! JAPAN News compared user engagement metrics before and after CLS
+optimization, they saw multiple improvements:&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;15.1&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;More page views per session&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;13.3&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Longer session duration&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;1.72&lt;sub class=&quot;w-stat__sub&quot;&gt;%*&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Lower bounce rate (*percentage points)&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;By improving CLS and other Core Web Vitals metrics, Yahoo! JAPAN News also got
+the
+&lt;a href=&quot;https://blog.chromium.org/2020/08/highlighting-great-user-experiences-on.html&quot; rel=&quot;noopener&quot;&gt;&amp;quot;Fast page&amp;quot; label&lt;/a&gt;
+in the context menu of Chrome Android.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Fast page label in Chrome on Android.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;600&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 400px) 400px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/ivyeENjT9NKZLhdn9WJm.png?auto=format&amp;w=800 800w&quot; width=&quot;400&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    &quot;Fast page&quot; label in Chrome on Android.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Layout shifts are frustrating and discourage users from reading more pages, but
+that can be improved by using the appropriate tools, identifying issues, and
+applying best practices. Improving CLS is a chance to improve your business.&lt;/p&gt;
+&lt;p&gt;For more information, read the
+&lt;a href=&quot;https://techblog.yahoo.co.jp/entry/2021022230076263/&quot; rel=&quot;noopener&quot;&gt;Yahoo! JAPAN engineering team&#39;s post&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <author>
+      <name>Shunya Shishido</name>
+    </author><author>
+      <name>Tomoki Kiraku</name>
+    </author><author>
+      <name>Milica Mihajlija</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Debug layout shifts</title>
+    <link href="https://web.dev/debug-layout-shifts/"/>
+    <updated>2021-03-11T00:00:00Z</updated>
+    <id>https://web.dev/debug-layout-shifts/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;The first part of this article discusses tooling for debugging layout shifts,
+while the second part discusses the thought process to use when
+identifying the cause of a layout shift.&lt;/p&gt;
+&lt;h2 id=&quot;tooling&quot;&gt;Tooling &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#tooling&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;layout-instability-api&quot;&gt;Layout Instability API &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#layout-instability-api&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&quot;https://wicg.github.io/layout-instability/&quot; rel=&quot;noopener&quot;&gt;Layout Instability API&lt;/a&gt; is the
+browser mechanism for measuring and reporting layout shifts. All tools for
+debugging layout shifts, including DevTools, are ultimately built upon the
+Layout Instability API. However, using the Layout Instability API directly is a
+powerful debugging tool due to its flexibility.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The Layout Instability API is only
+&lt;a href=&quot;https://caniuse.com/mdn-api_layoutshift&quot; rel=&quot;noopener&quot;&gt;supported&lt;/a&gt; by Chromium browsers. At
+the current time there is no way to measure or debug layout shifts in
+non-Chromium browsers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;usage&quot;&gt;Usage &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#usage&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The same code &lt;a href=&quot;https://web.dev/cls/#measure-cls-in-javascript&quot;&gt;snippet&lt;/a&gt; that
+measures &lt;a href=&quot;https://web.dev/cls/&quot;&gt;Cumulative Layout Shift (CLS)&lt;/a&gt; can also
+serve to debug layout shifts. The snippet below logs information about layout
+shifts to the console. Inspecting this log will provide you information
+about when, where, and how a layout shift occurred.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; cls &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PerformanceObserver&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;entryList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; entry &lt;span class=&quot;token keyword&quot;&gt;of&lt;/span&gt; entryList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getEntries&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;hadRecentInput&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      cls &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;      console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Current CLS value:&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; cls&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; entry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;observe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;type&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;layout-shift&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; buffered&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;When running this script be aware that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;buffered: true&lt;/code&gt; option indicates that the
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;PerformanceObserver&lt;/code&gt;&lt;/a&gt;
+should check the browser&#39;s &lt;a href=&quot;https://www.w3.org/TR/performance-timeline-2/#dfn-performance-entry-buffer&quot; rel=&quot;noopener&quot;&gt;performance entry
+buffer&lt;/a&gt;
+for performance entries that were created before the observer&#39;s
+initialization. As a result, the &lt;code&gt;PerformanceObserver&lt;/code&gt; will report layout
+shifts that happened both before and after it was initialized. Keep this in
+mind when inspecting the console logs. An initial glut of layout shifts can
+reflect a reporting backlog, rather than the sudden occurrence of numerous
+layout shifts.&lt;/li&gt;
+&lt;li&gt;To avoid impacting performance, the &lt;code&gt;PerformanceObserver&lt;/code&gt; waits until the main
+thread is idle to report on layout shifts. As a result, depending on how
+busy the main thread is, there may be a slight delay between when a layout
+shift occurs and when it is logged in the console.&lt;/li&gt;
+&lt;li&gt;This script ignores layout shifts that occurred within 500 ms of user input
+and therefore do not count towards CLS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Information about layout shifts is reported using a combination of two APIs: the
+&lt;a href=&quot;https://wicg.github.io/layout-instability/#layoutshift&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;LayoutShift&lt;/code&gt;&lt;/a&gt; and
+&lt;a href=&quot;https://wicg.github.io/layout-instability/#sec-layout-shift-attribution&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;LayoutShiftAttribution&lt;/code&gt;&lt;/a&gt;
+interfaces. Each of these interfaces are explained in more detail in the
+following sections.&lt;/p&gt;
+&lt;h4 id=&quot;layoutshift&quot;&gt;LayoutShift &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#layoutshift&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Each layout shift is reported using the &lt;code&gt;LayoutShift&lt;/code&gt; interface. The contents of
+an entry look like this:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;duration&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;br /&gt;entryType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;layout-shift&quot;&lt;/span&gt;&lt;br /&gt;hadRecentInput&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;br /&gt;lastInputTime&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;br /&gt;name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;br /&gt;sources&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;LayoutShiftAttribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; LayoutShiftAttribution&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; LayoutShiftAttribution&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;startTime&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;11317.934999999125&lt;/span&gt;&lt;br /&gt;value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0.17508567530168798&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The entry above indicates a layout shift during which three DOM elements changed
+position. The layout shift score of this particular layout shift was &lt;code&gt;0.175&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;These are the properties of a &lt;code&gt;LayoutShift&lt;/code&gt; instance that are most relevant to
+debugging layout shifts:&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Property&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sources&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The &lt;code&gt;sources&lt;/code&gt; property lists the DOM elements that moved during the layout shift. This array can contain up to five sources. In the event that there are more than five elements impacted by the layout shift, the five largest (as measured by impact on layout stability) sources of layout shift are reported. This information is reported using the LayoutShiftAttribution interface (explained in more detail below).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;value&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The &lt;code&gt;value&lt;/code&gt; property reports the &lt;a href=&quot;https://web.dev/cls/#layout-shift-score&quot;&gt;layout shift score&lt;/a&gt; for a particular layout shift.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hadRecentInput&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The &lt;code&gt;hadRecentInput&lt;/code&gt; property indicates whether a layout shift occurred within 500 milliseconds of user input.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;startTime&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The &lt;code&gt;startTime&lt;/code&gt; property indicates when a layout shift occurred. &lt;code&gt;startTime&lt;/code&gt; is indicated in milliseconds and is measured relative to the &lt;a href=&quot;https://www.w3.org/TR/hr-time-2/#sec-time-origin&quot; rel=&quot;noopener&quot;&gt;time that the page load was initiated&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;duration&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The &lt;code&gt;duration&lt;/code&gt; property will always be set to &lt;code&gt;0&lt;/code&gt;. This property is inherited from the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;PerformanceEntry&lt;/code&gt;&lt;/a&gt; interface (the &lt;code&gt;LayoutShift&lt;/code&gt; interface extends the &lt;code&gt;PerformanceEntry&lt;/code&gt; interface). However, the concept of duration does not apply to layout shift events, so it is set to &lt;code&gt;0&lt;/code&gt;. For information on the &lt;code&gt;PerformanceEntry&lt;/code&gt; interface, refer to the &lt;a href=&quot;https://w3c.github.io/performance-timeline/#the-performanceentry-interface&quot; rel=&quot;noopener&quot;&gt;spec&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The &lt;a href=&quot;https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma&quot; rel=&quot;noopener&quot;&gt;Web Vitals
+Extension&lt;/a&gt;
+can log layout shift info to the console. To enable this feature, go to
+&lt;strong&gt;Options &amp;gt; Console Logging&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;layoutshiftattribution&quot;&gt;LayoutShiftAttribution &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#layoutshiftattribution&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;LayoutShiftAttribution&lt;/code&gt; interface describes a single shift of a single DOM
+element. If multiple elements shift during a layout shift, the &lt;code&gt;sources&lt;/code&gt;
+property contains multiple entries.&lt;/p&gt;
+&lt;p&gt;For example, the JSON below corresponds to a layout shift with one source: the
+downward shift of the &lt;code&gt;&amp;lt;div id=&#39;banner&#39;&amp;gt;&lt;/code&gt; DOM element from &lt;code&gt;y: 76&lt;/code&gt; to
+&lt;code&gt;y:246&lt;/code&gt;.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;sources&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;node&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;div#banner&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;previousRect&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;x&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;311&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;y&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;76&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;width&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;height&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;top&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;76&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;right&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;315&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;bottom&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;94&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;left&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;311&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;currentRect&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;x&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;311&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;y&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;246&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;width&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;height&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;top&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;246&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;right&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;315&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;bottom&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;264&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;left&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;311&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The &lt;code&gt;node&lt;/code&gt; property identifies the HTML element that shifted. Hovering on this
+property in DevTools highlights the corresponding page element.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;previousRect&lt;/code&gt; and &lt;code&gt;currentRect&lt;/code&gt; properties report the size and position of
+the node.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; coordinates report the x-coordinate and y-coordinate
+respectively of the top-left corner of the element&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt; properties report the width and height respectively
+of the element.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, and &lt;code&gt;left&lt;/code&gt; properties report the x or y
+coordinate values corresponding to the given edge of the element. In other
+words, the value of &lt;code&gt;top&lt;/code&gt; is equal to &lt;code&gt;y&lt;/code&gt;; the value of &lt;code&gt;bottom&lt;/code&gt; is equal to
+&lt;code&gt;y+height&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If all properties of &lt;code&gt;previousRect&lt;/code&gt; are set to 0 this means that the element has
+shifted into view. If all properties of &lt;code&gt;currentRect&lt;/code&gt; are set to 0 this means
+that the element has shifted out of view.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:
+Layout Instability API currently does not ignore elements that shifted but were not
+visible due to another element being positioned in front of them.
+Use &lt;code&gt;display: none&lt;/code&gt;, &lt;code&gt;visibility: hidden&lt;/code&gt;, or &lt;code&gt;opacity: 0&lt;/code&gt; to avoid layout shifts in
+cases where you need to run layout on some elements before you make them visible to
+the user.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;One of the most important things to understand when interpreting these outputs
+is that elements listed as &lt;em&gt;sources&lt;/em&gt; are the elements that shifted during the
+layout shift. However, it&#39;s possible that these elements are only indirectly
+related to the &amp;quot;root cause&amp;quot; of layout instability. Here are a few examples.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example #1&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This layout shift would be reported with one source: element B. However, the
+root cause of this layout shift is the change in size of element A.&lt;/p&gt;
+&lt;img alt=&quot;Example showing a layout shift caused by a change in element dimensions&quot; decoding=&quot;async&quot; height=&quot;452&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/oaM41OYL7mFtGcpIN8KF.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;&lt;strong&gt;Example #2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The layout shift in this example would be reported with two sources: element A
+and element B. The root cause of this layout shift is the change in position of
+element A.&lt;/p&gt;
+&lt;img alt=&quot;Example showing a layout shift caused by a change in element position&quot; decoding=&quot;async&quot; height=&quot;451&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AhaslIEWb5fFMMgiZcI2.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;&lt;strong&gt;Example #3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The layout shift in this example would be reported with one source: element B.
+Changing the position of element B resulted in this layout shift.&lt;/p&gt;
+&lt;img alt=&quot;Example showing a layout shift caused by a change in element position&quot; decoding=&quot;async&quot; height=&quot;451&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/6zKjd4Ua6YJ94LMlqiMR.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;&lt;strong&gt;Example #4&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Although element B changes size, there is no layout shift in this example.&lt;/p&gt;
+&lt;img alt=&quot;Example showing a element changing size but not causing a layout shift&quot; decoding=&quot;async&quot; height=&quot;446&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/ZujHWxsXI3C7tupe42oD.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Check out a &lt;a href=&quot;https://desert-righteous-router.glitch.me/&quot; rel=&quot;noopener&quot;&gt;demo of how DOM changes are reported by the Layout Instability API&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;devtools&quot;&gt;DevTools &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#devtools&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;performance-panel&quot;&gt;Performance panel &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#performance-panel&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The &lt;strong&gt;Experience&lt;/strong&gt; pane of the DevTools &lt;strong&gt;Performance&lt;/strong&gt; panel displays all
+layout shifts that occur during a given performance trace—even if they occur
+within 500 ms of a user interaction and therefore don&#39;t count towards CLS.
+Hovering over a particular layout shift in the &lt;strong&gt;Experience&lt;/strong&gt; panel highlights
+the affected DOM element.&lt;/p&gt;
+&lt;img alt=&quot;Screenshot of a layout shift displayed in the DevTools Network panel&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;629&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 724px) 724px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/Uug2fnJT8mOc2YQmxo2l.png?auto=format&amp;w=1448 1448w&quot; width=&quot;724&quot; /&gt;
+&lt;p&gt;To view more information about the layout shift, click on the layout shift, then
+open the &lt;strong&gt;Summary&lt;/strong&gt; drawer. Changes to the element&#39;s dimensions are listed
+using the format &lt;code&gt;[width, height]&lt;/code&gt;; changes to the element&#39;s position are listed
+using the format &lt;code&gt;[x,y]&lt;/code&gt;. The &lt;strong&gt;Had recent input&lt;/strong&gt; property indicates whether a
+layout shift occurred within 500 ms of a user interaction.&lt;/p&gt;
+&lt;img alt=&quot;Screenshot of the DevTools &amp;#x27;Summary&amp;#x27; tab for a layout shift&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;354&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 612px) 612px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/AfVjsH9Nl9w0lJwQZEjR.png?auto=format&amp;w=1224 1224w&quot; width=&quot;612&quot; /&gt;
+&lt;p&gt;For information on the duration of a layout shift, open the &lt;strong&gt;Event Log&lt;/strong&gt; tab.
+The duration of a layout shift can also be approximated by looking in the
+&lt;strong&gt;Experience&lt;/strong&gt; pane for the length of the red layout shift rectangle.&lt;/p&gt;
+&lt;img alt=&quot;Screenshot of the DevTools &amp;#x27;Event Log&amp;#x27; tab for a layout shift&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;354&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 612px) 612px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/124Dm7vV3EGM7M9fiugs.png?auto=format&amp;w=1224 1224w&quot; width=&quot;612&quot; /&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The duration of a layout shift has no impact on its layout shift score.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For more information on using the &lt;strong&gt;Performance&lt;/strong&gt; panel, refer to &lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference&quot; rel=&quot;noopener&quot;&gt;Performance
+Analysis
+Reference&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;highlight-layout-shift-regions&quot;&gt;Highlight layout shift regions &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#highlight-layout-shift-regions&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Highlighting layout shift regions can be a helpful technique for getting a
+quick, at-a-glance feel for the location and timing of the layout shifts
+occurring on a page.&lt;/p&gt;
+&lt;p&gt;To enable Layout Shift Regions in DevTools, go to &lt;strong&gt;Settings &amp;gt; More Tools &amp;gt;
+Rendering &amp;gt; Layout Shift Regions&lt;/strong&gt; then refresh the page that you wish to debug.
+Areas of layout shift will be briefly highlighted in purple.&lt;/p&gt;
+&lt;h2 id=&quot;thought-process-for-identifying-the-cause-of-layout-shifts&quot;&gt;Thought process for identifying the cause of layout shifts &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#thought-process-for-identifying-the-cause-of-layout-shifts&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You can use the steps below to identify the cause of layout shifts
+regardless of when or how the layout shift occurs. These steps can be
+supplemented with running Lighthouse—however, keep in mind that Lighthouse can
+only identify layout shifts that occurred during the initial page load. In
+addition, Lighthouse also can only provide suggestions for some causes of layout
+shifts—for example, image elements that do not have explicit width and height.&lt;/p&gt;
+&lt;h3 id=&quot;identifying-the-cause-of-a-layout-shift&quot;&gt;Identifying the cause of a layout shift &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#identifying-the-cause-of-a-layout-shift&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Layout shifts can be caused by the following events:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Changes to the position of a DOM element&lt;/li&gt;
+&lt;li&gt;Changes to the dimensions of a DOM element&lt;/li&gt;
+&lt;li&gt;Insertion or removal of a DOM element&lt;/li&gt;
+&lt;li&gt;Animations that trigger layout&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In particular, the DOM element immediately preceding the shifted element is the
+element most likely to be involved in &amp;quot;causing&amp;quot; layout shift. Thus, when
+investigating why a layout shift occurred consider:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Did the position or dimensions of the preceding element change?&lt;/li&gt;
+&lt;li&gt;Was a DOM element inserted or removed before the shifted element?&lt;/li&gt;
+&lt;li&gt;Was the position of the shifted element explicitly changed?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the preceding element did not cause the layout shift, continue your search by
+considering other preceding and nearby elements.&lt;/p&gt;
+&lt;p&gt;In addition, the direction and distance of a layout shift can provide hints
+about root cause. For example, a large downward shift often indicates the
+insertion of a DOM element, whereas a 1 px or 2 px layout shift often indicates
+the application of conflicting CSS styles or the loading and application of a
+web font.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Diagram showing a layout shift caused by a font swap&quot; decoding=&quot;async&quot; height=&quot;452&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/g0892nhvz3SnSaasaO1b.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    In this example, font swapping caused page elements to shift upwards by five pixels.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;These are some of the specific behaviors that most frequently cause layout shift
+events:&lt;/p&gt;
+&lt;h4 id=&quot;changes-to-the-position-of-an-element-(that-aren&#39;t-due-to-the-movement-of-another-element)&quot;&gt;Changes to the position of an element (that aren&#39;t due to the movement of another element) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#changes-to-the-position-of-an-element-(that-aren&#39;t-due-to-the-movement-of-another-element)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This type of change is often a result of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stylesheets that are loaded late or overwrite previously declared styles.&lt;/li&gt;
+&lt;li&gt;Animation and transition effects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;changes-to-the-dimensions-of-an-element&quot;&gt;Changes to the dimensions of an element &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#changes-to-the-dimensions-of-an-element&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This type of change is often a result of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stylesheets that are loaded late or overwrite previously declared styles.&lt;/li&gt;
+&lt;li&gt;Images and iframes without &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt; attributes that load after
+their &amp;quot;slot&amp;quot; has been rendered.&lt;/li&gt;
+&lt;li&gt;Text blocks without &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; attributes that swap fonts after the
+text has been rendered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;the-insertion-or-removal-of-dom-elements&quot;&gt;The insertion or removal of DOM elements &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#the-insertion-or-removal-of-dom-elements&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;This is often the result of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Insertion of ads and other third-party embeds.&lt;/li&gt;
+&lt;li&gt;Insertion of banners, alerts, and modals.&lt;/li&gt;
+&lt;li&gt;Infinite scroll and other UX patterns that load additional content above
+existing content.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;animations-that-trigger-layout&quot;&gt;Animations that trigger layout &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#animations-that-trigger-layout&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Some animation effects can &lt;a href=&quot;https://gist.github.com/paulirish/5d52fb081b3570c81e3a&quot; rel=&quot;noopener&quot;&gt;trigger
+layout&lt;/a&gt;. A common
+example of this is when DOM elements are &#39;animated&#39; by incrementing properties
+like &lt;code&gt;top&lt;/code&gt; or &lt;code&gt;left&lt;/code&gt; rather than using CSS&#39;s
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;transform&lt;/code&gt;&lt;/a&gt;
+property. Read &lt;a href=&quot;https://web.dev/animations-guide/&quot;&gt;How to create high-performance CSS animations&lt;/a&gt;
+for more information.&lt;/p&gt;
+&lt;h3 id=&quot;reproducing-layout-shifts&quot;&gt;Reproducing layout shifts &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/debug-layout-shifts/#reproducing-layout-shifts&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You can&#39;t fix layout shifts that you can&#39;t reproduce. One of the simplest, yet
+most effective things you can do to get a better sense of your site&#39;s layout
+stability is take 5-10 minutes to interact with your site with the goal
+triggering layout shifts. Keep the console open while doing this and use the
+Layout Instability API to report on layout shifts.&lt;/p&gt;
+&lt;p&gt;For hard to locate layout shifts, consider repeating this exercise with
+different devices and connection speeds. In particular, using a slower
+connection speed can make it easier to identify layout shifts. In addition,
+you can use a &lt;code&gt;debugger&lt;/code&gt; statement to make it easier to step through layout
+shifts.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PerformanceObserver&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;entryList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;highlight-line&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; entry &lt;span class=&quot;token keyword&quot;&gt;of&lt;/span&gt; entryList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getEntries&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;hadRecentInput&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;highlight-line&quot;&gt;      cls &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;mark class=&quot;highlight-line highlight-line-active&quot;&gt;      &lt;span class=&quot;token keyword&quot;&gt;debugger&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/mark&gt;&lt;br /&gt;&lt;span class=&quot;highlight-line&quot;&gt;      console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Current CLS value:&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; cls&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; entry&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;highlight-line&quot;&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;highlight-line&quot;&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;observe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;type&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;layout-shift&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; buffered&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Lastly, for layout issues that aren&#39;t reproducible in development, consider
+using the Layout Instability API in conjunction with your front-end logging tool
+of choice to collect more information on these issues. Check out
+the example &lt;a href=&quot;https://github.com/GoogleChromeLabs/web-vitals-report/blob/71b0879334798c732f460945ded5267cab5a36bf/src/js/analytics.js#L104-L118&quot; rel=&quot;noopener&quot;&gt;code for how to track the largest shifted element on a page&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <author>
+      <name>Katie Hempenius</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>How Wix improved website performance by evolving their infrastructure</title>
+    <link href="https://web.dev/wix/"/>
+    <updated>2021-03-10T00:00:00Z</updated>
+    <id>https://web.dev/wix/</id>
+    <content type="text/html" mode="escaped">&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Alon leads the core backend team at &lt;a href=&quot;https://www.wix.com/&quot; rel=&quot;noopener&quot;&gt;Wix&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Thanks to leveraging industry standards, cloud providers, and CDN capabilities,
+combined with a major rewrite of our website runtime, the percentage of Wix
+sites reaching good 75th percentile scores on all Core Web Vitals (CWV) metrics
+&lt;strong&gt;more than tripled&lt;/strong&gt; year over year, according to data from
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report&quot; rel=&quot;noopener&quot;&gt;CrUX&lt;/a&gt;
+and
+&lt;a href=&quot;https://httparchive.org/faq#how-do-i-use-bigquery-to-write-custom-queries-over-the-data&quot; rel=&quot;noopener&quot;&gt;HTTPArchive&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Wix adopted a performance-oriented culture, and further improvements will
+continue rolling out to users. As we focus on performance KPIs, we expect to see
+the number of sites passing CWV thresholds grow.&lt;/p&gt;
+&lt;h2 id=&quot;overview&quot;&gt;Overview &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#overview&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The world of performance is &lt;a href=&quot;https://youtu.be/ctavZT87syI&quot; rel=&quot;noopener&quot;&gt;beautifully complex&lt;/a&gt;,
+with many variables and intricacies. Research shows that site &lt;a href=&quot;https://web.dev/milliseconds-make-millions&quot;&gt;speed has a
+direct impact on conversion rates and revenues&lt;/a&gt; for
+businesses. In recent years, the industry has put more emphasis on performance
+visibility and &lt;a href=&quot;https://web.dev/fast&quot;&gt;making the web faster&lt;/a&gt;. Starting in May 2021, &lt;a href=&quot;https://developers.google.com/search/blog/2020/11/timing-for-page-experience&quot; rel=&quot;noopener&quot;&gt;page
+experience
+signals&lt;/a&gt;
+will be included in Google Search ranking.&lt;/p&gt;
+&lt;p&gt;The unique challenge at Wix is supporting &lt;strong&gt;millions&lt;/strong&gt; of sites, some of which
+were built &lt;em&gt;many years ago&lt;/em&gt; and have not been updated since. We have various
+&lt;a href=&quot;https://support.wix.com/en/performance-and-technical-issues/site-performance&quot; rel=&quot;noopener&quot;&gt;tools and
+articles&lt;/a&gt;
+to assist our users on what they can do to analyze and improve the performance
+of their sites.&lt;/p&gt;
+&lt;p&gt;Wix is a managed environment and not everything is in the hands of the user.
+Sharing common infrastructures presents many challenges for all these sites, but
+also opens opportunities for major enhancements across the board, i.e.
+leveraging the economies of scale.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;&lt;em&gt;In this post I will focus on enhancements done around serving the initial HTML, which
+initiates the page loading process.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;speaking-in-a-common-language&quot;&gt;Speaking in a common language &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#speaking-in-a-common-language&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;One of the core difficulties with performance is finding a common terminology to
+discuss different aspects of the user experience, while considering both the
+technical and perceived performance. Using a well-defined, common language
+within the organization enabled us to easily discuss and categorize the
+different technical parts and trade-offs, clarified our performance reports and
+tremendously helped to understand what aspects we should focus on improving
+first.&lt;/p&gt;
+&lt;p&gt;We adjusted all our monitoring and internal discussions to include industry
+standard metrics such as &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Web Vitals&lt;/a&gt;, which include:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A diagram of the 2020 Core Web Vitals: LCP, FID, and CLS.&quot; decoding=&quot;async&quot; height=&quot;215&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Core Web Vitals&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;site-complexity-and-performance-scores&quot;&gt;Site complexity and performance scores &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#site-complexity-and-performance-scores&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;It&#39;s pretty easy to create a site that loads instantly so long as you
+&lt;a href=&quot;https://justinjackson.ca/words.html&quot; rel=&quot;noopener&quot;&gt;make it very simple&lt;/a&gt; using only
+HTML and serve it via a CDN.&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-left&quot;&gt;
+  &lt;img alt=&quot;PageSpeed Insights Example&quot; decoding=&quot;async&quot; height=&quot;647&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;However, the reality is that sites are getting more and more complex and
+sophisticated, operating more like applications rather than documents, and
+supporting functionalities such as blogs, e-commerce solutions, custom code,
+etc.&lt;/p&gt;
+&lt;p&gt;Wix offers a very large &lt;a href=&quot;https://www.wix.com/website/templates&quot; rel=&quot;noopener&quot;&gt;variety of
+templates&lt;/a&gt;, enabling its users to easily
+build a site with many business capabilities. Those additional features often
+come with &lt;em&gt;some&lt;/em&gt; performance costs.&lt;/p&gt;
+&lt;h2 id=&quot;the-journey&quot;&gt;The journey &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#the-journey&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;in-the-beginning-there-was-html&quot;&gt;In the beginning, there was HTML &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#in-the-beginning-there-was-html&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Every time a webpage is loaded, it always starts with an initial request to a
+URL in order to retrieve the HTML document. This HTML response triggers all the
+additional client requests and browser logic to run and render your site. This
+is the most important part of the page loading, because nothing happens until
+the beginning of the response arrives (known as TTFB - time to first byte).&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;WebPageTest First View&quot; decoding=&quot;async&quot; height=&quot;411&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;WebPageTest First View&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h4 id=&quot;the-past:-client-side-rendering-(csr)&quot;&gt;The past: client-side rendering (CSR) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#the-past:-client-side-rendering-(csr)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When operating large scale systems, you always have trade-offs you need to
+consider, such as performance, reliability and costs. Up to a few years ago, Wix
+used client-side rendering (CSR), in which the actual HTML content was generated
+via JavaScript on the client side (i.e. in the browser) allowing us to support a
+high scale of sites without having huge backend operational costs.&lt;/p&gt;
+&lt;p&gt;CSR enabled us to use a common HTML document, which was essentially empty. All
+it did was trigger the download of the required code and data which was then
+used to generate the full HTML on the client device.&lt;/p&gt;
+&lt;h4 id=&quot;today:-server-side-rendering-(ssr)&quot;&gt;Today: server-side rendering (SSR) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#today:-server-side-rendering-(ssr)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A few years ago we transitioned to server-side rendering (SSR), as that was
+beneficial both to SEO and performance, improving initial page visibility times
+and ensuring better indexing for search engines that do not have full support
+for running JavaScript.&lt;/p&gt;
+&lt;p&gt;This approach improved the visibility experience, especially on slower
+devices/connections, and opened the door for further performance optimizations.
+However, it also meant that for each web page request, a unique HTML response
+was generated on the fly, which is &lt;strong&gt;far&lt;/strong&gt; from optimal, especially for sites
+with a large amount of views.&lt;/p&gt;
+&lt;h3 id=&quot;introducing-caching-in-multiple-locations&quot;&gt;Introducing caching in multiple locations &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#introducing-caching-in-multiple-locations&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The HTML for each site was mostly static, but it had a few caveats:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It frequently changes. Each time a user edits their site, or makes changes in site data,
+such as on the website store inventory.&lt;/li&gt;
+&lt;li&gt;It had certain data and cookies that were &lt;strong&gt;visitor specific&lt;/strong&gt;,
+meaning two people visiting the same site would see somewhat different HTML. For example,
+to support products features such as remembering what items a visitor put in the cart,
+or the chat the visitor started with the business earlier, and more.&lt;/li&gt;
+&lt;li&gt;Not all pages are cacheable. For example a page with custom user code on it,
+that displays the current time as part of the document, is not eligible for caching.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Initially, we took the relatively safe approach of caching the HTML &lt;span style=&quot;text-decoration:underline;&quot;&gt;without&lt;/span&gt; visitor data, and then only
+modified specific parts of the HTML response on the fly for each visitor, for
+each cache hit.&lt;/p&gt;
+&lt;h4 id=&quot;in-house-cdn-solution&quot;&gt;In-house CDN solution &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#in-house-cdn-solution&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;We did this by deploying an in-house solution: Using &lt;a href=&quot;https://varnish-cache.org/&quot; rel=&quot;noopener&quot;&gt;Varnish HTTP
+Cache&lt;/a&gt; for proxying and caching, Kafka for
+invalidation messages, and a Scala/Netty-based service which proxies these HTML
+responses, but mutates the HTML and adds visitor-specific data and cookies to
+the cached response.&lt;/p&gt;
+&lt;p&gt;This solution enabled us to deploy these &lt;strong&gt;slim&lt;/strong&gt; components in many more
+geographic locations and multiple cloud provider regions, which are spread
+across the world. In 2019, we introduced &lt;strong&gt;over 15 new regions&lt;/strong&gt;, and gradually
+enabled caching for over 90% of our page views that were eligible for caching.
+Serving sites from additional locations reduced the &lt;a href=&quot;https://www.cloudping.co/grid&quot; rel=&quot;noopener&quot;&gt;network
+latency&lt;/a&gt; between the clients and the servers
+serving the HTML response, by bringing the content closer to the website&#39;s
+visitors.&lt;/p&gt;
+&lt;p&gt;We also started caching certain read-only API responses by using the same
+solution and invalidating the cache on any change to the site content. For
+example, the list of blog posts on the site is cached and invalidated when a
+post is published/modified.&lt;/p&gt;
+&lt;h4 id=&quot;reducing-complexities&quot;&gt;Reducing complexities &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#reducing-complexities&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Implementing caching improved performance substantially, mostly on the
+&lt;a href=&quot;https://web.dev/time-to-first-byte/&quot;&gt;TTFB&lt;/a&gt; and &lt;a href=&quot;https://web.dev/fcp/&quot;&gt;FCP&lt;/a&gt; phases, and improved our
+reliability by serving the content from a location closer to the end user.&lt;/p&gt;
+&lt;p&gt;However, the need to modify the HTML for each response introduced an unnecessary
+complexity that, if removed, presented an opportunity for further performance
+improvements.&lt;/p&gt;
+&lt;h3 id=&quot;browser-caching-(and-preparations-for-cdns)&quot;&gt;Browser caching (and preparations for CDNs) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#browser-caching-(and-preparations-for-cdns)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-figure&quot;&gt;
+  &lt;div class=&quot;w-stats&quot;&gt;
+    &lt;div class=&quot;w-stat&quot;&gt;
+     &lt;p class=&quot;w-stat__figure&quot;&gt;~ 13&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+     &lt;p class=&quot;w-stat__desc&quot;&gt;HTML requests served directly from the browser cache,
+     saving much bandwidth and reducing loading times for repeat views&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The next step was to actually remove this visitor-specific data from the HTML
+&lt;span style=&quot;text-decoration:underline;&quot;&gt;entirely&lt;/span&gt;, and retrieve it from a
+separate endpoint, called by the client for this purpose, after the HTML has
+arrived.&lt;/p&gt;
+&lt;p&gt;We carefully migrated this data and cookies to a new endpoint, which is called
+on each page load, but returns a slim JSON, which is required only for the
+&lt;a href=&quot;https://reactjs.org/docs/react-dom.html#hydrate&quot; rel=&quot;noopener&quot;&gt;hydration process&lt;/a&gt;, to reach
+full page interactivity.&lt;/p&gt;
+&lt;p&gt;This allowed us to enable browser caching of the HTML, which means that browsers
+now save the HTML response for repeating visits, and only call the server to
+validate that the content hasn&#39;t changed. This is done using &lt;a href=&quot;https://en.wikipedia.org/wiki/HTTP_ETag&quot; rel=&quot;noopener&quot;&gt;HTTP
+ETag&lt;/a&gt;, which is basically an identifier
+assigned to a specific version of an HTML resource. If the content is still the
+same, a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304&quot; rel=&quot;noopener&quot;&gt;304 Not
+Modified&lt;/a&gt; response
+is sent by our servers to the client, without a body.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;ALT_TEXT_HERE&quot; decoding=&quot;async&quot; height=&quot;410&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;WebPageTest Repeat View&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;In addition, this change means that our HTML is no longer visitor-specific and
+contains no cookies. In other words it can basically be cached anywhere, opening
+the door to using CDN providers that have much better geo presence in hundreds
+of locations around the world.&lt;/p&gt;
+&lt;h3 id=&quot;dns-ssl-and-http2&quot;&gt;DNS, SSL and HTTP/2 &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#dns-ssl-and-http2&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With caching enabled, wait times were reduced and other important parts of the
+initial connection became more substantial. Enhancing our networking
+infrastructure and monitoring enabled us to improve our DNS, connection, and SSL
+times.&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;A response time graph.&quot; decoding=&quot;async&quot; height=&quot;441&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/HTTP/2&quot; rel=&quot;noopener&quot;&gt;HTTP/2&lt;/a&gt; was enabled for all user domains,
+reducing both the amount of connections required and the overhead that comes
+with each new connection. This was a relatively easy change to deploy, while
+taking advantage of the &lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/http2&quot; rel=&quot;noopener&quot;&gt;performance and resilience
+benefits&lt;/a&gt; that
+come with HTTP/2.&lt;/p&gt;
+&lt;h3 id=&quot;brotli-compression-(vs.-gzip)&quot;&gt;Brotli compression (vs. gzip) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#brotli-compression-(vs.-gzip)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-figure&quot;&gt;
+  &lt;div class=&quot;w-stats&quot;&gt;
+    &lt;div class=&quot;w-stat&quot;&gt;
+     &lt;p class=&quot;w-stat__figure&quot;&gt;21 - 25&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+     &lt;p class=&quot;w-stat__desc&quot;&gt;Reduction of median file transfer size&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Traditionally, all our files were compressed using &lt;a href=&quot;https://en.wikipedia.org/wiki/Gzip&quot; rel=&quot;noopener&quot;&gt;gzip
+compression&lt;/a&gt;, which is the most prevalent
+HTML compression option on the web. This compression protocol was initially
+implemented almost 30 years ago!&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;Brotli compression&quot; decoding=&quot;async&quot; height=&quot;805&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    &lt;a href=&quot;https://tools.paulcalvano.com/compression.php&quot;&gt;Brotli Compression Level Estimator&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The newer &lt;a href=&quot;https://en.wikipedia.org/wiki/Brotli&quot; rel=&quot;noopener&quot;&gt;Brotli compression&lt;/a&gt; introduces
+compression improvements with almost no trade-offs, and is slowly becoming more
+popular, as described in the yearly Web Almanac &lt;a href=&quot;https://almanac.httparchive.org/en/2020/compression#what-type-of-content-should-we-compress&quot; rel=&quot;noopener&quot;&gt;Compression
+chapter&lt;/a&gt;.
+It has been supported by &lt;a href=&quot;https://caniuse.com/brotli&quot; rel=&quot;noopener&quot;&gt;all the major browsers&lt;/a&gt;
+for a while.&lt;/p&gt;
+&lt;p&gt;We enabled Brotli support on our nginx proxies in the edges, for all clients
+that support it.&lt;/p&gt;
+&lt;p&gt;Moving to use Brotli compression reduced our median file transfer sizes by
+&lt;strong&gt;21% to 25%&lt;/strong&gt; resulting in a reduced bandwidth usage and improved loading times.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Mobile and Desktop Median Response Sizes&quot; decoding=&quot;async&quot; height=&quot;173&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Median Response Sizes&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;content-delivery-networks-(cdns)&quot;&gt;Content delivery networks (CDNs) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#content-delivery-networks-(cdns)&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;dynamic-cdn-selection&quot;&gt;Dynamic CDN selection &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#dynamic-cdn-selection&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;At Wix, we have always used &lt;a href=&quot;https://web.dev/content-delivery-networks/&quot;&gt;CDNs&lt;/a&gt; to serve all the
+JavaScript code and images on user websites.&lt;/p&gt;
+&lt;p&gt;Recently, we integrated with a solution by our DNS provider, to automatically
+select the best performing CDN according to the client&#39;s network and origin.
+This enables us to serve the static files from the best location for each
+visitor, and avoid availability issues on a certain CDN.&lt;/p&gt;
+&lt;h3 id=&quot;coming-soon...-user-domains-served-by-cdns&quot;&gt;Coming soon… user domains served by CDNs &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#coming-soon...-user-domains-served-by-cdns&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The final piece of the puzzle is serving the last, and most critical part,
+through a CDN: the HTML from the user domain.&lt;/p&gt;
+&lt;p&gt;As described above, we created our own in-house solution to cache and serve the
+site-specific HTML and API results. Maintaining this solution in so many new
+regions also has its operational costs, and adding new locations becomes a
+process we need to manage and continually optimize.&lt;/p&gt;
+&lt;p&gt;We are currently integrating with various CDN providers to support serving the
+entire Wix site directly from CDN locations to improve the distribution of our
+servers across the globe and thus further improve response times. This is a
+challenge due to the large amount of domains we serve, which require SSL
+termination at the edge.&lt;/p&gt;
+&lt;p&gt;Integrating with CDNs brings Wix websites closer than ever to the customer and
+comes with more improvements to the loading experience, including newer
+technologies such as HTTP/3 without added effort on our side.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;a-few-words-on-performance-monitoring&quot;&gt;A few words on performance monitoring &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#a-few-words-on-performance-monitoring&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If you run a Wix site, you&#39;re probably wondering how this translates to your Wix
+site performance results, and how we compare against other website platforms.&lt;/p&gt;
+&lt;p&gt;Most of the work done above has been deployed in the past year, and some is
+still being rolled out.&lt;/p&gt;
+&lt;p&gt;The Web Almanac by HTTPArchive recently published the &lt;a href=&quot;https://almanac.httparchive.org/en/2020&quot; rel=&quot;noopener&quot;&gt;2020
+edition&lt;/a&gt; which includes an excellent
+chapter on &lt;a href=&quot;https://almanac.httparchive.org/en/2020/cms&quot; rel=&quot;noopener&quot;&gt;CMS user experience&lt;/a&gt;.
+Keep in mind that many of the numbers described in this article are from the
+middle of 2020.&lt;/p&gt;
+&lt;p&gt;We look forward to seeing the updated report in 2021, and are actively
+monitoring
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/&quot; rel=&quot;noopener&quot;&gt;CrUX&lt;/a&gt;
+reports for our sites as well as our internal performance metrics.&lt;/p&gt;
+&lt;p&gt;We are committed to continuously improve loading times and provide our users
+with a platform where they can build sites as they imagine, without compromising
+on performance.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;LCP, Speed Index and FCP for a mobile site over time&quot; decoding=&quot;async&quot; height=&quot;259&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;LCP, Speed Index and FCP for a mobile site over time&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;DebugBear recently released a very interesting &lt;a href=&quot;https://www.debugbear.com/blog/website-builder-performance-review&quot; rel=&quot;noopener&quot;&gt;Website Builder Performance
+Review&lt;/a&gt;,
+which touches on some of the areas I mentioned above and examines the
+performance of very simple sites built on each platform. This
+&lt;a href=&quot;https://matt05041.wixsite.com/bizsolutions&quot; rel=&quot;noopener&quot;&gt;site&lt;/a&gt; was built almost two years
+ago, and not modified since, but the platform is continually improving, and the
+site performance along with it, which can be witnessed by &lt;a href=&quot;https://www.debugbear.com/project/175/pageLoad/873/overview?dateRange=2019-03-31T21%3A00Z-to-2021-03-31T21%3A59Z&quot; rel=&quot;noopener&quot;&gt;viewing its
+data&lt;/a&gt;
+over the past year and a half.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We hope our experience inspires you to adopt a performance-oriented culture at
+your organisation and that the details above are helpful and applicable to your
+platform or site.&lt;/p&gt;
+&lt;p&gt;To sum up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pick a set of metrics that you can track consistently using tools endorsed by
+the industry. We recommend Core Web Vitals.&lt;/li&gt;
+&lt;li&gt;Leverage browser caching and CDNs.&lt;/li&gt;
+&lt;li&gt;Migrate to HTTP/2 (or HTTP/3 if possible).&lt;/li&gt;
+&lt;li&gt;Use Brotli compression.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thanks for learning our story and we invite you to ask questions, share ideas on
+&lt;a href=&quot;https://twitter.com/alonkochba&quot; rel=&quot;noopener&quot;&gt;Twitter&lt;/a&gt; and
+&lt;a href=&quot;https://github.com/alonkochba&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt; and join the web performance
+conversation on your favorite channels.&lt;/p&gt;
+&lt;h2 id=&quot;so-how-does-your-recent-wix-site-performance-look-like&quot;&gt;So, how does &lt;strong&gt;your&lt;/strong&gt; recent Wix site performance look like? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#so-how-does-your-recent-wix-site-performance-look-like&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+</content>
+    <author>
+      <name>Alon Kochba</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Agrofy: A 70% improvement in LCP correlated to a 76% reduction in load abandonment</title>
+    <link href="https://web.dev/agrofy/"/>
+    <updated>2021-03-01T00:00:00Z</updated>
+    <id>https://web.dev/agrofy/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://www.agrofy.com.ar/&quot; rel=&quot;noopener&quot;&gt;Agrofy&lt;/a&gt; is an online marketplace for Latin
+America&#39;s agribusiness market. They match up buyers and sellers of farm
+machines, land, equipment, and financial services. In Q3 2020 a 4-person
+development team at Agrofy spent a month optimizing their website because they
+hypothesized that improved performance would lead to reduced bounce rates. They
+specifically focused on improving &lt;a href=&quot;https://web.dev/lcp/&quot;&gt;LCP&lt;/a&gt;, which is one of
+the &lt;a href=&quot;https://web.dev/vitals/#core-web-vitals&quot;&gt;Core Web Vitals&lt;/a&gt;. These
+performance optimizations led to a 70% improvement in LCP, which correlated to a
+76% reduction in load abandonment (from 3.8% to 0.9%).&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;70&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Lower LCP&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;76&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Lower load abandonment&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;problem&quot;&gt;Problem &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/agrofy/#problem&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;While studying their business metrics, a development team at Agrofy noticed
+that their bounce rates seemed higher than industry benchmarks. Technical
+debt was also increasing in the website codebase.&lt;/p&gt;
+&lt;h2 id=&quot;solution&quot;&gt;Solution &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/agrofy/#solution&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The Agrofy team pitched their executives and got buy-in to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Migrate from an older, deprecated framework to a newer, actively
+supported one.&lt;/li&gt;
+&lt;li&gt;Optimize the load performance of the new codebase.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The migration took 2 months. Aside from the 4-person development team mentioned
+earlier, this migration also involved product and UX specialists and a software
+architect.
+The optimization project took the 4-person development team 1 month. They
+focused on LCP, &lt;a href=&quot;https://web.dev/cls/&quot;&gt;CLS&lt;/a&gt; (another Core Web Vitals metric),
+and &lt;a href=&quot;https://web.dev/fcp/&quot;&gt;FCP&lt;/a&gt;. Specific optimizations included:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lazy loading all non-visible elements with the
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API&quot; rel=&quot;noopener&quot;&gt;Intersection Observer API&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Delivering static resources faster with a &lt;a href=&quot;https://web.dev/content-delivery-networks/&quot;&gt;content delivery
+network&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/&quot;&gt;Lazy loading images&lt;/a&gt;
+with &lt;code&gt;loading=&amp;quot;lazy&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2019/02/rendering-on-the-web&quot; rel=&quot;noopener&quot;&gt;Server-side rendering&lt;/a&gt;
+of
+&lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/critical-rendering-path&quot; rel=&quot;noopener&quot;&gt;critical rendering path&lt;/a&gt;
+content.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/fast/#optimize-your-resource-delivery&quot;&gt;Preloading and preconnecting&lt;/a&gt;
+critical resources to minimize handshake times.&lt;/li&gt;
+&lt;li&gt;Using real user monitoring (RUM) tools to identify which product detail
+pages were experiencing lots of layout shifts and then make adjustments to
+the codebase&#39;s architecture.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check out the
+&lt;a href=&quot;https://mollar-luciano.medium.com/how-agrofy-optimised-core-web-vitals-and-improved-business-metrics-2f73311bca&quot; rel=&quot;noopener&quot;&gt;Agrofy engineering blog post&lt;/a&gt;
+for more technical details.&lt;/p&gt;
+&lt;p&gt;After enabling the new codebase on 20% of traffic, they launched the new site to
+all visitors in early September 2020.&lt;/p&gt;
+&lt;h2 id=&quot;results&quot;&gt;Results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/agrofy/#results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The development team&#39;s optimizations led to measurable improvements in many
+different metrics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LCP improved 70%.&lt;/li&gt;
+&lt;li&gt;CLS improved 72%.&lt;/li&gt;
+&lt;li&gt;Blocking JS requests reduced 100% and blocking CSS requests 80%.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/long-tasks-devtools/&quot;&gt;Long tasks&lt;/a&gt; reduced 72%.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/first-cpu-idle/&quot;&gt;First CPU Idle&lt;/a&gt; improved 25%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Over the same time frame, real user monitoring data (also known as &lt;a href=&quot;https://web.dev/how-to-measure-speed/#lab-data-vs-field-data&quot;&gt;field
+data&lt;/a&gt;) showed that
+the load abandonment rate on product detail pages dropped 76%, from 3.8% to
+0.9%:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A graph showing load abandonment rate decrease of 76% on the product details page after performance optimizations.&quot; decoding=&quot;async&quot; height=&quot;461&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/2lMYiXdjh5aLr4UIMVJF.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Load abandonment rate trend on product detail page.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+</content>
+    <author>
+      <name>Kayce Basques</name>
+    </author>
+  </entry>
+</feed>
