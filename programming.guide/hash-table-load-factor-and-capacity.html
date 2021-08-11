@@ -1,339 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Hash Table Load Factor and Capacity | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="hash table, load factor, capacity, rehash, buckets" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hash Table Load Factor and Capacity | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="hash table, load factor, capacity, rehash, buckets"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Related</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="hash-tables.html">Hash Tables</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Hash Table Load Factor and Capacity</h1>
-      <p>This is an excerpt from the more extensive article on <a href="hash-tables.html">Hash Tables</a>.</p>
-      <h2>Load Factor</h2>
-      <p>The <strong>load factor</strong> is the average number of key-value pairs per bucket.</p>
-      <div class="article-box" style="display: flex; align-items: center; justify-content: center; text-align: center">
-        <div style="margin: 0em .3em">
-          load factor
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <div style="margin: 0em .3em">
-          =
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a href="hash-tables.html">Hash Tables</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
         </div>
-        <div style="margin: 0em .3em; display: flex; flex-direction: column; align-items: center;">
-          <div style="padding-bottom: .25em; margin-bottom: .2em; border-bottom: .12em solid black;">
-            total number of key-value pairs
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Hash Table Load Factor and Capacity</h1>
+        <p>
+          This is an excerpt from the more extensive article on
+          <a href="hash-tables.html">Hash Tables</a>.
+        </p>
+        <h2>Load Factor</h2>
+        <p>
+          The <strong>load factor</strong> is the average number of key-value
+          pairs per bucket.
+        </p>
+        <div
+          class="article-box"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          "
+        >
+          <div style="margin: 0em 0.3em">load factor</div>
+          <div style="margin: 0em 0.3em">=</div>
+          <div
+            style="
+              margin: 0em 0.3em;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            "
+          >
+            <div
+              style="
+                padding-bottom: 0.25em;
+                margin-bottom: 0.2em;
+                border-bottom: 0.12em solid black;
+              "
+            >
+              total number of key-value pairs
+            </div>
+            <div>number of buckets</div>
           </div>
-          <div>
-            number of buckets
-          </div>
         </div>
-      </div>
-      <p>It is when the load factor reaches a given limit that rehashing kicks in. Since rehashing increases the number of buckets, it reduces the load factor.</p>
-      <p>The load factor limit is usually configurable and offers a <strong>tradeoff between time and space costs</strong>.</p>
-      <div class="centered-content" style="margin: 3em 0em;">
-        <svg style="max-width: 600px;" viewbox="-300 -60 600.0 140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <line stroke="black" x1="-195" x2="195" y1="0" y2="0"></line>
-        <line stroke="black" x1="-190" x2="-190" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-160" x2="-160" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-130" x2="-130" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-100" x2="-100" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-70" x2="-70" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-40" x2="-40" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-10" x2="-10" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="20" x2="20" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="50" x2="50" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="80" x2="80" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="110" x2="110" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="140" x2="140" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="170" x2="170" y1="-2.5" y2="2.5"></line>
-        <use href="#r-arrow-head-black" x="190"></use>
-        <use href="#r-arrow-head-black" transform="translate(-190, 0) rotate(180)"></use>
-        <text text-anchor="middle" x="-190" y="-30">
-          Lower limit
-        </text>
-        <text text-anchor="middle" x="-190" y="40">
-          More empty buckets
-        </text>
-        <text text-anchor="middle" x="-190" y="60">
-          More memory overhead
-        </text>
-        <text text-anchor="middle" x="190" y="-30">
-          Higher limit
-        </text>
-        <text text-anchor="middle" x="190" y="40">
-          Larger buckets
-        </text>
-        <text text-anchor="middle" x="190" y="60">
-          Slower lookups
-        </text></svg>
-      </div>
-      <p>The default load factor for a Java <a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"><code>HashMap</code></a> is 0.75 and for a C# <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"><code>Hashtable</code></a> it’s 1.0.</p>
-      <h2>Capacity</h2>
-      <p>The <strong>capacity</strong> is the maximum number of key-value pairs for the given load factor limit and current bucket count.</p>
-      <div class="article-box" style="display: flex; align-items: center; justify-content: center; text-align: center">
-        <div style="margin: 0em .3em">
-          capacity
+        <p>
+          It is when the load factor reaches a given limit that rehashing kicks
+          in. Since rehashing increases the number of buckets, it reduces the
+          load factor.
+        </p>
+        <p>
+          The load factor limit is usually configurable and offers a
+          <strong>tradeoff between time and space costs</strong>.
+        </p>
+        <div class="centered-content" style="margin: 3em 0em">
+          <svg
+            style="max-width: 600px"
+            viewbox="-300 -60 600.0 140"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <line stroke="black" x1="-195" x2="195" y1="0" y2="0"></line>
+            <line stroke="black" x1="-190" x2="-190" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-160" x2="-160" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-130" x2="-130" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-100" x2="-100" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-70" x2="-70" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-40" x2="-40" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-10" x2="-10" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="20" x2="20" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="50" x2="50" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="80" x2="80" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="110" x2="110" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="140" x2="140" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="170" x2="170" y1="-2.5" y2="2.5"></line>
+            <use href="#r-arrow-head-black" x="190"></use>
+            <use
+              href="#r-arrow-head-black"
+              transform="translate(-190, 0) rotate(180)"
+            ></use>
+            <text text-anchor="middle" x="-190" y="-30">Lower limit</text>
+            <text text-anchor="middle" x="-190" y="40">More empty buckets</text>
+            <text text-anchor="middle" x="-190" y="60">
+              More memory overhead
+            </text>
+            <text text-anchor="middle" x="190" y="-30">Higher limit</text>
+            <text text-anchor="middle" x="190" y="40">Larger buckets</text>
+            <text text-anchor="middle" x="190" y="60">Slower lookups</text>
+          </svg>
         </div>
-        <div style="margin: 0em .3em">
-          =
+        <p>
+          The default load factor for a Java
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"
+            ><code>HashMap</code></a
+          >
+          is 0.75 and for a C#
+          <a
+            href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"
+            ><code>Hashtable</code></a
+          >
+          it’s 1.0.
+        </p>
+        <h2>Capacity</h2>
+        <p>
+          The <strong>capacity</strong> is the maximum number of key-value pairs
+          for the given load factor limit and current bucket count.
+        </p>
+        <div
+          class="article-box"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          "
+        >
+          <div style="margin: 0em 0.3em">capacity</div>
+          <div style="margin: 0em 0.3em">=</div>
+          <div style="margin: 0em 0.3em">number of buckets</div>
+          <div style="margin: 0em 0.3em">×</div>
+          <div style="margin: 0em 0.3em">load factor limit</div>
         </div>
-        <div style="margin: 0em .3em">
-          number of buckets
+        <p>
+          Since rehashing increases the number of buckets, it increases the
+          capacity.
+        </p>
+        <p>
+          The default initial capacity for a Java
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"
+            ><code>HashMap</code></a
+          >
+          is 12 and for a C#
+          <a
+            href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"
+            ><code>Hashtable</code></a
+          >
+          it’s 0, i.e. the bucket array is initialized lazily upon first
+          insertion.
+        </p>
+        <h2>Example</h2>
+        <p>
+          Here’s the structure of a hash table, configured with load factor
+          limit of&nbsp;4.
+        </p>
+        <svg
+          style="max-width: 30em; display: block; margin: 1em auto 0em auto"
+          viewbox="-15 0 250 320"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <g id="lf-c-arrow-head">
+              <path d="M -2 2 l 4 0 l -2 -6 l -2 6" fill="black"></path>
+            </g>
+            <g id="lf-c-right-arrow">
+              <line stroke="black" x1="0" x2="10" y1="0" y2="0"></line>
+              <use
+                href="#lf-c-arrow-head"
+                transform="translate(10,0) rotate(90)"
+              ></use>
+            </g>
+            <g id="lf-c-cell">
+              <rect fill="white" height="30" stroke="black" width="30"></rect>
+            </g>
+            <g id="lf-c-node">
+              <rect
+                fill="white"
+                height="20"
+                rx="4"
+                ry="4"
+                stroke="black"
+                width="25"
+                y="5.0"
+              ></rect>
+            </g>
+            <g id="lf-c-node-with-arrow">
+              <use href="#lf-c-node"></use>
+              <use href="#lf-c-right-arrow" x="25" y="15.0"></use>
+            </g>
+          </defs>
+          <g transform="translate(5, 60)">
+            <use href="#lf-c-cell" y="0"></use>
+            <use href="#lf-c-right-arrow" x="30" y="15.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="0"></use>
+            <use href="#lf-c-node-with-arrow" x="83" y="0"></use>
+            <use href="#lf-c-node" x="122" y="0"></use>
+            <use href="#lf-c-cell" y="30"></use>
+            <use href="#lf-c-right-arrow" x="30" y="45.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="30"></use>
+            <use href="#lf-c-node-with-arrow" x="83" y="30"></use>
+            <use href="#lf-c-node" x="122" y="30"></use>
+            <use href="#lf-c-cell" y="60"></use>
+            <use href="#lf-c-right-arrow" x="30" y="75.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="60"></use>
+            <use href="#lf-c-node" x="83" y="60"></use>
+            <use href="#lf-c-cell" y="90"></use>
+            <use href="#lf-c-right-arrow" x="30" y="105.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="90"></use>
+            <use href="#lf-c-node-with-arrow" x="83" y="90"></use>
+            <use href="#lf-c-node-with-arrow" x="122" y="90"></use>
+            <use href="#lf-c-node" x="161" y="90"></use>
+            <use href="#lf-c-cell" y="120"></use>
+            <use href="#lf-c-right-arrow" x="30" y="135.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="120"></use>
+            <use href="#lf-c-node-with-arrow" x="83" y="120"></use>
+            <use href="#lf-c-node" x="122" y="120"></use>
+            <use href="#lf-c-cell" y="150"></use>
+            <use href="#lf-c-right-arrow" x="30" y="165.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="150"></use>
+            <use href="#lf-c-node-with-arrow" x="83" y="150"></use>
+            <use href="#lf-c-node-with-arrow" x="122" y="150"></use>
+            <use href="#lf-c-node" x="161" y="150"></use>
+            <use href="#lf-c-cell" y="180"></use>
+            <use href="#lf-c-right-arrow" x="30" y="195.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="180"></use>
+            <use href="#lf-c-node" x="83" y="180"></use>
+            <use href="#lf-c-cell" y="210"></use>
+            <use href="#lf-c-right-arrow" x="30" y="225.0"></use>
+            <use href="#lf-c-node-with-arrow" x="44" y="210"></use>
+            <use href="#lf-c-node-with-arrow" x="83" y="210"></use>
+            <use href="#lf-c-node" x="122" y="210"></use>
+            <line
+              stroke="blue"
+              stroke-dasharray="5 2"
+              x1="154"
+              x2="154"
+              y1="-15"
+              y2="255"
+            ></line>
+            <text
+              fill="blue"
+              style="font-size: 50%"
+              text-anchor="middle"
+              x="148"
+              y="-50"
+            >
+              Current
+            </text>
+            <text
+              fill="blue"
+              style="font-size: 50%"
+              text-anchor="middle"
+              x="148"
+              y="-39"
+            >
+              load factor:
+            </text>
+            <text
+              fill="blue"
+              style="font-size: 50%"
+              text-anchor="middle"
+              x="148"
+              y="-25"
+            >
+              24 / 8 = 3
+            </text>
+            <text
+              fill="red"
+              style="font-size: 50%"
+              text-anchor="middle"
+              x="198"
+              y="-50"
+            >
+              Configured
+            </text>
+            <text
+              fill="red"
+              style="font-size: 50%"
+              text-anchor="middle"
+              x="198"
+              y="-39"
+            >
+              limit:
+            </text>
+            <text
+              fill="red"
+              style="font-size: 50%"
+              text-anchor="middle"
+              x="195"
+              y="-25"
+            >
+              4
+            </text>
+            <line
+              stroke="red"
+              stroke-dasharray="5 2"
+              x1="195"
+              x2="195"
+              y1="-15"
+              y2="255"
+            ></line>
+            <rect
+              fill="none"
+              height="240"
+              stroke="red"
+              width="156"
+              x="36"
+              y="0"
+            ></rect>
+            <text fill="red" style="font-size: 50%" x="36" y="-15">
+              Current capacity:
+            </text>
+            <text fill="red" style="font-size: 50%" x="36" y="-5">
+              8 × 4 = 32
+            </text>
+          </g>
+        </svg>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="hash-table-load-factor-and-capacity.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <div style="margin: 0em .3em">
-          ×
-        </div>
-        <div style="margin: 0em .3em">
-          load factor limit
-        </div>
-      </div>
-      <p>Since rehashing increases the number of buckets, it increases the capacity.</p>
-      <p>The default initial capacity for a Java <a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"><code>HashMap</code></a> is 12 and for a C# <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"><code>Hashtable</code></a> it’s 0, i.e. the bucket array is initialized lazily upon first insertion.</p>
-      <h2>Example</h2>
-      <p>Here’s the structure of a hash table, configured with load factor limit of&nbsp;4.</p><svg style="max-width: 30em; display: block; margin: 1em auto 0em auto;" viewbox="-15 0 250 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <g id="lf-c-arrow-head">
-          <path d="M -2 2 l 4 0 l -2 -6 l -2 6" fill="black"></path>
-        </g>
-        <g id="lf-c-right-arrow">
-          <line stroke="black" x1="0" x2="10" y1="0" y2="0"></line>
-          <use href="#lf-c-arrow-head" transform="translate(10,0) rotate(90)"></use>
-        </g>
-        <g id="lf-c-cell">
-          <rect fill="white" height="30" stroke="black" width="30"></rect>
-        </g>
-        <g id="lf-c-node">
-          <rect fill="white" height="20" rx="4" ry="4" stroke="black" width="25" y="5.0"></rect>
-        </g>
-        <g id="lf-c-node-with-arrow">
-          <use href="#lf-c-node"></use>
-          <use href="#lf-c-right-arrow" x="25" y="15.0"></use>
-        </g>
-      </defs>
-      <g transform="translate(5, 60)">
-        <use href="#lf-c-cell" y="0"></use>
-        <use href="#lf-c-right-arrow" x="30" y="15.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="0"></use>
-        <use href="#lf-c-node-with-arrow" x="83" y="0"></use>
-        <use href="#lf-c-node" x="122" y="0"></use>
-        <use href="#lf-c-cell" y="30"></use>
-        <use href="#lf-c-right-arrow" x="30" y="45.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="30"></use>
-        <use href="#lf-c-node-with-arrow" x="83" y="30"></use>
-        <use href="#lf-c-node" x="122" y="30"></use>
-        <use href="#lf-c-cell" y="60"></use>
-        <use href="#lf-c-right-arrow" x="30" y="75.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="60"></use>
-        <use href="#lf-c-node" x="83" y="60"></use>
-        <use href="#lf-c-cell" y="90"></use>
-        <use href="#lf-c-right-arrow" x="30" y="105.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="90"></use>
-        <use href="#lf-c-node-with-arrow" x="83" y="90"></use>
-        <use href="#lf-c-node-with-arrow" x="122" y="90"></use>
-        <use href="#lf-c-node" x="161" y="90"></use>
-        <use href="#lf-c-cell" y="120"></use>
-        <use href="#lf-c-right-arrow" x="30" y="135.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="120"></use>
-        <use href="#lf-c-node-with-arrow" x="83" y="120"></use>
-        <use href="#lf-c-node" x="122" y="120"></use>
-        <use href="#lf-c-cell" y="150"></use>
-        <use href="#lf-c-right-arrow" x="30" y="165.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="150"></use>
-        <use href="#lf-c-node-with-arrow" x="83" y="150"></use>
-        <use href="#lf-c-node-with-arrow" x="122" y="150"></use>
-        <use href="#lf-c-node" x="161" y="150"></use>
-        <use href="#lf-c-cell" y="180"></use>
-        <use href="#lf-c-right-arrow" x="30" y="195.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="180"></use>
-        <use href="#lf-c-node" x="83" y="180"></use>
-        <use href="#lf-c-cell" y="210"></use>
-        <use href="#lf-c-right-arrow" x="30" y="225.0"></use>
-        <use href="#lf-c-node-with-arrow" x="44" y="210"></use>
-        <use href="#lf-c-node-with-arrow" x="83" y="210"></use>
-        <use href="#lf-c-node" x="122" y="210"></use>
-        <line stroke="blue" stroke-dasharray="5 2" x1="154" x2="154" y1="-15" y2="255"></line>
-        <text fill="blue" style="font-size: 50%" text-anchor="middle" x="148" y="-50">
-          Current
-        </text>
-        <text fill="blue" style="font-size: 50%" text-anchor="middle" x="148" y="-39">
-          load factor:
-        </text>
-        <text fill="blue" style="font-size: 50%" text-anchor="middle" x="148" y="-25">
-          24 / 8 = 3
-        </text>
-        <text fill="red" style="font-size: 50%" text-anchor="middle" x="198" y="-50">
-          Configured
-        </text>
-        <text fill="red" style="font-size: 50%" text-anchor="middle" x="198" y="-39">
-          limit:
-        </text>
-        <text fill="red" style="font-size: 50%" text-anchor="middle" x="195" y="-25">
-          4
-        </text>
-        <line stroke="red" stroke-dasharray="5 2" x1="195" x2="195" y1="-15" y2="255"></line>
-        <rect fill="none" height="240" stroke="red" width="156" x="36" y="0"></rect>
-        <text fill="red" style="font-size: 50%" x="36" y="-15">
-          Current capacity:
-        </text>
-        <text fill="red" style="font-size: 50%" x="36" y="-5">
-          8 × 4 = 32
-        </text>
-      </g></svg>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
-        </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="hash-table-load-factor-and-capacity.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

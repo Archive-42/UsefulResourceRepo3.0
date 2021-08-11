@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Joey Arhar on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Joey Arhar</name>
+  </author>
+  <link href="https://web.dev/authors/jarhar/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/ahMMPwVRwAdp0gFdY0zZnncYdsm1/3i0rkOVNKJImIy1UWvyC.jpeg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Software Engineer on the Chrome DOM team</subtitle>
+  
+  
+  <entry>
+    <title>CSS `accent-color`</title>
+    <link href="https://web.dev/accent-color/"/>
+    <updated>2021-08-11T00:00:00Z</updated>
+    <id>https://web.dev/accent-color/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Today&#39;s HTML form elements are &lt;a href=&quot;https://codepen.io/GeoffreyCrofte/pen/BiHzp&quot; rel=&quot;noopener&quot;&gt;difficult to
+customize&lt;/a&gt;. It feels as if it&#39;s
+a choice between few or no custom styles, or resetting input styles and
+build it up from scratch. Building it up from scratch ends up being much more
+work than anticipated. It can also lead to forgotten styles for element states
+(&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate&quot; rel=&quot;noopener&quot;&gt;indeterminate&lt;/a&gt;,
+I&#39;m looking at you), and the loss of built-in accessibility features.
+To fully recreate what the browser provides may be more
+work than you&#39;re looking to take on.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token property&quot;&gt;accent-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hotpink&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;CSS &lt;code&gt;accent-color&lt;/code&gt; from the &lt;a href=&quot;https://www.w3.org/TR/css-ui-4/#widget-accent&quot; rel=&quot;noopener&quot;&gt;CSS UI
+specification&lt;/a&gt; is here to tint
+elements with one line of CSS, saving you from customization efforts by
+providing a way to bring your brand into elements.&lt;/p&gt;
+&lt;figure class=&quot;w-figure &quot;&gt;
+  &lt;img alt=&quot;A light theme screenshot of an accent-color demo where      checkbox, radio buttons, a range slider and progress element      are all tinted hotpink.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;548&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/CfSS3F1XUsfCHIB86xeE.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figure&quot;&gt;
+    &lt;a href=&quot;https://codepen.io/web-dot-dev/pen/PomBZdy&quot;&gt;Demo&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The &lt;code&gt;accent-color&lt;/code&gt; property also works with
+&lt;a href=&quot;https://web.dev/color-scheme/&quot;&gt;&lt;code&gt;color-scheme&lt;/code&gt;&lt;/a&gt;, allowing authors to tint both
+the light and dark elements.
+In the following example the user has a dark theme active, the page uses
+&lt;code&gt;color-scheme: light dark&lt;/code&gt;, and uses the same &lt;code&gt;accent-color: hotpink&lt;/code&gt; for dark
+themed hotpink tinted controls.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A dark theme screenshot of an accent-color demo where      checkbox, radio buttons, a range slider and progress element      are all tinted hotpink.&quot; decoding=&quot;async&quot; height=&quot;548&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/3gxeeZoSLY34tsMxkyt9.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figure&quot;&gt;
+    &lt;a href=&quot;https://codepen.io/web-dot-dev/pen/PomBZdy&quot;&gt;Demo&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;browser-support&quot;&gt;Browser support &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#browser-support&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;As of this writing, Chromium 93+ and Firefox 92+ support &lt;code&gt;accent-color&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;supported-elements&quot;&gt;Supported elements &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#supported-elements&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Currently, only four elements will tint via the &lt;code&gt;accent-color&lt;/code&gt; property:
+&lt;a href=&quot;https://web.dev/accent-color/#checkbox&quot;&gt;checkbox&lt;/a&gt;, &lt;a href=&quot;https://web.dev/accent-color/#radio&quot;&gt;radio&lt;/a&gt;, &lt;a href=&quot;https://web.dev/accent-color/#range&quot;&gt;range&lt;/a&gt; and
+&lt;a href=&quot;https://web.dev/accent-color/#progress&quot;&gt;progress&lt;/a&gt;. Each can be previewed here
+&lt;a href=&quot;https://accent-color.glitch.me/&quot; rel=&quot;noopener&quot;&gt;https://accent-color.glitch.me&lt;/a&gt; in light and
+dark color schemes.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--warning&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;:
+If the following demo elements are all the same color,
+then your browser doesn&#39;t support &lt;code&gt;accent-color&lt;/code&gt; yet.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;checkbox&quot;&gt;Checkbox &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#checkbox&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div style=&quot;height: 500px; width: 100%&quot;&gt;
+&lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;&quot; loading=&quot;lazy&quot; src=&quot;https://codepen.io/web-dot-dev/embed/dyWjGqZ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;Pen dyWjGqZ by web-dot-dev on Codepen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;h3 id=&quot;radio&quot;&gt;Radio &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#radio&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div style=&quot;height: 500px; width: 100%&quot;&gt;
+&lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;&quot; loading=&quot;lazy&quot; src=&quot;https://codepen.io/web-dot-dev/embed/WNjKrgB?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;Pen WNjKrgB by web-dot-dev on Codepen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;h3 id=&quot;range&quot;&gt;Range &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#range&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div style=&quot;height: 500px; width: 100%&quot;&gt;
+&lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;&quot; loading=&quot;lazy&quot; src=&quot;https://codepen.io/web-dot-dev/embed/yLbqeRy?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;Pen yLbqeRy by web-dot-dev on Codepen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;h3 id=&quot;progress&quot;&gt;Progress &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#progress&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div style=&quot;height: 500px; width: 100%&quot;&gt;
+&lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;&quot; loading=&quot;lazy&quot; src=&quot;https://codepen.io/web-dot-dev/embed/rNmrxqL?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;Pen rNmrxqL by web-dot-dev on Codepen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;h2 id=&quot;guaranteeing-contrast&quot;&gt;Guaranteeing contrast &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#guaranteeing-contrast&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To prevent inaccessible elements from existing, browsers with &lt;code&gt;accent-color&lt;/code&gt;
+need to determine an &lt;a href=&quot;https://webaim.org/articles/contrast/&quot; rel=&quot;noopener&quot;&gt;eligible contrast
+color&lt;/a&gt; to be used alongside the custom
+accent. Below is a screenshot demonstrating how Chrome 94 (left) and Firefox 92
+Nightly (right) differ in their algorithms:&lt;/p&gt;
+&lt;img alt=&quot;A screenshot of Firefox and Chromium side by side,    rendering a full spectrum of checkboxes in various hues and darknesses.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;832&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/DJhB56n10Eh8O29RsRdE.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The most important thing to take away from this, is to &lt;strong&gt;trust the browser&lt;/strong&gt;.
+Provide a brand color, and trust that it will make smart decisions for you.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The browser will not change your color in a dark theme.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;extra:-more-tinting&quot;&gt;Extra: More tinting &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#extra:-more-tinting&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You may be wondering how to tint more than these four form elements? Here&#39;s a
+minimal sandbox which tints:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the focus ring&lt;/li&gt;
+&lt;li&gt;text selection highlights&lt;/li&gt;
+&lt;li&gt;list &lt;a href=&quot;https://web.dev/css-marker-pseudo-element/&quot;&gt;markers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;arrow indicators (Webkit only)&lt;/li&gt;
+&lt;li&gt;scrollbar thumb (Firefox only)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;--brand&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hotpink&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;scrollbar-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hotpink Canvas&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token selector&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;accent-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--brand&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token selector&quot;&gt;:focus-visible&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;outline-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--brand&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token selector&quot;&gt;::selection&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--brand&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token selector&quot;&gt;::marker&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--brand&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token selector&quot;&gt;:is(&lt;br /&gt;  ::-webkit-calendar-picker-indicator,&lt;br /&gt;  ::-webkit-clear-button,&lt;br /&gt;  ::-webkit-inner-spin-button, &lt;br /&gt;  ::-webkit-outer-spin-button&lt;br /&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;--brand&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;div style=&quot;height: 500px; width: 100%&quot;&gt;
+&lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;&quot; loading=&quot;lazy&quot; src=&quot;https://codepen.io/web-dot-dev/embed/RwVBreJ?height=500&amp;theme-id=light&amp;default-tab=result&amp;editable=true&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;Pen RwVBreJ by web-dot-dev on Codepen&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;h3 id=&quot;potential-future&quot;&gt;Potential future &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/accent-color/#potential-future&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The spec does not limit the application of &lt;code&gt;accent-color&lt;/code&gt; to the four elements
+shown in this article, more support could be added later. Elements like the
+selected &lt;code&gt;&amp;lt;option&amp;gt;&lt;/code&gt; in a &lt;code&gt;&amp;lt;select&amp;gt;&lt;/code&gt; could be highlighted with the
+&lt;code&gt;accent-color&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;What else do you like to tint on the web? Tweet
+&lt;a href=&quot;https://twitter.com/argyleink&quot; rel=&quot;noopener&quot;&gt;@argyleink&lt;/a&gt; with your selector and it might get
+added to this article!&lt;/p&gt;
+</content>
+    <author>
+      <name>Adam Argyle</name>
+    </author><author>
+      <name>Joey Arhar</name>
+    </author>
+  </entry>
+</feed>

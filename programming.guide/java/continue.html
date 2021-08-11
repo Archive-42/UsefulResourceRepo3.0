@@ -1,243 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java Loops: continue | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Examples and illustrations of how to the continue statement can be used to control loop iteration." name="description">
-  <meta content="java, loop, continue, continue statement, keyword, restart loop, control flow, next iteration" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java Loops: continue | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Examples and illustrations of how to the continue statement can be used to control loop iteration."
+      name="description"
+    />
+    <meta
+      content="java, loop, continue, continue statement, keyword, restart loop, control flow, next iteration"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Loops in Java</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="while-loop.html">while loop</a>
-        </li>
-        <li>
-          <a href="for-loop.html">for loop</a>
-        </li>
-        <li>
-          <a href="for-each-loop.html">for each loop</a>
-        </li>
-        <li>
-          <a href="do-while-loop.html">do…while loop</a>
-        </li>
-        <li>
-          <a href="break-loop.html">break</a>
-        </li>
-        <li class="current">continue</li>
-        <li>
-          <a href="beware-of-accidental-semicolons-in-while-and-for-loops.html">Beware of accidental semicolons in while and for loops!</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java Loops: continue</h1>
-      <p><code>continue</code> can be used to immediately continue to the next iteration of the loop (or exit the loop if the loop condition no longer holds).</p>
-      <div class="codeblock">
-        <svg height="210" width="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <path d="m 0 0 l -4 -10 l 8 0 l -4 10" fill="blue" id="down-arrow" stroke="blue" stroke-width="1"></path>
-        </defs>
-        <text class="code-like" x="20" y="67">
-          <tspan class="keyword">while</tspan> (…) {
-        </text>
-        <text class="code-like" x="60" y="89">
-          …
-        </text>
-        <text class="code-like" x="60" y="111">
-          <tspan class="keyword">if</tspan> (something) {
-        </text>
-        <text class="code-like" x="100" y="133">
-          <tspan class="keyword">continue</tspan>;
-        </text>
-        <path d="M 95 138 m 50 0 c 0 33.0, 100 33.0, 100 -33.0 v -22 c 0 -110, -156 -77.0, -156 -44" fill="none" stroke="blue" stroke-width="2"></path>
-        <use x="89" xlink:href="#down-arrow" y="48"></use>
-        <text class="code-like" x="60" y="155">
-          }
-        </text>
-        <text class="code-like" x="60" y="177">
-          …
-        </text>
-        <text class="code-like" x="20" y="199">
-          }
-        </text></svg>
-      </div>
-      <p>In <code>for</code> loops, a <code>continue</code> statement jumps directly to the update statement and then on to the next iteration of the loop (or exits the loop if the loop condition no longer holds).</p>
-      <div class="codeblock">
-        <svg height="210" width="290" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <path d="m 0 0 l -4 -10 l 8 0 l -4 10" fill="blue" id="down-arrow" stroke="blue" stroke-width="1"></path>
-        </defs>
-        <text class="code-like" x="20" y="67">
-          <tspan class="keyword">for</tspan> (<tspan style="font-style: italic">init</tspan>; <tspan style="font-style: italic">cond</tspan>; <tspan style="font-style: italic">step</tspan>) {
-        </text>
-        <text class="code-like" x="60" y="89">
-          …
-        </text>
-        <text class="code-like" x="60" y="111">
-          <tspan class="keyword">if</tspan> (something) {
-        </text>
-        <text class="code-like" x="100" y="133">
-          <tspan class="keyword">continue</tspan>;
-        </text>
-        <path d="M 90 138 m 50 0 c 0 33.0, 130 33.0, 130 -33.0 v -22 c 0 -88, -70 -66, -70 -37.4 c 0 -33.0, -60 -33.0, -60 -8" fill="none" stroke="blue" stroke-width="2"></path>
-        <use x="140" xlink:href="#down-arrow" y="48"></use>
-        <text class="code-like" x="60" y="155">
-          }
-        </text>
-        <text class="code-like" x="60" y="177">
-          …
-        </text>
-        <text class="code-like" x="20" y="199">
-          }
-        </text></svg>
-      </div>
-      <div class="article-box">
-        <p><strong>Example:</strong> At iteration 3, skip print statement</p>
-        <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">1</span>; <span class="type">i</span> &lt;= <span class="num_lit">5</span>; <span class="type">i</span>++) {
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Loops in Java</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="while-loop.html">while loop</a>
+          </li>
+          <li>
+            <a href="for-loop.html">for loop</a>
+          </li>
+          <li>
+            <a href="for-each-loop.html">for each loop</a>
+          </li>
+          <li>
+            <a href="do-while-loop.html">do…while loop</a>
+          </li>
+          <li>
+            <a href="break-loop.html">break</a>
+          </li>
+          <li class="current">continue</li>
+          <li>
+            <a
+              href="beware-of-accidental-semicolons-in-while-and-for-loops.html"
+              >Beware of accidental semicolons in while and for loops!</a
+            >
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java Loops: continue</h1>
+        <p>
+          <code>continue</code> can be used to immediately continue to the next
+          iteration of the loop (or exit the loop if the loop condition no
+          longer holds).
+        </p>
+        <div class="codeblock">
+          <svg
+            height="210"
+            width="270"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <path
+                d="m 0 0 l -4 -10 l 8 0 l -4 10"
+                fill="blue"
+                id="down-arrow"
+                stroke="blue"
+                stroke-width="1"
+              ></path>
+            </defs>
+            <text class="code-like" x="20" y="67">
+              <tspan class="keyword">while</tspan>
+              (…) {
+            </text>
+            <text class="code-like" x="60" y="89">…</text>
+            <text class="code-like" x="60" y="111">
+              <tspan class="keyword">if</tspan>
+              (something) {
+            </text>
+            <text class="code-like" x="100" y="133">
+              <tspan class="keyword">continue</tspan>
+              ;
+            </text>
+            <path
+              d="M 95 138 m 50 0 c 0 33.0, 100 33.0, 100 -33.0 v -22 c 0 -110, -156 -77.0, -156 -44"
+              fill="none"
+              stroke="blue"
+              stroke-width="2"
+            ></path>
+            <use x="89" xlink:href="#down-arrow" y="48"></use>
+            <text class="code-like" x="60" y="155">}</text>
+            <text class="code-like" x="60" y="177">…</text>
+            <text class="code-like" x="20" y="199">}</text>
+          </svg>
+        </div>
+        <p>
+          In <code>for</code> loops, a <code>continue</code> statement jumps
+          directly to the update statement and then on to the next iteration of
+          the loop (or exits the loop if the loop condition no longer holds).
+        </p>
+        <div class="codeblock">
+          <svg
+            height="210"
+            width="290"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <path
+                d="m 0 0 l -4 -10 l 8 0 l -4 10"
+                fill="blue"
+                id="down-arrow"
+                stroke="blue"
+                stroke-width="1"
+              ></path>
+            </defs>
+            <text class="code-like" x="20" y="67">
+              <tspan class="keyword">for</tspan>
+              (
+              <tspan style="font-style: italic">init</tspan>
+              ;
+              <tspan style="font-style: italic">cond</tspan>
+              ;
+              <tspan style="font-style: italic">step</tspan>
+              ) {
+            </text>
+            <text class="code-like" x="60" y="89">…</text>
+            <text class="code-like" x="60" y="111">
+              <tspan class="keyword">if</tspan>
+              (something) {
+            </text>
+            <text class="code-like" x="100" y="133">
+              <tspan class="keyword">continue</tspan>
+              ;
+            </text>
+            <path
+              d="M 90 138 m 50 0 c 0 33.0, 130 33.0, 130 -33.0 v -22 c 0 -88, -70 -66, -70 -37.4 c 0 -33.0, -60 -33.0, -60 -8"
+              fill="none"
+              stroke="blue"
+              stroke-width="2"
+            ></path>
+            <use x="140" xlink:href="#down-arrow" y="48"></use>
+            <text class="code-like" x="60" y="155">}</text>
+            <text class="code-like" x="60" y="177">…</text>
+            <text class="code-like" x="20" y="199">}</text>
+          </svg>
+        </div>
+        <div class="article-box">
+          <p><strong>Example:</strong> At iteration 3, skip print statement</p>
+          <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">1</span>; <span class="type">i</span> &lt;= <span class="num_lit">5</span>; <span class="type">i</span>++) {
     <span class="keyword">if</span> (<span class="type">i</span> == <span class="num_lit">3</span>) {
         <span class="keyword">continue</span>;
     }
     <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<span class="type">i</span>);
 }
 </code></pre>
-        <p><strong>Output:</strong></p>
-        <pre>1
+          <p><strong>Output:</strong></p>
+          <pre>
+1
 2
 4
-5</pre>
-      </div>
-      <p>In enhanced <code>for</code> loops the behavior is similar: the loop variable is updated to point to the next element and the next iteration runs.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Process all unprocessed orders</p>
-        <pre><code><span class="keyword">for</span> (<span class="type">Order</span> <span class="type">order</span> : <span class="type">orders</span>) {
+5</pre
+          >
+        </div>
+        <p>
+          In enhanced <code>for</code> loops the behavior is similar: the loop
+          variable is updated to point to the next element and the next
+          iteration runs.
+        </p>
+        <div class="article-box">
+          <p><strong>Example:</strong> Process all unprocessed orders</p>
+          <pre><code><span class="keyword">for</span> (<span class="type">Order</span> <span class="type">order</span> : <span class="type">orders</span>) {
     <span class="keyword">if</span> (<span class="type">order</span>.<span class="method">isProcessed</span>()) {
         <span class="comment">// Continue to next order</span>
         <span class="keyword">continue</span>;
@@ -245,120 +380,165 @@
     <span class="method">process</span>(<span class="type">order</span>);
 }
 </code></pre>
-      </div>
-      <h2>Nested Loops</h2>
-      <p>By default <code>continue</code> only applies to the <strong>immediately enclosing loop</strong>. To make an outer loop continue, use labelled statements.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Continuing an inner vs an outer loop</p>
-        <div style="display: flex; flex-wrap: wrap; margin: 0 -.5em">
-          <div style="flex-grow: 1; margin: 0 .5em;">
-            <div class="codeblock">
-              <svg height="230" width="230" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <defs>
-                <path d="m 0 0 l -4 -10 l 8 0 l -4 10" fill="blue" id="down-arrow" stroke="blue" stroke-width="1"></path>
-              </defs>
-              <text class="code-like" x="20" y="49">
-                <tspan class="keyword">while</tspan> (…) {
-              </text>
-              <text class="code-like" x="60" y="71">
-                …
-              </text>
-              <text class="code-like" x="60" y="93">
-                <tspan class="keyword">while</tspan> (…) {
-              </text>
-              <text class="code-like" x="100" y="115">
-                …
-              </text>
-              <text class="code-like" x="100" y="137">
-                <tspan class="keyword">continue</tspan>;
-              </text>
-              <path d="M 95 142 m 50 0 c 0 33.0, 60 33.0, 60 -11.0 v -22 c 0 -66, -70 -66, -75 -40" fill="none" stroke="blue" stroke-width="2"></path>
-              <use x="130" xlink:href="#down-arrow" y="78"></use>
-              <text class="code-like" x="100" y="159">
-                …
-              </text>
-              <text class="code-like" x="60" y="181">
-                }
-              </text>
-              <text class="code-like" x="60" y="203">
-                …
-              </text>
-              <text class="code-like" x="20" y="225">
-                }
-              </text></svg>
+        </div>
+        <h2>Nested Loops</h2>
+        <p>
+          By default <code>continue</code> only applies to the
+          <strong>immediately enclosing loop</strong>. To make an outer loop
+          continue, use labelled statements.
+        </p>
+        <div class="article-box">
+          <p><strong>Example:</strong> Continuing an inner vs an outer loop</p>
+          <div style="display: flex; flex-wrap: wrap; margin: 0 -0.5em">
+            <div style="flex-grow: 1; margin: 0 0.5em">
+              <div class="codeblock">
+                <svg
+                  height="230"
+                  width="230"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <defs>
+                    <path
+                      d="m 0 0 l -4 -10 l 8 0 l -4 10"
+                      fill="blue"
+                      id="down-arrow"
+                      stroke="blue"
+                      stroke-width="1"
+                    ></path>
+                  </defs>
+                  <text class="code-like" x="20" y="49">
+                    <tspan class="keyword">while</tspan>
+                    (…) {
+                  </text>
+                  <text class="code-like" x="60" y="71">…</text>
+                  <text class="code-like" x="60" y="93">
+                    <tspan class="keyword">while</tspan>
+                    (…) {
+                  </text>
+                  <text class="code-like" x="100" y="115">…</text>
+                  <text class="code-like" x="100" y="137">
+                    <tspan class="keyword">continue</tspan>
+                    ;
+                  </text>
+                  <path
+                    d="M 95 142 m 50 0 c 0 33.0, 60 33.0, 60 -11.0 v -22 c 0 -66, -70 -66, -75 -40"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2"
+                  ></path>
+                  <use x="130" xlink:href="#down-arrow" y="78"></use>
+                  <text class="code-like" x="100" y="159">…</text>
+                  <text class="code-like" x="60" y="181">}</text>
+                  <text class="code-like" x="60" y="203">…</text>
+                  <text class="code-like" x="20" y="225">}</text>
+                </svg>
+              </div>
             </div>
-          </div>
-          <div style="flex-grow: 1; margin: 0 .5em;">
-            <div class="codeblock">
-              <svg height="230" width="280" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <defs>
-                <path d="m 0 0 l -4 -10 l 8 0 l -4 10" fill="blue" id="down-arrow" stroke="blue" stroke-width="1"></path>
-              </defs>
-              <rect fill="black" height="21" opacity="0.07" width="60" x="17" y="11"></rect>
-              <text class="code-like" x="20" y="27">
-                outer:
-              </text>
-              <text class="code-like" x="20" y="49">
-                <tspan class="keyword">while</tspan> (…) {
-              </text>
-              <text class="code-like" x="60" y="71">
-                …
-              </text>
-              <text class="code-like" x="60" y="93">
-                <tspan class="keyword">while</tspan> (…) {
-              </text>
-              <text class="code-like" x="100" y="115">
-                …
-              </text>
-              <rect fill="black" height="21" opacity="0.07" width="145" x="97" y="121"></rect>
-              <text class="code-like" x="100" y="137">
-                <tspan class="keyword">continue</tspan> outer;
-              </text>
-              <path d="M 95 142 m 50 0 c 0 33.0, 120 33.0, 120 -11.0 v -66 c 0 -66, -175 -66, -175 -40" fill="none" stroke="blue" stroke-width="2"></path>
-              <use x="90" xlink:href="#down-arrow" y="34"></use>
-              <text class="code-like" x="100" y="159">
-                …
-              </text>
-              <text class="code-like" x="60" y="181">
-                }
-              </text>
-              <text class="code-like" x="60" y="203">
-                …
-              </text>
-              <text class="code-like" x="20" y="225">
-                }
-              </text></svg>
+            <div style="flex-grow: 1; margin: 0 0.5em">
+              <div class="codeblock">
+                <svg
+                  height="230"
+                  width="280"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <defs>
+                    <path
+                      d="m 0 0 l -4 -10 l 8 0 l -4 10"
+                      fill="blue"
+                      id="down-arrow"
+                      stroke="blue"
+                      stroke-width="1"
+                    ></path>
+                  </defs>
+                  <rect
+                    fill="black"
+                    height="21"
+                    opacity="0.07"
+                    width="60"
+                    x="17"
+                    y="11"
+                  ></rect>
+                  <text class="code-like" x="20" y="27">outer:</text>
+                  <text class="code-like" x="20" y="49">
+                    <tspan class="keyword">while</tspan>
+                    (…) {
+                  </text>
+                  <text class="code-like" x="60" y="71">…</text>
+                  <text class="code-like" x="60" y="93">
+                    <tspan class="keyword">while</tspan>
+                    (…) {
+                  </text>
+                  <text class="code-like" x="100" y="115">…</text>
+                  <rect
+                    fill="black"
+                    height="21"
+                    opacity="0.07"
+                    width="145"
+                    x="97"
+                    y="121"
+                  ></rect>
+                  <text class="code-like" x="100" y="137">
+                    <tspan class="keyword">continue</tspan>
+                    outer;
+                  </text>
+                  <path
+                    d="M 95 142 m 50 0 c 0 33.0, 120 33.0, 120 -11.0 v -66 c 0 -66, -175 -66, -175 -40"
+                    fill="none"
+                    stroke="blue"
+                    stroke-width="2"
+                  ></path>
+                  <use x="90" xlink:href="#down-arrow" y="34"></use>
+                  <text class="code-like" x="100" y="159">…</text>
+                  <text class="code-like" x="60" y="181">}</text>
+                  <text class="code-like" x="60" y="203">…</text>
+                  <text class="code-like" x="20" y="225">}</text>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input name="reply_to" type="hidden" value="java/continue.html" />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/continue.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

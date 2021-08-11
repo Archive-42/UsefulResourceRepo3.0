@@ -1,682 +1,2256 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sliding Bloom Filter | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="bloom filter, delete, evict, sliding bloom filter, rolling bloom filter, examples" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sliding Bloom Filter | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="bloom filter, delete, evict, sliding bloom filter, rolling bloom filter, examples"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-  <style>
-        /* <![CDATA[ */
-            #sliding_bloom_filter * {
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+    <style>
+      /* <![CDATA[ */
+      #sliding_bloom_filter * {
         animation-duration: 12s;
         animation-timing-function: linear;
-    }
-    @keyframes wheel {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-    @keyframes bf {
-        0% { transform: translate(0px, 0px); }
-        65% { transform: translate(495px, 0px); }
-        70%, 100% { transform: translate(515px, 400px); }
-    }
-    @keyframes belt {
-        from { stroke-dashoffset: 0 }
-        to { stroke-dashoffset: -760 }
-    }
-    @keyframes insert-17 {
-        from, 0.0% { opacity: 0; transform: translate(0px, 0px); }
-        0.5%, 1.5% { opacity: 1; }
-        1.5%, 2.5% { opacity: 0; }
-        2.5%, 3.5% { opacity: 1; }
-        3.5%, 4.5% { opacity: 0; }
-        6.0%, 7.0% { opacity: 1; transform: translate(0px, 0px); }
-        9.0% { opacity: 1; transform: translate(-70px, 160px); }
-        9.1%, to { opacity: 0; }
-    }
-    @keyframes cell_0_17 {
-        from, 9.0% { fill: none }
-        9.1%, 69.9% { fill: black }
-        70%, to { fill: none }
-    }
-    @keyframes insert-8 {
-        from, 11.1% { opacity: 0; transform: translate(0px, 0px); }
-        11.6%, 12.6% { opacity: 1; }
-        12.6%, 13.6% { opacity: 0; }
-        13.6%, 14.6% { opacity: 1; }
-        14.6%, 15.6% { opacity: 0; }
-        17.1%, 18.1% { opacity: 1; transform: translate(0px, 0px); }
-        20.1% { opacity: 1; transform: translate(10px, 160px); }
-        20.2%, to { opacity: 0; }
-    }
-    @keyframes cell_0_8 {
-        from, 20.1% { fill: none }
-        20.200000000000003%, 69.9% { fill: black }
-        70%, to { fill: none }
-    }
-    @keyframes insert-4 {
-        from, 22.2% { opacity: 0; transform: translate(0px, 0px); }
-        22.7%, 23.7% { opacity: 1; }
-        23.7%, 24.7% { opacity: 0; }
-        24.7%, 25.7% { opacity: 1; }
-        25.7%, 26.7% { opacity: 0; }
-        28.2%, 29.2% { opacity: 1; transform: translate(0px, 0px); }
-        31.2% { opacity: 1; transform: translate(80px, 160px); }
-        31.299999999999997%, to { opacity: 0; }
-    }
-    @keyframes cell_0_4 {
-        from, 31.2% { fill: none }
-        31.3%, 69.9% { fill: black }
-        70%, to { fill: none }
-    }
-    @keyframes insert-12 {
-        from, 33.3% { opacity: 0; transform: translate(0px, 0px); }
-        33.8%, 34.8% { opacity: 1; }
-        34.8%, 35.8% { opacity: 0; }
-        35.8%, 36.8% { opacity: 1; }
-        36.8%, 37.8% { opacity: 0; }
-        39.3%, 40.3% { opacity: 1; transform: translate(0px, 0px); }
-        42.3% { opacity: 1; transform: translate(-70px, 160px); }
-        42.4%, to { opacity: 0; }
-    }
-    @keyframes cell_1_12 {
-        from, 2% { fill: black }
-        2.1%, 42.199999999999996% { fill: none }
-        42.3%, to { fill: black }
-    }
-    @keyframes insert-55 {
-        from, 44.4% { opacity: 0; transform: translate(0px, 0px); }
-        44.9%, 45.9% { opacity: 1; }
-        45.9%, 46.9% { opacity: 0; }
-        46.9%, 47.9% { opacity: 1; }
-        47.9%, 48.9% { opacity: 0; }
-        50.4%, 51.4% { opacity: 1; transform: translate(0px, 0px); }
-        53.4% { opacity: 1; transform: translate(10px, 160px); }
-        53.5%, to { opacity: 0; }
-    }
-    @keyframes cell_1_55 {
-        from, 2% { fill: black }
-        2.1%, 53.3% { fill: none }
-        53.4%, to { fill: black }
-    }
-    @keyframes insert-7 {
-        from, 55.6% { opacity: 0; transform: translate(0px, 0px); }
-        56.1%, 57.1% { opacity: 1; }
-        57.1%, 58.1% { opacity: 0; }
-        58.1%, 59.1% { opacity: 1; }
-        59.1%, 60.1% { opacity: 0; }
-        61.6%, 62.6% { opacity: 1; transform: translate(0px, 0px); }
-        64.6% { opacity: 1; transform: translate(80px, 160px); }
-        64.7%, to { opacity: 0; }
-    }
-    @keyframes cell_1_7 {
-        from, 2% { fill: black }
-        2.1%, 64.5% { fill: none }
-        64.6%, to { fill: black }
-    }
-    @keyframes insert-31 {
-        from, 66.7% { opacity: 0; transform: translate(0px, 0px); }
-        67.2%, 68.2% { opacity: 1; }
-        68.2%, 69.2% { opacity: 0; }
-        69.2%, 70.2% { opacity: 1; }
-        70.2%, 71.2% { opacity: 0; }
-        72.7%, 73.7% { opacity: 1; transform: translate(0px, 0px); }
-        75.7% { opacity: 1; transform: translate(-70px, 160px); }
-        75.8%, to { opacity: 0; }
-    }
-    @keyframes cell_2_31 {
-        from, 36% { fill: black }
-        36.1%, 75.60000000000001% { fill: none }
-        75.7%, to { fill: black }
-    }
-    @keyframes insert-72 {
-        from, 77.8% { opacity: 0; transform: translate(0px, 0px); }
-        78.3%, 79.3% { opacity: 1; }
-        79.3%, 80.3% { opacity: 0; }
-        80.3%, 81.3% { opacity: 1; }
-        81.3%, 82.3% { opacity: 0; }
-        83.8%, 84.8% { opacity: 1; transform: translate(0px, 0px); }
-        86.8% { opacity: 1; transform: translate(10px, 160px); }
-        86.89999999999999%, to { opacity: 0; }
-    }
-    @keyframes cell_2_72 {
-        from, 36% { fill: black }
-        36.1%, 86.7% { fill: none }
-        86.8%, to { fill: black }
-    }
-    @keyframes insert-2 {
-        from, 88.9% { opacity: 0; transform: translate(0px, 0px); }
-        89.4%, 90.4% { opacity: 1; }
-        90.4%, 91.4% { opacity: 0; }
-        91.4%, 92.4% { opacity: 1; }
-        92.4%, 93.4% { opacity: 0; }
-        94.9%, 95.9% { opacity: 1; transform: translate(0px, 0px); }
-        97.9% { opacity: 1; transform: translate(80px, 160px); }
-        98.0%, to { opacity: 0; }
-    }
-    @keyframes cell_2_2 {
-        from, 36% { fill: black }
-        36.1%, 97.80000000000001% { fill: none }
-        97.9%, to { fill: black }
-    }
-    @keyframes in-combined-filter-17 {
-        from, 61.0% { opacity: 1 }
-        61.1%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_17 {
+      }
+      @keyframes wheel {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes bf {
+        0% {
+          transform: translate(0px, 0px);
+        }
+        65% {
+          transform: translate(495px, 0px);
+        }
+        70%,
+        100% {
+          transform: translate(515px, 400px);
+        }
+      }
+      @keyframes belt {
+        from {
+          stroke-dashoffset: 0;
+        }
+        to {
+          stroke-dashoffset: -760;
+        }
+      }
+      @keyframes insert-17 {
+        from,
+        0.0% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        0.5%,
+        1.5% {
+          opacity: 1;
+        }
+        1.5%,
+        2.5% {
+          opacity: 0;
+        }
+        2.5%,
+        3.5% {
+          opacity: 1;
+        }
+        3.5%,
+        4.5% {
+          opacity: 0;
+        }
+        6.0%,
+        7.0% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        9.0% {
+          opacity: 1;
+          transform: translate(-70px, 160px);
+        }
+        9.1%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_0_17 {
+        from,
+        9.0% {
+          fill: none;
+        }
+        9.1%,
+        69.9% {
+          fill: black;
+        }
+        70%,
+        to {
+          fill: none;
+        }
+      }
+      @keyframes insert-8 {
+        from,
+        11.1% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        11.6%,
+        12.6% {
+          opacity: 1;
+        }
+        12.6%,
+        13.6% {
+          opacity: 0;
+        }
+        13.6%,
+        14.6% {
+          opacity: 1;
+        }
+        14.6%,
+        15.6% {
+          opacity: 0;
+        }
+        17.1%,
+        18.1% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        20.1% {
+          opacity: 1;
+          transform: translate(10px, 160px);
+        }
+        20.2%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_0_8 {
+        from,
+        20.1% {
+          fill: none;
+        }
+        20.200000000000003%,
+        69.9% {
+          fill: black;
+        }
+        70%,
+        to {
+          fill: none;
+        }
+      }
+      @keyframes insert-4 {
+        from,
+        22.2% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        22.7%,
+        23.7% {
+          opacity: 1;
+        }
+        23.7%,
+        24.7% {
+          opacity: 0;
+        }
+        24.7%,
+        25.7% {
+          opacity: 1;
+        }
+        25.7%,
+        26.7% {
+          opacity: 0;
+        }
+        28.2%,
+        29.2% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        31.2% {
+          opacity: 1;
+          transform: translate(80px, 160px);
+        }
+        31.299999999999997%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_0_4 {
+        from,
+        31.2% {
+          fill: none;
+        }
+        31.3%,
+        69.9% {
+          fill: black;
+        }
+        70%,
+        to {
+          fill: none;
+        }
+      }
+      @keyframes insert-12 {
+        from,
+        33.3% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        33.8%,
+        34.8% {
+          opacity: 1;
+        }
+        34.8%,
+        35.8% {
+          opacity: 0;
+        }
+        35.8%,
+        36.8% {
+          opacity: 1;
+        }
+        36.8%,
+        37.8% {
+          opacity: 0;
+        }
+        39.3%,
+        40.3% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        42.3% {
+          opacity: 1;
+          transform: translate(-70px, 160px);
+        }
+        42.4%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_1_12 {
+        from,
+        2% {
+          fill: black;
+        }
+        2.1%,
+        42.199999999999996% {
+          fill: none;
+        }
+        42.3%,
+        to {
+          fill: black;
+        }
+      }
+      @keyframes insert-55 {
+        from,
+        44.4% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        44.9%,
+        45.9% {
+          opacity: 1;
+        }
+        45.9%,
+        46.9% {
+          opacity: 0;
+        }
+        46.9%,
+        47.9% {
+          opacity: 1;
+        }
+        47.9%,
+        48.9% {
+          opacity: 0;
+        }
+        50.4%,
+        51.4% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        53.4% {
+          opacity: 1;
+          transform: translate(10px, 160px);
+        }
+        53.5%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_1_55 {
+        from,
+        2% {
+          fill: black;
+        }
+        2.1%,
+        53.3% {
+          fill: none;
+        }
+        53.4%,
+        to {
+          fill: black;
+        }
+      }
+      @keyframes insert-7 {
+        from,
+        55.6% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        56.1%,
+        57.1% {
+          opacity: 1;
+        }
+        57.1%,
+        58.1% {
+          opacity: 0;
+        }
+        58.1%,
+        59.1% {
+          opacity: 1;
+        }
+        59.1%,
+        60.1% {
+          opacity: 0;
+        }
+        61.6%,
+        62.6% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        64.6% {
+          opacity: 1;
+          transform: translate(80px, 160px);
+        }
+        64.7%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_1_7 {
+        from,
+        2% {
+          fill: black;
+        }
+        2.1%,
+        64.5% {
+          fill: none;
+        }
+        64.6%,
+        to {
+          fill: black;
+        }
+      }
+      @keyframes insert-31 {
+        from,
+        66.7% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        67.2%,
+        68.2% {
+          opacity: 1;
+        }
+        68.2%,
+        69.2% {
+          opacity: 0;
+        }
+        69.2%,
+        70.2% {
+          opacity: 1;
+        }
+        70.2%,
+        71.2% {
+          opacity: 0;
+        }
+        72.7%,
+        73.7% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        75.7% {
+          opacity: 1;
+          transform: translate(-70px, 160px);
+        }
+        75.8%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_2_31 {
+        from,
+        36% {
+          fill: black;
+        }
+        36.1%,
+        75.60000000000001% {
+          fill: none;
+        }
+        75.7%,
+        to {
+          fill: black;
+        }
+      }
+      @keyframes insert-72 {
+        from,
+        77.8% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        78.3%,
+        79.3% {
+          opacity: 1;
+        }
+        79.3%,
+        80.3% {
+          opacity: 0;
+        }
+        80.3%,
+        81.3% {
+          opacity: 1;
+        }
+        81.3%,
+        82.3% {
+          opacity: 0;
+        }
+        83.8%,
+        84.8% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        86.8% {
+          opacity: 1;
+          transform: translate(10px, 160px);
+        }
+        86.89999999999999%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_2_72 {
+        from,
+        36% {
+          fill: black;
+        }
+        36.1%,
+        86.7% {
+          fill: none;
+        }
+        86.8%,
+        to {
+          fill: black;
+        }
+      }
+      @keyframes insert-2 {
+        from,
+        88.9% {
+          opacity: 0;
+          transform: translate(0px, 0px);
+        }
+        89.4%,
+        90.4% {
+          opacity: 1;
+        }
+        90.4%,
+        91.4% {
+          opacity: 0;
+        }
+        91.4%,
+        92.4% {
+          opacity: 1;
+        }
+        92.4%,
+        93.4% {
+          opacity: 0;
+        }
+        94.9%,
+        95.9% {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+        97.9% {
+          opacity: 1;
+          transform: translate(80px, 160px);
+        }
+        98.0%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes cell_2_2 {
+        from,
+        36% {
+          fill: black;
+        }
+        36.1%,
+        97.80000000000001% {
+          fill: none;
+        }
+        97.9%,
+        to {
+          fill: black;
+        }
+      }
+      @keyframes in-combined-filter-17 {
+        from,
+        61.0% {
+          opacity: 1;
+        }
+        61.1%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_17 {
         animation-delay: 1.08s;
-    }
-    @keyframes in-combined-filter-8 {
-        from, 49.9% { opacity: 1 }
-        50.0%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_8 {
+      }
+      @keyframes in-combined-filter-8 {
+        from,
+        49.9% {
+          opacity: 1;
+        }
+        50.0%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_8 {
         animation-delay: 2.412s;
-    }
-    @keyframes in-combined-filter-4 {
-        from, 38.8% { opacity: 1 }
-        38.9%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_4 {
+      }
+      @keyframes in-combined-filter-4 {
+        from,
+        38.8% {
+          opacity: 1;
+        }
+        38.9%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_4 {
         animation-delay: 3.7439999999999998s;
-    }
-    @keyframes in-combined-filter-12 {
-        from, 59.7% { opacity: 1 }
-        59.800000000000004%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_12 {
+      }
+      @keyframes in-combined-filter-12 {
+        from,
+        59.7% {
+          opacity: 1;
+        }
+        59.800000000000004%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_12 {
         animation-delay: 5.076s;
-    }
-    @keyframes in-combined-filter-55 {
-        from, 48.6% { opacity: 1 }
-        48.7%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_55 {
+      }
+      @keyframes in-combined-filter-55 {
+        from,
+        48.6% {
+          opacity: 1;
+        }
+        48.7%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_55 {
         animation-delay: 6.408s;
-    }
-    @keyframes in-combined-filter-7 {
-        from, 37.400000000000006% { opacity: 1 }
-        37.50000000000001%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_7 {
+      }
+      @keyframes in-combined-filter-7 {
+        from,
+        37.400000000000006% {
+          opacity: 1;
+        }
+        37.50000000000001%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_7 {
         animation-delay: 7.751999999999999s;
-    }
-    @keyframes in-combined-filter-31 {
-        from, 60.3% { opacity: 1 }
-        60.4%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_31 {
+      }
+      @keyframes in-combined-filter-31 {
+        from,
+        60.3% {
+          opacity: 1;
+        }
+        60.4%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_31 {
         animation-delay: 9.084s;
-    }
-    @keyframes in-combined-filter-72 {
-        from, 49.2% { opacity: 1 }
-        49.300000000000004%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_72 {
+      }
+      @keyframes in-combined-filter-72 {
+        from,
+        49.2% {
+          opacity: 1;
+        }
+        49.300000000000004%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_72 {
         animation-delay: 10.416s;
-    }
-    @keyframes in-combined-filter-2 {
-        from, 38.099999999999994% { opacity: 1 }
-        38.199999999999996%, to { opacity: 0 }
-        0%, 10.11111111111111% { transform: translate(0px, 0px) }
-        12.11111111111111%, 21.22222222222222% { transform: translate(30px, 0px) }
-        23.22222222222222%, 32.333333333333336% { transform: translate(60px, 0px) }
-        34.333333333333336%, 43.44444444444444% { transform: translate(90px, 0px) }
-        45.44444444444444%, 54.55555555555556% { transform: translate(120px, 0px) }
-        56.55555555555556%, 65.66666666666667% { transform: translate(150px, 0px) }
-        67.66666666666667%, 76.77777777777777% { transform: translate(180px, 0px) }
-        78.77777777777777%, 87.88888888888889% { transform: translate(210px, 0px) }
-        89.88888888888889%, 99.0% { transform: translate(240px, 0px) }
-    }
-    #in_combined_label_2 {
+      }
+      @keyframes in-combined-filter-2 {
+        from,
+        38.099999999999994% {
+          opacity: 1;
+        }
+        38.199999999999996%,
+        to {
+          opacity: 0;
+        }
+        0%,
+        10.11111111111111% {
+          transform: translate(0px, 0px);
+        }
+        12.11111111111111%,
+        21.22222222222222% {
+          transform: translate(30px, 0px);
+        }
+        23.22222222222222%,
+        32.333333333333336% {
+          transform: translate(60px, 0px);
+        }
+        34.333333333333336%,
+        43.44444444444444% {
+          transform: translate(90px, 0px);
+        }
+        45.44444444444444%,
+        54.55555555555556% {
+          transform: translate(120px, 0px);
+        }
+        56.55555555555556%,
+        65.66666666666667% {
+          transform: translate(150px, 0px);
+        }
+        67.66666666666667%,
+        76.77777777777777% {
+          transform: translate(180px, 0px);
+        }
+        78.77777777777777%,
+        87.88888888888889% {
+          transform: translate(210px, 0px);
+        }
+        89.88888888888889%,
+        99.0% {
+          transform: translate(240px, 0px);
+        }
+      }
+      #in_combined_label_2 {
         animation-delay: 11.748000000000001s;
-    }
-    .insert-value {
+      }
+      .insert-value {
         font-weight: bold;
         opacity: 0;
         animation-timing-function: linear;
-    }
-
-  </style>
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      }
+    </style>
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>References</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="https://patents.google.com/patent/US9361327B1/en">Rolling bloom filter for data with retention policy</a> (pdf)<br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Peter Chen, Qin Xin, Qi Bao, Feng Zhang, Martin Wang</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://arxiv.org/abs/1304.5872">Sliding Bloom Filters</a> (pdf)<br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Moni Naor, Eylon Yogev</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://csce.ucmss.com/cr/books/2018/LFS/CSREA2018/IKE3058.pdf">Shed More Light on Bloom Filter’s Variants</a> (pdf)<br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Ripon Patgiri, Sabuzima Nayak, and Samir Kumar Borgohain</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://www.akamai.com/us/en/multimedia/documents/technical-publication/algorithmic-nuggets-in-content-delivery-technical-publication.pdf">Algorithmic Nuggets in Content Delivery</a> (pdf)<br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Bruce M. Maggs, Ramesh K. Sitaraman</span>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Sliding Bloom Filter</h1>
-      <p>A Sliding Bloom filter (or Rolling Bloom filter) is a type of Bloom filter that stores the last <em>n</em> values (a sliding window). Old values are evicted based on time or fill ratio.</p>
-      <ul>
-        <li>It uses two (or more) sub Bloom filters.</li>
-        <li>At any given time, one of the sub Bloom Filters is recognized as the <strong>master</strong> filter, and the other sub filters are called <strong>slave</strong> filters.</li>
-        <li>The role of master <strong>rotates</strong> among all sub filters.</li>
-        <li>New elements are inserted <strong>only in the master</strong> filter.</li>
-        <li>An element is in the combined filter if it's in <strong>any</strong> of the sub filters.</li>
-        <li>When some amount of <strong>time has passed</strong> or the <strong>master becomes "full"</strong> (number of set bits reaches some threshold), the oldest slave is cleared out and master / slave roles rotate.</li>
-      </ul>
-      <h2>Illustration</h2>
-      <p>Here's an illustration with two sub filters:</p>
-      <div class="centered-content pause-on-hover-animation" style="margin: 2em 0em 0em;">
-        <div class="pause-on-hover-animation-label"></div><svg id="sliding_bloom_filter" style="max-width: 650px;" viewbox="-5 -5 650.0 495" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <text text-anchor="end" x="300" y="455">
-          Currently in combined filter:
-        </text>
-        <text id="in_combined_label_17" style="opacity: 0; animation-name: in-combined-filter-17;" text-anchor="middle" x="320" y="455">
-          17
-        </text>
-        <text id="in_combined_label_8" style="opacity: 0; animation-name: in-combined-filter-8;" text-anchor="middle" x="320" y="455">
-          8
-        </text>
-        <text id="in_combined_label_4" style="opacity: 0; animation-name: in-combined-filter-4;" text-anchor="middle" x="320" y="455">
-          4
-        </text>
-        <text id="in_combined_label_12" style="opacity: 0; animation-name: in-combined-filter-12;" text-anchor="middle" x="320" y="455">
-          12
-        </text>
-        <text id="in_combined_label_55" style="opacity: 0; animation-name: in-combined-filter-55;" text-anchor="middle" x="320" y="455">
-          55
-        </text>
-        <text id="in_combined_label_7" style="opacity: 0; animation-name: in-combined-filter-7;" text-anchor="middle" x="320" y="455">
-          7
-        </text>
-        <text id="in_combined_label_31" style="opacity: 0; animation-name: in-combined-filter-31;" text-anchor="middle" x="320" y="455">
-          31
-        </text>
-        <text id="in_combined_label_72" style="opacity: 0; animation-name: in-combined-filter-72;" text-anchor="middle" x="320" y="455">
-          72
-        </text>
-        <text id="in_combined_label_2" style="opacity: 0; animation-name: in-combined-filter-2;" text-anchor="middle" x="320" y="455">
-          2
-        </text>
-        <text text-anchor="end" x="200" y="15">
-          To insert:
-        </text>
-        <text class="insert-value" style="animation-name: insert-17;" x="205" y="15">
-          17
-        </text>
-        <text class="insert-value" style="animation-name: insert-8;" x="205" y="15">
-          8
-        </text>
-        <text class="insert-value" style="animation-name: insert-4;" x="205" y="15">
-          4
-        </text>
-        <text class="insert-value" style="animation-name: insert-12;" x="205" y="15">
-          12
-        </text>
-        <text class="insert-value" style="animation-name: insert-55;" x="205" y="15">
-          55
-        </text>
-        <text class="insert-value" style="animation-name: insert-7;" x="205" y="15">
-          7
-        </text>
-        <text class="insert-value" style="animation-name: insert-31;" x="205" y="15">
-          31
-        </text>
-        <text class="insert-value" style="animation-name: insert-72;" x="205" y="15">
-          72
-        </text>
-        <text class="insert-value" style="animation-name: insert-2;" x="205" y="15">
-          2
-        </text>
-        <path d="M 45,360 h 500 a 20 20 0 0 1 0 40 h -500" fill="none" stroke="black" stroke-dasharray="5 5" stroke-width="5" style="animation-name: belt"></path>
-        <path d="M 45,362 h 500 a 18 18 0 0 1 0 36 h -500" fill="none" stroke="black" stroke-width="3"></path>
-        <g transform="translate(29, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.6308983300218806s"></path>
-        </g>
-        <g transform="translate(72, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.1534233072416623s"></path>
-        </g>
-        <g transform="translate(115, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.6806449920295149s"></path>
-        </g>
-        <g transform="translate(158, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.6639052574481085s"></path>
-        </g>
-        <g transform="translate(201, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.867888269987503s"></path>
-        </g>
-        <g transform="translate(244, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.8425199032568869s"></path>
-        </g>
-        <g transform="translate(287, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.42212979238823767s"></path>
-        </g>
-        <g transform="translate(330, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.6277479728864183s"></path>
-        </g>
-        <g transform="translate(373, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.9977406939110421s"></path>
-        </g>
-        <g transform="translate(416, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.9718085136231269s"></path>
-        </g>
-        <g transform="translate(459, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.005835271494273875s"></path>
-        </g>
-        <g transform="translate(502, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.9992707879671153s"></path>
-        </g>
-        <g transform="translate(545, 380)">
-          <circle fill="none" r="17" stroke="black"></circle>
-          <path d="m -5,0 h 10 m -5,-5 v 10" stroke="black" stroke-width="2" style="animation-name: wheel; animation-duration: 1s; animation-delay: 0.5429241233840484s"></path>
-        </g>
-        <g style="animation-name: bf; animation-delay: 0.0s">
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="83"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="95"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_17;" width="12" x="65" y="107"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="119"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="131"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_8;" width="12" x="65" y="143"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="155"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="167"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_4;" width="12" x="65" y="179"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_17;" width="12" x="65" y="191"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="203"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_8;" width="12" x="65" y="215"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="227"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="239"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_4;" width="12" x="65" y="251"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="263"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_8;" width="12" x="65" y="275"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_0_4;" width="12" x="65" y="287"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="299"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="311"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="323"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="335"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="347"></rect>
-        </g>
-        <g style="animation-name: bf; animation-delay: 4.0s">
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="83"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_7;" width="12" x="65" y="95"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="107"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="119"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="131"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_12;" width="12" x="65" y="143"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="155"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="167"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="179"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="191"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="203"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="215"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="227"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_7;" width="12" x="65" y="239"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_7;" width="12" x="65" y="251"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="263"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="275"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="287"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_55;" width="12" x="65" y="299"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_12;" width="12" x="65" y="311"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_55;" width="12" x="65" y="323"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_1_55;" width="12" x="65" y="335"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="347"></rect>
-        </g>
-        <g style="animation-name: bf; animation-delay: 8.0s">
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="83"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="95"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="107"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="119"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_2;" width="12" x="65" y="131"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_31;" width="12" x="65" y="143"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_72;" width="12" x="65" y="155"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_2;" width="12" x="65" y="167"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="179"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="191"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="203"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_31;" width="12" x="65" y="215"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="227"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="239"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="251"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="263"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_31;" width="12" x="65" y="275"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="287"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="299"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="311"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_2;" width="12" x="65" y="323"></rect>
-          <rect fill="none" height="12" stroke="black" style width="12" x="65" y="335"></rect>
-          <rect fill="none" height="12" stroke="black" style="animation-name: cell_2_72;" width="12" x="65" y="347"></rect>
-        </g>
-        <path d="M -10,0 h 100 v 70 h -10 v 350 h -100" fill="lightgrey"></path>
-        <path d="M -10,0 h 100 v 70 h -10 v 350 h -100" fill="none" stroke="black"></path>
-        <path d="M 550,410 h 70 l -12,80 h -46 l -12,-80" fill="lightgrey" stroke="black"></path></svg>
-      </div>
-      <h2>Applications</h2>
-      <p>Sliding Bloom filters can be used when a time retention policy must be implemented, for example due to contractual, legislative or security reasons.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> The owner of a webshop that accepts credit card payments would like to track the number of returning customers. To see if a credit card numbers has been used before, credit card numbers are stored in a Bloom filter. Due to data retention policies, old credit card numbers must be discarded, thus a Sliding Bloom filter is a good fit.</p>
-      </div>
-      <p>If a Bloom filter needs to keep track of an ever growing set of elements (an infinite stream), a Sliding Bloom filters can be used as an approximation.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Content delivery networks (CDNs) usually cache responses for previous requests. Many requests however are so called "one hit <span class="no-wrap">wonders"—requests</span> made once then never again. To avoid caching such requests, it's common to implement a <em>cache-on-second-hit</em> rule: Responses are cached the second time around. To determine if a request has been seen before, a sliding Bloom filter is used. This is suitable since there is a never ending stream of requests. (Source: <a href="https://www.akamai.com/us/en/multimedia/documents/technical-publication/algorithmic-nuggets-in-content-delivery-technical-publication.pdf">Algorithmic Nuggets in Content Delivery</a>)</p>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="sliding-bloom-filter.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <h2>References</h2>
+        <div style="margin-bottom: 1em">
+          <a href="https://patents.google.com/patent/US9361327B1/en"
+            >Rolling bloom filter for data with retention policy</a
+          >
+          (pdf)<br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Peter Chen, Qin Xin, Qi Bao, Feng Zhang, Martin Wang</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://arxiv.org/abs/1304.5872">Sliding Bloom Filters</a>
+          (pdf)<br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Moni Naor, Eylon Yogev</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a
+            href="https://csce.ucmss.com/cr/books/2018/LFS/CSREA2018/IKE3058.pdf"
+            >Shed More Light on Bloom Filter’s Variants</a
+          >
+          (pdf)<br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Ripon Patgiri, Sabuzima Nayak, and Samir Kumar Borgohain</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a
+            href="https://www.akamai.com/us/en/multimedia/documents/technical-publication/algorithmic-nuggets-in-content-delivery-technical-publication.pdf"
+            >Algorithmic Nuggets in Content Delivery</a
+          >
+          (pdf)<br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Bruce M. Maggs, Ramesh K. Sitaraman</span
+          >
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <article>
+        <h1>Sliding Bloom Filter</h1>
+        <p>
+          A Sliding Bloom filter (or Rolling Bloom filter) is a type of Bloom
+          filter that stores the last <em>n</em> values (a sliding window). Old
+          values are evicted based on time or fill ratio.
+        </p>
+        <ul>
+          <li>It uses two (or more) sub Bloom filters.</li>
+          <li>
+            At any given time, one of the sub Bloom Filters is recognized as the
+            <strong>master</strong> filter, and the other sub filters are called
+            <strong>slave</strong> filters.
+          </li>
+          <li>
+            The role of master <strong>rotates</strong> among all sub filters.
+          </li>
+          <li>
+            New elements are inserted
+            <strong>only in the master</strong> filter.
+          </li>
+          <li>
+            An element is in the combined filter if it's in
+            <strong>any</strong> of the sub filters.
+          </li>
+          <li>
+            When some amount of <strong>time has passed</strong> or the
+            <strong>master becomes "full"</strong> (number of set bits reaches
+            some threshold), the oldest slave is cleared out and master / slave
+            roles rotate.
+          </li>
+        </ul>
+        <h2>Illustration</h2>
+        <p>Here's an illustration with two sub filters:</p>
+        <div
+          class="centered-content pause-on-hover-animation"
+          style="margin: 2em 0em 0em"
+        >
+          <div class="pause-on-hover-animation-label"></div>
+          <svg
+            id="sliding_bloom_filter"
+            style="max-width: 650px"
+            viewbox="-5 -5 650.0 495"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <text text-anchor="end" x="300" y="455">
+              Currently in combined filter:
+            </text>
+            <text
+              id="in_combined_label_17"
+              style="opacity: 0; animation-name: in-combined-filter-17"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              17
+            </text>
+            <text
+              id="in_combined_label_8"
+              style="opacity: 0; animation-name: in-combined-filter-8"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              8
+            </text>
+            <text
+              id="in_combined_label_4"
+              style="opacity: 0; animation-name: in-combined-filter-4"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              4
+            </text>
+            <text
+              id="in_combined_label_12"
+              style="opacity: 0; animation-name: in-combined-filter-12"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              12
+            </text>
+            <text
+              id="in_combined_label_55"
+              style="opacity: 0; animation-name: in-combined-filter-55"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              55
+            </text>
+            <text
+              id="in_combined_label_7"
+              style="opacity: 0; animation-name: in-combined-filter-7"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              7
+            </text>
+            <text
+              id="in_combined_label_31"
+              style="opacity: 0; animation-name: in-combined-filter-31"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              31
+            </text>
+            <text
+              id="in_combined_label_72"
+              style="opacity: 0; animation-name: in-combined-filter-72"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              72
+            </text>
+            <text
+              id="in_combined_label_2"
+              style="opacity: 0; animation-name: in-combined-filter-2"
+              text-anchor="middle"
+              x="320"
+              y="455"
+            >
+              2
+            </text>
+            <text text-anchor="end" x="200" y="15">To insert:</text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-17"
+              x="205"
+              y="15"
+            >
+              17
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-8"
+              x="205"
+              y="15"
+            >
+              8
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-4"
+              x="205"
+              y="15"
+            >
+              4
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-12"
+              x="205"
+              y="15"
+            >
+              12
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-55"
+              x="205"
+              y="15"
+            >
+              55
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-7"
+              x="205"
+              y="15"
+            >
+              7
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-31"
+              x="205"
+              y="15"
+            >
+              31
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-72"
+              x="205"
+              y="15"
+            >
+              72
+            </text>
+            <text
+              class="insert-value"
+              style="animation-name: insert-2"
+              x="205"
+              y="15"
+            >
+              2
+            </text>
+            <path
+              d="M 45,360 h 500 a 20 20 0 0 1 0 40 h -500"
+              fill="none"
+              stroke="black"
+              stroke-dasharray="5 5"
+              stroke-width="5"
+              style="animation-name: belt"
+            ></path>
+            <path
+              d="M 45,362 h 500 a 18 18 0 0 1 0 36 h -500"
+              fill="none"
+              stroke="black"
+              stroke-width="3"
+            ></path>
+            <g transform="translate(29, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.6308983300218806s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(72, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.1534233072416623s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(115, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.6806449920295149s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(158, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.6639052574481085s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(201, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.867888269987503s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(244, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.8425199032568869s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(287, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.42212979238823767s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(330, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.6277479728864183s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(373, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.9977406939110421s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(416, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.9718085136231269s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(459, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.005835271494273875s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(502, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.9992707879671153s;
+                "
+              ></path>
+            </g>
+            <g transform="translate(545, 380)">
+              <circle fill="none" r="17" stroke="black"></circle>
+              <path
+                d="m -5,0 h 10 m -5,-5 v 10"
+                stroke="black"
+                stroke-width="2"
+                style="
+                  animation-name: wheel;
+                  animation-duration: 1s;
+                  animation-delay: 0.5429241233840484s;
+                "
+              ></path>
+            </g>
+            <g style="animation-name: bf; animation-delay: 0s">
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="83"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="95"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_17"
+                width="12"
+                x="65"
+                y="107"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="119"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="131"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_8"
+                width="12"
+                x="65"
+                y="143"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="155"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="167"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_4"
+                width="12"
+                x="65"
+                y="179"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_17"
+                width="12"
+                x="65"
+                y="191"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="203"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_8"
+                width="12"
+                x="65"
+                y="215"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="227"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="239"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_4"
+                width="12"
+                x="65"
+                y="251"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="263"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_8"
+                width="12"
+                x="65"
+                y="275"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_0_4"
+                width="12"
+                x="65"
+                y="287"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="299"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="311"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="323"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="335"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="347"
+              ></rect>
+            </g>
+            <g style="animation-name: bf; animation-delay: 4s">
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="83"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_7"
+                width="12"
+                x="65"
+                y="95"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="107"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="119"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="131"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_12"
+                width="12"
+                x="65"
+                y="143"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="155"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="167"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="179"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="191"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="203"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="215"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="227"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_7"
+                width="12"
+                x="65"
+                y="239"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_7"
+                width="12"
+                x="65"
+                y="251"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="263"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="275"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="287"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_55"
+                width="12"
+                x="65"
+                y="299"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_12"
+                width="12"
+                x="65"
+                y="311"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_55"
+                width="12"
+                x="65"
+                y="323"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_1_55"
+                width="12"
+                x="65"
+                y="335"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="347"
+              ></rect>
+            </g>
+            <g style="animation-name: bf; animation-delay: 8s">
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="83"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="95"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="107"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="119"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_2"
+                width="12"
+                x="65"
+                y="131"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_31"
+                width="12"
+                x="65"
+                y="143"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_72"
+                width="12"
+                x="65"
+                y="155"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_2"
+                width="12"
+                x="65"
+                y="167"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="179"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="191"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="203"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_31"
+                width="12"
+                x="65"
+                y="215"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="227"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="239"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="251"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="263"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_31"
+                width="12"
+                x="65"
+                y="275"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="287"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="299"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="311"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_2"
+                width="12"
+                x="65"
+                y="323"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style
+                width="12"
+                x="65"
+                y="335"
+              ></rect>
+              <rect
+                fill="none"
+                height="12"
+                stroke="black"
+                style="animation-name: cell_2_72"
+                width="12"
+                x="65"
+                y="347"
+              ></rect>
+            </g>
+            <path
+              d="M -10,0 h 100 v 70 h -10 v 350 h -100"
+              fill="lightgrey"
+            ></path>
+            <path
+              d="M -10,0 h 100 v 70 h -10 v 350 h -100"
+              fill="none"
+              stroke="black"
+            ></path>
+            <path
+              d="M 550,410 h 70 l -12,80 h -46 l -12,-80"
+              fill="lightgrey"
+              stroke="black"
+            ></path>
+          </svg>
+        </div>
+        <h2>Applications</h2>
+        <p>
+          Sliding Bloom filters can be used when a time retention policy must be
+          implemented, for example due to contractual, legislative or security
+          reasons.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> The owner of a webshop that accepts credit
+            card payments would like to track the number of returning customers.
+            To see if a credit card numbers has been used before, credit card
+            numbers are stored in a Bloom filter. Due to data retention
+            policies, old credit card numbers must be discarded, thus a Sliding
+            Bloom filter is a good fit.
+          </p>
+        </div>
+        <p>
+          If a Bloom filter needs to keep track of an ever growing set of
+          elements (an infinite stream), a Sliding Bloom filters can be used as
+          an approximation.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> Content delivery networks (CDNs) usually
+            cache responses for previous requests. Many requests however are so
+            called "one hit <span class="no-wrap">wonders"—requests</span> made
+            once then never again. To avoid caching such requests, it's common
+            to implement a <em>cache-on-second-hit</em> rule: Responses are
+            cached the second time around. To determine if a request has been
+            seen before, a sliding Bloom filter is used. This is suitable since
+            there is a never ending stream of requests. (Source:
+            <a
+              href="https://www.akamai.com/us/en/multimedia/documents/technical-publication/algorithmic-nuggets-in-content-delivery-technical-publication.pdf"
+              >Algorithmic Nuggets in Content Delivery</a
+            >)
+          </p>
+        </div>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="sliding-bloom-filter.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

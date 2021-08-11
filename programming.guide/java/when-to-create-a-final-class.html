@@ -1,152 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: When to create a final class | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="This article explains what it means for a class to be final and why it may be useful." name="description">
-  <meta content="java, final, class, why, example" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: When to create a final class | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="This article explains what it means for a class to be final and why it may be useful."
+      name="description"
+    />
+    <meta content="java, final, class, why, example" name="keywords" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Further Reading</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="https://books.google.se/books?id=BIpDDwAAQBAJ">Effective Java, Item 19: Design and document for inheritance or else prohibit it</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Joshua Bloch</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://books.google.se/books?id=BIpDDwAAQBAJ">Effective Java, Item 18: Favor composition over inheritance</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Joshua Bloch</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://stackoverflow.com/q/218744/276052">Good reasons to prohibit inheritance in Java?</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Stack Overflow</span>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: When to create a final class</h1>
-      <p>A <code>final</code> class is simply a class that can’t be extended.</p>
-      <pre><code>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Further Reading</h2>
+        <div style="margin-bottom: 1em">
+          <a href="https://books.google.se/books?id=BIpDDwAAQBAJ"
+            >Effective Java, Item 19: Design and document for inheritance or
+            else prohibit it</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Joshua Bloch</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://books.google.se/books?id=BIpDDwAAQBAJ"
+            >Effective Java, Item 18: Favor composition over inheritance</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Joshua Bloch</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://stackoverflow.com/q/218744/276052"
+            >Good reasons to prohibit inheritance in Java?</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Stack Overflow</span
+          >
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: When to create a final class</h1>
+        <p>
+          A <code>final</code> class is simply a class that can’t be extended.
+        </p>
+        <pre><code>
 <span class="keyword highlight tooltip"><span class="tooltiptext">This…</span>final</span> <span class="keyword">class</span> Animal {
 
 
@@ -161,65 +246,156 @@
     …
 }
 </code></pre>
-      <p>It does <strong>not</strong> mean that all fields in the class are automatically <code>final</code> or that all references to this class would act as if they were declared as <code>final</code>.</p>
-      <h2>When is this useful?</h2>
-      <p>You should make a class final when the <span class="no-wrap">alternative—allowing</span> <span class="no-wrap">subclassing—opens</span> up for too many complications and becomes error prone.</p>
-      <p>Allowing subclassing may not seem like a big deal at first, but you should know that it’s <strong>notoriously difficult</strong> to get inheritance correct, and that it’s <strong>better to disallow it altogether</strong> than to get it wrong.</p>
-      <p>Here’s a non-exhaustive list of things to keep in mind when allowing classes to be extended:</p>
-      <ul>
-        <li>
-          <p><strong>Implementing <code>equals</code> becomes tricky</strong></p>
-          <p>Suppose an <code>Animal</code> has a single property: <code>name</code>. Should an <code>Animal</code> with name “Fido” equal a <code>Dog</code> with name “Fido”?</p>
-          <pre><code><span class="comment">@Override</span>
+        <p>
+          It does <strong>not</strong> mean that all fields in the class are
+          automatically <code>final</code> or that all references to this class
+          would act as if they were declared as <code>final</code>.
+        </p>
+        <h2>When is this useful?</h2>
+        <p>
+          You should make a class final when the
+          <span class="no-wrap">alternative—allowing</span>
+          <span class="no-wrap">subclassing—opens</span> up for too many
+          complications and becomes error prone.
+        </p>
+        <p>
+          Allowing subclassing may not seem like a big deal at first, but you
+          should know that it’s <strong>notoriously difficult</strong> to get
+          inheritance correct, and that it’s
+          <strong>better to disallow it altogether</strong> than to get it
+          wrong.
+        </p>
+        <p>
+          Here’s a non-exhaustive list of things to keep in mind when allowing
+          classes to be extended:
+        </p>
+        <ul>
+          <li>
+            <p>
+              <strong>Implementing <code>equals</code> becomes tricky</strong>
+            </p>
+            <p>
+              Suppose an <code>Animal</code> has a single property:
+              <code>name</code>. Should an <code>Animal</code> with name “Fido”
+              equal a <code>Dog</code> with name “Fido”?
+            </p>
+            <pre><code><span class="comment">@Override</span>
 <span class="keyword">boolean</span> equals(Object o) {
     <span class="keyword">return</span> o <span class="keyword">instanceof</span> Animal
             &amp;&amp; <span class="keyword">this</span>.name.equals(((Animal) o).name);
 }</code></pre>
-          <p>Seems reasonable, no? <code>equals</code> however, must by contract, be reflexive: if <code>x</code> equals <code>y</code>, then <code>y</code> must equal <code>x</code>. In other words, the <code>Dog</code> object must then <code>equal</code> the <code>Animal</code> object too. But what if <code>Dog</code> has an additional property <code>breed</code> that an <code>Animal</code> lacks? There’s no obvious solution here! Angelika Lagner and Klaus Kreft dedicate a whole article to this subject: <a href="http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html">Secrets of equals()</a>.</p>
-        </li>
-        <li>
-          <p><strong>Seemingly innocent overrides can have surprising effects</strong></p>
-          <p>If a private method class calls a public method in the base class, then overriding the public method may have unexpected side-effects on the inner workings of the base class.</p>
-        </li>
-        <li>
-          <p><strong>Class invariants may break</strong></p>
-          <p>The base class perhaps maintains certain internal invariants. Perhaps it’s immutable, or intended to be thread-safe. There’s no way to enforce such design decisions upon subclasses. If you receive an object of the base class type, you technically can’t assume it’s immutable or thread-safe unless it’s <code>final</code>.</p>
-        </li>
-      </ul>
-      <p>Put differently: Class inheritance is a flexible language feature, and a powerful footgun.</p>
-      <p>Concluding with a quote from <a href="https://books.google.se/books?id=BIpDDwAAQBAJ">Effective Java</a>:</p>
-      <blockquote>
-        <p><strong>Item 19: Design and document for inheritance or else prohibit it</strong></p>
-        <p>[…] designing a class for inheritance requires great effort and places substantial limitations on the class.</p>
-        <p>[…] The best solution to this problem is to prohibit subclassing in classes that are not designed and documented to be safely subclassed. <span class="quote-source">Joshua Bloch</span></p>
-      </blockquote>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+            <p>
+              Seems reasonable, no? <code>equals</code> however, must by
+              contract, be reflexive: if <code>x</code> equals <code>y</code>,
+              then <code>y</code> must equal <code>x</code>. In other words, the
+              <code>Dog</code> object must then <code>equal</code> the
+              <code>Animal</code> object too. But what if <code>Dog</code> has
+              an additional property <code>breed</code> that an
+              <code>Animal</code> lacks? There’s no obvious solution here!
+              Angelika Lagner and Klaus Kreft dedicate a whole article to this
+              subject:
+              <a
+                href="http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html"
+                >Secrets of equals()</a
+              >.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong
+                >Seemingly innocent overrides can have surprising
+                effects</strong
+              >
+            </p>
+            <p>
+              If a private method class calls a public method in the base class,
+              then overriding the public method may have unexpected side-effects
+              on the inner workings of the base class.
+            </p>
+          </li>
+          <li>
+            <p><strong>Class invariants may break</strong></p>
+            <p>
+              The base class perhaps maintains certain internal invariants.
+              Perhaps it’s immutable, or intended to be thread-safe. There’s no
+              way to enforce such design decisions upon subclasses. If you
+              receive an object of the base class type, you technically can’t
+              assume it’s immutable or thread-safe unless it’s
+              <code>final</code>.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Put differently: Class inheritance is a flexible language feature, and
+          a powerful footgun.
+        </p>
+        <p>
+          Concluding with a quote from
+          <a href="https://books.google.se/books?id=BIpDDwAAQBAJ"
+            >Effective Java</a
+          >:
+        </p>
+        <blockquote>
+          <p>
+            <strong
+              >Item 19: Design and document for inheritance or else prohibit
+              it</strong
+            >
+          </p>
+          <p>
+            […] designing a class for inheritance requires great effort and
+            places substantial limitations on the class.
+          </p>
+          <p>
+            […] The best solution to this problem is to prohibit subclassing in
+            classes that are not designed and documented to be safely
+            subclassed. <span class="quote-source">Joshua Bloch</span>
+          </p>
+        </blockquote>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/when-to-create-a-final-class.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/when-to-create-a-final-class.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

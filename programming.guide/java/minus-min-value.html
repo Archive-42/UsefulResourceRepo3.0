@@ -1,363 +1,823 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>-Integer.MIN_VALUE == Integer.MIN_VALUE but -Byte.MIN_VALUE != Byte.MIN_VALUE | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Integer.MIN_VALUE is it’s own negation. -Byte.MIN_VALUE however is not. This is due to the two’s complement representation and implicit promotion of bytes." name="description">
-  <meta content="java, Integer.MIN_VALUE, Long.MIN_VALUE, Byte.MIN_VALUE, Short.MIN_VALUE, negate, negated, negation, minus, unary minus, minus one, puzzler" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+      -Integer.MIN_VALUE == Integer.MIN_VALUE but -Byte.MIN_VALUE !=
+      Byte.MIN_VALUE | Programming.Guide
+    </title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Integer.MIN_VALUE is it’s own negation. -Byte.MIN_VALUE however is not. This is due to the two’s complement representation and implicit promotion of bytes."
+      name="description"
+    />
+    <meta
+      content="java, Integer.MIN_VALUE, Long.MIN_VALUE, Byte.MIN_VALUE, Short.MIN_VALUE, negate, negated, negation, minus, unary minus, minus one, puzzler"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>-Integer.MIN_VALUE == Integer.MIN_VALUE but -Byte.MIN_VALUE != Byte.MIN_VALUE</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="black" id="r-arrow-head-black"></path>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
-      </defs></svg>
-      <p>Somewhat surprisingly, these two expressions evaluate to true:</p>
-      <pre><code>-Integer.MIN_VALUE == Integer.MIN_VALUE   <span class="comment">// true</span>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>
+          -Integer.MIN_VALUE == Integer.MIN_VALUE but -Byte.MIN_VALUE !=
+          Byte.MIN_VALUE
+        </h1>
+        <svg
+          style="display: none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="blue"
+              id="r-arrow-head"
+            ></path>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="black"
+              id="r-arrow-head-black"
+            ></path>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="red"
+              id="r-arrow-head-red"
+            ></path>
+          </defs>
+        </svg>
+        <p>Somewhat surprisingly, these two expressions evaluate to true:</p>
+        <pre><code>-Integer.MIN_VALUE == Integer.MIN_VALUE   <span class="comment">// true</span>
 -Long.MIN_VALUE    == Long.MIN_VALUE      <span class="comment">// true</span>
 </code></pre>
-      <p>Bytes and shorts however seem to behave as expected:</p>
-      <pre><code>-Byte.MIN_VALUE  == Byte.MIN_VALUE    <span class="comment">// false</span>
+        <p>Bytes and shorts however seem to behave as expected:</p>
+        <pre><code>-Byte.MIN_VALUE  == Byte.MIN_VALUE    <span class="comment">// false</span>
 -Short.MIN_VALUE == Short.MIN_VALUE   <span class="comment">// false</span>
 </code></pre>
-      <p>What’s going on here?</p>
-      <h2>Explanation</h2>
-      <p>Java uses two’s complement to represent integer values. In this representation the values are not symmetrical around origo. There's one more negative value than there are positive values. <strong>The smallest value has no positive counterpart!</strong> For example:</p>
-      <ul>
-        <li><code>Integer.MIN_VALUE</code> equals −2<sup>31</sup></li>
-        <li><code>Integer.MAX_VALUE</code> equals +2<sup>31</sup>−1</li>
-      </ul>
-      <p>When you try to negate −2<sup>31</sup> you get 2<sup>31</sup>, which is larger than the the maximum int value, so it <strong>overflows</strong> and rolls over to the negative side.</p>
-      <p>Here’s an illustration:</p>
-      <div class="centered-content" style="margin: 4em 0em;">
-        <svg style="max-width: 820px;" viewbox="-400 -200 820.0 350" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <lineargradient id="fade_out">
-            <stop offset="0%" stop-color="black"></stop>
-            <stop offset="100%" stop-opacity="0"></stop>
-          </lineargradient>
-          <lineargradient id="fading">
-            <stop offset="0" stop-color="black" stop-opacity="1"></stop>
-            <stop offset="0.12698412698412698" stop-opacity="1"></stop>
-            <stop offset="0.16666666666666666" stop-opacity="0"></stop>
-            <stop offset="0.26587301587301587" stop-opacity="0"></stop>
-            <stop offset="0.3055555555555556" stop-opacity="1"></stop>
-            <stop offset="0.7936507936507936" stop-opacity="1"></stop>
-            <stop offset="0.8333333333333334" stop-opacity="0"></stop>
-            <stop offset="0.9325396825396826" stop-opacity="0"></stop>
-            <stop offset="0.9722222222222222" stop-opacity="1"></stop>
-          </lineargradient>
-        </defs>
-        <line stroke="url('#fading')" stroke-width="2" x1="-350" x2="280" y1="12" y2="12.0001"></line>
-        <line stroke="black" stroke-width="2" x1="-350.0" x2="-350.0" y1="6" y2="18"></line>
-        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="-350.0" y="40">
-          MIN_VALUE
-        </text>
-        <line stroke="black" stroke-width="2" x1="-280.0" x2="-280.0" y1="6" y2="18"></line>
-        <line stroke="black" stroke-width="2" x1="-140.0" x2="-140.0" y1="6" y2="18"></line>
-        <line stroke="black" stroke-width="2" x1="-70.0" x2="-70.0" y1="6" y2="18"></line>
-        <line stroke="black" stroke-width="2" x1="0.0" x2="0.0" y1="6" y2="18"></line>
-        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="0.0" y="40">
-          0
-        </text>
-        <line stroke="black" stroke-width="2" x1="70.0" x2="70.0" y1="6" y2="18"></line>
-        <line stroke="black" stroke-width="2" x1="140.0" x2="140.0" y1="6" y2="18"></line>
-        <line stroke="black" stroke-width="2" x1="280.0" x2="280.0" y1="6" y2="18"></line>
-        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="280.0" y="40">
-          MAX_VALUE
-        </text>
-        <circle cx="-220" cy="12" r="1"></circle>
-        <circle cx="-210" cy="12" r="1"></circle>
-        <circle cx="-200" cy="12" r="1"></circle>
-        <circle cx="200" cy="12" r="1"></circle>
-        <circle cx="210" cy="12" r="1"></circle>
-        <circle cx="220" cy="12" r="1"></circle>
-        <path d="M -70,0 Q -40,-20 0,-20 Q 40,-20 57,-5" fill="none" stroke="blue"></path>
-        <circle cy="-20" fill="blue" r="10"></circle>
-        <use href="#r-arrow-head" transform="translate(65 0) rotate(36) translate(-10, 0)"></use>
-        <line stroke="white" stroke-width="2" x1="-5" x2="5" y1="-20" y2="-20"></line>
-        <path d="M -140,0 Q -110,-60 0,-60 Q 110,-60 132,-5" fill="none" stroke="blue"></path>
-        <circle cy="-60" fill="blue" r="10"></circle>
-        <use href="#r-arrow-head" transform="translate(136 0) rotate(58) translate(-10, 0)"></use>
-        <line stroke="white" stroke-width="2" x1="-5" x2="5" y1="-60" y2="-60"></line>
-        <path d="M -280,0 Q -250,-140 0,-140 Q 250,-140 278,-5" fill="none" stroke="blue"></path>
-        <circle cy="-140" fill="blue" r="10"></circle>
-        <use href="#r-arrow-head" transform="translate(278 0) rotate(85) translate(-10, 0)"></use>
-        <line stroke="white" stroke-width="2" x1="-5" x2="5" y1="-140" y2="-140"></line>
-        <path d="M -350,0 Q -320,-180 0,-180 Q 320,-180 350,-17" fill="none" stroke="blue"></path>
-        <circle cy="-180" fill="blue" r="10"></circle>
-        <use href="#r-arrow-head" transform="translate(349 -10) rotate(88) translate(-10, 0)"></use>
-        <line stroke="white" stroke-width="2" x1="-5" x2="5" y1="-180" y2="-180"></line>
-        <path d="M -340,63 Q -320,130 0,130 Q 320,130 350,30" fill="none" stroke="red"></path>
-        <use href="#r-arrow-head-red" transform="translate(-342 60) rotate(-120) translate(-10, 0)"></use>
-        <line stroke="red" stroke-linecap="round" stroke-width="30" x1="325" x2="395" y1="13" y2="13"></line>
-        <text dominant-baseline="middle" fill="white" text-anchor="middle" x="360" y="15">
-          Overflow!
-        </text>
-        <line stroke="red" stroke-linecap="round" stroke-width="30" x1="-30" x2="30" y1="130" y2="130"></line>
-        <text dominant-baseline="middle" fill="white" text-anchor="middle" y="130">
-          roll over
-        </text></svg>
-      </div>
-      <p>In other words, <code>Integer.MIN_VALUE</code> <strong>is its own negation</strong>. This causes other surprises too, such as <code>Math.abs(Integer.MIN_VALUE)</code>, which is implemented as <code>x &lt; 0 ? -x : x</code>, to return a negative value.</p>
-      <h2>What’s up with <code>byte</code> and <code>short</code>?</h2>
-      <p>Byte and short values are also stored in two’s complement. Java however, does not do arithmetic directly on bytes and shorts. Instead, they are <strong>promoted to <code>int</code>s</strong>, and <em>then</em> the unary minus is computed.</p>
-      <div class="article-box">
-        <p>If <code>b</code> is a byte, then <code>-b</code> is equivalent to <code>-((int) b)</code>.</p>
-      </div>
-      <p>One way to illustrate this is to create two overloaded methods…</p>
-      <pre><code><span class="keyword">void</span> <span class="method">m</span>(<span class="keyword">byte</span> <span class="type">b</span>) { <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"A byte"</span>); }
+        <p>What’s going on here?</p>
+        <h2>Explanation</h2>
+        <p>
+          Java uses two’s complement to represent integer values. In this
+          representation the values are not symmetrical around origo. There's
+          one more negative value than there are positive values.
+          <strong>The smallest value has no positive counterpart!</strong> For
+          example:
+        </p>
+        <ul>
+          <li><code>Integer.MIN_VALUE</code> equals −2<sup>31</sup></li>
+          <li><code>Integer.MAX_VALUE</code> equals +2<sup>31</sup>−1</li>
+        </ul>
+        <p>
+          When you try to negate −2<sup>31</sup> you get 2<sup>31</sup>, which
+          is larger than the the maximum int value, so it
+          <strong>overflows</strong> and rolls over to the negative side.
+        </p>
+        <p>Here’s an illustration:</p>
+        <div class="centered-content" style="margin: 4em 0em">
+          <svg
+            style="max-width: 820px"
+            viewbox="-400 -200 820.0 350"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <lineargradient id="fade_out">
+                <stop offset="0%" stop-color="black"></stop>
+                <stop offset="100%" stop-opacity="0"></stop>
+              </lineargradient>
+              <lineargradient id="fading">
+                <stop offset="0" stop-color="black" stop-opacity="1"></stop>
+                <stop offset="0.12698412698412698" stop-opacity="1"></stop>
+                <stop offset="0.16666666666666666" stop-opacity="0"></stop>
+                <stop offset="0.26587301587301587" stop-opacity="0"></stop>
+                <stop offset="0.3055555555555556" stop-opacity="1"></stop>
+                <stop offset="0.7936507936507936" stop-opacity="1"></stop>
+                <stop offset="0.8333333333333334" stop-opacity="0"></stop>
+                <stop offset="0.9325396825396826" stop-opacity="0"></stop>
+                <stop offset="0.9722222222222222" stop-opacity="1"></stop>
+              </lineargradient>
+            </defs>
+            <line
+              stroke="url('#fading')"
+              stroke-width="2"
+              x1="-350"
+              x2="280"
+              y1="12"
+              y2="12.0001"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="-350.0"
+              x2="-350.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <text
+              dominant-baseline="middle"
+              fill="black"
+              text-anchor="middle"
+              x="-350.0"
+              y="40"
+            >
+              MIN_VALUE
+            </text>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="-280.0"
+              x2="-280.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="-140.0"
+              x2="-140.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="-70.0"
+              x2="-70.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="0.0"
+              x2="0.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <text
+              dominant-baseline="middle"
+              fill="black"
+              text-anchor="middle"
+              x="0.0"
+              y="40"
+            >
+              0
+            </text>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="70.0"
+              x2="70.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="140.0"
+              x2="140.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="280.0"
+              x2="280.0"
+              y1="6"
+              y2="18"
+            ></line>
+            <text
+              dominant-baseline="middle"
+              fill="black"
+              text-anchor="middle"
+              x="280.0"
+              y="40"
+            >
+              MAX_VALUE
+            </text>
+            <circle cx="-220" cy="12" r="1"></circle>
+            <circle cx="-210" cy="12" r="1"></circle>
+            <circle cx="-200" cy="12" r="1"></circle>
+            <circle cx="200" cy="12" r="1"></circle>
+            <circle cx="210" cy="12" r="1"></circle>
+            <circle cx="220" cy="12" r="1"></circle>
+            <path
+              d="M -70,0 Q -40,-20 0,-20 Q 40,-20 57,-5"
+              fill="none"
+              stroke="blue"
+            ></path>
+            <circle cy="-20" fill="blue" r="10"></circle>
+            <use
+              href="#r-arrow-head"
+              transform="translate(65 0) rotate(36) translate(-10, 0)"
+            ></use>
+            <line
+              stroke="white"
+              stroke-width="2"
+              x1="-5"
+              x2="5"
+              y1="-20"
+              y2="-20"
+            ></line>
+            <path
+              d="M -140,0 Q -110,-60 0,-60 Q 110,-60 132,-5"
+              fill="none"
+              stroke="blue"
+            ></path>
+            <circle cy="-60" fill="blue" r="10"></circle>
+            <use
+              href="#r-arrow-head"
+              transform="translate(136 0) rotate(58) translate(-10, 0)"
+            ></use>
+            <line
+              stroke="white"
+              stroke-width="2"
+              x1="-5"
+              x2="5"
+              y1="-60"
+              y2="-60"
+            ></line>
+            <path
+              d="M -280,0 Q -250,-140 0,-140 Q 250,-140 278,-5"
+              fill="none"
+              stroke="blue"
+            ></path>
+            <circle cy="-140" fill="blue" r="10"></circle>
+            <use
+              href="#r-arrow-head"
+              transform="translate(278 0) rotate(85) translate(-10, 0)"
+            ></use>
+            <line
+              stroke="white"
+              stroke-width="2"
+              x1="-5"
+              x2="5"
+              y1="-140"
+              y2="-140"
+            ></line>
+            <path
+              d="M -350,0 Q -320,-180 0,-180 Q 320,-180 350,-17"
+              fill="none"
+              stroke="blue"
+            ></path>
+            <circle cy="-180" fill="blue" r="10"></circle>
+            <use
+              href="#r-arrow-head"
+              transform="translate(349 -10) rotate(88) translate(-10, 0)"
+            ></use>
+            <line
+              stroke="white"
+              stroke-width="2"
+              x1="-5"
+              x2="5"
+              y1="-180"
+              y2="-180"
+            ></line>
+            <path
+              d="M -340,63 Q -320,130 0,130 Q 320,130 350,30"
+              fill="none"
+              stroke="red"
+            ></path>
+            <use
+              href="#r-arrow-head-red"
+              transform="translate(-342 60) rotate(-120) translate(-10, 0)"
+            ></use>
+            <line
+              stroke="red"
+              stroke-linecap="round"
+              stroke-width="30"
+              x1="325"
+              x2="395"
+              y1="13"
+              y2="13"
+            ></line>
+            <text
+              dominant-baseline="middle"
+              fill="white"
+              text-anchor="middle"
+              x="360"
+              y="15"
+            >
+              Overflow!
+            </text>
+            <line
+              stroke="red"
+              stroke-linecap="round"
+              stroke-width="30"
+              x1="-30"
+              x2="30"
+              y1="130"
+              y2="130"
+            ></line>
+            <text
+              dominant-baseline="middle"
+              fill="white"
+              text-anchor="middle"
+              y="130"
+            >
+              roll over
+            </text>
+          </svg>
+        </div>
+        <p>
+          In other words, <code>Integer.MIN_VALUE</code>
+          <strong>is its own negation</strong>. This causes other surprises too,
+          such as <code>Math.abs(Integer.MIN_VALUE)</code>, which is implemented
+          as <code>x &lt; 0 ? -x : x</code>, to return a negative value.
+        </p>
+        <h2>What’s up with <code>byte</code> and <code>short</code>?</h2>
+        <p>
+          Byte and short values are also stored in two’s complement. Java
+          however, does not do arithmetic directly on bytes and shorts. Instead,
+          they are <strong>promoted to <code>int</code>s</strong>, and
+          <em>then</em> the unary minus is computed.
+        </p>
+        <div class="article-box">
+          <p>
+            If <code>b</code> is a byte, then <code>-b</code> is equivalent to
+            <code>-((int) b)</code>.
+          </p>
+        </div>
+        <p>One way to illustrate this is to create two overloaded methods…</p>
+        <pre><code><span class="keyword">void</span> <span class="method">m</span>(<span class="keyword">byte</span> <span class="type">b</span>) { <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"A byte"</span>); }
 <span class="keyword">void</span> <span class="method">m</span>(<span class="keyword">int</span> <span class="type">i</span>)  { <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"An int"</span>); }</code></pre>
-      <p>…and call them as follows:</p>
-      <pre><code><span class="keyword">byte</span> b = <span class="num_lit">0</span>;
+        <p>…and call them as follows:</p>
+        <pre><code><span class="keyword">byte</span> b = <span class="num_lit">0</span>;
 m(b);       <span class="comment">// Prints "A byte"</span>
 m(-b);      <span class="comment">// Prints "An int"</span>
 </code></pre>
-      <p>So <code>-Byte.MIN_VALUE</code> equals 128, but in the form of an <code>int</code>. If we cast this result back to a <code>byte</code> (for which the maximum value is 127) it rolls over and becomes −128, just as in the case of ints and longs:</p>
-      <pre><code>(<span class="keyword">byte</span>) -Byte.MIN_VALUE    == Byte.MIN_VALUE    <span class="comment">// true</span>
+        <p>
+          So <code>-Byte.MIN_VALUE</code> equals 128, but in the form of an
+          <code>int</code>. If we cast this result back to a
+          <code>byte</code> (for which the maximum value is 127) it rolls over
+          and becomes −128, just as in the case of ints and longs:
+        </p>
+        <pre><code>(<span class="keyword">byte</span>) -Byte.MIN_VALUE    == Byte.MIN_VALUE    <span class="comment">// true</span>
 (<span class="keyword">short</span>) -Short.MIN_VALUE  == Short.MIN_VALUE   <span class="comment">// true</span>
 </code></pre>
-      <p>Here’s an illustration:</p>
-      <div class="centered-content" style="margin: 4em 0em;">
-        <svg style="max-width: 820px;" viewbox="-410 -10 820.0 470" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <lineargradient id="fading2">
-            <stop offset="0" stop-color="black" stop-opacity="0"></stop>
-            <stop offset="0.03968253968253968" stop-opacity="1"></stop>
-            <stop offset="0.9603174603174603" stop-opacity="1"></stop>
-            <stop offset="1.0" stop-opacity="0"></stop>
-          </lineargradient>
-        </defs>
-        <g transform="translate(0, 120)">
-          <text x="-370" y="-20">
-            ints
-          </text>
-          <circle cx="-390" r="1"></circle>
-          <circle cx="-380" r="1"></circle>
-          <circle cx="-370" r="1"></circle>
-          <circle cx="370" r="1"></circle>
-          <circle cx="380" r="1"></circle>
-          <circle cx="390" r="1"></circle>
-          <line stroke="url('#fading2')" stroke-width="2" x1="-360" x2="360" y1="0" y2="0.0001"></line>
-          <line stroke="black" stroke-widch="2" x1="-250" x2="-250" y1="-5" y2="5"></line>
-          <line stroke="black" stroke-widch="2" y1="-5" y2="5"></line>
-          <line stroke="black" stroke-widch="2" x1="250" x2="250" y1="-5" y2="5"></line>
-          <text dominant-baseline="middle" text-anchor="middle" y="-20">
-            0
-          </text>
-          <text dominant-baseline="middle" text-anchor="middle" x="-250" y="-20">
-            −128
-          </text>
-          <text dominant-baseline="middle" text-anchor="middle" x="250" y="-20">
-            128
-          </text>
-          <path d="M -250,-40 Q -220,-115 0,-115 Q 220,-115 244,-42" fill="none" stroke="blue"></path>
-          <circle cy="-115" fill="blue" r="10"></circle>
-          <line stroke="white" stroke-width="2" x1="-5" x2="5" y1="-115" y2="-115"></line>
-          <use href="#r-arrow-head" transform="translate(245,-40) rotate(70) translate(-10, 0)"></use>
-        </g>
-        <g transform="translate(0, 330)">
-          <text x="-370">
-            bytes
-          </text>
-          <line stroke="black" stroke-width="2" x1="-250" x2="200"></line>
-          <line stroke="black" stroke-widch="2" x1="-250" x2="-250" y1="-5" y2="5"></line>
-          <line stroke="black" stroke-widch="2" x1="200" x2="200" y1="-5" y2="5"></line>
-          <line stroke="black" stroke-widch="2" y1="-5" y2="5"></line>
-          <text dominant-baseline="middle" text-anchor="middle" y="-20">
-            0
-          </text>
-          <g transform="translate(250, -120) rotate(90)">
-            <line stroke="blue" x1="-70" x2="70"></line>
-            <line stroke="blue" stroke-linecap="round" stroke-width="30" x1="-35" x2="25"></line>
-            <text dominant-baseline="middle" fill="white" text-anchor="middle" x="-5">
-              cast
-            </text>
-            <use href="#r-arrow-head" transform="translate(60,0)"></use>
-          </g>
-          <g transform="translate(-250, -120) rotate(-90)">
-            <line stroke="blue" x1="-70" x2="70"></line>
-            <line stroke="blue" stroke-linecap="round" stroke-width="30" x1="-35" x2="25"></line>
-            <text dominant-baseline="middle" fill="white" text-anchor="middle" x="-5">
-              promote
-            </text>
-            <use href="#r-arrow-head" transform="translate(60,0)"></use>
-          </g>
-          <text dominant-baseline="middle" text-anchor="middle" x="-250" y="-20">
-            −128
-          </text>
-          <text dominant-baseline="middle" text-anchor="middle" x="250" y="-30">
-            128
-          </text>
-          <path d="M -250,19 Q -220,110 0,110 Q 220,110 250,15" fill="none" stroke="red"></path>
-          <use href="#r-arrow-head-red" transform="translate(-250,15) rotate(-100) translate(-10, 0)"></use>
-          <line stroke="red" stroke-linecap="round" stroke-width="30" x1="230" x2="290" y1="0" y2="0"></line>
-          <text dominant-baseline="middle" fill="white" text-anchor="middle" x="260">
-            Overflow
-          </text>
-          <line stroke="red" stroke-linecap="round" stroke-width="30" x1="-30" x2="30" y1="110" y2="110"></line>
-          <text dominant-baseline="middle" fill="white" text-anchor="middle" y="110">
-            roll over
-          </text>
-        </g></svg>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>Here’s an illustration:</p>
+        <div class="centered-content" style="margin: 4em 0em">
+          <svg
+            style="max-width: 820px"
+            viewbox="-410 -10 820.0 470"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <lineargradient id="fading2">
+                <stop offset="0" stop-color="black" stop-opacity="0"></stop>
+                <stop offset="0.03968253968253968" stop-opacity="1"></stop>
+                <stop offset="0.9603174603174603" stop-opacity="1"></stop>
+                <stop offset="1.0" stop-opacity="0"></stop>
+              </lineargradient>
+            </defs>
+            <g transform="translate(0, 120)">
+              <text x="-370" y="-20">ints</text>
+              <circle cx="-390" r="1"></circle>
+              <circle cx="-380" r="1"></circle>
+              <circle cx="-370" r="1"></circle>
+              <circle cx="370" r="1"></circle>
+              <circle cx="380" r="1"></circle>
+              <circle cx="390" r="1"></circle>
+              <line
+                stroke="url('#fading2')"
+                stroke-width="2"
+                x1="-360"
+                x2="360"
+                y1="0"
+                y2="0.0001"
+              ></line>
+              <line
+                stroke="black"
+                stroke-widch="2"
+                x1="-250"
+                x2="-250"
+                y1="-5"
+                y2="5"
+              ></line>
+              <line stroke="black" stroke-widch="2" y1="-5" y2="5"></line>
+              <line
+                stroke="black"
+                stroke-widch="2"
+                x1="250"
+                x2="250"
+                y1="-5"
+                y2="5"
+              ></line>
+              <text dominant-baseline="middle" text-anchor="middle" y="-20">
+                0
+              </text>
+              <text
+                dominant-baseline="middle"
+                text-anchor="middle"
+                x="-250"
+                y="-20"
+              >
+                −128
+              </text>
+              <text
+                dominant-baseline="middle"
+                text-anchor="middle"
+                x="250"
+                y="-20"
+              >
+                128
+              </text>
+              <path
+                d="M -250,-40 Q -220,-115 0,-115 Q 220,-115 244,-42"
+                fill="none"
+                stroke="blue"
+              ></path>
+              <circle cy="-115" fill="blue" r="10"></circle>
+              <line
+                stroke="white"
+                stroke-width="2"
+                x1="-5"
+                x2="5"
+                y1="-115"
+                y2="-115"
+              ></line>
+              <use
+                href="#r-arrow-head"
+                transform="translate(245,-40) rotate(70) translate(-10, 0)"
+              ></use>
+            </g>
+            <g transform="translate(0, 330)">
+              <text x="-370">bytes</text>
+              <line stroke="black" stroke-width="2" x1="-250" x2="200"></line>
+              <line
+                stroke="black"
+                stroke-widch="2"
+                x1="-250"
+                x2="-250"
+                y1="-5"
+                y2="5"
+              ></line>
+              <line
+                stroke="black"
+                stroke-widch="2"
+                x1="200"
+                x2="200"
+                y1="-5"
+                y2="5"
+              ></line>
+              <line stroke="black" stroke-widch="2" y1="-5" y2="5"></line>
+              <text dominant-baseline="middle" text-anchor="middle" y="-20">
+                0
+              </text>
+              <g transform="translate(250, -120) rotate(90)">
+                <line stroke="blue" x1="-70" x2="70"></line>
+                <line
+                  stroke="blue"
+                  stroke-linecap="round"
+                  stroke-width="30"
+                  x1="-35"
+                  x2="25"
+                ></line>
+                <text
+                  dominant-baseline="middle"
+                  fill="white"
+                  text-anchor="middle"
+                  x="-5"
+                >
+                  cast
+                </text>
+                <use href="#r-arrow-head" transform="translate(60,0)"></use>
+              </g>
+              <g transform="translate(-250, -120) rotate(-90)">
+                <line stroke="blue" x1="-70" x2="70"></line>
+                <line
+                  stroke="blue"
+                  stroke-linecap="round"
+                  stroke-width="30"
+                  x1="-35"
+                  x2="25"
+                ></line>
+                <text
+                  dominant-baseline="middle"
+                  fill="white"
+                  text-anchor="middle"
+                  x="-5"
+                >
+                  promote
+                </text>
+                <use href="#r-arrow-head" transform="translate(60,0)"></use>
+              </g>
+              <text
+                dominant-baseline="middle"
+                text-anchor="middle"
+                x="-250"
+                y="-20"
+              >
+                −128
+              </text>
+              <text
+                dominant-baseline="middle"
+                text-anchor="middle"
+                x="250"
+                y="-30"
+              >
+                128
+              </text>
+              <path
+                d="M -250,19 Q -220,110 0,110 Q 220,110 250,15"
+                fill="none"
+                stroke="red"
+              ></path>
+              <use
+                href="#r-arrow-head-red"
+                transform="translate(-250,15) rotate(-100) translate(-10, 0)"
+              ></use>
+              <line
+                stroke="red"
+                stroke-linecap="round"
+                stroke-width="30"
+                x1="230"
+                x2="290"
+                y1="0"
+                y2="0"
+              ></line>
+              <text
+                dominant-baseline="middle"
+                fill="white"
+                text-anchor="middle"
+                x="260"
+              >
+                Overflow
+              </text>
+              <line
+                stroke="red"
+                stroke-linecap="round"
+                stroke-width="30"
+                x1="-30"
+                x2="30"
+                y1="110"
+                y2="110"
+              ></line>
+              <text
+                dominant-baseline="middle"
+                fill="white"
+                text-anchor="middle"
+                y="110"
+              >
+                roll over
+              </text>
+            </g>
+          </svg>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/minus-min-value.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/minus-min-value.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

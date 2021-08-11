@@ -1,199 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="Programming Guide provides concise articles with production-quality code examples written by expert programmers." name="description">
-  <meta content="programming, guide, tutorials, code, examples, references, cheat sheets, gotchas, algorithms, go, golang, java" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="Programming Guide provides concise articles with production-quality code examples written by expert programmers."
+      name="description"
+    />
+    <meta
+      content="programming, guide, tutorials, code, examples, references, cheat sheets, gotchas, algorithms, go, golang, java"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go/go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="go/string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="go/maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="go/for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go/go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Programming.Guide</h1>
-      <p>Articles on Programming Guide strive to…</p>
-      <ul>
-        <li>…put examples up front</li>
-        <li>…be of highest possible quality</li>
-        <li>…be concise and to the point</li>
-        <li>…the reader should not have to look further in the search results</li>
-        <li>…the reader should as quickly as possible be unblocked and be able to switch back to his/her IDE and continue programming</li>
-      </ul>
-      <p>Currently serving <strong>430</strong> articles on <a href="java/index.html">Java</a>, <a href="go/index.html">Go</a> and <a href="algorithms.html">algorithms</a>.</p>
-      <h2>Authors</h2>
-      <div style="overflow: hidden">
-        <img alt="Andreas Lundblad" src="images/andreas-lundblad.jpg" style="float: left; margin-right: 1em; max-width: 8em">
-        <div>
-          <strong>Andreas Lundblad</strong>, PhD in theoretical computer science. Worked for three years at Oracle developing the Java platform (javac, javadoc, sjavac). Andreas is among the <a href="http://stackoverflow.com/tags/java/topusers">top 10 contributors</a> in the Java tag at Stack Overflow and 7<sup>th</sup> highest rated StackOverflow user according to <a href="https://stackrating.com/user/276052">StackRating.com</a>.
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <div style="clear: both; height: 1.5em;"></div><img alt="Stefan Nilsson" src="images/stefan-nilsson.jpg" style="max-width: 8em; float: left; margin-right: 1em;">
-        <div>
-          <strong>Stefan Nilsson</strong> is an <a href="https://www.nada.kth.se/~snilsson/">associate professor</a> of Computer Science at the Royal Institute of Technology. Stefan has taught programming and algorithms for over two decades and is a contributor to the Go project.
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go/go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="go/string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="go/maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="go/for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go/go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <div style="clear: both;"></div>
-      </div>
-      <h2>Background</h2>
-      <p>Back in the days there was a popular site called <a href="http://web.archive.org/web/20120113091817/http://www.exampledepot.com/">Example Depot</a>. It was a great resource for ready-to-use code snippets, conveniently available for copy/paste. It was also straight to the point with example code up front.</p>
-      <div style="text-align: center; margin: 2em;">
-        <img alt="Example Depot Screenshot" class="screenshot" src="images/example-depot-screenshot.jpg" style="max-width: 20em; margin-bottom: .5rem;"><br>
-        <span class="caption">Example Depo around 2010.</span>
-      </div>
-      <p>The site died and along came Stack Overflow which is now the dominant online resource for programmers. Stack Overflow is great, the founder of Programming.Guide is in fact among the top 100 contributors. But Stack Overflow has its drawbacks. The quality is not what you'd like it to be, and the best answer is not always found at the top. It's also entirely problem / solution oriented as opposed to example snippets / "cookbook" oriented as Example Depot was. An attempt to cover this niche was made with <a href="http://www.stackoverflow.com/documentation">Stack Overflow Docs</a>. The philosophy behind SO Docs was good; concise and to-the-point articles with examples-first. It failed to deliver however, and the project was <a href="https://meta.stackoverflow.com/questions/354217/sunsetting-documentation">discontinued</a> in August 2017.</p>
-      <p>Programming.Guide site is an effort to cover the nische that Example Depot once did. The ambition is to provide high quality articles on the subject of programming. Quality and examples up front is the mantra. Initially the focus is on Java and Go fundamentals since that's the domain of expertise of the current authors.</p>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Programming.Guide</h1>
+        <p>Articles on Programming Guide strive to…</p>
+        <ul>
+          <li>…put examples up front</li>
+          <li>…be of highest possible quality</li>
+          <li>…be concise and to the point</li>
+          <li>
+            …the reader should not have to look further in the search results
+          </li>
+          <li>
+            …the reader should as quickly as possible be unblocked and be able
+            to switch back to his/her IDE and continue programming
+          </li>
+        </ul>
+        <p>
+          Currently serving <strong>430</strong> articles on
+          <a href="java/index.html">Java</a>, <a href="go/index.html">Go</a> and
+          <a href="algorithms.html">algorithms</a>.
+        </p>
+        <h2>Authors</h2>
+        <div style="overflow: hidden">
+          <img
+            alt="Andreas Lundblad"
+            src="images/andreas-lundblad.jpg"
+            style="float: left; margin-right: 1em; max-width: 8em"
+          />
+          <div>
+            <strong>Andreas Lundblad</strong>, PhD in theoretical computer
+            science. Worked for three years at Oracle developing the Java
+            platform (javac, javadoc, sjavac). Andreas is among the
+            <a href="http://stackoverflow.com/tags/java/topusers"
+              >top 10 contributors</a
+            >
+            in the Java tag at Stack Overflow and 7<sup>th</sup> highest rated
+            StackOverflow user according to
+            <a href="https://stackrating.com/user/276052">StackRating.com</a>.
+          </div>
+          <div style="clear: both; height: 1.5em"></div>
+          <img
+            alt="Stefan Nilsson"
+            src="images/stefan-nilsson.jpg"
+            style="max-width: 8em; float: left; margin-right: 1em"
+          />
+          <div>
+            <strong>Stefan Nilsson</strong> is an
+            <a href="https://www.nada.kth.se/~snilsson/">associate professor</a>
+            of Computer Science at the Royal Institute of Technology. Stefan has
+            taught programming and algorithms for over two decades and is a
+            contributor to the Go project.
+          </div>
+          <div style="clear: both"></div>
+        </div>
+        <h2>Background</h2>
+        <p>
+          Back in the days there was a popular site called
+          <a
+            href="http://web.archive.org/web/20120113091817/http://www.exampledepot.com/"
+            >Example Depot</a
+          >. It was a great resource for ready-to-use code snippets,
+          conveniently available for copy/paste. It was also straight to the
+          point with example code up front.
+        </p>
+        <div style="text-align: center; margin: 2em">
+          <img
+            alt="Example Depot Screenshot"
+            class="screenshot"
+            src="images/example-depot-screenshot.jpg"
+            style="max-width: 20em; margin-bottom: 0.5rem"
+          /><br />
+          <span class="caption">Example Depo around 2010.</span>
+        </div>
+        <p>
+          The site died and along came Stack Overflow which is now the dominant
+          online resource for programmers. Stack Overflow is great, the founder
+          of Programming.Guide is in fact among the top 100 contributors. But
+          Stack Overflow has its drawbacks. The quality is not what you'd like
+          it to be, and the best answer is not always found at the top. It's
+          also entirely problem / solution oriented as opposed to example
+          snippets / "cookbook" oriented as Example Depot was. An attempt to
+          cover this niche was made with
+          <a href="http://www.stackoverflow.com/documentation"
+            >Stack Overflow Docs</a
+          >. The philosophy behind SO Docs was good; concise and to-the-point
+          articles with examples-first. It failed to deliver however, and the
+          project was
+          <a
+            href="https://meta.stackoverflow.com/questions/354217/sunsetting-documentation"
+            >discontinued</a
+          >
+          in August 2017.
+        </p>
+        <p>
+          Programming.Guide site is an effort to cover the nische that Example
+          Depot once did. The ambition is to provide high quality articles on
+          the subject of programming. Quality and examples up front is the
+          mantra. Initially the focus is on Java and Go fundamentals since
+          that's the domain of expertise of the current authors.
+        </p>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

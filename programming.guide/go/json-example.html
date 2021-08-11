@@ -1,192 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: JSON by example | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="An introduction to JSON in Go with plenty of examples." name="description">
-  <meta content="go, golang, JSON, parse, tutorial, example, api, marshal, unmarshal, time, date, struct, file, stream, encode, decode, tag, map, pretty print, indentation" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: JSON by example | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="An introduction to JSON in Go with plenty of examples."
+      name="description"
+    />
+    <meta
+      content="go, golang, JSON, parse, tutorial, example, api, marshal, unmarshal, time, date, struct, file, stream, encode, decode, tag, map, pretty print, indentation"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Further Reading</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="http://json.org/">Introducing JSON</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">json.org</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://blog.golang.org/json-and-go">JSON and Go</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Blog</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="io-reader-interface-explained.html">The io.Reader interface</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="io-writer-interface-explained.html">The io.Writer interface</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: JSON by example</h1>
-      <ul class="toc">
-        <li>
-          <a href="json-example.html#basic-types">Basic types</a>
-        </li>
-        <li>
-          <a href="json-example.html#struct-to-json">Struct to JSON</a>
-        </li>
-        <li>
-          <a href="json-example.html#pretty-print">Pretty print</a>
-        </li>
-        <li>
-          <a href="json-example.html#json-to-struct">JSON to struct</a>
-        </li>
-        <li>
-          <a href="json-example.html#arbitrary-objects-and-arrays">Arbitrary objects and arrays</a>
-        </li>
-        <li>
-          <a href="json-example.html#files">Files</a>
-        </li>
-      </ul>
-      <h2 id="basic-types">Basic types</h2>
-      <p>The default Go types for coding and encoding JSON are:</p>
-      <ul>
-        <li><code>bool</code> for JSON booleans,</li>
-        <li><code>float64</code> for JSON numbers,</li>
-        <li><code>string</code> for JSON strings, and</li>
-        <li><code>nil</code> for JSON null.</li>
-      </ul>
-      <p>Additionally, <a href="https://golang.org/pkg/time/#Time"><code>time.Time</code></a> and the numeric types in the <a href="https://golang.org/pkg/math/big/"><code>math/big</code></a> package can be automatically coded and encoded as JSON strings.</p>
-      <p>Note that JSON doesn't support basic integer types. They can often be approximated by floating-point numbers:</p>
-      <blockquote>
-        <p>Since software that implements IEEE 754-2008 binary64 (double precision) numbers is generally available and widely used, good interoperability can be achieved by implementations that expect no more precision or range than these provide […]</p>
-        <p>Note that when such software is used, numbers that are integers and are in the range [-2<sup>53</sup>&nbsp;+&nbsp;1,&nbsp;2<sup>53</sup>&nbsp;-&nbsp;1] are interoperable in the sense that implementations will agree exactly on their numeric values. <a class="quote-source" href="https://tools.ietf.org/html/rfc7159#section-6">RFC 7159: The JSON Data Interchange Format</a></p>
-      </blockquote>
-      <h2 id="struct-to-json">Struct to JSON</h2>
-      <p>The <a href="https://golang.org/pkg/encoding/json/#Marshal"><code>json.Marshal</code></a> function in package <a href="https://golang.org/pkg/encoding/json/"><code>encoding/json</code></a> generates JSON data:</p>
-      <pre><code>type FruitBasket struct {
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Further Reading</h2>
+        <div style="margin-bottom: 1em">
+          <a href="http://json.org/">Introducing JSON</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >json.org</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://blog.golang.org/json-and-go">JSON and Go</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >The Go Blog</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="io-reader-interface-explained.html"
+            >The io.Reader interface</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="io-writer-interface-explained.html"
+            >The io.Writer interface</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: JSON by example</h1>
+        <ul class="toc">
+          <li>
+            <a href="json-example.html#basic-types">Basic types</a>
+          </li>
+          <li>
+            <a href="json-example.html#struct-to-json">Struct to JSON</a>
+          </li>
+          <li>
+            <a href="json-example.html#pretty-print">Pretty print</a>
+          </li>
+          <li>
+            <a href="json-example.html#json-to-struct">JSON to struct</a>
+          </li>
+          <li>
+            <a href="json-example.html#arbitrary-objects-and-arrays"
+              >Arbitrary objects and arrays</a
+            >
+          </li>
+          <li>
+            <a href="json-example.html#files">Files</a>
+          </li>
+        </ul>
+        <h2 id="basic-types">Basic types</h2>
+        <p>The default Go types for coding and encoding JSON are:</p>
+        <ul>
+          <li><code>bool</code> for JSON booleans,</li>
+          <li><code>float64</code> for JSON numbers,</li>
+          <li><code>string</code> for JSON strings, and</li>
+          <li><code>nil</code> for JSON null.</li>
+        </ul>
+        <p>
+          Additionally,
+          <a href="https://golang.org/pkg/time/#Time"><code>time.Time</code></a>
+          and the numeric types in the
+          <a href="https://golang.org/pkg/math/big/"><code>math/big</code></a>
+          package can be automatically coded and encoded as JSON strings.
+        </p>
+        <p>
+          Note that JSON doesn't support basic integer types. They can often be
+          approximated by floating-point numbers:
+        </p>
+        <blockquote>
+          <p>
+            Since software that implements IEEE 754-2008 binary64 (double
+            precision) numbers is generally available and widely used, good
+            interoperability can be achieved by implementations that expect no
+            more precision or range than these provide […]
+          </p>
+          <p>
+            Note that when such software is used, numbers that are integers and
+            are in the range
+            [-2<sup>53</sup>&nbsp;+&nbsp;1,&nbsp;2<sup>53</sup>&nbsp;-&nbsp;1]
+            are interoperable in the sense that implementations will agree
+            exactly on their numeric values.
+            <a
+              class="quote-source"
+              href="https://tools.ietf.org/html/rfc7159#section-6"
+              >RFC 7159: The JSON Data Interchange Format</a
+            >
+          </p>
+        </blockquote>
+        <h2 id="struct-to-json">Struct to JSON</h2>
+        <p>
+          The
+          <a href="https://golang.org/pkg/encoding/json/#Marshal"
+            ><code>json.Marshal</code></a
+          >
+          function in package
+          <a href="https://golang.org/pkg/encoding/json/"
+            ><code>encoding/json</code></a
+          >
+          generates JSON data:
+        </p>
+        <pre><code>type FruitBasket struct {
         Name    string
         Fruit   []string
         Id      int64  `json:"ref"`
@@ -208,23 +326,47 @@ if err != nil {
         log.Println(err)
 }
 fmt.Println(string(jsonData))</code></pre>
-      <p>Output:</p>
-      <pre><code>{"Name":"Standard","Fruit":["Apple","Banana","Orange"],"ref":999,"Created":"2009-11-10T23:00:00Z"}
+        <p>Output:</p>
+        <pre><code>{"Name":"Standard","Fruit":["Apple","Banana","Orange"],"ref":999,"Created":"2009-11-10T23:00:00Z"}
 </code></pre>
-      <p>Only data that can be represented as JSON will be encoded; see <a href="https://golang.org/pkg/encoding/json/#Marshal"><code>json.Marshal</code></a> for the complete rules.</p>
-      <ul>
-        <li><strong>Only the exported (public) fields</strong> of a struct will be present in the JSON output.</li>
-        <li>A field with a <code>json:</code> tag is stored with its tag name instead of its variable name.</li>
-        <li>JSON objects only support strings as keys: a map must be of the form <code>map[string]T</code>.</li>
-        <li>Pointers will be encoded as the values they point to, or <code>null</code> if the pointer is <code>nil</code>.</li>
-      </ul>
-      <h2 id="pretty-print">Pretty print</h2>
-      <p>Replace <code>json.Marshal</code> with <a href="https://golang.org/pkg/encoding/json/#MarshalIndent"><code>json.MarshalIndent</code></a> in the example above to indent the JSON output.</p>
-      <pre><code>…
+        <p>
+          Only data that can be represented as JSON will be encoded; see
+          <a href="https://golang.org/pkg/encoding/json/#Marshal"
+            ><code>json.Marshal</code></a
+          >
+          for the complete rules.
+        </p>
+        <ul>
+          <li>
+            <strong>Only the exported (public) fields</strong> of a struct will
+            be present in the JSON output.
+          </li>
+          <li>
+            A field with a <code>json:</code> tag is stored with its tag name
+            instead of its variable name.
+          </li>
+          <li>
+            JSON objects only support strings as keys: a map must be of the form
+            <code>map[string]T</code>.
+          </li>
+          <li>
+            Pointers will be encoded as the values they point to, or
+            <code>null</code> if the pointer is <code>nil</code>.
+          </li>
+        </ul>
+        <h2 id="pretty-print">Pretty print</h2>
+        <p>
+          Replace <code>json.Marshal</code> with
+          <a href="https://golang.org/pkg/encoding/json/#MarshalIndent"
+            ><code>json.MarshalIndent</code></a
+          >
+          in the example above to indent the JSON output.
+        </p>
+        <pre><code>…
 jsonData, err := <b>json.MarshalIndent</b>(basket, "", "    ")
 …</code></pre>
-      <p>Output:</p>
-      <pre><code>{
+        <p>Output:</p>
+        <pre><code>{
     "Name": "Standard",
     "Fruit": [
         "Apple",
@@ -235,9 +377,19 @@ jsonData, err := <b>json.MarshalIndent</b>(basket, "", "    ")
     "Created": "2009-11-10T23:00:00Z"
 }
 </code></pre>
-      <h2 id="json-to-struct">JSON to struct</h2>
-      <p>The <a href="https://golang.org/pkg/encoding/json/#Unmarshal"><code>json.Unmarshal</code></a> function in package <a href="https://golang.org/pkg/encoding/json/"><code>encoding/json</code></a> parses JSON data:</p>
-      <pre><code>type FruitBasket struct {
+        <h2 id="json-to-struct">JSON to struct</h2>
+        <p>
+          The
+          <a href="https://golang.org/pkg/encoding/json/#Unmarshal"
+            ><code>json.Unmarshal</code></a
+          >
+          function in package
+          <a href="https://golang.org/pkg/encoding/json/"
+            ><code>encoding/json</code></a
+          >
+          parses JSON data:
+        </p>
+        <pre><code>type FruitBasket struct {
         Name    string
         Fruit   []string
         Id      int64 `json:"ref"`
@@ -263,27 +415,54 @@ if err != nil {
 }
 fmt.Println(basket.Name, basket.Fruit, basket.Id)
 fmt.Println(basket.Created)</code></pre>
-      <p>Output:</p>
-      <pre><code>Standard [Apple Banana Orange] 999
+        <p>Output:</p>
+        <pre><code>Standard [Apple Banana Orange] 999
 2009-11-10 23:00:00 +0000 UTC
 </code></pre>
-      <p>(Note that <code>Unmarshal</code> allocated a new slice all by itself. This is how unmarshaling works for slices, maps and pointers.)</p>
-      <p>For a given JSON key <code>Foo</code>, <code>Unmarshal</code> will attempt to match the struct fields in this order:</p>
-      <ol>
-        <li>an exported (public) field with a tag <code>json:"Foo"</code>,</li>
-        <li>an exported field named <code>Foo</code>, or</li>
-        <li>an exported field named <code>FOO</code>, <code>FoO</code>, or some other case-insensitive match.</li>
-      </ol>
-      <p>Only fields thar are found in the destination type will be decoded:</p>
-      <ul>
-        <li>This is useful when you wish to pick only a few specific fields.</li>
-        <li>In particular, any unexported fields in the destination struct will be unaffected.</li>
-      </ul>
-      <h2 id="arbitrary-objects-and-arrays">Arbitrary objects and arrays</h2>
-      <p>The <a href="https://golang.org/pkg/encoding/json/">encoding/json</a> package uses - <code>map[string]interface{}</code> to store arbitrary JSON objects, and - <code>[]interface{}</code> to store arbitrary JSON arrays.</p>
-      <p>It will unmarshal any valid JSON data into a plain <code>interface{}</code> value.</p>
-      <p>Consider this JSON data:</p>
-      <pre><code>{
+        <p>
+          (Note that <code>Unmarshal</code> allocated a new slice all by itself.
+          This is how unmarshaling works for slices, maps and pointers.)
+        </p>
+        <p>
+          For a given JSON key <code>Foo</code>, <code>Unmarshal</code> will
+          attempt to match the struct fields in this order:
+        </p>
+        <ol>
+          <li>
+            an exported (public) field with a tag <code>json:"Foo"</code>,
+          </li>
+          <li>an exported field named <code>Foo</code>, or</li>
+          <li>
+            an exported field named <code>FOO</code>, <code>FoO</code>, or some
+            other case-insensitive match.
+          </li>
+        </ol>
+        <p>
+          Only fields thar are found in the destination type will be decoded:
+        </p>
+        <ul>
+          <li>
+            This is useful when you wish to pick only a few specific fields.
+          </li>
+          <li>
+            In particular, any unexported fields in the destination struct will
+            be unaffected.
+          </li>
+        </ul>
+        <h2 id="arbitrary-objects-and-arrays">Arbitrary objects and arrays</h2>
+        <p>
+          The
+          <a href="https://golang.org/pkg/encoding/json/">encoding/json</a>
+          package uses - <code>map[string]interface{}</code> to store arbitrary
+          JSON objects, and - <code>[]interface{}</code> to store arbitrary JSON
+          arrays.
+        </p>
+        <p>
+          It will unmarshal any valid JSON data into a plain
+          <code>interface{}</code> value.
+        </p>
+        <p>Consider this JSON data:</p>
+        <pre><code>{
     "Name": "Eve",
     "Age": 6,
     "Parents": [
@@ -292,8 +471,15 @@ fmt.Println(basket.Created)</code></pre>
     ]
 }
 </code></pre>
-      <p>The <a href="https://golang.org/pkg/encoding/json/#Unmarshal"><code>json.Unmarshal</code></a> function will parse it into a map whose keys are strings, and whose values are themselves stored as empty interface values:</p>
-      <pre><code><b>map[string]interface{}</b>{
+        <p>
+          The
+          <a href="https://golang.org/pkg/encoding/json/#Unmarshal"
+            ><code>json.Unmarshal</code></a
+          >
+          function will parse it into a map whose keys are strings, and whose
+          values are themselves stored as empty interface values:
+        </p>
+        <pre><code><b>map[string]interface{}</b>{
         "Name": "Eve",
         "Age":  6.0,
         "Parents": <b>[]interface{}</b>{
@@ -301,8 +487,11 @@ fmt.Println(basket.Created)</code></pre>
                 "Bob",
         },
 }</code></pre>
-      <p>We can iterate through the map with a range statement and use a type switch to access its values:</p>
-      <pre><code>jsonData := []byte(`{"Name":"Eve","Age":6,"Parents":["Alice","Bob"]}`)
+        <p>
+          We can iterate through the map with a range statement and use a type
+          switch to access its values:
+        </p>
+        <pre><code>jsonData := []byte(`{"Name":"Eve","Age":6,"Parents":["Alice","Bob"]}`)
 
 var v interface{}
 <b>json.Unmarshal</b>(jsonData, &amp;v)
@@ -323,24 +512,49 @@ for k, v := range data {
                 fmt.Println(k, v, "(unknown)")
         }
 }</code></pre>
-      <p>Output:</p>
-      <pre><code>Name Eve (string)
+        <p>Output:</p>
+        <pre><code>Name Eve (string)
 Age 6 (float64)
 Parents (array):
      0 Alice
      1 Bob
 </code></pre>
-      <h2 id="files">Files</h2>
-      <p>The <a href="https://golang.org/pkg/encoding/json/#Decoder"><code>json.Decoder</code></a> and <a href="https://golang.org/pkg/encoding/json/#Encoder"><code>json.Encoder</code></a> types in package <a href="https://golang.org/pkg/encoding/json/"><code>encoding/json</code></a> offer support for reading and writing streams, e.g. files, of JSON data.</p>
-      <p>The code in this example</p>
-      <ul>
-        <li>reads a stream of JSON objects from a <a href="io-reader-interface-explained.html">Reader</a> (<a href="https://golang.org/pkg/strings/#Reader"><code>strings.Reader</code></a>),
-        </li>
-        <li>removes the <code>Age</code> field from each object,</li>
-        <li>and then writes the objects to a <a href="io-writer-interface-explained.html">Writer</a> (<a href="https://golang.org/pkg/os/#pkg-variables"><code>os.Stdout</code></a>).
-        </li>
-      </ul>
-      <pre><code>const jsonData = `
+        <h2 id="files">Files</h2>
+        <p>
+          The
+          <a href="https://golang.org/pkg/encoding/json/#Decoder"
+            ><code>json.Decoder</code></a
+          >
+          and
+          <a href="https://golang.org/pkg/encoding/json/#Encoder"
+            ><code>json.Encoder</code></a
+          >
+          types in package
+          <a href="https://golang.org/pkg/encoding/json/"
+            ><code>encoding/json</code></a
+          >
+          offer support for reading and writing streams, e.g. files, of JSON
+          data.
+        </p>
+        <p>The code in this example</p>
+        <ul>
+          <li>
+            reads a stream of JSON objects from a
+            <a href="io-reader-interface-explained.html">Reader</a> (<a
+              href="https://golang.org/pkg/strings/#Reader"
+              ><code>strings.Reader</code></a
+            >),
+          </li>
+          <li>removes the <code>Age</code> field from each object,</li>
+          <li>
+            and then writes the objects to a
+            <a href="io-writer-interface-explained.html">Writer</a> (<a
+              href="https://golang.org/pkg/os/#pkg-variables"
+              ><code>os.Stdout</code></a
+            >).
+          </li>
+        </ul>
+        <pre><code>const jsonData = `
         {"Name": "Alice", "Age": 25}
         {"Name": "Bob", "Age": 22}
 `
@@ -371,37 +585,50 @@ for {
                 log.Println(err)
         }
 }</code></pre>
-      <p>Output:</p>
-      <pre><code>{"Name":"Alice"}
+        <p>Output:</p>
+        <pre><code>{"Name":"Alice"}
 {"Name":"Bob"}
 </code></pre>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input name="reply_to" type="hidden" value="go/json-example.html" />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="go/json-example.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

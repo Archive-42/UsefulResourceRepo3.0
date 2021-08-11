@@ -1,268 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Unsigned short in Java | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Java does not have unsigned data types. Your options are to use a char, an int, or to use a short and interpret the bits as unsiged, as described in this article." name="description">
-  <meta content="java, short, char, unsigned, unsigned short, 16 bit, non-negative, positive, uint16, ushort, 65535, 65536" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Unsigned short in Java | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Java does not have unsigned data types. Your options are to use a char, an int, or to use a short and interpret the bits as unsiged, as described in this article."
+      name="description"
+    />
+    <meta
+      content="java, short, char, unsigned, unsigned short, 16 bit, non-negative, positive, uint16, ushort, 65535, 65536"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Unsigned integers in Java</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="unsigned-byte.html">Unsigned byte</a>
-        </li>
-        <li class="current">Unsigned short</li>
-        <li>
-          <a href="unsigned-int.html">Unsigned int</a>
-        </li>
-        <li>
-          <a href="unsigned-long.html">Unsigned long</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Unsigned short in Java</h1>
-      <p>Java does not have unsigned data types. Your options are:</p>
-      <ul>
-        <li>Use a <code>char</code></li>
-        <li>Use an <code>int</code></li>
-        <li>Use a <code>short</code> and “manually” interpret the bits unsigned (described below)</li>
-      </ul>
-      <h2>Using a <code>char</code></h2>
-      <p>A <code>char</code> variable is meant to store characters (16-bit unicode code points), but can also be used for numerical values between 0 and 65,535.</p>
-      <pre><code><span class="keyword">char</span> <span class="type">i</span> = <span class="num_lit">65000</span>;
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Unsigned integers in Java</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="unsigned-byte.html">Unsigned byte</a>
+          </li>
+          <li class="current">Unsigned short</li>
+          <li>
+            <a href="unsigned-int.html">Unsigned int</a>
+          </li>
+          <li>
+            <a href="unsigned-long.html">Unsigned long</a>
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Unsigned short in Java</h1>
+        <p>Java does not have unsigned data types. Your options are:</p>
+        <ul>
+          <li>Use a <code>char</code></li>
+          <li>Use an <code>int</code></li>
+          <li>
+            Use a <code>short</code> and “manually” interpret the bits unsigned
+            (described below)
+          </li>
+        </ul>
+        <h2>Using a <code>char</code></h2>
+        <p>
+          A <code>char</code> variable is meant to store characters (16-bit
+          unicode code points), but can also be used for numerical values
+          between 0 and 65,535.
+        </p>
+        <pre><code><span class="keyword">char</span> <span class="type">i</span> = <span class="num_lit">65000</span>;
 <span class="keyword">char</span> <span class="type">j</span> = <span class="num_lit">10</span>;
 <span class="keyword">char</span> <span class="type">sum</span>  = (<span class="keyword">char</span>) (<span class="type">i</span> + <span class="type">j</span>);  <span class="comment">// 65010</span>
 <span class="keyword">char</span> <span class="type">diff</span> = (<span class="keyword">char</span>) (<span class="type">i</span> - <span class="type">j</span>);  <span class="comment">// 64990</span>
 <span class="keyword">char</span> <span class="type">prod</span> = (<span class="keyword">char</span>) (<span class="type">j</span> * <span class="type">j</span>);  <span class="comment">// 100</span>
 <span class="keyword">char</span> <span class="type">quot</span> = (<span class="keyword">char</span>) (<span class="type">i</span> / <span class="type">j</span>);  <span class="comment">// 6500</span>
 </code></pre>
-      <p>The casting is required, since a <code>char</code> is implicitly widened to an <code>int</code> during computations.</p>
-      <p>As expected, it wrapps around to 0 upon overflow:</p>
-      <pre><code><span class="keyword">char</span> <span class="type">c</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html"><span class="type">Character</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html#MAX_VALUE"><span class="static_final_field">MAX_VALUE</span></a>;  <span class="comment">// 65535</span>
+        <p>
+          The casting is required, since a <code>char</code> is implicitly
+          widened to an <code>int</code> during computations.
+        </p>
+        <p>As expected, it wrapps around to 0 upon overflow:</p>
+        <pre><code><span class="keyword">char</span> <span class="type">c</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html"><span class="type">Character</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html#MAX_VALUE"><span class="static_final_field">MAX_VALUE</span></a>;  <span class="comment">// 65535</span>
 <span class="type">c</span>++;
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>((<span class="keyword">int</span>) <span class="type">c</span>);  <span class="comment">// 0</span>
 </code></pre>
-      <h2>An unsigned <code>short</code></h2>
-      <p>A <code>short</code> is always signed in Java, but nothing prevents you from viewing a <code>short</code> simply as 16 bits and interpret those bits as a value between 0 and 65,535.</p>
-      <table class="white" style="margin: 2em auto;">
-        <thead>
-          <tr>
-            <th style="width: 33%; text-align: center; padding: .3em;">Java short value</th>
-            <th style="width: 34%; text-align: center; padding: .3em;">Bits</th>
-            <th style="width: 33%; text-align: center; padding: .3em;">Interpreted as unsigned</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="text-align: center; padding: .3em;">0</td>
-            <td style="text-align: center; padding: .3em;"><code>0000000000000000</code></td>
-            <td style="text-align: center; padding: .3em;">0</td>
-          </tr>
-          <tr>
-            <td style="text-align: center; padding: .3em;">1</td>
-            <td style="text-align: center; padding: .3em;"><code>0000000000000001</code></td>
-            <td style="text-align: center; padding: .3em;">1</td>
-          </tr>
-          <tr>
-            <td style="text-align: center; padding: .3em;">⋮</td>
-            <td style="text-align: center; padding: .3em;">⋮</td>
-            <td style="text-align: center; padding: .3em;">⋮</td>
-          </tr>
-          <tr>
-            <td style="text-align: center; padding: .3em;">32,767</td>
-            <td style="text-align: center; padding: .3em;"><code>0111111111111111</code></td>
-            <td style="text-align: center; padding: .3em;">32,767</td>
-          </tr>
-          <tr>
-            <td style="text-align: center; padding: .3em;">−32,768</td>
-            <td style="text-align: center; padding: .3em;"><code>1000000000000000</code></td>
-            <td style="text-align: center; padding: .3em;">32,768</td>
-          </tr>
-          <tr>
-            <td style="text-align: center; padding: .3em;">⋮</td>
-            <td style="text-align: center; padding: .3em;">⋮</td>
-            <td style="text-align: center; padding: .3em;">⋮</td>
-          </tr>
-          <tr>
-            <td style="text-align: center; padding: .3em;">−2</td>
-            <td style="text-align: center; padding: .3em;"><code>1111111111111110</code></td>
-            <td style="text-align: center; padding: .3em;">65,534</td>
-          </tr>
-          <tr>
-            <td style="text-align: center; padding: .3em;">−1</td>
-            <td style="text-align: center; padding: .3em;"><code>1111111111111111</code></td>
-            <td style="text-align: center; padding: .3em;">65,535</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>Keep in mind that there’s nothing you can do to force your interpretation upon someone else’s method. If a method accepts a <code>short</code>, then that method accepts a value between −32,768 and 32,767 unless explicitly stated otherwise.</p>
-      <p>Here are a couple of useful conversions / manipulations.</p>
-      <h2>Printing an unsigned <code>short</code></h2>
-      <p>Use <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#toUnsignedInt-short-"><code>Short.toUnsignedInt</code></a> and print the resulting <code>int</code>:</p>
-      <pre><code class="dynamic-font-size"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(char:A)"><span class="method">println</span></a>(<span class="text_lit">"Value of my unsigned short: "</span> + <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s</span>));
+        <h2>An unsigned <code>short</code></h2>
+        <p>
+          A <code>short</code> is always signed in Java, but nothing prevents
+          you from viewing a <code>short</code> simply as 16 bits and interpret
+          those bits as a value between 0 and 65,535.
+        </p>
+        <table class="white" style="margin: 2em auto">
+          <thead>
+            <tr>
+              <th style="width: 33%; text-align: center; padding: 0.3em">
+                Java short value
+              </th>
+              <th style="width: 34%; text-align: center; padding: 0.3em">
+                Bits
+              </th>
+              <th style="width: 33%; text-align: center; padding: 0.3em">
+                Interpreted as unsigned
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">0</td>
+              <td style="text-align: center; padding: 0.3em">
+                <code>0000000000000000</code>
+              </td>
+              <td style="text-align: center; padding: 0.3em">0</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">1</td>
+              <td style="text-align: center; padding: 0.3em">
+                <code>0000000000000001</code>
+              </td>
+              <td style="text-align: center; padding: 0.3em">1</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">⋮</td>
+              <td style="text-align: center; padding: 0.3em">⋮</td>
+              <td style="text-align: center; padding: 0.3em">⋮</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">32,767</td>
+              <td style="text-align: center; padding: 0.3em">
+                <code>0111111111111111</code>
+              </td>
+              <td style="text-align: center; padding: 0.3em">32,767</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">−32,768</td>
+              <td style="text-align: center; padding: 0.3em">
+                <code>1000000000000000</code>
+              </td>
+              <td style="text-align: center; padding: 0.3em">32,768</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">⋮</td>
+              <td style="text-align: center; padding: 0.3em">⋮</td>
+              <td style="text-align: center; padding: 0.3em">⋮</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">−2</td>
+              <td style="text-align: center; padding: 0.3em">
+                <code>1111111111111110</code>
+              </td>
+              <td style="text-align: center; padding: 0.3em">65,534</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; padding: 0.3em">−1</td>
+              <td style="text-align: center; padding: 0.3em">
+                <code>1111111111111111</code>
+              </td>
+              <td style="text-align: center; padding: 0.3em">65,535</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Keep in mind that there’s nothing you can do to force your
+          interpretation upon someone else’s method. If a method accepts a
+          <code>short</code>, then that method accepts a value between −32,768
+          and 32,767 unless explicitly stated otherwise.
+        </p>
+        <p>Here are a couple of useful conversions / manipulations.</p>
+        <h2>Printing an unsigned <code>short</code></h2>
+        <p>
+          Use
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#toUnsignedInt-short-"
+            ><code>Short.toUnsignedInt</code></a
+          >
+          and print the resulting <code>int</code>:
+        </p>
+        <pre><code class="dynamic-font-size"><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(char:A)"><span class="method">println</span></a>(<span class="text_lit">"Value of my unsigned short: "</span> + <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s</span>));
 </code></pre>
-      <h2>Converting from <code>int</code> to unsigned <code>short</code></h2>
-      <p>Casting to <code>short</code> throws away all but the lowest 16 bits.</p>
-      <pre><code><span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">65000</span>;        <span class="comment">// 00000000 00000000 11111101 11101000</span>
+        <h2>Converting from <code>int</code> to unsigned <code>short</code></h2>
+        <p>
+          Casting to <code>short</code> throws away all but the lowest 16 bits.
+        </p>
+        <pre><code><span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">65000</span>;        <span class="comment">// 00000000 00000000 11111101 11101000</span>
 <span class="keyword">short</span> <span class="type">s</span> = (<span class="keyword">short</span>) <span class="type">i</span>;  <span class="comment">//                   11111101 11101000</span>
 
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<span class="type">s</span>);                       <span class="comment">// -536</span>
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s</span>));  <span class="comment">// 65000</span>
 </code></pre>
-      <h2>Converting from unsigned <code>short</code> to <code>int</code></h2>
-      <p>Use <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#toUnsignedInt-short-"><code>Short.toUnsignedInt</code></a> to avoid <a href="https://en.wikipedia.org/wiki/Sign_extension">sign extension</a>.</p>
-      <pre><code><span class="keyword">short</span> <span class="type">s</span> = (<span class="keyword">short</span>) (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#MAX_VALUE"><span class="static_final_field">MAX_VALUE</span></a> + <span class="num_lit">7233</span>);  <span class="comment">// -25536 or 40000</span>
+        <h2>Converting from unsigned <code>short</code> to <code>int</code></h2>
+        <p>
+          Use
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#toUnsignedInt-short-"
+            ><code>Short.toUnsignedInt</code></a
+          >
+          to avoid
+          <a href="https://en.wikipedia.org/wiki/Sign_extension"
+            >sign extension</a
+          >.
+        </p>
+        <pre><code><span class="keyword">short</span> <span class="type">s</span> = (<span class="keyword">short</span>) (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#MAX_VALUE"><span class="static_final_field">MAX_VALUE</span></a> + <span class="num_lit">7233</span>);  <span class="comment">// -25536 or 40000</span>
 
 <span class="keyword">int</span> <span class="type">signed</span> = <span class="type">s</span>;                         <span class="comment">// -25536 (with sign extension)</span>
 <span class="keyword">int</span> <span class="type">unsigned</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s</span>);  <span class="comment">//  40000 (without sign extension)</span>
 </code></pre>
-      <p>Or, equivalently:</p>
-      <pre><code><span class="keyword">int</span> <span class="type">unsigned</span> = <span class="type">s</span> &amp; <span class="num_lit">0xffff</span>;
+        <p>Or, equivalently:</p>
+        <pre><code><span class="keyword">int</span> <span class="type">unsigned</span> = <span class="type">s</span> &amp; <span class="num_lit">0xffff</span>;
 </code></pre>
-      <h2>Parsing an unsigned <code>short</code></h2>
-      <pre><code><span class="keyword">short</span> <span class="type">s</span> = (<span class="keyword">short</span>) <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#parseInt(java.lang.String)"><span class="static_method">parseInt</span></a>(<span class="text_lit">"65000"</span>);
+        <h2>Parsing an unsigned <code>short</code></h2>
+        <pre><code><span class="keyword">short</span> <span class="type">s</span> = (<span class="keyword">short</span>) <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#parseInt(java.lang.String)"><span class="static_method">parseInt</span></a>(<span class="text_lit">"65000"</span>);
 
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s</span>)); <span class="comment">// 65000</span>
 </code></pre>
-      <h2>Comparing unsigned <code>short</code>s</h2>
-      <p>Convert to <code>int</code> and compare.</p>
-      <pre><code class="dynamic-font-size"><span class="keyword">int</span> <span class="type">cmp</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#compare(int,int)"><span class="static_method">compare</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s1</span>), <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s2</span>));
+        <h2>Comparing unsigned <code>short</code>s</h2>
+        <p>Convert to <code>int</code> and compare.</p>
+        <pre><code class="dynamic-font-size"><span class="keyword">int</span> <span class="type">cmp</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#compare(int,int)"><span class="static_method">compare</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s1</span>), <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s2</span>));
 <span class="comment">// cmp = -1  =&gt;  s1 &lt; s2</span>
 <span class="comment">// cmp =  0  =&gt;  s1 = s2</span>
 <span class="comment">// cmp =  1  =&gt;  s1 &gt; s2</span>
 </code></pre>
-      <h2>Arithmetics</h2>
-      <p>The 2-complement representation “just works” for addition, subtraction and multiplication.</p>
-      <pre><code><span class="comment">// two unsigned shorts</span>
+        <h2>Arithmetics</h2>
+        <p>
+          The 2-complement representation “just works” for addition, subtraction
+          and multiplication.
+        </p>
+        <pre><code><span class="comment">// two unsigned shorts</span>
 <span class="keyword">short</span> <span class="type">s1</span> = (<span class="keyword">short</span>) <span class="num_lit">65000</span>;
 <span class="keyword">short</span> <span class="type">s2</span> = <span class="num_lit">100</span>;
 
@@ -270,37 +417,57 @@
 <span class="keyword">short</span> <span class="type">diff</span> = (<span class="keyword">short</span>) (<span class="type">s1</span> - <span class="type">s2</span>);  <span class="comment">// 64900</span>
 <span class="keyword">short</span> <span class="type">prod</span> = (<span class="keyword">short</span>) (<span class="type">s2</span> * <span class="type">s2</span>);  <span class="comment">// 10000</span>
 </code></pre>
-      <p>For division and remainder, convert operands to <code>int</code>, and then convert the result back to <code>short</code>:</p>
-      <pre><code><span class="keyword">short</span> <span class="type">q</span> = (<span class="keyword">short</span>) (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s1</span>) / <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s2</span>));
+        <p>
+          For division and remainder, convert operands to <code>int</code>, and
+          then convert the result back to <code>short</code>:
+        </p>
+        <pre><code><span class="keyword">short</span> <span class="type">q</span> = (<span class="keyword">short</span>) (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s1</span>) / <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s2</span>));
 <span class="keyword">short</span> <span class="type">r</span> = (<span class="keyword">short</span>) (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s1</span>) % <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html"><span class="type">Short</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html#toUnsignedInt(short)"><span class="static_method">toUnsignedInt</span></a>(<span class="type">s2</span>));
 </code></pre>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/unsigned-short.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/unsigned-short.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

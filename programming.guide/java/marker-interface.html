@@ -1,207 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Marker Interfaces | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="A marker interface, or tag interface, is an interface without any methods or fields. It's typically used to flag that a class have some internal capability." name="description">
-  <meta content="java, marker interface, tag interface, annotations, example, custom marker interface, discriminated union type, criticism, RandomAccess, Cloneable, Serializable, Remote, retention, When to use marker interfaces" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: Marker Interfaces | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="A marker interface, or tag interface, is an interface without any methods or fields. It's typically used to flag that a class have some internal capability."
+      name="description"
+    />
+    <meta
+      content="java, marker interface, tag interface, annotations, example, custom marker interface, discriminated union type, criticism, RandomAccess, Cloneable, Serializable, Remote, retention, When to use marker interfaces"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Related</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="https://dzone.com/articles/marker-interface-isnt-a-pattern-or-a-good-idea">DZone: Marker Interface Isn't a Pattern or a Good Idea</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Erik Dietrich</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://books.google.se/books?id=BIpDDwAAQBAJ">Effective Java, Item 41: Use marker interfaces to define types</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Joshua Bloch</span>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Marker Interfaces</h1>
-      <p>A <strong>marker interface</strong>, or <strong>tag interface</strong>, is an interface without any methods or fields. It's typically used to flag that instances of the implementing classes have some internal capability and behaves in a certain way when interacting with them.</p>
-      <p>It may also be the case that they have no semantical purpose other than to group related types together. It then serves as slightly more typesafe alternative to <code>Object</code> and can be seen as a poor man's substitute for discriminated union types.</p>
-      <h2>Examples from the Java API</h2>
-      <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/RandomAccess.html"><code>RandomAccess</code></a> is a marker interface that should be implemented by <code>List</code> classes that provide efficient non-sequential access. Specifically the Javadoc says:</p>
-      <blockquote>
-        As a rule of thumb, a List implementation should implement this interface if, for typical instances of the class, this loop:
-        <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="num_lit">0</span>, n = list.size(); i &lt; n; i++)
-     list.get(i);</code></pre>runs faster than this loop:
-        <pre><code><span class="keyword">for</span> (Iterator i = list.iterator(); i.hasNext();)
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a
+            href="https://dzone.com/articles/marker-interface-isnt-a-pattern-or-a-good-idea"
+            >DZone: Marker Interface Isn't a Pattern or a Good Idea</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Erik Dietrich</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://books.google.se/books?id=BIpDDwAAQBAJ"
+            >Effective Java, Item 41: Use marker interfaces to define types</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Joshua Bloch</span
+          >
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Marker Interfaces</h1>
+        <p>
+          A <strong>marker interface</strong>, or
+          <strong>tag interface</strong>, is an interface without any methods or
+          fields. It's typically used to flag that instances of the implementing
+          classes have some internal capability and behaves in a certain way
+          when interacting with them.
+        </p>
+        <p>
+          It may also be the case that they have no semantical purpose other
+          than to group related types together. It then serves as slightly more
+          typesafe alternative to <code>Object</code> and can be seen as a poor
+          man's substitute for discriminated union types.
+        </p>
+        <h2>Examples from the Java API</h2>
+        <p>
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/RandomAccess.html"
+            ><code>RandomAccess</code></a
+          >
+          is a marker interface that should be implemented by
+          <code>List</code> classes that provide efficient non-sequential
+          access. Specifically the Javadoc says:
+        </p>
+        <blockquote>
+          As a rule of thumb, a List implementation should implement this
+          interface if, for typical instances of the class, this loop:
+          <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="num_lit">0</span>, n = list.size(); i &lt; n; i++)
+     list.get(i);</code></pre>
+          runs faster than this loop:
+          <pre><code><span class="keyword">for</span> (Iterator i = list.iterator(); i.hasNext();)
      i.next();</code></pre>
-      </blockquote>
-      <p>This allows clients to choose the most efficient code for traversing a given list. <code>ArrayList</code> implements this interface, while <code>LinkedList</code> does not.</p>
-      <div class="article-box">
-        <p><strong>Note:</strong> Since <code>RandomAccess</code> is intended specifically for lists, an alternative approach would have been to simply add a <code>boolean&nbsp;providesRandomAccess()</code> method to the <code>List</code> interface. However, at the time <code>RandomAccess</code> was introduced this was not an option, since <code>List</code> was already around, and adding methods to an interface is not a backward compatible change. Had this feature been introduced today on the other hand, a default method could have been a good alternative.</p>
-      </div>
-      <p>Other examples from the standard API:</p>
-      <table>
-        <tbody>
-          <tr>
-            <th>Interface</th>
-            <th>Purpose</th>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html"><code>Serializable</code></a>
-            </td>
-            <td>Says that the object state may be serialized</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html"><code>Cloneable</code></a>
-            </td>
-            <td>Says that <code>Object.clone</code> may perform a field-by-field copy of the object</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://docs.oracle.com/javase/8/docs/api/java/rmi/Remote.html"><code>Remote</code></a>
-            </td>
-            <td>Says that methods may be invoked from a non-local virtual machine</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://docs.oracle.com/javase/8/docs/api/java/util/EventListener.html"><code>EventListener</code></a>
-            </td>
-            <td>Interface that all AWT event listeners must implement</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/CopyOption.html"><code>CopyOption</code></a>
-            </td>
-            <td>
-              Union type for <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html"><code>LinkOption</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html"><code>StandardCopyOption</code></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>A custom marker interface</h2>
-      <p>Suppose we have a <code>LogUtil.logAsynchronously(Object&nbsp;o)</code> method that writes <code>o.toString()</code> to a log file. To return as quickly as possible from <code>logAsynchronously</code> we would like to call <code>toString</code> in the background thread. This is however only safe if other threads don't change the state of <code>o</code>. For this reason we add an <code>ImmutableObject</code> marker interface to allow for clients to opt in for this feature.</p>
-      <pre><code><span class="keyword">interface</span> ImmutableObject {}</code></pre>
-      <p>The <code>logAsynchronously</code> method could then use <code>instanceof</code> as follows:</p>
-      <pre><code><span class="keyword">class</span> LogUtil {
+        </blockquote>
+        <p>
+          This allows clients to choose the most efficient code for traversing a
+          given list. <code>ArrayList</code> implements this interface, while
+          <code>LinkedList</code> does not.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Note:</strong> Since <code>RandomAccess</code> is intended
+            specifically for lists, an alternative approach would have been to
+            simply add a <code>boolean&nbsp;providesRandomAccess()</code> method
+            to the <code>List</code> interface. However, at the time
+            <code>RandomAccess</code> was introduced this was not an option,
+            since <code>List</code> was already around, and adding methods to an
+            interface is not a backward compatible change. Had this feature been
+            introduced today on the other hand, a default method could have been
+            a good alternative.
+          </p>
+        </div>
+        <p>Other examples from the standard API:</p>
+        <table>
+          <tbody>
+            <tr>
+              <th>Interface</th>
+              <th>Purpose</th>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html"
+                  ><code>Serializable</code></a
+                >
+              </td>
+              <td>Says that the object state may be serialized</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html"
+                  ><code>Cloneable</code></a
+                >
+              </td>
+              <td>
+                Says that <code>Object.clone</code> may perform a field-by-field
+                copy of the object
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://docs.oracle.com/javase/8/docs/api/java/rmi/Remote.html"
+                  ><code>Remote</code></a
+                >
+              </td>
+              <td>
+                Says that methods may be invoked from a non-local virtual
+                machine
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://docs.oracle.com/javase/8/docs/api/java/util/EventListener.html"
+                  ><code>EventListener</code></a
+                >
+              </td>
+              <td>Interface that all AWT event listeners must implement</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/CopyOption.html"
+                  ><code>CopyOption</code></a
+                >
+              </td>
+              <td>
+                Union type for
+                <a
+                  href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html"
+                  ><code>LinkOption</code></a
+                >
+                and
+                <a
+                  href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html"
+                  ><code>StandardCopyOption</code></a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>A custom marker interface</h2>
+        <p>
+          Suppose we have a
+          <code>LogUtil.logAsynchronously(Object&nbsp;o)</code> method that
+          writes <code>o.toString()</code> to a log file. To return as quickly
+          as possible from <code>logAsynchronously</code> we would like to call
+          <code>toString</code> in the background thread. This is however only
+          safe if other threads don't change the state of <code>o</code>. For
+          this reason we add an <code>ImmutableObject</code> marker interface to
+          allow for clients to opt in for this feature.
+        </p>
+        <pre><code><span class="keyword">interface</span> ImmutableObject {}</code></pre>
+        <p>
+          The <code>logAsynchronously</code> method could then use
+          <code>instanceof</code> as follows:
+        </p>
+        <pre><code><span class="keyword">class</span> LogUtil {
     <span class="keyword">public</span> <span class="keyword">void</span> logAsynchronously(Object o) {
         <span class="keyword">if</span> (o <span class="keyword">instanceof</span> ImmutableObject) {
             runInBackground(() -&gt; log(o.toString()));
@@ -212,93 +371,256 @@
     }
     …
 }</code></pre>
-      <h2>Use as discriminated union type</h2>
-      <p>Other languages, such as F# and TypeScript support <em>discriminated union types</em> which means you can write things like:</p>
-      <pre><code><span class="keyword">function</span> print(value: string | number) {
+        <h2>Use as discriminated union type</h2>
+        <p>
+          Other languages, such as F# and TypeScript support
+          <em>discriminated union types</em> which means you can write things
+          like:
+        </p>
+        <pre><code><span class="keyword">function</span> print(value: string | number) {
     <span class="comment">// value can be a string or a number</span>
 }</code></pre>
-      <p>Java does not provide support for this. If you want to express <em>"an instance of either <code>A</code> or <code>B</code>"</em> you can create an empty interface <code>AorB</code> and let both classes implement this interface.</p>
-      <p><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/CopyOption.html"><code>CopyOption</code></a> is an example of this. It is an empty interface implemented by <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html"><code>LinkOption</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html"><code>StandardCopyOption</code></a>. This allows for methods such as <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#copy-java.nio.file.Path-java.nio.file.Path-java.nio.file.CopyOption...-"><code>Files.copy</code></a> to have a signature like this:</p>
-      <pre><code><span class="keyword">public</span> <span class="keyword">static</span> Path copy(Path source,
+        <p>
+          Java does not provide support for this. If you want to express
+          <em>"an instance of either <code>A</code> or <code>B</code>"</em> you
+          can create an empty interface <code>AorB</code> and let both classes
+          implement this interface.
+        </p>
+        <p>
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/CopyOption.html"
+            ><code>CopyOption</code></a
+          >
+          is an example of this. It is an empty interface implemented by
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/LinkOption.html"
+            ><code>LinkOption</code></a
+          >
+          and
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/StandardCopyOption.html"
+            ><code>StandardCopyOption</code></a
+          >. This allows for methods such as
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#copy-java.nio.file.Path-java.nio.file.Path-java.nio.file.CopyOption...-"
+            ><code>Files.copy</code></a
+          >
+          to have a signature like this:
+        </p>
+        <pre><code><span class="keyword">public</span> <span class="keyword">static</span> Path copy(Path source,
                         Path target,
                         CopyOption... options) {
     …
 }</code></pre>
-      <p>This approach doesn't let you create union types of classes out of your control, like <code>String</code> and <code>Number</code> as in the TypeScript example above. On the upside, you can easily extend the union type with new classes by letting more classes implement the empty interface.</p>
-      <h2>Restricting Use</h2>
-      <p>By letting the marker interface, <code>M</code>, extend another interface, <code>I</code>, you make sure that <code>M</code> can only be implemented by classes that also implement <code>I</code>.</p>
-      <p>For example, <code>RandomAccess</code> is intendend to be used by <code>List</code> implementations. If the authors wanted to <em>enforce</em> this, they could have implemented <code>RandomAccess</code> like this:</p>
-      <pre><code><span class="keyword">interface</span> RandomAccess <span class="keyword">extends</span> List {}
+        <p>
+          This approach doesn't let you create union types of classes out of
+          your control, like <code>String</code> and <code>Number</code> as in
+          the TypeScript example above. On the upside, you can easily extend the
+          union type with new classes by letting more classes implement the
+          empty interface.
+        </p>
+        <h2>Restricting Use</h2>
+        <p>
+          By letting the marker interface, <code>M</code>, extend another
+          interface, <code>I</code>, you make sure that <code>M</code> can only
+          be implemented by classes that also implement <code>I</code>.
+        </p>
+        <p>
+          For example, <code>RandomAccess</code> is intendend to be used by
+          <code>List</code> implementations. If the authors wanted to
+          <em>enforce</em> this, they could have implemented
+          <code>RandomAccess</code> like this:
+        </p>
+        <pre><code><span class="keyword">interface</span> RandomAccess <span class="keyword">extends</span> List {}
 </code></pre>
-      <h2>Criticism</h2>
-      <p>The use of marker interfaces have long been criticized and nowadays most of the use cases are better solved with annotations.</p>
-      <dl>
-        <dt>Violates the principle of least astonishment</dt>
-        <dd>The primary purpose of an interface is to establish a contract of communication. Since an empty interface is a contract that says nothing, it's at first glance quite useless. Some argue that marker interfaces aren't actual interfaces at all.</dd>
-        <dt>Forces a non-object oriented programming style</dt>
-        <dd>
-          The use of <code>instanceof</code> almost always begs the question: <em>Why isn't this solved with polymorphism&nbsp;/&nbsp;virtual methods?</em> Where it would be natural to do
-          <pre><code>obj.doSomething()</code></pre>marker interfaces requires you to do
-          <pre><code><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Marker) {
+        <h2>Criticism</h2>
+        <p>
+          The use of marker interfaces have long been criticized and nowadays
+          most of the use cases are better solved with annotations.
+        </p>
+        <dl>
+          <dt>Violates the principle of least astonishment</dt>
+          <dd>
+            The primary purpose of an interface is to establish a contract of
+            communication. Since an empty interface is a contract that says
+            nothing, it's at first glance quite useless. Some argue that marker
+            interfaces aren't actual interfaces at all.
+          </dd>
+          <dt>Forces a non-object oriented programming style</dt>
+          <dd>
+            The use of <code>instanceof</code> almost always begs the question:
+            <em
+              >Why isn't this solved with polymorphism&nbsp;/&nbsp;virtual
+              methods?</em
+            >
+            Where it would be natural to do
+            <pre><code>obj.doSomething()</code></pre>
+            marker interfaces requires you to do
+            <pre><code><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Marker) {
     doSomething(obj);
-}</code></pre>I.e. the logic is pushed outside the class itself. If this affects many places in the code, maintenance becomes a nightmare.
-        </dd>
-        <dt>Requires casting</dt>
-        <dd>If you have say, a <code>Cloneable</code> variable, you'd expect to be able to clone it. But no; You're forced to cast it to something else first. This is because the contract of a marker interface such as <code>Cloneable</code> is useless. All you get are the implicitly declared methods from <code>Object</code>, which is rarely what you're looking for. This ties back to the first item: Marker interfaces aren't proper interfaces at all.</dd>
-        <dt>Requires out of band knowledge</dt>
-        <dd>If objects implementing marker interfaces requires special treatment, the programmer must be aware of this. Even if the programmer reads up on the documentation of the marker interface, it may be unclear where to be cautious. While an <code>Animal</code> doesn't implement the marker interface, a <code>Cat</code> might. Or some future—not yet known—subclass might. Or an undocumented anonymous subclass might.</dd>
-      </dl>
-      <h2>Marker Interfaces vs Annotations</h2>
-      <p>Marker interfaces and annotations serve the same purpose: Convey metadata about the class to its consumers. The fundamental difference however, is that annotations are <em>meant</em> to be used for this purpose, while interfaces are not.</p>
-      <dl>
-        <dt>Parameters</dt>
-        <dd>A marker interface is like a boolean flag, while an annotation can carry an actual value. In other words, annotations let you express things like <code>@Author("John")</code>.</dd>
-        <dt>Inheritance</dt>
-        <dd>
-          Whether or not an annotation is inherited can be controlled through the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Inherited.html"><code>@Inherited</code></a> annotation. Marker interfaces are always inherited and there's no way for subclasses to opt out. For example, if you extend a <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html"><code>Serializable</code></a> class, your class will automatically also be serializable.
-        </dd>
-        <dt>Retention</dt>
-        <dd>
-          Sometimes the metadata is only relevant during compilation. Sometimes it should be available also in runtime. <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html"><code>@Retention</code></a> allows you to control this aspect for annotations. Marker interfaces are always available in runtime.
-        </dd>
-        <dt>Applicability</dt>
-        <dd>Marker interfaces can only be "applied" to classes and interfaces. Annotations can also be applied to methods, fields, local variables, parameters, packages and other annotations.</dd>
-        <dt>Repetition</dt>
-        <dd>A marker interface can be applied at most once. Annotations can be applied multiple times. You can for example have multiple <code>@Author</code> annotations on the same class.</dd>
-      </dl>
-      <h2>When to use marker interfaces?</h2>
-      <p>As shown above, annotations are superior in many ways. Marker interfaces however, give you something that annotations don't: <strong>an actual type</strong>. If (and only if) you need to express something like <em>"This method accepts an immutable value as argument"</em> then you should use an <code>ImmutableValue</code> marker interface rather than an <code>@ImmutableValue</code> annotation. (You <em>can</em> actually still use an annotation for this, but you would need to use a compiler plugin like the <a href="https://checkerframework.org/">Checker Framework</a>.)</p>
-      <div class="article-box">
-        <strong>Rule of thumb:</strong> Use marker interfaces if you want to define a type, otherwise use an annotation.
-      </div>
-      <p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/EventListener.html"><code>EventListener</code></a> interface is an example where an annotation would not have been sufficient. Most annotations (even non-repeating, inherited, without arguments) would not have been suitable as a marker interface: <a href="https://docs.oracle.com/javaee/7/api/javax/validation/constraints/NotNull.html"><code>@NotNull</code></a>, <a href="https://fasterxml.github.io/jackson-annotations/javadoc/2.5/com/fasterxml/jackson/annotation/JsonIgnore.html"><code>@JsonIgnore</code></a>, <a href="https://checkerframework.org/api/org/checkerframework/checker/interning/qual/Interned.html"><code>@Interned</code></a> to mention a few.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+}</code></pre>
+            I.e. the logic is pushed outside the class itself. If this affects
+            many places in the code, maintenance becomes a nightmare.
+          </dd>
+          <dt>Requires casting</dt>
+          <dd>
+            If you have say, a <code>Cloneable</code> variable, you'd expect to
+            be able to clone it. But no; You're forced to cast it to something
+            else first. This is because the contract of a marker interface such
+            as <code>Cloneable</code> is useless. All you get are the implicitly
+            declared methods from <code>Object</code>, which is rarely what
+            you're looking for. This ties back to the first item: Marker
+            interfaces aren't proper interfaces at all.
+          </dd>
+          <dt>Requires out of band knowledge</dt>
+          <dd>
+            If objects implementing marker interfaces requires special
+            treatment, the programmer must be aware of this. Even if the
+            programmer reads up on the documentation of the marker interface, it
+            may be unclear where to be cautious. While an
+            <code>Animal</code> doesn't implement the marker interface, a
+            <code>Cat</code> might. Or some future—not yet known—subclass might.
+            Or an undocumented anonymous subclass might.
+          </dd>
+        </dl>
+        <h2>Marker Interfaces vs Annotations</h2>
+        <p>
+          Marker interfaces and annotations serve the same purpose: Convey
+          metadata about the class to its consumers. The fundamental difference
+          however, is that annotations are <em>meant</em> to be used for this
+          purpose, while interfaces are not.
+        </p>
+        <dl>
+          <dt>Parameters</dt>
+          <dd>
+            A marker interface is like a boolean flag, while an annotation can
+            carry an actual value. In other words, annotations let you express
+            things like <code>@Author("John")</code>.
+          </dd>
+          <dt>Inheritance</dt>
+          <dd>
+            Whether or not an annotation is inherited can be controlled through
+            the
+            <a
+              href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Inherited.html"
+              ><code>@Inherited</code></a
+            >
+            annotation. Marker interfaces are always inherited and there's no
+            way for subclasses to opt out. For example, if you extend a
+            <a
+              href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html"
+              ><code>Serializable</code></a
+            >
+            class, your class will automatically also be serializable.
+          </dd>
+          <dt>Retention</dt>
+          <dd>
+            Sometimes the metadata is only relevant during compilation.
+            Sometimes it should be available also in runtime.
+            <a
+              href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html"
+              ><code>@Retention</code></a
+            >
+            allows you to control this aspect for annotations. Marker interfaces
+            are always available in runtime.
+          </dd>
+          <dt>Applicability</dt>
+          <dd>
+            Marker interfaces can only be "applied" to classes and interfaces.
+            Annotations can also be applied to methods, fields, local variables,
+            parameters, packages and other annotations.
+          </dd>
+          <dt>Repetition</dt>
+          <dd>
+            A marker interface can be applied at most once. Annotations can be
+            applied multiple times. You can for example have multiple
+            <code>@Author</code> annotations on the same class.
+          </dd>
+        </dl>
+        <h2>When to use marker interfaces?</h2>
+        <p>
+          As shown above, annotations are superior in many ways. Marker
+          interfaces however, give you something that annotations don't:
+          <strong>an actual type</strong>. If (and only if) you need to express
+          something like
+          <em>"This method accepts an immutable value as argument"</em> then you
+          should use an <code>ImmutableValue</code> marker interface rather than
+          an <code>@ImmutableValue</code> annotation. (You <em>can</em> actually
+          still use an annotation for this, but you would need to use a compiler
+          plugin like the
+          <a href="https://checkerframework.org/">Checker Framework</a>.)
+        </p>
+        <div class="article-box">
+          <strong>Rule of thumb:</strong> Use marker interfaces if you want to
+          define a type, otherwise use an annotation.
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/marker-interface.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <p>
+          The
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/awt/EventListener.html"
+            ><code>EventListener</code></a
+          >
+          interface is an example where an annotation would not have been
+          sufficient. Most annotations (even non-repeating, inherited, without
+          arguments) would not have been suitable as a marker interface:
+          <a
+            href="https://docs.oracle.com/javaee/7/api/javax/validation/constraints/NotNull.html"
+            ><code>@NotNull</code></a
+          >,
+          <a
+            href="https://fasterxml.github.io/jackson-annotations/javadoc/2.5/com/fasterxml/jackson/annotation/JsonIgnore.html"
+            ><code>@JsonIgnore</code></a
+          >,
+          <a
+            href="https://checkerframework.org/api/org/checkerframework/checker/interning/qual/Interned.html"
+            ><code>@Interned</code></a
+          >
+          to mention a few.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/marker-interface.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

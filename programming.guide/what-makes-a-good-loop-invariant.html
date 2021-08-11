@@ -1,201 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>What makes a good loop invariant? | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="This article describes what makes a loop invariant valid and useful." name="description">
-  <meta content="hoare logic, loop invariant" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>What makes a good loop invariant? | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="This article describes what makes a loop invariant valid and useful."
+      name="description"
+    />
+    <meta content="hoare logic, loop invariant" name="keywords" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li class="current">What makes a good loop invariant?</li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>What makes a good loop invariant?</h1>
-      <p>Let's break down the question a bit...</p>
-      <h2>What makes a <em>valid</em> loop invariant?</h2>
-      <p>A loop invariant should hold</p>
-      <ol>
-        <li>Before the loop</li>
-        <li>At the top of the loop body</li>
-        <li>At the bottom of the loop body</li>
-        <li>After the loop</li>
-      </ol>
-      <p>It's indeed the case that <code>true</code> is a <em>valid</em> loop invariant, but it's rarely <em>useful</em>...</p>
-      <h2>What makes a <em>useful</em> loop invariant?</h2>
-      <p>When annotating code with Hoare logic assertions, the invariant <code>φ</code> appears as follows:</p>
-      <pre><code>{φ}
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li class="current">What makes a good loop invariant?</li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>What makes a good loop invariant?</h1>
+        <p>Let's break down the question a bit...</p>
+        <h2>What makes a <em>valid</em> loop invariant?</h2>
+        <p>A loop invariant should hold</p>
+        <ol>
+          <li>Before the loop</li>
+          <li>At the top of the loop body</li>
+          <li>At the bottom of the loop body</li>
+          <li>After the loop</li>
+        </ol>
+        <p>
+          It's indeed the case that <code>true</code> is a <em>valid</em> loop
+          invariant, but it's rarely <em>useful</em>...
+        </p>
+        <h2>What makes a <em>useful</em> loop invariant?</h2>
+        <p>
+          When annotating code with Hoare logic assertions, the invariant
+          <code>φ</code> appears as follows:
+        </p>
+        <pre><code>{φ}
 while (c)
     {φ ∧ c}
     ...loop body...
     {φ}
 {φ ∧ ¬c}
 </code></pre>
-      <p>These code annotations give rise to so called <em>proof obligations</em>: If two assertions end up next to each other</p>
-      <pre><code>...
+        <p>
+          These code annotations give rise to so called
+          <em>proof obligations</em>: If two assertions end up next to each
+          other
+        </p>
+        <pre><code>...
 {α}
 {β}
 ...
 </code></pre>
-      <p>then you're obliged to show that <code>α → β</code>. So, in the example above, you'll presumably know what's true before the loop and what needs to be true after the loop. For the loop invariant <code>φ</code> to be <em>useful</em> you thus need to make sure the following implications hold:</p>
-      <ul>
-        <li><code>&lt;whatever comes before the loop&gt; → φ</code>, and</li>
-        <li><code>φ → &lt;whatever comes after the loop&gt;</code>.</li>
-      </ul>
-      <p>The second implication disqualifies <code>true</code> as a useful loop invariant, as <code>true → something</code> only holds if <code>something</code> holds by itself. (Put differently, if we choose <code>true</code> as our loop invariant, we have no "help" from it when reasoning about the code below the loop.)</p>
-      <h2>Finally: What makes a <em>good</em> loop invariant?</h2>
-      <p>Apart from being valid and useful, it's nice if it's</p>
-      <ul>
-        <li>As simple as possible</li>
-        <li>As intuitive as possible (Does it reflect the actual algorithm, or does it work by "chance"?)</li>
-        <li>Cause the proof obligations to be as simple as possible</li>
-      </ul>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>
+          then you're obliged to show that <code>α → β</code>. So, in the
+          example above, you'll presumably know what's true before the loop and
+          what needs to be true after the loop. For the loop invariant
+          <code>φ</code> to be <em>useful</em> you thus need to make sure the
+          following implications hold:
+        </p>
+        <ul>
+          <li><code>&lt;whatever comes before the loop&gt; → φ</code>, and</li>
+          <li><code>φ → &lt;whatever comes after the loop&gt;</code>.</li>
+        </ul>
+        <p>
+          The second implication disqualifies <code>true</code> as a useful loop
+          invariant, as <code>true → something</code> only holds if
+          <code>something</code> holds by itself. (Put differently, if we choose
+          <code>true</code> as our loop invariant, we have no "help" from it
+          when reasoning about the code below the loop.)
+        </p>
+        <h2>Finally: What makes a <em>good</em> loop invariant?</h2>
+        <p>Apart from being valid and useful, it's nice if it's</p>
+        <ul>
+          <li>As simple as possible</li>
+          <li>
+            As intuitive as possible (Does it reflect the actual algorithm, or
+            does it work by "chance"?)
+          </li>
+          <li>Cause the proof obligations to be as simple as possible</li>
+        </ul>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="what-makes-a-good-loop-invariant.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="what-makes-a-good-loop-invariant.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

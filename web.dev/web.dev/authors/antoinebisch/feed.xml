@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Antoine Bisch on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Antoine Bisch</name>
+  </author>
+  <link href="https://web.dev/authors/antoinebisch/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/xCDa34tJbhKRgr8pj5BJ.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Web Ecosystem Consultant</subtitle>
+  
+  
+  <entry>
+    <title>A performance-focused workflow based on Google tools</title>
+    <link href="https://web.dev/vitals-tools-workflow/"/>
+    <updated>2021-08-09T00:00:00Z</updated>
+    <id>https://web.dev/vitals-tools-workflow/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;With the &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Core Web Vitals&lt;/a&gt; (CWV)
+metrics now incorporated into
+&lt;a href=&quot;https://developers.google.com/search/docs/guides/page-experience#signals&quot; rel=&quot;noopener&quot;&gt;Page experience signals&lt;/a&gt;,
+user experience optimization has increasingly become top of mind for website owners.
+This article will suggest how the
+&lt;a href=&quot;https://web.dev/vitals-tools/&quot;&gt;various performance-focused tools&lt;/a&gt;
+that Google has made freely available can be combined to effectively evaluate
+website health and identify pain points,
+debug and optimize pages that need attention,
+and continuously monitor and prevent regression.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A diagram of the cycle outlined in this article: evaluate website health and identify pain points, debug and optimize, monitor and continuous development.&quot; decoding=&quot;async&quot; height=&quot;465&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Suggested workflow to optimize Core Web Vitals.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;CWV are evaluated from real user experiences on a website.
+The more data that can be collected and analyzed based on real users,
+the more successful website owners will be at optimizing their pages.
+To this effect,
+we strongly recommend implementing
+&lt;a href=&quot;https://web.dev/vitals-field-measurement-best-practices/&quot;&gt;Real User Measurement&lt;/a&gt; (RUM)
+monitoring in addition to this workflow.&lt;/p&gt;
+&lt;h2 id=&quot;step-a:-evaluate-website-health-and-identify-pain-points&quot;&gt;Step A: Evaluate website health and identify pain points &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#step-a:-evaluate-website-health-and-identify-pain-points&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;img alt=&quot;Image of the three tools used in this step: CrUX Dashboard, Search Console, PageSpeed Insights.&quot; decoding=&quot;async&quot; height=&quot;203&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/i1Uk3GTajiHlylHL4wP1.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;ol&gt;
+&lt;li&gt;Use the &lt;a href=&quot;http://g.co/chromeuxdash&quot; rel=&quot;noopener&quot;&gt;CrUX Dashboard&lt;/a&gt;
+to measure the health of your website.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&quot;https://search.google.com/search-console/about&quot; rel=&quot;noopener&quot;&gt;Search Console&lt;/a&gt;
+to identify pages that need attention.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt;
+to deep dive on user experience metrics for a specific page.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As a developer embarking on website optimization,
+knowing where to start can be overwhelming.
+The questions that usually come to mind are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How is my website performing, and does it need attention?&lt;/li&gt;
+&lt;li&gt;Has the website&#39;s experience improved or degraded recently?&lt;/li&gt;
+&lt;li&gt;What pages, metrics, and devices should I prioritize?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;measure-the-health-of-your-website-with-the-crux-dashboard&quot;&gt;Measure the health of your website with the CrUX Dashboard &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#measure-the-health-of-your-website-with-the-crux-dashboard&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;figure class=&quot;w-figure w-screenshot&quot;&gt;
+&lt;img alt=&quot;A screenshot of the landing page of a Chrome UX Report.&quot; decoding=&quot;async&quot; height=&quot;837&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/ZR8BFHyDN6vBaiL1Zm59.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    The landing page of a Chrome UX Report.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;To get a snapshot of a website&#39;s performance you can
+&lt;a href=&quot;https://web.dev/chrome-ux-report-data-studio-dashboard/&quot;&gt;generate a CrUX Dashboard&lt;/a&gt;
+at &lt;a href=&quot;http://g.co/chromeuxdash&quot; rel=&quot;noopener&quot;&gt;g.co/chromeuxdash&lt;/a&gt;,
+based on the &lt;a href=&quot;https://web.dev/chrome-ux-report/&quot;&gt;Chrome UX Report&lt;/a&gt; (CrUX) data.
+CrUX is powered by key user experience metrics across the public web,
+aggregated from real Chrome users who have opted-in to syncing their browsing history
+(as such, it does not report the experience of all users of a website).&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;A website might not have enough eligible traffic
+to be included in the CrUX dataset to generate this report.
+You can capture real-time key user metrics by
+&lt;a href=&quot;https://web.dev/vitals/#measure-core-web-vitals-in-javascript&quot;&gt;integrating the web-vitals.js library&lt;/a&gt;
+or using other RUM solutions.
+This is a good practice even for websites with enough CrUX data as it allows monitoring on a larger user base.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The CrUX report provides information on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Overview of the site:&lt;/strong&gt;
+split by desktop and mobile for the key CWV Metrics
+(Largest Contentful Paint, Cumulative Layout shift, and First Input Delay)
+in addition to other metrics such as First Contentful Paint and Time To First Byte.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Historical Trend by Metric type:&lt;/strong&gt;
+each page includes a chart showing distributions over time
+for each available monthly release of the CrUX report data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;User Demographics:&lt;/strong&gt;
+these pages illustrate the distribution of page views across the entire origin
+for users in each demographic (devices and effective connection types).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With this dashboard you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get insights on overall website stability
+and performance per device type, and identify areas of improvement.&lt;/li&gt;
+&lt;li&gt;Understand how architectural changes or builds to the site
+have impacted user experience over time
+(overlaying your historical release data with the CrUX dashboard monthly results,
+to understand what caused regressions).&lt;/li&gt;
+&lt;li&gt;Narrow down on regression timelines, providing the focus for further investigation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To know more about how to use the CruX dashboard, read
+&lt;a href=&quot;https://web.dev/chrome-ux-report-data-studio-dashboard/#using-the-dashboard&quot;&gt;Using the dashboard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you get the overall picture,
+the next step is to identify which pages or templates need the most attention.
+These origin-level reports do not provide this insight,
+but the Search Console does.&lt;/p&gt;
+&lt;h3 id=&quot;identify-poor-performing-pages-using-google-search-console&quot;&gt;Identify poor performing pages using Google Search Console &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#identify-poor-performing-pages-using-google-search-console&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A screenshot of Core Web Vitals charts.&quot; decoding=&quot;async&quot; height=&quot;639&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/w3CgACGvcnqjORHfWVNg.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Core Web Vitals report in the Search Console.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;https://support.google.com/webmasters/answer/9205520&quot; rel=&quot;noopener&quot;&gt;The Core Web Vitals report in Search Console&lt;/a&gt;
+provides a holistic site-wide view of your performance
+and helps identify the types of pages that need the most attention.
+Using this tool you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Identify the number of pages that have a poor experience,
+those that need improvements, and those that give a good experience,
+broken down by mobile and desktop views.&lt;/li&gt;
+&lt;li&gt;Get granular information on URL performance grouped by status,
+metric, and URL groups (groups of similar web pages).&lt;/li&gt;
+&lt;li&gt;Identify key templates of pages to improve based on the URL groups surfaced.
+(Each group contains URLs that provide a similar user experience).&lt;/li&gt;
+&lt;li&gt;Get detailed device-specific reports
+showing how many URLs are in the different experience buckets for either mobile or desktop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are a few things that you should consider when using Search Console:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;While other tools have free access,
+the Search Console requires authorized user access.
+If you do not have access to this tool,
+reach out to the relevant team to get access or share insights.&lt;/li&gt;
+&lt;li&gt;Only indexed URLs can appear in this report,
+except for the coverage report where you can see URLs that were crawled but not indexed.
+The URLs shown are the actual URLs for which data was recorded
+(that is, data is not assigned only to a page&#39;s canonical URL,
+as it is in most other reports).&lt;/li&gt;
+&lt;li&gt;Data showcased in this report might look different from the data displayed in the CrUX Dashboard.
+Search Console charts show status by URL,
+whereas the CrUX Dashboard shows status by visit.
+Therefore, if you have a few poorly performing URLs with a high volume of visits,
+the Search Console chart will show only a few poor URLs,
+while the CrUX Dashboard will show a high percentage of poor experiences
+(visits broken down per metrics).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Analyzing your website using the Search Console tool
+narrows your analysis to pages and page types that need the most attention.
+With this knowledge,
+the next step is to get into the performance details of these pages.&lt;/p&gt;
+&lt;h3 id=&quot;analyzing-page-performance-details-with-pagespeed-insights&quot;&gt;Analyzing page performance details with PageSpeed Insights &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#analyzing-page-performance-details-with-pagespeed-insights&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt; (PSI)
+provides two types of data:
+field data surfaced from CrUX
+(the same data powering the CrUX Dashboard and the Search Console)
+and lab data, generated by
+&lt;a href=&quot;https://web.dev/lighthouse-performance/&quot;&gt;Lighthouse&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A screenshot of the URL-level CrUX data.&quot; decoding=&quot;async&quot; height=&quot;268&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/pVPH2WmTHsb7Es5KSfYb.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    URL-level CrUX data in PSI.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;One of the most exciting features of PSI
+is that it is the only web-based tool able to display a subset of CrUX data
+(FCP, LCP, FID and CLS) at URL-level,
+provided it has enough traffic eligible for data collection.
+This data covers the last 28 days of user experience.
+With this tool, you can get the user experience metrics evaluated at the 75th percentile.
+In other words, if 75% of user experiences are equal to,
+or better than the threshold set for the metric,
+then the performance is considered &#39;good.&#39;
+A URL passes the CWV assessment when 75% of all visits to the page
+performed at or above CWV thresholds for FID, LCP, and CLS.
+You can compare the URL-level data with origin-level data
+to see if the individual URLs are better or worse than
+the origin-level metrics and understand what is unique about the particular page.&lt;/p&gt;
+&lt;h4 id=&quot;lab-data-generated-by-lighthouse&quot;&gt;Lab data, generated by Lighthouse &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#lab-data-generated-by-lighthouse&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The overall Lighthouse score for the URL displays at the top of the page.
+Below the field data section is the lab data section
+that provides metrics collected from a real-time Lighthouse run
+and surfaces opportunities for the page.&lt;/p&gt;
+&lt;p&gt;Running PSI for different types of pages—analyzing the
+field data and opportunities—will provide you with
+a high-level understanding of metrics and improvements to focus on.
+With that information,
+you are now ready to debug and optimize your pages which we will discuss in the next section.&lt;/p&gt;
+&lt;h2 id=&quot;step-b:-debug-and-optimize&quot;&gt;Step B: Debug and optimize &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#step-b:-debug-and-optimize&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;img alt=&quot;Image showing the tools used in this step: Lighthouse, Web Vitals Extension, Chrome DevTools.&quot; decoding=&quot;async&quot; height=&quot;188&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/qWh67N9ZOLOu12FzO7oz.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;ol&gt;
+&lt;li&gt;Use &lt;a href=&quot;https://web.dev/lighthouse-performance/&quot;&gt;Lighthouse&lt;/a&gt;
+to audit a page and uncover improvements.&lt;/li&gt;
+&lt;li&gt;Use the
+&lt;a href=&quot;https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en&quot; rel=&quot;noopener&quot;&gt;Web Vitals extension&lt;/a&gt;
+to analyze CWV metrics in real-time on a page.&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&quot;https://developer.chrome.com/docs/devtools/&quot; rel=&quot;noopener&quot;&gt;Chrome DevTools&lt;/a&gt;
+to debug performance issues and test code changes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once you have identified the pages and metrics that need attention,
+the next questions to ask are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How can these pages be optimized?&lt;/li&gt;
+&lt;li&gt;What are the low-hanging fruits to tackle immediately?&lt;/li&gt;
+&lt;li&gt;What improvements require more planning?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;uncover-opportunities-with-lighthouse&quot;&gt;Uncover opportunities with Lighthouse &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#uncover-opportunities-with-lighthouse&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The first step to answer these questions is using Lighthouse.
+It provides a snapshot of opportunities to improve the load performance
+for specific pages based on a lab run.
+You can access Lighthouse in several ways, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Running
+&lt;a href=&quot;https://developers.google.com/web/tools/lighthouse#devtools&quot; rel=&quot;noopener&quot;&gt;Lighthouse from Chrome DevTools&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;At &lt;a href=&quot;https://web.dev/measure/&quot;&gt;web.dev/measure&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;From &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lighthouse identifies critical areas of optimization at load time
+and by how much they could potentially improve the user experience.
+Quickly identifying low-effort fixes helps to start the optimization process
+before handling the bigger tasks.&lt;/p&gt;
+&lt;p&gt;While the metrics&#39; absolute values may be interesting to look at,
+keep in mind that they change based on the environment Lighthouse is running in
+and many other factors,
+such as the network conditions of the servers hosting the website and its third parties.
+In addition,
+Lighthouse simulates a user&#39;s experience on a mid-tier mobile on a slow-4G connection,
+and might not represent your users&#39; experience at the 75th percentile
+(which the CWV metrics are based on).
+The metrics are a good indication of what is going on in a website,
+but we recommend focusing more on the optimization opportunities in the report.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Lighthouse analyzes pages at load time in a lab environment.
+While lab assessments of LCP are often useful for debugging and optimizing LCP in the field,
+user actions affect CLS and FID in ways that are not always captured by lab measurements of page load alone.
+TTI and TBT are proxy metrics to diagnose FID issues,
+but they may not always correlate with FID for a particular site.&lt;/p&gt;
+&lt;/div&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A screenshot of web.dev/measure.&quot; decoding=&quot;async&quot; height=&quot;336&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/9ziD4RGJizuyuUtctUZv.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Lighthouse opportunities seen in web.dev/measure.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;real-time-analysis-with-the-web-vitals-extension&quot;&gt;Real-time analysis with the Web Vitals extension &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#real-time-analysis-with-the-web-vitals-extension&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&quot;https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en&quot; rel=&quot;noopener&quot;&gt;Web Vitals extension&lt;/a&gt;
+shows real-time CWV metrics when loading and browsing a page.&lt;/p&gt;
+&lt;p&gt;One of the main benefits of using the extension over other tools
+is that it measures the FID and CLS metrics during the interaction with the page,
+in contrast with Lighthouse,
+which only captures metrics until the page is loaded (and excludes FID).&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The Web Vitals extension only works on Chrome desktop.
+To assess the performance of a mobile site, use it in mobile emulation mode.
+Also, switch to
+&lt;a href=&quot;https://web.dev/field-data-in-the-web-vitals-extension/#comparing-field-data-from-phones&quot;&gt;phone field data&lt;/a&gt;
+for more comparable results.&lt;/p&gt;
+&lt;/div&gt;
+&lt;figure class=&quot;w-figure w-screenshot&quot;&gt;
+&lt;img alt=&quot;A screenshot from the Web Vitals extension.&quot; decoding=&quot;async&quot; height=&quot;556&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/Yc4KfWt47zYfcNRTcLq6.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Real-time information surfaced by the Web Vitals extension.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;While these tools provide a lot of useful information,
+a developer may want to dig deeper into the underlying issues
+and test changes before releasing their code.
+Chrome DevTools (CDT) is a great help for doing just that.&lt;/p&gt;
+&lt;h3 id=&quot;deep-dive-with-chrome-devtools&quot;&gt;Deep dive with Chrome DevTools &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#deep-dive-with-chrome-devtools&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If you are new to CDT,
+you can get an overview of all the cool features—analyzing runtime performance,
+optimizing website speed, debugging JavaScript,
+simulating mobile devices,
+overriding JavaScript and HTML, CSS,
+and JavaScript coverage—in
+&lt;a href=&quot;https://developer.chrome.com/docs/devtools/&quot; rel=&quot;noopener&quot;&gt;this post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some features we recommend exploring in the context of CWV are the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Load the page in the &lt;strong&gt;Performance&lt;/strong&gt; tab to analyze the waterfall,
+identify bottlenecks and
+&lt;a href=&quot;https://developer.chrome.com/blog/new-in-devtools-88/#web-vitals&quot; rel=&quot;noopener&quot;&gt;observe the CWV flags&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Enable the
+&lt;strong&gt;&lt;a href=&quot;https://developer.chrome.com/blog/new-in-devtools-77/#layoutshifts&quot; rel=&quot;noopener&quot;&gt;Layout Shift Regions&lt;/a&gt;&lt;/strong&gt;
+checkbox in the
+&lt;strong&gt;&lt;a href=&quot;https://developer.chrome.com/docs/devtools/command-menu/&quot; rel=&quot;noopener&quot;&gt;Command Menu&lt;/a&gt;&lt;/strong&gt;
+and load the page in the &lt;strong&gt;Network&lt;/strong&gt; tab to highlight layout shifts at load time
+(also useful while browsing the page).&lt;/li&gt;
+&lt;li&gt;Analyze code usage with the
+&lt;strong&gt;&lt;a href=&quot;https://developer.chrome.com/docs/devtools/coverage/&quot; rel=&quot;noopener&quot;&gt;Coverage&lt;/a&gt;&lt;/strong&gt;
+tab and remove unused code to improve the LCP and FID metrics.&lt;/li&gt;
+&lt;li&gt;Enable the
+&lt;strong&gt;&lt;a href=&quot;https://developer.chrome.com/blog/new-in-devtools-65/#overrides&quot; rel=&quot;noopener&quot;&gt;Local Overrides&lt;/a&gt;&lt;/strong&gt;
+to test code changes on a live page.
+Changes made through Chrome DevTools will persist,
+and you can perform audits such as those discussed above,
+allowing for a quick analysis of the impact on user experience.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;w-figure w-screenshot&quot;&gt;
+&lt;img alt=&quot;A screenshot from Chrome DevTools.&quot; decoding=&quot;async&quot; height=&quot;306&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 484px) 484px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/81399qdVF2p7kVz5klUG.png?auto=format&amp;w=968 968w&quot; width=&quot;484&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    The network tab in Chrome DevTools highlighting layout shift regions with the option activated.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;After going through the steps discussed so far,
+the analyzed and fixed website should be in a better state.&lt;/p&gt;
+&lt;p&gt;To ensure the changes made had an actual positive impact on users,
+you should carry out step A (Evaluate website health and Identify pain points)
+of this article again.
+Note that as CrUX data is aggregated over a 28-day period,
+changes to user experience metrics may not be immediately apparent on PSI and CrUX.
+This is why implementing RUM solutions is critical,
+as they will surface metrics and validate fixes much faster.&lt;/p&gt;
+&lt;p&gt;User experience work is an iterative process
+and to ensure new releases do not regress improvements made,
+it is critical to have a robust monitoring and continuous development process in place.&lt;/p&gt;
+&lt;h2 id=&quot;step-c:-monitor-and-continuous-development&quot;&gt;Step C: Monitor and continuous development &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#step-c:-monitor-and-continuous-development&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;img alt=&quot;An image of the tools used in step 3: CrUX on BigQuery, CrUX API, PSI API, web-vitals.js, and Lighthouse-CI.&quot; decoding=&quot;async&quot; height=&quot;184&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/YwmFzHT6SJmi8sJta7G7.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;ol&gt;
+&lt;li&gt;Use
+&lt;a href=&quot;https://web.dev/chrome-ux-report-bigquery/&quot;&gt;CrUX on BigQuery&lt;/a&gt;,
+&lt;a href=&quot;https://web.dev/chrome-ux-report-api/&quot;&gt;CrUX API&lt;/a&gt;,
+&lt;a href=&quot;https://developers.google.com/speed/docs/insights/v5/get-started&quot; rel=&quot;noopener&quot;&gt;PSI API&lt;/a&gt; and
+&lt;a href=&quot;https://github.com/GoogleChrome/web-vitals&quot; rel=&quot;noopener&quot;&gt;web-vitals.js&lt;/a&gt;
+to automate a website&#39;s real user data collection,
+to power custom dashboards and build alerting systems.&lt;/li&gt;
+&lt;li&gt;Use
+&lt;a href=&quot;https://web.dev/lighthouse-ci/&quot;&gt;Lighthouse-CI&lt;/a&gt;
+to automate lab tests and prevent regressions.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Every organization spends a considerable amount of time and resources
+on improving the performance of its website.
+&lt;a href=&quot;https://youtu.be/YJGCZCaIZkQ?t=112&quot; rel=&quot;noopener&quot;&gt;Research by Google&lt;/a&gt;
+has shown that most sites that optimize their web performance regress within six months.
+A website needs continuous monitoring to understand trends,
+identify issues, track regressions,
+and alert developers to act on them to prevent regressions.&lt;/p&gt;
+&lt;p&gt;Most site owners use RUM tools to monitor their site performance.
+These tools provide a view of their pages across different dimensions
+such as browser, network, mobile devices, and traffic.
+However, not everyone has this kind of tooling in place for continuous monitoring.&lt;/p&gt;
+&lt;p&gt;We provide APIs of the tools discussed in this article
+which you can integrate into your systems
+to automate the collection of data and power your solutions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/chrome-ux-report-bigquery/&quot;&gt;Querying the CrUX on BigQuery&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/chrome-ux-report-api/&quot;&gt;Using the CrUX API&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/speed/docs/insights/v5/get-started&quot; rel=&quot;noopener&quot;&gt;Using the PageSpeed Insights API&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/web-vitals&quot; rel=&quot;noopener&quot;&gt;Integrating web-vitals.js&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These may seem like a lot of APIs to integrate, so which tool should you prefer?
+This table will help you choose the right APIs to suit your needs.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;CrUX on BigQuery&lt;/th&gt;
+        &lt;th&gt;CrUX API&lt;/th&gt;
+        &lt;th&gt;PSI API&lt;/th&gt;
+        &lt;th&gt;web-vitals.js&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Origin-level data (Field only)&lt;/td&gt;
+        &lt;td&gt;URL and Origin-level data (Field only)&lt;/td&gt;
+        &lt;td&gt;URL and Origin-level data (Lab and Field)&lt;/td&gt;
+        &lt;td&gt;URL-level data (Field only)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Monthly aggregated data&lt;/td&gt;
+        &lt;td&gt;28 days rolling&lt;/td&gt;
+        &lt;td&gt;28 days rolling&lt;/td&gt;
+        &lt;td&gt;Real-time&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Allows slicing of data in meaningful ways
+        which can be joined with other public datasets
+        like the
+          &lt;a href=&quot;https://httparchive.org/&quot;&gt;HTTP Archive&lt;/a&gt; for advanced insights.&lt;/td&gt;
+        &lt;td&gt;RESTful access to CrUX data programmatically.
+More filtering possibilities and faster than PSI API (also higher quota).&lt;/td&gt;
+        &lt;td&gt;RESTful access to CrUX and Lighthouse data programmatically.&lt;/td&gt;
+        &lt;td&gt;Collect real-time CWV metrics from real user experiences on a website
+        (needs to be integrated in pages).&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Recommended for most accurate insights.
+Default users can query 1TB of data per month.
+Beyond that, the standard rates apply.&lt;/td&gt;
+        &lt;td&gt;Free within API quota.&lt;/td&gt;
+        &lt;td&gt;Free within API quota.&lt;/td&gt;
+        &lt;td&gt;Free.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Collecting and reporting on metrics
+is just one piece of adding governance to prevent regression
+but it occurs after you have made changes to the site.
+It would be ideal to identify potential pull requests that would degrade the performance ahead of code releases.
+To this end, you can use
+&lt;a href=&quot;https://web.dev/lighthouse-ci/&quot;&gt;Lighthouse-CI&lt;/a&gt;
+with most continuous integration tools.
+Using this,
+you will be able to identify degrading PRs
+and work on optimizations before code releases go live
+and have an otherwise unexpected impact on users.&lt;/p&gt;
+&lt;p&gt;Keep in mind that the ideal setup to best identify areas of improvement
+involves continuous capturing of your own RUM data by leveraging tools
+and libraries such as
+&lt;a href=&quot;https://github.com/GoogleChrome/web-vitals&quot; rel=&quot;noopener&quot;&gt;web-vitals.js&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools-workflow/#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;A diagram of the cycle outlined in this article: evaluate website health and identify pain points, debug and optimize, monitor and continuous development.&quot; decoding=&quot;async&quot; height=&quot;465&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/aQKhuF8mZNiQNrMXhpkm.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Suggested workflow to optimize Core Web Vitals.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Ensuring great user experience requires a performance-first mindset
+and adopting the right strategy.
+With the right tools and processes to audit, debug, monitor,
+and add governance,
+we believe that attaining great user experience and passing CWV is within anyone&#39;s reach.&lt;/p&gt;
+</content>
+    <author>
+      <name>Antoine Bisch</name>
+    </author><author>
+      <name>Garima Mimani</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Keeping third-party scripts under control</title>
+    <link href="https://web.dev/controlling-third-party-scripts/"/>
+    <updated>2021-04-22T00:00:00Z</updated>
+    <id>https://web.dev/controlling-third-party-scripts/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Third-party scripts, or &amp;quot;tags&amp;quot; can be a source of performance problems on your site,
+and therefore a target for optimization.
+However, before you start optimizing the tags you have added,
+make sure that you are not optimizing tags you don&#39;t even need.
+This article shows you how to assess requests for new tags,
+and manage and review existing ones.&lt;/p&gt;
+&lt;p&gt;When discussing third-party tags,
+the conversation often quickly moves to performance problems,
+losing sight of the foundations of what the &amp;quot;core&amp;quot; role of these tags are.
+They provide a wide range of useful functionality,
+making the web
+&lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript&quot; rel=&quot;noopener&quot;&gt;more dynamic, interactive, and interconnected&lt;/a&gt;.
+However, third-party tags can be added by different teams across the organization
+and are often forgotten about over time.
+People move on, contracts expire, or the results are yielded,
+but the teams never get back in touch to have the scripts removed.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;In the article
+&lt;a href=&quot;https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5&quot; rel=&quot;noopener&quot;&gt;Improving Third-Party Web Performance&lt;/a&gt;,
+the web team at The Telegraph removed old tags where they could not identify the requester,
+deciding that if the tags were missed the responsible party would get in touch.
+However, no one ever did.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Before you start to think about third-party tag script execution,
+or which tags can be
+&lt;a href=&quot;https://web.dev/codelab-optimize-third-party-javascript/&quot;&gt;deferred, lazy-loaded or preconnected&lt;/a&gt;
+from a technical lens,
+there&#39;s an opportunity to govern which tags are added to a site/page from an organizational point of view.
+A common theme with websites that are being slowed down due to vast amounts of third-party tags,
+is this part of the website is not owned by a single person or team,
+and therefore falls between the cracks.
+There&#39;s nothing more frustrating than optimizing your website,
+being happy with the performance in a staging environment,
+only for the speed to regress in production because of tags that are being added.
+Implementing a &amp;quot;vetting process&amp;quot; for third-party tags can help prevent this,
+by building a workflow that creates cross-functional accountability and responsibility for these tags.&lt;/p&gt;
+&lt;p&gt;The manner in which you vet third-party tags depends solely on the organisation,
+its structure and its current processes.
+It could be as basic as having a single team who govern and act as the gatekeeper
+for analysing tags before they are added.
+Or more advanced and formal,
+for example by providing a form to teams to submit requests for a tag.
+This might ask for context in terms of why it needs to be on the website,
+for how long it should be present,
+and what benefit it would bring to the business.&lt;/p&gt;
+&lt;h2 id=&quot;tag-governance-process&quot;&gt;Tag governance process &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#tag-governance-process&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;However you choose to vet tags within your organization,
+the following stages should be considered as part of the lifecycle of a tag.&lt;/p&gt;
+&lt;h3 id=&quot;compliance&quot;&gt;Compliance &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#compliance&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first step of &amp;#x27;Compliance&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;67&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Before any tag is added onto a page,
+check that it has been thoroughly vetted by a legal team to ensure it passes all compliance requirements for it to be present.
+This might include checking that the tag is compliant with the &lt;a href=&quot;https://iapp.org/news/a/what-you-must-know-about-third-parties-under-the-gdpr-ccpa/&quot; rel=&quot;noopener&quot;&gt;EU General Data Protection Regulation (GDPR),
+and California Consumer Privacy Act (CCPA)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is critical,
+if there is any doubt with this step it needs to be addressed
+before assessing the tag from a performance point of view.&lt;/p&gt;
+&lt;h3 id=&quot;required&quot;&gt;Required &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#required&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first two steps of &amp;#x27;Compliance&amp;#x27; and &amp;#x27;Required&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;60&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The second step is to question whether a specific tag is needed on the page.
+Consider the following discussion points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is the tag actively being used? If not, can it be removed?&lt;/li&gt;
+&lt;li&gt;If the tag is loading sitewide,
+is this necessary?
+For example, if we&#39;re analysing an A/B testing suite and you are currently only testing on Landing Pages,
+can we only drop the tag on this page type?&lt;/li&gt;
+&lt;li&gt;Can we add further logic to this, can we detect if there is a live A/B test?
+If so, allow the tag to be added, but if not ensure that it is not present.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;ownership&quot;&gt;Ownership &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#ownership&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first three steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, and &amp;#x27;Ownership&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;62&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Having a  clear person or team as an owner of a tag,
+helps to proactively keep track of tags.
+Usually this would be whomever has added the tag. By having an assignee next to the tag,
+this will ensure reviews and audits in the future can be conducted to re-visit whether the tag is required.&lt;/p&gt;
+&lt;h3 id=&quot;purpose&quot;&gt;Purpose &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#purpose&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first four steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, &amp;#x27;Ownership&amp;#x27;, and &amp;#x27;Purpose&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;58&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The fourth step begins to create cross-functional accountability and responsibility
+by ensuring people understand why the tag is added to the page.
+It&#39;s important for there to be a cross-functional understanding of what each tag is bringing to the website,
+and why it is being used.
+For example, if the tag is recording user session actions to allow personalization,
+do all teams know why this should be present?&lt;/p&gt;
+&lt;p&gt;Furthermore, have there been any commercial vs performance trade-off discussions?
+If there is a tag that is deemed as &amp;quot;required&amp;quot; because it brings in revenue,
+has there been an analysis to the potential revenue lost through speed regression&lt;/p&gt;
+&lt;h3 id=&quot;review&quot;&gt;Review &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#review&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with all five steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, &amp;#x27;Ownership&amp;#x27;, &amp;#x27;Purpose&amp;#x27;, and &amp;#x27;Review&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;61&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The fifth, final and arguably most important step is to ensure tags are being reviewed on a regular basis.
+This should be dependent on the size of the website,
+the number of tags that are on the site,
+and their turnaround time (e.g. weekly, monthly, quarterly).
+This should be treated in the same manner as optimizing other website assets (JS, CSS, images, etc.)
+and proactively checked on a regular basis.
+Failure to review could lead to a &amp;quot;bloated&amp;quot; tag manager,
+which slows down the pages.
+It can be a complex task to revert back to being performant,
+while not regressing the required functionality on the page&lt;/p&gt;
+&lt;img alt=&quot;Five arrows, with all five steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, &amp;#x27;Ownership&amp;#x27;, &amp;#x27;Purpose&amp;#x27;, and &amp;#x27;Review&amp;#x27; completed. Indicating that these are all steps in the performance vetting process.&quot; decoding=&quot;async&quot; height=&quot;305&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The vetting process should leave you with a final list
+of tags which are classified as needed for a specific page.
+At this stage, you can then delve into
+&lt;a href=&quot;https://web.dev/codelab-optimize-third-party-javascript/&quot;&gt;technical optimisation approaches&lt;/a&gt;.
+This also opens up the opportunity to define the number of tags in this final list within a
+&lt;a href=&quot;https://web.dev/your-first-performance-budget/&quot;&gt;performance budget&lt;/a&gt;,
+which can be monitored within
+&lt;a href=&quot;https://web.dev/lighthouse-ci/#overview&quot;&gt;Lighthouse CI&lt;/a&gt;
+and incorporated into performance-specific goal setting.
+For example:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If we stick to &amp;lt;5 tags on our Landing Pages along with our own optimized JS,
+we&#39;re confident the
+&lt;a href=&quot;https://web.dev/tbt/&quot;&gt;Total Blocking Time (TBT)&lt;/a&gt; can hit &#39;good&#39; in the
+&lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Core Web Vitals&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    <author>
+      <name>Chris Anstey</name>
+    </author><author>
+      <name>Antoine Bisch</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Automating audits with AutoWebPerf</title>
+    <link href="https://web.dev/autowebperf/"/>
+    <updated>2020-12-09T00:00:00Z</updated>
+    <id>https://web.dev/autowebperf/</id>
+    <content type="text/html" mode="escaped">&lt;h2 id=&quot;what-is-autowebperf-(awp)&quot;&gt;What is AutoWebPerf (AWP)? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#what-is-autowebperf-(awp)&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AutoWebPerf&lt;/a&gt; (AWP) is a
+modular tool that enables automatic gathering of performance data from multiple
+sources. Currently there are &lt;a href=&quot;https://web.dev/vitals-tools/&quot;&gt;many tools
+available&lt;/a&gt; to measure website performance for
+different scopes (&lt;a href=&quot;https://web.dev/how-to-measure-speed/#lab-data-vs-field-data&quot;&gt;lab and
+field&lt;/a&gt;), such as
+Chrome UX Report, PageSpeed Insights, or WebPageTest. AWP offers integration
+with various audit tools with a simple setup so you can continuously monitor the
+site performance in one place.&lt;/p&gt;
+&lt;p&gt;The release of &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Web Vitals&lt;/a&gt; guidance means that close
+and active monitoring of web pages is becoming increasingly important. The
+engineers behind this tool have been doing performance audits for years and they
+created AWP to automate a manual, recurring, and time consuming part of their
+daily activities. Today, AWP has reached a level of maturity and it&#39;s ready to
+be shared broadly so anyone can benefit from the automation it brings.&lt;/p&gt;
+&lt;p&gt;The tool is accessible on the
+&lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AutoWebPerf&lt;/a&gt; public repository
+on GitHub.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-awp-for&quot;&gt;What is AWP for? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#what-is-awp-for&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Although several tools and APIs are available to monitor the performance of web
+pages, most of them expose data measured at a specific time. To adequately
+monitor a website and maintain good performance of key pages, it&#39;s recommended
+to continuously take measurements of &lt;a href=&quot;https://web.dev/vitals/#core-web-vitals&quot;&gt;Core Web
+Vitals&lt;/a&gt; over time and observe trends.&lt;/p&gt;
+&lt;p&gt;AWP makes that easier by providing an engine and pre-built API integrations
+which can be programmatically configured to automate recurrent queries to
+various performance monitoring APIs.&lt;/p&gt;
+&lt;p&gt;For example, with AWP, you can set a daily test on your home page to capture the
+field data from &lt;a href=&quot;https://web.dev/chrome-ux-report-api/&quot;&gt;CrUX API&lt;/a&gt; and lab data
+from a
+&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;Lighthouse report from PageSpeed Insights&lt;/a&gt;.
+This data can be written and stored over time, for example, in &lt;a href=&quot;https://www.google.co.uk/sheets/about/&quot; rel=&quot;noopener&quot;&gt;Google
+Sheets&lt;/a&gt; and then visualised in the
+&lt;a href=&quot;https://datastudio.google.com/c/u/0/navigation/reporting&quot; rel=&quot;noopener&quot;&gt;Data Studio dashboard&lt;/a&gt;.
+AWP automates the heavy-lifting part of the entire process, making it a great
+solution to follow lab and field trends over time. See &lt;a href=&quot;https://web.dev/autowebperf/#data-studio&quot;&gt;Visualising audit
+results in Data Studio&lt;/a&gt; below for more details).&lt;/p&gt;
+&lt;h2 id=&quot;architecture-overview&quot;&gt;Architecture overview &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#architecture-overview&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWP is a modular-based library with three different types of modules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the &lt;strong&gt;engine&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;connector&lt;/strong&gt; modules&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;gatherer&lt;/strong&gt; modules&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The engine takes a list of tests from a connector (for example, from a
+local CSV file), runs performance audits through selected gatherers (such as
+PageSpeed Insights), and writes results to the output connector (for example,
+Google Sheets).&lt;/p&gt;
+&lt;img alt=&quot;A diagram of AWP&amp;#x27;s architecture.&quot; decoding=&quot;async&quot; height=&quot;439&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;AWP comes with a number of pre-implemented gatherers and connectors:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pre-implemented gatherers:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/chrome-ux-report-api/&quot;&gt;CrUX API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/chrome-ux-report-bigquery/&quot;&gt;CrUX BigQuery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/speed/docs/insights/v5/get-started&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.webpagetest.org/getkey.php&quot; rel=&quot;noopener&quot;&gt;WebPageTest API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pre-implemented connectors:
+&lt;ul&gt;
+&lt;li&gt;Google Sheets&lt;/li&gt;
+&lt;li&gt;JSON&lt;/li&gt;
+&lt;li&gt;CSV&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;automating-audits-with-awp&quot;&gt;Automating audits with AWP &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#automating-audits-with-awp&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWP automates the performance audits via your preferred audit platforms such as
+&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt;,
+&lt;a href=&quot;https://webpagetest.org/&quot; rel=&quot;noopener&quot;&gt;WebPageTest&lt;/a&gt;, or
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/api/reference&quot; rel=&quot;noopener&quot;&gt;CrUX API&lt;/a&gt;.
+AWP offers the flexibility to choose where to load the list of tests, and where
+to write the results to.&lt;/p&gt;
+&lt;p&gt;For example, you can run audits for a list of tests stored in a Google Sheet,
+and write the results to a CSV file, with the command below:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;SHEETS_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run sheets:&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;SheetID&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h3 id=&quot;recurring-audits&quot;&gt;Recurring audits &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#recurring-audits&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You can run recurring audits in daily, weekly, or monthly frequency. For
+example, you can run daily audits for a list of tests defined in a local JSON
+like below:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;tests&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;label&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;web.dev&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://web.dev&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;gatherer&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;psi&quot;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The command below reads the list of audit tests from the local JSON file, runs
+audits on a local machine, then outputs results to a local CSV file:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run json:tests.json csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;To run audits every day as a background service continuously, you can use the
+command below instead:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp &lt;span class=&quot;token builtin class-name&quot;&gt;continue&lt;/span&gt; json:tests.json csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Alternatively, you can set up the
+&lt;a href=&quot;https://www.geeksforgeeks.org/how-to-setup-cron-jobs-in-ubuntu/&quot; rel=&quot;noopener&quot;&gt;crontab&lt;/a&gt; in a
+Unix-like environment to run AWP as a daily cron job:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; * * * &lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run json:tests.json csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You can find more ways to automate daily audits and result collection in the
+&lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AWP GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;data-studio&quot;&gt;Visualising audit results in Data Studio &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#data-studio&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Along with continuously measuring Core Web Vitals, it is important to be able to
+evaluate the trends and discover potential regressions with real user metrics
+(RUM) or the Chrome UX Report (CrUX) data collected by AWP. Note that
+Chrome UX Report (CrUX) is a 28-day moving aggregation, hence it is recommended
+to also use your own RUM data along with CrUX so you can spot regressions
+sooner.&lt;/p&gt;
+&lt;p&gt;Data Studio is a free visualization tool that you can easily load performance
+metrics into and draw trends as charts. For example, the time series charts
+below show Core Web Vitals based on Chrome UX Report data. One of the charts
+shows increasing Cumulative Layout Shift in recent weeks, which means
+regressions in the layout stability for certain pages. In this scenario, you
+would want to prioritize the efforts to analyze the underlying issues of these
+pages.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A screenshot of Core Web Vitals results in Data Studio.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;904&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;To simplify the end-to-end process from data collection to visualization, you
+can run AWP with a list of URLs to automatically export results to Google Sheets
+with the following command:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;SHEETS_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run sheets:&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;SheetID&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;After collecting daily metrics in a spreadsheet, you can create a Data Studio
+dashboard that loads the data directly from the spreadsheet, and plots the
+trends into a time series chart. Check out &lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf/blob/stable/docs/sheets-connector.md&quot; rel=&quot;noopener&quot;&gt;Google Spreadsheets API
+Connector&lt;/a&gt;
+for detailed steps about how to set up AWP with spreadsheets as a data source to
+visualize on Data Studio.&lt;/p&gt;
+&lt;h2 id=&quot;what&#39;s-next&quot;&gt;What&#39;s next? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#what&#39;s-next&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWP provides a simple and integrated way to minimize the efforts to set up a
+continuous monitoring pipeline to measure Core Web Vitals and other performance
+metrics. As for now, AWP covers the most common use cases and will continue to
+provide more features to address other use cases in the future.&lt;/p&gt;
+&lt;p&gt;Learn more in the &lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AutoWebPerf&lt;/a&gt; repository.&lt;/p&gt;
+</content>
+    <author>
+      <name>Jonathan Chen</name>
+    </author><author>
+      <name>Gilberto Cocchi</name>
+    </author><author>
+      <name>Antoine Bisch</name>
+    </author>
+  </entry>
+</feed>

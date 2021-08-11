@@ -1,163 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Pattern Matching for instanceof | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Pattern matching for instanceof allows you to bind a new variable as part of the expression. The scope of the variable is determined by the semantics of the context in which it is wirtten." name="description">
-  <meta content="java, instanceof, pattern matching, preview feature, jep draft, jep 305" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: Pattern Matching for instanceof | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Pattern matching for instanceof allows you to bind a new variable as part of the expression. The scope of the variable is determined by the semantics of the context in which it is wirtten."
+      name="description"
+    />
+    <meta
+      content="java, instanceof, pattern matching, preview feature, jep draft, jep 305"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-      <h2>Related</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="https://openjdk.java.net/jeps/8235186">JEP draft: Pattern Matching for instanceof (Preview 2)</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Brian Goetz</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://openjdk.java.net/jeps/305">JEP 305: Pattern Matching for instanceof (Preview)</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Brian Goetz</span>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Pattern Matching for instanceof</h1>
-      <div class="article-box">
-        <div style="display: flex">
-          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
-            ☞
-          </div>
-          <div>
-            <p>This article describes a preview feature, <a href="https://openjdk.java.net/jeps/8235186">JEP draft: Pattern Matching for instanceof (Preview 2)</a>. If you want to play around with this, download and install JDK 15 available <a href="https://openjdk.java.net/projects/jdk/15/">here</a> and use the <code>--enable-preview</code>. This article will be updated as the specification evolves.</p>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a href="https://openjdk.java.net/jeps/8235186"
+            >JEP draft: Pattern Matching for instanceof (Preview 2)</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Brian Goetz</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://openjdk.java.net/jeps/305"
+            >JEP 305: Pattern Matching for instanceof (Preview)</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Brian Goetz</span
+          >
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Pattern Matching for instanceof</h1>
+        <div class="article-box">
+          <div style="display: flex">
+            <div
+              style="
+                font-family: times new roman;
+                font-size: 220%;
+                padding-right: 0.5em;
+              "
+            >
+              ☞
+            </div>
+            <div>
+              <p>
+                This article describes a preview feature,
+                <a href="https://openjdk.java.net/jeps/8235186"
+                  >JEP draft: Pattern Matching for instanceof (Preview 2)</a
+                >. If you want to play around with this, download and install
+                JDK 15 available
+                <a href="https://openjdk.java.net/projects/jdk/15/">here</a> and
+                use the <code>--enable-preview</code>. This article will be
+                updated as the specification evolves.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <p>Pattern matching for <code>instanceof</code> allows you to <strong>bind a new variable</strong> as part of the expression:</p>
-      <pre><code><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String<span class="tooltip"> <span class="tooltiptext">New variable declared…</span>str</span>) {
+        <p>
+          Pattern matching for <code>instanceof</code> allows you to
+          <strong>bind a new variable</strong> as part of the expression:
+        </p>
+        <pre><code><span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String<span class="tooltip"> <span class="tooltiptext">New variable declared…</span>str</span>) {
 
 
 
@@ -165,88 +279,193 @@
 
 }
 </code></pre>
-      <h2>Scope of instanceof variable</h2>
-      <p>The scope of the the bound variable depends on the context in which the expression is written. The compiler performs a (simple) flow analysis and allows you to use the variable where the <code>instanceof</code> check holds true.</p>
-      <p>In the <code>if</code> statement in the example above, the scope of <code>str</code> is the true-branch.</p>
-      <div class="codeblock">
-        <!-- ROW 1 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 0;">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String str) {</code>
-          <div style="flex-grow: 1; background-color: #dfdff9; position: relative;">
-            <span style="position: absolute; top: 0; right: 0; padding: .1em .3em; font-size: smaller; font-weight: bold; color: blue;">scope of str</span>
+        <h2>Scope of instanceof variable</h2>
+        <p>
+          The scope of the the bound variable depends on the context in which
+          the expression is written. The compiler performs a (simple) flow
+          analysis and allows you to use the variable where the
+          <code>instanceof</code> check holds true.
+        </p>
+        <p>
+          In the <code>if</code> statement in the example above, the scope of
+          <code>str</code> is the true-branch.
+        </p>
+        <div class="codeblock">
+          <!-- ROW 1 -->
+          <div style="display: flex">
+            <code style="flex-grow: 0"
+              >&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (obj
+              <span class="keyword">instanceof</span> String str) {</code
+            >
+            <div
+              style="
+                flex-grow: 1;
+                background-color: #dfdff9;
+                position: relative;
+              "
+            >
+              <span
+                style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  padding: 0.1em 0.3em;
+                  font-size: smaller;
+                  font-weight: bold;
+                  color: blue;
+                "
+                >scope of str</span
+              >
+            </div>
           </div>
-        </div><!-- ROW 2 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 1; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code>
-        </div><!-- ROW 3 -->
-        <div style="display: flex">
-          <code style="flex-grow: 0; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;</code> <code style="flex-grow: 1;">}</code>
-        </div>
-      </div>
-      <p>By negating the check, the scope becomes the false branch:</p>
-      <div class="codeblock">
-        <!-- ROW 1 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 0;">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (!(obj <span class="keyword">instanceof</span> String str)) {</code>
-        </div><!-- ROW 2 -->
-        <div style="display: flex;">
-          <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code>
-        </div>
-        <div style="display: flex;">
-          <code style="flex-grow: 0;">&nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">else</span> {</code>
-          <div style="flex-grow: 1; background-color: #dfdff9; position: relative;">
-            <span style="position: absolute; top: 0; right: 0; padding: .1em .3em; font-size: smaller; font-weight: bold; color: blue;">scope of str</span>
+          <!-- ROW 2 -->
+          <div style="display: flex">
+            <code style="flex-grow: 1; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code
+            >
           </div>
-        </div><!-- ROW 2 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 1; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code>
-        </div><!-- ROW 3 -->
-        <div style="display: flex">
-          <code style="flex-grow: 0; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;</code> <code style="flex-grow: 1;">}</code>
+          <!-- ROW 3 -->
+          <div style="display: flex">
+            <code style="flex-grow: 0; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;</code
+            >
+            <code style="flex-grow: 1">}</code>
+          </div>
         </div>
-      </div>
-      <p>The variable is also used in the part of the expression where it is true. This means that you can implement a simple <code>equals</code> method without explicit casting:</p>
-      <pre><code><span class="keyword">boolean</span> equals(Object o) {
+        <p>By negating the check, the scope becomes the false branch:</p>
+        <div class="codeblock">
+          <!-- ROW 1 -->
+          <div style="display: flex">
+            <code style="flex-grow: 0"
+              >&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (!(obj
+              <span class="keyword">instanceof</span> String str)) {</code
+            >
+          </div>
+          <!-- ROW 2 -->
+          <div style="display: flex">
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code>
+          </div>
+          <div style="display: flex">
+            <code style="flex-grow: 0"
+              >&nbsp;&nbsp;&nbsp;&nbsp;}
+              <span class="keyword">else</span> {</code
+            >
+            <div
+              style="
+                flex-grow: 1;
+                background-color: #dfdff9;
+                position: relative;
+              "
+            >
+              <span
+                style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  padding: 0.1em 0.3em;
+                  font-size: smaller;
+                  font-weight: bold;
+                  color: blue;
+                "
+                >scope of str</span
+              >
+            </div>
+          </div>
+          <!-- ROW 2 -->
+          <div style="display: flex">
+            <code style="flex-grow: 1; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code
+            >
+          </div>
+          <!-- ROW 3 -->
+          <div style="display: flex">
+            <code style="flex-grow: 0; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;</code
+            >
+            <code style="flex-grow: 1">}</code>
+          </div>
+        </div>
+        <p>
+          The variable is also used in the part of the expression where it is
+          true. This means that you can implement a simple
+          <code>equals</code> method without explicit casting:
+        </p>
+        <pre><code><span class="keyword">boolean</span> equals(Object o) {
     <span class="keyword">return</span> o <span class="keyword">instanceof</span> Point p <span style="background: #dfdff9">&amp;&amp; p.x == x &amp;&amp; p.y == y</span>;
 }</code></pre>
-      <h2>Similarity to local variable initialization</h2>
-      <p>Being able to introduce a variable as part of an expression like this is a unique feature. The scoping rules however, follow the same principles as the local variable initialization analysis performed by the compiler. Compare for example the first example in this article with this snippet:</p>
-      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="type">str</span>;
+        <h2>Similarity to local variable initialization</h2>
+        <p>
+          Being able to introduce a variable as part of an expression like this
+          is a unique feature. The scoping rules however, follow the same
+          principles as the local variable initialization analysis performed by
+          the compiler. Compare for example the first example in this article
+          with this snippet:
+        </p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="type">str</span>;
 <span class="keyword">if</span> (<span class="type">obj</span> <span class="keyword">instanceof</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> &amp;&amp; (<span class="type">str</span> = (<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>) <span class="type">obj</span>) != <span class="keyword">null</span>) {
     <span class="comment">// str accessible</span>
 }
 <span class="comment">// str not accessible (str may not have been initialized)</span>
 </code></pre>
-      <p>As you can see, the accessibility of <code>str</code> is in practice the same, although the error message is ofcourse different.</p>
-      <h2>Future functionality</h2>
-      <p>What’s described in this article can barely be classified as pattern matching. As described in the <a href="https://openjdk.java.net/jeps/8235186">JEP</a> however, this new <code>instanceof</code> functionality will be expanded to support nested matching for record types (<a href="https://openjdk.java.net/jeps/359">JEP 359</a>), and possibly other patterns.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>
+          As you can see, the accessibility of <code>str</code> is in practice
+          the same, although the error message is ofcourse different.
+        </p>
+        <h2>Future functionality</h2>
+        <p>
+          What’s described in this article can barely be classified as pattern
+          matching. As described in the
+          <a href="https://openjdk.java.net/jeps/8235186">JEP</a> however, this
+          new <code>instanceof</code> functionality will be expanded to support
+          nested matching for record types (<a
+            href="https://openjdk.java.net/jeps/359"
+            >JEP 359</a
+          >), and possibly other patterns.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/pattern-matching-for-instanceof.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/pattern-matching-for-instanceof.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>
