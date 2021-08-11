@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java Error: Generic array creation | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="Java does not allow you to create arrays of generic classes. There is however a simple workaround: Create a non-generic class that extends the generic class." name="description">
+  <meta content="java, error, generic, array, creation, arrays of generics, array of generic, generic array, reason" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Recommended Reading</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="https://www.ibm.com/developerworks/java/library/j-jtp01255/index.html">Generics gotchas</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by Brian Goetz</span>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Java Error: Generic array creation</h1>
+      <p>Java does not allow you to create arrays of generic classes:</p>
+      <div class="centered-content" style="margin: 2em;"><img alt="Screenshot of array creation error message" class="screenshot" src="generic-array-creation/intellij-error.png"></div>
+      <h2>Workaround 1: Raw types</h2>
+      <pre><code>@<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/SuppressWarnings.html"><span class="type">SuppressWarnings</span></a>(<span class="text_lit">"unchecked"</span>)
+<span class="type">Set</span>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;[] <span class="type">sets</span> = <span class="keyword">new</span> <span class="type">Set</span>[<span class="num_lit">5</span>];</code></pre>
+      <h2>Workaround 2: Use a List instead</h2>
+      <pre><code><span class="type">List</span>&lt;<span class="type">Set</span>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;&gt; <span class="type">sets</span> = <span class="keyword">new</span> <span class="type">ArrayList&lt;&gt;</span>();</code></pre>
+      <h2>Workaround 3: Non-generic subclass</h2>
+      <p>You can create a non-generic subclass (local if you like) that extends the generic class:</p>
+      <pre><code><span class="keyword">class</span> <span class="type">StringHashSet</span> <span class="keyword">extends</span> <span class="type">HashSet</span>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt; {}
+<span class="type">Set</span>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;[] <span class="type">sets</span> = <span class="keyword">new</span> <span class="type">StringHashSet</span>[<span class="num_lit">5</span>];</code></pre>
+      <h2>What's the reason for this limitation?</h2>
+      <p>Let's illustrate what could happen with an example:</p>
+      <pre><code><span class="comment">// Suppose this was allowed</span>
+<span class="type">Set</span>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;[] <span class="type">arr</span> = <span class="keyword">new</span> <span class="type">Set</span>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;[<span class="num_lit">5</span>];
+
+<span class="comment">// Arrays are covariant:</span>
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html"><span class="type">Object</span></a>[] <span class="type">oa</span> = <span class="type">arr</span>;
+
+<span class="comment">// Putting a Set&lt;Integer&gt; in arr!</span>
+<span class="type">oa</span>[<span class="num_lit">0</span>] = <span class="type">Collections</span>.<span class="type">singleton</span>(<span class="num_lit">3</span>);
+
+<span class="comment">// Looks type safe but isn't!</span>
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="type">s</span> = <span class="type">arr</span>[<span class="num_lit">0</span>].<span class="type">iterator</span>().<span class="type">next</span>();</code></pre>
+      <p>Arrays actually have the same problem. This program <strong>does</strong> in fact even compile:</p>
+      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">arr</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[<span class="num_lit">5</span>];
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html"><span class="type">Object</span></a>[] <span class="type">oa</span> = <span class="type">arr</span>;
+<span class="type">oa</span>[<span class="num_lit">0</span>] = <span class="num_lit">5</span>; <span class="comment">// Eeek! An Integer in a String[]?</span>
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="type">s</span> = <span class="type">arr</span>[<span class="num_lit">0</span>];</code></pre>
+      <p>Here however, <code>oa[<span class="int_lit">0</span>] = <span class="int_lit">5</span></code> throws an <code>ArrayStoreException</code> in runtime. In other words, when generics were introduced the designers traded some expressiveness for some added compile time type safety.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/generic-array-creation.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

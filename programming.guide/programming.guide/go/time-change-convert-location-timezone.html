@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: Time zones | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="How to get the time in a different time zone." name="description">
+  <meta content="go, golang, time, time zone, example, location, convert, change, utc, local" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Further Reading</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="current-time.html">Current time</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="format-parse-string-time-date-example.html">Format a time or date</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="days-between-dates.html">Days between two dates</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="last-day-month-date.html">Days in a month</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://golang.org/pkg/time/">Package time</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Programming Language</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">List of tz database time zones</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Wikipedia</span>
+      </div>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: Time zones</h1>
+      <p>Each <a href="https://golang.org/pkg/time/#Time"><code>Time</code></a> has an associated <a href="https://golang.org/pkg/time/#Location"><code>Location</code></a>, which is used for display purposes.</p>
+      <p>The method <a href="https://golang.org/pkg/time/#Time.In"><code>In</code></a> returns a time with a specific location. Changing the location in this way changes only the presentation; it does not change the instant in time.</p>
+      <p>Here is a convenience function that changes the location associated with a&nbsp;time.</p>
+      <pre><code>// TimeIn returns the time in UTC if the name is "" or "UTC".
+// It returns the local time if the name is "Local".
+// Otherwise, the name is taken to be a location name in
+// the IANA Time Zone database, such as "Africa/Lagos".
+func TimeIn(t time.Time, name string) (time.Time, error) {
+        loc, err := time.LoadLocation(name)
+        if err == nil {
+                t = t.In(loc)
+        }
+        return t, err
+}</code></pre>
+      <p>In use:</p>
+      <pre><code>for _, name := range []string{
+        "",
+        "Local",
+        "Asia/Shanghai",
+        "America/Metropolis",
+} {
+        t, err := TimeIn(time.Now(), name)
+        if err == nil {
+                fmt.Println(t.Location(), t.Format("15:04"))
+        } else {
+                fmt.Println(name, "&lt;time unknown&gt;")
+        }
+}
+</code></pre>
+      <pre><code>UTC 19:32
+Local 20:32
+Asia/Shanghai 03:32
+America/Metropolis &lt;time unknown&gt;
+</code></pre>
+      <h2>Timezone Corner Cases</h2>
+      <p>Note the following warning from the docs:</p>
+      <blockquote>
+        A daylight savings time transition skips or repeats times. For example, in the United States, March 13, 2011 2:15am never occurred, while November 6, 2011 1:15am occurred twice. In such cases, the choice of time zone, and therefore the time, is not well-defined. Date returns a time that is correct in one of the two zones involved in the transition, but it does not guarantee which. <a class="quote-source" href="https://golang.org/pkg/time/#Date">Package time: Date</a>
+      </blockquote>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/time-change-convert-location-timezone.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

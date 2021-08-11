@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: Binary search | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="How to find an element efficiently in a sorted slice." name="description">
+  <meta content="go, golang, binary search, algorithm, function, slice" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Related</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="../time-complexity-explained.html">Time complexity explained</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="../big-o-notation-explained.html">Big O notation explained</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="how-to-sort-in-go.html">How to sort in Go</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: Binary search</h1>
+      <p>Use one of the <strong>binary search</strong> functions: <a href="https://golang.org/pkg/sort/#SearchInts"><code>sort.SearchInts</code></a>, <a href="https://golang.org/pkg/sort/#SearchFloat64s"><code>sort.SearchFloat64s</code></a> or <a href="https://golang.org/pkg/sort/#SearchStrings"><code>sort.SearchStrings</code></a>.</p>
+      <p>They all have the signature:</p>
+      <pre><code>func Search<span style="font-style: italic; font-weight: bold;">Type</span>(a []<span style="font-style: italic; font-weight: bold;">Type</span>, x <span style="font-style: italic; font-weight: bold;">Type</span>) int</code></pre>
+      <p>and return</p>
+      <ul>
+        <li>the smallest index <code>i</code> at which <code>x &lt;= a[i]</code>; or</li>
+        <li><code>len(a)</code> if there is no such index.</li>
+      </ul>
+      <p>The slice must be sorted in <strong>ascending order</strong>.</p>
+      <pre><code>a := []string{"A", "C", "C"}
+
+fmt.Println(sort.SearchStrings(a, "A")) // 0
+fmt.Println(sort.SearchStrings(a, "B")) // 1
+fmt.Println(sort.SearchStrings(a, "C")) // 1
+fmt.Println(sort.SearchStrings(a, "D")) // 3</code></pre>
+      <h2>Generic binary search</h2>
+      <p>Use the <strong>generic binary search</strong> function <a href="https://golang.org/pkg/sort/#Search"><code>sort.Search</code></a>:</p>
+      <pre><code>func Search(n int, f func(int) bool) int
+</code></pre>
+      <p>It returns</p>
+      <ul>
+        <li>the smallest index <code>i</code> at which <code>f(i)</code> is true; or</li>
+        <li><code>n</code> if there is no such index.</li>
+      </ul>
+      <p>It requires that <code>f</code> is false for some (possibly empty) prefix of the input range and then true for the remainder.</p>
+      <p>This example mirrors the one above, but uses the generic <a href="https://golang.org/pkg/sort/#Search"><code>sort.Search</code></a> instead of <a href="https://golang.org/pkg/sort/#SearchInts"><code>sort.SearchInts</code></a>.</p>
+      <pre><code>a := []string{"A", "C", "C"}
+x := "C"
+
+i := sort.Search(len(a), func(i int) bool { return x &lt;= a[i] })
+if i &lt; len(a) &amp;&amp; a[i] == x {
+        fmt.Printf("Found %s at index %d in %v.\n", x, i, a)
+} else {
+        fmt.Printf("Did not find %s in %v.\n", x, a)
+}
+<span class="comment">// Output: Found C at index 1 in [A C C].</span>
+</code></pre>
+      <h2>Complexity</h2>
+      <p>Binary search runs in worst-case logarithmic time, making <em>O</em>(log&nbsp;<em>n</em>) comparisons, where <em>n</em> is the size of the array.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/binary-search.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java Arrays (with examples) | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="Arrays in Java have fixed length. First index is 0, last index is length-1. Arrays are objects which means they are always dynamically allocated, live on the heap and of reference type." name="description">
+  <meta content="java, array, arrays, declaration, initialization, multidimension, matrix" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Java Arrays</h2>
+      <ol class="nostyle">
+        <li class="current">Java Arrays (with examples)</li>
+        <li>
+          <a href="array-maximum-length.html">Maximum length of array</a>
+        </li>
+        <li>
+          <a href="arrayindexoutofboundsexception.html">ArrayIndexOutOfBoundsException</a>
+        </li>
+        <li>
+          <a href="array-vs-arraylist.html">Arrays vs ArrayLists (and other Lists)</a>
+        </li>
+        <li>
+          <a href="matrices-and-multidimensional-arrays.html">Matrices and Multidimensional Arrays</a>
+        </li>
+        <li>
+          <a href="array-append.html">Appending to an array</a>
+        </li>
+        <li>
+          <a href="array-copy.html">Copying an array</a>
+        </li>
+        <li>
+          <a href="array-insert-at-index.html">Inserting an element in an array at a given index</a>
+        </li>
+        <li>
+          <a href="testing-array-equality.html">Testing array equality</a>
+        </li>
+      </ol>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Java Arrays (with examples)</h1>
+      <pre><code><span class="keyword">int</span>[] <span class="type">arr</span> = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="num_lit">5</span>];
+
+<span class="type">arr</span>[<span class="num_lit">0</span>] = <span class="num_lit">5</span>;
+<span class="type">arr</span>[<span class="num_lit">3</span>] = <span class="num_lit">2</span>;
+
+<span class="comment">// arr == [ 5, 0, 0, 2, 0 ]</span>
+</code></pre>
+      <ul>
+        <li>Arrays have <strong>fixed length</strong>. Once created, they can not be resized.</li>
+        <li>In an array of length 10, the first index is 0 and the last is 9.</li>
+        <li>Arrays are <strong>objects</strong>
+          <ul>
+            <li>They are dynamically allocated</li>
+            <li>They live on the heap</li>
+            <li>Array variables are of reference type</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Arrays are to be considered a low level language feature. In 99 cases out of 100 you'll want to use a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html"><code>List</code></a>. See <a href="array-vs-arraylist.html">Java: Array vs ArrayList</a>.</p>
+      <h2>Three ways to create an array</h2>
+      <pre><code><span class="comment">// Short form</span>
+<span class="comment">// (can only be used as initializer in a declaration)</span>
+<span class="keyword">int</span>[] <span class="type">arr1</span> = { <span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">77</span> };
+
+<span class="comment">// Initialize with 10 zeroes</span>
+<span class="keyword">int</span>[] <span class="type">arr2</span> = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="num_lit">10</span>];
+
+<span class="comment">// General form</span>
+<span class="keyword">int</span>[] <span class="type">arr3</span> = <span class="keyword">new</span> <span class="keyword">int</span>[] { <span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">77</span> };
+</code></pre>
+      <div class="article-box">
+        <p><strong>Note:</strong> It's possible to put the brackets after the identifier:</p>
+        <pre><code><span class="keyword">int</span> <span class="type">arr</span>[] = { <span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">3</span> };
+</code></pre>
+        <p>This format is rarely used and discouraged by most style guides.</p>
+      </div>
+      <h2>Accessing Elements</h2>
+      <p>Since indexes start at 0, you write for example <code>arr[2]</code> to access the <strong>third</strong> element of <code>arr</code>. In an array with <em>n</em> elements, the last valid index is <em>n</em> − 1.</p>
+      <p>If you try to access an element at a <strong>negative index</strong> or an index <strong>greater than or equal to the length</strong> of the array, an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ArrayIndexOutOfBoundsException.html"><code>ArrayIndexOutOfBoundsException</code></a> will be thrown.</p>
+      <h2>Length</h2>
+      <p>To get the length of an array, <code>arr</code>, use <code>arr.length</code>.</p>
+      <p>The length is represented by an <code>int</code> which means the maximum length is 2<sup>31</sup> − 1 (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#MAX_VALUE"><code>Integer.MAX_VALUE</code></a>).</p>
+      <h2>Iterating</h2>
+      <p>Arrays can be used in enhanced for loops:</p>
+      <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">element</span> : <span class="type">arr</span>) {
+    <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<span class="type">element</span>);
+}
+</code></pre>
+      <p>If you need to keep track of the index, use a traditional <code>for</code> loop:</p>
+      <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">0</span>; <span class="type">i</span> &lt; <span class="type">arr</span>.<span class="type">length</span>; <span class="type">i</span>++) {
+    <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Index "</span> + <span class="type">i</span> + <span class="text_lit">": "</span> + <span class="type">arr</span>[<span class="type">i</span>]);
+}
+</code></pre>
+      <p>For more details on loops, see: <a href="loops.html">Java Trail: Loops</a></p>
+      <h2>Printing</h2>
+      <p><code>System.out.println(arr)</code> prints something like <code>[I@3af49f1c</code>. Here's a better way:</p>
+      <pre><code class="skiphl visibleLinks"><span class="keyword">int</span>[] <span class="type">arr</span> = { <span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">77</span> };
+System.out.println(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#toString-int%3AA-">Arrays.<span class="static_method">toString</span></a>(<span class="type">arr</span>));
+
+<span class="comment">// Output: [1, 2, 77]</span>
+</code></pre>
+      <h2>Primitives vs objects (references)</h2>
+      <p>Arrays are layed out linearly in memory. In other words, an <code>int[]</code> looks like this:</p>
+      <div class="codeblock" style="text-align: center">
+        <svg height="34" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <rect fill="none" height="30" id="cell" stroke-width="2" width="30"></rect>
+        </defs>
+        <text class="code-like" x="0" y="22">
+          int[]:
+        </text>
+        <use style="stroke: black" x="120" xlink:href="#cell" y="1"></use>
+        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="135" y="16">
+          3
+        </text>
+        <use style="stroke: black" x="150" xlink:href="#cell" y="1"></use>
+        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="165" y="16">
+          1
+        </text>
+        <use style="stroke: black" x="180" xlink:href="#cell" y="1"></use>
+        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="195" y="16">
+          15
+        </text>
+        <use style="stroke: black" x="210" xlink:href="#cell" y="1"></use>
+        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="225" y="16">
+          8
+        </text>
+        <use style="stroke: black" x="240" xlink:href="#cell" y="1"></use>
+        <text dominant-baseline="middle" fill="black" text-anchor="middle" x="255" y="16">
+          11
+        </text></svg>
+      </div>
+      <p>In Java, object variables actually store references (see <a href="primitives-vs-objects-references.html">Java: Primitives vs Objects and References</a>), so for a <code>Person[]</code> array, the picture looks like this:</p>
+      <div class="codeblock" style="text-align: center">
+        <svg height="200" width="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <rect fill="none" height="30" id="cell" stroke-width="2" width="30"></rect>
+          <path d="m 0 0 l -4 -10 l 8 0 l -4 10" fill="black" id="down-arrow" stroke="black" stroke-width="1"></path>
+        </defs>
+        <text class="code-like" x="30" y="22">
+          Person[]:
+        </text>
+        <use style="stroke: black" x="150" xlink:href="#cell" y="1"></use>
+        <circle cx="165" cy="16" fill="black" r="4"></circle>
+        <path d="M 165 16 c 0 50, -110 0,-110 50" fill="none" stroke="black" stroke-width="2"></path>
+        <use x="55" xlink:href="#down-arrow" y="71"></use>
+        <rect fill="none" height="50" stroke="black" stroke-width="2" width="80" x="40" y="71"></rect>
+        <text font-size="70%" height="50" width="80" x="45" y="91">
+          name: John
+        </text>
+        <text font-size="70%" height="50" width="80" x="45" y="111">
+          age: 19
+        </text>
+        <use style="stroke: black" x="180" xlink:href="#cell" y="1"></use>
+        <path d="M 195 16 c 0 50, -60 10, -60 120" fill="none" stroke="black" stroke-width="2"></path>
+        <use x="135" xlink:href="#down-arrow" y="141"></use>
+        <circle cx="195" cy="16" fill="black" r="4"></circle>
+        <rect fill="none" height="50" stroke="black" stroke-width="2" width="80" x="100" y="141"></rect>
+        <text font-size="70%" height="50" width="80" x="105" y="161">
+          name: Bob
+        </text>
+        <text font-size="70%" height="50" width="80" x="105" y="181">
+          age: 55
+        </text>
+        <path d="M 225 16 c 0 70, 70 70, 70 105" fill="none" stroke="black" stroke-width="2"></path>
+        <use x="295" xlink:href="#down-arrow" y="126"></use>
+        <use style="stroke: black" x="210" xlink:href="#cell" y="1"></use>
+        <circle cx="225" cy="16" fill="black" r="4"></circle>
+        <rect fill="none" height="50" stroke="black" stroke-width="2" width="80" x="280" y="126"></rect>
+        <text font-size="70%" height="50" width="80" x="285" y="146">
+          name: Amy
+        </text>
+        <text font-size="70%" height="50" width="80" x="285" y="166">
+          age: 25
+        </text>
+        <path d="M 255 16 c 0 40, -60 20, -60 60" fill="none" stroke="black" stroke-width="2"></path>
+        <use x="195" xlink:href="#down-arrow" y="81"></use>
+        <use style="stroke: black" x="240" xlink:href="#cell" y="1"></use>
+        <circle cx="255" cy="16" fill="black" r="4"></circle>
+        <rect fill="none" height="50" stroke="black" stroke-width="2" width="80" x="170" y="81"></rect>
+        <text font-size="70%" height="50" width="80" x="175" y="101">
+          name: Eve
+        </text>
+        <text font-size="70%" height="50" width="80" x="175" y="121">
+          age: 29
+        </text></svg>
+      </div>
+      <p>The references are stored linearly, but the actual objects are spread out in memory.</p>
+      <h2>Multidimensional arrays</h2>
+      <p>Java does not have "true" multidimensional arrays. Instead you typically use arrays of arrays:</p>
+      <pre><code><span class="keyword">int</span>[][] <span class="type">matrix</span> = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="num_lit">3</span>][<span class="num_lit">5</span>];
+<span class="type">matrix</span>[<span class="num_lit">0</span>][<span class="num_lit">0</span>] = <span class="num_lit">123</span>;
+<span class="type">matrix</span>[<span class="num_lit">2</span>][<span class="num_lit">4</span>] = <span class="num_lit">321</span>;
+</code></pre>
+      <p>For more details see: <a href="matrices-and-multidimensional-arrays.html">Java: Matrices and Multidimensional Arrays</a></p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/arrays.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

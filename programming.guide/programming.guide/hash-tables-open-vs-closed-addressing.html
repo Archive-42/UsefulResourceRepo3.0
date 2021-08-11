@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hash Tables: Open vs Closed Addressing | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="Open addressing techniques store at most one value in each slot. In closed addressing there can be multiple values in each bucket (separate chaining)." name="description">
+  <meta content="hash table, hash tables, open addressing, closed addressing, open vs closed addressing, difference, collision resolution, collision resolution strategy" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Related</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="hash-tables.html">Hash Tables</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="hash-tables-open-addressing.html">Hash Tables: Open Addressing</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <h2>Hash Tables</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="hash-tables.html">Hash Tables</a>
+        </li>
+        <li>
+          <a href="hash-tables-complexity.html">Complexity</a>
+        </li>
+        <li>
+          <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>
+        </li>
+        <li>
+          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+        </li>
+        <li class="current">Open vs Closed Addressing</li>
+        <li>
+          <a href="hash-tables-open-addressing.html">Open Addressing</a>
+        </li>
+        <li>
+          <a href="coalesced-hashing.html">Coalesced Hashing</a>
+        </li>
+        <li>
+          <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+        </li>
+        <li>
+          <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
+        </li>
+        <li>
+          <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
+        </li>
+        <li>
+          <a href="2-choice-hashing.html">2-Choice Hashing</a>
+        </li>
+        <li>
+          <a href="2-left-hashing.html">2-Left Hashing</a>
+        </li>
+        <li>
+          <a href="linked-hash-table.html">Linked Hash Table</a>
+        </li>
+        <li>
+          <a href="prime-numbers-in-hash-tables.html">Why large prime numbers are used in hash tables</a>
+        </li>
+      </ol>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <article>
+      <div class="tbl-2-col">
+        <div>
+          <div>
+            <h1>Open Addressing</h1>
+          </div>
+          <div>
+            <h1>Closed Addressing</h1>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Also known as <strong>closed hashing</strong>.</p>
+          </div>
+          <div>
+            <p>Also known as <strong>open hashing</strong>.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Collisions are dealt with by searching for <strong>another empty buckets</strong> within the hash table array itself.</p>
+          </div>
+          <div>
+            <p>A key is always stored in the bucket it's hashed to. Collisions are dealt with using <strong>separate data structures</strong> on a per-bucket basis.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>At most one key per bucket.</p>
+          </div>
+          <div>
+            <p>Arbitrary number of keys per bucket.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Characteristic structure (colors denote "home" bucket):</p>
+            <div style="font-family: monospace; font-size: 200%; line-height: 1.0em; padding-left: 1.5em;">
+              <span style="color: #ccc">0</span>:<br>
+              <span style="color: red">1</span>: <span style="color: red">①</span><br>
+              <span style="color: green">2</span>: <span style="color: green">②</span><br>
+              <span style="color: #ccc">3</span>: <span style="color: green">②</span><br>
+              <span style="color: maroon">4</span>: <span style="color: green">②</span><br>
+              <span style="color: #ccc">5</span>: <span style="color: maroon">④</span><br>
+              <span style="color: #ccc">6</span>:<br>
+              <span style="color: blue">7</span>: <span style="color: blue">⑦</span><br>
+              <span style="color: #ccc">8</span>: <span style="color: blue">⑦</span><br>
+              <span style="color: darkorange">9</span>: <span style="color: darkorange">⑨</span>
+            </div>
+          </div>
+          <div>
+            <p>Characteristic structure (colors denote "home" bucket):</p>
+            <div style="font-family: monospace; font-size: 200%; line-height: 1.0em; padding-left: 1.5em;">
+              <span style="color: #ccc">0</span>:<br>
+              <span style="color: red">1</span>: <span style="color: red">①</span><br>
+              <span style="color: green">2</span>: <span style="color: green">②②②</span><br>
+              <span style="color: #ccc">3</span>:<br>
+              <span style="color: maroon">4</span>: <span style="color: maroon">④</span><br>
+              <span style="color: #ccc">5</span>:<br>
+              <span style="color: #ccc">6</span>:<br>
+              <span style="color: blue">7</span>: <span style="color: blue">⑦⑦</span><br>
+              <span style="color: #ccc">8</span>:<br>
+              <span style="color: darkorange">9</span>: <span style="color: darkorange">⑨</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Example techniques:</p>
+            <ul>
+              <li>Linear Probing</li>
+              <li>Quadratic Probing</li>
+              <li>Double hashing</li>
+              <li>Hopscotch hashing</li>
+              <li>Robin Hood hashing</li>
+              <li>Cuckoo hashing</li>
+              <li>2-Choice hashing</li>
+            </ul>
+          </div>
+          <div>
+            <p>Example techniques:</p>
+            <ul>
+              <li>Separate chaining using linked lists</li>
+              <li>Separate chaining using dynamic arrays</li>
+              <li>Using self-balancing binary search trees</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Theoretical maximum load factor of&nbsp;1.</p>
+          </div>
+          <div>
+            <p>No theoretical maximum load factor.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>The size of the hash table array must always be at least as large as the number of keys in the hash table.</p>
+          </div>
+          <div>
+            <p>Performance degrades as load factor grows.</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Benefits:</p>
+            <ul>
+              <li>No size overhead apart from the hash table array.</li>
+              <li>Better memory locality and cache performance. All elements laid out linearly in memory.</li>
+              <li>Performs better than closed addressing when the number of keys is known in advance and the churn is low.</li>
+            </ul>
+          </div>
+          <div>
+            <p>Benefits:</p>
+            <ul>
+              <li>Easier removal (no need for deleted markings)</li>
+              <li>Typically performs better with high load factor.</li>
+              <li>No issues with clustering.</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>For more details on open addressing, see <a href="hash-tables-open-addressing.html">Hash Tables: Open Addressing</a>.</p>
+          </div>
+          <div>
+            <p>The most common closed addressing implementation uses separate chaining with linked lists. This approach is described in detail the <a href="hash-tables.html">introductory article</a>.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="hash-tables-open-vs-closed-addressing.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

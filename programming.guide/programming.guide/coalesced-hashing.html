@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Coalesced Hashing | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="Coalesced hashing is an approach for implementing a hash table. It uses nodes with next-poiners to form collision chains, but all nodes are stored in the hash table array itself. It's a combination of open and closed addressing." name="description">
+  <meta content="hash table, coalesced hashing, open addressing, closed hashing, cellar, performance, explanation, example, collision resolution, collision resolution strategy" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+  <style>
+        /* <![CDATA[ */
+            .variable {
+        font-style: italic;
+    }
+
+        /* ]]> */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Hash Tables</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="hash-tables.html">Hash Tables</a>
+        </li>
+        <li>
+          <a href="hash-tables-complexity.html">Complexity</a>
+        </li>
+        <li>
+          <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>
+        </li>
+        <li>
+          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-vs-closed-addressing.html">Open vs Closed Addressing</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-addressing.html">Open Addressing</a>
+        </li>
+        <li class="current">Coalesced Hashing</li>
+        <li>
+          <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+        </li>
+        <li>
+          <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
+        </li>
+        <li>
+          <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
+        </li>
+        <li>
+          <a href="2-choice-hashing.html">2-Choice Hashing</a>
+        </li>
+        <li>
+          <a href="2-left-hashing.html">2-Left Hashing</a>
+        </li>
+        <li>
+          <a href="linked-hash-table.html">Linked Hash Table</a>
+        </li>
+        <li>
+          <a href="prime-numbers-in-hash-tables.html">Why large prime numbers are used in hash tables</a>
+        </li>
+      </ol>
+      <h2>References</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="https://books.google.com/books/about/The_Design_and_Analysis_of_Coalesced_Has.html?id=AudQAAAAMAAJ">Design and Analysis of Coalesced Hashing</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by J.&nbsp;S.&nbsp;Vitter, W.&nbsp;C.&nbsp;Chen</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.119.6552&amp;rep=rep1&amp;type=pdf">Implementations for Coalesced Hashing</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by J.&nbsp;S.&nbsp;Vitter</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://academic.oup.com/comjnl/article/29/5/436/486218">Deletion Algorithms for Coalesced Hashing</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by W.&nbsp;C.&nbsp;Chen, J.&nbsp;S.&nbsp;Vitter</span>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Coalesced Hashing</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <rect fill="white" height="30" id="cell" stroke="black" width="30"></rect>
+        <rect fill="white" height="20" id="node" rx="5" ry="5" stroke="black" width="25" x="17" y="5.0"></rect>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
+        <path d="M -1 -3 l 0 6 l 10 -3 l -10 -3" fill="black" id="r-arrow-head-black"></path>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
+        <g id="arrow-and-node">
+          <line stroke="black" x1="0" x2="10" y1="15.0" y2="15.0"></line>
+          <use href="#r-arrow-head-black" x="10" y="15.0"></use>
+          <use href="#node" x="0"></use>
+        </g>
+      </defs></svg>
+      <p>Coalesced hashing is a technique for implementing a hash table. It's an <a href="hash-tables-open-addressing.html">open addressing</a> technique which means that all keys are <strong>stored in the array itself</strong> (e.g. it doesn't use for example linked lists to handle collisions). As opposed to other open addressing techniques however, it also uses <strong>nodes with next-poiners</strong> to form collision chains.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Coalesced hash table holding five keys in two collision chains. (Keys of the same color hash to the same bucket.)</p>
+        <div class="centered-content" style="margin: 0em;">
+          <svg style="max-width: 100px;" viewbox="-5 -5 100.0 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use href="#cell" y="0"></use>
+          <use href="#cell" y="30"></use>
+          <text dominant-baseline="middle" fill="red" style="font-style: italic" text-anchor="middle" x="15.0" y="45.0">
+            k
+          </text>
+          <use href="#cell" y="60"></use>
+          <use href="#cell" y="90"></use>
+          <use href="#cell" y="120"></use>
+          <text dominant-baseline="middle" fill="blue" style="font-style: italic" text-anchor="middle" x="15.0" y="135.0">
+            k
+          </text>
+          <use href="#cell" y="150"></use>
+          <use href="#cell" y="180"></use>
+          <text dominant-baseline="middle" fill="red" style="font-style: italic" text-anchor="middle" x="15.0" y="195.0">
+            k
+          </text>
+          <use href="#cell" y="210"></use>
+          <use href="#cell" y="240"></use>
+          <text dominant-baseline="middle" fill="blue" style="font-style: italic" text-anchor="middle" x="15.0" y="255.0">
+            k
+          </text>
+          <use href="#cell" y="270"></use>
+          <text dominant-baseline="middle" fill="blue" style="font-style: italic" text-anchor="middle" x="15.0" y="285.0">
+            k
+          </text>
+          <path d="M 30 135.0 q 40 0 40 75.0 c 0 75.0 -20 75.0 -40 75.0 c 30 0 30 -30 10 -30" fill="none" stroke="blue"></path>
+          <use href="#r-arrow-head" transform="translate(40, 255.0) rotate(180)"></use>
+          <path d="M 30 45.0 c 50 0 50 150 10 150" fill="none" stroke="red"></path>
+          <use href="#r-arrow-head-red" transform="translate(40, 195.0) rotate(180)"></use></svg>
+        </div>
+      </div>
+      <h2>Insertion</h2>
+      <p>Suppose we're inserting a key that hashes to slot <em>i</em>. If slot <em>i</em> is empty, we insert it there and we're done. If it's not empty, we traverse the chain of next-pointers until we find the key (in which case we return) or until we reach the end of the chain. Suppose that we reach the end of the chain and that the last node in the chain is stored in slot <em>j</em>. We now look for a free slot by scanning from the bottom up. Suppose we find a free slot at index <em>k</em>. The key is inserted in slot <em>k</em> and the next-pointer in slot <em>j</em> is set to point to slot <em>k</em>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> We have the following hash table…</p>
+        <div class="centered-content" style="margin: 0em;">
+          <svg style="max-width: 100px;" viewbox="-30 -5 100.0 310" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use href="#cell" y="0"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="15.0">
+            0:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="15.0">
+            90
+          </text>
+          <use href="#cell" y="30"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="45.0">
+            1:
+          </text>
+          <use href="#cell" y="60"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="75.0">
+            2:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="75.0">
+            92
+          </text>
+          <use href="#cell" y="90"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="105.0">
+            3:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="105.0">
+            14
+          </text>
+          <use href="#cell" y="120"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="135.0">
+            4:
+          </text>
+          <use href="#cell" y="150"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="165.0">
+            5:
+          </text>
+          <use href="#cell" y="180"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="195.0">
+            6:
+          </text>
+          <use href="#cell" y="210"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="225.0">
+            7:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="225.0">
+            72
+          </text>
+          <use href="#cell" y="240"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="255.0">
+            8:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="255.0">
+            88
+          </text>
+          <use href="#cell" y="270"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="285.0">
+            9:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="285.0">
+            32
+          </text>
+          <path d="M 30 75.0 c 30 0 70 210 0 210 c 30 0 30 -60 10 -60" fill="none" stroke="blue"></path>
+          <use href="#r-arrow-head" transform="translate(40, 225.0) rotate(180)"></use></svg>
+        </div>
+        <p>…and we want to insert the key 52, which happens to hash to slot 2.</p>
+        <p>Slot 2 is not empty, so we traverse the chain: 92… 32… 72. We do not find 52 and slot 7 holds the last node in the chain.</p>
+        <p>We now search for an empty slot by scanning the table from the bottom up. We find slot 6 to be empty. We insert 52 in this slot, and append it to the chain by updating the next-pointer in slot 7.</p>
+        <div class="centered-content" style="margin: 0em;">
+          <svg style="max-width: 100px;" viewbox="-30 -5 100.0 310" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use href="#cell" y="0"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="15.0">
+            0:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="15.0">
+            90
+          </text>
+          <use href="#cell" y="30"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="45.0">
+            1:
+          </text>
+          <use href="#cell" y="60"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="75.0">
+            2:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="75.0">
+            92
+          </text>
+          <use href="#cell" y="90"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="105.0">
+            3:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="105.0">
+            14
+          </text>
+          <use href="#cell" y="120"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="135.0">
+            4:
+          </text>
+          <use href="#cell" y="150"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="165.0">
+            5:
+          </text>
+          <use href="#cell" y="180"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="195.0">
+            6:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="1" text-anchor="middle" x="15.0" y="195.0">
+            52
+          </text>
+          <use href="#cell" y="210"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="225.0">
+            7:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="225.0">
+            72
+          </text>
+          <use href="#cell" y="240"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="255.0">
+            8:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="255.0">
+            88
+          </text>
+          <use href="#cell" y="270"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="285.0">
+            9:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="285.0">
+            32
+          </text>
+          <path d="M 30 75.0 c 30 0 70 210 0 210 c 30 0 30 -60 0 -60" fill="none" opacity="0.2" stroke="blue"></path>
+          <path d="M 30 225.0 c 25 0 25 -30 10 -30" fill="none" stroke="blue"></path>
+          <use href="#r-arrow-head" transform="translate(40, 195.0) rotate(180)"></use></svg>
+        </div>
+      </div>
+      <h3>Coalesced Chains</h3>
+      <p>If a key that hashes to slot <em>i</em> is stored in slot <em>k</em>, what happens when another key is inserted, that hashes to slot <em>k</em>? The insertion algorithm will follow the same procedure; the new key will be inserted in an empty slot, and the chain starting in (or, running through) slot <em>k</em> will be extended to include this key. At this point, both keys that hash to slot <em>i</em> and keys that hash to slot <em>k</em> will be stored in <strong>the same collision chain</strong>. We say that the chains are <strong>coalesced</strong>, hence the name of the algorithm.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> (Continuing from previous example.) We recall that key 52 (which hases to slot 2) was inserted in slot 6. Now we insert key 16 which hases to slot 6.</p>
+        <p>The insert procedure inserts the key in slot 5 and updates the next pointer in slot 6 to point to slot 5.</p>
+        <div class="centered-content" style="margin: 0em;">
+          <svg style="max-width: 100px;" viewbox="-30 -5 100.0 310" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use href="#cell" y="0"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="15.0">
+            0:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="15.0">
+            90
+          </text>
+          <use href="#cell" y="30"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="45.0">
+            1:
+          </text>
+          <use href="#cell" y="60"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="75.0">
+            2:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="75.0">
+            92
+          </text>
+          <use href="#cell" y="90"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="105.0">
+            3:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="105.0">
+            14
+          </text>
+          <use href="#cell" y="120"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="135.0">
+            4:
+          </text>
+          <use href="#cell" y="150"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="165.0">
+            5:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="1" text-anchor="middle" x="15.0" y="165.0">
+            16
+          </text>
+          <use href="#cell" y="180"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="195.0">
+            6:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="195.0">
+            52
+          </text>
+          <use href="#cell" y="210"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="225.0">
+            7:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="225.0">
+            72
+          </text>
+          <use href="#cell" y="240"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="255.0">
+            8:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="255.0">
+            88
+          </text>
+          <use href="#cell" y="270"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="285.0">
+            9:
+          </text>
+          <text dominant-baseline="middle" fill="blue" opacity="0.3" text-anchor="middle" x="15.0" y="285.0">
+            32
+          </text>
+          <path d="M 30 75.0 c 30 0 70 210 0 210 c 30 0 30 -60 0 -60 c 25 0 25 -30 0 -30" fill="none" opacity="0.2" stroke="blue"></path>
+          <path d="M 30 195.0 c 25 0 25 -30 10 -30" fill="none" stroke="blue"></path>
+          <use href="#r-arrow-head" transform="translate(40, 165.0) rotate(180)"></use></svg>
+        </div>
+        <p>As can be seen the collision chain for slot 2 has been coaleced with the chain for slot&nbsp;6.</p>
+      </div>
+      <h3>Variations</h3>
+      <p>The insertion algorithm described above is called <strong>late-insertion</strong> as it appends the new node to the <strong>end</strong> of the chain. There's also <strong>early-insertion</strong> which inserts the key <strong>immediately after</strong> the original slot, and then reroutes the pointers accordingly. A third method is called <strong>varied-insertion</strong> which works like early-insertion but with a special case for when there is a so called cellar slot (discussed later) following its' hash address in the chain.</p>
+      <p>J.&nbsp;S.&nbsp;Vitter elaborates on this in the paper <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.119.6552&amp;rep=rep1&amp;type=pdf">Implementations for Coalesced Hashing</a>.</p>
+      <h2>Lookup</h2>
+      <p>If a key is not found in the slot it hashes to, the lookup algorithm follows the chain starting in that slot, and continues until the key is found or the chain ends.</p>
+      <div class="article-box">
+        <p><strong>Note:</strong> Due to coalescing, the chain can contain unrelated keys, i.e. keys that do not hash to the same slot as the key we're looking for.</p>
+      </div>
+      <h2>Removal</h2>
+      <p>Simply clearing out a slot might break a chain, and cause future lookups to fail. To avoid this problem, one could instead use ‘deleted’ markings (see <a href="hash-tables-open-addressing.html">Hash Tables: Open Addressing</a>, section Removal) but this is subject to so called contamination.</p>
+      <p>The approach commonly used in practice is to clear the slot holding the key, and then <strong>reinsert</strong> all following keys in the chain.</p>
+      <p>This maintains the invariants, avoids contamination and potentially even breaks apart previously coalesced chains.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> In this example the hash function is <code>key % 10</code>. As can be seen in the left-most figure below, the chain for keys hashing to 2 (blue color) and the chain for keys hashing to 8 (red color) have been coalesced.</p>
+        <p>We now remove key 32, and reinsert 18, 32, 28 and 42:</p>
+        <div class="centered-content" style="margin: 2em 0em 0em 0em;">
+          <svg style="max-width: 550px;" viewbox="-130 -5 550.0 360" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use href="#cell" y="0"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="15.0">
+            0:
+          </text>
+          <use href="#cell" y="30"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="45.0">
+            1:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="45.0">
+            12
+          </text>
+          <use href="#cell" y="60"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="75.0">
+            2:
+          </text>
+          <use href="#cell" y="90"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="105.0">
+            3:
+          </text>
+          <use href="#cell" y="120"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="135.0">
+            4:
+          </text>
+          <use href="#cell" y="150"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="165.0">
+            5:
+          </text>
+          <text dominant-baseline="middle" fill="red" text-anchor="middle" x="15.0" y="165.0">
+            28
+          </text>
+          <use href="#cell" y="180"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="195.0">
+            6:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="195.0">
+            42
+          </text>
+          <use href="#cell" y="210"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="225.0">
+            7:
+          </text>
+          <text dominant-baseline="middle" fill="red" text-anchor="middle" x="15.0" y="225.0">
+            18
+          </text>
+          <use href="#cell" y="240"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="255.0">
+            8:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="255.0">
+            32
+          </text>
+          <use href="#cell" y="270"></use>
+          <text dominant-baseline="middle" text-anchor="end" x="-5" y="285.0">
+            9:
+          </text>
+          <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="285.0">
+            22
+          </text>
+          <path d="M 30 45.0 c 30 0 70 240 0 240" fill="none" stroke="blue"></path>
+          <path d="M 30 285.0 c 25 0 25 -30 0 -30" fill="none" stroke="blue"></path>
+          <path d="M 30 255.0 c 25 0 25 -30 0 -30" fill="none" stroke="red"></path>
+          <path d="M 30 225.0 c 25 0 25 -30 0 -30" fill="none" stroke="blue"></path>
+          <path d="M 30 195.0 c 25 0 25 -30 10 -30" fill="none" stroke="red"></path>
+          <use href="#r-arrow-head-red" transform="translate(40, 165.0) rotate(180)"></use>
+          <text dominant-baseline="middle" text-anchor="start" x="-130" y="255.0">
+            To remove →
+          </text>
+          <g transform="translate(175)">
+            <use href="#cell" y="0"></use>
+            <use href="#cell" y="30"></use>
+            <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="45.0">
+              12
+            </text>
+            <use href="#cell" y="60"></use>
+            <use href="#cell" y="90"></use>
+            <use href="#cell" y="120"></use>
+            <use href="#cell" y="150"></use>
+            <use href="#cell" y="180"></use>
+            <use href="#cell" y="210"></use>
+            <use href="#cell" y="240"></use>
+            <use href="#cell" y="270"></use>
+            <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="285.0">
+              22
+            </text>
+            <path d="M 30 45.0 c 30 0 70 240 10 240" fill="none" stroke="blue"></path>
+            <use href="#r-arrow-head" transform="translate(40, 285.0) rotate(180)"></use>
+            <text text-anchor="middle" x="15.0" y="330">
+              To reinsert:
+            </text>
+            <text text-anchor="middle" x="15.0" y="350">
+              <tspan fill="red">18</tspan>, <tspan fill="blue">42</tspan>, <tspan fill="red">28</tspan>
+            </text>
+          </g>
+          <g transform="translate(349)">
+            <use href="#cell" y="0"></use>
+            <use href="#cell" y="30"></use>
+            <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="45.0">
+              12
+            </text>
+            <use href="#cell" y="60"></use>
+            <use href="#cell" y="90"></use>
+            <use href="#cell" y="120"></use>
+            <use href="#cell" y="150"></use>
+            <use href="#cell" y="180"></use>
+            <text dominant-baseline="middle" fill="red" text-anchor="middle" x="15.0" y="195.0">
+              28
+            </text>
+            <use href="#cell" y="210"></use>
+            <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="225.0">
+              42
+            </text>
+            <use href="#cell" y="240"></use>
+            <text dominant-baseline="middle" fill="red" text-anchor="middle" x="15.0" y="255.0">
+              18
+            </text>
+            <use href="#cell" y="270"></use>
+            <text dominant-baseline="middle" fill="blue" text-anchor="middle" x="15.0" y="285.0">
+              22
+            </text>
+            <path d="M 30 45.0 c 30 0 70 240 0 240 c 30 0 30 -60 10 -60" fill="none" stroke="blue"></path>
+            <use href="#r-arrow-head" transform="translate(40, 225.0) rotate(180)"></use>
+            <path d="M 30 255.0 c 30 0 30 -60 10 -60" fill="none" stroke="red"></path>
+            <use href="#r-arrow-head-red" transform="translate(40, 195.0) rotate(180)"></use>
+          </g></svg>
+        </div>
+      </div>
+      <p>For details, refer to the article <a href="https://academic.oup.com/comjnl/article/29/5/436/486218">Deletion Algorithms for Coalesced Hashing</a> by W.&nbsp;C.&nbsp;Chen, and J.&nbsp;S.&nbsp;Vitter which also includes details for late, early, and varied insertion.</p>
+      <h2>Rehashing</h2>
+      <p>As with all variants of hash tables, performance degrades as the load factor increases and, as usual, the threshold at which to rehash is a space–time tradeoff. The optimal limit also depends on wheather you want to optimize the runtime for failing or successful lookups.</p>
+      <p>The performance degrades rapidly as the load factor surpasses 50%. The paper <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.119.6552&amp;rep=rep1&amp;type=pdf">Implementations for Coalesced Hashing</a> suggests using 68% in a practical setting.</p>
+      <p>Being an open-addressing techinque, the theoretical maximum is 1.0.</p>
+      <h2>Performance</h2>
+      <p>The longer the average length of the chains are, the longer the expected lookup time is. For this reason coalescing is bad for performance. (Two chains of length <em>L</em><sub>1</sub> and <em>L</em><sub>2</sub> are better than one chain of length <span class="no-wrap"><em>L</em><sub>1</sub> + <em>L</em><sub>2</sub></span>.)</p>
+      <p>The chains do however still help the lookup algorithm skip over irrelevant slots and mitigate the effects of primary and secondary clustering. (See sections on linear and quadratic probing in article <a href="hash-tables-open-addressing.html">Hash Tables: Open Addressing</a>.) The downside is the size overhead due to next-pointers and the extra level of indirection which affects cache performance.</p>
+      <h3>Runtime Complexity</h3>
+      <p>In worst case, all keys hash to the same slot, and we get one long chain. Thus in worst case the the runtime complexity is <strong>linear</strong> (applies to all operations). Under the simple uniform hashing assumption (see <a href="hash-tables-complexity.html">Hash Tables: Complexity</a>) the <strong>amortized runtime is constant</strong> for all operations.</p>
+      <h2>The Cellar</h2>
+      <p>A common optimization (so common in fact, that it is almost to be considered a part of the standard implementation) is to reserve part of the hash table array to be used only for storing colliding keys. This part is called <strong>the cellar</strong>.</p>
+      <p>In a table of size <em>M</em> with a cellar of size <em>N</em>, the slot, <em>i</em>, to which a key, <em>k</em>, belongs is computed as follows:</p>
+      <div class="centered-content no-wrap">
+        <p><em>i</em> = hash(<em>k</em>) % (M − N)</p>
+      </div>
+      <div class="article-box">
+        <p><strong>Example:</strong> A coalescing hash table array with <span class="no-wrap"><em>M</em> = 10</span> and <span class="no-wrap"><em>N</em> = 3</span>.</p>
+        <div class="centered-content" style="margin: 2em 0em 0em 0em;">
+          <svg style="max-width: 270px;" viewbox="-5 -5 270.0 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use href="#cell" y="0"></use>
+          <use href="#cell" y="30"></use>
+          <use href="#cell" y="60"></use>
+          <use href="#cell" y="90"></use>
+          <use href="#cell" y="120"></use>
+          <use href="#cell" y="150"></use>
+          <use href="#cell" y="180"></use>
+          <use href="#cell" y="215"></use>
+          <use href="#cell" y="245"></use>
+          <use href="#cell" y="275"></use>
+          <text style="font-weight: bold" x="70" y="90">
+            The addressable part:
+          </text>
+          <text x="70" y="110">
+            The slots to which
+          </text>
+          <text x="70" y="130">
+            keys can hash to.
+          </text>
+          <text style="font-weight: bold" x="70" y="240">
+            The cellar:
+          </text>
+          <text x="70" y="260">
+            Slots used when dealing
+          </text>
+          <text x="70" y="280">
+            with collisions.
+          </text>
+          <path d="M 40 0 q 10 0 10 10 v 85.0 q 0 10 10 10 q -10 0 -10 10 v 85.0 q 0 10 -10 10" fill="none" stroke="black"></path>
+          <path d="M 40 215 q 10 0 10 10 v 25.0 q 0 10 10 10 q -10 0 -10 10 v 25.0 q 0 10 -10 10" fill="none" stroke="black"></path></svg>
+        </div>
+      </div>
+      <p>When storing a key in the cellar, it does not interfere with other addressable slots and can thus not cause two chains to coalesce. In other words, the cellar acts as a <strong>buffer against coalescing</strong>. The idea is very similar to the so called stash used in <a href="cuckoo-hashing.html">Cuckoo Hashing</a>.</p>
+      <p>The cellar can also improve the performance of a removal operation. Since storing a key in the cellar never causes coalescing, keys stored in the cellar are easy to remove. You simply clear out the slot and rewire the pointers. There's no need to reinsert the keys in the tail of the chain to maintain the structural invariants.</p>
+      <p>Choosing how many slots of the full array to reserve for the cellar is a tradeoff:</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg style="max-width: 600px;" viewbox="-300 -50 600.0 140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <line stroke="black" x1="-195" x2="195" y1="0" y2="0"></line>
+        <line stroke="black" x1="-190" x2="-190" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="-160" x2="-160" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="-130" x2="-130" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="-100" x2="-100" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="-70" x2="-70" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="-40" x2="-40" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="-10" x2="-10" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="20" x2="20" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="50" x2="50" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="80" x2="80" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="110" x2="110" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="140" x2="140" y1="-2.5" y2="2.5"></line>
+        <line stroke="black" x1="170" x2="170" y1="-2.5" y2="2.5"></line>
+        <use href="#r-arrow-head-black" x="190"></use>
+        <use href="#r-arrow-head-black" transform="translate(-190, 0) rotate(180)"></use>
+        <text text-anchor="middle" x="-190" y="-30">
+          Fewer cellar slots
+        </text>
+        <text text-anchor="middle" x="-190" y="40">
+          More addressable space
+        </text>
+        <text text-anchor="middle" x="-190" y="60">
+          Less coalescing
+        </text>
+        <text text-anchor="middle" x="-190" y="80">
+          Less need for cellar slots
+        </text>
+        <text text-anchor="middle" x="190" y="-30">
+          More cellar slots
+        </text>
+        <text text-anchor="middle" x="190" y="40">
+          Less addressable space
+        </text>
+        <text text-anchor="middle" x="190" y="60">
+          More coalescing
+        </text>
+        <text text-anchor="middle" x="190" y="80">
+          More need for cellar slots
+        </text></svg>
+      </div>
+      <p>The optimal size of the cellar varies depending on the load factor, but according to the analysis in <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.119.6552&amp;rep=rep1&amp;type=pdf">Implementations for Coalesced Hashing</a> a <strong>good overall value is 14%</strong> of the total number of slots available.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="coalesced-hashing.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

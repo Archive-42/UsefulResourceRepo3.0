@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Statements vs Expressions | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="A statement is something that does something. An expression is something that evaluates to some value. Some constructs are both statements and expressions." name="description">
+  <meta content="statement, expression, example" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+  <style>
+        .comparison-table {
+            display: table;
+            width: 100%;
+        }
+
+        .comparison-table > * {
+            display: table-row;
+        }
+
+        .comparison-table > * > * {
+            display: table-cell;
+            width: 50%;
+            padding-bottom: 3em;
+        }
+
+        .comparison-table > * > *:first-child {
+            padding-right: 1em;
+        }
+
+        .comparison-table > * > *:last-child {
+            padding-left: 1em;
+        }
+
+        pre.inline-code-block {
+            margin: 0;
+            padding: 1em;
+            min-width: 100%;
+        }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="java/functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Statements vs Expressions</h1>
+      <div class="comparison-table">
+        <div>
+          <div>
+            <h2>Statements</h2>
+            <p>A statement performs some <strong>action</strong></p>
+          </div>
+          <div>
+            <h2>Expressions</h2>
+            <p>An expression evaluates to some <strong>value</strong></p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h3>Examples</h3>
+            <div style="display: flex">
+              <pre class="inline-code-block">print("Hello World")
+
+sleep(1000)
+
+return 55
+
+if (done) exit()
+
+throw SomeError()</pre>
+            </div>
+          </div>
+          <div>
+            <h3>Examples</h3>
+            <div style="display: flex">
+              <pre class="inline-code-block">"Hello World"
+
+1000
+
+5 + 3
+
+a * 5 &gt; b
+
+x_flag &amp; mask</pre>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>An expression can be part of a statement:</p>
+            <pre class="inline-code-block"><code>while (<span class="highlight">x &lt; 5</span>)
+    x += 15
+
+print(<span class="highlight">"i: " + i</span>)</code></pre>
+          </div>
+          <div>
+            <p>A statement is never part of an expression.</p>
+          </div>
+        </div>
+        <div>
+          <div style="padding-bottom: 1em;">
+            In typed languages…
+          </div>
+          <div style="padding-bottom: 1em;"></div>
+        </div>
+        <div>
+          <div>
+            <p>…statements typically don't have a type. If they do, the type is typically something like <code>Unit</code> or <code>void</code>.</p>
+          </div>
+          <div>
+            <p>…all expressions have types. <code>"Hello World"</code> is a string, <code>5&nbsp;+&nbsp;7</code> is an integer and so on.</p>
+          </div>
+        </div>
+      </div>
+      <h2>Details</h2>
+      <p>Some expressions such as <code>i++</code> (unary increment in C-like languages) have side-effects and could be viewed as statements embedded in expressions: <code>while&nbsp;(i++&nbsp;&lt;&nbsp;15)&nbsp;…</code></p>
+      <p>Some things can be used both as expressions and statements. A call to a function returning a value for example. In C-like languages they need to be terminated by a <code>;</code> to form a complete statement.</p>
+      <pre><code>myFunction();                 <span class="comment">// As statement</span>
+if (myFunction())             <span class="comment">// As expression</span>
+    print("Returned true!");</code></pre>
+      <p>In scripting languages it's also common to use short circuiting boolean expressions. In shell scripting you often see things like</p>
+      <pre><code>compile_code || exit 1
+</code></pre>
+      <p>or in PHP where the following is a common pattern</p>
+      <pre><code>fopen($site, "r") or die("Unable to connect");</code></pre>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="statements-vs-expressions.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

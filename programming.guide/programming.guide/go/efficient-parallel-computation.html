@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: Efficient parallel computation | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="To efficiently schedule parallel computation on separate CPUs is more of an art than a science. This article gives some rules of thumb." name="description">
+  <meta content="go, golang, parallel, computation, scheduling, cpu" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Concurrency in Go</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="goroutines-explained.html">Goroutines explained</a>
+        </li>
+        <li>
+          <a href="channels-explained.html">Channels explained</a>
+        </li>
+        <li>
+          <a href="select-explained.html">Select explained</a>
+        </li>
+        <li>
+          <a href="data-races-explained.html">Data races explained</a>
+        </li>
+        <li>
+          <a href="detect-data-races.html">Detect data races</a>
+        </li>
+        <li>
+          <a href="detect-deadlock.html">Deadlock</a>
+        </li>
+        <li>
+          <a href="wait-for-goroutines-waitgroup.html">Wait for goroutines</a>
+        </li>
+        <li>
+          <a href="broadcast-channel.html">Broadcast a signal on a channel</a>
+        </li>
+        <li>
+          <a href="stop-goroutine.html">Stop a goroutine</a>
+        </li>
+        <li>
+          <a href="time-reset-wait-stop-timeout-cancel-interval.html">Timer and Ticker explained</a>
+        </li>
+        <li>
+          <a href="mutex-explained.html">Mutual exclusion lock (mutex)</a>
+        </li>
+        <li class="current">Efficient parallel computation</li>
+      </ol>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: Efficient parallel computation</h1>
+      <p>Dividing a&nbsp;large compu­tation into work units for parallel pro­cessing is more of an art than a science. Here are some rules of&nbsp;thumb.</p>
+      <ul>
+        <li>Each work unit should take about 100μs to 1ms to compute.</li>
+        <li>If&nbsp;the units are too small, the adminis­trative over­head of divi­ding the problem and sched­uling sub-problems might be too large.</li>
+        <li>If the units are too big, the whole computation may have to wait for a single slow work item to finish. This slowdown can happen for many reasons, such as scheduling, interrupts from other processes, and unfortunate memory layout. (Note that the number of work units is independent of the number of CPUs.)</li>
+        <li>Try to minimize the amount of data sharing. Concurrent writes can be very costly, particularly so if goroutines execute on separate CPUs. Sharing data for reading is often much less of a problem.</li>
+        <li>Strive for good locality when accessing data. If data can be kept in cache memory, data loading and storing will be dramatically faster. Once again, this is particularly important for writing.</li>
+      </ul>
+      <h2>Example</h2>
+      <p>The following example shows how to divide a costly computation and distribute it on all available CPUs. This is the code we want to optimize.</p>
+      <pre><code>
+type Vector []float64
+
+// Convolve computes w = u * v, where w[k] = Σ u[i]*v[j], i + j = k.
+// Precondition: len(u) &gt; 0, len(v) &gt; 0.
+func Convolve(u, v Vector) Vector {
+    n := len(u) + len(v) - 1
+    w := make(Vector, n)
+    for k := 0; k &lt; n; k++ {
+        w[k] = mul(u, v, k)
+    }
+    return w
+}
+
+// mul returns Σ u[i]*v[j], i + j = k.
+func mul(u, v Vector, k int) float64 {
+    var res float64
+    n := min(k+1, len(u))
+    j := min(k, len(v)-1)
+    for i := k - j; i &lt; n; i, j = i+1, j-1 {
+        res += u[i] * v[j]
+    }
+    return res
+}
+</code></pre>
+      <p>The idea is simple: identify work units of suitable size and then run each work unit in a separate goroutine. Here is a parallel version of <code>Convolve</code>.</p>
+      <pre><code>func Convolve(u, v Vector) Vector {
+    n := len(u) + len(v) - 1
+    w := make(Vector, n)
+
+    <span class="comment">// Divide w into work units that take ~100μs-1ms to compute.</span>
+    size := max(1, 1000000/n)
+
+    var wg sync.WaitGroup
+    for i, j := 0, size; i &lt; n; i, j = j, j+size {
+        if j &gt; n {
+            j = n
+        }
+        <span class="comment">// The goroutines share memory, but only for reading.</span>
+        wg.Add(1)
+        go func(i, j int) {
+            for k := i; k &lt; j; k++ {
+                w[k] = mul(u, v, k)
+            }
+            wg.Done()
+        }(i, j)
+    }
+    wg.Wait()
+    return w
+}</code></pre>
+      <h2>Limiting the number of goroutines</h2>
+      <p>When the work units have been defined, it’s often best to leave the scheduling to the runtime and the operating system. However, if needed, you can tell the runtime how many goroutines you want executing code simultaneously:</p>
+      <pre><code>func init() {
+    numcpu := runtime.NumCPU()
+    runtime.GOMAXPROCS(numcpu) <span class="comment">// Try to use all available CPUs.</span>
+}</code></pre>
+      <div class="prev-next-container">
+        <!-- PREV -->
+         <a class="prev" href="mutex-explained.html">
+        <div class="button-content">
+          « Prev
+          <div class="prev-next-text">
+            Mutual exclusion lock (mutex)
+          </div>
+        </div></a> <!-- TOC -->
+         <a href="go-concurrency-tutorial.html#toc">
+        <div class="button-content">
+          TOC
+          <div class="prev-next-text">
+            Concurrency in Go
+          </div>
+          <div class="prev-next-text" style="font-weight: normal">
+            12&nbsp;of&nbsp;12
+          </div>
+        </div></a> <!-- NEXT -->
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/efficient-parallel-computation.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java Exceptions: Throw, Try and Catch | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="This article explains what exceptions are, including related concepts such as throwing, propagating and catching." name="description">
+  <meta content="java, control flow, exceptional control flow, throw, catch, stack trace, error, throwable, error handling, exception handling, exception" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Java Exceptions</h2>
+      <ol class="nostyle">
+        <li class="current">Throw, Try and Catch</li>
+        <li>
+          <a href="exception-types.html">Java Exception Types</a>
+        </li>
+        <li>
+          <a href="chained-exceptions.html">Chained Exceptions</a>
+        </li>
+        <li>
+          <a href="custom-exception.html">Custom Exception</a>
+        </li>
+        <li>
+          <a href="difference-between-checked-and-unchecked-exceptions.html">Difference between Checked and Unchecked Exceptions</a>
+        </li>
+        <li>
+          <a href="choosing-between-checked-and-unchecked-exceptions.html">Choosing between Checked and Unchecked Exceptions</a>
+        </li>
+        <li>
+          <a href="checked-exceptions-good-or-bad.html">Checked Exceptions: Good or Bad?</a>
+        </li>
+        <li>
+          <a href="return-values-vs-exceptions.html">Return Values vs Exceptions</a>
+        </li>
+        <li>
+          <a href="try-finally.html">try + finally</a>
+        </li>
+        <li>
+          <a href="try-with-resources.html">try-with-resources</a>
+        </li>
+        <li>
+          <a href="stack-trace.html">Stack Traces</a>
+        </li>
+        <li>
+          <a href="suppressed-exceptions.html">Suppressed Exceptions</a>
+        </li>
+        <li>
+          <a href="throw-vs-throws-vs-throwable.html">throw vs throws vs Throwable</a>
+        </li>
+        <li>
+          <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
+        </li>
+      </ol>
+      <h2>Exception Related Keywords</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="throw.html">throw</a>
+        </li>
+        <li>
+          <a href="throws.html">throws</a>
+        </li>
+        <li>
+          <a href="catch.html">catch</a>
+        </li>
+        <li>
+          <a href="try.html">try</a>
+        </li>
+        <li>
+          <a href="finally.html">finally</a>
+        </li>
+      </ol>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Java Exceptions: Throw, Try and Catch</h1>
+      <p>Exceptions are used when writing code for "exceptional situations" such as:</p>
+      <ul>
+        <li>The user tried to open a file that doesn't exist</li>
+        <li>There's an error in a configuration file</li>
+        <li>A server could not be reached due to a network problem</li>
+      </ul>
+      <p>When such event occur, it's appropriate to <strong>throw</strong> an exception. The statements below a <code>throw</code> statement are skipped:</p>
+      <div class="codeblock">
+        <svg height="170" width="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <path d="m -5 12 q -15 10, 0 23" fill="none" id="single-step" stroke="green" stroke-width="2"></path>
+          <text class="code-like dummyStatement" id="dummy-statement" y="17">
+            statement
+          </text>
+        </defs>
+        <use href="#dummy-statement" x="20" y="5"></use>
+        <use x="20" xlink:href="#single-step" y="5"></use>
+        <use href="#dummy-statement" x="20" y="27"></use>
+        <use x="20" xlink:href="#single-step" y="27"></use>
+        <use href="#dummy-statement" x="20" y="49"></use>
+        <use x="20" xlink:href="#single-step" y="49"></use>
+        <text class="code-like" x="20" y="88">
+          <tspan class="keyword">throw</tspan> <tspan class="keyword">new</tspan> SomeException();
+        </text>
+        <path d="M 20 69 m -5 14 c -8 5, -8 10, -8 12.5 l 0 66" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 7 162 l -4 -10 l 8 0 l -4 10" fill="red" stroke="red" stroke-width="1"></path>
+        <use href="#dummy-statement" x="20" y="93"></use>
+        <use href="#dummy-statement" x="20" y="115"></use>
+        <use href="#dummy-statement" x="20" y="137"></use></svg>
+      </div>
+      <p>Execution will continue as normal when the exception is <strong>caught</strong>. You catch an exception using <code>try</code> and <code>catch</code> in the following way:</p>
+      <div class="codeblock">
+        <svg height="370" width="320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">try</tspan> {
+        </text>
+        <path d="M 20 8 m -5 14 q -20 10, 40 23" fill="none" stroke="green" stroke-width="2"></path>
+        <use href="#dummy-statement" x="60" y="32"></use>
+        <use x="60" xlink:href="#single-step" y="32"></use>
+        <use href="#dummy-statement" x="60" y="54"></use>
+        <use x="60" xlink:href="#single-step" y="54"></use>
+        <use href="#dummy-statement" x="60" y="76"></use>
+        <use x="60" xlink:href="#single-step" y="76"></use>
+        <text class="code-like" x="60" y="115">
+          <tspan class="keyword">throw</tspan> <tspan class="keyword">new</tspan> SomeException();
+        </text>
+        <path d="M 60 96 m -5 14 q -90 110, 0 110" fill="none" stroke="red" stroke-width="2"></path>
+        <use href="#dummy-statement" x="60" y="120"></use>
+        <use href="#dummy-statement" x="60" y="142"></use>
+        <use href="#dummy-statement" x="60" y="164"></use>
+        <text class="code-like" x="20" y="203">
+          } <tspan class="keyword">catch</tspan> (SomeException e) {
+        </text>
+        <use href="#dummy-statement" x="60" y="208"></use>
+        <use x="60" xlink:href="#single-step" y="208"></use>
+        <use href="#dummy-statement" x="60" y="230"></use>
+        <use x="60" xlink:href="#single-step" y="230"></use>
+        <use href="#dummy-statement" x="60" y="252"></use>
+        <path d="M 60 250 m -5 14 q -70 5, -40 44" fill="none" stroke="green" stroke-width="2"></path>
+        <text class="code-like" x="20" y="291">
+          }
+        </text>
+        <use href="#dummy-statement" x="20" y="296"></use>
+        <use x="20" xlink:href="#single-step" y="296"></use>
+        <use href="#dummy-statement" x="20" y="318"></use>
+        <use x="20" xlink:href="#single-step" y="318"></use>
+        <use href="#dummy-statement" x="20" y="340"></use></svg>
+      </div>
+      <p>If the exception isn't caught within the method, it will <strong>propagate</strong> to the previous method:</p>
+      <div class="codeblock">
+        <svg height="320" width="680" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">void foo() {</tspan>
+        </text>
+        <text class="code-like" x="60" y="49">
+          <tspan class="keyword">try</tspan> {
+        </text>
+        <use href="#dummy-statement" x="100" y="54"></use>
+        <use href="#dummy-statement" x="100" y="76"></use>
+        <text class="code-like" x="100" y="115">
+          bar();
+        </text>
+        <path d="M 100 96 m -5 17 q -90 85, 0 85" fill="none" stroke="red" stroke-width="2"></path>
+        <use href="#dummy-statement" x="100" y="120"></use>
+        <use href="#dummy-statement" x="100" y="142"></use>
+        <text class="code-like" x="60" y="181">
+          } <tspan class="keyword">catch</tspan> (Ex e) {
+        </text>
+        <use href="#dummy-statement" x="100" y="186"></use>
+        <use href="#dummy-statement" x="100" y="208"></use>
+        <text class="code-like" x="60" y="247">
+          }
+        </text>
+        <use href="#dummy-statement" x="60" y="252"></use>
+        <use href="#dummy-statement" x="60" y="274"></use>
+        <text class="code-like" x="20" y="313">
+          }
+        </text>
+        <text class="code-like" x="280" y="27">
+          <tspan class="keyword">void</tspan> bar() {
+        </text>
+        <use href="#dummy-statement" x="320" y="32"></use>
+        <use href="#dummy-statement" x="320" y="54"></use>
+        <text class="code-like" x="320" y="93">
+          baz();
+        </text>
+        <path d="M 320 74 m -5 17 c -8 5, -8 10, -8 12.5 l 0 37" fill="none" stroke="red" stroke-width="2"></path>
+        <use href="#dummy-statement" x="320" y="98"></use>
+        <use href="#dummy-statement" x="320" y="120"></use>
+        <text class="code-like" x="280" y="159">
+          }
+        </text>
+        <path d="M 320 118 m -13 22 c 0 40, -44 -22, -140 -22" fill="none" stroke="red" stroke-dasharray="5,5" stroke-width="2"></path>
+        <text class="code-like" x="500" y="27">
+          <tspan class="keyword">void</tspan> baz() {
+        </text>
+        <use href="#dummy-statement" x="540" y="32"></use>
+        <use href="#dummy-statement" x="540" y="54"></use>
+        <text class="code-like" x="540" y="93">
+          <tspan class="keyword">throw</tspan> <tspan class="keyword">new</tspan> Ex();
+        </text>
+        <path d="M 540 74 m -5 14 c -8 5, -8 10, -8 12.5 l 0 40" fill="none" stroke="red" stroke-width="2"></path>
+        <use href="#dummy-statement" x="540" y="98"></use>
+        <use href="#dummy-statement" x="540" y="120"></use>
+        <text class="code-like" x="500" y="159">
+          }
+        </text>
+        <path d="M 540 118 m -13 22 c 0 40, -44 -44, -140 -44" fill="none" stroke="red" stroke-dasharray="5,5" stroke-width="2"></path></svg>
+      </div>
+      <h2>Checked vs Unchecked Exceptions</h2>
+      <p>If the exception being thrown is <em>checked</em>, the method needs to include a <code>throws</code> declaration to allow it to propagate. See <a href="exception-types.html">Java Exception Types</a> and <a href="throws.html">Java Keyword: <code>throws</code></a>.</p>
+      <h2>Uncaught Exceptions</h2>
+      <p>If the exception is <strong>never caught</strong> a stack trace will be printed and the program (or at least the thread) will crash. For an example of how this might look, see <a href="stack-trace.html">Java: Stack trace</a>.</p>
+      <h2>Other Ways of Throwing</h2>
+      <p>Apart from an explicit <code>throw</code> statement, an exception can be thrown due to programming errors, or calling an API method that throws an exception. A few examples:</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Invalid use of a <code>null</code> reference</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="type">text</span> = <span class="keyword">null</span>;
+<span class="type">text</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#length()"><span class="method">length</span></a>();
+</code></pre>
+        <p>This will throw a <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/NullPointerException.html"><code>NullPointerException</code></a>.</p>
+      </div>
+      <div class="article-box">
+        <p><strong>Example:</strong> Calling an API method in a bad way</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="type">text</span> = <span class="text_lit">"abc"</span>;
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#parseInt(java.lang.String)"><span class="static_method">parseInt</span></a>(<span class="type">text</span>);
+</code></pre>
+        <p>This will throw a <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/NumberFormatException.html"><code>NumberFormatException</code></a>.</p>
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/exceptions-throw-try-catch.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

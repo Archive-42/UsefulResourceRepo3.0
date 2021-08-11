@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hash Tables: Complexity | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="Hash tables have linear complexity (for insert, lookup and remove) in worst case, and constant time complexity for the average/expected case." name="description">
+  <meta content="hash table, hash map, runtime, complexity, analysis, big-o, separate chaining, uniform hashing, suha, simple uniform hashing assumption" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+  <style>
+        /* <![CDATA[ */
+            #linked-hash-table .link {
+    }
+
+        /* ]]> */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>In a Nutshell</h2>
+      <table class="datatbl">
+        <tbody>
+          <tr>
+            <th style="padding-left: 0; text-align: center;">&nbsp;</th>
+            <th style="padding-left: 0; text-align: center;">Worst case</th>
+            <th style="padding-left: 0; text-align: center;">Expected case</th>
+          </tr>
+          <tr>
+            <td style="padding-left: 0; text-align: left;">Insert</td>
+            <td style="padding-left: 0; text-align: center;">
+              <p><em>O</em>(<em>n</em>)</p>
+            </td>
+            <td style="padding-left: 0; text-align: center;">
+              <p><em>O</em>(1)</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left: 0; text-align: left;">Lookup</td>
+            <td style="padding-left: 0; text-align: center;">
+              <p><em>O</em>(<em>n</em>)</p>
+            </td>
+            <td style="padding-left: 0; text-align: center;">
+              <p><em>O</em>(1)</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left: 0; text-align: left;">Remove</td>
+            <td style="padding-left: 0; text-align: center;">
+              <p><em>O</em>(<em>n</em>)</p>
+            </td>
+            <td style="padding-left: 0; text-align: center;">
+              <p><em>O</em>(1)</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Hash Tables</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="hash-tables.html">Hash Tables</a>
+        </li>
+        <li class="current">Complexity</li>
+        <li>
+          <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>
+        </li>
+        <li>
+          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-vs-closed-addressing.html">Open vs Closed Addressing</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-addressing.html">Open Addressing</a>
+        </li>
+        <li>
+          <a href="coalesced-hashing.html">Coalesced Hashing</a>
+        </li>
+        <li>
+          <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+        </li>
+        <li>
+          <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
+        </li>
+        <li>
+          <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
+        </li>
+        <li>
+          <a href="2-choice-hashing.html">2-Choice Hashing</a>
+        </li>
+        <li>
+          <a href="2-left-hashing.html">2-Left Hashing</a>
+        </li>
+        <li>
+          <a href="linked-hash-table.html">Linked Hash Table</a>
+        </li>
+        <li>
+          <a href="prime-numbers-in-hash-tables.html">Why large prime numbers are used in hash tables</a>
+        </li>
+      </ol>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Hash Tables: Complexity</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <rect fill="white" height="30" id="cell" stroke="black" width="30"></rect>
+        <rect fill="white" height="20" id="node" rx="5" ry="5" stroke="black" width="25" x="17" y="5.0"></rect>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
+        <path d="M -1 -3 l 0 6 l 10 -3 l -10 -3" fill="black" id="r-arrow-head-black"></path>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
+        <g id="arrow-and-node">
+          <line stroke="black" x1="0" x2="10" y1="15.0" y2="15.0"></line>
+          <use href="#r-arrow-head-black" x="10" y="15.0"></use>
+          <use href="#node" x="0"></use>
+        </g>
+      </defs></svg>
+      <p>This article is written with separate chaining and closed addressing in mind, specifically implementations based on <strong>arrays of linked lists</strong>. Most of the analysis however applies to other techniques, such as basic open addressing implementations.</p>
+      <div class="article-box">
+        <div style="display: flex">
+          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
+            ☞
+          </div>
+          <div>
+            <p>Only operations that scale with the number of elements <em>n</em> are considered in the analysis below. In particular, the hash function is assumed to run in constant time.</p>
+          </div>
+        </div>
+      </div>
+      <h2>Length of chains</h2>
+      <p>As is clear from the way lookup, insert and remove works, the run time is proportional to the number of keys in the given chain. So, to analyze the complexity, we need to analyze the length of the chains.</p>
+      <h3>Worst Case</h3>
+      <p>If we're unlucky with the keys we encounter, or if we have a poorly implemented hash function, all keys may hash to the same bucket.</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg style="max-width: 500px;" viewbox="-5 -5 333.3333333333333 220" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <path d="M -9 -2 l 0 4 l 6 -2 l -6 -2" fill="black" id="wc-arrow-head"></path>
+          <g id="wc-right-arrow">
+            <line stroke="black" x1="0" x2="10" y1="0" y2="0"></line>
+            <use href="#wc-arrow-head" transform="translate(17 0)"></use>
+          </g>
+          <g id="wc-arrow-and-node">
+            <use href="#wc-right-arrow" x="0" y="15.0"></use>
+            <rect fill="white" height="20" rx="4" ry="4" stroke="black" width="25" x="14" y="5.0"></rect>
+          </g>
+        </defs>
+        <use href="#cell" y="0"></use>
+        <use href="#cell" y="30"></use>
+        <use href="#cell" y="60"></use>
+        <use href="#wc-arrow-and-node" x="30" y="60"></use>
+        <use href="#wc-arrow-and-node" x="69" y="60"></use>
+        <use href="#wc-arrow-and-node" x="108" y="60"></use>
+        <use href="#wc-arrow-and-node" x="147" y="60"></use>
+        <use href="#wc-arrow-and-node" x="186" y="60"></use>
+        <use href="#wc-arrow-and-node" x="225" y="60"></use>
+        <use href="#wc-right-arrow" x="264" y="75.0"></use>
+        <circle cx="287" cy="75.0" fill="black" r="1.5"></circle>
+        <circle cx="294" cy="75.0" fill="black" r="1.5"></circle>
+        <circle cx="301" cy="75.0" fill="black" r="1.5"></circle>
+        <use href="#cell" y="90"></use>
+        <use href="#cell" y="120"></use>
+        <use href="#cell" y="150"></use>
+        <use href="#cell" y="180"></use></svg>
+      </div>
+      <p>This means that the <strong>worst-case complexity of a hash table is the same as that of a linked list</strong>: <em>O</em>(<em>n</em>) for insert, lookup and remove.</p>
+      <p>This is however a pathological situation, and the theoretical worst-case is often uninteresting in practice. When discussing complexity for hash tables the focus is usually on <strong>expected</strong> run time.</p>
+      <h3>Uniform Hashing</h3>
+      <p>The expected length of any given linked list depends on how the hash function spreads out the keys among the buckets. For the purpose of this analysis, we will assume that we have an ideal hash function. This is a common assumption to make. So common in fact, that it has a name:</p>
+      <div class="article-box">
+        <h3>Simple Uniform Hashing Assumption</h3>
+        <p>In a hash table with <em>m</em> buckets, each key is hashed to any given bucket…</p>
+        <ul>
+          <li>…with the same probability, 1 / <em>m</em></li>
+          <li>…independently of which bucket any other key is hashed to.</li>
+        </ul>
+      </div>
+      <p>With SUHA the keys are distributed <strong>uniformly</strong> and the expected length of any given linked list is therefore <span class="no-wrap"><em>n</em> / <em>m</em></span>.</p>
+      <h3>The Magic Part</h3>
+      <p>As you may recall, the <span class="no-wrap"><em>n</em> / <em>m</em></span> ratio is called the load factor, and that rehashing guarantees that this is bound by the configured load factor limit. (See <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>.) Since the load factor limit is constant, <strong>the expected length of all chains can be considered constant</strong>.</p>
+      <div class="article-box">
+        <div style="display: flex">
+          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
+            ☞
+          </div>
+          <div>
+            <p><strong>A common misconception</strong> is that SUHA implies constant time worst case complexity. SUHA however, does not say that all keys <em>will</em> be distributed uniformly, only that the probability distribution is uniform. Even with a uniform probability, it is still <em>possible</em> for all keys to end up in the same bucket, thus worst case complexity is still linear.</p>
+          </div>
+        </div>
+      </div>
+      <h2>Insert</h2>
+      <p>An insertion will search through one bucket linearly to see if the key already exists. This runs in <span class="no-wrap"><em>O</em>(<em>n</em> / <em>m</em>)</span> which we know from the previous section is <em>O</em>(1). If the key is found, a value is updated, if not, a new node is appended to the list. Regardless of which, this part is in <em>O</em>(1).</p>
+      <p>If we're unlucky, rehashing is required before all that. Since rehashing performs <em>n</em> constant time insertions, it runs in Θ(<em>n</em>).</p>
+      <p>That being said, rehashes are rare. In fact, they are so rare that <em>in average</em> insertion still runs in constant time. We say that the <strong>amortized time complexity for insert is <em>O</em>(1)</strong>.</p>
+      <div class="article-box">
+        <p><strong>Proof:</strong> Suppose we set out to insert <em>n</em> elements and that rehashing occurs at each power of two. Let's assume also that <em>n</em> is a power of two so we hit the worst case scenario and have to rehash on the very last insertion.</p>
+        <p>We would have to rehash after inserting element 1, 2, 4, …, <em>n</em>. Since each rehashing reinserts all current elements, we would do, in total, <span class="no-wrap">1 + 2 + 4 + 8 + … + <em>n</em> = 2<i>n</i> − 1</span> extra insertions due to rehashing. In other words, all rehashing necessary incurs an average overhead of less than 2 extra insertions per element.</p>
+        <p>We conclude that despite the growing cost of rehashing, the average number of insertions per element stays constant.</p>
+      </div>
+      <h2>Lookup</h2>
+      <p>A lookup will search through the chain of one bucket linearly. This is in <span class="no-wrap"><em>O</em>(<em>n</em> / <em>m</em>)</span> which, again, is <strong><em>O</em>(1)</strong>.</p>
+      <h2>Removal</h2>
+      <p>A removal will search through one bucket linearly. If the key is found, it is “unlinked” in constant time, so remove runs in <strong><em>O</em>(1)</strong> as well.</p>
+      <p>If one wants to reclaim unused memory, removal may require allocating a smaller array and rehash into that. In this case removal runs in <em>O</em>(<em>n</em>) in worst case, and <em>O</em>(1) amortized.</p>
+      <h2>Traversal</h2>
+      <p>There's no way to know which buckets are empty, and which ones are not, so all buckets must be traversed. This means traversal is <span class="no-wrap">Θ(<em>n</em> + <em>m</em>)</span>.</p>
+      <p>In practice this is only relevant if the hash table is initialized with a very large capacity. After the first rehashing the number of buckets can be considered linearly proportional to the number of items, and traversal is <em>Θ</em>(<em>n</em>).</p>
+      <div class="article-box">
+        <div style="display: flex">
+          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
+            ☞
+          </div>
+          <div>
+            <p>One can avoid traversing the empty buckets by using an additional linked list. For details see article <a href="linked-hash-table.html">Linked Hash Table</a>.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="hash-tables-complexity.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Dynamic programming vs memoization vs tabulation | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="Dynamic programming is a technique for solving problems recursively. It can be implemented by memoization or tabulation. Dynamic programming can be used when the computations of subproblems overlap." name="description">
+  <meta content="algorithms, memoization, dynamic programming, tabulation, complexity, dp, analysis, comparison, definition" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li class="current">Dynamic programming vs memoization vs tabulation</li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="java/functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Dynamic programming vs memoization vs tabulation</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="black" id="r-arrow-head-black"></path>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
+      </defs></svg>
+      <p>Dynamic programming is a technique for solving problems recursively. It can be implemented by <strong>memoization</strong> or <strong>tabulation</strong>.</p>
+      <h2>Dynamic programming</h2>
+      <p>Dynamic programming, DP for short, can be used when the computations of subproblems overlap.</p>
+      <p>If you’re computing for instance <code>fib(3)</code> (the third <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci number</a>), a naive implementation would compute <code>fib(1)</code> twice:</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg style="max-width: 200px;" viewbox="40 20 200.0 250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text text-anchor="middle" x="150" y="50">
+          fib(3)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(110 115) rotate(120.964) translate(-10 0)"></use>
+        <line stroke="black" x1="143" x2="112.57247877713765" y1="60" y2="110.71253537143728"></line>
+        <text text-anchor="middle" x="105" y="140">
+          fib(2)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(190 115) rotate(59.036) translate(-10 0)"></use>
+        <line stroke="black" x1="157" x2="187.42752122286237" y1="60" y2="110.71253537143727"></line>
+        <text fill="red" style="font-weight: bold" text-anchor="middle" x="195" y="140">
+          fib(1)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(70 215) rotate(112.62) translate(-10 0)"></use>
+        <line stroke="black" x1="95" x2="71.92307692307693" y1="155" y2="210.3846153846154"></line>
+        <text text-anchor="middle" x="70" y="235">
+          fib(0)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(134 215) rotate(67.38) translate(-10 0)"></use>
+        <line stroke="black" x1="109" x2="132.0769230769231" y1="155" y2="210.3846153846154"></line>
+        <text fill="red" style="font-weight: bold" text-anchor="middle" x="140" y="235">
+          fib(1)
+        </text></svg>
+      </div>
+      <p>With a more clever DP implementation, the tree could be collapsed into a graph (a DAG):</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg style="max-width: 200px;" viewbox="40 20 200.0 250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text text-anchor="middle" x="150" y="50">
+          fib(3)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(110 115) rotate(120.964) translate(-10 0)"></use>
+        <line stroke="black" x1="143" x2="112.57247877713765" y1="60" y2="110.71253537143728"></line>
+        <text text-anchor="middle" x="105" y="140">
+          fib(2)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(180 190) rotate(79.967) translate(-10 0)"></use>
+        <line stroke="black" x1="157" x2="179.12891285363054" y1="60" y2="185.07646395530307"></line>
+        <text fill="red" style="font-weight: bold" text-anchor="middle" x="180" y="210">
+          fib(1)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(70 215) rotate(112.62) translate(-10 0)"></use>
+        <line stroke="black" x1="95" x2="71.92307692307693" y1="155" y2="210.3846153846154"></line>
+        <text text-anchor="middle" x="70" y="235">
+          fib(0)
+        </text>
+        <use href="#r-arrow-head-black" transform="translate(153 193) rotate(40.815) translate(-10 0)"></use>
+        <line stroke="black" x1="109" x2="149.2158849611542" y1="155" y2="189.73190064826954"></line></svg>
+      </div>
+      <p>It doesn’t look very impressive in this example, but it’s in fact enough to bring down the complexity from <em>O</em>(2<sup><em>n</em></sup>) to <em>O</em>(<em>n</em>). Here’s a better illustration that compares the full call tree of <code>fib(7)</code> (left) to the corresponding collapsed DAG:</p>
+      <div class="centered-content" style="margin: 2em 0em 0em 0em;">
+        <svg style="max-width: 1520px;" viewbox="-1440 -10 1520.0 540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <line stroke="black" x1="-1375.0" x2="-1400.0" y1="410" y2="490"></line>
+        <line stroke="black" x1="-1375.0" x2="-1350.0" y1="410" y2="490"></line>
+        <line stroke="black" x1="-1337.5" x2="-1375.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-1337.5" x2="-1300.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-1200.0" x2="-1225.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-1200.0" x2="-1175.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-1268.75" x2="-1337.5" y1="250" y2="330"></line>
+        <line stroke="black" x1="-1268.75" x2="-1200.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-1100.0" x2="-1125.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-1100.0" x2="-1075.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-1062.5" x2="-1100.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-1062.5" x2="-1025.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-1165.625" x2="-1268.75" y1="170" y2="250"></line>
+        <line stroke="black" x1="-1165.625" x2="-1062.5" y1="170" y2="250"></line>
+        <line stroke="black" x1="-925.0" x2="-950.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-925.0" x2="-900.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-887.5" x2="-925.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-887.5" x2="-850.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-750.0" x2="-775.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-750.0" x2="-725.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-818.75" x2="-887.5" y1="170" y2="250"></line>
+        <line stroke="black" x1="-818.75" x2="-750.0" y1="170" y2="250"></line>
+        <line stroke="black" x1="-992.1875" x2="-1165.625" y1="90" y2="170"></line>
+        <line stroke="black" x1="-992.1875" x2="-818.75" y1="90" y2="170"></line>
+        <line stroke="black" x1="-650.0" x2="-675.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-650.0" x2="-625.0" y1="330" y2="410"></line>
+        <line stroke="black" x1="-612.5" x2="-650.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-612.5" x2="-575.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-475.0" x2="-500.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-475.0" x2="-450.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-543.75" x2="-612.5" y1="170" y2="250"></line>
+        <line stroke="black" x1="-543.75" x2="-475.0" y1="170" y2="250"></line>
+        <line stroke="black" x1="-375.0" x2="-400.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-375.0" x2="-350.0" y1="250" y2="330"></line>
+        <line stroke="black" x1="-337.5" x2="-375.0" y1="170" y2="250"></line>
+        <line stroke="black" x1="-337.5" x2="-300.0" y1="170" y2="250"></line>
+        <line stroke="black" x1="-440.625" x2="-543.75" y1="90" y2="170"></line>
+        <line stroke="black" x1="-440.625" x2="-337.5" y1="90" y2="170"></line>
+        <line stroke="black" x1="-716.40625" x2="-992.1875" y1="10" y2="90"></line>
+        <line stroke="black" x1="-716.40625" x2="-440.625" y1="10" y2="90"></line>-716.40625
+        <rect fill="white" height="27" width="60" x="-1430.0" y="476"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1400.0" y="490">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1380.0" y="476"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1350.0" y="490">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1405.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1375.0" y="410">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1330.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1300.0" y="410">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1367.5" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1337.5" y="330">
+          fib(3)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1255.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1225.0" y="410">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1205.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1175.0" y="410">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1230.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1200.0" y="330">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1298.75" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1268.75" y="250">
+          fib(4)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1155.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1125.0" y="410">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1105.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1075.0" y="410">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1130.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1100.0" y="330">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1055.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1025.0" y="330">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1092.5" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1062.5" y="250">
+          fib(3)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1195.625" y="156"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-1165.625" y="170">
+          fib(5)
+        </text>
+        <rect fill="white" height="27" width="60" x="-980.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-950.0" y="410">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-930.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-900.0" y="410">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-955.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-925.0" y="330">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-880.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-850.0" y="330">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-917.5" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-887.5" y="250">
+          fib(3)
+        </text>
+        <rect fill="white" height="27" width="60" x="-805.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-775.0" y="330">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-755.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-725.0" y="330">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-780.0" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-750.0" y="250">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-848.75" y="156"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-818.75" y="170">
+          fib(4)
+        </text>
+        <rect fill="white" height="27" width="60" x="-1022.1875" y="76"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-992.1875" y="90">
+          fib(6)
+        </text>
+        <rect fill="white" height="27" width="60" x="-705.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-675.0" y="410">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-655.0" y="396"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-625.0" y="410">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-680.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-650.0" y="330">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-605.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-575.0" y="330">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-642.5" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-612.5" y="250">
+          fib(3)
+        </text>
+        <rect fill="white" height="27" width="60" x="-530.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-500.0" y="330">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-480.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-450.0" y="330">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-505.0" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-475.0" y="250">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-573.75" y="156"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-543.75" y="170">
+          fib(4)
+        </text>
+        <rect fill="white" height="27" width="60" x="-430.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-400.0" y="330">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-380.0" y="316"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-350.0" y="330">
+          fib(0)
+        </text>
+        <rect fill="white" height="27" width="60" x="-405.0" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-375.0" y="250">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-330.0" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-300.0" y="250">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="-367.5" y="156"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-337.5" y="170">
+          fib(3)
+        </text>
+        <rect fill="white" height="27" width="60" x="-470.625" y="76"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-440.625" y="90">
+          fib(5)
+        </text>
+        <rect fill="white" height="27" width="60" x="-746.40625" y="-4"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-716.40625" y="10">
+          fib(7)
+        </text>-716.40625
+        <line stroke="black" x1="40" x2="-24.0" y1="0" y2="30"></line>
+        <line stroke="black" x1="40" x2="40" y1="0" y2="82"></line>
+        <line stroke="black" x1="-40" x2="24.0" y1="50" y2="80"></line>
+        <line stroke="black" x1="-40" x2="-40" y1="50" y2="132"></line>
+        <line stroke="black" x1="40" x2="-24.0" y1="100" y2="130"></line>
+        <line stroke="black" x1="40" x2="40" y1="100" y2="182"></line>
+        <line stroke="black" x1="-40" x2="24.0" y1="150" y2="180"></line>
+        <line stroke="black" x1="-40" x2="-40" y1="150" y2="232"></line>
+        <line stroke="black" x1="40" x2="-24.0" y1="200" y2="230"></line>
+        <line stroke="black" x1="40" x2="40" y1="200" y2="282"></line>
+        <line stroke="black" x1="-40" x2="24.0" y1="250" y2="280"></line>
+        <line stroke="black" x1="-40" x2="-40" y1="250" y2="332"></line>
+        <line stroke="black" x1="40" x2="-24.0" y1="300" y2="330"></line>
+        <line stroke="black" x1="40" x2="40" y1="300" y2="382"></line>
+        <line stroke="black" x1="-40" x2="24.0" y1="350" y2="380"></line>
+        <rect fill="white" height="27" width="60" x="10" y="-14"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="40" y="0">
+          fib(8)
+        </text>
+        <rect fill="white" height="27" width="60" x="-70" y="36"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-40" y="50">
+          fib(7)
+        </text>
+        <rect fill="white" height="27" width="60" x="10" y="86"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="40" y="100">
+          fib(6)
+        </text>
+        <rect fill="white" height="27" width="60" x="-70" y="136"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-40" y="150">
+          fib(5)
+        </text>
+        <rect fill="white" height="27" width="60" x="10" y="186"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="40" y="200">
+          fib(4)
+        </text>
+        <rect fill="white" height="27" width="60" x="-70" y="236"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-40" y="250">
+          fib(3)
+        </text>
+        <rect fill="white" height="27" width="60" x="10" y="286"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="40" y="300">
+          fib(2)
+        </text>
+        <rect fill="white" height="27" width="60" x="-70" y="336"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="-40" y="350">
+          fib(1)
+        </text>
+        <rect fill="white" height="27" width="60" x="10" y="386"></rect>
+        <text dominant-baseline="middle" text-anchor="middle" x="40" y="400">
+          fib(0)
+        </text></svg>
+      </div>
+      <p>This improvement in complexity is achieved regardles of which DP technique (memoization or tabulation) is used.</p>
+      <h2>Memoization</h2>
+      <p>Memoization refers to the technique of caching and reusing previously computed results. Here’s a comparison of a <code>square</code> function and the memoized version:</p>
+      <pre><code>square(x) {              square_mem(x) {
+  return x * x             if (mem[x] is not set)
+}                            mem[x] = x * x
+                           return mem[x]
+                         }
+</code></pre>
+      <p>A memoized <code>fib</code> function would thus look like this:</p>
+      <pre><code>fib_mem(n) {
+    if (mem[n] is not set)
+        if (n &lt; 2) result = n
+        else result = fib_mem(n-2) + fib_mem(n-1)
+        mem[n] = result
+    return mem[n]
+}</code></pre>
+      <p>As you can see <code>fib_mem(<span class="identifier">k</span>)</code> will only be computed <strong>at most once</strong> for each <span class="identifier">k</span>. (Second time around it will return the memoized value.)</p>
+      <p>This is enough to cause the tree to collapse into a graph as shown in the figures above. For <code>fib_mem(4)</code> the calls would be made in the following order:</p>
+      <pre>fib_mem(4)
+    fib_mem(3)
+        fib_mem(2)
+            fib_mem(1)
+            fib_mem(0)
+        fib_mem(1)       <span class="comment">already computed</span>
+    fib_mem(2)           <span class="comment">already computed</span>
+</pre>
+      <p>This approach is <strong>top-down</strong> since the original problem, <code>fib_mem(4)</code>, is at the top in the above computation.</p>
+      <h2>Tabulation</h2>
+      <p>Tabulation is similar in the sense that it builds up a cache, but the approach is different. A tabulation algorithm focuses on filling the entries of the cache, until the target value has been reached.</p>
+      <p>While DP problems, such as the fibonacci computation, are recursive in nature, a tabulation implementation is always iterative.</p>
+      <p>The tabulation version of <code>fib</code> looks like this:</p>
+      <pre><code>fib_tab(n) {
+    mem[0] = 0
+    mem[1] = 1
+    for i = 2...n
+        mem[i] = mem[i-2] + mem[i-1]
+    return mem[n]
+}</code></pre>
+      <p>The computation of <code>fib_tab(4)</code> can be described as follows:</p>
+      <pre>mem[0] = 0
+mem[1] = 1
+mem[2] = mem[0] + mem[1]
+mem[3] = mem[1] + mem[2]
+mem[4] = mem[2] + mem[3]</pre>
+      <p>As opposed to the memoization technique, this computation is <strong>bottom-up</strong> since original problem, <code>fib_tab(4)</code>, is at the bottom of the computation.</p>
+      <div class="article-box">
+        <p><strong>Complexity Bonus:</strong> The complexity of recursive algorithms can be hard to analyze. With a tabulation based implentation however, you get the complexity analysis for free! Tabulation based solutions always boils down to filling in values in a vector (or matrix) using for loops, and each value is typically computed in constant time.</p>
+      </div>
+      <h2>Should I use tabulation or memoization?</h2>
+      <p>If the original problem requires all subproblems to be solved, tabulation usually outperformes memoization by a constant factor. This is because tabulation has no overhead for recursion and can use a preallocated array rather than, say, a hash map.</p>
+      <p>If only some of the subproblems need to be solved for the original problem to be solved, then memoization is preferrable since the subproblems are solved lazily, i.e. precisely the computations that are needed are carried out.</p>
+      <div>
+        <h2>Comments (7)</h2>
+        <div class="article-comment" id="c1548673002-Naiz9oar">
+          <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp"></div>
+          <div class="article-comment-content">
+            <div>
+              <p>Great explanation thanks!</p>
+            </div>
+            <details>
+              <summary class="article-comment-footer">
+                <span style="color: grey">by JustMe&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+              </summary>
+              <form action="https://programming.guide/_comments/add-comment" method="post">
+                <input name="reply_to" type="hidden" value="1548673002-Naiz9oar"> 
+                <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+              </form>
+            </details>
+          </div>
+        </div>
+        <div class="article-comment" id="c1554338762-An1eexee">
+          <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp"></div>
+          <div class="article-comment-content">
+            <div>
+              <p>Best explanation you can find! Precise &amp; Concise!</p>
+            </div>
+            <details>
+              <summary class="article-comment-footer">
+                <span style="color: grey">by Anonymous&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+              </summary>
+              <form action="https://programming.guide/_comments/add-comment" method="post">
+                <input name="reply_to" type="hidden" value="1554338762-An1eexee"> 
+                <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+              </form>
+            </details>
+          </div>
+        </div>
+        <div class="article-comment" id="c1565616141-faeF8iqu">
+          <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/84f8dc6e3c2b5ee51cb0f4511c3b3f34?d=mp"></div>
+          <div class="article-comment-content">
+            <div>
+              <p>Could you comment on the memory complexity difference between them, because it could be an important factor to choose between memorization and “tabulation”. Pseudo-tabulation and a bottom-up approach has better memory complexity when we do not need to “remember” all previous solutions. (In Fibonacci for example, only the last 2 values must be remembered)</p>
+            </div>
+            <details>
+              <summary class="article-comment-footer">
+                <span style="color: grey">by Mrio&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+              </summary>
+              <form action="https://programming.guide/_comments/add-comment" method="post">
+                <input name="reply_to" type="hidden" value="1565616141-faeF8iqu"> 
+                <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+              </form>
+            </details>
+            <div class="article-comment" id="c1568790941-aoeuaoeu">
+              <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/99e100243aaa8b1469b1ed4e8bbecb06?d=mp"></div>
+              <div class="article-comment-content">
+                <div>
+                  <p>That’s a good point. In the tabulation approach you have more control over what data to save for later. Inside a memoized function it is hard to make a decision on what previous results can be discarded.</p>
+                  <p>I guess the bottom line is this: If you want such finer grained control over memory usage, memoization may not be a viable option.</p>
+                </div>
+                <details>
+                  <summary class="article-comment-footer">
+                    <span style="color: grey">by Andreas Lundblad&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+                  </summary>
+                  <form action="https://programming.guide/_comments/add-comment" method="post">
+                    <input name="reply_to" type="hidden" value="1568790941-aoeuaoeu"> 
+                    <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+                  </form>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article-comment" id="c1573302600-NaV6boh6">
+          <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/20e1d5ff10178d42db044cdf0cb30e97?d=mp"></div>
+          <div class="article-comment-content">
+            <div>
+              <p>Could you please comment on the time complexity of both of approaches. Does memoization still take O(2<sup>n</sup>) since we are anyways making the recursive call?</p>
+            </div>
+            <details>
+              <summary class="article-comment-footer">
+                <span style="color: grey">by Abi&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+              </summary>
+              <form action="https://programming.guide/_comments/add-comment" method="post">
+                <input name="reply_to" type="hidden" value="1573302600-NaV6boh6"> 
+                <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+              </form>
+            </details>
+            <div class="article-comment" id="c1575956880-aoeu">
+              <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/99e100243aaa8b1469b1ed4e8bbecb06?d=mp"></div>
+              <div class="article-comment-content">
+                <div>
+                  <p>Both algorithms are O(<em>n</em>), but I understand your confusion since <code>fib_mem</code> is being called more than <em>n</em> times. There are however two important things to note:</p>
+                  <ol>
+                    <li>
+                      <p>We are in fact not <em>always</em> making the recursive calls. Even if <code>fib_mem(5)</code> is called more than once, it will only recurse into <code>fib_mem(4)</code> and <code>fib_mem(3)</code> the first time it's called.</p>
+                    </li>
+                    <li>
+                      <p>One must keep in mind what's being analyzed. In algorithms like these, it's typically arithmetic operations, such as number of additions, that's being analyzed. A call to <code>fib_mem(2)</code> incurs zero cost if the value has already been computed.</p>
+                    </li>
+                  </ol>
+                </div>
+                <details>
+                  <summary class="article-comment-footer">
+                    <span style="color: grey">by Andreas Lundblad&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+                  </summary>
+                  <form action="https://programming.guide/_comments/add-comment" method="post">
+                    <input name="reply_to" type="hidden" value="1575956880-aoeu"> 
+                    <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+                  </form>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article-comment" id="c1588138369-XFrrMuaj">
+          <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/046bac1bde8fbbab3c30b7ed359af13e?d=mp"></div>
+          <div class="article-comment-content">
+            <div>
+              <p>This explanation... It has different kind of simplicity. It reminds me the quote that Einstein once said, "If you can't explain it to a six year old, you don't understand it yourself" Thank you sir :)</p>
+            </div>
+            <details>
+              <summary class="article-comment-footer">
+                <span style="color: grey">by Fatih Keskin&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+              </summary>
+              <form action="https://programming.guide/_comments/add-comment" method="post">
+                <input name="reply_to" type="hidden" value="1588138369-XFrrMuaj"> 
+                <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+              </form>
+            </details>
+          </div>
+        </div>
+        <h3>Add comment</h3>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="dynamic-programming-vs-memoization-vs-tabulation.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

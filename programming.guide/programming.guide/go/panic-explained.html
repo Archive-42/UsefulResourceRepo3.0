@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go: Panic explained | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="Go uses panic for exceptional errors." name="description">
+  <meta content="go, golang, panic, recover, exception" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Further Reading</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="defer.html">Defer statement</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://blog.golang.org/defer-panic-and-recover">Defer, Panic, and Recover</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Blog</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://golang.org/ref/spec#Run_time_panics">Run-time panics</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Programming Language Specification</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://golang.org/ref/spec#Handling_panics">Handling panics</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Programming Language Specification</span>
+      </div>
+      <h2>Error handling</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="errors-explained.html">Errors explained</a>
+        </li>
+        <li>
+          <a href="create-error.html">Create a custom error</a>
+        </li>
+        <li class="current">Panic explained</li>
+        <li>
+          <a href="recover-from-panic.html">Recover from a panic</a>
+        </li>
+        <li>
+          <a href="stack-trace.html">Stack traces</a>
+        </li>
+      </ol>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go: Panic explained</h1>
+      <p>A program panics by calling the built-in <a href="https://golang.org/ref/spec#Handling_panics"><code>panic</code></a> function. When it panics, the remaining part of the function is skipped.</p>
+      <div class="codeblock">
+        <svg height="190" width="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <path d="m -5 14 q -15 10, 0 23" fill="none" id="single-step" stroke="green" stroke-width="2"></path>
+          <path d="m -5 14 q -15 10, 0 23" fill="none" id="single-step-red" stroke="red" stroke-width="2"></path>
+        </defs>
+        <text class="code-like dummyStatement" x="20" y="27">
+          statement
+        </text>
+        <use x="20" xlink:href="#single-step" y="10"></use>
+        <text class="code-like dummyStatement" x="20" y="49">
+          statement
+        </text>
+        <use x="20" xlink:href="#single-step" y="32"></use>
+        <text class="code-like dummyStatement" x="20" y="71">
+          statement
+        </text>
+        <use x="20" xlink:href="#single-step" y="54"></use>
+        <text class="code-like" x="20" y="93">
+          panic("Argh!")
+        </text>
+        <path d="M 20 76 m -5 14 c -8 5, -8 10, -8 12.5 l 0 66" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 7 174 l -4 -10 l 8 0 l -4 10" fill="red" stroke="red" stroke-width="1"></path>
+        <text class="code-like dummyStatement" x="20" y="115">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="20" y="137">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="20" y="159">
+          statement
+        </text></svg>
+      </div>
+      <p>Before the function returns, it runs any deferred functions.</p>
+      <div class="codeblock">
+        <svg height="198" width="450" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">func</tspan> foo() {
+        </text>
+        <text class="code-like" x="60" y="49">
+          <tspan class="keyword">defer</tspan> bar()
+        </text>
+        <use x="60" xlink:href="#single-step" y="32"></use>
+        <text class="code-like dummyStatement" x="60" y="71">
+          statement
+        </text>
+        <use x="60" xlink:href="#single-step" y="54"></use>
+        <text class="code-like" x="60" y="93">
+          panic("Argh!")
+        </text>
+        <path d="M 60 76 m -5 14 c -8 5, -8 10, -8 12.5 l 0 39" fill="none" stroke="red" stroke-width="2"></path>
+        <text class="code-like dummyStatement" x="60" y="115">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="60" y="137">
+          statement
+        </text>
+        <path d="M 60 120 m -13 22 q 0 5, 20 5 c 240 0, 200 -104.0, 246 -104.0" fill="none" stroke="red" stroke-dasharray="5,5" stroke-width="2"></path>
+        <text class="code-like" x="20" y="159">
+          }
+        </text>
+        <text class="code-like" x="280" y="27">
+          <tspan class="keyword">func</tspan> bar() {
+        </text>
+        <text class="code-like dummyStatement" x="320" y="49">
+          statement
+        </text>
+        <use x="320" xlink:href="#single-step-red" y="32"></use>
+        <text class="code-like dummyStatement" x="320" y="71">
+          statement
+        </text>
+        <use x="320" xlink:href="#single-step-red" y="54"></use>
+        <text class="code-like dummyStatement" x="320" y="93">
+          statement
+        </text>
+        <use x="320" xlink:href="#single-step-red" y="76"></use>
+        <text class="code-like dummyStatement" x="320" y="115">
+          statement
+        </text>
+        <use x="320" xlink:href="#single-step-red" y="98"></use>
+        <text class="code-like dummyStatement" x="320" y="137">
+          statement
+        </text>
+        <text class="code-like" x="280" y="159">
+          }
+        </text>
+        <path d="M 320 120 m -5 14 q 0 18, -248 18 q -20 0, -20 5" fill="none" stroke="red" stroke-dasharray="5,5" stroke-width="2"></path>
+        <path d="M 60 120 m -13 37 l 0 10 q 0 5, -5 5 l -10 0" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 60 120 m -35 52 l 10 -4 l 0 8 l -10 -4" fill="red" stroke="red" stroke-width="1"></path>
+        <text class="code-like" fill="red" font-size="80%" x="20" y="192">
+          Return panicking
+        </text></svg>
+      </div>
+      <p>The stack then unwinds. From the callers perspective it's just as if it had called <code>panic</code> itself. In the example below, <code>baz</code> calls <code>qux</code>, which then panics:</p>
+      <div class="codeblock">
+        <svg height="198" width="465" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">func</tspan> baz() {
+        </text>
+        <text class="code-like dummyStatement" x="60" y="49">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="60" y="71">
+          statement
+        </text>
+        <text class="code-like" x="60" y="93">
+          qux()
+        </text>
+        <path d="M 60 76 m -5 14 c -8 5, -8 10, -8 12.5 l 0 66 q 0 5, -5 5 l -10 0" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 60 76 m -35 97 l 10 -4 l 0 8 l -10 -4" fill="red" stroke="red" stroke-width="1"></path>
+        <text class="code-like" fill="red" font-size="80%" x="20" y="193">
+          Return panicking
+        </text>
+        <text class="code-like dummyStatement" x="60" y="115">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="60" y="137">
+          statement
+        </text>
+        <text class="code-like" x="20" y="159">
+          }
+        </text>
+        <text class="code-like" x="280" y="27">
+          <tspan class="keyword">func</tspan> qux() {
+        </text>
+        <text class="code-like dummyStatement" x="320" y="49">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="320" y="71">
+          statement
+        </text>
+        <text class="code-like" x="320" y="93">
+          panic("Argh!")
+        </text>
+        <path d="M 320 76 m -5 14 c -8 5, -8 10, -8 12.5 l 0 66 q 0 5, -5 5 l -10 0" fill="none" stroke="red" stroke-width="2"></path>
+        <path d="M 320 76 m -35 97 l 10 -4 l 0 8 l -10 -4" fill="red" stroke="red" stroke-width="1"></path>
+        <path d="M 320 76 m -40 97 c -80 0, -60 -80, -160 -80" fill="none" stroke="red" stroke-dasharray="5,5" stroke-width="2"></path>
+        <text class="code-like" fill="red" font-size="80%" x="280" y="193">
+          Return panicking
+        </text>
+        <text class="code-like dummyStatement" x="320" y="115">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="320" y="137">
+          statement
+        </text>
+        <text class="code-like" x="280" y="159">
+          }
+        </text></svg>
+      </div>
+      <p>The call stack keeps unwinding until the program crashes, or until it recovers from the panic. (The semantics is similar to how exceptions work in Java and C++.)</p>
+      <h2>Recovering from a panic</h2>
+      <p>A program recovers from a panic by calling the built-in function <a href="https://golang.org/ref/spec#Handling_panics"><code>recover</code></a>, after which normal execution is resumed. Since all the functions ordinary code is skipped during a panic, the only chance you have to call <code>recover</code> is from within a deferred function.</p>
+      <div class="codeblock">
+        <svg height="198" width="450" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text class="code-like" x="20" y="27">
+          <tspan class="keyword">func</tspan> foo() {
+        </text>
+        <text class="code-like" x="60" y="49">
+          <tspan class="keyword">defer</tspan> bar()
+        </text>
+        <use x="60" xlink:href="#single-step" y="32"></use>
+        <text class="code-like dummyStatement" x="60" y="71">
+          statement
+        </text>
+        <use x="60" xlink:href="#single-step" y="54"></use>
+        <text class="code-like" x="60" y="93">
+          panic("Argh!")
+        </text>
+        <path d="M 60 76 m -5 14 c -8 5, -8 10, -8 12.5 l 0 39" fill="none" stroke="red" stroke-width="2"></path>
+        <text class="code-like dummyStatement" x="60" y="115">
+          statement
+        </text>
+        <text class="code-like dummyStatement" x="60" y="137">
+          statement
+        </text>
+        <path d="M 60 120 m -13 22 q 0 5, 20 5 c 240 0, 200 -104.0, 246 -104.0" fill="none" stroke="red" stroke-dasharray="5,5" stroke-width="2"></path>
+        <text class="code-like" x="20" y="159">
+          }
+        </text>
+        <text class="code-like" x="280" y="27">
+          <tspan class="keyword">func</tspan> bar() {
+        </text>
+        <text class="code-like" x="320" y="49">
+          statement
+        </text>
+        <use x="320" xlink:href="#single-step-red" y="32"></use>
+        <text class="code-like dummyStatement" x="320" y="71">
+          statement
+        </text>
+        <use x="320" xlink:href="#single-step-red" y="54"></use>
+        <text class="code-like" x="320" y="93">
+          recover()
+        </text>
+        <use x="320" xlink:href="#single-step" y="76"></use>
+        <text class="code-like dummyStatement" x="320" y="115">
+          statement
+        </text>
+        <use x="320" xlink:href="#single-step" y="98"></use>
+        <text class="code-like dummyStatement" x="320" y="137">
+          statement
+        </text>
+        <text class="code-like" x="280" y="159">
+          }
+        </text>
+        <path d="M 320 120 m -5 14 q 0 18, -248 18 q -20 0, -20 5" fill="none" stroke="green" stroke-dasharray="5,5" stroke-width="2"></path>
+        <path d="M 60 120 m -13 37 l 0 10 q 0 5, -5 5 l -10 0" fill="none" stroke="green" stroke-width="2"></path>
+        <path d="M 60 120 m -35 52 l 10 -4 l 0 8 l -10 -4" fill="green" stroke="green" stroke-width="1"></path>
+        <text class="code-like" fill="green" font-size="80%" x="20" y="192">
+          Return normally
+        </text></svg>
+      </div>
+      <p>The <code>recover</code> function returns whatever you gave as argument to the <code>panic</code> function. (During normal operation it will return <code>nil</code>.)</p>
+      <h2>When to panic?</h2>
+      <p>A function should only panic if it can not handle the situation and it's unlikely that the caller will be able to continue execution. For other types of errors it's idiomatic to use error-indicating return values.</p>
+      <div class="prev-next-container">
+        <!-- PREV -->
+         <a class="prev" href="create-error.html">
+        <div class="button-content">
+          « Prev
+          <div class="prev-next-text">
+            Create a custom error
+          </div>
+        </div></a> <!-- TOC -->
+         <a href="go-errors-tutorial.html">
+        <div class="button-content">
+          TOC
+          <div class="prev-next-text">
+            Error handling
+          </div>
+          <div class="prev-next-text" style="font-weight: normal">
+            3&nbsp;of&nbsp;5
+          </div>
+        </div></a> <!-- NEXT -->
+         <a class="next" href="recover-from-panic.html">
+        <div class="button-content">
+          Next »
+          <div class="prev-next-text">
+            Recover from a panic
+          </div>
+        </div></a>
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="go/panic-explained.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

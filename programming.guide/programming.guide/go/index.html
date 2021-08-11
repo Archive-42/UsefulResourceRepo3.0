@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Go | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="Go (golang) tutorials, cheat sheets, and articles with production-quality code examples." name="description">
+  <meta content="go, golang, tutorials, code, examples, references, cheat sheets, gotchas" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/go-highlighting.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Go Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+      </ol>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="../index.html"><b>See all articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Go</h1>
+      <h2>Language basics</h2>
+      <ul class="index">
+        <li>
+          <a href="getting-started-hello-world.html">Get started</a>
+        </li>
+      </ul>
+      <p><em>Statements</em></p>
+      <ul class="index">
+        <li>
+          <a href="package-init-function-main-execution-order.html">Package initialization and program execution order</a>
+        </li>
+        <li>
+          <a href="for-loop.html">For loops explained</a>
+        </li>
+        <li>
+          <a href="for-loop-range-array-slice-map-channel.html">Range loops (for each loops) explained</a>
+        </li>
+        <li>
+          <a href="do-while-loop.html">do-while loop</a>
+        </li>
+        <li>
+          <a href="switch-statement.html">Switch statement</a>
+        </li>
+        <li>
+          <a href="defer.html">Defer statement</a>
+        </li>
+        <li>
+          <a href="type-assertion-switch.html">Type assertions and type switches</a>
+        </li>
+        <li>
+          <a href="type-alias.html">Type alias</a>
+        </li>
+        <li>
+          <a href="ternary-if-else-statement.html">Where is the ternary conditional operator?</a>
+        </li>
+      </ul>
+      <p><em>Expressions</em></p>
+      <ul class="index">
+        <li>
+          <a href="untyped-constants.html">Untyped numeric constants with no limits</a>
+        </li>
+        <li>
+          <a href="structs-explained.html">Structs explained</a>
+        </li>
+        <li>
+          <a href="slices-explained.html">Slices explained</a>
+        </li>
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="make-slice-map-channel.html">Make slices, maps and channels</a>
+        </li>
+        <li>
+          <a href="append-explained.html">Append function explained</a>
+        </li>
+        <li>
+          <a href="copy-explained.html">Copy function explained</a>
+        </li>
+        <li>
+          <a href="default-zero-value.html">Default value of struct, string, slice, map</a>
+        </li>
+        <li>
+          <a href="operator-priority.html">Operator precedence</a>
+        </li>
+        <li>
+          <a href="find-type-of-object.html">Find the type of an object</a>
+        </li>
+        <li>
+          <a href="https://programming.guide/go/ternary-if-else-statement.htmlgo/conversions.html">Where is the ternary conditional operator?</a>
+        </li>
+      </ul>
+      <p><em>Methods and interfaces</em></p>
+      <ul class="index">
+        <li>
+          <a href="methods-explained.html">Methods explained</a>
+        </li>
+        <li>
+          <a href="interfaces-explained.html">Interfaces explained</a>
+        </li>
+        <li>
+          <a href="empty-interface.html">The empty interface</a>
+        </li>
+        <li>
+          <a href="named-return-values-parameters.html">Named return values</a>
+        </li>
+        <li>
+          <a href="overload-overwrite-optional-parameter.html">Optional parameters and method overloading</a>
+        </li>
+        <li>
+          <a href="variadic-function.html">Variadic functions (...T)</a>
+        </li>
+      </ul>
+      <p><em>Error handling</em></p>
+      <ul class="index">
+        <li>
+          <a href="errors-explained.html">Errors explained</a>
+        </li>
+        <li>
+          <a href="create-error.html">Create a custom error</a>
+        </li>
+        <li>
+          <a href="panic-explained.html">Panic explained</a>
+        </li>
+        <li>
+          <a href="recover-from-panic.html">Recover from a panic</a>
+        </li>
+        <li>
+          <a href="stack-trace.html">Stack traces</a>
+        </li>
+      </ul>
+      <p><em>Bits and pieces</em></p>
+      <ul class="index">
+        <li>
+          <a href="underscore.html">Blank identifier (underscore)</a>
+        </li>
+        <li>
+          <a href="generics.html">Generics (alternatives and workarounds)</a>
+        </li>
+        <li>
+          <a href="iota.html">iota</a>
+        </li>
+        <li>
+          <a href="int-vs-int64.html">int vs. int64</a>
+        </li>
+        <li>
+          <a href="pointers-explained.html">Pointers explained</a>
+        </li>
+        <li>
+          <a href="three-dots-ellipsis.html">Three dots (ellipsis) notation</a>
+        </li>
+      </ul>
+      <h2>Standard library</h2>
+      <ul class="index">
+        <li>
+          <a href="json-example.html">JSON by example</a>
+        </li>
+        <li>
+          <a href="fmt-printf-reference-cheat-sheet.html">Print with fmt cheat sheet</a>
+        </li>
+        <li>
+          <a href="io-reader-interface-explained.html">The io.Reader interface</a>
+        </li>
+        <li>
+          <a href="io-writer-interface-explained.html">The io.Writer interface</a>
+        </li>
+        <li>
+          <a href="log-to-file.html">Write log to file</a>
+        </li>
+        <li>
+          <a href="disable-logging-output.html">Disable logging</a>
+        </li>
+        <li>
+          <a href="http-server-example.html">HTTP server example</a>
+        </li>
+        <li>
+          <a href="regexp-cheat-sheet.html">Regular expressions</a>
+        </li>
+        <li>
+          <a href="how-to-sort-in-go.html">How to sort in Go</a>
+        </li>
+        <li>
+          <a href="binary-search.html">Binary search</a>
+        </li>
+      </ul>
+      <h2>Tricks of the trade</h2>
+      <ul class="index">
+        <li>
+          <a href="environment-variables.html">Access environment variables</a>
+        </li>
+        <li>
+          <a href="bitmask-flag-set-clear.html">Bitmasks and flags</a>
+        </li>
+        <li>
+          <a href="check-prime.html">Check if a number is prime</a>
+        </li>
+        <li>
+          <a href="command-line-arguments.html">Command-line arguments</a>
+        </li>
+        <li>
+          <a href="absolute-value-int-float.html">Compute absolute values</a>
+        </li>
+        <li>
+          <a href="max-min-function.html">Compute min and max</a>
+        </li>
+        <li>
+          <a href="define-enumeration-string.html">Enumeration (enum) with string representation</a>
+        </li>
+        <li>
+          <a href="find-go-build-version.html">Find build version</a>
+        </li>
+        <li>
+          <a href="formatting-byte-size-to-human-readable-format.html">Format byte size to human readable format</a>
+        </li>
+        <li>
+          <a href="generate-permutation-slice-string.html">Generate all permutations of a slice or string</a>
+        </li>
+        <li>
+          <a href="hash-md5-sha256-string-file.html">Hash checksums</a>
+        </li>
+        <li>
+          <a href="implement-fifo-queue.html">Implement a FIFO queue</a>
+        </li>
+        <li>
+          <a href="implement-stack.html">Implement a stack (LIFO)</a>
+        </li>
+        <li>
+          <a href="iterator-generator-pattern.html">Iterator pattern</a>
+        </li>
+        <li>
+          <a href="round-float-2-decimal-places.html">Round float to 2 decimal places</a>
+        </li>
+        <li>
+          <a href="round-float-to-int.html">Round float to integer value</a>
+        </li>
+        <li>
+          <a href="table-driven-unit-test.html">Table-driven unit tests</a>
+        </li>
+        <li>
+          <a href="quicksort-optimizations.html">Top 3 Quicksort optimizations</a>
+        </li>
+        <li>
+          <a href="max-min-int-uint.html">What’s the maximum value of an int?</a>
+        </li>
+        <li>
+          <a href="write-command-line-application.html">Write a command-line (CLI) application</a>
+        </li>
+        <li>
+          <a href="library-package-example-template.html">Library package example</a>
+        </li>
+        <li>
+          <a href="opening-brace-separate-line.html">Opening brace on separate line</a>
+        </li>
+        <li>
+          <a href="sort-custom-type.html">How to sort a custom type in Go</a>
+        </li>
+        <li>
+          <a href="packages-explained.html">Packages explained</a>
+        </li>
+        <li>
+          <a href="package-documentation.html">Package documentation</a>
+        </li>
+        <li>
+          <a href="redeclaring-variables.html">Redeclaring variables</a>
+        </li>
+        <li>
+          <a href="short-variable-declaration-outside-function.html">Variable declaration outside of function body</a>
+        </li>
+        <li>
+          <a href="unused-imports.html">Unused imports</a>
+        </li>
+        <li>
+          <a href="unused-local-variables.html">Unused local variables</a>
+        </li>
+      </ul>
+      <h2>Cheat sheets</h2>
+      <ul class="index">
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="fmt-printf-reference-cheat-sheet.html">Print with fmt cheat sheet</a>
+        </li>
+        <li>
+          <a href="format-parse-string-time-date-example.html">Format a time or date</a>
+        </li>
+        <li>
+          <a href="conversions.html">Conversions</a>
+        </li>
+        <li>
+          <a href="regexp-cheat-sheet.html">Regular expressions</a>
+        </li>
+        <li>
+          <a href="operator-priority.html">Operator precedence</a>
+        </li>
+        <li>
+          <a href="bitwise-operator-cheat-sheet.html">Bitwise operators cheat sheet</a>
+        </li>
+        <li>
+          <a href="operators.html">Operators</a>
+        </li>
+      </ul>
+      <h2>Regular Expressions</h2>
+      <ul class="index">
+        <li>
+          <a href="regexp-find-all-matches.html">Find all substrings matching a regexp</a>
+        </li>
+        <li>
+          <a href="regexp-find-first-match.html">Find first substring matching a regexp</a>
+        </li>
+        <li>
+          <a href="regexp-find-index-location.html">Find the location of a regexp substring match</a>
+        </li>
+        <li>
+          <a href="regexp-replace-string.html">Replace all substrings matching a regexp</a>
+        </li>
+        <li>
+          <a href="regexp-split-string.html">Split a string using regexp delimiter</a>
+        </li>
+        <li>
+          <a href="remove-duplicate-whitespace.html">Remove duplicate whitespace from a string</a>
+        </li>
+        <li>
+          <a href="repeat-multiply-string.html">Repeat string</a>
+        </li>
+        <li>
+          <a href="reverse-utf8-string.html">Reverse a UTF-8 encoded string</a>
+        </li>
+      </ul>
+      <h2>Tutorials</h2>
+      <ul class="index">
+        <li>
+          <a href="json-example.html">JSON by example</a>
+        </li>
+        <li>
+          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+        </li>
+        <li>
+          <a href="go-errors-tutorial.html">Error handling tutorial</a>
+        </li>
+        <li>
+          <a href="go-gotcha.html">Go gotcha</a>
+        </li>
+      </ul>
+      <h2>Gotchas</h2>
+      <ul class="index">
+        <li>
+          <a href="gotcha-assignment-entry-nil-map.html">Why can't I add elements to my map?</a>
+        </li>
+        <li>
+          <a href="gotcha-nil-pointer-dereference.html">What's a nil pointer dereference?</a>
+        </li>
+        <li>
+          <a href="gotcha-multiple-value-sinlge-value-context.html">Multiple values in single value context?</a>
+        </li>
+        <li>
+          <a href="gotcha-function-doesnt-change-array.html">Why doesn't this function change my array?</a>
+        </li>
+        <li>
+          <a href="gotcha-shadowing-variables.html">Two variables with the same name?</a>
+        </li>
+        <li>
+          <a href="gotcha-missing-comma-slice-array-map-literal.html">Extra comma in slice literal</a>
+        </li>
+        <li>
+          <a href="gotcha-strings-are-immutable.html">Why can't I update my string?</a>
+        </li>
+        <li>
+          <a href="gotcha-concatenate-rune-string.html">Why aren't the characters concatenated?</a>
+        </li>
+        <li>
+          <a href="gotcha-trim-string.html">What happened to ABBA?</a>
+        </li>
+        <li>
+          <a href="gotcha-copy-missing.html">What happened to my copy?</a>
+        </li>
+        <li>
+          <a href="gotcha-append.html">Why doesn't append work every time?</a>
+        </li>
+        <li>
+          <a href="gotcha-constant-overflows-int.html">Why can't I print large numbers? (constant overflows int)</a>
+        </li>
+        <li>
+          <a href="gotcha-increment-decrement-statement.html">Why doesn't increment (++) and decrement (--) work?</a>
+        </li>
+        <li>
+          <a href="gotcha-operator-precedence.html">Why is my computation wrong?</a>
+        </li>
+        <li>
+          <a href="gotcha-bitwise-operators.html">Why does Go and Pythagoras disagree?</a>
+        </li>
+        <li>
+          <a href="gotcha-integer-overflow-wrap-around.html">Why doesn't this loop end?</a>
+        </li>
+        <li>
+          <a href="gotcha-octal-decimal-hexadecimal-literal.html">Numbers that start with zero</a>
+        </li>
+        <li>
+          <a href="gotcha-remainder-modulo-operator.html">What's wrong with the remainder (modulo) operator?</a>
+        </li>
+        <li>
+          <a href="gotcha-multiply-duration-integer.html">Why can't I multiply a time.Duration with an integer?</a>
+        </li>
+        <li>
+          <a href="gotcha-index-out-of-range.html">Why is this index out of range?</a>
+        </li>
+        <li>
+          <a href="gotcha-unexpected-values-range.html">Unexpected values in range loop</a>
+        </li>
+        <li>
+          <a href="gotcha-change-value-range.html">Can't change entries in range loop</a>
+        </li>
+        <li>
+          <a href="gotcha-range-copy-array.html">Iteration variable doesn't see change in range loop</a>
+        </li>
+        <li>
+          <a href="gotcha-data-race-closure.html">Iteration variables and closures</a>
+        </li>
+        <li>
+          <a href="gotcha-json-marshal-empty.html">Why is the JSON output empty?</a>
+        </li>
+        <li>
+          <a href="gotcha-why-nil-error-not-equal-nil.html">Why is nil not equal to nil?</a>
+        </li>
+      </ul>
+      <h2>Concurrency</h2>
+      <ul class="index">
+        <li>
+          <a href="goroutines-explained.html">Goroutines explained</a>
+        </li>
+        <li>
+          <a href="channels-explained.html">Channels explained</a>
+        </li>
+        <li>
+          <a href="select-explained.html">Select explained</a>
+        </li>
+        <li>
+          <a href="close-explained.html">Close a channel</a>
+        </li>
+        <li>
+          <a href="data-races-explained.html">Data races explained</a>
+        </li>
+        <li>
+          <a href="detect-data-races.html">Detect data races</a>
+        </li>
+        <li>
+          <a href="detect-deadlock.html">Deadlock</a>
+        </li>
+        <li>
+          <a href="wait-for-goroutines-waitgroup.html">Wait for goroutines</a>
+        </li>
+        <li>
+          <a href="broadcast-channel.html">Broadcast a signal on a channel</a>
+        </li>
+        <li>
+          <a href="stop-goroutine.html">Stop a goroutine</a>
+        </li>
+        <li>
+          <a href="goroutine-block-sleep-forever.html">Make a goroutine block or sleep forever</a>
+        </li>
+        <li>
+          <a href="time-reset-wait-stop-timeout-cancel-interval.html">Timer and Ticker explained</a>
+        </li>
+        <li>
+          <a href="mutex-explained.html">Mutual exclusion lock (mutex)</a>
+        </li>
+        <li>
+          <a href="efficient-parallel-computation.html">Efficient parallel computation</a>
+        </li>
+      </ul>
+      <h2>Object-oriented programming</h2>
+      <ul class="index">
+        <li>
+          <a href="inheritance-object-oriented.html">Inheritance and object-oriented programming</a>
+        </li>
+        <li>
+          <a href="methods-explained.html">Methods explained</a>
+        </li>
+        <li>
+          <a href="constructor-best-practice.html">Constructors</a>
+        </li>
+        <li>
+          <a href="public-private.html">Public vs. private</a>
+        </li>
+        <li>
+          <a href="pointer-vs-value-receiver.html">Pointer vs. value receiver</a>
+        </li>
+        <li>
+          <a href="access-private-field-reflection.html">Access private fields using reflection</a>
+        </li>
+      </ul>
+      <h2>Functional programming</h2>
+      <ul class="index">
+        <li>
+          <a href="function-pointer-type-declaration.html">Function types and values</a>
+        </li>
+        <li>
+          <a href="anonymous-function-literal-lambda-closure.html">Function literals and closures</a>
+        </li>
+        <li>
+          <a href="iterator-generator-pattern.html">Iterator pattern</a>
+        </li>
+      </ul>
+      <h2>Strings</h2>
+      <ul class="index">
+        <li>
+          <a href="fmt-printf-reference-cheat-sheet.html">Print with fmt cheat sheet</a>
+        </li>
+        <li>
+          <a href="rune.html">What is a rune?</a>
+        </li>
+        <li>
+          <a href="build-append-concatenate-strings-efficiently.html">Build and concatenate strings efficiently</a>
+        </li>
+        <li>
+          <a href="compare-strings.html">String comparison</a>
+        </li>
+        <li>
+          <a href="convert-string-to-byte-slice.html">Convert string to byte slice (array)</a>
+        </li>
+        <li>
+          <a href="convert-string-to-int.html">Convert string to int</a>
+        </li>
+        <li>
+          <a href="convert-string-to-int64.html">Convert string to int64</a>
+        </li>
+        <li>
+          <a href="fmt-printf-percent-sign.html">Percent sign in fmt format</a>
+        </li>
+        <li>
+          <a href="convert-string-to-rune-slice.html">Convert string to rune slice (array)</a>
+        </li>
+        <li>
+          <a href="multiline-string.html">Multiline strings</a>
+        </li>
+        <li>
+          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
+        </li>
+        <li>
+          <a href="append-string-byte-slice.html">Append string to byte slice</a>
+        </li>
+        <li>
+          <a href="format-string-without-printing.html">Format a string without printing it</a>
+        </li>
+        <li>
+          <a href="split-string-into-slice.html">How to split a string into a slice</a>
+        </li>
+        <li>
+          <a href="trim-whitespace-from-string.html">How to trim leading and trailing whitespace from a string</a>
+        </li>
+        <li>
+          <a href="interface-to-string.html">Convert interface to string</a>
+        </li>
+      </ul>
+      <h2>Slices</h2>
+      <ul class="index">
+        <li>
+          <a href="slices-explained.html">Slices explained</a>
+        </li>
+        <li>
+          <a href="clear-slice.html">Clear a slice</a>
+        </li>
+        <li>
+          <a href="compare-slices.html">Compare slices (arrays)</a>
+        </li>
+        <li>
+          <a href="concatenate-slices.html">Concatenate slices</a>
+        </li>
+        <li>
+          <a href="delete-element-slice.html">Delete an element from a slice</a>
+        </li>
+        <li>
+          <a href="find-search-contains-slice.html">Find an element in a slice</a>
+        </li>
+        <li>
+          <a href="last-item-in-slice.html">Last item in slice</a>
+        </li>
+        <li>
+          <a href="nil-slice-vs-empty-slice.html">Empty slice vs. nil slice</a>
+        </li>
+        <li>
+          <a href="pass-slice-to-variadic-function.html">Pass a slice to a variadic function</a>
+        </li>
+      </ul>
+      <h2>Maps</h2>
+      <ul class="index">
+        <li>
+          <a href="maps-explained.html">Maps explained</a>
+        </li>
+        <li>
+          <a href="check-map-contains-key.html">Check if a map contains a key</a>
+        </li>
+        <li>
+          <a href="check-empty-map.html">Check if a map is empty</a>
+        </li>
+        <li>
+          <a href="count-items-map.html">Count elements in a map</a>
+        </li>
+        <li>
+          <a href="slice-of-keys-values-from-map.html">Get slices of keys and values from a map</a>
+        </li>
+        <li>
+          <a href="sort-map-keys-values.html">Sort a map by key or value</a>
+        </li>
+        <li>
+          <a href="implement-set.html">How to implement a set</a>
+        </li>
+      </ul>
+      <h2>Files</h2>
+      <ul class="index">
+        <li>
+          <a href="read-file-line-by-line.html">Read a file line by line</a>
+        </li>
+        <li>
+          <a href="read-file-to-string.html">Read a whole file into a string (byte slice)</a>
+        </li>
+        <li>
+          <a href="read-stdin.html">Read from stdin</a>
+        </li>
+        <li>
+          <a href="append-to-file.html">Append text to a file</a>
+        </li>
+        <li>
+          <a href="delete-file-directory.html">Delete a file or directory</a>
+        </li>
+        <li>
+          <a href="check-file-exists.html">Check if a file or directory exists</a>
+        </li>
+        <li>
+          <a href="current-directory.html">Current working directory</a>
+        </li>
+        <li>
+          <a href="list-files-in-directory.html">List all files and folders in a directory</a>
+        </li>
+        <li>
+          <a href="list-directory-recursive.html">Visit all files and folders in a directory tree</a>
+        </li>
+        <li>
+          <a href="temporary-file-directory.html">Create a temporary file or directory</a>
+        </li>
+      </ul>
+      <h2>Time and date</h2>
+      <ul class="index">
+        <li>
+          <a href="current-time.html">Current time</a>
+        </li>
+        <li>
+          <a href="format-parse-string-time-date-example.html">Format a time or date</a>
+        </li>
+        <li>
+          <a href="time-change-convert-location-timezone.html">Time zones</a>
+        </li>
+        <li>
+          <a href="measure-execution-time.html">Measure execution time</a>
+        </li>
+        <li>
+          <a href="day-month-year-from-time.html">Get year, month, day from time</a>
+        </li>
+        <li>
+          <a href="day-of-week-int.html">Day of week</a>
+        </li>
+        <li>
+          <a href="days-between-dates.html">Days between two dates</a>
+        </li>
+        <li>
+          <a href="last-day-month-date.html">Days in a month</a>
+        </li>
+      </ul>
+      <h2>Random numbers</h2>
+      <ul class="index">
+        <li>
+          <a href="generate-number-random-range.html">Generate a random number in a given range</a>
+        </li>
+        <li>
+          <a href="generate-random-character.html">Generate a random character (rune)</a>
+        </li>
+        <li>
+          <a href="generate-random-string-password-booking-reference.html">Generate a random string (password, booking reference)</a>
+        </li>
+        <li>
+          <a href="generate-uuid-guid.html">Generate a random UUID (GUID)</a>
+        </li>
+        <li>
+          <a href="crypto-rand-int.html">Cryptographically secure random numbers</a>
+        </li>
+        <li>
+          <a href="shuffle-slice-array.html">Shuffle slice or array</a>
+        </li>
+      </ul>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

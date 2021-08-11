@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Function Pointers in Java | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="This article shows what Java has to offer in place of C-style function pointers." name="description">
+  <meta content="java, functional interface, delegates, function pointer, lambda, call back" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Function Pointers in Java</h1>
+      <p>Java does not provide function pointers in the same way C/C++ does.</p>
+      <p>Instead of passing a function pointer <code>f</code>, you create an object with an instance method <code>f</code> and pass the object instead. With lambdas and method refernecs the syntactical overhead for doing this is close to zero.</p>
+      <h2>Using a method reference</h2>
+      <pre><code><span class="keyword">class</span> <span class="type">Example</span> {
+    <span class="comment">// Method that takes a "method" as argument</span>
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">exampleMethod</span>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runnable.html"><span class="type">Runnable</span></a> <span class="type">toRun</span>) {
+        <span class="type">toRun</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runnable.html#run()"><span class="method">run</span></a>();
+    }
+
+    <span class="comment">// Method to pass</span>
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">sayHello</span>() {
+        <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Hello"</span>);
+    }
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">main</span>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">args</span>) {
+        <span class="static_method">exampleMethod</span>(<span class="type">Example</span>::<span class="static_method">sayHello</span>);  <span class="comment">// prints "Hello"</span>
+    }
+}
+</code></pre>
+      <h2>Using a lambda</h2>
+      <p>You may also invoke the <code>exampleMethod</code> above as follows:</p>
+      <pre><code><span class="method">exampleMethod</span>(() -&gt; <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Hello"</span>));
+</code></pre>
+      <p>For similar examples with different method signatures, see the <a href="lambda-cheat-sheet.html">Lambda Cheat Sheet</a>.</p>
+      <h2>Using ordinary objects</h2>
+      <p>The above examples requires Java 8. Here's how to do it in Java 7:</p>
+      <pre><code><span class="method">exampleMethod</span>(<span class="keyword">new</span> <span class="type">Runnable</span>() {
+    @<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Override.html"><span class="type">Override</span></a>
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">run</span>() {
+        <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Hello"</span>);
+    }
+});
+</code></pre>
+      <h2>Using reflection</h2>
+      <p>You can use reflection to pass actual <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html"><code>Method</code></a> objects and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html#invoke-java.lang.Object-java.lang.Object%3AA-"><code>Method.invoke</code></a> to invoke the method. This is not recommended and often seen as a hack / last resort.</p>
+      <pre><code><span class="keyword">import</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/reflect/Method.html"><span class="type">java.lang.reflect.Method</span></a>;
+
+<span class="keyword">class</span> <span class="type">Example</span> {
+
+    <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">exampleMethod</span>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/reflect/Method.html"><span class="type">Method</span></a> <span class="type">toInvoke</span>) <span class="keyword">throws</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html"><span class="type">Exception</span></a> {
+        <span class="comment">// null as callee for static methods</span>
+        <span class="type">toInvoke</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/reflect/Method.html#invoke(java.lang.Object,java.lang.Object:A)"><span class="method">invoke</span></a>(<span class="keyword">null</span>);
+    }
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">sayHello</span>() {
+        <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Hello"</span>);
+    }
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">main</span>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">args</span>) <span class="keyword">throws</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html"><span class="type">Exception</span></a> {
+        <span class="comment">// prints "Hello"</span>
+        <span class="static_method">exampleMethod</span>(<span class="type">Example</span>.<span class="keyword">class</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html#getMethod(java.lang.String,java.lang.Class:A)"><span class="method">getMethod</span></a>(<span class="text_lit">"sayHello"</span>));
+    }
+}       
+</code></pre>
+      <h2>A real world use case</h2>
+      <p>Let's take a look at a more realistic use case.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Storing "methods" in a hash map</p>
+        <pre><code><span class="keyword">import</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/package-summary.html"><span class="type">java.util</span></a>.*;
+
+<span class="keyword">class</span> <span class="type">Example</span> {
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="static_method">main</span>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">args</span>) {
+        <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html"><span class="type">Map</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html"><span class="type">Character</span></a>, <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runnable.html"><span class="type">Runnable</span></a>&gt; <span class="type">commands</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html#HashMap()"><span class="type">HashMap&lt;&gt;</span></a>();
+
+        <span class="comment">// Populate commands map</span>
+        <span class="type">commands</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#put(java.lang.Character,java.lang.Runnable)"><span class="method">put</span></a>(<span class="text_lit">'h'</span>, () -&gt; <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Type h or q"</span>));
+        <span class="type">commands</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#put(java.lang.Character,java.lang.Runnable)"><span class="method">put</span></a>(<span class="text_lit">'q'</span>, () -&gt; <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#exit(int)"><span class="static_method">exit</span></a>(<span class="num_lit">0</span>));
+
+        <span class="keyword">while</span> (<span class="keyword">true</span>) {
+            <span class="comment">// Print menu</span>
+            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Menu"</span>);
+            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"h) Help"</span>);
+            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"q) Quit"</span>);
+
+            <span class="comment">// User input</span>
+            <span class="keyword">char</span> <span class="type">key</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html#Scanner(java.io.InputStream)"><span class="type">Scanner</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#in"><span class="static_final_field">in</span></a>).<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html#nextLine()"><span class="method">nextLine</span></a>().<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#charAt(int)"><span class="method">charAt</span></a>(<span class="num_lit">0</span>);
+
+            <span class="comment">// Run selected command</span>
+            <span class="keyword">if</span> (<span class="type">commands</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#containsKey(java.lang.Object)"><span class="method">containsKey</span></a>(<span class="type">key</span>))
+                <span class="type">commands</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html#get(java.lang.Object)"><span class="method">get</span></a>(<span class="type">key</span>).<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runnable.html#run()"><span class="method">run</span></a>();
+        }
+    }
+}</code></pre>
+      </div>
+      <div>
+        <h2>Comments (1)</h2>
+        <div class="article-comment" id="c1563636040-eengae5B">
+          <div class="article-comment-avatar"><img alt="User avatar" src="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp"></div>
+          <div class="article-comment-content">
+            <div>
+              <p>Awesome guide, many thanks</p>
+            </div>
+            <details>
+              <summary class="article-comment-footer">
+                <span style="color: grey">by Felipe Amorim&nbsp;|&nbsp;</span> <span class="reply-button">Reply</span>
+              </summary>
+              <form action="https://programming.guide/_comments/add-comment" method="post">
+                <input name="reply_to" type="hidden" value="1563636040-eengae5B"> 
+                <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+              </form>
+            </details>
+          </div>
+        </div>
+        <h3>Add comment</h3>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/function-pointers-in-java.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hopscotch Hashing | Programming.Guide</title>
+  <link href="css/base.css" rel="stylesheet">
+  <link href="favicon.ico" rel="icon">
+  <meta content="Hopscotch hashing is an open addressing technique that aims to keep keys close to the original bucket's so called neighborhood. It displaces existing keys to maintain locality." name="description">
+  <meta content="hash table, hopscotch, hopscotch hashing, hash, cache, cache locality, collision resolution, collision resolution strategy" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="css/go-highlighting.css" rel="stylesheet">
+  <style>
+        /* <![CDATA[ */
+            text.cell-text {
+        text-anchor: middle;
+        dominant-baseline: central;
+    }
+    text.label-text {
+        text-anchor: end;
+        dominant-baseline: central;
+    }
+    .variable {
+        font-style: italic;
+    }
+
+
+        .hopscotch-fig-1 text {
+            font-size: 111.11111111111111%;
+        }
+        /* ]]> */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>References</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="http://mcg.cs.tau.ac.il/papers/disc2008-hopscotch.pdf">Hopscotch Hashing</a> (pdf)<br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">by Maurice Herlihy, Nir Shavit, Moran Tzafrir</span>
+      </div>
+      <h2>Hash Tables</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="hash-tables.html">Hash Tables</a>
+        </li>
+        <li>
+          <a href="hash-tables-complexity.html">Complexity</a>
+        </li>
+        <li>
+          <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>
+        </li>
+        <li>
+          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-vs-closed-addressing.html">Open vs Closed Addressing</a>
+        </li>
+        <li>
+          <a href="hash-tables-open-addressing.html">Open Addressing</a>
+        </li>
+        <li>
+          <a href="coalesced-hashing.html">Coalesced Hashing</a>
+        </li>
+        <li>
+          <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+        </li>
+        <li>
+          <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
+        </li>
+        <li class="current">Hopscotch Hashing</li>
+        <li>
+          <a href="2-choice-hashing.html">2-Choice Hashing</a>
+        </li>
+        <li>
+          <a href="2-left-hashing.html">2-Left Hashing</a>
+        </li>
+        <li>
+          <a href="linked-hash-table.html">Linked Hash Table</a>
+        </li>
+        <li>
+          <a href="prime-numbers-in-hash-tables.html">Why large prime numbers are used in hash tables</a>
+        </li>
+      </ol>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
+    </aside>
+    <article>
+      <h1>Hopscotch Hashing</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <rect fill="white" height="30" id="cell" stroke="black" width="30"></rect>
+        <rect fill="white" height="20" id="node" rx="5" ry="5" stroke="black" width="25" x="17" y="5.0"></rect>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
+        <path d="M -1 -3 l 0 6 l 10 -3 l -10 -3" fill="black" id="r-arrow-head-black"></path>
+        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
+        <g id="arrow-and-node">
+          <line stroke="black" x1="0" x2="10" y1="15.0" y2="15.0"></line>
+          <use href="#r-arrow-head-black" x="10" y="15.0"></use>
+          <use href="#node" x="0"></use>
+        </g>
+      </defs></svg>
+      <p>A Hopscotch hash table is based on <a href="hash-tables-open-addressing.html">open addressing</a> i.e. it has an array of buckets and stores at most one key-value pair in each bucket.</p>
+      <p>Upon collisions, Hopscotch hashing aims to keep key-value pairs close to the original bucket (in it's neighborhood). This keeps the chains short and achieves good memory locality.</p>
+      <h2>Neighborhoods</h2>
+      <p>The neighborhood of bucket <em>i</em> are the <em>H</em> consecutive buckets starting in <em>i</em>. <em>H</em> is a configurable constant.</p>
+      <div class="centered-content" style="margin: 2em 0;">
+        <svg style="max-width: 360px;" viewbox="-60 0 360 400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <rect fill="black" height="450" id="full-black" width="300" x="-10" y="-10"></rect>
+          <rect fill="white" height="50" id="n-cell" stroke="black" width="50"></rect>
+          <path d="M -20 0 c 30 -10 80 10 90 0" fill="none" id="wave" stroke="#888" stroke-dasharray="3 3"></path>
+        </defs>
+        <mask id="top-wave-mask">
+          <use href="#full-black"></use>
+          <path d="M -20 25.0 c 30 -10 80 10 90 0 v 50 h -70" fill="white"></path>
+        </mask>
+        <mask id="bottom-wave-mask">
+          <use href="#full-black"></use>
+          <path d="M -20 25.0 c 30 -10 80 10 90 0 v -50 h -70" fill="white"></path>
+        </mask>
+        <use href="#n-cell" mask="url(#top-wave-mask)" y="0"></use>
+        <use href="#n-cell" y="50"></use>
+        <use href="#n-cell" y="100"></use>
+        <use href="#n-cell" y="150"></use>
+        <text class="label-text" x="-14" y="125.0">
+          <tspan font-style="italic">i</tspan>:
+        </text>
+        <use href="#n-cell" y="200"></use>
+        <text class="label-text" x="-14" y="175.0">
+          <tspan font-style="italic">i</tspan> + 1:
+        </text>
+        <use href="#n-cell" y="250"></use>
+        <text class="label-text" x="-14" y="225.0">
+          <tspan font-style="italic">i</tspan> + 2:
+        </text>
+        <use href="#n-cell" y="300"></use>
+        <text class="label-text" x="-14" y="275.0">
+          <tspan font-style="italic">i</tspan> + 3:
+        </text>
+        <use href="#n-cell" mask="url(#bottom-wave-mask)" y="350"></use>
+        <rect fill="none" height="200" stroke="red" stroke-width="1.5" width="50" x="3" y="103"></rect>
+        <text fill="red" x="80" y="180">
+          Neighborhood of bucket <tspan class="variable">i</tspan>,
+        </text>
+        <text fill="red" x="80" y="200">
+          with <tspan class="variable">H</tspan> = 4.
+        </text>
+        <path d="M -20 25.0 c 30 -10 80 10 90 0" fill="none" stroke="#888" stroke-dasharray="3 3"></path>
+        <path d="M -20 375.0 c 30 -10 80 10 90 0" fill="none" stroke="#888" stroke-dasharray="3 3"></path></svg>
+      </div>
+      <p>A key-value pair will <strong>always be stored within the neighborhood of the bucket it originally hashes to</strong>. (During lookup, only the buckets in the relevant neighborhood are considered.)</p>
+      <h3>Neighborhoods Overlap</h3>
+      <p>The neighborhoods of consecutive buckets overlap. Each bucket is part of <em>H</em> neighborhoods.</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg style="max-width: 400px;" viewbox="-50 0 400 550" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <text class="cell-text" fill="lightgrey" id="question-mark" style="font-weight: bold; font-size: 180%" x="25.0" y="25.0">
+            ?
+          </text>
+        </defs>
+        <defs>
+          <rect fill="black" height="450" id="full-black" width="300" x="-10" y="-10"></rect>
+        </defs>
+        <mask id="top-wave-mask">
+          <use href="#full-black"></use>
+          <path d="M -20 25.0 c 30 -10 80 10 90 0 v 50 h -70" fill="white"></path>
+        </mask>
+        <mask id="bottom-wave-mask">
+          <use href="#full-black"></use>
+          <path d="M -20 25.0 c 30 -10 80 10 90 0 v -50 h -70" fill="white"></path>
+        </mask>
+        <use href="#n-cell" mask="url(#top-wave-mask)" y="0"></use>
+        <use href="#n-cell" y="50"></use>
+        <use href="#n-cell" y="100"></use>
+        <use href="#n-cell" y="150"></use>
+        <text class="label-text" fill="blue" x="-14" y="125.0">
+          <tspan class="variable">i</tspan>:
+        </text>
+        <use href="#n-cell" y="200"></use>
+        <text class="label-text" fill="green" x="-14" y="175.0">
+          <tspan class="variable">j</tspan>:
+        </text>
+        <use href="#n-cell" y="250"></use>
+        <text class="label-text" fill="darkorange" x="-14" y="225.0">
+          <tspan class="variable">k</tspan>:
+        </text>
+        <use href="#n-cell" y="300"></use>
+        <text class="label-text" fill="red" x="-14" y="275.0">
+          <tspan class="variable">l</tspan>:
+        </text>
+        <use href="#n-cell" y="350"></use>
+        <use href="#n-cell" y="400"></use>
+        <use href="#n-cell" y="450"></use>
+        <use href="#n-cell" mask="url(#bottom-wave-mask)" y="500"></use>
+        <rect fill="none" height="200" stroke="blue" stroke-width="2" width="50" x="3" y="103"></rect>
+        <rect fill="none" height="200" stroke="green" stroke-width="2" width="50" x="6" y="153"></rect>
+        <rect fill="none" height="200" stroke="darkorange" stroke-width="2" width="50" x="9" y="203"></rect>
+        <rect fill="none" height="200" stroke="red" stroke-width="2" width="50" x="12" y="253"></rect>
+        <text dominant-baseline="middle" fill="red" x="75" y="285.0">
+          hoods of <tspan class="variable">i</tspan>, <tspan class="variable">j</tspan>, <tspan class="variable">k</tspan> and <tspan class="variable">l</tspan>.
+        </text>
+        <text dominant-baseline="middle" fill="red" x="75" y="265.0">
+          Bucket <tspan class="variable">l</tspan> is part of the neighbor-
+        </text>
+        <use href="#wave" y="25.0"></use>
+        <use href="#wave" y="525.0"></use></svg>
+      </div>
+      <div class="article-box">
+        <p><strong>Optimal value for <em>H</em>:</strong> The hash table can't handle more than <em>H</em> collisions in one bucket, so <em>H</em> shouldn't be too small. Also, if <em>H</em> is too large, lookups will be less efficient. In practice, a good choice for <em>H</em> is one that optimizes the usage of the cache lines. Good performance can be achieved if an entire neighborhood can be fetched in one memory roundtrip. The implementation in the original paper uses <span class="no-wrap"><em>H</em> = 32</span>.</p>
+      </div>
+      <h2>Insertion</h2>
+      <p>Suppose a key, <em>k</em>, is to be inserted, and that it hashes to bucket <em>i</em>. Bucket <em>i</em> is referred to as the <strong>home bucket</strong> of <em>k</em>.</p>
+      <h3>Case: Home bucket is empty</h3>
+      <p>If the home bucket is empty, the key is placed there and we're done.</p>
+      <div class="article-box">
+        <p><strong>Note:</strong> Any bucket in the neighborhood of <em>i</em> is a valid bucket for <em>k</em>.</p>
+        <p>If bucket <span class="no-wrap"><em>i</em> + <em>d</em></span> is empty, and <span class="no-wrap"><em>d</em> &lt; <em>H</em></span>, then <em>k</em> can, if needed later, be moved down to <span class="no-wrap"><em>i</em> + <em>d</em></span>, effectively <strong>moving the empty space upwards</strong>.</p>
+        <div class="centered-content" style="margin: 2em 0em;">
+          <svg style="max-width: 440px;" viewbox="-35 0 440 400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <clippath id="top-wave-clip">
+            <path d="M -1000 25.0 h 1015 v 50 h -15"></path>
+            <path d="M -20 25.0 c 30 -10 80 10 90 0 v 50 h -90"></path>
+          </clippath>
+          <clippath id="bottom-wave-clip">
+            <path d="M -1000 25.0 h 1015 v -50 h -15"></path>
+            <path d="M -20 25.0 c 30 -10 80 10 90 0 v -50 h -90"></path>
+          </clippath>
+          <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+            <use href="#n-cell"></use>
+            <use href="#question-mark"></use>
+          </g>
+          <g transform="translate(0 50)">
+            <use href="#n-cell"></use>
+            <use href="#question-mark"></use>
+          </g>
+          <g transform="translate(0 100)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-20" y="25.0">
+              <tspan class="variable">i</tspan>:
+            </text>
+            <text class="cell-text" x="25.0" y="25.0">
+              k
+            </text>
+          </g>
+          <g transform="translate(0 150)">
+            <use href="#n-cell"></use>
+            <use href="#question-mark"></use>
+          </g>
+          <g transform="translate(0 200)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 250)">
+            <use href="#n-cell"></use>
+            <use href="#question-mark"></use>
+          </g>
+          <g transform="translate(0 300)">
+            <use href="#n-cell"></use>
+            <use href="#question-mark"></use>
+          </g>
+          <g clip-path="url(#bottom-wave-clip)" transform="translate(0 350)">
+            <use href="#n-cell"></use>
+            <use href="#question-mark"></use>
+          </g>
+          <rect fill="none" height="200" stroke="red" stroke-width="2" width="50" x="3" y="103"></rect>
+          <path d="M 60 125.0 c 20 20 20 80 0 100" fill="none" stroke="blue" stroke-width="1.5"></path>
+          <use href="#r-arrow-head" transform="translate(64 220.0) rotate(128)"></use>
+          <text dominant-baseline="middle" fill="blue" x="110" y="165">
+            <tspan class="variable">k</tspan> could be moved down
+          </text>
+          <text dominant-baseline="middle" fill="blue" x="110" y="190">
+            Empty space would then move up
+          </text>
+          <path d="M -6 125.0 c -20 20 -20 80 0 100" fill="none" stroke="blue" stroke-width="1.5"></path>
+          <use href="#r-arrow-head" transform="translate(-10 130.0) rotate(-52)"></use>
+          <use href="#wave" y="25.0"></use>
+          <use href="#wave" y="375.0"></use></svg>
+        </div>
+      </div>
+      <h3>Case: Home bucket is occupied</h3>
+      <p>If bucket <em>i</em> is not empty, then we search for an empty bucket linearly, starting from <em>i</em> (linear probing). Suppose we find an empty bucket at index&nbsp;<em>j</em>.</p>
+      <p>If <em>j</em> is within in the neighborhood of <em>i</em> we put <em>k</em> there and return.</p>
+      <p>If <em>j</em> is outside of <em>i</em>’s neighborhood, we try to move an element between <em>i</em> and <em>j</em> downwards so that the empty space moves upwards, closer to <em>i</em>. We repeat this process until the empty space has been moved into the neighborhood of <em>i</em>, and then use that space for&nbsp;<em>k</em>.</p>
+      <p>For the sake of this example, let's assume that <span class="no-wrap"><em>i</em> = 17</span> and <span class="no-wrap"><em>j</em> = 24</span> and that we have neighborhoods of size 4. The home bucket of each key will be noted below the key.</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg class="hopscotch-fig-1" style="max-width: 450px;" viewbox="-95 0 500.0 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            16:
+          </text>
+        </g>
+        <g transform="translate(0 50)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            <tspan class="variable">i</tspan> = 17:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            a
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            17
+          </text>
+        </g>
+        <g transform="translate(0 100)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            18:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            b
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            16
+          </text>
+        </g>
+        <g transform="translate(0 150)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            19:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            c
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            18
+          </text>
+        </g>
+        <g transform="translate(0 200)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            20:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            d
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            19
+          </text>
+        </g>
+        <g transform="translate(0 250)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            21:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            e
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            21
+          </text>
+        </g>
+        <g transform="translate(0 300)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            22:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            f
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            21
+          </text>
+        </g>
+        <g transform="translate(0 350)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            23:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            g
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            23
+          </text>
+        </g>
+        <g transform="translate(0 400)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            <tspan class="variable">j</tspan> = 24:
+          </text>
+        </g>
+        <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            25:
+          </text>
+        </g>
+        <use href="#wave" y="25.0"></use>
+        <use href="#wave" y="475.0"></use>
+        <text dominant-baseline="middle" fill="blue" x="70" y="75.0">
+          Home bucket for key to be inserted
+        </text>
+        <text dominant-baseline="middle" fill="blue" x="70" y="425.0">
+          First empty bucket
+        </text></svg>
+      </div>
+      <p>The key to move down to <em>j</em> must have <em>j</em> in the neighborhood of its home bucket. Since no “leap” can be longer than <span class="no-wrap"><em>H</em> − 1</span> we first examine the key in bucket <span class="no-wrap">24 − (<em>H</em> − 1) = 21</span> (key <em>e</em>). We see that 21 is the home bucket of <em>e</em>. This means that <em>j</em> is within its neighborhood so we perform the swap.</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg class="hopscotch-fig-1" style="max-width: 450px;" viewbox="-95 0 500.0 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            16:
+          </text>
+        </g>
+        <g transform="translate(0 50)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            <tspan class="variable">i</tspan> = 17:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            a
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            17
+          </text>
+        </g>
+        <g transform="translate(0 100)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            18:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            b
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            16
+          </text>
+        </g>
+        <g transform="translate(0 150)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            19:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            c
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            18
+          </text>
+        </g>
+        <g transform="translate(0 200)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            20:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            d
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            19
+          </text>
+        </g>
+        <g transform="translate(0 250)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            21:
+          </text>
+        </g>
+        <g transform="translate(0 300)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            22:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            f
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            21
+          </text>
+        </g>
+        <g transform="translate(0 350)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            23:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            g
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            23
+          </text>
+        </g>
+        <g transform="translate(0 400)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            <tspan class="variable">j</tspan> = 24:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            e
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            21
+          </text>
+        </g>
+        <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            25:
+          </text>
+        </g>
+        <use href="#wave" y="25.0"></use>
+        <use href="#wave" y="475.0"></use>
+        <path d="M 60 275.0 c 30 40 30 110 0 150" fill="none" stroke="blue" stroke-width="1.5"></path>
+        <use href="#r-arrow-head" transform="translate(64 420.0) rotate(128)"></use>
+        <rect fill="none" height="200" stroke="blue" stroke-width="2" width="50" x="3" y="253"></rect>
+        <text fill="blue" x="110" y="340">
+          <tspan class="variable">e</tspan> is moved down to bucket 24
+        </text>
+        <text fill="blue" x="110" y="375">
+          Empty space is now in bucket 21.
+        </text></svg>
+      </div>
+      <p>The empty space (21) is still not within the neighborhood of <em>i</em> (17-20), so we repeat.</p>
+      <p>Looking at bucket 18 (key <em>b</em>) we see that its home bucket is 16. Moving it down to the empty space at index 21 would move it out of its neighborhood, so we let it be and look at the next bucket: bucket 19 (key <em>c</em>). The home bucket of <em>c</em> is 18, which means that 22 is within its neighborhood and it's safe to swap.</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <svg class="hopscotch-fig-1" style="max-width: 455px;" viewbox="-95 0 505.55555555555554 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            16:
+          </text>
+        </g>
+        <g transform="translate(0 50)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            <tspan class="variable">i</tspan> = 17:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            a
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            17
+          </text>
+        </g>
+        <g transform="translate(0 100)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            18:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            b
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            16
+          </text>
+        </g>
+        <g transform="translate(0 150)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            19:
+          </text>
+        </g>
+        <g transform="translate(0 200)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            20:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            d
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            19
+          </text>
+        </g>
+        <g transform="translate(0 250)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            21:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            c
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            18
+          </text>
+        </g>
+        <g transform="translate(0 300)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            22:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            f
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            21
+          </text>
+        </g>
+        <g transform="translate(0 350)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            23:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            g
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            23
+          </text>
+        </g>
+        <g transform="translate(0 400)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            <tspan class="variable">j</tspan> = 24:
+          </text>
+          <text class="cell-text variable" x="25.0" y="20.0">
+            e
+          </text>
+          <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+            21
+          </text>
+        </g>
+        <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+          <use href="#n-cell"></use>
+          <text class="label-text" x="-10" y="25.0">
+            25:
+          </text>
+        </g>
+        <use href="#wave" y="25.0"></use>
+        <use href="#wave" y="475.0"></use>
+        <rect fill="none" height="200" stroke="blue" stroke-width="2" width="50" x="3" y="103"></rect>
+        <path d="M 60 175.0 c 25 30 25 70 0 100" fill="none" stroke="blue" stroke-width="1.5"></path>
+        <use href="#r-arrow-head" transform="translate(64 270.0) rotate(128)"></use>
+        <text fill="blue" x="110" y="215">
+          <tspan class="variable">c</tspan> is moved down to bucket 21
+        </text>
+        <text fill="blue" x="110" y="250">
+          Empty space is now in bucket 19.
+        </text></svg>
+      </div>
+      <p>The empty space is now within the neighborhood of <em>i</em>. We use this space to insert the new key <em>k</em>. In summary, the full insertion looks as follows:</p>
+      <div class="centered-content" style="margin: 2em 0em;">
+        <div style="display: table-cell; width: 27.27%">
+          <svg class="hopscotch-fig-1" style="max-width: 150px;" viewbox="-80 0 166.66666666666666 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              16:
+            </text>
+          </g>
+          <g transform="translate(0 50)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              <tspan class="variable">i</tspan> = 17:
+            </text>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              a
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              17
+            </text>
+          </g>
+          <g transform="translate(0 100)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              18:
+            </text>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              b
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              16
+            </text>
+          </g>
+          <g transform="translate(0 150)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              19:
+            </text>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              c
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              18
+            </text>
+          </g>
+          <g transform="translate(0 200)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              20:
+            </text>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              d
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              19
+            </text>
+          </g>
+          <g transform="translate(0 250)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              21:
+            </text>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              e
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g transform="translate(0 300)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              22:
+            </text>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              f
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g transform="translate(0 350)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              23:
+            </text>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              g
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              23
+            </text>
+          </g>
+          <g transform="translate(0 400)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              <tspan class="variable">j</tspan> = 24:
+            </text>
+          </g>
+          <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+            <use href="#n-cell"></use>
+            <text class="label-text" x="-10" y="25.0">
+              25:
+            </text>
+          </g>
+          <use href="#wave" y="25.0"></use>
+          <use href="#wave" y="475.0"></use></svg>
+          <div>
+            Initial state
+          </div>
+        </div>
+        <div style="display: table-cell; width: 18.18%">
+          <svg class="hopscotch-fig-1" style="max-width: 100px;" viewbox="-20 0 111.11111111111111 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 50)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              a
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              17
+            </text>
+          </g>
+          <g transform="translate(0 100)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              b
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              16
+            </text>
+          </g>
+          <g transform="translate(0 150)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              c
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              18
+            </text>
+          </g>
+          <g transform="translate(0 200)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              d
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              19
+            </text>
+          </g>
+          <g transform="translate(0 250)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 300)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              f
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g transform="translate(0 350)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              g
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              23
+            </text>
+          </g>
+          <g transform="translate(0 400)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              e
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+            <use href="#n-cell"></use>
+          </g>
+          <use href="#wave" y="25.0"></use>
+          <use href="#wave" y="475.0"></use>
+          <rect fill="none" height="200" stroke="blue" stroke-width="2" width="50" x="3" y="253"></rect>
+          <path d="M 60 275.0 c 15 10 15 140 0 150" fill="none" stroke="blue" stroke-width="1.5"></path>
+          <use href="#r-arrow-head" transform="translate(64 420.0) rotate(128)"></use></svg>
+          <div>
+            <span class="variable">e</span> is moved to bucket&nbsp;24
+          </div>
+        </div>
+        <div style="display: table-cell; width: 18.18%">
+          <svg class="hopscotch-fig-1" style="max-width: 100px;" viewbox="-20 0 111.11111111111111 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 50)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              a
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              17
+            </text>
+          </g>
+          <g transform="translate(0 100)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              b
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              16
+            </text>
+          </g>
+          <g transform="translate(0 150)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              c
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              18
+            </text>
+          </g>
+          <g transform="translate(0 200)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              d
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              19
+            </text>
+          </g>
+          <g transform="translate(0 250)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 300)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              f
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g transform="translate(0 350)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              g
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              23
+            </text>
+          </g>
+          <g transform="translate(0 400)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              e
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+            <use href="#n-cell"></use>
+          </g>
+          <use href="#wave" y="25.0"></use>
+          <use href="#wave" y="475.0"></use>
+          <rect fill="none" height="200" stroke="red" stroke-width="2" width="50" x="3" y="53"></rect>
+          <path d="M 60 125.0 c 15 10 15 140 0 150" fill="none" stroke="red" stroke-width="1.5"></path>
+          <use href="#r-arrow-head-red" transform="translate(64 270.0) rotate(128)"></use>
+          <line stroke="red" stroke-width="2" x1="60" x2="80" y1="190" y2="210"></line>
+          <line stroke="red" stroke-width="2" x1="80" x2="60" y1="190" y2="210"></line></svg>
+          <div>
+            <span class="variable">b</span> can't be moved to bucket&nbsp;21
+          </div>
+        </div>
+        <div style="display: table-cell; width: 18.18%">
+          <svg class="hopscotch-fig-1" style="max-width: 100px;" viewbox="-20 0 111.11111111111111 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 50)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              a
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              17
+            </text>
+          </g>
+          <g transform="translate(0 100)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              b
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              16
+            </text>
+          </g>
+          <g transform="translate(0 150)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 200)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              d
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              19
+            </text>
+          </g>
+          <g transform="translate(0 250)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              c
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              18
+            </text>
+          </g>
+          <g transform="translate(0 300)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              f
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g transform="translate(0 350)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              g
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              23
+            </text>
+          </g>
+          <g transform="translate(0 400)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              e
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+            <use href="#n-cell"></use>
+          </g>
+          <use href="#wave" y="25.0"></use>
+          <use href="#wave" y="475.0"></use>
+          <rect fill="none" height="200" stroke="blue" stroke-width="2" width="50" x="3" y="103"></rect>
+          <path d="M 60 175.0 c 15 10 15 90 0 100" fill="none" stroke="blue" stroke-width="1.5"></path>
+          <use href="#r-arrow-head" transform="translate(64 270.0) rotate(128)"></use></svg>
+          <div>
+            <span class="variable">c</span> is moved to bucket&nbsp;21
+          </div>
+        </div>
+        <div style="display: table-cell; width: 18.18%;">
+          <svg class="hopscotch-fig-1" style="max-width: 100px;" viewbox="-20 0 111.11111111111111 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g clip-path="url(#top-wave-clip)" transform="translate(0 0)">
+            <use href="#n-cell"></use>
+          </g>
+          <g transform="translate(0 50)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              a
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              17
+            </text>
+          </g>
+          <g transform="translate(0 100)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              b
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              16
+            </text>
+          </g>
+          <g transform="translate(0 150)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              k
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              17
+            </text>
+          </g>
+          <g transform="translate(0 200)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              d
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              19
+            </text>
+          </g>
+          <g transform="translate(0 250)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              c
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              18
+            </text>
+          </g>
+          <g transform="translate(0 300)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              f
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g transform="translate(0 350)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              g
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              23
+            </text>
+          </g>
+          <g transform="translate(0 400)">
+            <use href="#n-cell"></use>
+            <text class="cell-text variable" x="25.0" y="20.0">
+              e
+            </text>
+            <text class="cell-text" style="font-size: 85%" x="25.0" y="38">
+              21
+            </text>
+          </g>
+          <g clip-path="url(#bottom-wave-clip)" transform="translate(0 450)">
+            <use href="#n-cell"></use>
+          </g>
+          <use href="#wave" y="25.0"></use>
+          <use href="#wave" y="475.0"></use>
+          <line stroke="blue" stroke-width="1.5" x1="60" x2="80" y1="175.0" y2="175.0"></line>
+          <use href="#r-arrow-head" transform="translate(64 175.0) rotate(180)"></use></svg>
+          <div>
+            <span class="variable">k</span> is inserted in bucket&nbsp;19
+          </div>
+        </div>
+      </div>
+      <p>If this displacement algorithm fails (some part of the array doesn't have any swaps available) then rehashing kicks in.</p>
+      <h3>Complexity</h3>
+      <p>As with other types of hash tables, worst-case complexity is <em>O</em>(<em>n</em>). However, assuming the hash function disperses the keys evenly, the <strong>expected time complexity</strong> is constant. See Lemma 6 in the <a href="http://mcg.cs.tau.ac.il/papers/disc2008-hopscotch.pdf">original paper</a>.</p>
+      <h2>Lookup</h2>
+      <p>To look up a key, <em>k</em>, the home bucket, <em>b</em>, is located based on the hash of <em>k</em>. If the home bucket stores <em>k</em> we're done, otherwise we examine the other buckets in the neighborhood that has <em>b</em> as their home bucket.</p>
+      <h3>Complexity</h3>
+      <p>Since lookup examines at most <em>H</em> buckets (which is constant), lookup has a worst-case complexity of <em>O</em>(1).</p>
+      <h2>Removal</h2>
+      <p>The relevant bucket is located the same way as a lookup is performed. The key is removed by clearing the bucket. Any meta info about neighboring buckets (discussed further down) must be updated as well.</p>
+      <p>Hopscotch hashing does not require a special “deleted” marking as other open addressing techniques do, and does not suffer from problems with contamination. (See section on contamination in <a href="hash-tables-open-vs-closed-addressing.html">Hash Tables: Open vs Closed Addressing</a>.)</p>
+      <h3>Complexity</h3>
+      <p>Similar to the analysis of lookup; <em>O</em>(1).</p>
+      <h2>Rehashing</h2>
+      <p>Rehashing works “as usual”. A larger array is allocated, each element is removed from the original array and inserted in the new array.</p>
+      <h2>Keeping track of home buckets</h2>
+      <p>To quickly find suitable candidates for swapping during insert, the implementation provided in the original paper on Hopscotch hashing stores meta information about each neighborhood in the home bucket. Two variants are suggested:</p>
+      <ul>
+        <li>
+          <p>Each bucket has a <strong>bitmap</strong> of <em>H</em> bits. Bit <em>d</em> in the bitmap of bucket <em>b</em> is set if and only if bucket <span class="no-wrap"><em>b</em> + <em>d</em></span> is occupied by a key that has <em>b</em> as its home bucket.</p>
+          <p>The benefit of this representation is that the bucket itself stores information about all keys that belong to that bucket. This is useful for lookups and for finding keys eligible for swapping.</p>
+        </li>
+        <li>
+          <p>In the other solution, each bucket has a <strong>linked list</strong> of references to other buckets. The linked list in bucket <em>b</em> contains references to all buckets storing keys that have <em>b</em> as their home bucket.</p>
+          <p>With large neighborhoods this may be a more memory efficient representation. On the other hand it introduces some indirection which could impact performance.</p>
+        </li>
+      </ul>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="hopscotch-hashing.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

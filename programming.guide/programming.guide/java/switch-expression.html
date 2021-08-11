@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <style>
+
+  #type01, #doesNotCompile, #compiles, #switch, #emptyTrailingLine {
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+  }
+
+  #switch {
+    animation-name: hideSquiggly;
+    animation-timing-function: step-end;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: red;
+  }
+
+  #emptyTrailingLine, #type01 {
+    overflow: hidden;
+    /* 30 steps = 30 key presses */
+    animation-timing-function: steps(30, end);
+  }
+
+  #type01 {
+    animation-name: type01x;
+
+    /* Not visible initially */
+    height: 0em;
+  }
+
+  #emptyTrailingLine {
+    animation-name: antityping;
+    height: 0;
+  }
+
+  @keyframes type01x {
+    0%   { width: 4ch; }
+    38%  { height: 0em; }
+    39%  { height: auto; }
+    40%  { width: 4ch; }
+    50%  { width: 34ch; }
+    100% { width: 34ch; height: auto;}
+  }
+
+  @keyframes antityping {
+    0% { height: auto; }
+    38%  { height: auto; }
+    39%  { height: 0em; }
+    100% { height: 0em; }
+  }
+
+  @keyframes hideSquiggly {
+    40% { text-decoration: none; }
+  }
+
+  #compilationComment {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #doesNotCompile, #compiles {
+    animation-timing-function: linear;
+    white-space: pre;
+  }
+
+  #doesNotCompile {
+    animation-name: hideComment;
+  }
+
+  #compiles {
+    animation-name: showComment;
+  }
+
+  @keyframes hideComment {
+    0%   { opacity: 1; height: auto; }
+    40%  { opacity: 1; height: auto; }
+    42%  { opacity: 0; height: auto; }
+    44%  { opacity: 0; height: auto; }
+    45%  { opacity: 0; height: 0; }
+    100% { opacity: 0; height: 0; }
+  }
+
+  @keyframes showComment {
+    0%   { opacity: 0; height: 0; }
+    44%  { opacity: 0; height: 0; }
+    45%  { opacity: 0; height: auto; }
+    50%  { opacity: 0; height: auto; }
+    52%  { opacity: 1; height: auto; }
+    100% { opacity: 1; height: auto; }
+  }
+  </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java: Switch Expression | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="Switch expressions are similar to switch statements, but allows each case to evaluate to an expression. This allows the switch as a whole to be used as an expression. You can think of it as chained conditional operator on steroids." name="description">
+  <meta content="java, switch, switch expression, enhanced switch" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Java: Switch Expression</h1>
+      <div class="article-box">
+        <p><strong>Note:</strong> Not to be confused with <a href="switch-statement.html">switch statements</a>. (What's the <a href="../statements-vs-expressions.html">difference between statements and expressions?</a>)</p>
+      </div>
+      <p>Let's start with an example:</p>
+      <pre><code><span class="keyword">int</span> i = <span class="keyword">switch</span> (someString) {
+    <span class="keyword">case</span> <span class="text_lit">"one"</span> -&gt; <span class="num_lit">1</span>;
+    <span class="keyword">case</span> <span class="text_lit">"two"</span> -&gt; <span class="num_lit">2</span>;
+    <span class="keyword">case</span> <span class="text_lit">"three"</span> -&gt; <span class="num_lit">3</span>;
+    <span class="keyword">default</span> -&gt; <span class="num_lit">-1</span>;
+};</code></pre>
+      <p>You can switch on integers, strings and enums.</p>
+      <h2>Need to cover all cases</h2>
+      <div class="codeblock">
+        <code><span class="keyword">int</span> i = <span class="num_lit">1</span>;</code><br>
+        <br>
+        <div class="code comment" id="compiles" style="white-space: nowrap">
+          // Compiles
+        </div>
+        <div class="code comment" id="doesNotCompile" style="white-space: nowrap">
+          // error: does not cover all possible input values
+        </div><code>String str = <span class="keyword" id="switch">switch</span> (i) {</code><br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> <span class="num_lit">1</span> -&gt; <span class="text_lit">"one"</span>;</code><br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> <span class="num_lit">2</span> -&gt; <span class="text_lit">"two"</span>;</code><br>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">case</span> <span class="num_lit">3</span> -&gt; <span class="text_lit">"three"</span>;</code><br>
+        <div class="code" id="compilationComment" style="width: 60ch;"></div>
+        <div class="code" id="type01" style="white-space: nowrap">
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">default</span> -&gt; <span class="text_lit">"Something else"</span>;
+        </div><code>}</code><br>
+        <div id="emptyTrailingLine">
+          &nbsp;
+        </div>
+      </div>
+      <h2>Multiple case expressions</h2>
+      <p>You can have multiple case expressions in one case line:</p>
+      <pre><code>String str = <span class="keyword">switch</span> (i) {
+    <span class="keyword">case</span> <span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">3</span> -&gt; <span class="text_lit">"one, two, or three"</span>
+    <span class="keyword">default</span> -&gt; <span class="text_lit">"Something else"</span>;
+}</code></pre>
+      <h2>Blocks statements and <code>break</code></h2>
+      <p>You can use <code>break</code> to "return" values.</p>
+      <p>This allows for use of block statements.</p>
+      <pre><code>String str = <span class="keyword">switch</span> (i) {
+
+    <span class="keyword">case</span> <span class="num_lit">1</span> -&gt; <span class="text_lit">"one"</span>;
+
+    <span class="keyword">case</span> <span class="num_lit">2</span> -&gt; <span class="keyword">break</span> <span class="text_lit">"two"</span>;
+
+    <span class="keyword">case</span> <span class="num_lit">3</span> -&gt; {
+        System.out.println(<span class="text_lit">"Third case!"</span>);
+        <span class="keyword">break</span> <span class="text_lit">"three"</span>;
+    }
+
+    <span class="keyword">default</span> -&gt; <span class="text_lit">"Something else"</span>;
+};</code></pre>
+      <h2>Throw</h2>
+      <p>Statements must be wrapped in <code>{ ... }</code> <strong>except</strong> for a single <code>throw</code> statement.</p>
+      <pre><code><span class="keyword">int</span> i = <span class="keyword">switch</span> (someString) {
+    <span class="keyword">case</span> <span class="text_lit">"one"</span> -&gt; <span class="num_lit">1</span>;
+    <span class="keyword">case</span> <span class="text_lit">"two"</span> -&gt; <span class="num_lit">2</span>;
+    <span class="keyword">case</span> <span class="text_lit">"three"</span> -&gt; <span class="num_lit">3</span>;
+    <span class="keyword">default</span> -&gt; <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();
+};</code></pre>
+      <h2>Colon syntax</h2>
+      <p>Colon syntax allows for statements even without <code>{ ... }</code>.</p>
+      <p>Cases will <strong>fall through</strong>.</p>
+      <p>You must use <strong>break</strong>.</p>
+      <pre><code>String str = <span class="keyword">switch</span> (i) {
+
+    <span class="keyword">case</span> <span class="num_lit">1</span>:
+        System.out.println(<span class="text_lit">"One"</span>);
+        System.out.println(<span class="text_lit">"Falling through!"</span>);
+
+    <span class="keyword">case</span> <span class="num_lit">2</span>:
+        <span class="keyword">break</span> <span class="text_lit">"Two"</span>;
+
+    <span class="keyword">default</span>:
+        <span class="keyword">break</span> <span class="text_lit">"Something else"</span>;
+};</code></pre>
+      <p>You can <strong>not</strong> mix arrow and colon syntax in the same switch.</p>
+      <h2>Enhanced Switch Statement</h2>
+      <p>Switch <strong>expressions</strong> should not be confused with switch <strong>statements</strong>. (See <a href="../statements-vs-expressions.html">Statements vs Expressions</a>.)</p>
+      <p>The arrow syntax can be used in <strong>switch statements</strong> too, in which case fall through is disabled and <code>break</code> is disallowed.</p>
+      <p>See article <a href="switch-statement.html">Switch Statement</a>.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/switch-expression.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java: ArrayIndexOutOfBoundsException | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="An ArrayIndexOutOfBoundsException is thrown when the program tries to access an element at an index that is out of bounds for the array. For an array with N elements, the last accessible index is N-1." name="description">
+  <meta content="java, array, ArrayIndexOutOfBounds, array index out of bounds" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Java Arrays</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="arrays.html">Java Arrays (with examples)</a>
+        </li>
+        <li>
+          <a href="array-maximum-length.html">Maximum length of array</a>
+        </li>
+        <li class="current">ArrayIndexOutOfBoundsException</li>
+        <li>
+          <a href="array-vs-arraylist.html">Arrays vs ArrayLists (and other Lists)</a>
+        </li>
+        <li>
+          <a href="matrices-and-multidimensional-arrays.html">Matrices and Multidimensional Arrays</a>
+        </li>
+        <li>
+          <a href="array-append.html">Appending to an array</a>
+        </li>
+        <li>
+          <a href="array-copy.html">Copying an array</a>
+        </li>
+        <li>
+          <a href="array-insert-at-index.html">Inserting an element in an array at a given index</a>
+        </li>
+        <li>
+          <a href="testing-array-equality.html">Testing array equality</a>
+        </li>
+      </ol>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
+      <h2>Top Algorithm Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
+        </li>
+        <li>
+          <a href="../big-o-notation-explained.html">Big O notation explained</a>
+        </li>
+        <li>
+          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
+        </li>
+        <li>
+          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
+        </li>
+        <li>
+          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
+        </li>
+      </ol>
+    </aside>
+    <article>
+      <h1>Java: ArrayIndexOutOfBoundsException</h1>
+      <p>An <code>ArrayIndexOutOfBoundsException</code> is thrown when the program tries to access an element at an invalid index.</p>
+      <p>The array indexes are <strong>zero-based</strong>, so for an array with <em>N</em> elements (<code>array.length == <em>N</em></code>) the valid indexes are <span class="no-wrap">0…<em>N</em> − 1</span>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> For an array created like this:</p>
+        <pre><code><span class="keyword">int</span>[] arr = { <span class="num_lit">17</span>, <span class="num_lit">55</span>, <span class="num_lit">2</span>, <span class="num_lit">10</span> };</code></pre>
+        <p>the memory looks like this:</p>
+        <div class="centered-content" style="margin: 2em 0em;">
+          <svg style="max-width: 450px;" viewbox="-75 -30 450.0 160" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <rect fill="black" height="330" id="full-black" width="550" x="-10" y="-10"></rect>
+          </defs>
+          <mask id="left-wave-mask">
+            <use href="#full-black"></use>
+            <path d="M 10,-20 c -8,30 8,35 0,75 h 50 v -75" fill="white"></path>
+          </mask>
+          <mask id="right-wave-mask">
+            <use href="#full-black"></use>
+            <path d="M 340,-20 c -8,30 8,35 0,75 h -50 v -75" fill="white"></path>
+          </mask>
+          <g>
+            <rect fill="white" height="35" mask="url(#left-wave-mask)" stroke="grey" width="35" x="0"></rect>
+          </g>
+          <text dominant-baseline="middle" fill="#f88" font-size="80%" text-anchor="middle" x="17.5" y="60">
+            −3
+          </text>
+          <rect fill="white" height="35" stroke="grey" width="35" x="35"></rect>
+          <text dominant-baseline="middle" fill="#f88" font-size="80%" text-anchor="middle" x="52.5" y="60">
+            −2
+          </text>
+          <rect fill="white" height="35" stroke="grey" width="35" x="70"></rect>
+          <text dominant-baseline="middle" fill="#f88" font-size="80%" text-anchor="middle" x="87.5" y="60">
+            −1
+          </text>
+          <rect fill="white" height="35" stroke="black" width="35" x="105"></rect>
+          <text dominant-baseline="middle" text-anchor="middle" x="122.5" y="17.5">
+            17
+          </text>
+          <text dominant-baseline="middle" fill="green" font-size="80%" text-anchor="middle" x="122.5" y="60">
+            0
+          </text>
+          <rect fill="white" height="35" stroke="black" width="35" x="140"></rect>
+          <text dominant-baseline="middle" text-anchor="middle" x="157.5" y="17.5">
+            55
+          </text>
+          <text dominant-baseline="middle" fill="green" font-size="80%" text-anchor="middle" x="157.5" y="60">
+            1
+          </text>
+          <rect fill="white" height="35" stroke="black" width="35" x="175"></rect>
+          <text dominant-baseline="middle" text-anchor="middle" x="192.5" y="17.5">
+            2
+          </text>
+          <text dominant-baseline="middle" fill="green" font-size="80%" text-anchor="middle" x="192.5" y="60">
+            2
+          </text>
+          <rect fill="white" height="35" stroke="black" width="35" x="210"></rect>
+          <text dominant-baseline="middle" text-anchor="middle" x="227.5" y="17.5">
+            10
+          </text>
+          <text dominant-baseline="middle" fill="green" font-size="80%" text-anchor="middle" x="227.5" y="60">
+            3
+          </text>
+          <rect fill="white" height="35" stroke="grey" width="35" x="245"></rect>
+          <text dominant-baseline="middle" fill="#f88" font-size="80%" text-anchor="middle" x="262.5" y="60">
+            4
+          </text>
+          <rect fill="white" height="35" stroke="grey" width="35" x="280"></rect>
+          <text dominant-baseline="middle" fill="#f88" font-size="80%" text-anchor="middle" x="297.5" y="60">
+            5
+          </text>
+          <rect fill="white" height="35" mask="url(#right-wave-mask)" stroke="grey" width="35" x="315"></rect>
+          <text dominant-baseline="middle" fill="#f88" font-size="80%" text-anchor="middle" x="332.5" y="60">
+            6
+          </text>
+          <text dominant-baseline="middle" text-anchor="end" x="-15" y="60">
+            Index:
+          </text>
+          <path d="M 10,-20 c -8,30 8,35 0,75" fill="none" stroke="black" stroke-dasharray="4"></path>
+          <path d="M 340,-20 c -8,30 8,35 0,75" fill="none" stroke="black" stroke-dasharray="4"></path>
+          <path d="M 115,75 q 0,7 10,7 h 40 q 10,0 10,7 q 0,-7 10,-7 h 40 q 10,0 10,-7" fill="none" stroke="green"></path>
+          <text dominant-baseline="middle" fill="green" text-anchor="middle" x="175" y="110">
+            Valid indexes
+          </text></svg>
+        </div>
+        <p>That is, with <strong>4 elements</strong>, the greatest valid index is <strong>3</strong>.</p>
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/arrayindexoutofboundsexception.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>

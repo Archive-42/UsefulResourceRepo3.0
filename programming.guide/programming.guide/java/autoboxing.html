@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Java: Autoboxing and unboxing | Programming.Guide</title>
+  <link href="../css/base.css" rel="stylesheet">
+  <link href="../favicon.ico" rel="icon">
+  <meta content="The compiler automatically converts between primitive values and boxed values. This feature is called autoboxing and unboxing. Without it, code would quickly get messy, especially when working with collections." name="description">
+  <meta content="java, wrapper, autoboxing, unboxing, boxing, boxed, wrapper types, primitive, reference, object" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62262792-2');
+  </script>
+  <script>
+  /**
+  * https://support.google.com/analytics/answer/1136920?hl=en
+  *
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1475100101081278",
+    enable_page_level_ads: true
+  });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
+  <script src="../cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#006699"
+    },
+    "button": {
+      "background": "#cccccc"
+    }
+  },
+  "theme": "classic",
+  "dismissOnScroll": 200,
+  "dismissOnWindowClick": true,
+  "content": {
+    "message": "By interacting with this site you approve the use of cookies.",
+    "href": "/terms-and-conditions.html"
+  }
+  })});
+  </script>
+  <link href="../css/intellij-defaults.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="ad">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
+      <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </header>
+  <main>
+    <aside id="primary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Types in Java</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="types.html">Java Basics: Types</a>
+        </li>
+        <li>
+          <a href="primitive-types.html">Primitive Types</a>
+        </li>
+        <li>
+          <a href="primitives-vs-objects-references.html">Primitives vs Objects and References</a>
+        </li>
+        <li>
+          <a href="primitive-ranges.html">Ranges of Primitive Types</a>
+        </li>
+        <li>
+          <a href="wrapper-types.html">Wrapper Types</a>
+        </li>
+        <li class="current">Autoboxing and unboxing</li>
+        <li>
+          <a href="boxed-values-equality.html">Boxed values and equality</a>
+        </li>
+        <li>
+          <a href="byte-short-literals.html">No byte or short literals?</a>
+        </li>
+        <li>
+          <a href="byte-vs-byte.html">Byte (class) vs byte (primitive)</a>
+        </li>
+        <li>
+          <a href="short-vs-short.html">Short (class) vs short (primitive)</a>
+        </li>
+        <li>
+          <a href="integer-vs-int.html">Integer vs int</a>
+        </li>
+        <li>
+          <a href="long-vs-long.html">Long (class) vs long (primitive)</a>
+        </li>
+        <li>
+          <a href="float-vs-float.html">Float (class) vs float (primitive)</a>
+        </li>
+        <li>
+          <a href="double-vs-double.html">Double (class) vs double (primitive)</a>
+        </li>
+        <li>
+          <a href="character-vs-char.html">Character vs char</a>
+        </li>
+        <li>
+          <a href="boolean-vs-boolean.html">Boolean (class) vs boolean (primitive)</a>
+        </li>
+      </ol>
+      <div class="box">
+        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
+        <br>
+        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
+      </div>
+    </aside>
+    <aside id="secondary-aside">
+      <div class="ad">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+        <script>
+
+                (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>External Resources</h2>
+      <div style="margin-bottom: 1em;">
+        <a href="https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html">Autoboxing and Unboxing</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">The Java™ Tutorials</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://docs.oracle.com/javase/specs/jls/se9/html/jls-5.html#jls-5.1.7">Boxing Conversion</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Java Language Specification</span>
+      </div>
+      <div style="margin-bottom: 1em;">
+        <a href="https://docs.oracle.com/javase/specs/jls/se9/html/jls-5.html#jls-5.1.8">Unboxing Conversion</a><br>
+        <span style="color: grey; font-style: italic; font-size: smaller;">Java Language Specification</span>
+      </div>
+      <h2>Top Java Articles</h2>
+      <ol class="nostyle">
+        <li>
+          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
+        </li>
+        <li>
+          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
+        </li>
+        <li>
+          <a href="functional-interfaces.html">Functional Interfaces</a>
+        </li>
+        <li>
+          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
+        </li>
+        <li>
+          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
+        </li>
+      </ol>
+      <p><a href="index.html"><b>See all Java articles</b></a></p>
+    </aside>
+    <article>
+      <h1>Java: Autoboxing and unboxing</h1>
+      <p>If a value of primitive type (<code>int</code>, <code>double</code>, <code>boolean</code>, …) is provided where a value of wrapper type (a “boxed value” such as <code>Integer</code>, <code>Double</code>, <code>Boolean</code>, …) is expected, the compiler will automatically convert it. This is called <strong>autoboxing</strong>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Autoboxing in its simplest form</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">i</span> = <span class="num_lit">5</span>;  <span class="comment">// int turned into an Integer</span>
+</code></pre>
+      </div>
+      <p>The opposite conversion is called <strong>unboxing</strong>.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Unboxing in its simplest form</p>
+        <pre><code><span class="keyword">int</span> <span class="type">i</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#Integer(int)"><span class="type">Integer</span></a>(<span class="num_lit">5</span>);  <span class="comment">// Integer turned into an int</span>
+</code></pre>
+      </div>
+      <p>Without these automatic conversions, code would quickly get cluttered, especially when working with collections.</p>
+      <h2>Unboxing a null reference</h2>
+      <p>If you try to unbox a <code>null</code> reference, a <code>NullPointerException</code> will be thrown.</p>
+      <div class="article-box">
+        <p><strong>Example:</strong> Compiles but throws a <code>NullPointerException</code> when executed</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">i</span> = <span class="keyword">null</span>;
+<span class="keyword">int</span> <span class="type">j</span> = <span class="type">i</span>;
+</code></pre>
+      </div>
+      <h2>Behind the scenes</h2>
+      <p>The Java Language Specification does not specify exactly how the conversion should be done, but the <code>javac</code> reference implementation uses the following methods:</p>
+      <table class="white">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Boxing</th>
+            <th>Unboxing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p><code>byte</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html#valueOf-byte-"><code>Byte.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html#byteValue--"><code>Byte.byteValue</code></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><code>short</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#valueOf-short-"><code>Short.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html#shortValue--"><code>Short.shortValue</code></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><code>int</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#valueOf-int-"><code>Integer.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#intValue--"><code>Integer.intValue</code></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><code>long</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html#valueOf-long-"><code>Long.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html#longValue--"><code>Long.longValue</code></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><code>float</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#valueOf-float-"><code>Float.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#floatValue--"><code>Float.floatValue</code></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><code>double</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#valueOf-double-"><code>Double.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#doubleValue--"><code>Double.doubleValue</code></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><code>char</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#valueOf-char-"><code>Character.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html#charValue--"><code>Character.charValue</code></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><code>boolean</code></p>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html#valueOf-boolean-"><code>Boolean.valueOf</code></a>
+            </td>
+            <td>
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html#booleanValue--"><code>Boolean.booleanValue</code></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="article-box">
+        <p><strong>Example:</strong> These two snippets are equivalent</p>
+        <div class="side-by-side">
+          <div>
+            <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">i</span> = <span class="num_lit">1</span>;
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">j</span> = <span class="num_lit">2</span>;
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">k</span> = <span class="type">i</span> + <span class="type">j</span>;
+</code></pre>
+          </div>
+          <div>
+            <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">i</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#valueOf(int)"><span class="static_method">valueOf</span></a>(<span class="num_lit">1</span>);
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">j</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#valueOf(int)"><span class="static_method">valueOf</span></a>(<span class="num_lit">2</span>);
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a> <span class="type">k</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#valueOf(int)"><span class="static_method">valueOf</span></a>(<span class="type">i</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#intValue()"><span class="method">intValue</span></a>() + <span class="type">j</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#intValue()"><span class="method">intValue</span></a>());
+</code></pre>
+          </div>
+        </div>
+      </div>
+      <h2>Caching</h2>
+      <p>The <code>valueOf</code> methods of <code>Byte</code>, <code>Short</code>, <code>Integer</code>, <code>Long</code> and <code>Character</code> <strong>caches values</strong> between −128 and 127. This means that two calls to <code>Integer.valueOf(5)</code> will return <strong>the same</strong> reference, while two calls to <code>Integer.valueOf(5000)</code> <strong>may not</strong>.</p>
+      <p>This can give rise to some surprising semantics when comparing boxed values using <code>==</code> and <code>!=</code>.</p>
+      <p>Recommended reading: <a href="boxed-values-equality.html">Java: Boxed values and equality</a>.</p>
+      <div>
+        <h2>Comments</h2>
+        <div style="margin-bottom: 1.5em">
+          Be the first to comment!
+        </div>
+        <form action="https://programming.guide/_comments/add-comment" method="post">
+          <input name="reply_to" type="hidden" value="java/autoboxing.html"> 
+          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
+        </form>
+      </div>
+    </article>
+  </main>
+  <footer>
+    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
+  </footer>
+  <script>
+  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+  var test = document.createElement('div');
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
+    }
+    test.remove();
+  }, 400);
+  </script>
+</body>
+</html>
