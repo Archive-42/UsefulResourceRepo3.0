@@ -1,334 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: Bitwise operators cheat sheet | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="A complete list of bitwise operators and functions in Go." name="description">
-  <meta content="go, golang, bitwise, operator, function, not, and, or, xor, bit, bit clear, shift, rotate, popcount" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: Bitwise operators cheat sheet | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="A complete list of bitwise operators and functions in Go."
+      name="description"
+    />
+    <meta
+      content="go, golang, bitwise, operator, function, not, and, or, xor, bit, bit clear, shift, rotate, popcount"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: Bitwise operators cheat sheet</h1>
-      <p>The binary number 00010000 can be written as <code>020</code>, <code>16</code> or <code>0x10</code>.</p>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Literal</th>
-            <th>Base</th>
-            <th>Note</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>020</code></td>
-            <td>8</td>
-            <td>Starts with&nbsp;<code>0</code></td>
-          </tr>
-          <tr>
-            <td><code>16</code></td>
-            <td>10</td>
-            <td>Never starts with&nbsp;<code>0</code>*</td>
-          </tr>
-          <tr>
-            <td><code>0x10</code></td>
-            <td>16</td>
-            <td>Starts with&nbsp;<code>0x</code></td>
-          </tr>
-        </tbody>
-      </table>
-      <p><code>0</code> is an octal literal in&nbsp;Go.</p>
-      <h2>Built-in operators</h2>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Operation</th>
-            <th>Result</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>0011 &amp; 0101</code></td>
-            <td>0001</td>
-            <td>Bitwise AND</td>
-          </tr>
-          <tr>
-            <td><code>0011 | 0101</code></td>
-            <td>0111</td>
-            <td>Bitwise OR</td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;"><code>0011 ^ 0101</code></td>
-            <td style="border-bottom: 0;">0110</td>
-            <td style="border-bottom: 0;">Bitwise XOR</td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;"><code>^0101</code></td>
-            <td style="padding-top: 0;">1010</td>
-            <td style="padding-top: 0;">Short for <code>1111&nbsp;^&nbsp;0101</code> (NOT)</td>
-          </tr>
-          <tr>
-            <td><code>0011 &amp;^ 0101</code></td>
-            <td>0010</td>
-            <td>Bitclear (AND&nbsp;NOT)</td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;"><code>00110101&lt;&lt;2</code></td>
-            <td style="border-bottom: 0;">11010100</td>
-            <td style="border-bottom: 0;">Left shift</td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;"><code>00110101&lt;&lt;100</code></td>
-            <td style="padding-top: 0;">00000000</td>
-            <td style="padding-top: 0;">No upper limit on shift count</td>
-          </tr>
-          <tr>
-            <td><code>00110101&gt;&gt;2</code></td>
-            <td>00001101</td>
-            <td>Right shift</td>
-          </tr>
-        </tbody>
-      </table>
-      <ul>
-        <li>
-          <p>The binary numbers in the examples are for explanation only. Integer literals in Go must be specified in octal, decimal or hexadecimal.</p>
-        </li>
-        <li>
-          <p>The bitwise operators take both signed and unsigned integers as input. The right-hand side of a shift operator, however, must be an unsigned integer.</p>
-        </li>
-        <li>
-          <p>Shift operators implement arithmetic shifts if the left operand is a signed integer and logical shifts if it is an unsigned integer.</p>
-        </li>
-      </ul>
-      <h2>Package <a href="https://golang.org/pkg/math/bits/" style="font-size: 90%;"><code>math/bits</code></a></h2>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Operation</th>
-            <th>Result</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>bits.OnesCount8(00101110)</code></td>
-            <td>4</td>
-            <td>Number of one bits (population count)</td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;"><code>bits.Len8(00101110)</code></td>
-            <td style="border-bottom: 0;">6</td>
-            <td style="border-bottom: 0;">Bits required to represent number</td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;"><code>bits.Len8(00000000)</code></td>
-            <td style="padding-top: 0;">0</td>
-            <td style="padding-top: 0;"></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;"><code>bits.LeadingZeros8(00101110)</code></td>
-            <td style="border-bottom: 0;">2</td>
-            <td style="border-bottom: 0;">Number of leading zero bits</td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;"><code>bits.LeadingZeros8(00000000)</code></td>
-            <td style="padding-top: 0;">8</td>
-            <td style="padding-top: 0;"></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;"><code>bits.TrailingZeros8(00101110)</code></td>
-            <td style="border-bottom: 0;">1</td>
-            <td style="border-bottom: 0;">Number of trailing zero bits</td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;"><code>bits.TrailingZeros8(00000000)</code></td>
-            <td style="padding-top: 0;">8</td>
-            <td style="padding-top: 0;"></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;"><code>bits.RotateLeft8(00101110,&nbsp;3)</code></td>
-            <td style="border-bottom: 0;">01110001</td>
-            <td style="border-bottom: 0;">The value rotated left by 3 bits</td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;"><code>bits.RotateLeft8(00101110,&nbsp;-3)</code></td>
-            <td style="padding-top: 0;">11000101</td>
-            <td style="padding-top: 0;">The value rotated <strong>right</strong> by 3&nbsp;bits</td>
-          </tr>
-          <tr>
-            <td><code>bits.Reverse8(00101110)</code></td>
-            <td>01110100</td>
-            <td>Bits in reversed order</td>
-          </tr>
-          <tr>
-            <td><code>bits.ReverseBytes16(0x00ff)</code></td>
-            <td><code>0xff00</code></td>
-            <td>Bytes in reversed order</td>
-          </tr>
-        </tbody>
-      </table>
-      <ul>
-        <li>
-          <p>These functions operate on <strong>unsigned integers</strong>.</p>
-        </li>
-        <li>
-          <p>They come in different forms that take arguments of different sizes. For example, <code>Len</code>, <code>Len8</code>, <code>Len16</code>, <code>Len32</code>, and <code>Len64</code> apply to the types <code>uint</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, and <code>uint64</code>, respectively.</p>
-        </li>
-        <li>
-          <p>The functions are recognized by the compiler and on most architectures they are treated as intrinsics for additional performance.</p>
-        </li>
-      </ul>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="go/bitwise-operator-cheat-sheet.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: Bitwise operators cheat sheet</h1>
+        <p>
+          The binary number 00010000 can be written as <code>020</code>,
+          <code>16</code> or <code>0x10</code>.
+        </p>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Literal</th>
+              <th>Base</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>020</code></td>
+              <td>8</td>
+              <td>Starts with&nbsp;<code>0</code></td>
+            </tr>
+            <tr>
+              <td><code>16</code></td>
+              <td>10</td>
+              <td>Never starts with&nbsp;<code>0</code>*</td>
+            </tr>
+            <tr>
+              <td><code>0x10</code></td>
+              <td>16</td>
+              <td>Starts with&nbsp;<code>0x</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p><code>0</code> is an octal literal in&nbsp;Go.</p>
+        <h2>Built-in operators</h2>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Result</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>0011 &amp; 0101</code></td>
+              <td>0001</td>
+              <td>Bitwise AND</td>
+            </tr>
+            <tr>
+              <td><code>0011 | 0101</code></td>
+              <td>0111</td>
+              <td>Bitwise OR</td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0"><code>0011 ^ 0101</code></td>
+              <td style="border-bottom: 0">0110</td>
+              <td style="border-bottom: 0">Bitwise XOR</td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0"><code>^0101</code></td>
+              <td style="padding-top: 0">1010</td>
+              <td style="padding-top: 0">
+                Short for <code>1111&nbsp;^&nbsp;0101</code> (NOT)
+              </td>
+            </tr>
+            <tr>
+              <td><code>0011 &amp;^ 0101</code></td>
+              <td>0010</td>
+              <td>Bitclear (AND&nbsp;NOT)</td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0"><code>00110101&lt;&lt;2</code></td>
+              <td style="border-bottom: 0">11010100</td>
+              <td style="border-bottom: 0">Left shift</td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0"><code>00110101&lt;&lt;100</code></td>
+              <td style="padding-top: 0">00000000</td>
+              <td style="padding-top: 0">No upper limit on shift count</td>
+            </tr>
+            <tr>
+              <td><code>00110101&gt;&gt;2</code></td>
+              <td>00001101</td>
+              <td>Right shift</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>
+            <p>
+              The binary numbers in the examples are for explanation only.
+              Integer literals in Go must be specified in octal, decimal or
+              hexadecimal.
+            </p>
+          </li>
+          <li>
+            <p>
+              The bitwise operators take both signed and unsigned integers as
+              input. The right-hand side of a shift operator, however, must be
+              an unsigned integer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Shift operators implement arithmetic shifts if the left operand is
+              a signed integer and logical shifts if it is an unsigned integer.
+            </p>
+          </li>
+        </ul>
+        <h2>
+          Package
+          <a href="https://golang.org/pkg/math/bits/" style="font-size: 90%"
+            ><code>math/bits</code></a
+          >
+        </h2>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Result</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>bits.OnesCount8(00101110)</code></td>
+              <td>4</td>
+              <td>Number of one bits (population count)</td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0"><code>bits.Len8(00101110)</code></td>
+              <td style="border-bottom: 0">6</td>
+              <td style="border-bottom: 0">
+                Bits required to represent number
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0"><code>bits.Len8(00000000)</code></td>
+              <td style="padding-top: 0">0</td>
+              <td style="padding-top: 0"></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">
+                <code>bits.LeadingZeros8(00101110)</code>
+              </td>
+              <td style="border-bottom: 0">2</td>
+              <td style="border-bottom: 0">Number of leading zero bits</td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">
+                <code>bits.LeadingZeros8(00000000)</code>
+              </td>
+              <td style="padding-top: 0">8</td>
+              <td style="padding-top: 0"></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">
+                <code>bits.TrailingZeros8(00101110)</code>
+              </td>
+              <td style="border-bottom: 0">1</td>
+              <td style="border-bottom: 0">Number of trailing zero bits</td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">
+                <code>bits.TrailingZeros8(00000000)</code>
+              </td>
+              <td style="padding-top: 0">8</td>
+              <td style="padding-top: 0"></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">
+                <code>bits.RotateLeft8(00101110,&nbsp;3)</code>
+              </td>
+              <td style="border-bottom: 0">01110001</td>
+              <td style="border-bottom: 0">The value rotated left by 3 bits</td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">
+                <code>bits.RotateLeft8(00101110,&nbsp;-3)</code>
+              </td>
+              <td style="padding-top: 0">11000101</td>
+              <td style="padding-top: 0">
+                The value rotated <strong>right</strong> by 3&nbsp;bits
+              </td>
+            </tr>
+            <tr>
+              <td><code>bits.Reverse8(00101110)</code></td>
+              <td>01110100</td>
+              <td>Bits in reversed order</td>
+            </tr>
+            <tr>
+              <td><code>bits.ReverseBytes16(0x00ff)</code></td>
+              <td><code>0xff00</code></td>
+              <td>Bytes in reversed order</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>
+            <p>
+              These functions operate on <strong>unsigned integers</strong>.
+            </p>
+          </li>
+          <li>
+            <p>
+              They come in different forms that take arguments of different
+              sizes. For example, <code>Len</code>, <code>Len8</code>,
+              <code>Len16</code>, <code>Len32</code>, and
+              <code>Len64</code> apply to the types <code>uint</code>,
+              <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, and
+              <code>uint64</code>, respectively.
+            </p>
+          </li>
+          <li>
+            <p>
+              The functions are recognized by the compiler and on most
+              architectures they are treated as intrinsics for additional
+              performance.
+            </p>
+          </li>
+        </ul>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="go/bitwise-operator-cheat-sheet.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>
