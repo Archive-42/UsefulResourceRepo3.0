@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Mariko Kosaka on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Mariko Kosaka</name>
+  </author>
+  <link href="https://web.dev/authors/kosamari/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/TaVHIb4KixCUF6XheH7z.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Mariko is a drawsplainer</subtitle>
+  
+  
+  <entry>
+    <title>Compat 2021 mid-year update: Flex gap everywhere</title>
+    <link href="https://web.dev/compat2021-midyear/"/>
+    <updated>2021-07-23T00:00:00Z</updated>
+    <id>https://web.dev/compat2021-midyear/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;It&#39;s time for the mid-year update on Compat 2021—an effort to eliminate browser compatibility
+problems in five key focus areas. For more details about the
+&lt;a href=&quot;https://twitter.com/search?q=%23compat2021&quot; rel=&quot;noopener&quot;&gt;#compat2021&lt;/a&gt; work and how we decided on the
+areas of focus, check out the &lt;a href=&quot;https://web.dev/compat2021&quot;&gt;March announcement&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Improvements to Chromium discussed in this post will reach Chrome, Edge and all Chromium-based
+browsers.&lt;/p&gt;
+&lt;h2 id=&quot;how-we-measure-progress&quot;&gt;How we measure progress &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#how-we-measure-progress&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You can check the &lt;a href=&quot;https://wpt.fyi/compat2021?feature=summary&quot; rel=&quot;noopener&quot;&gt;Compat 2021 dashboard&lt;/a&gt; for
+&lt;a href=&quot;https://github.com/web-platform-tests/wpt#the-web-platform-tests-project&quot; rel=&quot;noopener&quot;&gt;web-platform-tests&lt;/a&gt;
+to see the number of passing tests and the trending graphs for different browsers.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--key-term&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Key Term&lt;/strong&gt;:
+The web-platform-tests project is a cross-browser test suite for the web platform. The tests are
+run periodically across multiple browsers and results are available on the
+&lt;a href=&quot;https://wpt.fyi/&quot; rel=&quot;noopener&quot;&gt;wpt.fyi&lt;/a&gt; dashboard.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;A simple &amp;quot;passed tests&amp;quot; number doesn&#39;t tell the entire story of browser compatibility, however it
+is one of the signals we use to see the progress of our effort. Fewer differences between browsers
+in test results means greater interoperability of a web feature across multiple browsers.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;img alt=&quot;Caption: a snapshot of Compat 2021 Dashboard (experimental browsers)&quot; decoding=&quot;async&quot; height=&quot;538&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/Wd2sVnt4VLho4jgp7UtIyWFceE02/CFL9C7UHKSrAgI5rLrvv.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    A snapshot of &lt;a href=&quot;https://wpt.fyi/compat2021&quot;&gt;Compat 2021 Dashboard&lt;/a&gt; (experimental browsers).
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;css-flexbox&quot;&gt;CSS flexbox &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#css-flexbox&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All three browser engines saw
+&lt;a href=&quot;https://wpt.fyi/compat2021?feature=css-flexbox&quot; rel=&quot;noopener&quot;&gt;improvements on flexbox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Safari 14.1 shipped the
+&lt;a href=&quot;https://blogs.igalia.com/svillar/2020/10/01/closing-the-gap-in-flexbox/&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;gap&lt;/code&gt; property for flexbox&lt;/a&gt;
+. The &lt;code&gt;gap&lt;/code&gt; property is a convenient way to set spacing between items. This property is often used
+in Grid layout, and support in flexbox layout was one of the most requested features in the
+&lt;a href=&quot;https://insights.developer.mozilla.org/reports/mdn-browser-compatibility-report-2020.html&quot; rel=&quot;noopener&quot;&gt;MDN Browser Compatibility Report&lt;/a&gt;
+. With this update, the &lt;code&gt;gap&lt;/code&gt; property in flex layouts is available in all major browsers and a top
+compatibility challenge is resolved. Safari 14.1 also included many fixes for
+&lt;a href=&quot;https://blogs.igalia.com/svillar/2021/01/20/flexbox-cats-a-k-a-fixing-images-in-flexbox/&quot; rel=&quot;noopener&quot;&gt;images in flexbox&lt;/a&gt;, removing the need for old workarounds.&lt;/p&gt;
+&lt;p&gt;Firefox resolved rendering of
+&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=1674302&quot; rel=&quot;noopener&quot;&gt;tables as flex items&lt;/a&gt;, bumping Firefox
+closer to 100% passing tests (currently at 98.5%).&lt;/p&gt;
+&lt;p&gt;Chromium fixed
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=1181403&quot; rel=&quot;noopener&quot;&gt;tables as flex items&lt;/a&gt; as well. In
+Chromium 88, there was also a
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=1132627&quot; rel=&quot;noopener&quot;&gt;rewrite of images as flex items&lt;/a&gt;,
+resolving a number of long-standing bugs. Finally, Chromium recently added
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=1011718&quot; rel=&quot;noopener&quot;&gt;support for new alignment keywords&lt;/a&gt;
+: &lt;code&gt;start&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt;, &lt;code&gt;self-start&lt;/code&gt;, &lt;code&gt;self-end&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt;, and &lt;code&gt;right&lt;/code&gt;. These keywords are available to
+try in &lt;a href=&quot;https://www.google.com/chrome/canary/&quot; rel=&quot;noopener&quot;&gt;Chrome Canary&lt;/a&gt; and
+&lt;a href=&quot;https://www.microsoftedgeinsider.com/en-us/download/canary&quot; rel=&quot;noopener&quot;&gt;Edge Canary&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;css-grid&quot;&gt;CSS Grid &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#css-grid&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;CSS Grid usage is
+&lt;a href=&quot;https://www.chromestatus.com/metrics/feature/timeline/popularity/1693&quot; rel=&quot;noopener&quot;&gt;growing steadily&lt;/a&gt;,
+currently at 9% of page views.  All three major browser engines implement CSS Grid and are passing
+more than 89% of related web-platform-tests already. Closing the compatibility gap is important to
+support steady growth of this feature.&lt;/p&gt;
+&lt;p&gt;So far in 2021, Safari has improved from 89% to 93% passing tests, and Chromium is working on a new
+architecture to resolve more CSS Grid issues, called GridNG. This is an effort led by the Microsoft
+team, and led to the recent increase from 94% to 97% in the
+&lt;a href=&quot;https://wpt.fyi/compat2021?feature=css-grid&quot; rel=&quot;noopener&quot;&gt;targeted Grid tests&lt;/a&gt;. You can expect an update on
+GridNG on the &lt;a href=&quot;https://blogs.windows.com/msedgedev/&quot; rel=&quot;noopener&quot;&gt;Edge blog&lt;/a&gt; soon.&lt;/p&gt;
+&lt;h2 id=&quot;css-position:-sticky&quot;&gt;CSS &lt;code&gt;position: sticky&lt;/code&gt; &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#css-position:-sticky&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In Chromium,
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=702927&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;position: sticky&lt;/code&gt; for table headers&lt;/a&gt;
+got fixed with the launch of TablesNG—a multi-year effort to re-architect rendering of tables.
+This change, together with a few
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=841432&quot; rel=&quot;noopener&quot;&gt;final&lt;/a&gt;
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=752022&quot; rel=&quot;noopener&quot;&gt;fixes&lt;/a&gt;, pushed the Chrome and Edge 93
+developer channel to pass 100% of the
+&lt;a href=&quot;https://wpt.fyi/compat2021?feature=position-sticky&quot; rel=&quot;noopener&quot;&gt;targeted tests&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Beyond &lt;code&gt;position: sticky&lt;/code&gt;,
+&lt;a href=&quot;https://developer.chrome.com/blog/tablesng/&quot; rel=&quot;noopener&quot;&gt;TablesNG resolved 72 Chromium bugs&lt;/a&gt;!&lt;/p&gt;
+&lt;h2 id=&quot;css-aspect-ratio-property&quot;&gt;CSS &lt;code&gt;aspect-ratio&lt;/code&gt; property &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#css-aspect-ratio-property&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;aspect-ratio&lt;/code&gt; property, which makes it straightforward to set width-to-height ratio, is crucial
+to responsive web design. It is also a solution to prevent
+&lt;a href=&quot;https://web.dev/cls/&quot;&gt;cumulative layout shifts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;aspect-ratio&lt;/code&gt; property is now supported in stable versions of Chrome, Edge, and Firefox, and
+in
+&lt;a href=&quot;https://developer.apple.com/documentation/safari-release-notes/safari-15-beta-release-notes&quot; rel=&quot;noopener&quot;&gt;Safari 15 beta&lt;/a&gt;
+. As cross-browser support improves,
+&lt;a href=&quot;https://www.chromestatus.com/metrics/css/timeline/popularity/657&quot; rel=&quot;noopener&quot;&gt;usage&lt;/a&gt; is increasing.&lt;/p&gt;
+&lt;p&gt;Although no browser has 100% passing tests, the compatibility gap for &lt;code&gt;aspect-ratio&lt;/code&gt; is the smallest
+of all five focus areas for Compat 2021. It has
+&lt;a href=&quot;https://wpt.fyi/compat2021?feature=aspect-ratio&quot; rel=&quot;noopener&quot;&gt;more than 90% passing tests for all major browsers&lt;/a&gt;
+. Moving forward, we&#39;ll keep monitoring the progress using this test suite to make it a rock-solid
+feature.&lt;/p&gt;
+&lt;p&gt;Learn more about the usage and benefits of the
+&lt;a href=&quot;https://web.dev/aspect-ratio/&quot;&gt;&lt;code&gt;aspect-ratio&lt;/code&gt; property on web.dev&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;css-transforms&quot;&gt;CSS transforms &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#css-transforms&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;There has been a slow and steady improvement in the results of the &lt;a href=&quot;https://wpt.fyi/compat2021?feature=css-transforms&quot; rel=&quot;noopener&quot;&gt;targeted tests for CSS
+transforms&lt;/a&gt;, due to both bug fixes, and
+improvements to the tests themselves.&lt;/p&gt;
+&lt;p&gt;The Chromium team is also working on improving the interoperability of &lt;code&gt;transform-style: preserve-3d&lt;/code&gt; and &lt;code&gt;transform :perspective()&lt;/code&gt;. We hope to have more progress to share in the next
+update.&lt;/p&gt;
+&lt;h2 id=&quot;overall-score-improvements&quot;&gt;Overall score improvements &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#overall-score-improvements&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Since the announcement in March, all three browser engines have improved their Compat 2021 scores:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chrome and Edge Dev went from 86 to 92.&lt;/li&gt;
+&lt;li&gt;Firefox went from 83 to 86.&lt;/li&gt;
+&lt;li&gt;Safari went from 64 to 82.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Notably, Safari has pushed to close the compatibility gap by 18 points, thanks to a lot of work from
+WebKit contributors. In particular the team at
+&lt;a href=&quot;https://www.igalia.com/2021/06/29/Igalia-Developments-in-WebKit-and-Safari-15.html&quot; rel=&quot;noopener&quot;&gt;Igalia contributed&lt;/a&gt;
+to the &lt;code&gt;aspect-ratio&lt;/code&gt; property and many improvements to Flexbox and Grid, such as &lt;code&gt;gap&lt;/code&gt; for flexbox
+and various bug fixes.&lt;/p&gt;
+&lt;h2 id=&quot;follow-the-compat-2021-progress&quot;&gt;Follow the Compat 2021 progress &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compat2021-midyear/#follow-the-compat-2021-progress&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To follow the progress of Compat 2021, keep an eye on the
+&lt;a href=&quot;https://wpt.fyi/compat2021?feature=summary&quot; rel=&quot;noopener&quot;&gt;dashboard&lt;/a&gt;, subscribe to
+&lt;a href=&quot;https://groups.google.com/g/compat2021&quot; rel=&quot;noopener&quot;&gt;our mailing list&lt;/a&gt;, or reach out to usat
+&lt;a href=&quot;https://twitter.com/chromiumdev&quot; rel=&quot;noopener&quot;&gt;@chromiumdev&lt;/a&gt;. If you experience any issues make sure to
+&lt;a href=&quot;https://web.dev/how-to-file-a-good-bug/&quot;&gt;file a bug&lt;/a&gt; for the affected browser.&lt;/p&gt;
+</content>
+    <author>
+      <name>Philip Jägenstedt</name>
+    </author><author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Announcing Squoosh v2</title>
+    <link href="https://web.dev/squoosh-v2/"/>
+    <updated>2020-12-09T00:00:00Z</updated>
+    <id>https://web.dev/squoosh-v2/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://squoosh.app/&quot; rel=&quot;noopener&quot;&gt;Squoosh&lt;/a&gt; is an image compression app our team built and &lt;a href=&quot;https://youtu.be/ipNW6lJHVEs&quot; rel=&quot;noopener&quot;&gt;debuted at Chrome
+Dev Summit 2018&lt;/a&gt;. We built it to make it easy to experiment with
+different image codecs, and to showcase the capabilities of the modern web.&lt;/p&gt;
+&lt;p&gt;Today, we are releasing a major update to the app with more codecs support, a new design, and a
+new way to use Squoosh on your command line called Squoosh CLI.&lt;/p&gt;
+&lt;h2 id=&quot;new-codecs-support&quot;&gt;New codecs support &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/squoosh-v2/#new-codecs-support&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We now support OxiPNG, MozJPEG, WebP, and AVIF, in addition to codecs natively supported in your
+browser.  A new codec was made possible again with the use of WebAssembly. By compiling a codec
+encoder and decoder as WebAssembly module users can access and experiment with newer codecs even
+if their preferred browser does not support them.&lt;/p&gt;
+&lt;h2 id=&quot;launching-a-command-line-squoosh!&quot;&gt;Launching a command line Squoosh! &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/squoosh-v2/#launching-a-command-line-squoosh!&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ever since the original launch in 2018, common user request was to interact with Squoosh
+programmatically without UI. We felt a bit conflicted about this path since our app was a UI on
+top of command-line-based codec tools. However we do understand the desire to interact with the
+whole package of codecs instead of multiple tools. Squoosh CLI does just that.&lt;/p&gt;
+&lt;div class=&quot;youtube&quot;&gt;  &lt;lite-youtube videoid=&quot;FUqn8eOxCP4&quot;&gt;  &lt;/lite-youtube&gt;&lt;/div&gt;
+&lt;p&gt;You can install the beta version of the Squoosh CLI by running &lt;code&gt;npm -i @squoosh/cli&lt;/code&gt; or run it
+directly using &lt;code&gt;npx @squoosh/cli [parameters]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The Squoosh CLI is written in Node and makes use of the exact same WebAssembly modules the PWA
+uses. Through extensive use of workers, all images are decoded, processed and encoded in parallel.
+We also use Rollup to bundle everything into one JavaScript file to make sure installation via
+&lt;code&gt;npx&lt;/code&gt; is quick and seamless. The CLI also offers auto compression, where it tries to reduce the
+quality of an image as much as possible without degrading the visual fidelity
+(using the &lt;a href=&quot;https://github.com/google/butteraugli&quot; rel=&quot;noopener&quot;&gt;Butteraugli metric&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;With the Squoosh CLI you can compress the images in your web app to multiple formats and use the
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;&amp;lt;picture&amp;gt;&lt;/code&gt; element&lt;/a&gt;
+to let the browser choose the best version. We also plan to build
+plugins for Webpack, Rollup, and other build tools to make image compression
+an automatic part of your build process.&lt;/p&gt;
+&lt;h2 id=&quot;build-process-change-from-webpack-to-rollup&quot;&gt;Build process change from Webpack to Rollup &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/squoosh-v2/#build-process-change-from-webpack-to-rollup&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The same team that built Squoosh has spent a significant amount of time looking at build tooling
+this year for &lt;a href=&quot;https://bundlers.tooling.report/&quot; rel=&quot;noopener&quot;&gt;Tooling Report&lt;/a&gt;, and decided to switch our build
+process from Webpack to Rollup.&lt;/p&gt;
+&lt;p&gt;The project was initially started with Webpack because we wanted to try it as a team, and at the
+time in 2018 Webpack was the only tool that gave us enough control to set up the project the way
+we wanted. Over time, we&#39;ve found Rollup&#39;s easy plugin system and simplicity with ESM made it a
+natural choice for this project.&lt;/p&gt;
+&lt;h2 id=&quot;updated-ui-design&quot;&gt;Updated UI design &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/squoosh-v2/#updated-ui-design&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We&#39;ve also updated the UI design of the app featuring &lt;code&gt;blobs&lt;/code&gt; as a visual element.  It is a little
+pun on how we treat data in our code. Squoosh passes image data around as a blob, so it felt
+natural to include some blobs in the design (get it?).&lt;/p&gt;
+&lt;p&gt;Color usage was honed in as well, so that color was more than an accent but additionally a vector
+to distinguish and reinforce which image is in context for the options. All in all, the homepage
+is a bit more vibrant and the tool itself is a bit more clear and concise.&lt;/p&gt;
+&lt;h2 id=&quot;what&#39;s-next&quot;&gt;What&#39;s next ? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/squoosh-v2/#what&#39;s-next&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We plan to keep working on Squoosh. As the new image format gets released, we want our users to
+have a place where they can play with the codec without heavy lifting. We also hope to expand use
+of Squoosh CLI and integrate more into the build process of a web application.&lt;/p&gt;
+&lt;p&gt;Squoosh has always been open source but we&#39;ve never had focus on growing the community. In 2021,
+we plan to expand our contributor base and have a better onboarding process to the project.&lt;/p&gt;
+&lt;p&gt;Do you have any ideas for Squoosh? Please let us know on our
+&lt;a href=&quot;https://github.com/GoogleChromeLabs/squoosh/issues&quot; rel=&quot;noopener&quot;&gt;issue tracker&lt;/a&gt;.
+The team is headed to extended winter vacation but we promise to get
+back to you in the new year.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Introducing PROXX</title>
+    <link href="https://web.dev/proxx-announce/"/>
+    <updated>2019-05-09T00:00:00Z</updated>
+    <id>https://web.dev/proxx-announce/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;The team that brought you &lt;a href=&quot;https://squoosh.app/&quot; rel=&quot;noopener&quot;&gt;squoosh.app&lt;/a&gt; is back! This time,
+we built a web-based game called PROXX (&lt;a href=&quot;https://proxx.app/&quot; rel=&quot;noopener&quot;&gt;proxx.app&lt;/a&gt;). PROXX
+is a game of proximity inspired by the legendary game Minesweeper. The game is
+situated in the space and your job is to find out where the black holes are. It
+works on all kinds of devices—from desktop all the way to feature phones.
+Users can play the game using a mouse, keyboard, d-pad even with a screen
+reader.&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--fullbleed&quot;&gt;
+&lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; poster=&quot;https://storage.googleapis.com/webfundamentals-assets/proxx-announce-blogpost/poster.jpg&quot;&gt;
+  &lt;source src=&quot;https://storage.googleapis.com/webfundamentals-assets/proxx-announce-blogpost/kaios_vp8.webm&quot; type=&quot;video/webm; codecs=vp8&quot; /&gt;
+  &lt;source src=&quot;https://storage.googleapis.com/webfundamentals-assets/proxx-announce-blogpost/kaios_x264.mp4&quot; type=&quot;video/mp4; codecs=h264&quot; /&gt;
+&lt;/video&gt;
+ &lt;figcaption class=&quot;w-figcaption w-figcaption--fullbleed&quot;&gt;
+    PROXX on a feature phone.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;our-baseline&quot;&gt;Our baseline &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/proxx-announce/#our-baseline&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Before building this game, we set the following goals and budgets for the
+application:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Same core experience&lt;/strong&gt;: all devices must function the same way&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accessible&lt;/strong&gt;: mouse, keyboard, touch, d-pad, screen readers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performant&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Less than 25kb of initial payload&lt;/li&gt;
+&lt;li&gt;Less than 5 seconds TTI (&lt;a href=&quot;https://web.dev/interactive&quot;&gt;time to interactive&lt;/a&gt;)
+on slow 3G&lt;/li&gt;
+&lt;li&gt;Consistent 60fps animation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;w-figure w-figure--fullbleed&quot;&gt;
+  &lt;img alt=&quot;A pixelbook running PROXX&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;445&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ka9f7OrsFGjsulY1QoYe.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption w-figcaption--fullbleed&quot;&gt;
+    PROXX on a pixelbook.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;web-workers&quot;&gt;Web Workers &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/proxx-announce/#web-workers&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The game consists of 4 main entities, the core game logic, the UI service, the
+state service, and the animation graphics. Since we knew from the get-go we
+would have to run heavily animated graphics on the main thread, we moved the
+game logic and state service to a web worker in order to keep the main thread as
+free as possible.&lt;/p&gt;
+&lt;h2 id=&quot;build-time-pre-render&quot;&gt;Build time pre-render &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/proxx-announce/#build-time-pre-render&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Our UI is built with &lt;a href=&quot;https://preactjs.com/&quot; rel=&quot;noopener&quot;&gt;Preact&lt;/a&gt;, as it allows us to hit our
+aggressive target for an initial payload that is less than 25kb. In order to
+give a good initial loading experience, we decided to pre-render our 1st view.
+We prerender at build time using &lt;a href=&quot;https://pptr.dev/&quot; rel=&quot;noopener&quot;&gt;Puppeteer&lt;/a&gt; to access the
+top page and let preact populate the DOM. The resulting DOM is then serialized
+to HTML and saved as index.html&lt;/p&gt;
+&lt;h2 id=&quot;canvas-for-animation-(invisible)-dom-for-accessibility&quot;&gt;Canvas for animation, (invisible) DOM For accessibility &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/proxx-announce/#canvas-for-animation-(invisible)-dom-for-accessibility&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We render the game graphics in a canvas using
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API&quot; rel=&quot;noopener&quot;&gt;WebGL&lt;/a&gt;. One canvas
+is responsible for the background animation and another one canvas for the game
+grid on top. We also have an HTML table with buttons for accessibility reasons,
+that is on top of both of these canvases, but is made invisible (opacity: 0).
+Even though what you see is a canvas rendering of the game state, the player is
+interacting with the invisible DOM table, giving us the ability to attach event
+listeners and rely on the browser&#39;s focus management.&lt;/p&gt;
+&lt;p&gt;By keeping the DOM element in the canvas, we are able to tap into browsers
+built-in accessibility features. For example: by setting &lt;code&gt;role=&amp;quot;grid&amp;quot;&lt;/code&gt; on our game
+table, screen readers can announce the row and column of the focused cell
+without us having to implement that.&lt;/p&gt;
+&lt;h2 id=&quot;rollup-for-bundling-and-code-splitting&quot;&gt;Rollup for bundling and code splitting &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/proxx-announce/#rollup-for-bundling-and-code-splitting&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Our total size for the app comes down to 100KB gzipped. Out of that, 20KB is for
+the initial payload (index.html). We use &lt;a href=&quot;https://rollupjs.org/&quot; rel=&quot;noopener&quot;&gt;Rollup.js&lt;/a&gt; for
+this project. We have shared dependencies between the main thread and our web
+worker, and Rollup can put these shared dependencies in a separate chunk that
+only needs to be loaded once. Other bundlers like webpack duplicate the shared
+dependencies which results in double-loading.&lt;/p&gt;
+&lt;h2 id=&quot;supporting-feature-phones&quot;&gt;Supporting feature phones &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/proxx-announce/#supporting-feature-phones&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Smart feature phones such as &lt;a href=&quot;https://www.kaiostech.com/&quot; rel=&quot;noopener&quot;&gt;KaiOS&lt;/a&gt; phones are
+rapidly gaining popularity. These are very resource constrained devices, but our
+approach of using web workers whenever we can allowed us to make the experience
+highly responsive on these phones as well. Since feature phones come with
+different input interface (d-pad and number keys, no touchscreen), we also
+implemented key-based interface.&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--fullbleed&quot;&gt;
+  &lt;img alt=&quot;A man playing PROXX on a yellow feature phone&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;512&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zk0lWvjbZ0V2Shz53d42.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption w-figcaption--fullbleed&quot;&gt;
+    PROXX on a feature phone.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;what&#39;s-next&quot;&gt;What&#39;s next &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/proxx-announce/#what&#39;s-next&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We had great but busy time building this game in time for Google I/O 2019, so we
+will take some well-deserved time off to rest, but plan to come back with more
+in-depth documentation on each of these areas of the game.&lt;/p&gt;
+&lt;p&gt;Until then, please check the talk Mariko gave at I/O on this project.&lt;/p&gt;
+&lt;div class=&quot;youtube&quot;&gt;  &lt;lite-youtube videoid=&quot;w8P5HLxcIO4&quot;&gt;  &lt;/lite-youtube&gt;&lt;/div&gt;
+&lt;p&gt;You can browse the code at &lt;a href=&quot;https://github.com/GoogleChromeLabs/proxx&quot; rel=&quot;noopener&quot;&gt;the proxx github repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Cheers! Surma, Jake, Mariko&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Browser sandbox</title>
+    <link href="https://web.dev/browser-sandbox/"/>
+    <updated>2018-11-05T00:00:00Z</updated>
+    <id>https://web.dev/browser-sandbox/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;To defend against attacks, a developer needs to mitigate vulnerabilities and add
+security features to an application. Luckily, on the web, the browser provides
+many security features. Some are available for developers to opt-in, and some
+are turned on by default to protect users.&lt;/p&gt;
+&lt;h2 id=&quot;the-idea-of-a-&amp;quot;sandbox&amp;quot;&quot;&gt;The idea of a &amp;quot;sandbox&amp;quot; &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-sandbox/#the-idea-of-a-%22sandbox%22&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;browser as a sandbox&quot; decoding=&quot;async&quot; height=&quot;403&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 719px) 719px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kPXwa8wRoJ5DGw97Mx3D.png?auto=format&amp;w=1438 1438w&quot; width=&quot;719&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Figure: Browser as a sandbox
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Modern web browsers are built on the idea of a &amp;quot;sandbox&amp;quot;. A sandbox is a
+security mechanism used to run an application in a restricted environment. Just
+like the physical sandbox at a playground where kids can create anything they
+want within the boundary without making a mess elsewhere, application code has
+the freedom to execute within a restricted environment. For example, JavaScript
+can add and modify elements on the page but might be restricted from accessing
+an external JSON file. This is because of a sandbox feature called same-origin&lt;/p&gt;
+&lt;h2 id=&quot;why-is-a-sandbox-necessary&quot;&gt;Why is a sandbox necessary? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-sandbox/#why-is-a-sandbox-necessary&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Every day, users of the web download arbitrary code and execute it on their
+computer or phone multiple times. If someone told you &amp;quot;Hey! Download and run
+this application!&amp;quot;, you might pause to think if that application comes from a
+trusted source, read up on the application vendor, or check reviews carefully.
+How about when someone sends you a URL saying &amp;quot;check out this blog post&amp;quot;? You
+would probably click on it without asking questions like &amp;quot;What kind of
+JavaScript will this site download?&amp;quot;.&lt;/p&gt;
+&lt;p&gt;The browser sandbox is the key feature that makes browsing on the web
+frictionless by making it safer to run arbitrary code.&lt;/p&gt;
+&lt;h2 id=&quot;make-it-secure-by-design&quot;&gt;Make it secure by design &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-sandbox/#make-it-secure-by-design&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If the browser is sandboxing each web application, should we even care about
+security? Absolutely yes!&lt;/p&gt;
+&lt;p&gt;First of all, sandbox features are not the perfect shield. Even though browser
+engineers work hard, browsers could have vulnerabilities and attackers are
+always trying to bypass the sandbox (such as with
+&lt;a href=&quot;https://developers.google.com/web/updates/2018/02/meltdown-spectre&quot; rel=&quot;noopener&quot;&gt;Spectre Attack&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The sandbox could sometimes get in a way of creating a great web experience. For
+example, a browser may block a fetch request to an image hosted on a different
+domain. You can share resources on different domains by turning on Cross-Origin
+Resource Sharing (CORS for short), but if it is not done carefully you can
+expose a resource to everyone else on the web, essentially undoing the
+sandbox.&lt;/p&gt;
+&lt;h2 id=&quot;wrap-up&quot;&gt;Wrap up &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/browser-sandbox/#wrap-up&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A secure web experience can only be achieved if security is baked into the
+design of your application, and strong design starts with understanding existing
+features. The next two guides dive into CORS and same-origin policy in depth.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Same Origin Policy &amp; Fetch requests</title>
+    <link href="https://web.dev/codelab-same-origin-fetch/"/>
+    <updated>2018-11-05T00:00:00Z</updated>
+    <id>https://web.dev/codelab-same-origin-fetch/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;In this codelab, see how the same-origin works when fetching resources.&lt;/p&gt;
+&lt;h2 id=&quot;set-up:-fetch-page-from-same-origin&quot;&gt;Set up: Fetch page from same origin &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/codelab-same-origin-fetch/#set-up:-fetch-page-from-same-origin&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The demo is hosted at &lt;code&gt;https://same-origin-policy-fetch.glitch.me&lt;/code&gt;.
+This simple web page uses &lt;code&gt;fetch&lt;/code&gt; to load resource from &lt;code&gt;https://same-origin-policy-fetch.glitch.me/fetch.html&lt;/code&gt;. Since &lt;code&gt;index.html&lt;/code&gt; and &lt;code&gt;fetch.html&lt;/code&gt; share the same origin, you should see &lt;code&gt;200&lt;/code&gt; displayed on the live preview.&lt;/p&gt;
+&lt;h2 id=&quot;1.-fetch-page-from-different-origin&quot;&gt;1. Fetch page from different origin &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/codelab-same-origin-fetch/#1.-fetch-page-from-different-origin&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Try to change the fetch URL to &lt;code&gt;https://www.google.com&lt;/code&gt;.
+What do you see in the live preview?&lt;/p&gt;
+&lt;p&gt;The browser should have blocked the fetch request because you requested a resource
+from a different origin. This means an attacker cannot read cross-origin
+resources even if they have taken control of a user&#39;s browser.&lt;/p&gt;
+&lt;h2 id=&quot;2.-fetch-a-cross-origin-resource&quot;&gt;2. Fetch a cross-origin resource &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/codelab-same-origin-fetch/#2.-fetch-a-cross-origin-resource&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Try changing the fetch URL to &lt;code&gt;https://api.thecatapi.com/v1/images/search&lt;/code&gt;.
+What do you see in the live preview?&lt;/p&gt;
+&lt;p&gt;The fetch URL is a different origin, but you should see the status code 200. Why?
+Modern web applications often request cross-origin resources to load
+third-party scripts or query an API endpoint. To accommodate these use cases,
+there is a mechanism called CORS (Cross Origin Resource Sharing) to tell the
+browser that loading of a cross-origin resource is allowed. See &lt;a href=&quot;https://web.dev/cross-origin-resource-sharing&quot;&gt;Share cross-origin resources safely&lt;/a&gt; for more on CORS.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Same Origin Policy &amp; iframe</title>
+    <link href="https://web.dev/codelab-same-origin-iframe/"/>
+    <updated>2018-11-05T00:00:00Z</updated>
+    <id>https://web.dev/codelab-same-origin-iframe/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;In this codelab, see how the same-origin policy works when accessing data inside an iframe.&lt;/p&gt;
+&lt;h2 id=&quot;set-up:-page-with-a-same-origin-iframe&quot;&gt;Set up: Page with a same-origin iframe &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/codelab-same-origin-iframe/#set-up:-page-with-a-same-origin-iframe&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This page embeds an &lt;code&gt;iframe&lt;/code&gt;, called &lt;code&gt;iframe.html&lt;/code&gt;, in the same origin.
+Since the host and the iframe share the same origin, the host site is able to access data inside of the iframe and expose the secret message like blow.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; iframe &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;iframe&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; iframe&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;contentDocument&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;message&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerText&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h2 id=&quot;change-to-cross-origin-iframe&quot;&gt;Change to cross-origin iframe &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/codelab-same-origin-iframe/#change-to-cross-origin-iframe&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Try changing the &lt;code&gt;src&lt;/code&gt; of the &lt;code&gt;iframe&lt;/code&gt; to &lt;code&gt;https://other-iframe.glitch.me/&lt;/code&gt;.
+Can the host page still access the secret message?&lt;/p&gt;
+&lt;p&gt;Since the host and embedded &lt;code&gt;iframe&lt;/code&gt; do not have the same origin, access to the data is restricted.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Cross-Origin Resource Sharing (CORS)</title>
+    <link href="https://web.dev/cross-origin-resource-sharing/"/>
+    <updated>2018-11-05T00:00:00Z</updated>
+    <id>https://web.dev/cross-origin-resource-sharing/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;The browser&#39;s same-origin policy blocks reading a resource from a different
+origin. This mechanism stops a malicious site from reading another site&#39;s data,
+but it also prevents legitimate uses. What if you wanted to get weather data
+from another country?&lt;/p&gt;
+&lt;p&gt;In a modern web application, an application often wants to get resources from a
+different origin. For example, you want to retrieve JSON data from a different
+domain or load images from another site into a &lt;code&gt;&amp;lt;canvas&amp;gt;&lt;/code&gt; element.&lt;/p&gt;
+&lt;p&gt;In other words, there are &lt;strong&gt;public resources&lt;/strong&gt; that should be available for
+anyone to read, but the same-origin policy blocks that. Developers have used
+work-arounds such as
+&lt;a href=&quot;https://stackoverflow.com/questions/2067472/what-is-jsonp-all-about&quot; rel=&quot;noopener&quot;&gt;JSONP&lt;/a&gt;,
+but &lt;strong&gt;Cross-Origin Resource Sharing (CORS)&lt;/strong&gt; fixes this in a standard way.&lt;/p&gt;
+&lt;p&gt;Enabling &lt;strong&gt;CORS&lt;/strong&gt; lets the server tell the browser it&#39;s permitted to use an
+additional origin.&lt;/p&gt;
+&lt;h2 id=&quot;how-does-a-resource-request-work-on-the-web&quot;&gt;How does a resource request work on the web? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#how-does-a-resource-request-work-on-the-web&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;request and response&quot; decoding=&quot;async&quot; height=&quot;327&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 668px) 668px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/8J6A0Bk5YXdvyoj8HVzs.png?auto=format&amp;w=1336 1336w&quot; width=&quot;668&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Figure: Illustrated client request and server response
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;A browser and a server can exchange data over the network using the &lt;strong&gt;Hypertext
+Transfer Protocol&lt;/strong&gt; (HTTP). HTTP defines the communication rules between the
+requester and the responder, including what information is needed to get a
+resource.&lt;/p&gt;
+&lt;p&gt;The HTTP header is used to negotiate the type of message exchange between the
+client and the server and is used to determine access. Both the browser&#39;s
+request and the server&#39;s response message are divided into two parts: &lt;strong&gt;header&lt;/strong&gt;
+and &lt;strong&gt;body&lt;/strong&gt;:&lt;/p&gt;
+&lt;h3 id=&quot;header&quot;&gt;header &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#header&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Information about the message such as the type of message or the encoding of the
+message. A header can include a
+&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_HTTP_header_fields&quot; rel=&quot;noopener&quot;&gt;variety of information&lt;/a&gt;
+expressed as key-value pairs. The request header and response header contain
+different information.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;It&#39;s important to note that headers cannot contain comments.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Sample Request header&lt;/strong&gt;&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Accept: text/html&lt;br /&gt;Cookie: Version=1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The above is equivalent to saying &amp;quot;I want to receive HTML in response. Here is
+a cookie I have.&amp;quot;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sample Response header&lt;/strong&gt;&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Content-Encoding: gzip&lt;br /&gt;Cache-Control: no-store&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The above is equivalent to saying &amp;quot;Data is encoded with gzip. Do not cache this
+please.&amp;quot;&lt;/p&gt;
+&lt;h3 id=&quot;body&quot;&gt;body &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#body&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The message itself. This could be plain text, an image binary, JSON, HTML, and so on.&lt;/p&gt;
+&lt;h2 id=&quot;how-does-cors-work&quot;&gt;How does CORS work? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#how-does-cors-work&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Remember, the same-origin policy tells the browser to block cross-origin
+requests. When you want to get a public resource from a different
+origin, the resource-providing server needs to tell the browser &amp;quot;This origin
+where the request is coming from can access my resource&amp;quot;. The browser remembers that
+and allows cross-origin resource sharing.&lt;/p&gt;
+&lt;h3 id=&quot;step-1:-client-(browser)-request&quot;&gt;Step 1: client (browser) request &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#step-1:-client-(browser)-request&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;When the browser is making a cross-origin request, the browser adds an &lt;code&gt;Origin&lt;/code&gt;
+header with the current origin (scheme, host, and port).&lt;/p&gt;
+&lt;h3 id=&quot;step-2:-server-response&quot;&gt;Step 2: server response &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#step-2:-server-response&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;On the server side, when a server sees this header, and wants to allow access,
+it needs to add an &lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt; header to the response
+specifying the requesting origin (or &lt;code&gt;*&lt;/code&gt; to allow any origin.)&lt;/p&gt;
+&lt;h3 id=&quot;step-3:-browser-receives-response&quot;&gt;Step 3: browser receives response &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#step-3:-browser-receives-response&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;When the browser sees this response with an appropriate
+&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt; header, the browser allows the response data to be
+shared with the client site.&lt;/p&gt;
+&lt;h2 id=&quot;see-cors-in-action&quot;&gt;See CORS in action &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#see-cors-in-action&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Here is a tiny web server using Express.&lt;/p&gt;
+&lt;div class=&quot;glitch-embed-wrap&quot; style=&quot;height: 480px; width: 100%;&quot;&gt;
+  &lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi&quot; loading=&quot;lazy&quot; src=&quot;https://glitch.com/embed/#!/embed/cors-demo?attributionHidden=true&amp;sidebarCollapsed=true&amp;path=server.js&amp;previewSize=100&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;cors-demo on Glitch&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;The first endpoint (line 8) does not have any response header set, it just sends
+a file in response.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Press &lt;code&gt;Control+Shift+J&lt;/code&gt; (or &lt;code&gt;Command+Option+J&lt;/code&gt; on Mac) to open DevTools.&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;Control+Shift+J&lt;/code&gt; (or &lt;code&gt;Command+Option+J&lt;/code&gt; on Mac) to open DevTools.&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;Console&lt;/strong&gt; tab.&lt;/li&gt;
+&lt;li&gt;Try the following command:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;https://cors-demo.glitch.me/&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;mode&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;cors&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You should see an error saying:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;request has been blocked by CORS policy: No &lt;span class=&quot;token string&quot;&gt;&#39;Access-Control-Allow-Origin&#39;&lt;/span&gt; header&lt;br /&gt;is present on the requested resource.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The second endpoint (line 13) sends the same file in response but adds
+&lt;code&gt;Access-Control-Allow-Origin: *&lt;/code&gt; in the header. From the console, try&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;https://cors-demo.glitch.me/allow-cors&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;mode&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;cors&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This time, your request should not be blocked.&lt;/p&gt;
+&lt;h2 id=&quot;share-credentials-with-cors&quot;&gt;Share credentials with CORS &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#share-credentials-with-cors&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;For privacy reasons, CORS is normally used for &amp;quot;anonymous requests&amp;quot;—ones where
+the request doesn&#39;t identify the requestor. If you want to send cookies when
+using CORS (which could identify the sender), you need to add additional headers
+to the request and response.&lt;/p&gt;
+&lt;h3 id=&quot;request&quot;&gt;Request &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#request&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Add &lt;code&gt;credentials: &#39;include&#39;&lt;/code&gt; to the fetch options like below. This will include
+the cookie with the request.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;https://example.com&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  mode&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;cors&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  credentials&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;include&#39;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h3 id=&quot;response&quot;&gt;Response &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#response&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt; must be set to a specific origin (no wildcard
+using &lt;code&gt;*&lt;/code&gt;) and must set &lt;code&gt;Access-Control-Allow-Credentials&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 200 OK&lt;br /&gt;Access-Control-Allow-Origin: https://example.com&lt;br /&gt;Access-Control-Allow-Credentials: true&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h2 id=&quot;preflight-requests-for-complex-http-calls&quot;&gt;Preflight requests for complex HTTP calls &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cross-origin-resource-sharing/#preflight-requests-for-complex-http-calls&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If a web app needs a complex HTTP request, the browser adds a &lt;strong&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#preflighted_requests&quot; rel=&quot;noopener&quot;&gt;preflight
+request&lt;/a&gt;&lt;/strong&gt; to the front of the request chain.&lt;/p&gt;
+&lt;p&gt;The CORS specification defines a &lt;strong&gt;complex request&lt;/strong&gt; as&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A request that uses methods other than GET, POST, or HEAD&lt;/li&gt;
+&lt;li&gt;A request that includes headers other than &lt;code&gt;Accept&lt;/code&gt;, &lt;code&gt;Accept-Language&lt;/code&gt; or
+&lt;code&gt;Content-Language&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A request that has a &lt;code&gt;Content-Type&lt;/code&gt; header other than
+&lt;code&gt;application/x-www-form-urlencoded&lt;/code&gt;, &lt;code&gt;multipart/form-data&lt;/code&gt;, or &lt;code&gt;text/plain&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Browsers create a preflight request if it is needed. It&#39;s an &lt;code&gt;OPTIONS&lt;/code&gt; request
+like below and is sent before the actual request message.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;OPTIONS /data HTTP/1.1&lt;br /&gt;Origin: https://example.com&lt;br /&gt;Access-Control-Request-Method: DELETE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;On the server side, an application needs to respond to the preflight request
+with information about the methods the application accepts from this origin.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 200 OK&lt;br /&gt;Access-Control-Allow-Origin: https://example.com&lt;br /&gt;Access-Control-Allow-Methods: GET, DELETE, HEAD, OPTIONS&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The server response can also include an &lt;code&gt;Access-Control-Max-Age&lt;/code&gt; header to
+specify the duration (in seconds) to cache preflight results so the client does not need to
+make a preflight request every time it sends a complex request.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Same-origin policy</title>
+    <link href="https://web.dev/same-origin-policy/"/>
+    <updated>2018-11-05T00:00:00Z</updated>
+    <id>https://web.dev/same-origin-policy/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;The same-origin policy is a browser security feature that restricts how
+documents and scripts on one origin can interact with resources
+on another origin.&lt;/p&gt;
+&lt;p&gt;A browser can load and display resources from multiple sites at once. You might have
+multiple tabs open at the same time, or a site could embed multiple iframes from
+different sites. If there is no restriction on interactions between these
+resources, and a script is compromised by an attacker, the script could
+expose everything in a user&#39;s browser.&lt;/p&gt;
+&lt;p&gt;The same-origin policy prevents this from happening by blocking read access to
+resources loaded from a different origin. &amp;quot;But wait,&amp;quot; you say, &amp;quot;I load images
+and scripts from other origins &lt;em&gt;all the time&lt;/em&gt;.&amp;quot; Browsers allow a few tags to
+embed resources from a different origin. This policy is mostly a historical
+artifact and can expose your site to vulnerabilities such as &lt;a href=&quot;https://web.dev/same-origin-policy/#how-to-prevent-clickjacking&quot;&gt;clickjacking using
+iframes&lt;/a&gt;. You can restrict cross-origin reading
+of these tags using a &lt;a href=&quot;https://developers.google.com/web/fundamentals/security/csp/&quot; rel=&quot;noopener&quot;&gt;Content Security
+Policy&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;what&#39;s-considered-same-origin&quot;&gt;What&#39;s considered same-origin? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/same-origin-policy/#what&#39;s-considered-same-origin&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;An origin is defined by the scheme (also known as the  protocol, for example
+HTTP or HTTPS), port (if it is specified), and host. When all three are the same
+for two URLs, they are considered same-origin. For example,
+&lt;code&gt;http://www.example.com/foo&lt;/code&gt; is the same origin as
+&lt;code&gt;&lt;strong&gt;http&lt;/strong&gt;://www.example.com/bar&lt;/code&gt;
+but not &lt;code&gt;&lt;strong&gt;https&lt;/strong&gt;://www.example.com/bar&lt;/code&gt;
+because the scheme is different.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--codelab&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Try it&lt;/strong&gt;!
+&lt;a href=&quot;https://web.dev/codelab-same-origin-fetch&quot;&gt;See how the same-origin policy works when fetching resources&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;what-is-permitted-and-what-is-blocked&quot;&gt;What is permitted and what is blocked? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/same-origin-policy/#what-is-permitted-and-what-is-blocked&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Generally, embedding a cross-origin resource is permitted, while reading a
+cross-origin resource is blocked.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;iframes&lt;/td&gt;
+      &lt;td&gt;
+        Cross-origin embedding is usually permitted (depending on the &lt;code&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options&quot; rel=&quot;noopener&quot;&gt;X-Frame-Options&lt;/a&gt;&lt;/code&gt; directive), but cross-origin reading (such as using JavaScript to access a document in an iframe) isn&#39;t.
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CSS&lt;/td&gt;
+      &lt;td&gt;
+        Cross-origin CSS can be embedded using a &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; element or an &lt;code&gt;@import&lt;/code&gt; in a CSS file. The correct &lt;code&gt;Content-Type&lt;/code&gt; header may be required.
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;forms&lt;/td&gt;
+      &lt;td&gt;
+        Cross-origin URLs can be used as the &lt;code&gt;action&lt;/code&gt; attribute value of form elements. A web application can write form data to a cross-origin destination.
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;images&lt;/td&gt;
+      &lt;td&gt;
+        Embedding cross-origin images is permitted. However, reading cross-origin images (such as loading a cross-origin image into a &lt;code&gt;canvas&lt;/code&gt; element using JavaScript) is blocked.
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;multimedia&lt;/td&gt;
+      &lt;td&gt;
+        Cross-origin video and audio can be embedded using &lt;code&gt;&amp;lt;video&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;audio&amp;gt;&lt;/code&gt; elements.
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;script&lt;/td&gt;
+      &lt;td&gt;
+        Cross-origin scripts can be embedded; however, access to certain APIs (such as cross-origin fetch requests) might be blocked.
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;w-aside w-aside--codelab&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Try it&lt;/strong&gt;!
+&lt;a href=&quot;https://web.dev/codelab-same-origin-iframe&quot;&gt;See how the same-origin policy works when accessing data inside an iframe&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;web-assessment class=&quot;w-callout unresolved &quot; aria-label=&quot;Check your understanding&quot;&gt;   &lt;div class=&quot;w-callout__blurb web-assessment__set-leader&quot;&gt;     Check whether specified actions in cross-origin resources are allowed        &lt;/div&gt; &lt;web-tabs class=&quot;web-assessment__content unresolved&quot; label=&quot;samples for knowledge self check&quot;&gt;         &lt;web-question question-height=&quot;unset&quot; data-label=&quot;sample&quot;&gt;   &lt;div data-role=&quot;stimulus&quot;&gt;&lt;p&gt;A webpage on the web.dev domain includes this iframe:&lt;/p&gt; &lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://example.com/some-page.html&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;alt&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Sample iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt;&lt;p&gt;The webpage&#39;s JavaScript includes this code to get the text content from an element in the embedded page:&lt;/p&gt; &lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; iframe &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;iframe&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; iframe&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;contentDocument&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;message&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerText&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt;&lt;/div&gt; &lt;web-response-tac data-role=&quot;response&quot;&gt;   &lt;p data-role=&quot;stem&quot;&gt;Is this JavaScript allowed?&lt;/p&gt;      &lt;div data-role=&quot;rationale&quot;&gt;&lt;p&gt;&lt;strong&gt;No&lt;/strong&gt;. Since the iframe is not on the same origin as the host webpage, the browser doesn&#39;t allow reading of the embedded page.&lt;/p&gt; &lt;/div&gt; &lt;/web-response-tac&gt; &lt;/web-question&gt;         &lt;web-question question-height=&quot;unset&quot; data-label=&quot;sample&quot;&gt;   &lt;div data-role=&quot;stimulus&quot;&gt;&lt;p&gt;A webpage on the web.dev domain includes this form:&lt;/p&gt; &lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;form&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://example.com/results.json&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;label&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;Enter your email: &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;label&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;submit&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;Subscribe&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;form&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt;&lt;/div&gt; &lt;web-response-tac data-role=&quot;response&quot;&gt;   &lt;p data-role=&quot;stem&quot;&gt;Can this form be submitted?&lt;/p&gt;      &lt;div data-role=&quot;rationale&quot;&gt;&lt;p&gt;&lt;strong&gt;Yes&lt;/strong&gt;. Form data can be written to a cross-origin URL specified in the &lt;code&gt;action&lt;/code&gt; attribute of the &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; element.&lt;/p&gt; &lt;/div&gt; &lt;/web-response-tac&gt; &lt;/web-question&gt;         &lt;web-question question-height=&quot;unset&quot; data-label=&quot;sample&quot;&gt;   &lt;div data-role=&quot;stimulus&quot;&gt;&lt;p&gt;A webpage on the web.dev domain includes this iframe:&lt;/p&gt; &lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://example.com/some-page.html&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;alt&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Sample iframe&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt;&lt;/div&gt; &lt;web-response-tac data-role=&quot;response&quot;&gt;   &lt;p data-role=&quot;stem&quot;&gt;Is this iframe embed allowed?&lt;/p&gt;      &lt;div data-role=&quot;rationale&quot;&gt;&lt;p&gt;&lt;strong&gt;Usually&lt;/strong&gt;. Cross-origin iframe embeds are allowed as long as the origin owner hasn&#39;t set the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options&quot;&gt;&lt;code&gt;X-Frame-Options&lt;/code&gt;&lt;/a&gt; HTTP header to &lt;code&gt;deny&lt;/code&gt; or &lt;code&gt;sameorigin&lt;/code&gt;.&lt;/p&gt; &lt;/div&gt; &lt;/web-response-tac&gt; &lt;/web-question&gt;         &lt;web-question question-height=&quot;unset&quot; data-label=&quot;sample&quot;&gt;   &lt;div data-role=&quot;stimulus&quot;&gt;&lt;p&gt;A webpage on the web.dev domain includes this canvas:&lt;/p&gt; &lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;canvas&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;bargraph&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;canvas&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt;&lt;p&gt;The webpage&#39;s JavaScript includes this code to draw an image on the canvas:&lt;/p&gt; &lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; context &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;bargraph&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;2d&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; img &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;drawImage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;https://example.com/graph-axes.svg&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt;&lt;/div&gt; &lt;web-response-tac data-role=&quot;response&quot;&gt;   &lt;p data-role=&quot;stem&quot;&gt;Can this image be drawn on the canvas?&lt;/p&gt;      &lt;div data-role=&quot;rationale&quot;&gt;&lt;p&gt;&lt;strong&gt;It depends!&lt;/strong&gt; 😅 The image is on a different origin. If the origin&#39;s owner gave the image the appropriate &lt;a href=&quot;https://web.dev/cross-origin-resource-sharing&quot;&gt;CORS header&lt;/a&gt;, the image can be safely drawn. If not, the image will &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image#What_is_a_.22tainted.22_canvas.3F&quot;&gt;cause an error&lt;/a&gt;.&lt;/p&gt; &lt;/div&gt; &lt;/web-response-tac&gt; &lt;/web-question&gt;       &lt;/web-tabs&gt; &lt;/web-assessment&gt;&lt;/body&gt;&lt;/html&gt;
+&lt;h3 id=&quot;how-to-prevent-clickjacking&quot;&gt;How to prevent Clickjacking &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/same-origin-policy/#how-to-prevent-clickjacking&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;clickjacking&quot; decoding=&quot;async&quot; height=&quot;408&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jFXSbDjBonhdGD65rCc1.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Figure: Clickjacking mechanism illustrated in 3 separate layers (base site,
+    iframed site, transparent button).
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;An attack called &amp;quot;clickjacking&amp;quot; embeds a site in an &lt;code&gt;iframe&lt;/code&gt; and overlays
+transparent buttons which link to a different destination. Users are tricked
+into thinking they are accessing your application while sending data to
+attackers.&lt;/p&gt;
+&lt;p&gt;To block other sites from embedding your site in an iframe, add a content
+security policy with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;frame-ancestors&lt;/code&gt;
+directive&lt;/a&gt;
+to the HTTP headers.&lt;/p&gt;
+&lt;p&gt;Alternatively, you can add &lt;code&gt;X-Frame-Options&lt;/code&gt; to the HTTP headers see
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options&quot; rel=&quot;noopener&quot;&gt;MDN&lt;/a&gt;
+for list of options.&lt;/p&gt;
+&lt;h2 id=&quot;wrap-up&quot;&gt;Wrap up &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/same-origin-policy/#wrap-up&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Hopefully you feel a little relieved that browsers work hard to be a gatekeeper
+of security on the web. Even though browsers try to be safe by blocking access
+to resources, sometimes you want to access cross-origin resources in your
+applications. In the next guide, learn about Cross-Origin Resource Sharing
+(CORS) and how to tell the browser that loading of cross-origin resources is
+allowed from trusted sources.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>What are security attacks?</title>
+    <link href="https://web.dev/security-attacks/"/>
+    <updated>2018-11-05T00:00:00Z</updated>
+    <id>https://web.dev/security-attacks/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;An insecure application could expose users and systems to various types of
+damage. When a malicious party uses vulnerabilities or lack of security features
+to their advantage to cause damage, it is called an &lt;strong&gt;attack&lt;/strong&gt;. We&#39;ll take a
+look at different types of attacks in this guide so you know what to look for
+when securing your application.&lt;/p&gt;
+&lt;h2 id=&quot;active-attacks-vs-passive-attacks&quot;&gt;Active attacks vs passive attacks &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-attacks/#active-attacks-vs-passive-attacks&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Attacks can be divided into two different types: active and passive.&lt;/p&gt;
+&lt;h3 id=&quot;active-attacks&quot;&gt;Active attacks &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-attacks/#active-attacks&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With an &lt;strong&gt;active attack,&lt;/strong&gt; the attacker tries to break into the application
+directly. There are a variety of ways this could be done, from using a false
+identity to access sensitive data (masquerade attack) to flooding your server
+with massive amounts of traffic to make your application unresponsive (denial of
+service attack).&lt;/p&gt;
+&lt;p&gt;Active attacks can also be done to data in transit. An attacker could modify
+your application data before it gets to a user&#39;s browser, showing modified
+information on the site or direct the user to an unintended destination. This is
+sometimes called &lt;strong&gt;modification of messages&lt;/strong&gt;.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;modification of message&quot; decoding=&quot;async&quot; height=&quot;475&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qrf4KBAceYxf2E5A8f6J.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    A web site being tampered by attacker to guide user to a phishing site.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Have you ever logged into free public wifi and seen ads wrapped around web pages
+you are accessing? That&#39;s exactly what &lt;strong&gt;modification of message&lt;/strong&gt; is! The wifi
+access point injected their advertising into a website before it got to your
+browser. In many cases, you might dismiss it as &amp;quot;just ads for free wifi&amp;quot;, but
+imagine if the same technique is used to replace some of the javascript or link
+to a phishing site. Your site may be used by an attacker to misguide users
+without you noticing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;passive-attack&quot;&gt;Passive attack &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-attacks/#passive-attack&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With a &lt;strong&gt;passive attack&lt;/strong&gt;, the attacker tries to collect or learn information
+from the application but does not affect the application itself.&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;passive attack&quot; decoding=&quot;async&quot; height=&quot;344&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 547px) 547px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=1094 1094w&quot; width=&quot;547&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Attacker eavesdropping communication between a user and a server.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Imagine someone is eavesdropping on your conversation with friends and family,
+collecting information about your personal life, who your friends are, and where
+you hang out. The same thing could be done on your web traffic. An attacker
+could capture data between the browser and the server collecting usernames &amp;amp;
+passwords, users&#39; browsing history, and data exchanged.&lt;/p&gt;
+&lt;h2 id=&quot;defense-against-attacks&quot;&gt;Defense against attacks &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-attacks/#defense-against-attacks&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Attackers can directly harm your application or perform a malicious operation on
+your site without you or your users noticing it. You need mechanisms to detect
+and protect against attacks.&lt;/p&gt;
+&lt;p&gt;Unfortunately, there is no single solution to make your application 100% secure.
+In practice, many security features and techniques are used in layers to prevent
+or further delay the attack (this is called &lt;strong&gt;defense in depth&lt;/strong&gt;). If your
+application contains a form, you might check inputs in the browser, then on the
+server, and finally at the database; you would also use HTTPS to secure the data
+in transit.&lt;/p&gt;
+&lt;h2 id=&quot;wrap-up&quot;&gt;Wrap up &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-attacks/#wrap-up&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Since many attacks can happen without ever hitting your server, it is sometimes
+hard to detect if attacks are happening or not. The good news is that web
+browsers have powerful security features already built in. Follow the next topic
+&amp;quot;How browser mitigates against attacks&amp;quot; to learn more.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Security should not be so scary!</title>
+    <link href="https://web.dev/security-not-scary/"/>
+    <updated>2018-11-05T00:00:00Z</updated>
+    <id>https://web.dev/security-not-scary/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;What do you imagine when someone says &amp;quot;security&amp;quot;?&lt;/p&gt;
+&lt;p&gt;Hackers? Attacks? Defenses? A programmer in a black hoodie in a dark room?&lt;/p&gt;
+&lt;p&gt;When the word &amp;quot;security&amp;quot; comes to mind, it&#39;s usually in the context of bad news.
+You often encounter headlines like &amp;quot;A big social network leaked login passwords&amp;quot;
+or &amp;quot;an attacker stole credit card information from a shopping site&amp;quot;.&lt;/p&gt;
+&lt;p&gt;But security is something to be taken as a positive and necessary part of web
+development just like &amp;quot;user experience&amp;quot; or &amp;quot;accessibility&amp;quot;.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Negative and positive images of security&quot; decoding=&quot;async&quot; height=&quot;359&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M5QZ4By9jyroim97MO0m.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    A hacker in hoodie is a negative security image. A team working on a project
+    together is a positive security image.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;In the next few guides, you&#39;ll learn how to keep your
+business and your users&#39; content secure.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-a-security-vulnerability&quot;&gt;What is a security vulnerability? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-not-scary/#what-is-a-security-vulnerability&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In software development, when an application does not work the way it is
+intended to work, it&#39;s called &amp;quot;a bug&amp;quot;. Sometimes a bug displays wrong
+information or crashes on a certain action. A &lt;strong&gt;vulnerability&lt;/strong&gt;
+(sometimes called a &lt;strong&gt;security bug&lt;/strong&gt;) is a type of bug that could be used for
+abuse.&lt;/p&gt;
+&lt;p&gt;Bugs are common in the day to day activities of a developer. Which means,
+vulnerabilities are also frequently introduced into applications. What&#39;s
+important is that you are aware of common vulnerabilities in order
+to mitigate them as much as you can. It is just like minimizing other bugs by
+following common patterns and techniques.&lt;/p&gt;
+&lt;p&gt;Most security techniques are just good programming, for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check values entered by a user (not null, not an empty string, checking the
+amount of data).&lt;/li&gt;
+&lt;li&gt;Ensure a single user can&#39;t take up too much time.&lt;/li&gt;
+&lt;li&gt;Build unit tests so security bugs can&#39;t slip in by accident.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-are-security-features&quot;&gt;What are security features? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-not-scary/#what-are-security-features&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your first lines of defense are security features such as HTTPS and CORS.
+(You&#39;ll learn about these acronyms later so don&#39;t worry about them for now.)
+For example, encrypting data using HTTPS might not be fixing a bug, but it
+protects the data you&#39;re exchanging with users to other parties. (Intercepting
+data is a common attack.)&lt;/p&gt;
+&lt;h2 id=&quot;what&#39;s-the-impact&quot;&gt;What&#39;s the impact? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-not-scary/#what&#39;s-the-impact&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When an application is not secure, different people could be affected.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;Impact on users&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;
+          &lt;ul class=&quot;w-unstyled-list&quot;&gt;
+            &lt;li&gt;
+              Sensitive information, such as personal data, could be leaked or
+              stolen.
+            &lt;/li&gt;
+            &lt;li&gt;
+              Content could be tampered with. A tampered site could direct users
+              to a malicious site.
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;Impact on the application&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;
+          &lt;ul class=&quot;w-unstyled-list&quot;&gt;
+            &lt;li&gt;
+              User trust may be lost.
+            &lt;/li&gt;
+            &lt;li&gt;
+              Business could be lost due to downtime or loss of confidence as a
+              result of tampering or system shortage.
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;Impact on other systems&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;
+          &lt;ul class=&quot;w-unstyled-list&quot;&gt;
+            &lt;li&gt;
+              A hijacked application could be used to attack other systems, such
+              as with a denial-of-service attack using a botnet.
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Actively securing your application is not only crucial for you and
+your business but also for your users, protecting them and other systems from
+attacks launched from your site.&lt;/p&gt;
+&lt;h2 id=&quot;wrap-up&quot;&gt;Wrap up &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/security-not-scary/#wrap-up&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Congratulations! You are halfway through this introduction. Now you know the difference
+between security vulnerabilities and features, and you are aware that not only
+you but everyone else gets affected when your application is not secure. The
+next guide covers the types of attacks in depth to make security even less
+scary.&lt;/p&gt;
+</content>
+    <author>
+      <name>Mariko Kosaka</name>
+    </author>
+  </entry>
+</feed>
