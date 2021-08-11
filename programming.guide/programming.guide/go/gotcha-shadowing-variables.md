@@ -2,14 +2,12 @@
 
 <span class="underline"></span>
 
-Related / Further Reading
--------------------------
+## Related / Further Reading
 
 [Command vet](https://golang.org/cmd/vet/)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Go Programming Language</span>
 
-Go gotcha
----------
+## Go gotcha
 
 1.  [Why can't I add elements to my map?](gotcha-assignment-entry-nil-map.html)
 2.  [What's a nil pointer dereference?](gotcha-nil-pointer-dereference.html)
@@ -40,8 +38,7 @@ Go gotcha
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [Go: String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -51,8 +48,7 @@ Top Go Articles
 
 [**See all 197 Go articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -62,8 +58,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go gotcha: Two variables with the same name?
-============================================
+# Go gotcha: Two variables with the same name?
 
 Why isn't the variable `n` updated in this example?
 
@@ -92,8 +87,7 @@ To reuse `n` from the outer block, write `n = 1` instead.
             fmt.Println(n) // Prints 2
     }
 
-Detecting shadowed variables
-----------------------------
+## Detecting shadowed variables
 
 To help detect shadowed variables, you may use the experimental `-shadow` feature provided by the [vet](https://golang.org/cmd/vet/) tool. It flags variables that **may have been** unintentionally shadowed. Passing the original version of the code to `vet` gives the following message:
 
@@ -132,8 +126,7 @@ Next »
 
 Extra comma in slice literal
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

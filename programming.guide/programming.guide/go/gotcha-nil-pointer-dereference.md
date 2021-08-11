@@ -2,8 +2,7 @@
 
 <span class="underline"></span>
 
-Further Reading
----------------
+## Further Reading
 
 [Pointers explained](pointers-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Further Reading
 [Pointer vs. value receiver](pointer-vs-value-receiver.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-Go gotcha
----------
+## Go gotcha
 
 1.  [Why can't I add elements to my map?](gotcha-assignment-entry-nil-map.html)
 2.  What's a nil pointer dereference?
@@ -46,8 +44,7 @@ Go gotcha
 
 <span class="underline"></span>
 
-Top Go Articles
----------------
+## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
 2.  [Go: String handling cheat sheet](string-functions-reference-cheat-sheet.html)
@@ -57,8 +54,7 @@ Top Go Articles
 
 [**See all 197 Go articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -68,8 +64,7 @@ Top Algorithm Articles
 
 [**See all articles**](../index.html)
 
-Go gotcha: What's a nil pointer dereference?
-============================================
+# Go gotcha: What's a nil pointer dereference?
 
 Why does this program crash?
 
@@ -137,8 +132,7 @@ Next »
 
 Multiple values in single value context?
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 
