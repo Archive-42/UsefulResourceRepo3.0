@@ -1,233 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Calling super() | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="super() calls the constructor of the base class. The call to super() must be the first statement in the constructor. If you provide arguments to super(), it will call base class constructor with the corresponding signature." name="description">
-  <meta content="java, constructor, super, base constrctor" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: Calling super() | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="super() calls the constructor of the base class. The call to super() must be the first statement in the constructor. If you provide arguments to super(), it will call base class constructor with the corresponding signature."
+      name="description"
+    />
+    <meta content="java, constructor, super, base constrctor" name="keywords" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Uses of super in Java</h2>
-      <ol class="nostyle">
-        <li class="current">Calling super()</li>
-        <li>
-          <a href="super-method-call.html">Calling super.someMethod()</a>
-        </li>
-        <li>
-          <a href="calling-super-method-of-outer-class-from-inner-class.html">Calling super method of outer class from inner class</a>
-        </li>
-        <li>
-          <a href="calling-default-interface-method-implementation-from-implementing-class.html">Calling a default interface method from implementing class</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Calling super()</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="black" id="r-arrow-head-black"></path>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
-      </defs></svg>
-      <p><code>super()</code> calls the constructor of the base class.</p>
-      <div class="codeblock">
-        <div class="centered-content" style="margin: 0em;">
-          <svg style="max-width: 620px;" viewbox="0 0 620.0 170" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Uses of super in Java</h2>
+        <ol class="nostyle">
+          <li class="current">Calling super()</li>
+          <li>
+            <a href="super-method-call.html">Calling super.someMethod()</a>
+          </li>
+          <li>
+            <a href="calling-super-method-of-outer-class-from-inner-class.html"
+              >Calling super method of outer class from inner class</a
+            >
+          </li>
+          <li>
+            <a
+              href="calling-default-interface-method-implementation-from-implementing-class.html"
+              >Calling a default interface method from implementing class</a
+            >
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Calling super()</h1>
+        <svg
+          style="display: none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <defs>
-            <path d="m -5 -4 q -15 10, 0 23" fill="none" id="single-step" stroke="green" stroke-width="2"></path>
-            <text class="dummy-statement" fill="#aaa" font-size="95%" id="dot-dot-dot">
-              ...
-            </text>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="blue"
+              id="r-arrow-head"
+            ></path>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="black"
+              id="r-arrow-head-black"
+            ></path>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="red"
+              id="r-arrow-head-red"
+            ></path>
           </defs>
-          <use href="#dot-dot-dot" x="20" y="50"></use>
-          <use x="20" xlink:href="#single-step" y="50"></use>
-          <use href="#dot-dot-dot" x="20" y="72"></use>
-          <path d="M 20 72 m -5,-4 c -10,8 -10,17 0,20" fill="none" id="single-step" stroke="green" stroke-width="2"></path>
-          <text class="code" font-size="95%" x="20" y="94">
-            <tspan class="keyword" fill="blue">new</tspan> Dog();
-          </text>
-          <path d="M 120,90 c 40,0 50,-24 95,-24" fill="none" stroke="green" stroke-width="2"></path>
-          <use href="#dot-dot-dot" x="20" y="94"></use>
-          <use href="#dot-dot-dot" x="20" y="116"></use>
-          <use x="20" xlink:href="#single-step-light" y="116"></use>
-          <use href="#dot-dot-dot" x="20" y="138"></use>
-          <text class="code-like" x="170" y="28">
-            <tspan class="keyword" fill="blue">class</tspan> Dog <tspan class="keyword" fill="blue">extends</tspan> Animal {
-          </text>
-          <text class="code-like" x="195" y="50">
-            Dog() {
-          </text>
-          <text class="code-like" x="220" y="72">
-            <tspan class="keyword" fill="blue">super</tspan>();
-          </text>
-          <path d="M 295,67 c 30,0 200,0 230,0" fill="none" stroke="green" stroke-width="2"></path>
-          <use href="#dot-dot-dot" x="220" y="94"></use>
-          <use x="220" xlink:href="#single-step-light" y="94"></use>
-          <use href="#dot-dot-dot" x="220" y="116"></use>
-          <text class="code" font-size="95%" x="195" y="138">
-            }
-          </text>
-          <text class="code-like" x="170" y="160">
-            }
-          </text>
-          <text class="code-like" x="480" y="28">
-            <tspan class="keyword" fill="blue">class</tspan> Animal {
-          </text>
-          <text class="code-like" x="505" y="50">
-            Animal() {
-          </text>
-          <use href="#dot-dot-dot" x="530" y="72"></use>
-          <use x="530" xlink:href="#single-step" y="72"></use>
-          <use href="#dot-dot-dot" x="530" y="94"></use>
-          <use x="530" xlink:href="#single-step" y="94"></use>
-          <use href="#dot-dot-dot" x="530" y="116"></use>
-          <text class="code" font-size="95%" x="505" y="138">
-            }
-          </text>
-          <text class="code-like" x="480" y="160">
-            }
-          </text></svg>
-        </div>
-      </div>
-      <div class="article-box">
-        <div style="display: flex">
-          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
-            ☞
+        </svg>
+        <p><code>super()</code> calls the constructor of the base class.</p>
+        <div class="codeblock">
+          <div class="centered-content" style="margin: 0em">
+            <svg
+              style="max-width: 620px"
+              viewbox="0 0 620.0 170"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <defs>
+                <path
+                  d="m -5 -4 q -15 10, 0 23"
+                  fill="none"
+                  id="single-step"
+                  stroke="green"
+                  stroke-width="2"
+                ></path>
+                <text
+                  class="dummy-statement"
+                  fill="#aaa"
+                  font-size="95%"
+                  id="dot-dot-dot"
+                >
+                  ...
+                </text>
+              </defs>
+              <use href="#dot-dot-dot" x="20" y="50"></use>
+              <use x="20" xlink:href="#single-step" y="50"></use>
+              <use href="#dot-dot-dot" x="20" y="72"></use>
+              <path
+                d="M 20 72 m -5,-4 c -10,8 -10,17 0,20"
+                fill="none"
+                id="single-step"
+                stroke="green"
+                stroke-width="2"
+              ></path>
+              <text class="code" font-size="95%" x="20" y="94">
+                <tspan class="keyword" fill="blue">new</tspan>
+                Dog();
+              </text>
+              <path
+                d="M 120,90 c 40,0 50,-24 95,-24"
+                fill="none"
+                stroke="green"
+                stroke-width="2"
+              ></path>
+              <use href="#dot-dot-dot" x="20" y="94"></use>
+              <use href="#dot-dot-dot" x="20" y="116"></use>
+              <use x="20" xlink:href="#single-step-light" y="116"></use>
+              <use href="#dot-dot-dot" x="20" y="138"></use>
+              <text class="code-like" x="170" y="28">
+                <tspan class="keyword" fill="blue">class</tspan>
+                Dog
+                <tspan class="keyword" fill="blue">extends</tspan>
+                Animal {
+              </text>
+              <text class="code-like" x="195" y="50">Dog() {</text>
+              <text class="code-like" x="220" y="72">
+                <tspan class="keyword" fill="blue">super</tspan>
+                ();
+              </text>
+              <path
+                d="M 295,67 c 30,0 200,0 230,0"
+                fill="none"
+                stroke="green"
+                stroke-width="2"
+              ></path>
+              <use href="#dot-dot-dot" x="220" y="94"></use>
+              <use x="220" xlink:href="#single-step-light" y="94"></use>
+              <use href="#dot-dot-dot" x="220" y="116"></use>
+              <text class="code" font-size="95%" x="195" y="138">}</text>
+              <text class="code-like" x="170" y="160">}</text>
+              <text class="code-like" x="480" y="28">
+                <tspan class="keyword" fill="blue">class</tspan>
+                Animal {
+              </text>
+              <text class="code-like" x="505" y="50">Animal() {</text>
+              <use href="#dot-dot-dot" x="530" y="72"></use>
+              <use x="530" xlink:href="#single-step" y="72"></use>
+              <use href="#dot-dot-dot" x="530" y="94"></use>
+              <use x="530" xlink:href="#single-step" y="94"></use>
+              <use href="#dot-dot-dot" x="530" y="116"></use>
+              <text class="code" font-size="95%" x="505" y="138">}</text>
+              <text class="code-like" x="480" y="160">}</text>
+            </svg>
           </div>
-          <div>
-            <p>Not to be confused with <code>super.someMethod()</code>. See <a href="super-method-call.html">Calling super.someMethod()</a>.</p>
+        </div>
+        <div class="article-box">
+          <div style="display: flex">
+            <div
+              style="
+                font-family: times new roman;
+                font-size: 220%;
+                padding-right: 0.5em;
+              "
+            >
+              ☞
+            </div>
+            <div>
+              <p>
+                Not to be confused with <code>super.someMethod()</code>. See
+                <a href="super-method-call.html">Calling super.someMethod()</a>.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <h2>Another Example</h2>
-      <p>Here's an expanded version with <strong>printouts</strong> and <strong>constructor arguments</strong>.</p>
-      <pre><code><span class="keyword">class</span> <span class="type">Animal</span> {
+        <h2>Another Example</h2>
+        <p>
+          Here's an expanded version with <strong>printouts</strong> and
+          <strong>constructor arguments</strong>.
+        </p>
+        <pre><code><span class="keyword">class</span> <span class="type">Animal</span> {
     <span class="keyword">public</span> <span class="method">Animal</span>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="type">arg</span>) {
         <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Constructing an animal: "</span> + <span class="type">arg</span>);
     }
@@ -245,42 +392,70 @@
         <span class="keyword">new</span> <span class="type">Dog</span>();
     }
 }</code></pre>
-      <p>Prints the following:</p>
-      <pre>Constructing an animal: From Dog constructor
-Constructing a dog.</pre>
-      <h2>The Fine Print</h2>
-      <ul>
-        <li>The call to <code>super()</code> must be <strong>the first</strong> statement in the constructor.</li>
-        <li>If you give arguments to <code>super("hello", 5)</code>, it will invoke the base constructor that accepts a <code>String</code> and an <code>int</code>.</li>
-        <li><code>super()</code> without arguments calls the base class' no-arg constructor. Such constructor only exists if A) you have not defined any constructor, or B) you have explicitly defined a no-arg constructor. If neither of these are true, then <code>super()</code> will fail with a compile error.</li>
-      </ul>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>Prints the following:</p>
+        <pre>
+Constructing an animal: From Dog constructor
+Constructing a dog.</pre
+        >
+        <h2>The Fine Print</h2>
+        <ul>
+          <li>
+            The call to <code>super()</code> must be
+            <strong>the first</strong> statement in the constructor.
+          </li>
+          <li>
+            If you give arguments to <code>super("hello", 5)</code>, it will
+            invoke the base constructor that accepts a <code>String</code> and
+            an <code>int</code>.
+          </li>
+          <li>
+            <code>super()</code> without arguments calls the base class' no-arg
+            constructor. Such constructor only exists if A) you have not defined
+            any constructor, or B) you have explicitly defined a no-arg
+            constructor. If neither of these are true, then
+            <code>super()</code> will fail with a compile error.
+          </li>
+        </ul>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input name="reply_to" type="hidden" value="java/super-call.html" />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/super-call.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

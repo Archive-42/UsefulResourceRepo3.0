@@ -1,1166 +1,1437 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Bloom Filter Calculator | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="An interactive tool that allows you to tune the following parameters for a Bloom filter: Number of bits (m), Number of hash functions (k) and acceptable rate of false positives." name="description">
-  <meta content="bloom filter, hash, example, illustration, tool, interactive, demo, javascript, online" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bloom Filter Calculator | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="An interactive tool that allows you to tune the following parameters for a Bloom filter: Number of bits (m), Number of hash functions (k) and acceptable rate of false positives."
+      name="description"
+    />
+    <meta
+      content="bloom filter, hash, example, illustration, tool, interactive, demo, javascript, online"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-  <script>
-        function fpProbability(k, m, n) {
-            return Math.pow(1 - Math.pow(1 - 1 / m, k * n), k);
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+    <script>
+      function fpProbability(k, m, n) {
+        return Math.pow(1 - Math.pow(1 - 1 / m, k * n), k);
+      }
+
+      function fpProbabilityInverse(k, m, p) {
+        return Math.log(1 - Math.pow(p, 1 / k)) / (k * Math.log(1 - 1 / m));
+      }
+
+      function twoDecimals(n) {
+        return Math.round(n * 100) / 100;
+      }
+
+      function withThousdandSeps(n) {
+        var str = "" + n;
+        var result = "";
+        for (var i = str.length - 1; i >= 0; i--) {
+          if (i < str.length - 1 && (str.length - i - 1) % 3 == 0) {
+            result = "," + result;
+          }
+          result = str.charAt(i) + result;
+        }
+        return result;
+      }
+
+      function formatBitsAsBytes(bits) {
+        var bytes = Math.ceil(bits / 8);
+        if (bytes < 1000) {
+          return bytes + " B";
+        } else if (bytes < 1000000) {
+          return twoDecimals(bytes / 1000) + " kB";
+        } else if (bytes < 1000000000) {
+          return twoDecimals(bytes / 1000000) + " MB";
+        } else {
+          return twoDecimals(bytes / 1000000000) + " GB";
+        }
+      }
+
+      function renderPnGraph() {
+        var mInput = document.getElementById("m-input").value;
+        var pInput = document.getElementById("p-input").value;
+
+        var acceptablePpercent = pInput < 10 ? pInput / 10 : pInput - 9;
+        var acceptableP = acceptablePpercent / 100;
+
+        var m = ((mInput / 100) % 0.25) * 4 * 1000;
+
+        m = Math.max(m, 10);
+
+        var scale = Math.pow(1000, Math.floor((4 * mInput) / 100));
+
+        m = m * scale;
+        m = Math.round(m);
+
+        var k = document.getElementById("k-input").value;
+        var nMax = fpProbabilityInverse(k, m, 0.99);
+        nMax = Math.max(10, nMax);
+
+        var numSegmentsToUse = Math.min(nMax, 200);
+        var prevSvgX = 0;
+        var prevSvgY = 300;
+        for (var i = 0; i < 200; i++) {
+          var line = document.getElementById("gs-" + i);
+
+          var n = ((i + 1) / numSegmentsToUse) * nMax;
+          var svgX = (n / nMax) * 600;
+
+          var p = fpProbability(k, m, n);
+          var svgY = 300 * (1 - p);
+
+          if (i < numSegmentsToUse) {
+            line.setAttributeNS(null, "style", "display: visible");
+            line.setAttributeNS(null, "x1", prevSvgX);
+            line.setAttributeNS(null, "y1", prevSvgY);
+            line.setAttributeNS(null, "x2", svgX);
+            line.setAttributeNS(null, "y2", svgY);
+            prevSvgX = svgX;
+            prevSvgY = svgY;
+
+            // Check if we want to adjust p-lines
+            //                    if (
+          } else {
+            line.setAttributeNS(null, "style", "display: none");
+          }
         }
 
-        function fpProbabilityInverse(k, m, p) {
-            return Math.log(1 - Math.pow(p, 1/k)) / (k * Math.log(1 - 1 / m));
+        for (var n = 0; n < 150; n++) {
+          var dot = document.getElementById("dot-" + n);
+          if (n > nMax || nMax > 150) {
+            dot.setAttributeNS(null, "style", "display: none");
+          } else {
+            dot.setAttributeNS(null, "style", "display: visible");
+            var p = fpProbability(k, m, n);
+            var svgY = 300 * (1 - p);
+            var svgX = (n / nMax) * 600;
+            dot.setAttributeNS(null, "cx", svgX);
+            dot.setAttributeNS(null, "cy", svgY);
+            dot.setAttributeNS(null, "r", 3 * (1 - nMax / 150));
+          }
         }
 
-        function twoDecimals(n) {
-            return Math.round(n * 100) / 100;
+        document.getElementById("m-bits").innerHTML = withThousdandSeps(m);
+        document.getElementById("m-bytes").innerHTML = formatBitsAsBytes(m);
+
+        document.getElementById("k-lbl").innerHTML = withThousdandSeps(k);
+        var optForN = Math.round((m / k) * Math.log(2));
+        document
+          .getElementById("opt-for-n-msg")
+          .setAttribute(
+            "style",
+            "display: " + (optForN != 0 ? "visible" : "none")
+          );
+        document
+          .getElementById("never-opt-msg")
+          .setAttribute(
+            "style",
+            "display: " + (optForN == 0 ? "visible" : "none")
+          );
+        document.getElementById("k-opt-for-n").innerHTML =
+          "" + withThousdandSeps(optForN);
+
+        document.getElementById("p-percent").innerHTML =
+          "" + acceptablePpercent;
+        var acceptableN = fpProbabilityInverse(k, m, acceptableP);
+
+        var allowsForN = Math.floor(acceptableN);
+        document
+          .getElementById("allows-for-msg")
+          .setAttribute(
+            "style",
+            "display: " + (allowsForN != 0 ? "visible" : "none")
+          );
+        document
+          .getElementById("allows-for-no-msg")
+          .setAttribute(
+            "style",
+            "display: " + (allowsForN == 0 ? "visible" : "none")
+          );
+        document.getElementById("n-max").innerHTML =
+          withThousdandSeps(allowsForN);
+
+        if (acceptableN < 200) {
+          var nLow = Math.floor(acceptableN);
+          var nHigh = Math.ceil(acceptableN);
+          var pLow = fpProbability(k, m, nLow);
+          var pHigh = fpProbability(k, m, nHigh);
+
+          var kf = (pHigh - pLow) / (nHigh - nLow);
+          var mf = pLow - kf * nLow;
+          acceptableN = (acceptableP - mf) / kf;
         }
 
-        function withThousdandSeps(n) {
-            var str = "" + n;
-            var result = "";
-            for (var i = str.length - 1; i >= 0; i--) {
-                if (i < str.length - 1 && (str.length - i - 1) % 3 == 0) {
-                    result = "," + result;
-                }
-                result = str.charAt(i) + result;
-            }
-            return result;
+        var horizP = document.getElementById("horizontal-acc-p");
+        var vertP = document.getElementById("vertical-acc-p");
+
+        var y = (1 - acceptableP) * 300;
+        var x2 = (acceptableN / nMax) * 600;
+
+        horizP.setAttributeNS(null, "y1", "" + y);
+        horizP.setAttributeNS(null, "y2", "" + y);
+        horizP.setAttributeNS(null, "x2", "" + x2);
+        vertP.setAttributeNS(null, "x1", "" + x2);
+        vertP.setAttributeNS(null, "x2", "" + x2);
+        vertP.setAttributeNS(null, "y2", "" + y);
+
+        // Adjust markers
+        var digits = Math.ceil(Math.log10(nMax + 1));
+        var s = Math.pow(10, digits);
+        var step = nMax < s / 5 ? s / 50 : nMax < s / 2 ? s / 20 : s / 10;
+        step = Math.max(step, 1);
+
+        for (var m = 1; m < 10; m++) {
+          var nAtM = m * step;
+          var x = (nAtM / nMax) * 600;
+          var markerContainer = document.getElementById("marker-" + m);
+          var markerLabel = document.getElementById("marker-" + m + "-lbl");
+          if (nAtM > nMax) {
+            markerContainer.setAttributeNS(null, "style", "display: none");
+          } else {
+            markerContainer.setAttributeNS(null, "style", "display: visible");
+            markerContainer.setAttributeNS(
+              null,
+              "transform",
+              "translate(" + x + ")"
+            );
+            markerLabel.textContent = withSiSuffix(nAtM);
+          }
         }
+      }
 
-        function formatBitsAsBytes(bits) {
-            var bytes = Math.ceil(bits / 8);
-            if (bytes < 1000) {
-                return bytes + " B";
-            } else if (bytes < 1000000) {
-                return twoDecimals(bytes / 1000) + " kB";
-            } else if (bytes < 1000000000) {
-                return twoDecimals(bytes / 1000000) + " MB";
-            } else {
-                return twoDecimals(bytes / 1000000000) + " GB";
-            }
-        }
-
-        function renderPnGraph() {
-            var mInput = document.getElementById("m-input").value;
-            var pInput = document.getElementById("p-input").value;
-
-            var acceptablePpercent = pInput < 10 ? pInput / 10 : pInput - 9;
-            var acceptableP = acceptablePpercent / 100;
-
-            var m = ((mInput / 100) % 0.25) * 4 * 1000;
-            
-            m = Math.max(m, 10);
-            
-            var scale = Math.pow(1000, Math.floor(4 * mInput / 100))
-
-            m = m * scale;
-            m = Math.round(m);
-
-            var k = document.getElementById("k-input").value;
-            var nMax = fpProbabilityInverse(k, m, 0.99);
-            nMax = Math.max(10, nMax);
-
-            var numSegmentsToUse = Math.min(nMax, 200);
-            var prevSvgX = 0;
-            var prevSvgY = 300;
-            for (var i = 0; i < 200; i++) {
-                var line = document.getElementById('gs-' + i);
-
-                var n = (i + 1) / numSegmentsToUse * nMax;
-                var svgX = (n / nMax) * 600;
-
-                var p = fpProbability(k, m, n);
-                var svgY = 300 * (1 - p);
-
-                if (i < numSegmentsToUse) {
-                    line.setAttributeNS(null, "style", "display: visible");
-                    line.setAttributeNS(null, 'x1', prevSvgX);
-                    line.setAttributeNS(null, 'y1', prevSvgY);
-                    line.setAttributeNS(null, 'x2', svgX);
-                    line.setAttributeNS(null, 'y2', svgY);
-                    prevSvgX = svgX;
-                    prevSvgY = svgY;
-
-
-                    // Check if we want to adjust p-lines
-  //                    if (
-
-
-                } else {
-                    line.setAttributeNS(null, "style", "display: none");
-                }
-            }
-
-            for (var n = 0; n < 150; n++) {
-                var dot = document.getElementById('dot-' + n);
-                if (n > nMax || nMax > 150) {
-                    dot.setAttributeNS(null, "style", "display: none");
-                } else {
-                    dot.setAttributeNS(null, "style", "display: visible");
-                    var p = fpProbability(k, m, n);
-                    var svgY = 300 * (1 - p);
-                    var svgX = (n / nMax) * 600 
-                    dot.setAttributeNS(null, 'cx', svgX);
-                    dot.setAttributeNS(null, 'cy', svgY);
-                    dot.setAttributeNS(null, 'r', 3 * (1 - (nMax / 150)));
-                }
-            }
-
-            document.getElementById("m-bits").innerHTML = withThousdandSeps(m);
-            document.getElementById("m-bytes").innerHTML = formatBitsAsBytes(m);
-
-            document.getElementById("k-lbl").innerHTML = withThousdandSeps(k);
-            var optForN = Math.round(m/k*Math.log(2));
-            document.getElementById("opt-for-n-msg").setAttribute("style", "display: " + (optForN != 0 ? "visible" : "none"));
-            document.getElementById("never-opt-msg").setAttribute("style", "display: " + (optForN == 0 ? "visible" : "none"));
-            document.getElementById("k-opt-for-n").innerHTML = "" + withThousdandSeps(optForN);
-
-            document.getElementById("p-percent").innerHTML = "" + acceptablePpercent;
-            var acceptableN = fpProbabilityInverse(k, m, acceptableP);
-
-            var allowsForN = Math.floor(acceptableN);
-            document.getElementById("allows-for-msg").setAttribute("style", "display: " + (allowsForN != 0 ? "visible" : "none"));
-            document.getElementById("allows-for-no-msg").setAttribute("style", "display: " + (allowsForN == 0 ? "visible" : "none"));
-            document.getElementById("n-max").innerHTML = withThousdandSeps(allowsForN);
-
-
-            if (acceptableN < 200) {
-
-                var nLow = Math.floor(acceptableN);
-                var nHigh = Math.ceil(acceptableN);
-                var pLow = fpProbability(k, m, nLow);
-                var pHigh = fpProbability(k, m, nHigh);
-
-                var kf = (pHigh - pLow) / (nHigh - nLow);
-                var mf = pLow - kf * nLow;
-                acceptableN = (acceptableP - mf) / kf;
-            }
-
-            var horizP = document.getElementById("horizontal-acc-p");
-            var vertP = document.getElementById("vertical-acc-p");
-
-            var y = (1 - acceptableP) * 300;
-            var x2 = acceptableN / nMax * 600;
-
-            horizP.setAttributeNS(null, "y1", "" + y);
-            horizP.setAttributeNS(null, "y2", "" + y);
-            horizP.setAttributeNS(null, "x2", "" + x2);
-            vertP.setAttributeNS(null, "x1", "" + x2);
-            vertP.setAttributeNS(null, "x2", "" + x2);
-            vertP.setAttributeNS(null, "y2", "" + y);
-
-            // Adjust markers
-            var digits = Math.ceil(Math.log10(nMax + 1));
-            var s = Math.pow(10, digits);
-            var step = nMax < s / 5 ? s / 50
-                     : nMax < s / 2 ? s / 20
-                     : s / 10;
-            step = Math.max(step, 1);
-
-            for (var m = 1; m < 10; m++) {
-                var nAtM = m * step;
-                var x = nAtM / nMax * 600;
-                var markerContainer = document.getElementById("marker-" + m);
-                var markerLabel = document.getElementById("marker-" + m + "-lbl");
-                if (nAtM > nMax) {
-                    markerContainer.setAttributeNS(null, "style", "display: none");
-                } else {
-                    markerContainer.setAttributeNS(null, "style", "display: visible");
-                    markerContainer.setAttributeNS(null, "transform", "translate(" + x + ")");
-                    markerLabel.textContent = withSiSuffix(nAtM);
-                }
-            }
-        }
-
-        function withSiSuffix(n) {
-            return n < 1e3 ? "" + n
-                 : n < 1e6 ? (n / 1e3) + "k"
-                 : n < 1e9 ? (n / 1e6) + "M"
-                 : n < 1e12 ? (n / 1e9) + "G"
-                 : (n / 1e12) + "T";
-            
-        }
-  </script>
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      function withSiSuffix(n) {
+        return n < 1e3
+          ? "" + n
+          : n < 1e6
+          ? n / 1e3 + "k"
+          : n < 1e9
+          ? n / 1e6 + "M"
+          : n < 1e12
+          ? n / 1e9 + "G"
+          : n / 1e12 + "T";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Bloom Filter Calculator</h1>
+        <p>
+          Here's an interactive tool to help you tune the parameters for a Bloom
+          filter. If you want to learn more about how Bloom filters work, see
+          separate article <a href="bloom-filter.html">here</a>.
+        </p>
+        <p><br /></p>
+        <div style="text-align: center">
+          <div>
+            <p><strong>Number of bits (<em>m</em>)</strong></p>
+          </div>
+          <div>
+            <input
+              id="m-input"
+              max="100"
+              min="0"
+              oninput="renderPnGraph()"
+              style="margin: 0 auto; max-width: 30em"
+              type="range"
+              value="10"
+            />
+          </div>
+          <div>
+            <p><em>m</em> = <span id="m-bits"></span></p>
+          </div>
+          <div style="margin-bottom: 1.5em">
+            <p>In bytes: <span id="m-bytes"></span></p>
+          </div>
+          <div>
+            <p><strong>Number of hash functions (<em>k</em>)</strong></p>
+          </div>
+          <div class="centered-content">
+            <input
+              id="k-input"
+              max="1000"
+              min="1"
+              oninput="renderPnGraph()"
+              style="margin: 0 auto; max-width: 30em"
+              type="range"
+              value="3"
+            />
+          </div>
+          <div>
+            <p><em>k</em> = <span id="k-lbl"></span></p>
+          </div>
+          <div style="margin-bottom: 1.5em">
+            <div id="opt-for-n-msg">
+              <p>
+                This in the optimal choice for
+                <span class="no-wrap"
+                  ><em>n</em> = <span id="k-opt-for-n"></span
+                ></span>
+              </p>
+            </div>
+            <div id="never-opt-msg">
+              Not the optimal choice for any number of elements.
+            </div>
+          </div>
+          <div>
+            <p><strong>Acceptable false positive rate (<em>p</em>)</strong></p>
+          </div>
+          <div>
+            <input
+              id="p-input"
+              max="108"
+              min="1"
+              oninput="renderPnGraph()"
+              style="margin: 0 auto; max-width: 30em"
+              type="range"
+              value="19"
+            />
+          </div>
+          <div>
+            <p><em>p</em> = <span id="p-percent"></span> %</p>
+          </div>
+          <div id="allows-for-msg">
+            Allows for up to <span id="n-max"></span> elements.
+          </div>
+          <div id="allows-for-no-msg">Allows no elements to be added.</div>
+        </div>
+        <div class="centered-content" style="margin: 2em 0em">
+          <svg
+            style="max-width: 715px"
+            viewbox="-50 -15 715.0 370"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <text dominant-baseline="middle" x="-20" y="0">1</text>
+            <text dominant-baseline="middle" x="-20" y="300">0</text>
+            <text
+              dominant-baseline="middle"
+              style="font-style: italic"
+              x="-40"
+              y="150.0"
+            >
+              p
+            </text>
+            <text
+              style="font-style: italic"
+              text-anchor="middle"
+              x="300.0"
+              y="350"
+            >
+              n
+            </text>
+            <line stroke="black" x1="0" x2="0" y1="-10" y2="300"></line>
+            <line stroke="black" x1="0" x2="600" y1="300" y2="300"></line>
+            <line
+              id="horizontal-acc-p"
+              stroke="red"
+              stroke-dasharray="2 2"
+              x1="0"
+              x2="600"
+            ></line>
+            <line
+              id="vertical-acc-p"
+              stroke="red"
+              stroke-dasharray="2 2"
+              y1="300"
+              y2="0"
+            ></line>
+            <g id="marker-1" transform="translate(60.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-1-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                1
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-2" transform="translate(120.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-2-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                2
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-3" transform="translate(180.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-3-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                3
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-4" transform="translate(240.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-4-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                4
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-5" transform="translate(300.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-5-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                5
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-6" transform="translate(360.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-6-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                6
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-7" transform="translate(420.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-7-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                7
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-8" transform="translate(480.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-8-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                8
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <g id="marker-9" transform="translate(540.0)">
+              <text
+                dominant-baseline="hanging"
+                id="marker-9-lbl"
+                text-anchor="middle"
+                y="308"
+              >
+                9
+              </text>
+              <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
+            </g>
+            <line id="gs-0" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-1" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-2" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-3" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-4" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-5" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-6" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-7" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-8" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-9" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-10" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-11" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-12" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-13" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-14" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-15" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-16" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-17" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-18" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-19" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-20" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-21" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-22" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-23" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-24" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-25" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-26" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-27" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-28" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-29" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-30" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-31" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-32" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-33" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-34" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-35" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-36" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-37" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-38" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-39" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-40" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-41" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-42" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-43" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-44" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-45" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-46" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-47" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-48" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-49" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-50" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-51" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-52" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-53" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-54" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-55" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-56" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-57" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-58" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-59" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-60" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-61" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-62" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-63" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-64" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-65" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-66" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-67" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-68" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-69" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-70" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-71" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-72" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-73" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-74" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-75" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-76" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-77" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-78" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-79" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-80" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-81" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-82" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-83" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-84" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-85" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-86" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-87" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-88" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-89" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-90" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-91" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-92" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-93" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-94" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-95" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-96" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-97" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-98" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-99" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-100" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-101" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-102" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-103" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-104" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-105" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-106" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-107" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-108" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-109" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-110" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-111" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-112" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-113" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-114" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-115" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-116" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-117" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-118" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-119" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-120" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-121" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-122" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-123" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-124" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-125" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-126" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-127" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-128" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-129" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-130" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-131" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-132" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-133" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-134" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-135" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-136" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-137" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-138" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-139" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-140" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-141" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-142" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-143" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-144" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-145" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-146" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-147" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-148" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-149" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-150" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-151" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-152" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-153" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-154" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-155" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-156" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-157" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-158" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-159" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-160" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-161" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-162" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-163" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-164" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-165" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-166" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-167" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-168" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-169" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-170" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-171" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-172" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-173" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-174" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-175" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-176" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-177" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-178" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-179" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-180" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-181" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-182" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-183" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-184" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-185" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-186" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-187" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-188" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-189" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-190" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-191" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-192" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-193" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-194" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-195" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-196" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-197" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-198" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <line id="gs-199" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
+            <circle cx="0" cy="0" fill="blue" id="dot-0" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-1" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-2" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-3" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-4" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-5" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-6" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-7" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-8" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-9" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-10" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-11" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-12" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-13" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-14" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-15" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-16" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-17" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-18" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-19" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-20" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-21" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-22" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-23" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-24" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-25" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-26" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-27" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-28" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-29" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-30" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-31" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-32" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-33" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-34" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-35" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-36" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-37" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-38" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-39" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-40" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-41" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-42" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-43" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-44" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-45" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-46" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-47" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-48" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-49" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-50" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-51" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-52" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-53" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-54" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-55" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-56" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-57" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-58" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-59" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-60" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-61" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-62" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-63" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-64" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-65" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-66" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-67" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-68" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-69" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-70" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-71" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-72" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-73" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-74" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-75" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-76" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-77" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-78" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-79" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-80" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-81" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-82" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-83" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-84" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-85" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-86" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-87" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-88" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-89" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-90" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-91" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-92" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-93" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-94" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-95" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-96" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-97" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-98" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-99" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-100" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-101" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-102" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-103" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-104" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-105" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-106" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-107" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-108" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-109" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-110" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-111" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-112" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-113" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-114" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-115" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-116" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-117" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-118" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-119" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-120" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-121" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-122" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-123" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-124" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-125" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-126" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-127" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-128" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-129" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-130" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-131" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-132" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-133" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-134" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-135" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-136" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-137" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-138" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-139" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-140" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-141" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-142" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-143" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-144" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-145" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-146" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-147" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-148" r="5"></circle>
+            <circle cx="0" cy="0" fill="blue" id="dot-149" r="5"></circle>
+          </svg>
+        </div>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          renderPnGraph();
         </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Bloom Filter Calculator</h1>
-      <p>Here's an interactive tool to help you tune the parameters for a Bloom filter. If you want to learn more about how Bloom filters work, see separate article <a href="bloom-filter.html">here</a>.</p>
-      <p><br></p>
-      <div style="text-align: center">
-        <div>
-          <p><strong>Number of bits (<em>m</em>)</strong></p>
-        </div>
-        <div>
-          <input id="m-input" max="100" min="0" oninput="renderPnGraph()" style="margin: 0 auto; max-width: 30em;" type="range" value="10">
-        </div>
-        <div>
-          <p><em>m</em> = <span id="m-bits"></span></p>
-        </div>
-        <div style="margin-bottom: 1.5em;">
-          <p>In bytes: <span id="m-bytes"></span></p>
-        </div>
-        <div>
-          <p><strong>Number of hash functions (<em>k</em>)</strong></p>
-        </div>
-        <div class="centered-content">
-          <input id="k-input" max="1000" min="1" oninput="renderPnGraph()" style="margin: 0 auto; max-width: 30em;" type="range" value="3">
-        </div>
-        <div>
-          <p><em>k</em> = <span id="k-lbl"></span></p>
-        </div>
-        <div style="margin-bottom: 1.5em;">
-          <div id="opt-for-n-msg">
-            <p>This in the optimal choice for <span class="no-wrap"><em>n</em> = <span id="k-opt-for-n"></span></span></p>
-          </div>
-          <div id="never-opt-msg">
-            Not the optimal choice for any number of elements.
-          </div>
-        </div>
-        <div>
-          <p><strong>Acceptable false positive rate (<em>p</em>)</strong></p>
-        </div>
-        <div>
-          <input id="p-input" max="108" min="1" oninput="renderPnGraph()" style="margin: 0 auto; max-width: 30em;" type="range" value="19">
-        </div>
-        <div>
-          <p><em>p</em> = <span id="p-percent"></span> %</p>
-        </div>
-        <div id="allows-for-msg">
-          Allows for up to <span id="n-max"></span> elements.
-        </div>
-        <div id="allows-for-no-msg">
-          Allows no elements to be added.
-        </div>
-      </div>
-      <div class="centered-content" style="margin: 2em 0em;">
-        <svg style="max-width: 715px;" viewbox="-50 -15 715.0 370" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <text dominant-baseline="middle" x="-20" y="0">
-          1
-        </text>
-        <text dominant-baseline="middle" x="-20" y="300">
-          0
-        </text>
-        <text dominant-baseline="middle" style="font-style: italic" x="-40" y="150.0">
-          p
-        </text>
-        <text style="font-style: italic" text-anchor="middle" x="300.0" y="350">
-          n
-        </text>
-        <line stroke="black" x1="0" x2="0" y1="-10" y2="300"></line>
-        <line stroke="black" x1="0" x2="600" y1="300" y2="300"></line>
-        <line id="horizontal-acc-p" stroke="red" stroke-dasharray="2 2" x1="0" x2="600"></line>
-        <line id="vertical-acc-p" stroke="red" stroke-dasharray="2 2" y1="300" y2="0"></line>
-        <g id="marker-1" transform="translate(60.0)">
-          <text dominant-baseline="hanging" id="marker-1-lbl" text-anchor="middle" y="308">
-            1
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-2" transform="translate(120.0)">
-          <text dominant-baseline="hanging" id="marker-2-lbl" text-anchor="middle" y="308">
-            2
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-3" transform="translate(180.0)">
-          <text dominant-baseline="hanging" id="marker-3-lbl" text-anchor="middle" y="308">
-            3
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-4" transform="translate(240.0)">
-          <text dominant-baseline="hanging" id="marker-4-lbl" text-anchor="middle" y="308">
-            4
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-5" transform="translate(300.0)">
-          <text dominant-baseline="hanging" id="marker-5-lbl" text-anchor="middle" y="308">
-            5
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-6" transform="translate(360.0)">
-          <text dominant-baseline="hanging" id="marker-6-lbl" text-anchor="middle" y="308">
-            6
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-7" transform="translate(420.0)">
-          <text dominant-baseline="hanging" id="marker-7-lbl" text-anchor="middle" y="308">
-            7
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-8" transform="translate(480.0)">
-          <text dominant-baseline="hanging" id="marker-8-lbl" text-anchor="middle" y="308">
-            8
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <g id="marker-9" transform="translate(540.0)">
-          <text dominant-baseline="hanging" id="marker-9-lbl" text-anchor="middle" y="308">
-            9
-          </text>
-          <line stroke="black" x1="0" x2="0" y1="300" y2="306"></line>
-        </g>
-        <line id="gs-0" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-1" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-2" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-3" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-4" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-5" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-6" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-7" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-8" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-9" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-10" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-11" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-12" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-13" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-14" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-15" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-16" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-17" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-18" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-19" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-20" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-21" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-22" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-23" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-24" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-25" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-26" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-27" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-28" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-29" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-30" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-31" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-32" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-33" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-34" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-35" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-36" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-37" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-38" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-39" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-40" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-41" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-42" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-43" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-44" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-45" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-46" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-47" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-48" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-49" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-50" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-51" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-52" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-53" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-54" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-55" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-56" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-57" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-58" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-59" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-60" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-61" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-62" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-63" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-64" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-65" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-66" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-67" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-68" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-69" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-70" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-71" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-72" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-73" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-74" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-75" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-76" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-77" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-78" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-79" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-80" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-81" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-82" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-83" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-84" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-85" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-86" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-87" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-88" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-89" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-90" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-91" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-92" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-93" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-94" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-95" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-96" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-97" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-98" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-99" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-100" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-101" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-102" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-103" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-104" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-105" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-106" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-107" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-108" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-109" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-110" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-111" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-112" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-113" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-114" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-115" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-116" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-117" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-118" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-119" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-120" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-121" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-122" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-123" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-124" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-125" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-126" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-127" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-128" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-129" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-130" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-131" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-132" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-133" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-134" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-135" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-136" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-137" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-138" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-139" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-140" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-141" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-142" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-143" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-144" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-145" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-146" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-147" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-148" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-149" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-150" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-151" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-152" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-153" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-154" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-155" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-156" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-157" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-158" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-159" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-160" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-161" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-162" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-163" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-164" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-165" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-166" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-167" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-168" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-169" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-170" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-171" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-172" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-173" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-174" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-175" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-176" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-177" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-178" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-179" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-180" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-181" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-182" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-183" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-184" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-185" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-186" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-187" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-188" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-189" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-190" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-191" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-192" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-193" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-194" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-195" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-196" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-197" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-198" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <line id="gs-199" stroke="blue" x1="0" x2="0" y1="0" y2="0"></line>
-        <circle cx="0" cy="0" fill="blue" id="dot-0" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-1" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-2" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-3" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-4" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-5" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-6" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-7" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-8" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-9" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-10" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-11" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-12" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-13" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-14" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-15" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-16" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-17" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-18" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-19" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-20" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-21" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-22" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-23" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-24" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-25" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-26" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-27" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-28" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-29" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-30" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-31" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-32" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-33" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-34" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-35" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-36" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-37" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-38" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-39" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-40" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-41" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-42" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-43" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-44" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-45" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-46" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-47" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-48" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-49" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-50" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-51" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-52" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-53" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-54" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-55" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-56" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-57" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-58" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-59" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-60" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-61" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-62" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-63" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-64" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-65" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-66" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-67" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-68" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-69" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-70" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-71" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-72" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-73" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-74" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-75" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-76" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-77" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-78" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-79" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-80" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-81" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-82" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-83" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-84" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-85" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-86" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-87" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-88" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-89" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-90" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-91" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-92" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-93" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-94" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-95" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-96" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-97" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-98" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-99" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-100" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-101" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-102" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-103" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-104" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-105" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-106" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-107" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-108" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-109" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-110" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-111" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-112" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-113" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-114" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-115" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-116" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-117" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-118" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-119" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-120" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-121" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-122" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-123" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-124" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-125" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-126" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-127" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-128" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-129" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-130" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-131" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-132" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-133" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-134" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-135" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-136" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-137" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-138" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-139" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-140" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-141" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-142" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-143" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-144" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-145" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-146" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-147" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-148" r="5"></circle>
-        <circle cx="0" cy="0" fill="blue" id="dot-149" r="5"></circle></svg>
-      </div>
-      <script>
-      renderPnGraph();
-      </script>
-      <h2>Probability of false positives</h2>
-      <p>Assuming uniform and independent hashing, the probability of a specific bit not being set to 1 after a single use of a hash function is</p>
-      <div class="indented">
-        <div class="math">
-          <div>
-            1
-          </div>
-          <div class="binop">
-            −
-          </div>
-          <div class="ratio">
-            <div>
-              1
-            </div>
-            <div>
-              <p><em>m</em></p>
+        <h2>Probability of false positives</h2>
+        <p>
+          Assuming uniform and independent hashing, the probability of a
+          specific bit not being set to 1 after a single use of a hash function
+          is
+        </p>
+        <div class="indented">
+          <div class="math">
+            <div>1</div>
+            <div class="binop">−</div>
+            <div class="ratio">
+              <div>1</div>
+              <div>
+                <p><em>m</em></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <p>After inserting <em>n</em> elements using <em>k</em> hashes each, the probability of a specific bit still being 0 is thus</p>
-      <div class="indented">
-        <div class="math">
-          <div style="line-height: 100%">
-            ⎛<br>
-            ⎝
-          </div>
-          <div>
-            1
-          </div>
-          <div class="binop">
-            −
-          </div>
-          <div class="ratio">
-            <div>
-              1
+        <p>
+          After inserting <em>n</em> elements using <em>k</em> hashes each, the
+          probability of a specific bit still being 0 is thus
+        </p>
+        <div class="indented">
+          <div class="math">
+            <div style="line-height: 100%">
+              ⎛<br />
+              ⎝
             </div>
-            <div>
-              <p><em>m</em></p>
+            <div>1</div>
+            <div class="binop">−</div>
+            <div class="ratio">
+              <div>1</div>
+              <div>
+                <p><em>m</em></p>
+              </div>
             </div>
-          </div>
-          <div style="line-height: 100%">
-            ⎞<br>
-            ⎠
-          </div>
-          <div class="sup">
-            <p><em>kn</em></p>
-          </div>
-        </div>
-      </div>
-      <p>Conversely, the probability of a specific bit being set to 1, is</p>
-      <div class="indented">
-        <div class="math">
-          <div>
-            1
-          </div>
-          <div class="binop">
-            −
-          </div>
-          <div style="line-height: 100%">
-            ⎛<br>
-            ⎝
-          </div>
-          <div>
-            1
-          </div>
-          <div class="binop">
-            −
-          </div>
-          <div class="ratio">
-            <div>
-              1
+            <div style="line-height: 100%">
+              ⎞<br />
+              ⎠
             </div>
-            <div>
-              <p><em>m</em></p>
-            </div>
-          </div>
-          <div style="line-height: 100%">
-            ⎞<br>
-            ⎠
-          </div>
-          <div class="sup">
-            <p><em>kn</em></p>
-          </div>
-        </div>
-      </div>
-      <p>Since a false positive requires <em>k</em> random bits to be set to 1, the probability of a false positive after inserting <em>n</em> elements is</p>
-      <div class="indented">
-        <div class="math">
-          <div style="line-height: 100%">
-            ⎛<br>
-            ⎝
-          </div>
-          <div>
-            1
-          </div>
-          <div class="binop">
-            −
-          </div>
-          <div style="line-height: 100%">
-            ⎛<br>
-            ⎝
-          </div>
-          <div>
-            1
-          </div>
-          <div class="binop">
-            −
-          </div>
-          <div class="ratio">
-            <div>
-              1
-            </div>
-            <div>
-              <p><em>m</em></p>
-            </div>
-          </div>
-          <div style="line-height: 100%">
-            ⎞<br>
-            ⎠
-          </div>
-          <div class="sup">
-            <p><em>kn</em></p>
-          </div>
-          <div style="line-height: 100%">
-            ⎞<br>
-            ⎠
-          </div>
-          <div class="sup">
-            <p><em>k</em></p>
-          </div>
-        </div>
-      </div>
-      <p>Using the formula for calculating <em>e</em>…</p>
-      <div class="indented">
-        <div class="math">
-          <div>
-            <p><em>e</em></p>
-          </div>
-          <div class="binop">
-            =
-          </div>
-          <div style="display: flex; flex-direction: column; align-items: center;">
-            <div style="height: 0em;">
-              &nbsp;
-            </div>
-            <div>
-              lim
-            </div>
-            <div style="height: 0em; position: relative; top: -.7em; font-size: 80%;">
-              <p><em>x</em> → ∞</p>
-            </div>
-          </div>
-          <div style="line-height: 100%">
-            ⎛<br>
-            ⎝
-          </div>
-          <div>
-            1
-          </div>
-          <div class="binop">
-            −
-          </div>
-          <div class="ratio">
-            <div>
-              1
-            </div>
-            <div>
-              <p><em>x</em></p>
-            </div>
-          </div>
-          <div style="line-height: 100%">
-            ⎞<br>
-            ⎠
-          </div>
-          <div class="sup">
-            <p>−<em>x</em></p>
-          </div>
-        </div>
-      </div>
-      <p>…we can approximate the probability of false positives as</p>
-      <div class="indented math" style="position: relative">
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding-right: .1em;">
-          (
-        </div>
-        <p>1 − <em>e</em></p>
-        <div class="sup">
-          <p>−<em>kn</em> / <em>m</em></p>
-        </div>
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding: 0em .1em;">
-          )
-        </div>
-        <div class="sup">
-          <p><em>k</em></p>
-        </div>
-      </div>
-      <h2>Optimal value for k</h2>
-      <p>By fixing the <em>n</em> / <em>m</em> ratio in the previous equation, we can solve for <em>k</em>, and find the optimal value for it. That is, if you for example know you can spare 1 MB for the bit vector, and you know that you will insert ~10,000 elements, you can calculate the number of hash functions that <strong>minimizes the false positives</strong> in subsequent lookups.</p>
-      <p>Given <em>n</em> and <em>m</em> we want to minimize</p>
-      <div class="indented">
-        <div class="math">
-          <div style="visibility: hidden">
-            = 
-          </div>
-          <div style="transform: translateY(-.2em) scaleY(1.9); padding-right: .1em;">
-            (
-          </div>
-          <p>1 − <em>e</em></p>
-          <div class="sup">
-            <p>−<em>kn</em> / <em>m</em></p>
-          </div>
-          <div style="transform: translateY(-.2em) scaleY(1.9); padding: 0em .1em;">
-            )
-          </div>
-          <div class="sup">
-            <p><em>k</em></p>
-          </div>
-        </div>
-        <div class="math">
-          <div>
-            = 
-          </div>
-          <div>
-            <p><em>e</em></p>
-          </div>
-          <div class="sup math">
-            <div>
-              ln 
-            </div>
-            <div style="transform: translateY(-.2em) scaleY(1.9); padding-right: .1em;">
-              (
-            </div>
-            <p>1 − <em>e</em></p>
             <div class="sup">
-              <p>−<em>kn</em> / <em>m</em></p>
+              <p><em>kn</em></p>
             </div>
-            <div style="transform: translateY(-.2em) scaleY(1.9); padding: 0em .1em;">
-              )
+          </div>
+        </div>
+        <p>Conversely, the probability of a specific bit being set to 1, is</p>
+        <div class="indented">
+          <div class="math">
+            <div>1</div>
+            <div class="binop">−</div>
+            <div style="line-height: 100%">
+              ⎛<br />
+              ⎝
+            </div>
+            <div>1</div>
+            <div class="binop">−</div>
+            <div class="ratio">
+              <div>1</div>
+              <div>
+                <p><em>m</em></p>
+              </div>
+            </div>
+            <div style="line-height: 100%">
+              ⎞<br />
+              ⎠
+            </div>
+            <div class="sup">
+              <p><em>kn</em></p>
+            </div>
+          </div>
+        </div>
+        <p>
+          Since a false positive requires <em>k</em> random bits to be set to 1,
+          the probability of a false positive after inserting
+          <em>n</em> elements is
+        </p>
+        <div class="indented">
+          <div class="math">
+            <div style="line-height: 100%">
+              ⎛<br />
+              ⎝
+            </div>
+            <div>1</div>
+            <div class="binop">−</div>
+            <div style="line-height: 100%">
+              ⎛<br />
+              ⎝
+            </div>
+            <div>1</div>
+            <div class="binop">−</div>
+            <div class="ratio">
+              <div>1</div>
+              <div>
+                <p><em>m</em></p>
+              </div>
+            </div>
+            <div style="line-height: 100%">
+              ⎞<br />
+              ⎠
+            </div>
+            <div class="sup">
+              <p><em>kn</em></p>
+            </div>
+            <div style="line-height: 100%">
+              ⎞<br />
+              ⎠
             </div>
             <div class="sup">
               <p><em>k</em></p>
             </div>
           </div>
         </div>
-        <div class="math">
-          <div>
-            = 
-          </div>
-          <div>
-            <p><em>e</em></p>
-          </div>
-          <div class="sup math">
+        <p>Using the formula for calculating <em>e</em>…</p>
+        <div class="indented">
+          <div class="math">
             <div>
-              <p><em>k</em> </p>
+              <p><em>e</em></p>
             </div>
-            <div>
-              ln 
+            <div class="binop">=</div>
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <div style="height: 0em">&nbsp;</div>
+              <div>lim</div>
+              <div
+                style="
+                  height: 0em;
+                  position: relative;
+                  top: -0.7em;
+                  font-size: 80%;
+                "
+              >
+                <p><em>x</em> → ∞</p>
+              </div>
             </div>
-            <div style="transform: translateY(-.2em) scaleY(1.9); padding-right: .1em;">
+            <div style="line-height: 100%">
+              ⎛<br />
+              ⎝
+            </div>
+            <div>1</div>
+            <div class="binop">−</div>
+            <div class="ratio">
+              <div>1</div>
+              <div>
+                <p><em>x</em></p>
+              </div>
+            </div>
+            <div style="line-height: 100%">
+              ⎞<br />
+              ⎠
+            </div>
+            <div class="sup">
+              <p>−<em>x</em></p>
+            </div>
+          </div>
+        </div>
+        <p>…we can approximate the probability of false positives as</p>
+        <div class="indented math" style="position: relative">
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding-right: 0.1em;
+            "
+          >
+            (
+          </div>
+          <p>1 − <em>e</em></p>
+          <div class="sup">
+            <p>−<em>kn</em> / <em>m</em></p>
+          </div>
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding: 0em 0.1em;
+            "
+          >
+            )
+          </div>
+          <div class="sup">
+            <p><em>k</em></p>
+          </div>
+        </div>
+        <h2>Optimal value for k</h2>
+        <p>
+          By fixing the <em>n</em> / <em>m</em> ratio in the previous equation,
+          we can solve for <em>k</em>, and find the optimal value for it. That
+          is, if you for example know you can spare 1 MB for the bit vector, and
+          you know that you will insert ~10,000 elements, you can calculate the
+          number of hash functions that
+          <strong>minimizes the false positives</strong> in subsequent lookups.
+        </p>
+        <p>Given <em>n</em> and <em>m</em> we want to minimize</p>
+        <div class="indented">
+          <div class="math">
+            <div style="visibility: hidden">= </div>
+            <div
+              style="
+                transform: translateY(-0.2em) scaleY(1.9);
+                padding-right: 0.1em;
+              "
+            >
               (
             </div>
             <p>1 − <em>e</em></p>
             <div class="sup">
               <p>−<em>kn</em> / <em>m</em></p>
             </div>
-            <div style="transform: translateY(-.2em) scaleY(1.9); padding: 0em .1em;">
+            <div
+              style="
+                transform: translateY(-0.2em) scaleY(1.9);
+                padding: 0em 0.1em;
+              "
+            >
               )
+            </div>
+            <div class="sup">
+              <p><em>k</em></p>
+            </div>
+          </div>
+          <div class="math">
+            <div>= </div>
+            <div>
+              <p><em>e</em></p>
+            </div>
+            <div class="sup math">
+              <div>ln </div>
+              <div
+                style="
+                  transform: translateY(-0.2em) scaleY(1.9);
+                  padding-right: 0.1em;
+                "
+              >
+                (
+              </div>
+              <p>1 − <em>e</em></p>
+              <div class="sup">
+                <p>−<em>kn</em> / <em>m</em></p>
+              </div>
+              <div
+                style="
+                  transform: translateY(-0.2em) scaleY(1.9);
+                  padding: 0em 0.1em;
+                "
+              >
+                )
+              </div>
+              <div class="sup">
+                <p><em>k</em></p>
+              </div>
+            </div>
+          </div>
+          <div class="math">
+            <div>= </div>
+            <div>
+              <p><em>e</em></p>
+            </div>
+            <div class="sup math">
+              <div>
+                <p><em>k</em> </p>
+              </div>
+              <div>ln </div>
+              <div
+                style="
+                  transform: translateY(-0.2em) scaleY(1.9);
+                  padding-right: 0.1em;
+                "
+              >
+                (
+              </div>
+              <p>1 − <em>e</em></p>
+              <div class="sup">
+                <p>−<em>kn</em> / <em>m</em></p>
+              </div>
+              <div
+                style="
+                  transform: translateY(-0.2em) scaleY(1.9);
+                  padding: 0em 0.1em;
+                "
+              >
+                )
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <p>In other words, we want to minimize</p>
-      <div class="indented math">
-        <div>
-          <p><em>k</em> </p>
-        </div>
-        <div>
-          ln 
-        </div>
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding-right: .1em;">
-          (
-        </div>
-        <p>1 − <em>e</em></p>
-        <div class="sup">
-          <p>−<em>kn</em> / <em>m</em></p>
-        </div>
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding: 0em .1em;">
-          )
-        </div>
-      </div>
-      <p>By simple rules of powers and logarithms, we know that <span class="no-wrap">k = −<em>m</em> / <em>n</em> ln(e<sup>−<em>kn</em> / <em>m</em></sup>)</span>, so we can rewrite the above as follows:</p>
-      <div class="indented math">
-        <div>
-          − 
-        </div>
-        <div class="ratio">
+        <p>In other words, we want to minimize</p>
+        <div class="indented math">
           <div>
-            <p><em>m</em></p>
+            <p><em>k</em> </p>
           </div>
-          <div>
-            <p><em>n</em></p>
+          <div>ln </div>
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding-right: 0.1em;
+            "
+          >
+            (
+          </div>
+          <p>1 − <em>e</em></p>
+          <div class="sup">
+            <p>−<em>kn</em> / <em>m</em></p>
+          </div>
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding: 0em 0.1em;
+            "
+          >
+            )
           </div>
         </div>
-        <div>
-           ln 
-        </div>
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding-right: .1em;">
-          (
-        </div>
-        <p><em>e</em></p>
-        <div class="sup">
-          <p>−<em>kn</em> / <em>m</em></p>
-        </div>
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding: 0em .1em;">
-          )
-        </div>
-        <div>
-           ln 
-        </div>
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding-right: .1em;">
-          (
-        </div>
-        <p>1 − <em>e</em></p>
-        <div class="sup">
-          <p>−<em>kn</em> / <em>m</em></p>
-        </div>
-        <div style="transform: translateY(-.2em) scaleY(1.9); padding: 0em .1em;">
-          )
-        </div>
-      </div>
-      <p>By symmetry, we see that this is minimized when <span class="no-wrap">e<sup>−<em>kn</em> / <em>m</em></sup> = 1 − e<sup>−<em>kn</em> / <em>m</em></sup></span>, i.e. when <span class="no-wrap">e<sup>−<em>kn</em> / <em>m</em></sup> = 0.5</span>. Intuitively this means that we should chose a <em>k</em> such that after insterting <em>n</em> elements, half of the <em>m</em> bits are set to true. Solving for <em>k</em> gives us</p>
-      <div class="indented math">
-        <div>
-          <p><em>k</em></p>
-        </div>
-        <div class="binop">
-          =
-        </div>
-        <div class="ratio">
-          <div>
-            <p><em>m</em> ln 2</p>
+        <p>
+          By simple rules of powers and logarithms, we know that
+          <span class="no-wrap"
+            >k = −<em>m</em> / <em>n</em> ln(e<sup
+              >−<em>kn</em> / <em>m</em></sup
+            >)</span
+          >, so we can rewrite the above as follows:
+        </p>
+        <div class="indented math">
+          <div>− </div>
+          <div class="ratio">
+            <div>
+              <p><em>m</em></p>
+            </div>
+            <div>
+              <p><em>n</em></p>
+            </div>
           </div>
-          <div>
-            <p><em>n</em></p>
+          <div> ln </div>
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding-right: 0.1em;
+            "
+          >
+            (
+          </div>
+          <p><em>e</em></p>
+          <div class="sup">
+            <p>−<em>kn</em> / <em>m</em></p>
+          </div>
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding: 0em 0.1em;
+            "
+          >
+            )
+          </div>
+          <div> ln </div>
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding-right: 0.1em;
+            "
+          >
+            (
+          </div>
+          <p>1 − <em>e</em></p>
+          <div class="sup">
+            <p>−<em>kn</em> / <em>m</em></p>
+          </div>
+          <div
+            style="
+              transform: translateY(-0.2em) scaleY(1.9);
+              padding: 0em 0.1em;
+            "
+          >
+            )
           </div>
         </div>
-      </div>
-      <p>With this value for <em>k</em> the optimal false positive rate is approximately 0.6185<sup><em>m</em> / <em>n</em></sup>.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>
+          By symmetry, we see that this is minimized when
+          <span class="no-wrap"
+            >e<sup>−<em>kn</em> / <em>m</em></sup
+            > = 1 − e<sup>−<em>kn</em> / <em>m</em></sup></span
+          >, i.e. when
+          <span class="no-wrap"
+            >e<sup>−<em>kn</em> / <em>m</em></sup
+            > = 0.5</span
+          >. Intuitively this means that we should chose a <em>k</em> such that
+          after insterting <em>n</em> elements, half of the <em>m</em> bits are
+          set to true. Solving for <em>k</em> gives us
+        </p>
+        <div class="indented math">
+          <div>
+            <p><em>k</em></p>
+          </div>
+          <div class="binop">=</div>
+          <div class="ratio">
+            <div>
+              <p><em>m</em> ln 2</p>
+            </div>
+            <div>
+              <p><em>n</em></p>
+            </div>
+          </div>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="bloom-filter-calculator.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <p>
+          With this value for <em>k</em> the optimal false positive rate is
+          approximately 0.6185<sup><em>m</em> / <em>n</em></sup
+          >.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="bloom-filter-calculator.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

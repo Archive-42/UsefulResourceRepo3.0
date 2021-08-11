@@ -1,159 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: Constructors | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Go doesn't have explicit constructors. The idiomatic way to set up new data structures is to use proper zero values coupled with factory functions." name="description">
-  <meta content="go, golang, constructor, initialize, struct, best practice, idiom, zero value, factory" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: Constructors | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Go doesn't have explicit constructors. The idiomatic way to set up new data structures is to use proper zero values coupled with factory functions."
+      name="description"
+    />
+    <meta
+      content="go, golang, constructor, initialize, struct, best practice, idiom, zero value, factory"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Further Reading</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="inheritance-object-oriented.html">Inheritance and object-oriented programming</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="default-zero-value.html">Default value of struct, string, slice, map</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="public-private.html">Public vs. private</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://golang.org/doc/effective_go.html#composite_literals">Constructors and composite literals</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Effective Go</span>
-      </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: Constructors</h1>
-      <p>Go doesn't have explicit constructors. The idiomatic way to set up new data structures is to use proper <strong>zero values</strong> coupled with <strong>factory functions</strong>.</p>
-      <h2>Zero value</h2>
-      <p>Try to make the default <a href="default-zero-value.html"><strong>zero value</strong></a> useful and document its behavior. Sometimes this is all that's needed:</p>
-      <pre><code>// A StopWatch is a simple clock utility.
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Further Reading</h2>
+        <div style="margin-bottom: 1em">
+          <a href="inheritance-object-oriented.html"
+            >Inheritance and object-oriented programming</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="default-zero-value.html"
+            >Default value of struct, string, slice, map</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="public-private.html">Public vs. private</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://golang.org/doc/effective_go.html#composite_literals"
+            >Constructors and composite literals</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Effective Go</span
+          >
+        </div>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: Constructors</h1>
+        <p>
+          Go doesn't have explicit constructors. The idiomatic way to set up new
+          data structures is to use proper <strong>zero values</strong> coupled
+          with <strong>factory functions</strong>.
+        </p>
+        <h2>Zero value</h2>
+        <p>
+          Try to make the default
+          <a href="default-zero-value.html"><strong>zero value</strong></a>
+          useful and document its behavior. Sometimes this is all that's needed:
+        </p>
+        <pre><code>// A StopWatch is a simple clock utility.
 // Its zero value is an idle clock with 0 total time.
 type StopWatch struct {
         start   time.Time
@@ -161,44 +252,71 @@ type StopWatch struct {
         running bool
 }
 </code></pre>
-      <ul>
-        <li><code>StopWatch</code> takes advantage of the useful zero values of <code>time.Time</code>, <code>time.Duration</code> and <code>bool</code>.</li>
-        <li>In turn, users of <code>StopWatch</code> can benefit from <em>its</em> useful zero value.</li>
-      </ul>
-      <pre><code>var clock StopWatch // Ready to use, no initialization needed.
+        <ul>
+          <li>
+            <code>StopWatch</code> takes advantage of the useful zero values of
+            <code>time.Time</code>, <code>time.Duration</code> and
+            <code>bool</code>.
+          </li>
+          <li>
+            In turn, users of <code>StopWatch</code> can benefit from
+            <em>its</em> useful zero value.
+          </li>
+        </ul>
+        <pre><code>var clock StopWatch // Ready to use, no initialization needed.
 </code></pre>
-      <h2>Factory</h2>
-      <p>If the zero value doesn't suffice, use factory functions named <code>NewFoo</code> or just <code>New</code>:</p>
-      <pre><code>scanner := bufio.NewScanner(os.Stdin)
+        <h2>Factory</h2>
+        <p>
+          If the zero value doesn't suffice, use factory functions named
+          <code>NewFoo</code> or just <code>New</code>:
+        </p>
+        <pre><code>scanner := bufio.NewScanner(os.Stdin)
 err := errors.New("Houston, we have a problem")
 </code></pre>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="go/constructor-best-practice.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="go/constructor-best-practice.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

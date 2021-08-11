@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Alon Kochba on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Alon Kochba</name>
+  </author>
+  <link href="https://web.dev/authors/alonko/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/9zVJ5KLkDStLNSz2ZxPE.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Our latest news, updates, and stories by Alon Kochba.</subtitle>
+  
+  
+  <entry>
+    <title>How Wix improved website performance by evolving their infrastructure</title>
+    <link href="https://web.dev/wix/"/>
+    <updated>2021-03-10T00:00:00Z</updated>
+    <id>https://web.dev/wix/</id>
+    <content type="text/html" mode="escaped">&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Alon leads the core backend team at &lt;a href=&quot;https://www.wix.com/&quot; rel=&quot;noopener&quot;&gt;Wix&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Thanks to leveraging industry standards, cloud providers, and CDN capabilities,
+combined with a major rewrite of our website runtime, the percentage of Wix
+sites reaching good 75th percentile scores on all Core Web Vitals (CWV) metrics
+&lt;strong&gt;more than tripled&lt;/strong&gt; year over year, according to data from
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report&quot; rel=&quot;noopener&quot;&gt;CrUX&lt;/a&gt;
+and
+&lt;a href=&quot;https://httparchive.org/faq#how-do-i-use-bigquery-to-write-custom-queries-over-the-data&quot; rel=&quot;noopener&quot;&gt;HTTPArchive&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Wix adopted a performance-oriented culture, and further improvements will
+continue rolling out to users. As we focus on performance KPIs, we expect to see
+the number of sites passing CWV thresholds grow.&lt;/p&gt;
+&lt;h2 id=&quot;overview&quot;&gt;Overview &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#overview&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The world of performance is &lt;a href=&quot;https://youtu.be/ctavZT87syI&quot; rel=&quot;noopener&quot;&gt;beautifully complex&lt;/a&gt;,
+with many variables and intricacies. Research shows that site &lt;a href=&quot;https://web.dev/milliseconds-make-millions&quot;&gt;speed has a
+direct impact on conversion rates and revenues&lt;/a&gt; for
+businesses. In recent years, the industry has put more emphasis on performance
+visibility and &lt;a href=&quot;https://web.dev/fast&quot;&gt;making the web faster&lt;/a&gt;. Starting in May 2021, &lt;a href=&quot;https://developers.google.com/search/blog/2020/11/timing-for-page-experience&quot; rel=&quot;noopener&quot;&gt;page
+experience
+signals&lt;/a&gt;
+will be included in Google Search ranking.&lt;/p&gt;
+&lt;p&gt;The unique challenge at Wix is supporting &lt;strong&gt;millions&lt;/strong&gt; of sites, some of which
+were built &lt;em&gt;many years ago&lt;/em&gt; and have not been updated since. We have various
+&lt;a href=&quot;https://support.wix.com/en/performance-and-technical-issues/site-performance&quot; rel=&quot;noopener&quot;&gt;tools and
+articles&lt;/a&gt;
+to assist our users on what they can do to analyze and improve the performance
+of their sites.&lt;/p&gt;
+&lt;p&gt;Wix is a managed environment and not everything is in the hands of the user.
+Sharing common infrastructures presents many challenges for all these sites, but
+also opens opportunities for major enhancements across the board, i.e.
+leveraging the economies of scale.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;&lt;em&gt;In this post I will focus on enhancements done around serving the initial HTML, which
+initiates the page loading process.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;speaking-in-a-common-language&quot;&gt;Speaking in a common language &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#speaking-in-a-common-language&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;One of the core difficulties with performance is finding a common terminology to
+discuss different aspects of the user experience, while considering both the
+technical and perceived performance. Using a well-defined, common language
+within the organization enabled us to easily discuss and categorize the
+different technical parts and trade-offs, clarified our performance reports and
+tremendously helped to understand what aspects we should focus on improving
+first.&lt;/p&gt;
+&lt;p&gt;We adjusted all our monitoring and internal discussions to include industry
+standard metrics such as &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Web Vitals&lt;/a&gt;, which include:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A diagram of the 2020 Core Web Vitals: LCP, FID, and CLS.&quot; decoding=&quot;async&quot; height=&quot;215&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/PLF62sx8lHkpKbnvYKKR.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Core Web Vitals&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;site-complexity-and-performance-scores&quot;&gt;Site complexity and performance scores &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#site-complexity-and-performance-scores&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;It&#39;s pretty easy to create a site that loads instantly so long as you
+&lt;a href=&quot;https://justinjackson.ca/words.html&quot; rel=&quot;noopener&quot;&gt;make it very simple&lt;/a&gt; using only
+HTML and serve it via a CDN.&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-left&quot;&gt;
+  &lt;img alt=&quot;PageSpeed Insights Example&quot; decoding=&quot;async&quot; height=&quot;647&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;However, the reality is that sites are getting more and more complex and
+sophisticated, operating more like applications rather than documents, and
+supporting functionalities such as blogs, e-commerce solutions, custom code,
+etc.&lt;/p&gt;
+&lt;p&gt;Wix offers a very large &lt;a href=&quot;https://www.wix.com/website/templates&quot; rel=&quot;noopener&quot;&gt;variety of
+templates&lt;/a&gt;, enabling its users to easily
+build a site with many business capabilities. Those additional features often
+come with &lt;em&gt;some&lt;/em&gt; performance costs.&lt;/p&gt;
+&lt;h2 id=&quot;the-journey&quot;&gt;The journey &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#the-journey&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;in-the-beginning-there-was-html&quot;&gt;In the beginning, there was HTML &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#in-the-beginning-there-was-html&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Every time a webpage is loaded, it always starts with an initial request to a
+URL in order to retrieve the HTML document. This HTML response triggers all the
+additional client requests and browser logic to run and render your site. This
+is the most important part of the page loading, because nothing happens until
+the beginning of the response arrives (known as TTFB - time to first byte).&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;WebPageTest First View&quot; decoding=&quot;async&quot; height=&quot;411&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/b1KKSlUQQTuNCDj4ndyJ.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;WebPageTest First View&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h4 id=&quot;the-past:-client-side-rendering-(csr)&quot;&gt;The past: client-side rendering (CSR) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#the-past:-client-side-rendering-(csr)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When operating large scale systems, you always have trade-offs you need to
+consider, such as performance, reliability and costs. Up to a few years ago, Wix
+used client-side rendering (CSR), in which the actual HTML content was generated
+via JavaScript on the client side (i.e. in the browser) allowing us to support a
+high scale of sites without having huge backend operational costs.&lt;/p&gt;
+&lt;p&gt;CSR enabled us to use a common HTML document, which was essentially empty. All
+it did was trigger the download of the required code and data which was then
+used to generate the full HTML on the client device.&lt;/p&gt;
+&lt;h4 id=&quot;today:-server-side-rendering-(ssr)&quot;&gt;Today: server-side rendering (SSR) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#today:-server-side-rendering-(ssr)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A few years ago we transitioned to server-side rendering (SSR), as that was
+beneficial both to SEO and performance, improving initial page visibility times
+and ensuring better indexing for search engines that do not have full support
+for running JavaScript.&lt;/p&gt;
+&lt;p&gt;This approach improved the visibility experience, especially on slower
+devices/connections, and opened the door for further performance optimizations.
+However, it also meant that for each web page request, a unique HTML response
+was generated on the fly, which is &lt;strong&gt;far&lt;/strong&gt; from optimal, especially for sites
+with a large amount of views.&lt;/p&gt;
+&lt;h3 id=&quot;introducing-caching-in-multiple-locations&quot;&gt;Introducing caching in multiple locations &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#introducing-caching-in-multiple-locations&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The HTML for each site was mostly static, but it had a few caveats:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It frequently changes. Each time a user edits their site, or makes changes in site data,
+such as on the website store inventory.&lt;/li&gt;
+&lt;li&gt;It had certain data and cookies that were &lt;strong&gt;visitor specific&lt;/strong&gt;,
+meaning two people visiting the same site would see somewhat different HTML. For example,
+to support products features such as remembering what items a visitor put in the cart,
+or the chat the visitor started with the business earlier, and more.&lt;/li&gt;
+&lt;li&gt;Not all pages are cacheable. For example a page with custom user code on it,
+that displays the current time as part of the document, is not eligible for caching.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Initially, we took the relatively safe approach of caching the HTML &lt;span style=&quot;text-decoration:underline;&quot;&gt;without&lt;/span&gt; visitor data, and then only
+modified specific parts of the HTML response on the fly for each visitor, for
+each cache hit.&lt;/p&gt;
+&lt;h4 id=&quot;in-house-cdn-solution&quot;&gt;In-house CDN solution &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#in-house-cdn-solution&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;We did this by deploying an in-house solution: Using &lt;a href=&quot;https://varnish-cache.org/&quot; rel=&quot;noopener&quot;&gt;Varnish HTTP
+Cache&lt;/a&gt; for proxying and caching, Kafka for
+invalidation messages, and a Scala/Netty-based service which proxies these HTML
+responses, but mutates the HTML and adds visitor-specific data and cookies to
+the cached response.&lt;/p&gt;
+&lt;p&gt;This solution enabled us to deploy these &lt;strong&gt;slim&lt;/strong&gt; components in many more
+geographic locations and multiple cloud provider regions, which are spread
+across the world. In 2019, we introduced &lt;strong&gt;over 15 new regions&lt;/strong&gt;, and gradually
+enabled caching for over 90% of our page views that were eligible for caching.
+Serving sites from additional locations reduced the &lt;a href=&quot;https://www.cloudping.co/grid&quot; rel=&quot;noopener&quot;&gt;network
+latency&lt;/a&gt; between the clients and the servers
+serving the HTML response, by bringing the content closer to the website&#39;s
+visitors.&lt;/p&gt;
+&lt;p&gt;We also started caching certain read-only API responses by using the same
+solution and invalidating the cache on any change to the site content. For
+example, the list of blog posts on the site is cached and invalidated when a
+post is published/modified.&lt;/p&gt;
+&lt;h4 id=&quot;reducing-complexities&quot;&gt;Reducing complexities &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#reducing-complexities&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Implementing caching improved performance substantially, mostly on the
+&lt;a href=&quot;https://web.dev/time-to-first-byte/&quot;&gt;TTFB&lt;/a&gt; and &lt;a href=&quot;https://web.dev/fcp/&quot;&gt;FCP&lt;/a&gt; phases, and improved our
+reliability by serving the content from a location closer to the end user.&lt;/p&gt;
+&lt;p&gt;However, the need to modify the HTML for each response introduced an unnecessary
+complexity that, if removed, presented an opportunity for further performance
+improvements.&lt;/p&gt;
+&lt;h3 id=&quot;browser-caching-(and-preparations-for-cdns)&quot;&gt;Browser caching (and preparations for CDNs) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#browser-caching-(and-preparations-for-cdns)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-figure&quot;&gt;
+  &lt;div class=&quot;w-stats&quot;&gt;
+    &lt;div class=&quot;w-stat&quot;&gt;
+     &lt;p class=&quot;w-stat__figure&quot;&gt;~ 13&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+     &lt;p class=&quot;w-stat__desc&quot;&gt;HTML requests served directly from the browser cache,
+     saving much bandwidth and reducing loading times for repeat views&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The next step was to actually remove this visitor-specific data from the HTML
+&lt;span style=&quot;text-decoration:underline;&quot;&gt;entirely&lt;/span&gt;, and retrieve it from a
+separate endpoint, called by the client for this purpose, after the HTML has
+arrived.&lt;/p&gt;
+&lt;p&gt;We carefully migrated this data and cookies to a new endpoint, which is called
+on each page load, but returns a slim JSON, which is required only for the
+&lt;a href=&quot;https://reactjs.org/docs/react-dom.html#hydrate&quot; rel=&quot;noopener&quot;&gt;hydration process&lt;/a&gt;, to reach
+full page interactivity.&lt;/p&gt;
+&lt;p&gt;This allowed us to enable browser caching of the HTML, which means that browsers
+now save the HTML response for repeating visits, and only call the server to
+validate that the content hasn&#39;t changed. This is done using &lt;a href=&quot;https://en.wikipedia.org/wiki/HTTP_ETag&quot; rel=&quot;noopener&quot;&gt;HTTP
+ETag&lt;/a&gt;, which is basically an identifier
+assigned to a specific version of an HTML resource. If the content is still the
+same, a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304&quot; rel=&quot;noopener&quot;&gt;304 Not
+Modified&lt;/a&gt; response
+is sent by our servers to the client, without a body.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;ALT_TEXT_HERE&quot; decoding=&quot;async&quot; height=&quot;410&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/hr1xnQccJEkHTBGxS5wF.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;WebPageTest Repeat View&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;In addition, this change means that our HTML is no longer visitor-specific and
+contains no cookies. In other words it can basically be cached anywhere, opening
+the door to using CDN providers that have much better geo presence in hundreds
+of locations around the world.&lt;/p&gt;
+&lt;h3 id=&quot;dns-ssl-and-http2&quot;&gt;DNS, SSL and HTTP/2 &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#dns-ssl-and-http2&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With caching enabled, wait times were reduced and other important parts of the
+initial connection became more substantial. Enhancing our networking
+infrastructure and monitoring enabled us to improve our DNS, connection, and SSL
+times.&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;A response time graph.&quot; decoding=&quot;async&quot; height=&quot;441&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/Uuvh9xTItQ8wMA9s13RP.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/HTTP/2&quot; rel=&quot;noopener&quot;&gt;HTTP/2&lt;/a&gt; was enabled for all user domains,
+reducing both the amount of connections required and the overhead that comes
+with each new connection. This was a relatively easy change to deploy, while
+taking advantage of the &lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/http2&quot; rel=&quot;noopener&quot;&gt;performance and resilience
+benefits&lt;/a&gt; that
+come with HTTP/2.&lt;/p&gt;
+&lt;h3 id=&quot;brotli-compression-(vs.-gzip)&quot;&gt;Brotli compression (vs. gzip) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#brotli-compression-(vs.-gzip)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-figure&quot;&gt;
+  &lt;div class=&quot;w-stats&quot;&gt;
+    &lt;div class=&quot;w-stat&quot;&gt;
+     &lt;p class=&quot;w-stat__figure&quot;&gt;21 - 25&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+     &lt;p class=&quot;w-stat__desc&quot;&gt;Reduction of median file transfer size&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Traditionally, all our files were compressed using &lt;a href=&quot;https://en.wikipedia.org/wiki/Gzip&quot; rel=&quot;noopener&quot;&gt;gzip
+compression&lt;/a&gt;, which is the most prevalent
+HTML compression option on the web. This compression protocol was initially
+implemented almost 30 years ago!&lt;/p&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;img alt=&quot;Brotli compression&quot; decoding=&quot;async&quot; height=&quot;805&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/h7KzeAfg2THMdDGMYvlR.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    &lt;a href=&quot;https://tools.paulcalvano.com/compression.php&quot;&gt;Brotli Compression Level Estimator&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The newer &lt;a href=&quot;https://en.wikipedia.org/wiki/Brotli&quot; rel=&quot;noopener&quot;&gt;Brotli compression&lt;/a&gt; introduces
+compression improvements with almost no trade-offs, and is slowly becoming more
+popular, as described in the yearly Web Almanac &lt;a href=&quot;https://almanac.httparchive.org/en/2020/compression#what-type-of-content-should-we-compress&quot; rel=&quot;noopener&quot;&gt;Compression
+chapter&lt;/a&gt;.
+It has been supported by &lt;a href=&quot;https://caniuse.com/brotli&quot; rel=&quot;noopener&quot;&gt;all the major browsers&lt;/a&gt;
+for a while.&lt;/p&gt;
+&lt;p&gt;We enabled Brotli support on our nginx proxies in the edges, for all clients
+that support it.&lt;/p&gt;
+&lt;p&gt;Moving to use Brotli compression reduced our median file transfer sizes by
+&lt;strong&gt;21% to 25%&lt;/strong&gt; resulting in a reduced bandwidth usage and improved loading times.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Mobile and Desktop Median Response Sizes&quot; decoding=&quot;async&quot; height=&quot;173&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Median Response Sizes&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;content-delivery-networks-(cdns)&quot;&gt;Content delivery networks (CDNs) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#content-delivery-networks-(cdns)&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;dynamic-cdn-selection&quot;&gt;Dynamic CDN selection &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#dynamic-cdn-selection&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;At Wix, we have always used &lt;a href=&quot;https://web.dev/content-delivery-networks/&quot;&gt;CDNs&lt;/a&gt; to serve all the
+JavaScript code and images on user websites.&lt;/p&gt;
+&lt;p&gt;Recently, we integrated with a solution by our DNS provider, to automatically
+select the best performing CDN according to the client&#39;s network and origin.
+This enables us to serve the static files from the best location for each
+visitor, and avoid availability issues on a certain CDN.&lt;/p&gt;
+&lt;h3 id=&quot;coming-soon...-user-domains-served-by-cdns&quot;&gt;Coming soon… user domains served by CDNs &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#coming-soon...-user-domains-served-by-cdns&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The final piece of the puzzle is serving the last, and most critical part,
+through a CDN: the HTML from the user domain.&lt;/p&gt;
+&lt;p&gt;As described above, we created our own in-house solution to cache and serve the
+site-specific HTML and API results. Maintaining this solution in so many new
+regions also has its operational costs, and adding new locations becomes a
+process we need to manage and continually optimize.&lt;/p&gt;
+&lt;p&gt;We are currently integrating with various CDN providers to support serving the
+entire Wix site directly from CDN locations to improve the distribution of our
+servers across the globe and thus further improve response times. This is a
+challenge due to the large amount of domains we serve, which require SSL
+termination at the edge.&lt;/p&gt;
+&lt;p&gt;Integrating with CDNs brings Wix websites closer than ever to the customer and
+comes with more improvements to the loading experience, including newer
+technologies such as HTTP/3 without added effort on our side.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;a-few-words-on-performance-monitoring&quot;&gt;A few words on performance monitoring &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#a-few-words-on-performance-monitoring&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If you run a Wix site, you&#39;re probably wondering how this translates to your Wix
+site performance results, and how we compare against other website platforms.&lt;/p&gt;
+&lt;p&gt;Most of the work done above has been deployed in the past year, and some is
+still being rolled out.&lt;/p&gt;
+&lt;p&gt;The Web Almanac by HTTPArchive recently published the &lt;a href=&quot;https://almanac.httparchive.org/en/2020&quot; rel=&quot;noopener&quot;&gt;2020
+edition&lt;/a&gt; which includes an excellent
+chapter on &lt;a href=&quot;https://almanac.httparchive.org/en/2020/cms&quot; rel=&quot;noopener&quot;&gt;CMS user experience&lt;/a&gt;.
+Keep in mind that many of the numbers described in this article are from the
+middle of 2020.&lt;/p&gt;
+&lt;p&gt;We look forward to seeing the updated report in 2021, and are actively
+monitoring
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/&quot; rel=&quot;noopener&quot;&gt;CrUX&lt;/a&gt;
+reports for our sites as well as our internal performance metrics.&lt;/p&gt;
+&lt;p&gt;We are committed to continuously improve loading times and provide our users
+with a platform where they can build sites as they imagine, without compromising
+on performance.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;LCP, Speed Index and FCP for a mobile site over time&quot; decoding=&quot;async&quot; height=&quot;259&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;LCP, Speed Index and FCP for a mobile site over time&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;DebugBear recently released a very interesting &lt;a href=&quot;https://www.debugbear.com/blog/website-builder-performance-review&quot; rel=&quot;noopener&quot;&gt;Website Builder Performance
+Review&lt;/a&gt;,
+which touches on some of the areas I mentioned above and examines the
+performance of very simple sites built on each platform. This
+&lt;a href=&quot;https://matt05041.wixsite.com/bizsolutions&quot; rel=&quot;noopener&quot;&gt;site&lt;/a&gt; was built almost two years
+ago, and not modified since, but the platform is continually improving, and the
+site performance along with it, which can be witnessed by &lt;a href=&quot;https://www.debugbear.com/project/175/pageLoad/873/overview?dateRange=2019-03-31T21%3A00Z-to-2021-03-31T21%3A59Z&quot; rel=&quot;noopener&quot;&gt;viewing its
+data&lt;/a&gt;
+over the past year and a half.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We hope our experience inspires you to adopt a performance-oriented culture at
+your organisation and that the details above are helpful and applicable to your
+platform or site.&lt;/p&gt;
+&lt;p&gt;To sum up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pick a set of metrics that you can track consistently using tools endorsed by
+the industry. We recommend Core Web Vitals.&lt;/li&gt;
+&lt;li&gt;Leverage browser caching and CDNs.&lt;/li&gt;
+&lt;li&gt;Migrate to HTTP/2 (or HTTP/3 if possible).&lt;/li&gt;
+&lt;li&gt;Use Brotli compression.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thanks for learning our story and we invite you to ask questions, share ideas on
+&lt;a href=&quot;https://twitter.com/alonkochba&quot; rel=&quot;noopener&quot;&gt;Twitter&lt;/a&gt; and
+&lt;a href=&quot;https://github.com/alonkochba&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt; and join the web performance
+conversation on your favorite channels.&lt;/p&gt;
+&lt;h2 id=&quot;so-how-does-your-recent-wix-site-performance-look-like&quot;&gt;So, how does &lt;strong&gt;your&lt;/strong&gt; recent Wix site performance look like? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/wix/#so-how-does-your-recent-wix-site-performance-look-like&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+</content>
+    <author>
+      <name>Alon Kochba</name>
+    </author>
+  </entry>
+</feed>

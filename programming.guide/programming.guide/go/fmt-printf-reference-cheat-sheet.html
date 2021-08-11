@@ -1,437 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: Print with fmt cheat sheet | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="The most common formatting verbs and flags in package fmt at a glance." name="description">
-  <meta content="go, golang, fmt, printf, reference, format, verb, flag, width, padding" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: Print with fmt cheat sheet | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="The most common formatting verbs and flags in package fmt at a glance."
+      name="description"
+    />
+    <meta
+      content="go, golang, fmt, printf, reference, format, verb, flag, width, padding"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Further Reading</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://golang.org/pkg/fmt">Package fmt</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">golang.org</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://blog.golang.org/strings">Strings, bytes, runes and characters in Go</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Blog</span>
-      </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: Print with fmt cheat sheet</h1>
-      <p>A <strong>format specifier</strong> is a string that contains the text you want to format plus some placeholders, called <strong>verbs</strong>, that tell the functions in the <a href="https://golang.org/pkg/fmt"><code>fmt</code></a> package how to format your arguments.</p>
-      <p>In this example:</p>
-      <pre><code>fmt.Printf("Hex: %x.\n", 255) <span class="comment">// Output: "Hex: ff."</span></code></pre>
-      <ul>
-        <li>the <strong>format specifier</strong> is <code>"Hex: %x.\n"</code>,</li>
-        <li>the <strong>verb</strong> <code>%x</code> formats <code>255</code> in base 16 notation, and</li>
-        <li>the <strong>special value</strong> <code>\n</code> is a line feed.</li>
-      </ul>
-      <p>Use the special verb <code>%%</code>, which consumes no argument, to write a literal percent sign:</p>
-      <pre><code>fmt.Printf("%d %%", 50) <span class="comment">// Output: "50 %"</span></code></pre>
-      <h2>Generic formatting</h2>
-      <p>Argument: <code>[]int{1, 2}</code></p>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Formatting</th>
-            <th>Description</th>
-            <th>Verb</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="border-bottom: 0;">[1 2]</td>
-            <td style="border-bottom: 0;">Default format</td>
-            <td style="border-bottom: 0;"><code>%v</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">[]int{1, 2}</td>
-            <td style="padding-top: 0;">Go-syntax format</td>
-            <td style="padding-top: 0;"><code>%#v</code></td>
-          </tr>
-          <tr>
-            <td>[]int</td>
-            <td>The type of the value</td>
-            <td><code>%T</code></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Integer</h2>
-      <p>Argument: <code>109</code></p>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Formatting</th>
-            <th>Description</th>
-            <th>Verb</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="border-bottom: 0;">109</td>
-            <td style="border-bottom: 0;">Base 10</td>
-            <td style="border-bottom: 0;"><code>%d</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">+109</td>
-            <td style="padding-top: 0;">Always show sign</td>
-            <td style="padding-top: 0;"><code>%+d</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;">␣109</td>
-            <td style="border-bottom: 0;">Width 4, right justify</td>
-            <td style="border-bottom: 0;"><code>%4d</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0; padding-top: 0;">109␣</td>
-            <td style="border-bottom: 0; padding-top: 0;">Width 4, left justify</td>
-            <td style="border-bottom: 0; padding-top: 0;"><code>%-4d</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">0109</td>
-            <td style="padding-top: 0;">Width 4, pad with zero</td>
-            <td style="padding-top: 0;"><code>%04d</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;">m</td>
-            <td style="border-bottom: 0;">Character</td>
-            <td style="border-bottom: 0;"><code>%c</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">'m'</td>
-            <td style="padding-top: 0;">Quoted character</td>
-            <td style="padding-top: 0;"><code>%q</code></td>
-          </tr>
-          <tr>
-            <td>1101101</td>
-            <td>Base 2</td>
-            <td><code>%b</code></td>
-          </tr>
-          <tr>
-            <td>155</td>
-            <td>Base 8</td>
-            <td><code>%o</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;">6d</td>
-            <td style="border-bottom: 0;">Base 16, lowercase</td>
-            <td style="border-bottom: 0;"><code>%x</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0; padding-top: 0;">6D</td>
-            <td style="border-bottom: 0; padding-top: 0;">Base 16, uppercase</td>
-            <td style="border-bottom: 0; padding-top: 0;"><code>%X</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">0x6d</td>
-            <td style="padding-top: 0;">Base 16, with leading 0x</td>
-            <td style="padding-top: 0;"><code>%#x</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;">U+006D</td>
-            <td style="border-bottom: 0;">Unicode</td>
-            <td style="border-bottom: 0;"><code>%U</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">U+006D 'm'</td>
-            <td style="padding-top: 0;">Unicode with character</td>
-            <td style="padding-top: 0;"><code>%#U</code></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Boolean</h2>
-      <p>Use <code>%t</code> to format a boolean as <code>true</code> or <code>false</code>.</p>
-      <h2>Pointer</h2>
-      <p>Use <code>%p</code> to format a pointer in base 16 notation with leading <code>0x</code>.</p>
-      <h2>Float</h2>
-      <p>Argument: <code>123.456</code></p>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Formatting</th>
-            <th>Description</th>
-            <th>Verb</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1.234560e+02</td>
-            <td>Scientific notation</td>
-            <td><code>%e</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;">123.456000</td>
-            <td style="border-bottom: 0;">Decimal point, no exponent</td>
-            <td style="border-bottom: 0;"><code>%f</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0; padding-top: 0;">123.46</td>
-            <td style="border-bottom: 0; padding-top: 0;">Default width, precision 2</td>
-            <td style="border-bottom: 0; padding-top: 0;"><code>%.2f</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">␣␣123.46</td>
-            <td style="padding-top: 0;">Width 8, precision 2</td>
-            <td style="padding-top: 0;"><code>%8.2f</code></td>
-          </tr>
-          <tr>
-            <td>123.456</td>
-            <td>Exponent as needed, necessary digits only</td>
-            <td><code>%g</code></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>String or byte slice</h2>
-      <p>Argument: <code>"café"</code></p>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Formatting</th>
-            <th>Description</th>
-            <th>Verb</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="border-bottom: 0;">café</td>
-            <td style="border-bottom: 0;">Plain string</td>
-            <td style="border-bottom: 0;"><code>%s</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0; padding-top: 0;">␣␣café</td>
-            <td style="border-bottom: 0; padding-top: 0;">Width 6, right justify</td>
-            <td style="border-bottom: 0; padding-top: 0;"><code>%6s</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">café␣␣</td>
-            <td style="padding-top: 0;">Width 6, left justify</td>
-            <td style="padding-top: 0;"><code>%-6s</code></td>
-          </tr>
-          <tr>
-            <td>"café"</td>
-            <td>Quoted string</td>
-            <td><code>%q</code></td>
-          </tr>
-          <tr>
-            <td style="border-bottom: 0;">636166c3a9</td>
-            <td style="border-bottom: 0;">Hex dump of byte values</td>
-            <td style="border-bottom: 0;"><code>%x</code></td>
-          </tr>
-          <tr>
-            <td style="padding-top: 0;">63 61 66 c3 a9</td>
-            <td style="padding-top: 0;">Hex dump with spaces</td>
-            <td style="padding-top: 0;"><code>% x</code></td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>Special values</h2>
-      <table class="white">
-        <thead>
-          <tr>
-            <th>Value</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>\a</code></td>
-            <td>U+0007 alert or bell</td>
-          </tr>
-          <tr>
-            <td><code>\b</code></td>
-            <td>U+0008 backspace</td>
-          </tr>
-          <tr>
-            <td><code>\f</code></td>
-            <td>U+000C form feed</td>
-          </tr>
-          <tr>
-            <td><code>\n</code></td>
-            <td>U+000A line feed or newline</td>
-          </tr>
-          <tr>
-            <td><code>\r</code></td>
-            <td>U+000D carriage return</td>
-          </tr>
-          <tr>
-            <td><code>\t</code></td>
-            <td>U+0009 horizontal tab</td>
-          </tr>
-          <tr>
-            <td><code>\v</code></td>
-            <td>U+000b vertical tab</td>
-          </tr>
-          <tr>
-            <td><code>\\</code></td>
-            <td>U+005c backslash</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>Arbitrary values can be encoded with backslash escapes. There are four different formats:</p>
-      <ul>
-        <li><code>\x</code> followed by exactly two hexadecimal digits;</li>
-        <li><code>\</code> followed by exactly three octal digits.</li>
-        <li><code>\u</code> followed by exactly four hexadecimal digits;</li>
-        <li><code>\U</code> followed by exactly eight hexadecimal digits;</li>
-      </ul>
-      <p>The escapes <code>\u</code> and <code>\U</code> represent Unicode code points.</p>
-      <p>These special values can be used in any <code>""</code> string literal:</p>
-      <pre><code>fmt.Println("\\caf\u00e9") <span class="comment">// Output: \café</span></code></pre>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="go/fmt-printf-reference-cheat-sheet.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <h2>Further Reading</h2>
+        <div style="margin-bottom: 1em">
+          <a href="string-functions-reference-cheat-sheet.html"
+            >String handling cheat sheet</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://golang.org/pkg/fmt">Package fmt</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >golang.org</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://blog.golang.org/strings"
+            >Strings, bytes, runes and characters in Go</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >The Go Blog</span
+          >
+        </div>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: Print with fmt cheat sheet</h1>
+        <p>
+          A <strong>format specifier</strong> is a string that contains the text
+          you want to format plus some placeholders, called
+          <strong>verbs</strong>, that tell the functions in the
+          <a href="https://golang.org/pkg/fmt"><code>fmt</code></a> package how
+          to format your arguments.
+        </p>
+        <p>In this example:</p>
+        <pre><code>fmt.Printf("Hex: %x.\n", 255) <span class="comment">// Output: "Hex: ff."</span></code></pre>
+        <ul>
+          <li>
+            the <strong>format specifier</strong> is <code>"Hex: %x.\n"</code>,
+          </li>
+          <li>
+            the <strong>verb</strong> <code>%x</code> formats
+            <code>255</code> in base 16 notation, and
+          </li>
+          <li>
+            the <strong>special value</strong> <code>\n</code> is a line feed.
+          </li>
+        </ul>
+        <p>
+          Use the special verb <code>%%</code>, which consumes no argument, to
+          write a literal percent sign:
+        </p>
+        <pre><code>fmt.Printf("%d %%", 50) <span class="comment">// Output: "50 %"</span></code></pre>
+        <h2>Generic formatting</h2>
+        <p>Argument: <code>[]int{1, 2}</code></p>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Formatting</th>
+              <th>Description</th>
+              <th>Verb</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border-bottom: 0">[1 2]</td>
+              <td style="border-bottom: 0">Default format</td>
+              <td style="border-bottom: 0"><code>%v</code></td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">[]int{1, 2}</td>
+              <td style="padding-top: 0">Go-syntax format</td>
+              <td style="padding-top: 0"><code>%#v</code></td>
+            </tr>
+            <tr>
+              <td>[]int</td>
+              <td>The type of the value</td>
+              <td><code>%T</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Integer</h2>
+        <p>Argument: <code>109</code></p>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Formatting</th>
+              <th>Description</th>
+              <th>Verb</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border-bottom: 0">109</td>
+              <td style="border-bottom: 0">Base 10</td>
+              <td style="border-bottom: 0"><code>%d</code></td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">+109</td>
+              <td style="padding-top: 0">Always show sign</td>
+              <td style="padding-top: 0"><code>%+d</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">␣109</td>
+              <td style="border-bottom: 0">Width 4, right justify</td>
+              <td style="border-bottom: 0"><code>%4d</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0; padding-top: 0">109␣</td>
+              <td style="border-bottom: 0; padding-top: 0">
+                Width 4, left justify
+              </td>
+              <td style="border-bottom: 0; padding-top: 0">
+                <code>%-4d</code>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">0109</td>
+              <td style="padding-top: 0">Width 4, pad with zero</td>
+              <td style="padding-top: 0"><code>%04d</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">m</td>
+              <td style="border-bottom: 0">Character</td>
+              <td style="border-bottom: 0"><code>%c</code></td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">'m'</td>
+              <td style="padding-top: 0">Quoted character</td>
+              <td style="padding-top: 0"><code>%q</code></td>
+            </tr>
+            <tr>
+              <td>1101101</td>
+              <td>Base 2</td>
+              <td><code>%b</code></td>
+            </tr>
+            <tr>
+              <td>155</td>
+              <td>Base 8</td>
+              <td><code>%o</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">6d</td>
+              <td style="border-bottom: 0">Base 16, lowercase</td>
+              <td style="border-bottom: 0"><code>%x</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0; padding-top: 0">6D</td>
+              <td style="border-bottom: 0; padding-top: 0">
+                Base 16, uppercase
+              </td>
+              <td style="border-bottom: 0; padding-top: 0"><code>%X</code></td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">0x6d</td>
+              <td style="padding-top: 0">Base 16, with leading 0x</td>
+              <td style="padding-top: 0"><code>%#x</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">U+006D</td>
+              <td style="border-bottom: 0">Unicode</td>
+              <td style="border-bottom: 0"><code>%U</code></td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">U+006D 'm'</td>
+              <td style="padding-top: 0">Unicode with character</td>
+              <td style="padding-top: 0"><code>%#U</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Boolean</h2>
+        <p>
+          Use <code>%t</code> to format a boolean as <code>true</code> or
+          <code>false</code>.
+        </p>
+        <h2>Pointer</h2>
+        <p>
+          Use <code>%p</code> to format a pointer in base 16 notation with
+          leading <code>0x</code>.
+        </p>
+        <h2>Float</h2>
+        <p>Argument: <code>123.456</code></p>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Formatting</th>
+              <th>Description</th>
+              <th>Verb</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.234560e+02</td>
+              <td>Scientific notation</td>
+              <td><code>%e</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">123.456000</td>
+              <td style="border-bottom: 0">Decimal point, no exponent</td>
+              <td style="border-bottom: 0"><code>%f</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0; padding-top: 0">123.46</td>
+              <td style="border-bottom: 0; padding-top: 0">
+                Default width, precision 2
+              </td>
+              <td style="border-bottom: 0; padding-top: 0">
+                <code>%.2f</code>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">␣␣123.46</td>
+              <td style="padding-top: 0">Width 8, precision 2</td>
+              <td style="padding-top: 0"><code>%8.2f</code></td>
+            </tr>
+            <tr>
+              <td>123.456</td>
+              <td>Exponent as needed, necessary digits only</td>
+              <td><code>%g</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>String or byte slice</h2>
+        <p>Argument: <code>"café"</code></p>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Formatting</th>
+              <th>Description</th>
+              <th>Verb</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border-bottom: 0">café</td>
+              <td style="border-bottom: 0">Plain string</td>
+              <td style="border-bottom: 0"><code>%s</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0; padding-top: 0">␣␣café</td>
+              <td style="border-bottom: 0; padding-top: 0">
+                Width 6, right justify
+              </td>
+              <td style="border-bottom: 0; padding-top: 0"><code>%6s</code></td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">café␣␣</td>
+              <td style="padding-top: 0">Width 6, left justify</td>
+              <td style="padding-top: 0"><code>%-6s</code></td>
+            </tr>
+            <tr>
+              <td>"café"</td>
+              <td>Quoted string</td>
+              <td><code>%q</code></td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">636166c3a9</td>
+              <td style="border-bottom: 0">Hex dump of byte values</td>
+              <td style="border-bottom: 0"><code>%x</code></td>
+            </tr>
+            <tr>
+              <td style="padding-top: 0">63 61 66 c3 a9</td>
+              <td style="padding-top: 0">Hex dump with spaces</td>
+              <td style="padding-top: 0"><code>% x</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Special values</h2>
+        <table class="white">
+          <thead>
+            <tr>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>\a</code></td>
+              <td>U+0007 alert or bell</td>
+            </tr>
+            <tr>
+              <td><code>\b</code></td>
+              <td>U+0008 backspace</td>
+            </tr>
+            <tr>
+              <td><code>\f</code></td>
+              <td>U+000C form feed</td>
+            </tr>
+            <tr>
+              <td><code>\n</code></td>
+              <td>U+000A line feed or newline</td>
+            </tr>
+            <tr>
+              <td><code>\r</code></td>
+              <td>U+000D carriage return</td>
+            </tr>
+            <tr>
+              <td><code>\t</code></td>
+              <td>U+0009 horizontal tab</td>
+            </tr>
+            <tr>
+              <td><code>\v</code></td>
+              <td>U+000b vertical tab</td>
+            </tr>
+            <tr>
+              <td><code>\\</code></td>
+              <td>U+005c backslash</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Arbitrary values can be encoded with backslash escapes. There are four
+          different formats:
+        </p>
+        <ul>
+          <li><code>\x</code> followed by exactly two hexadecimal digits;</li>
+          <li><code>\</code> followed by exactly three octal digits.</li>
+          <li><code>\u</code> followed by exactly four hexadecimal digits;</li>
+          <li><code>\U</code> followed by exactly eight hexadecimal digits;</li>
+        </ul>
+        <p>
+          The escapes <code>\u</code> and <code>\U</code> represent Unicode code
+          points.
+        </p>
+        <p>
+          These special values can be used in any <code>""</code> string
+          literal:
+        </p>
+        <pre><code>fmt.Println("\\caf\u00e9") <span class="comment">// Output: \café</span></code></pre>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="go/fmt-printf-reference-cheat-sheet.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

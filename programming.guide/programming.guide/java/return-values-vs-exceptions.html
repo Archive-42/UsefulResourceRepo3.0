@@ -1,274 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Return Values vs Exceptions | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="When should a method throw an exception, and when should it use a return value to indicate an error? This article answers the question in detail and provides concrete examples." name="description">
-  <meta content="java, exception, throw, return value, error code, api design" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: Return Values vs Exceptions | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="When should a method throw an exception, and when should it use a return value to indicate an error? This article answers the question in detail and provides concrete examples."
+      name="description"
+    />
+    <meta
+      content="java, exception, throw, return value, error code, api design"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>External Resources</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="https://books.google.se/books?id=BIpDDwAAQBAJ">Effective Java, Item 69: Use exceptions only for exceptional conditions</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Joshua Bloch</span>
-      </div>
-      <h2>Java Exceptions</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="exceptions-throw-try-catch.html">Throw, Try and Catch</a>
-        </li>
-        <li>
-          <a href="exception-types.html">Java Exception Types</a>
-        </li>
-        <li>
-          <a href="chained-exceptions.html">Chained Exceptions</a>
-        </li>
-        <li>
-          <a href="custom-exception.html">Custom Exception</a>
-        </li>
-        <li>
-          <a href="difference-between-checked-and-unchecked-exceptions.html">Difference between Checked and Unchecked Exceptions</a>
-        </li>
-        <li>
-          <a href="choosing-between-checked-and-unchecked-exceptions.html">Choosing between Checked and Unchecked Exceptions</a>
-        </li>
-        <li>
-          <a href="checked-exceptions-good-or-bad.html">Checked Exceptions: Good or Bad?</a>
-        </li>
-        <li class="current">Return Values vs Exceptions</li>
-        <li>
-          <a href="try-finally.html">try + finally</a>
-        </li>
-        <li>
-          <a href="try-with-resources.html">try-with-resources</a>
-        </li>
-        <li>
-          <a href="stack-trace.html">Stack Traces</a>
-        </li>
-        <li>
-          <a href="suppressed-exceptions.html">Suppressed Exceptions</a>
-        </li>
-        <li>
-          <a href="throw-vs-throws-vs-throwable.html">throw vs throws vs Throwable</a>
-        </li>
-        <li>
-          <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
-        </li>
-      </ol>
-      <h2>Exception Related Keywords</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="throw.html">throw</a>
-        </li>
-        <li>
-          <a href="throws.html">throws</a>
-        </li>
-        <li>
-          <a href="catch.html">catch</a>
-        </li>
-        <li>
-          <a href="try.html">try</a>
-        </li>
-        <li>
-          <a href="finally.html">finally</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Return Values vs Exceptions</h1>
-      <p>You should only use exceptions for exceptional situations. An exceptional situation is an unexpected situation that is out of the ordinary. A situation is <em>not</em> exceptional just because it's <em>less common</em> than other situations. In a non-exceptional situation you should use return values instead of exceptions.</p>
-      <div class="article-box">
-        <table>
-          <tbody>
-            <tr>
-              <td style="padding: 1em 0em 0em 0em; border: none;"><strong>Exceptional Examples</strong></td>
-              <td style="padding: 1em 0em 0em 0em; border: none;"><strong>Non-exceptional Examples</strong></td>
-            </tr>
-            <tr>
-              <td style="padding: 0em 0em 0em 0em; border: none; vertical-align: top;">
-                <ul>
-                  <li>An attempt to open a file failed</li>
-                  <li>Computer ran out of memory</li>
-                  <li>Program tried to divide by 0</li>
-                </ul>
-              </td>
-              <td style="padding: 0em 0em 0em 0em; border: none; vertical-align: top;">
-                <ul>
-                  <li>Requested username already taken</li>
-                  <li>A text string was entered in a numeric field</li>
-                  <li>User does not have permission to change the data</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Exceptional control flow is more complicated than ordinary <code>if</code> statements. In other words, by chosing exceptions for non-exceptional control flow you're making the code more complicated than it needs to be.</p>
-      <div class="article-box">
-        <div class="side-by-side">
-          <div>
-            <strong>Example:</strong> Instead of this…
-            <pre><code><span class="keyword">try</span> {
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>External Resources</h2>
+        <div style="margin-bottom: 1em">
+          <a href="https://books.google.se/books?id=BIpDDwAAQBAJ"
+            >Effective Java, Item 69: Use exceptions only for exceptional
+            conditions</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Joshua Bloch</span
+          >
+        </div>
+        <h2>Java Exceptions</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="exceptions-throw-try-catch.html">Throw, Try and Catch</a>
+          </li>
+          <li>
+            <a href="exception-types.html">Java Exception Types</a>
+          </li>
+          <li>
+            <a href="chained-exceptions.html">Chained Exceptions</a>
+          </li>
+          <li>
+            <a href="custom-exception.html">Custom Exception</a>
+          </li>
+          <li>
+            <a href="difference-between-checked-and-unchecked-exceptions.html"
+              >Difference between Checked and Unchecked Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="choosing-between-checked-and-unchecked-exceptions.html"
+              >Choosing between Checked and Unchecked Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="checked-exceptions-good-or-bad.html"
+              >Checked Exceptions: Good or Bad?</a
+            >
+          </li>
+          <li class="current">Return Values vs Exceptions</li>
+          <li>
+            <a href="try-finally.html">try + finally</a>
+          </li>
+          <li>
+            <a href="try-with-resources.html">try-with-resources</a>
+          </li>
+          <li>
+            <a href="stack-trace.html">Stack Traces</a>
+          </li>
+          <li>
+            <a href="suppressed-exceptions.html">Suppressed Exceptions</a>
+          </li>
+          <li>
+            <a href="throw-vs-throws-vs-throwable.html"
+              >throw vs throws vs Throwable</a
+            >
+          </li>
+          <li>
+            <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
+          </li>
+        </ol>
+        <h2>Exception Related Keywords</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="throw.html">throw</a>
+          </li>
+          <li>
+            <a href="throws.html">throws</a>
+          </li>
+          <li>
+            <a href="catch.html">catch</a>
+          </li>
+          <li>
+            <a href="try.html">try</a>
+          </li>
+          <li>
+            <a href="finally.html">finally</a>
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Return Values vs Exceptions</h1>
+        <p>
+          You should only use exceptions for exceptional situations. An
+          exceptional situation is an unexpected situation that is out of the
+          ordinary. A situation is <em>not</em> exceptional just because it's
+          <em>less common</em> than other situations. In a non-exceptional
+          situation you should use return values instead of exceptions.
+        </p>
+        <div class="article-box">
+          <table>
+            <tbody>
+              <tr>
+                <td style="padding: 1em 0em 0em 0em; border: none">
+                  <strong>Exceptional Examples</strong>
+                </td>
+                <td style="padding: 1em 0em 0em 0em; border: none">
+                  <strong>Non-exceptional Examples</strong>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    padding: 0em 0em 0em 0em;
+                    border: none;
+                    vertical-align: top;
+                  "
+                >
+                  <ul>
+                    <li>An attempt to open a file failed</li>
+                    <li>Computer ran out of memory</li>
+                    <li>Program tried to divide by 0</li>
+                  </ul>
+                </td>
+                <td
+                  style="
+                    padding: 0em 0em 0em 0em;
+                    border: none;
+                    vertical-align: top;
+                  "
+                >
+                  <ul>
+                    <li>Requested username already taken</li>
+                    <li>A text string was entered in a numeric field</li>
+                    <li>User does not have permission to change the data</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Exceptional control flow is more complicated than ordinary
+          <code>if</code> statements. In other words, by chosing exceptions for
+          non-exceptional control flow you're making the code more complicated
+          than it needs to be.
+        </p>
+        <div class="article-box">
+          <div class="side-by-side">
+            <div>
+              <strong>Example:</strong> Instead of this…
+              <pre><code><span class="keyword">try</span> {
     <span class="type">foo</span>();
     <span class="comment">// then...</span>
 } <span class="keyword">catch</span> (<span class="type">FooException</span> <span class="type">ex</span>) {
     <span class="comment">// else...</span>
 }
 </code></pre>
-          </div>
-          <div>
-            …let <code>foo()</code> return true on success:
-            <pre><code><span class="keyword">if</span> (foo()) {
+            </div>
+            <div>
+              …let <code>foo()</code> return true on success:
+              <pre><code><span class="keyword">if</span> (foo()) {
     <span class="comment">// then...</span>
 } <span class="keyword">else</span> {
     <span class="comment">// else...</span>
 }
  
 </code></pre>
+            </div>
           </div>
         </div>
-      </div>
-      <p>Or, if the return value of <code>foo()</code> is reserved for normal operation:</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Instead of this…</p>
-        <pre><code><span class="keyword">try</span> {
+        <p>
+          Or, if the return value of <code>foo()</code> is reserved for normal
+          operation:
+        </p>
+        <div class="article-box">
+          <p><strong>Example:</strong> Instead of this…</p>
+          <pre><code><span class="keyword">try</span> {
     <span class="type">value</span> = <span class="type">foo</span>();
     <span class="comment">// then...</span>
 } <span class="keyword">catch</span> (<span class="type">FooException</span> <span class="type">ex</span>) {
     <span class="comment">// else...</span>
 }
 </code></pre>
-        <div class="side-by-side">
-          <div>
-            …let <code>foo()</code> return <code>FooResult</code>…
-            <pre><code><span class="type">FooResult</span> <span class="type">result</span> = <span class="type">foo</span>();
+          <div class="side-by-side">
+            <div>
+              …let <code>foo()</code> return <code>FooResult</code>…
+              <pre><code><span class="type">FooResult</span> <span class="type">result</span> = <span class="type">foo</span>();
 <span class="keyword">if</span> (<span class="type">result</span>.<span class="type">success</span>()) {
     <span class="type">value</span> = <span class="type">result</span>.<span class="type">getValue</span>();
     <span class="comment">// then...</span>
@@ -276,10 +407,10 @@
     <span class="comment">// else...</span>
 }
 </code></pre>
-          </div>
-          <div>
-            …or use a separate method
-            <pre><code><span class="keyword">if</span> (isFooAvailable()) {
+            </div>
+            <div>
+              …or use a separate method
+              <pre><code><span class="keyword">if</span> (isFooAvailable()) {
     value = foo();
     <span class="comment">// then...</span>
 } <span class="keyword">else</span> {
@@ -287,14 +418,22 @@
 }
  
 </code></pre>
+            </div>
           </div>
+          <p>
+            In the last two snippets, it's perfectly fine to let
+            <code>result.getValue()</code> / <code>foo()</code> to throw an
+            unchecked exception if <code>result.success()</code> /
+            <code>isFooAvailable()</code> returns false.
+          </p>
         </div>
-        <p>In the last two snippets, it's perfectly fine to let <code>result.getValue()</code> / <code>foo()</code> to throw an unchecked exception if <code>result.success()</code> / <code>isFooAvailable()</code> returns false.</p>
-      </div>
-      <p>If all you want to do is to skip the remaining part of a sequence of statements:</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Instead of this…</p>
-        <pre><code><span class="keyword">try</span> {
+        <p>
+          If all you want to do is to skip the remaining part of a sequence of
+          statements:
+        </p>
+        <div class="article-box">
+          <p><strong>Example:</strong> Instead of this…</p>
+          <pre><code><span class="keyword">try</span> {
     <span class="keyword">if</span> (!<span class="type">initFoo</span>()) <span class="keyword">throw</span> <span class="type">AbortInit</span>();
     <span class="comment">// ...</span>
     <span class="keyword">if</span> (!<span class="type">initBar</span>()) <span class="keyword">throw</span> <span class="type">AbortInit</span>();
@@ -302,56 +441,73 @@
 } <span class="keyword">catch</span> (<span class="type">AbortInit</span> <span class="type">e</span>) {
 }
 </code></pre>
-        <div class="side-by-side">
-          <div>
-            …use a separate method…
-            <pre><code><span class="keyword">void</span> init() {
+          <div class="side-by-side">
+            <div>
+              …use a separate method…
+              <pre><code><span class="keyword">void</span> init() {
     <span class="keyword">if</span> (!initFoo()) <span class="keyword">return</span>;
     <span class="comment">// ...</span>
     <span class="keyword">if</span> (!initBar()) <span class="keyword">return</span>;
     <span class="comment">// ...</span>
 }
 </code></pre>
-          </div>
-          <div>
-            …or use a labeled block and <code>break</code>:
-            <pre><code><span class="type">init</span>: {
+            </div>
+            <div>
+              …or use a labeled block and <code>break</code>:
+              <pre><code><span class="type">init</span>: {
     <span class="keyword">if</span> (!<span class="type">initFoo</span>()) <span class="keyword">break</span> <span class="type">init</span>;
     <span class="comment">// ...</span>
     <span class="keyword">if</span> (!<span class="type">initBar</span>()) <span class="keyword">break</span> <span class="type">init</span>;
     <span class="comment">// ...</span>
 }
 </code></pre>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/return-values-vs-exceptions.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/return-values-vs-exceptions.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

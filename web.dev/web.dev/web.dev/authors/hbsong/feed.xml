@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Hongbo Song on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Hongbo Song</name>
+  </author>
+  <link href="https://web.dev/authors/hbsong/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/ieAP4AO0so7own9kFVW4.png?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Our latest news, updates, and stories by Hongbo Song.</subtitle>
+  
+  
+  <entry>
+    <title>Towards a better responsiveness metric</title>
+    <link href="https://web.dev/better-responsiveness-metric/"/>
+    <updated>2021-06-21T00:00:00Z</updated>
+    <id>https://web.dev/better-responsiveness-metric/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;On the Chrome Speed Metrics team, we&#39;re working on deepening our understanding of how quickly web
+pages respond to user input. We&#39;d like to share some ideas for improving responsiveness metrics and
+hear your feedback.&lt;/p&gt;
+&lt;p&gt;This post will cover two main topics:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Review our current responsiveness metric, First Input Delay (FID), and explain why we chose FID
+rather than some of the alternatives.&lt;/li&gt;
+&lt;li&gt;Present some improvements we&#39;ve been considering that should better capture the end-to-end
+latency of individual events. These improvements also aim to capture a more
+holistic picture of the overall responsiveness of a page throughout its lifetime.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;what-is-first-input-delay&quot;&gt;What is First Input Delay? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#what-is-first-input-delay&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&quot;https://web.dev/fid/&quot;&gt;First Input Delay (FID)&lt;/a&gt; metric measures how long it takes the browser to begin
+processing the first user interaction on a page. In particular, it measures the difference between
+the time when the user interacts with the device and the time when the browser is actually able to
+begin processing event handlers. FID is just measured for taps and key presses, which means that it
+only considers the very first occurrence of the following events:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;click&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;keydown&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mousedown&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pointerdown&lt;/code&gt; (only if it is followed by &lt;code&gt;pointerup&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following diagram illustrates FID:&lt;/p&gt;
+&lt;img alt=&quot;First Input Delay measures from when input occurs to when input can be handled&quot; decoding=&quot;async&quot; height=&quot;330&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/Jn1Xkxxf03O1llwutAq2.jpeg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;FID does not include the time spent running those event handlers, nor any work done by the browser
+afterwards to update the screen. It measures the amount of time the main thread was busy before
+having the chance to handle an input. This blocking time is usually caused by long JavaScript tasks,
+as these can&#39;t just be stopped at any time, so the current task must complete before the browser can
+start processing the input.&lt;/p&gt;
+&lt;h3 id=&quot;why-did-we-choose-fid&quot;&gt;Why did we choose FID? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#why-did-we-choose-fid&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;We believe it is important to measure actual user experience in order to ensure that improvements on
+the metric result in real benefits to the user. We chose to measure FID because it represents the
+part of the user experience when the user decides to interact with a site that has just been loaded.
+FID captures some of the time that the user has to wait in order to see a response from their
+interaction with a site. In other words, FID is a lower bound on the amount of time a user waits
+after interacting.&lt;/p&gt;
+&lt;p&gt;Other metrics like &lt;a href=&quot;https://web.dev/tbt/&quot;&gt;Total Blocking Time (TBT)&lt;/a&gt; and &lt;a href=&quot;https://web.dev/tti/&quot;&gt;Time To Interactive (TTI)&lt;/a&gt; are based
+on &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API&quot; rel=&quot;noopener&quot;&gt;long tasks&lt;/a&gt; and, like FID, also
+measure main thread blocking time during load. Since these metrics can be measured in both the field
+and the lab, many developers have asked why we don&#39;t prefer one of these over FID.&lt;/p&gt;
+&lt;p&gt;There are several reasons for this. Perhaps the most important reason is that these metrics do not
+measure the user experience directly. All of these metrics measure how much JavaScript runs on the
+page. While long running JavaScript does tend to cause problems to sites, these tasks don&#39;t
+necessarily impact the user experience if the user is not interacting with the page when they occur.
+A page can have a great score on TBT and TTI but feel slow or it can have a poor score while feeling
+fast for users. In our experience, these indirect measurements result in metrics that work great for
+some sites but not for most sites. In short, the fact that long tasks and TTI are not user-centric
+makes these weaker candidates.&lt;/p&gt;
+&lt;p&gt;While &lt;a href=&quot;https://web.dev/user-centric-performance-metrics/#in-the-lab&quot;&gt;lab measurement&lt;/a&gt; is certainly important and an
+invaluable tool for diagnostics, what really matters is how users experience sites. By having a
+user-centric metric that reflects real-user conditions, you are guaranteed to capture something
+meaningful about the experience. We decided to start with a small portion of that experience, even
+though we know this portion is not representative of the full experience. This is why we&#39;re working
+on capturing a larger chunk of the time a user waits for their inputs to be handled.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;If you&#39;re interested in a deeper dive into some of the metrics we looked into, here is a
+&lt;a href=&quot;https://docs.google.com/document/d/1xCERB_X7PiP5RAZDwyIkODnIXoBk-Oo7Mi9266aEdGg/edit#heading=h.ypzsa9g2mv2g&quot; rel=&quot;noopener&quot;&gt;study about
+TBT&lt;/a&gt;
+and a &lt;a href=&quot;https://docs.google.com/document/d/1sHy6R58olikMTwk5hkJL4jd9S1jbksdMY5ve3Shdg-g/edit&quot; rel=&quot;noopener&quot;&gt;study about
+TTI&lt;/a&gt;. &lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+&lt;details class=&quot;w-details&quot;&gt;
+&lt;summary class=&quot;w-details__summary&quot;&gt;
+  &lt;h4 class=&quot;w-details__header&quot;&gt;
+    A note on measuring TTI in the field
+  &lt;/h4&gt;
+&lt;/summary&gt;
+&lt;p&gt;Measuring TTI on real users in the field is problematic because it occurs very late in the page
+load. A 5-second network quiet window is required before TTI can even be computed. In the lab, you
+can choose to unload the page whenever you have all the data that you need, but that&#39;s not the case
+with real-user monitoring in the field. A user may choose to leave the page or interact with it at
+any time. In particular, users may choose to leave pages that take a long time to load, and an
+accurate TTI will not be recorded in those cases. When we measured TTI for real users in Chrome, we
+found that only about half of page loads reached TTI. &lt;/p&gt;&lt;/details&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h2 id=&quot;what-improvements-are-we-considering&quot;&gt;What improvements are we considering? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#what-improvements-are-we-considering&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We would like to develop a new metric that extends what FID measures today yet still retains its
+strong connection to user experience.&lt;/p&gt;
+&lt;p&gt;We want the new metric to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Consider the responsiveness of all user inputs (not just the first one)&lt;/li&gt;
+&lt;li&gt;Capture each event&#39;s full duration (not just the delay).&lt;/li&gt;
+&lt;li&gt;Group events together that occur as part of the same logical user interaction and define that
+interaction&#39;s latency as the max duration of all its events.&lt;/li&gt;
+&lt;li&gt;Create an aggregate score for all interactions that occur on a page, throughout its full
+lifecycle.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To be successful, we should be able to say with high confidence that if a site scores poorly on this
+new metric, it is not responding quickly to user interactions.&lt;/p&gt;
+&lt;h3 id=&quot;capture-the-full-event-duration&quot;&gt;Capture the full event duration &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#capture-the-full-event-duration&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The first obvious improvement is to try to capture broader end-to-end latency of an event. As
+mentioned above, FID only captures the delay portion of the input event. It does not account for the
+time it takes the browser to actually process the event handlers.&lt;/p&gt;
+&lt;p&gt;There are various stages in the lifecycle of an event, as illustrated in this diagram:&lt;/p&gt;
+&lt;img alt=&quot;Five steps in the lifecycle of an event&quot; decoding=&quot;async&quot; height=&quot;383&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 610px) 610px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/l9CfiUoTxQQ7KmOzzXWn.jpeg?auto=format&amp;w=1220 1220w&quot; width=&quot;610&quot; /&gt;
+&lt;p&gt;The following are steps Chrome takes to process an input:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The input from the user occurs. The time at which this occurs is the event&#39;s &lt;code&gt;timeStamp&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The browser performs hit testing to decide which HTML frame (main frame or some iframe) an event
+belongs to. Then the browser sends the event to the appropriate renderer process in charge of
+that HTML frame.&lt;/li&gt;
+&lt;li&gt;The renderer receives the event and queues it so that it can process when it becomes available to
+do so.&lt;/li&gt;
+&lt;li&gt;The renderer processes the event by running its handlers. These handlers may queue additional
+asynchronous work, such as &lt;code&gt;setTimeout&lt;/code&gt; and fetches, that are part of the input handling. But at
+this point, the synchronous work is complete.&lt;/li&gt;
+&lt;li&gt;A frame is painted to the screen that reflects the result of event handlers running. Note that
+any asynchronous tasks queued by the event handlers may still be unfinished.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The time between steps (1) and (3) above is an event&#39;s &lt;em&gt;delay&lt;/em&gt;, which is what FID measures.&lt;/p&gt;
+&lt;p&gt;The time between steps (1) and (5) above is an event&#39;s &lt;em&gt;duration&lt;/em&gt;. This is what our new metric will
+measure.&lt;/p&gt;
+&lt;p&gt;The event&#39;s duration includes the delay, but it also includes the work occurring in event handlers
+and the work the browser needs to do to paint the next frame after those handlers have run. The
+duration of an event is currently available in the &lt;a href=&quot;https://web.dev/custom-metrics/#event-timing-api&quot;&gt;Event Timing API&lt;/a&gt; via the
+entry&#39;s &lt;a href=&quot;https://w3c.github.io/performance-timeline/#dom-performanceentry-duration&quot; rel=&quot;noopener&quot;&gt;duration&lt;/a&gt;
+attribute.&lt;/p&gt;
+&lt;details class=&quot;w-details&quot;&gt;
+&lt;summary class=&quot;w-details__summary&quot;&gt;
+  &lt;h4 class=&quot;w-details__header&quot;&gt;
+    A note on asynchronous tasks
+  &lt;/h4&gt;
+&lt;/summary&gt;
+&lt;p&gt;Ideally we would love to also capture asynchronous work triggered by the event. But the problem is
+that the definition of asynchronous work triggered by the event is extremely tricky to get right. As
+an example, a developer may choose to begin some animation on event handlers and use a &lt;code&gt;setTimeout&lt;/code&gt;
+to begin such animation. If we captured all tasks posted on the handlers, the animation would delay
+the completion time for as long as the animation runs. We believe it is worthwhile to investigate
+options on how to use heuristics to capture work that is asynchronous and which should be completed
+ASAP. However, we want to be really careful when doing so because we don&#39;t want to penalize work
+that is meant to take a long time to be finished. Thus, our initial effort will look at step 5 as
+the end point: it will only consider synchronous work and the amount of time it takes to paint after
+such work is completed. That is, we&#39;re not going to apply heuristics to guess the work that would be
+kicked off asynchronously in step 4 in our initial effort.&lt;/p&gt;
+&lt;p&gt;It&#39;s worth noting that, in many cases, work should be executed synchronously. In fact, this may be
+unavoidable because events are sometimes dispatched one after the other and the event handlers need
+to be executed in order. That said, we will still miss important work, like events which trigger
+fetching or which rely on important work to be done at the next &lt;code&gt;requestAnimationFrame&lt;/code&gt; callback,
+for example. &lt;/p&gt;&lt;/details&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h3 id=&quot;group-events-into-interactions&quot;&gt;Group events into interactions &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#group-events-into-interactions&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Extending the metric measurement from &lt;em&gt;delay&lt;/em&gt; to &lt;em&gt;duration&lt;/em&gt; is a good first step, but it still
+leaves a critical gap in the metric: it focuses on individual events and not the user experience of
+interacting with the page.&lt;/p&gt;
+&lt;p&gt;Many different events can fire as a result of a single user interaction, and separately measuring
+each doesn&#39;t build a clear picture of what the user experiences. We want to make sure our metric
+captures the full amount of time a user has to wait for a response when tapping, pressing keys,
+scrolling, and dragging as accurately as possible. So we&#39;re introducing the concept of
+&lt;em&gt;&lt;strong&gt;interactions&lt;/strong&gt;&lt;/em&gt; to measure the latency of each.&lt;/p&gt;
+&lt;h4 id=&quot;interaction-types&quot;&gt;Interaction types &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#interaction-types&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The following table lists the four interactions we want to define along with the DOM events that
+they&#39;re associated with. Note that this is not quite the same as the set of all events that are
+dispatched when such user interaction occurs. For instance, when a user scrolls, a scroll event is
+dispatched, but it happens after the screen has been updated to reflect the scrolling, so we don&#39;t
+consider it part of the interaction latency.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Interaction&lt;/th&gt;
+        &lt;th&gt;Start / end&lt;/th&gt;
+        &lt;th&gt;Desktop events&lt;/th&gt;
+        &lt;th&gt;Mobile events&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td rowspan=&quot;3&quot;&gt;Keyboard&lt;/td&gt;
+        &lt;td rowspan=&quot;2&quot;&gt;Key pressed&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;keydown&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;keydown&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;keypress&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;keypress&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Key released&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;keyup&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;keyup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td rowspan=&quot;7&quot;&gt;Tap or drag&lt;/td&gt;
+        &lt;td rowspan=&quot;2&quot;&gt;Tap start or drag start&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;pointerdown&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;pointerdown&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;mousedown&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;touchstart&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td rowspan=&quot;5&quot;&gt;Tap up or drag end&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;pointerup&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;pointerup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;mouseup&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;touchend&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;code&gt;click&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;mousedown&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;mouseup&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;code&gt;click&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Scroll&lt;/td&gt;
+        &lt;td colspan=&quot;3&quot;&gt;N/A&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;caption&gt;DOM events for each interaction type.&lt;/caption&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The first three interactions listed above (keyboard, tap, and drag) are currently covered by FID.
+For our new responsiveness metric, we want to include scrolling as well, since scrolling is
+extremely common on the web and is a critical aspect of how responsive a page feels to users.&lt;/p&gt;
+&lt;details class=&quot;w-details&quot;&gt;
+&lt;summary class=&quot;w-details__summary&quot;&gt;
+  &lt;h5 class=&quot;w-details__header&quot;&gt;
+    A note on start and end
+  &lt;/h5&gt;
+&lt;/summary&gt;
+&lt;p&gt;Note that each of these interactions has two parts: when the user presses the mouse, finger, or key
+down and when they lift it up. We need to ensure our metric doesn&#39;t count time the user spends
+holding the finger down between these two actions as part of the page&#39;s latency! &lt;/p&gt;&lt;/details&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h5 id=&quot;keyboard&quot;&gt;Keyboard &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#keyboard&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;A keyboard interaction has two parts to it: when the user presses the key and when they release it.
+There are three associated events with this user interaction: &lt;code&gt;keydown&lt;/code&gt;, &lt;code&gt;keyup&lt;/code&gt;, and &lt;code&gt;keypress&lt;/code&gt;.
+The following diagram illustrates the &lt;code&gt;keydown&lt;/code&gt; and &lt;code&gt;keyup&lt;/code&gt; delays and durations for a keyboard
+interaction:&lt;/p&gt;
+&lt;img alt=&quot;Keyboard interaction with disjoint event durations&quot; decoding=&quot;async&quot; height=&quot;286&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/zjRipPR9ioi551DUa3pj.jpeg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;In the diagram above, the durations are disjoint because the frame from &lt;code&gt;keydown&lt;/code&gt; updates is
+presented before the &lt;code&gt;keyup&lt;/code&gt; occurs, but this does not need to be the case always. In addition, note
+that a frame can be presented in the middle of a task in the renderer process since the last steps
+required to produce the frame are done outside of the renderer process.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;keydown&lt;/code&gt; and &lt;code&gt;keypress&lt;/code&gt; occur when the user presses the key, while the &lt;code&gt;keyup&lt;/code&gt; occurs when the
+user releases the key. Generally the main content update occurs when the key is pressed: text
+appears on the screen, or the modifier effect is applied. That said, we want to capture the more
+rare cases where &lt;code&gt;keyup&lt;/code&gt; would also present interesting UI updates, so we want to look at the
+overall time taken.&lt;/p&gt;
+&lt;p&gt;In order to capture the overall time taken by the keyboard interaction, we can compute the maximum
+of the duration of the &lt;code&gt;keydown&lt;/code&gt; and the &lt;code&gt;keyup&lt;/code&gt; events.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The &lt;code&gt;keypress&lt;/code&gt; event is deprecated, and it should be fired in the same task as the &lt;code&gt;keydown&lt;/code&gt; event,
+so its duration will always overlap with the duration of the&lt;code&gt;keydown&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;details class=&quot;w-details&quot;&gt;
+&lt;summary class=&quot;w-details__summary&quot;&gt;
+  &lt;h6 class=&quot;w-details__header&quot;&gt;
+    A note on repeating keypresses
+  &lt;/h6&gt;
+&lt;/summary&gt;
+&lt;p&gt;There is an edge case here worth mentioning: there may be cases where the user presses a key and
+takes a while to release it. In this case, the sequence of events dispatched can
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#auto-repeat_handling&quot; rel=&quot;noopener&quot;&gt;vary&lt;/a&gt;. In
+these cases, we would consider there to be one interaction per &lt;code&gt;keydown&lt;/code&gt;, which may or may not have
+a corresponding &lt;code&gt;keyup&lt;/code&gt;. &lt;/p&gt;&lt;/details&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h5 id=&quot;tap&quot;&gt;Tap &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#tap&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;Another important user interaction is when the user taps or clicks on a website. Similar to
+&lt;code&gt;keypress&lt;/code&gt;, some events are fired as the user presses down, and others as they release, as shown in
+the diagram above, Note the events associated with a tap are a little different on desktop vs
+mobile.&lt;/p&gt;
+&lt;p&gt;For a tap or click, the release is generally the one which triggers the majority of reactions, but,
+as with keyboard interactions, we want to capture the full interaction. And in this case it&#39;s more
+important to do so because having some UI updates upon tap press is not actually that uncommon.&lt;/p&gt;
+&lt;p&gt;We&#39;d like to include the event durations for all of these events, but as many of them overlap
+completely, we need to measure just &lt;code&gt;pointerdown&lt;/code&gt;, &lt;code&gt;pointerup&lt;/code&gt;, and &lt;code&gt;click&lt;/code&gt; to cover the full
+interaction.&lt;/p&gt;
+&lt;details class=&quot;w-details&quot;&gt;
+&lt;summary class=&quot;w-details__summary&quot;&gt;
+  &lt;h6 class=&quot;w-details__header&quot;&gt;
+    Can we narrow further to just &lt;code&gt;pointerdown&lt;/code&gt; and &lt;code&gt;pointerup&lt;/code&gt;?
+  &lt;/h6&gt;
+&lt;/summary&gt;
+&lt;p&gt;One initial thought would be to use the &lt;code&gt;pointerdown&lt;/code&gt; and &lt;code&gt;pointerup&lt;/code&gt; events and assume that they
+cover all of the durations that we&#39;re interested in. Sadly, this is not the case, as this &lt;a href=&quot;https://output.jsbin.com/buyiyew/quiet&quot; rel=&quot;noopener&quot;&gt;edge
+case&lt;/a&gt; shows. Try opening this site on mobile, or with mobile
+emulation, and tapping where it says &amp;quot;Click me&amp;quot;. This site triggers the &lt;a href=&quot;https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away&quot; rel=&quot;noopener&quot;&gt;browser tap
+delay&lt;/a&gt;. It can be seen
+that the &lt;code&gt;pointerdown&lt;/code&gt;, &lt;code&gt;pointerup&lt;/code&gt;, and &lt;code&gt;touchend&lt;/code&gt; are dispatched quickly, whereas the &lt;code&gt;mousedown&lt;/code&gt;,
+&lt;code&gt;mouseup&lt;/code&gt;, and &lt;code&gt;click&lt;/code&gt; wait for the delay before being dispatched. This means that if we only looked
+at &lt;code&gt;pointerdown&lt;/code&gt; and &lt;code&gt;pointerup&lt;/code&gt; then we&#39;d miss the duration from the synthetic events, which is
+large due to the browser tap delay and should be included. So we should measure &lt;code&gt;pointerdown&lt;/code&gt;,
+&lt;code&gt;pointerup&lt;/code&gt;, and &lt;code&gt;click&lt;/code&gt; to cover the full interaction. &lt;/p&gt;&lt;/details&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h5 id=&quot;drag&quot;&gt;Drag &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#drag&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;We decided to include dragging as well since it has similar associated events and since it generally
+causes important UI updates to sites. But for our metric we intend to only consider the drag start
+and the drag end - the initial and final parts of the drag. This is to make it easier to reason
+about as well as make the latencies comparable with the other interactions considered. This is
+consistent with our decision to exclude continuous events such as &lt;code&gt;mouseover&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We&#39;re also not considering drags implemented via the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API&quot; rel=&quot;noopener&quot;&gt;Drag and Drop
+API&lt;/a&gt; because they only work
+on desktop.&lt;/p&gt;
+&lt;h5 id=&quot;scrolling&quot;&gt;Scrolling &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#scrolling&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;One of the most common forms of interacting with a site is via scrolling. For our new metric, we&#39;d
+like to measure the latency for the initial scrolling interaction of the user. In particular, we
+care about the initial reaction of the browser to the fact that the user requested a scroll. We will
+not cover the whole scrolling experience. That is, scrolling produces many frames, and we&#39;ll focus
+our attention on the initial frame produced as a reaction to the scroll.&lt;/p&gt;
+&lt;p&gt;Why just the first one? For one, subsequent frames may be captured by a separate smoothness
+&lt;a href=&quot;https://docs.google.com/presentation/d/1VwGIzypntWNosCTXWMsUI6ifw4sEKSRQgnwx3P_wqVg/edit#slide=id.p&quot; rel=&quot;noopener&quot;&gt;proposal&lt;/a&gt;.
+That is, once the user has been shown the first result of scrolling, the rest should be measured in
+terms of how smooth the scrolling experience feels. Therefore, we think that the smoothness effort
+could better capture this. So, as with FID, we choose to stick to discrete user experiences: user
+experiences that have clear points in time associated with them and for which we can easily compute
+their latency. Scrolling as a whole is a continuous experience, so we do not intend to measure all
+of it in this metric.&lt;/p&gt;
+&lt;p&gt;So why measure scrolls? The scrolling performance we&#39;ve gathered in Chrome shows that scrolling is
+generally very fast. That said, we still want to include initial scroll latencies in our new metric
+for various reasons. First, scrolling is fast only because it has been optimized so much, because it
+is so important. But there are still ways for a website to bypass some of the performance gains that
+the browser offers. The most common one in Chrome is to force scrolling to happen on the main
+thread. So our metric should be able to say when this happens and causes poor scrolling performance
+for users. Second, scrolling is just too important to ignore. We worry that if we exclude scrolling
+then we&#39;ll have a big blindspot, and scrolling performance could decrease over time without web
+developers properly noticing.&lt;/p&gt;
+&lt;p&gt;There are several events that are dispatched when a user scrolls, such as &lt;code&gt;touchstart&lt;/code&gt;, &lt;code&gt;touchmove&lt;/code&gt;,
+and &lt;code&gt;scroll&lt;/code&gt;. Except for the scroll event, this is largely dependent on the device used for
+scrolling: touch events are dispatched when scrolling with the finger on mobile devices, while wheel
+events occur when scrolling with a mouse wheel. The scroll events are fired after initial scrolling
+has completed. And in general, no DOM event blocks scrolling, unless the website uses &lt;a href=&quot;https://web.dev/uses-passive-event-listeners/&quot;&gt;non-passive
+event listeners&lt;/a&gt;. So we think of scrolling as decoupled from DOM
+Events altogether. What we want to measure is the time from when the user moves enough to produce a
+scroll gesture until the first frame that shows that scrolling happened.&lt;/p&gt;
+&lt;h4 id=&quot;how-to-define-the-latency-of-an-interaction&quot;&gt;How to define the latency of an interaction? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#how-to-define-the-latency-of-an-interaction&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;As we noted above, interactions that have a &amp;quot;down&amp;quot; and &amp;quot;up&amp;quot; component need to be considered
+separately in order to avoid attributing the time the user spent holding their finger down.&lt;/p&gt;
+&lt;p&gt;For these types of interactions, we&#39;d like the latency to involve the durations of all events
+associated with them. Since event durations for each &amp;quot;down&amp;quot; and &amp;quot;up&amp;quot; part of the interaction can
+overlap, the simplest definition of interaction latency that achieves this is the maximum duration
+of any event associated with it. Referring back to the keyboard diagram from earlier, this would be
+the &lt;code&gt;keydown&lt;/code&gt; duration, as it is longer than the &lt;code&gt;keyup&lt;/code&gt;:&lt;/p&gt;
+&lt;img alt=&quot;Keyboard interaction with maximum duration highlighted&quot; decoding=&quot;async&quot; height=&quot;311&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/WFPm4W86CqhFsNc1UZuW.jpeg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The &lt;code&gt;keydown&lt;/code&gt; and &lt;code&gt;keyup&lt;/code&gt; durations may overlap as well. This may happen for instance when the frame
+presented for both events is the same, as in the following diagram:&lt;/p&gt;
+&lt;img alt=&quot;Keyboard interaction where press and release occur in the same frame&quot; decoding=&quot;async&quot; height=&quot;311&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/kns0INkO77RkiEStzHWYrugyWj32/e7htYAZb44AW4UeplBwJ.jpeg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;There&#39;s are pros and cons to this approach of using the maximum, and we&#39;re interested in &lt;a href=&quot;https://web.dev/better-responsiveness-metric/#feedback&quot;&gt;hearing
+your feedback&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pro&lt;/strong&gt;: It is aligned with how we intend to measure scroll in that it only measures a single
+duration value.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pro&lt;/strong&gt;: It aims to reduce noise for cases like keyboard interactions, where the &lt;code&gt;keyup&lt;/code&gt; usually
+does nothing and where the user may execute the key press and release quickly or slowly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Con&lt;/strong&gt;: It does not capture the full wait time of the user. For instance, it will capture the
+start or end of a drag, but not both.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For scrolling (which just has a single associated event) we&#39;d like to define its latency as the time
+it takes for the browser to produce the first frame as a result of scrolling. That is, the latency
+is the delta between the event &lt;code&gt;timeStamp&lt;/code&gt; of the first DOM event (like &lt;code&gt;touchmove&lt;/code&gt;, if using a
+finger) that is large enough to trigger a scroll and the first paint which reflects the scrolling
+taking place.&lt;/p&gt;
+&lt;h3 id=&quot;aggregate-all-interactions-per-page&quot;&gt;Aggregate all interactions per page &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#aggregate-all-interactions-per-page&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Once we&#39;ve defined what the latency of an interaction is, we&#39;ll need to compute an aggregate value
+for a page load, which may have many user interactions. Having an aggregated value enables us to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Form correlations with business metrics.&lt;/li&gt;
+&lt;li&gt;Evaluate correlations with other performance metrics. Ideally, our new metric will be sufficiently
+independent that it adds value to the existing metrics.&lt;/li&gt;
+&lt;li&gt;Easily expose values in tooling in ways that are easy to digest.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to perform this aggregation we need to solve two questions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What numbers do we try to aggregate?&lt;/li&gt;
+&lt;li&gt;How do we aggregate those numbers?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We&#39;re exploring and evaluating several options. We welcome your thoughts on this aggregation.&lt;/p&gt;
+&lt;p&gt;One option is to define a budget for the latency of an interaction, which may depend on the type
+(scroll, keyboard, tap, or drag). So for example if the budget for taps is 100 ms and the
+latency of a tap is 150 ms then the amount over budget for that interaction would be
+50 ms. Then we could compute the maximum amount of latency that goes over the budget for any
+user interaction in the page.&lt;/p&gt;
+&lt;p&gt;Another option is to compute the average or median latency of the interactions throughout the life
+of the page. So if we had latencies of 80 ms, 90 ms, and 100 ms, then the average
+latency for the page would be 90 ms. We could also consider the average or median &amp;quot;over budget&amp;quot;
+to account for different expectations depending on the type of interaction.&lt;/p&gt;
+&lt;h2 id=&quot;how-does-this-look-like-on-web-performance-apis&quot;&gt;How does this look like on web performance APIs? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#how-does-this-look-like-on-web-performance-apis&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;what&#39;s-missing-from-event-timing&quot;&gt;What&#39;s missing from Event Timing? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#what&#39;s-missing-from-event-timing&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Unfortunately not all of the ideas presented in this post can be captured using the Event Timing
+API. In particular, there&#39;s no simple way to know the events associated with a given user
+interaction with the API. In order to do this, we&#39;ve &lt;a href=&quot;https://docs.google.com/presentation/d/1nxNFwsGqYy7WmIZ3uv_0HsSIQMSXQA9_PqlOD3V74Us/edit#slide=id.p&quot; rel=&quot;noopener&quot;&gt;proposed adding an &lt;code&gt;interactionID&lt;/code&gt; to the
+API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Another shortcoming of the Event Timing API is that there is no way to measure the scroll
+interaction, so we&#39;re &lt;a href=&quot;https://docs.google.com/presentation/d/1qVdMlqgi9uuyx9imCauzMjLGHQK6TGOIZV_RnlGBKis/edit&quot; rel=&quot;noopener&quot;&gt;working on enabling these
+measurements&lt;/a&gt;
+(via Event Timing or a separate API).&lt;/p&gt;
+&lt;h3 id=&quot;what-can-you-try-right-now&quot;&gt;What can you try right now? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#what-can-you-try-right-now&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Right now, it is still possible to compute the maximum latency for taps/drags and for keyboard
+interactions. The following code snippet would produce these two metrics.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; maxTapOrDragDuration &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; maxKeyboardDuration &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; observer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PerformanceObserver&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  list&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getEntries&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;entry&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;keydown&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;keyup&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;        maxKeyboardDuration &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;maxKeyboardDuration&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;            entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;duration&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pointerdown&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pointerup&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;click&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;        maxTapOrDragDuration &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;maxTapOrDragDuration&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;            entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;duration&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;observer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;observe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;type&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;event&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; minDuration&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; buffered&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;// We can report maxTapDragDuration and maxKeyboardDuration when sending&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;// metrics to analytics.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h2 id=&quot;feedback&quot;&gt;Feedback &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/better-responsiveness-metric/#feedback&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Let us know what you think about these ideas by emailing: web-vitals-feedback@googlegroups.com!&lt;/p&gt;
+</content>
+    <author>
+      <name>Nicolás Peña Moreno</name>
+    </author><author>
+      <name>Annie Sullivan</name>
+    </author><author>
+      <name>Hongbo Song</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Evolving the CLS metric</title>
+    <link href="https://web.dev/evolving-cls/"/>
+    <updated>2021-04-07T00:00:00Z</updated>
+    <id>https://web.dev/evolving-cls/</id>
+    <content type="text/html" mode="escaped">&lt;div role=&quot;banner&quot; class=&quot;w-banner w-banner--info w-banner--body&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Jun 2, 2021:&lt;/strong&gt; The update to CLS described in this
+post is now available across Chrome&#39;s web tooling surfaces. See &lt;a href=&quot;https://web.dev/cls-web-tooling/&quot;&gt;Evolving
+Cumulative Layout Shift in web tooling&lt;/a&gt; for details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We (the Chrome Speed Metrics Team) recently outlined our initial research into
+&lt;a href=&quot;https://web.dev/better-layout-shift-metric/&quot;&gt;options for making the CLS metric more fair to pages that are open for a long
+time&lt;/a&gt;. We&#39;ve received a lot of very
+helpful feedback and after completing the large-scale analysis, we&#39;ve finalized
+the change we plan to make to the metric: &lt;strong&gt;maximum session window with 1 second
+gap, capped at 5 seconds&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Read on for the details!&lt;/p&gt;
+&lt;h2 id=&quot;how-did-we-evaluate-the-options&quot;&gt;How did we evaluate the options? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/evolving-cls/#how-did-we-evaluate-the-options&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We reviewed all the feedback received from the developer community and took it
+into account.&lt;/p&gt;
+&lt;p&gt;We also implemented the &lt;a href=&quot;https://web.dev/better-layout-shift-metric/#best-strategies&quot;&gt;top
+options&lt;/a&gt; in Chrome
+and did a large-scale analysis of the metrics over millions of web pages. We
+checked what types of sites each option improved, and how the options compared,
+especially looking into the sites which were scored differently by different
+options. Overall, we found that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;All&lt;/strong&gt; the options reduced the correlation between time spent on page and
+layout shift score.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;None&lt;/strong&gt; of the options resulted in a worse score for any page. So there is no
+need to be concerned that this change will worsen the scores for your site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;decision-points&quot;&gt;Decision points &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/evolving-cls/#decision-points&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;why-a-session-window&quot;&gt;Why a session window? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/evolving-cls/#why-a-session-window&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;In our &lt;a href=&quot;https://web.dev/better-layout-shift-metric/&quot;&gt;earlier post&lt;/a&gt;, we covered
+&lt;a href=&quot;https://web.dev/better-layout-shift-metric/#windowing-strategies&quot;&gt;a few different windowing
+strategies&lt;/a&gt;
+for grouping together layout shifts while ensuring the score doesn&#39;t grow
+unbounded. The feedback we received from developers overwhelmingly favored the
+session window strategy because it groups the layout shifts together most
+intuitively.&lt;/p&gt;
+&lt;p&gt;To review session windows, here&#39;s an example:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/better-layout-shift-metric/session-window.webm&quot; type=&quot;video/webm&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/better-layout-shift-metric/session-window.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Example of a session window.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;In the example above, many layout shifts occur over time as the user views the
+page. Each is represented by a blue bar. You&#39;ll notice above that the blue bars
+have different heights; those represent the &lt;a href=&quot;https://web.dev/cls/#layout-shift-score&quot;&gt;score&lt;/a&gt; of
+each individual layout shift. A session window starts with the first layout shift
+and continues to expand until there is a gap with no layout shifts. When the next
+layout shift occurs, a new session window starts. Since there are three gaps with
+no layout shifts, there are three session windows in the example. Similar to the
+current definition of CLS, the scores of each shift are added up, so that each
+window&#39;s score is the sum of its individual layout shifts.&lt;/p&gt;
+&lt;p&gt;Based on the &lt;a href=&quot;https://web.dev/better-layout-shift-metric/#best-strategies&quot;&gt;initial
+research&lt;/a&gt;, we chose
+a 1 second gap between session windows, and that gap worked well in our
+large-scale analysis. So the &amp;quot;Session Gap&amp;quot; shown in the example above is 1
+second.&lt;/p&gt;
+&lt;h3 id=&quot;why-the-maximum-session-window&quot;&gt;Why the maximum session window? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/evolving-cls/#why-the-maximum-session-window&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;We narrowed the &lt;a href=&quot;https://web.dev/better-layout-shift-metric/#summarization&quot;&gt;summarization
+strategies&lt;/a&gt; down to
+two options in our initial research:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;average&lt;/strong&gt; score of all the session windows, for very large session
+windows (uncapped windows with 5 second gaps between them).&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;maximum&lt;/strong&gt; score of all the session windows, for smaller session windows
+(capped at 5 seconds, with 1 second gaps between them).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After the initial research, we added each metric to Chrome so that we could do a
+large-scale analysis over millions of URLs. In the large-scale analysis, we
+found a lot of URLs with layout shift patterns like this:&lt;/p&gt;
+&lt;img alt=&quot;Example of a small layout shift pulling down the average&quot; decoding=&quot;async&quot; height=&quot;550&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/MZfwZ8oVW8U6tzo5CXffcER0jR83/bW3lHZmss3cqGayZsq4P.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;On the bottom right, you can see there is only a single, tiny layout shift in
+Session Window 2, giving it a very low score. That means that the average score
+is pretty low. But what if the developer fixes that tiny layout shift? Then the
+score is calculated just on Session Window 1, which means that the page&#39;s score
+&lt;em&gt;nearly doubles&lt;/em&gt;. It would be really confusing and discouraging to developers
+to improve their layout shifts only to find that the score got worse. And
+removing this small layout shift is obviously slightly better for the user
+experience, so it shouldn&#39;t worsen the score.&lt;/p&gt;
+&lt;p&gt;Because of this problem with averages, we decided to move forward with the
+smaller, capped, maximum windows. So in the example above, Session Window 2
+would be ignored and only the sum of the layout shifts in Session Window 1 would
+be reported.&lt;/p&gt;
+&lt;h3 id=&quot;why-5-seconds&quot;&gt;Why 5 seconds? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/evolving-cls/#why-5-seconds&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;We evaluated multiple window sizes and found two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For short windows, slower page loads and slower responses to user interactions
+could break layout shifts into multiple windows and improve the score. We
+wanted to keep the window large enough so it doesn&#39;t reward slowdowns!&lt;/li&gt;
+&lt;li&gt;There are some pages with a continual stream of small layout shifts. For
+example, a sports score page that shifts a bit with each score update. These
+shifts are annoying, but they don&#39;t get more annoying as time passes. So we
+wanted to ensure that the window was capped for these types of layout shifts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With these two things in mind, comparing a variety of window sizes on many
+real-world web pages, we concluded that 5 seconds would be a good limit to the
+window size.&lt;/p&gt;
+&lt;h2 id=&quot;how-will-this-affect-my-page&#39;s-cls-score&quot;&gt;How will this affect my page&#39;s CLS score? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/evolving-cls/#how-will-this-affect-my-page&#39;s-cls-score&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Since this update caps the CLS of a page, &lt;strong&gt;no page will have a worse score&lt;/strong&gt;
+as a result of this change.&lt;/p&gt;
+&lt;p&gt;And based on our analysis, &lt;strong&gt;55% of origins will not see a change in CLS at all
+at the 75th percentile&lt;/strong&gt;. This is because their pages either do not currently
+have any layout shifts or the shifts they do have are already confined to a
+single session window.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The rest of the origins will see improved scores at the 75th percentile with
+this change.&lt;/strong&gt; Most will only see a slight improvement, but about 3% will see
+their scores improve from having a &amp;quot;needs improvement&amp;quot; or &amp;quot;poor&amp;quot; rating to
+having a &amp;quot;good&amp;quot; rating. These pages tend to use infinite scrollers or have many
+slow UI updates, as described in our &lt;a href=&quot;https://web.dev/better-layout-shift-metric/&quot;&gt;earlier
+post&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;how-can-i-try-it-out&quot;&gt;How can I try it out? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/evolving-cls/#how-can-i-try-it-out&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We&#39;ll be updating our tools to use the new metric definition soon! Until then,
+you can try out the updated version of CLS on any site using the &lt;a href=&quot;https://github.com/mmocny/web-vitals/wiki/Snippets-for-LSN-using-PerformanceObserver&quot; rel=&quot;noopener&quot;&gt;example
+JavaScript
+implementations&lt;/a&gt;
+or the &lt;a href=&quot;https://github.com/mmocny/web-vitals-extension/tree/experimental-ls&quot; rel=&quot;noopener&quot;&gt;fork of the Web Vitals
+extension&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thanks to everyone who took the time to read the previous post and give their
+feedback!&lt;/p&gt;
+</content>
+    <author>
+      <name>Annie Sullivan</name>
+    </author><author>
+      <name>Hongbo Song</name>
+    </author>
+  </entry>
+</feed>

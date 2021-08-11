@@ -1,257 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Arrays vs ArrayLists (and other Lists) | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Arrays are built in to the language while lists are part of the standard library. The most notable difference is that arrays have fixed length while lists can grow." name="description">
-  <meta content="java, array, list, ArrayList, resizing, generics, covariance, size" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+      Java: Arrays vs ArrayLists (and other Lists) | Programming.Guide
+    </title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Arrays are built in to the language while lists are part of the standard library. The most notable difference is that arrays have fixed length while lists can grow."
+      name="description"
+    />
+    <meta
+      content="java, array, list, ArrayList, resizing, generics, covariance, size"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Java Arrays</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="arrays.html">Java Arrays (with examples)</a>
-        </li>
-        <li>
-          <a href="array-maximum-length.html">Maximum length of array</a>
-        </li>
-        <li>
-          <a href="arrayindexoutofboundsexception.html">ArrayIndexOutOfBoundsException</a>
-        </li>
-        <li class="current">Arrays vs ArrayLists (and other Lists)</li>
-        <li>
-          <a href="matrices-and-multidimensional-arrays.html">Matrices and Multidimensional Arrays</a>
-        </li>
-        <li>
-          <a href="array-append.html">Appending to an array</a>
-        </li>
-        <li>
-          <a href="array-copy.html">Copying an array</a>
-        </li>
-        <li>
-          <a href="array-insert-at-index.html">Inserting an element in an array at a given index</a>
-        </li>
-        <li>
-          <a href="testing-array-equality.html">Testing array equality</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Arrays vs ArrayLists (and other Lists)</h1>
-      <p>An array (something like <code>int[]</code>) is a <strong>built in type</strong> while <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html"><code>ArrayList</code></a> is a regular class part of the <strong>Java standard library</strong>.</p>
-      <h2>When to use which?</h2>
-      <p>Sometimes you <strong>must</strong> use an array. For example:</p>
-      <ul>
-        <li>An API method takes an array as argument or returns an array</li>
-        <li>You need to work with primitives for performance reasons</li>
-      </ul>
-      <p>Unless you have a specific reason to use an array (such as those mentioned above), use a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html"><code>List</code></a>, such as an <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html"><code>ArrayList</code></a>.</p>
-      <h2>Resizing</h2>
-      <p>Once you've created an array, it <strong>can't be resized</strong>. You can for instance not append an element to the end of an array, or remove an element.</p>
-      <p>Most list types (including <code>ArrayList</code>) provide <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html#add-E-"><code>List.add</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html#remove-int-"><code>List.remove</code></a> which allows it to <strong>grow and shrink</strong>.</p>
-      <h2>Insertion</h2>
-      <p>Both arrays and lists allow you to update the content at a specific index.</p>
-      <pre><code><span class="type">arr</span>[<span class="num_lit">5</span>] = <span class="num_lit">17</span>;
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Java Arrays</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="arrays.html">Java Arrays (with examples)</a>
+          </li>
+          <li>
+            <a href="array-maximum-length.html">Maximum length of array</a>
+          </li>
+          <li>
+            <a href="arrayindexoutofboundsexception.html"
+              >ArrayIndexOutOfBoundsException</a
+            >
+          </li>
+          <li class="current">Arrays vs ArrayLists (and other Lists)</li>
+          <li>
+            <a href="matrices-and-multidimensional-arrays.html"
+              >Matrices and Multidimensional Arrays</a
+            >
+          </li>
+          <li>
+            <a href="array-append.html">Appending to an array</a>
+          </li>
+          <li>
+            <a href="array-copy.html">Copying an array</a>
+          </li>
+          <li>
+            <a href="array-insert-at-index.html"
+              >Inserting an element in an array at a given index</a
+            >
+          </li>
+          <li>
+            <a href="testing-array-equality.html">Testing array equality</a>
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Arrays vs ArrayLists (and other Lists)</h1>
+        <p>
+          An array (something like <code>int[]</code>) is a
+          <strong>built in type</strong> while
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html"
+            ><code>ArrayList</code></a
+          >
+          is a regular class part of the <strong>Java standard library</strong>.
+        </p>
+        <h2>When to use which?</h2>
+        <p>Sometimes you <strong>must</strong> use an array. For example:</p>
+        <ul>
+          <li>An API method takes an array as argument or returns an array</li>
+          <li>You need to work with primitives for performance reasons</li>
+        </ul>
+        <p>
+          Unless you have a specific reason to use an array (such as those
+          mentioned above), use a
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html"
+            ><code>List</code></a
+          >, such as an
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html"
+            ><code>ArrayList</code></a
+          >.
+        </p>
+        <h2>Resizing</h2>
+        <p>
+          Once you've created an array, it <strong>can't be resized</strong>.
+          You can for instance not append an element to the end of an array, or
+          remove an element.
+        </p>
+        <p>
+          Most list types (including <code>ArrayList</code>) provide
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html#add-E-"
+            ><code>List.add</code></a
+          >
+          and
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html#remove-int-"
+            ><code>List.remove</code></a
+          >
+          which allows it to <strong>grow and shrink</strong>.
+        </p>
+        <h2>Insertion</h2>
+        <p>
+          Both arrays and lists allow you to update the content at a specific
+          index.
+        </p>
+        <pre><code><span class="type">arr</span>[<span class="num_lit">5</span>] = <span class="num_lit">17</span>;
 <span class="type">list</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#set(int,java.lang.Integer)"><span class="method">set</span></a>(<span class="num_lit">5</span>, <span class="num_lit">17</span>);</code></pre>
-      <p>Lists however, also allows you to <strong>insert</strong> an element in the middle, shifting all subsequent elements from index <em>i</em> to <em>i</em> + 1.</p>
-      <pre><code><span class="type">list</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#add(int,java.lang.Integer)"><span class="method">add</span></a>(<span class="num_lit">5</span>, <span class="num_lit">17</span>);  <span class="comment">// insert 17 at index 5</span>
+        <p>
+          Lists however, also allows you to <strong>insert</strong> an element
+          in the middle, shifting all subsequent elements from index
+          <em>i</em> to <em>i</em> + 1.
+        </p>
+        <pre><code><span class="type">list</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#add(int,java.lang.Integer)"><span class="method">add</span></a>(<span class="num_lit">5</span>, <span class="num_lit">17</span>);  <span class="comment">// insert 17 at index 5</span>
 </code></pre>
-      <h2>Primitives</h2>
-      <p>An arrray can store primitive values. Lists can not. You can have a <code>List</code> of integers, but you'll have to use <code>List&lt;Integer&gt;</code>. <code>List&lt;int&gt;</code> doesn't work. (Support for this is under way and <em>might</em> be available in something like Java 13. See <a href="http://openjdk.java.net/jeps/218">JEP 218: Generics over Primitive Types</a>.)</p>
-      <div class="article-box">
-        <p><strong>Autoboxing:</strong> Luckily there's something called <em>autoboxing</em> which silently transforms an <code>int</code> to an <code>Integer</code> behind the scenes. So despite the fact that a <code>List</code> can only hold <code>Integer</code> values, we can still use <code>list.add(5)</code>, i.e. we don't have to write <code>list.add(new Integer(5))</code>.</p>
-      </div>
-      <h2>Generic elements</h2>
-      <p>You can't create an array of generic elements. This won't compile:</p>
-      <pre><code><span class="comment">// Error: generic array creation</span>
+        <h2>Primitives</h2>
+        <p>
+          An arrray can store primitive values. Lists can not. You can have a
+          <code>List</code> of integers, but you'll have to use
+          <code>List&lt;Integer&gt;</code>. <code>List&lt;int&gt;</code> doesn't
+          work. (Support for this is under way and <em>might</em> be available
+          in something like Java 13. See
+          <a href="http://openjdk.java.net/jeps/218"
+            >JEP 218: Generics over Primitive Types</a
+          >.)
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Autoboxing:</strong> Luckily there's something called
+            <em>autoboxing</em> which silently transforms an <code>int</code> to
+            an <code>Integer</code> behind the scenes. So despite the fact that
+            a <code>List</code> can only hold <code>Integer</code> values, we
+            can still use <code>list.add(5)</code>, i.e. we don't have to write
+            <code>list.add(new Integer(5))</code>.
+          </p>
+        </div>
+        <h2>Generic elements</h2>
+        <p>
+          You can't create an array of generic elements. This won't compile:
+        </p>
+        <pre><code><span class="comment">// Error: generic array creation</span>
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html"><span class="type">Set</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;[] <span class="type">sets</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html"><span class="type">Set</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;[<span class="num_lit">3</span>];
 </code></pre>
-      <p>This however works fine:</p>
-      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html"><span class="type">List</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html"><span class="type">Set</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;&gt; <span class="type">sets</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html#ArrayList()"><span class="type">ArrayList&lt;Set&lt;String&gt;&gt;</span></a>();
+        <p>This however works fine:</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html"><span class="type">List</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html"><span class="type">Set</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt;&gt; <span class="type">sets</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html#ArrayList()"><span class="type">ArrayList&lt;Set&lt;String&gt;&gt;</span></a>();
 </code></pre>
-      <p>There is however a simple workaround for the array case. See <a href="generic-array-creation.html">Java: Generic array creation</a>.</p>
-      <h2>Immutability</h2>
-      <p>There's no way to make the elements of an array "final". If you write for instance</p>
-      <pre><code><span class="keyword">final</span> <span class="keyword">int</span>[] <span class="type">arr</span> = { <span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">3</span> };
+        <p>
+          There is however a simple workaround for the array case. See
+          <a href="generic-array-creation.html">Java: Generic array creation</a
+          >.
+        </p>
+        <h2>Immutability</h2>
+        <p>
+          There's no way to make the elements of an array "final". If you write
+          for instance
+        </p>
+        <pre><code><span class="keyword">final</span> <span class="keyword">int</span>[] <span class="type">arr</span> = { <span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">3</span> };
 </code></pre>
-      <p>Something like <code>arr[1] = 77</code> is still allowed.</p>
-      <p>Element immutability can be achieved for lists by doing:</p>
-      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html"><span class="type">List</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>&gt; <span class="type">list</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html"><span class="type">Collections</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html#unmodifiableList(java.util.List)"><span class="static_method">unmodifiableList</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html"><span class="type">Arrays</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#asList(java.lang.Integer:A)"><span class="static_method">asList</span></a>(<span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">3</span>));
+        <p>Something like <code>arr[1] = 77</code> is still allowed.</p>
+        <p>Element immutability can be achieved for lists by doing:</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html"><span class="type">List</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html"><span class="type">Integer</span></a>&gt; <span class="type">list</span> = <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html"><span class="type">Collections</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html#unmodifiableList(java.util.List)"><span class="static_method">unmodifiableList</span></a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html"><span class="type">Arrays</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#asList(java.lang.Integer:A)"><span class="static_method">asList</span></a>(<span class="num_lit">1</span>, <span class="num_lit">2</span>, <span class="num_lit">3</span>));
 </code></pre>
-      <h2>Covariance</h2>
-      <p>A <code>String[]</code> is a subtype of <code>Object[]</code>. This allows us to write:</p>
-      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">strings</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[<span class="num_lit">1</span>];
+        <h2>Covariance</h2>
+        <p>
+          A <code>String[]</code> is a subtype of <code>Object[]</code>. This
+          allows us to write:
+        </p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">strings</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[<span class="num_lit">1</span>];
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html"><span class="type">Object</span></a>[] <span class="type">objects</span> = <span class="type">strings</span>;
 <span class="type">objects</span>[<span class="num_lit">0</span>] = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#Object()"><span class="type">Object</span></a>();
 </code></pre>
-      <p>Although it throws an exception when executed!</p>
-      <p>A <code>List&lt;String&gt;</code> is however <strong>not</strong> a subtype of a <code>List&lt;Object&gt;</code>. This for example does not compile:</p>
-      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html"><span class="type">List</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt; <span class="type">strings</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html#ArrayList()"><span class="type">ArrayList&lt;&gt;</span></a>();
+        <p>Although it throws an exception when executed!</p>
+        <p>
+          A <code>List&lt;String&gt;</code> is however <strong>not</strong> a
+          subtype of a <code>List&lt;Object&gt;</code>. This for example does
+          not compile:
+        </p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html"><span class="type">List</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>&gt; <span class="type">strings</span> = <span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html#ArrayList()"><span class="type">ArrayList&lt;&gt;</span></a>();
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html"><span class="type">List</span></a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html"><span class="type">Object</span></a>&gt; <span class="type">objects</span> = <span class="type">strings</span>;  <span class="comment">// Error: Incompatible types</span>
 <span class="type">objects</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#add(java.lang.Object)"><span class="method">add</span></a>(<span class="keyword">new</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#Object()"><span class="type">Object</span></a>());
 </code></pre>
-      <p>Put in fancy computer science terms: Arrays are covariant, while lists are not.</p>
-      <h2>List methods</h2>
-      <p>You can't use <code>List</code> methods on arrays… <strong>WRONG</strong>. There's in fact a bridge from the array world over to the <code>List</code> world. The bridge is called <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#asList-T...-"><code>Arrays.asList</code></a>. This method returns a <code>List</code> implementation backed by the provided array, which means that modifications to the list affect the original array.</p>
-      <p>Here's an example using <code>List.replaceAll</code> on an array:</p>
-      <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">strs</span> = { <span class="text_lit">"a"</span>, <span class="text_lit">"b"</span>, <span class="text_lit">"c"</span>, <span class="text_lit">"d"</span> };
+        <p>
+          Put in fancy computer science terms: Arrays are covariant, while lists
+          are not.
+        </p>
+        <h2>List methods</h2>
+        <p>
+          You can't use <code>List</code> methods on arrays…
+          <strong>WRONG</strong>. There's in fact a bridge from the array world
+          over to the <code>List</code> world. The bridge is called
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#asList-T...-"
+            ><code>Arrays.asList</code></a
+          >. This method returns a <code>List</code> implementation backed by
+          the provided array, which means that modifications to the list affect
+          the original array.
+        </p>
+        <p>Here's an example using <code>List.replaceAll</code> on an array:</p>
+        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a>[] <span class="type">strs</span> = { <span class="text_lit">"a"</span>, <span class="text_lit">"b"</span>, <span class="text_lit">"c"</span>, <span class="text_lit">"d"</span> };
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html"><span class="type">Arrays</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#asList(java.lang.String:A)"><span class="static_method">asList</span></a>(<span class="type">strs</span>).<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#replaceAll(java.util.function.UnaryOperator)"><span class="method">replaceAll</span></a>(<span class="type">s</span> -&gt; <span class="type">s</span> + <span class="type">s</span>);
 <span class="comment">// strs == { "aa", "bb", "cc", "dd" }</span></code></pre>
-      <p>Note however, that since the backing array can't shrink or grow, operations such as <code>List.add</code> will throw <code>UnsupportedOperationException</code>.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>
+          Note however, that since the backing array can't shrink or grow,
+          operations such as <code>List.add</code> will throw
+          <code>UnsupportedOperationException</code>.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/array-vs-arraylist.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/array-vs-arraylist.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

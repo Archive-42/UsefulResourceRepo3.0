@@ -1,472 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Shallow vs Deep Copy (with examples) | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="A shallow copy shares its children with the original. A deep copy has its own copies of the children. Same applies for arrays. For example, if you make a shallow copy of an array of references (or pointers) the actual objects will not be copied." name="description">
-  <meta content="traversal, deep, shallow, deep vs shallow, shallow vs deep, clone" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shallow vs Deep Copy (with examples) | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="A shallow copy shares its children with the original. A deep copy has its own copies of the children. Same applies for arrays. For example, if you make a shallow copy of an array of references (or pointers) the actual objects will not be copied."
+      name="description"
+    />
+    <meta
+      content="traversal, deep, shallow, deep vs shallow, shallow vs deep, clone"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-  <style>
-    path:not(#arr) {
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+    <style>
+      path:not(#arr) {
         fill: none;
-    }
+      }
 
-    .orig {
+      .orig {
         stroke: black;
-    }
+      }
 
-    use.copy {
+      use.copy {
         stroke: lightgray;
         fill: #ccc;
-    }
-    
-    use[href="#arr"].copy, use[href="#ref"].copy {
+      }
+
+      use[href="#arr"].copy,
+      use[href="#ref"].copy {
         stroke: #ccc;
         fill: #ccc;
-    }
+      }
 
-    circle.copy, text.copy {
+      circle.copy,
+      text.copy {
         fill: #ccc;
-    }
+      }
 
-    path.copy, line.copy {
+      path.copy,
+      line.copy {
         stroke: #ccc;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      }
+    </style>
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Shallow vs Deep Copy (with examples)</h1>
-      <ul>
-        <li>A shallow copy shares its children with the original</li>
-        <li>A deep copy has its own copies of the children</li>
-      </ul>
-      <div class="article-box">
-        <svg style="margin: 0 auto; max-width: 30em; display: block;" viewbox="0 0 715 340" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="box1">
-            <rect fill="white" height="60" rx="10" ry="10" stroke-width="2" width="140" x="0" y="0"></rect>
-            <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
-          </g>
-          <g id="box2">
-            <rect fill="white" height="100" rx="10" ry="10" stroke-width="2" width="140" x="0" y="0"></rect>
-            <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
-          </g>
-          <path d="m 0 0 l -4 -10 l 8 0 l -4 10" id="arr" stroke-width="1"></path>
-          <circle id="ref" r="5" stroke-width="0"></circle>
-        </defs>
-        <use class="orig" href="#box2" x="100" y="70"></use>
-        <text height="50" text-anchor="middle" width="120" x="175" y="85">
-          Car
-        </text>
-        <text height="50" text-anchor="end" width="100" x="180" y="110">
-          make:
-        </text>
-        <text height="50" width="100" x="185" y="110">
-          BMW
-        </text>
-        <text height="50" text-anchor="end" width="100" x="180" y="135">
-          engine:
-        </text>
-        <use href="#ref" x="193" y="130"></use>
-        <text height="50" text-anchor="end" width="100" x="180" y="160">
-          gearbox:
-        </text>
-        <use href="#ref" x="193" y="155"></use>
-        <use class="orig" href="#box1" x="5" y="250"></use>
-        <text height="50" text-anchor="middle" width="100" x="75" y="265">
-          Gearbox
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="75" y="295">
-          gears: 6
-        </text>
-        <use class="orig" href="#box1" x="185" y="270"></use>
-        <text height="50" text-anchor="middle" width="100" x="255" y="285">
-          Engine
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="255" y="315">
-          cylinders: 12
-        </text>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="535" y="25">
-          Shallow copy of Car object
-        </text>
-        <use class="copy" href="#box2" x="460" y="70"></use>
-        <text class="copy" height="50" text-anchor="middle" width="120" x="535" y="85">
-          Car
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="110">
-          make:
-        </text>
-        <text class="copy" height="50" width="100" x="545" y="110">
-          BMW
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="135">
-          engine:
-        </text>
-        <use class="copy" href="#ref" x="553" y="130"></use>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="160">
-          gearbox:
-        </text>
-        <use class="copy" href="#ref" x="553" y="155"></use>
-        <path class="copy" d="M 553 130 q 40 0 40 40 c 0 80 -335 0 -335 90" stroke-width="2"></path>
-        <path class="copy" d="M 553 155 c 40 0 40 40 -80 40 h -320" stroke-width="2"></path>
-        <path d="M 193 130 q 65 0 65 130" stroke="black" stroke-width="2"></path>
-        <use href="#arr" style="stroke: black" x="258" y="270"></use>
-        <path d="M 193 155 c 40 0 40 40 -40 40 q -85 0 -85 45" stroke="black" stroke-width="2"></path>
-        <use href="#arr" style="stroke: black" x="68" y="250"></use></svg>
-      </div>
-      <div class="article-box">
-        <svg style="margin: 0 auto; max-width: 30em; display: block;" viewbox="0 0 715 340" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <use class="orig" href="#box2" x="100" y="70"></use>
-        <text height="50" text-anchor="middle" width="120" x="175" y="85">
-          Car
-        </text>
-        <text height="50" text-anchor="end" width="100" x="180" y="110">
-          make:
-        </text>
-        <text height="50" width="100" x="185" y="110">
-          BMW
-        </text>
-        <text height="50" text-anchor="end" width="100" x="180" y="135">
-          engine:
-        </text>
-        <use href="#ref" x="193" y="130"></use>
-        <text height="50" text-anchor="end" width="100" x="180" y="160">
-          gearbox:
-        </text>
-        <use href="#ref" x="193" y="155"></use>
-        <use class="orig" href="#box1" x="5" y="250"></use>
-        <text height="50" text-anchor="middle" width="100" x="75" y="265">
-          Gearbox
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="75" y="295">
-          gears: 6
-        </text>
-        <use class="orig" href="#box1" x="185" y="270"></use>
-        <text height="50" text-anchor="middle" width="100" x="255" y="285">
-          Engine
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="255" y="315">
-          cylinders: 12
-        </text>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="535" y="25">
-          Deep copy of Car object
-        </text>
-        <use class="copy" href="#box2" x="460" y="70"></use>
-        <text class="copy" height="50" text-anchor="middle" width="120" x="535" y="85">
-          Car
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="110">
-          make:
-        </text>
-        <text class="copy" height="50" width="100" x="545" y="110">
-          BMW
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="135">
-          engine:
-        </text>
-        <use class="copy" href="#ref" r="5" x="553" y="130"></use>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="160">
-          gearbox:
-        </text>
-        <use class="copy" href="#ref" x="553" y="155"></use>
-        <use class="copy" href="#box1" x="365" y="250"></use>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="435" y="265">
-          Gearbox
-        </text>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="435" y="295">
-          gears: 6
-        </text>
-        <use class="copy" href="#box1" x="545" y="270"></use>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="615" y="285">
-          Engine
-        </text>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="615" y="315">
-          cylinders: 12
-        </text>
-        <path d="M 193 130 q 65 0 65 130" stroke="black" stroke-width="2"></path>
-        <use href="#arr" style="stroke: black" x="258" y="270"></use>
-        <path d="M 193 155 c 40 0 40 40 -40 40 q -85 0 -85 45" stroke="black" stroke-width="2"></path>
-        <use href="#arr" style="stroke: black" x="68" y="250"></use>
-        <path class="copy" d="M 553 130 q 65 0 65 130" stroke-width="2"></path>
-        <use class="copy" href="#arr" x="618" y="270"></use>
-        <path class="copy" d="M 553 155 c 40 0 40 40 -40 40 q -85 0 -85 45" stroke-width="2"></path>
-        <use class="copy" href="#arr" x="428" y="250"></use></svg>
-      </div>
-      <h2>Arrays</h2>
-      <p>The above example showed an object graph. Same story for arrays.</p>
-      <div class="article-box">
-        <svg style="margin: 0 auto; max-width: 30em; display: block;" viewbox="0 0 715 280" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="cell">
-            <rect fill="white" height="40" stroke-width="2" width="40" x="0" y="0"></rect>
-            <circle cx="20" cy="20" r="5"></circle>
-          </g>
-          <g id="arr-box">
-            <use href="#arr" x="20" y="0"></use>
-            <use class="orig" href="#box1" x="-50" y="0"></use>
-          </g>
-          <g id="arr-box-copy">
-            <use class="copy" href="#arr" x="20" y="0"></use>
-            <use class="copy" href="#box1" x="-50" y="0"></use>
-          </g>
-        </defs>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="550" y="25">
-          Shallow copy of array
-        </text>
-        <use class="orig" href="#cell" x="260" y="70"></use>
-        <use href="#arr-box" x="260" y="191"></use>
-        <use class="orig" href="#cell" x="220" y="70"></use>
-        <use href="#arr-box" x="220" y="197"></use>
-        <use class="orig" href="#cell" x="180" y="70"></use>
-        <use href="#arr-box" x="180" y="203"></use>
-        <use class="orig" href="#cell" x="140" y="70"></use>
-        <use href="#arr-box" x="140" y="209"></use>
-        <use class="orig" href="#cell" x="100" y="70"></use>
-        <use href="#arr-box" x="100" y="215"></use>
-        <text height="50" text-anchor="middle" width="100" x="120" y="230">
-          Person
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="120" y="260">
-          age: 30
-        </text>
-        <use class="copy" href="#cell" x="610" y="70"></use>
-        <use class="copy" href="#cell" x="570" y="70"></use>
-        <use class="copy" href="#cell" x="530" y="70"></use>
-        <use class="copy" href="#cell" x="490" y="70"></use>
-        <use class="copy" href="#cell" x="450" y="70"></use>
-        <path class="copy" d="M 470 90 v 0 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 510 90 v 5 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 550 90 v 10 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 590 90 v 15 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 630 90 v 20 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <line stroke="black" stroke-width="2" x1="280" x2="280" y1="90" y2="181"></line>
-        <line stroke="black" stroke-width="2" x1="240" x2="240" y1="90" y2="187"></line>
-        <line stroke="black" stroke-width="2" x1="200" x2="200" y1="90" y2="193"></line>
-        <line stroke="black" stroke-width="2" x1="160" x2="160" y1="90" y2="199"></line>
-        <line stroke="black" stroke-width="2" x1="120" x2="120" y1="90" y2="205"></line></svg>
-      </div>
-      <div class="article-box">
-        <svg style="margin: 0 auto; max-width: 30em; display: block;" viewbox="0 0 715 280" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <use class="orig" href="#cell" x="260" y="70"></use>
-        <use href="#arr-box" x="260" y="191"></use>
-        <use class="orig" href="#cell" x="220" y="70"></use>
-        <use href="#arr-box" x="220" y="197"></use>
-        <use class="orig" href="#cell" x="180" y="70"></use>
-        <use href="#arr-box" x="180" y="203"></use>
-        <use class="orig" href="#cell" x="140" y="70"></use>
-        <use href="#arr-box" x="140" y="209"></use>
-        <use class="orig" href="#cell" x="100" y="70"></use>
-        <use href="#arr-box" x="100" y="215"></use>
-        <text height="50" text-anchor="middle" width="100" x="120" y="230">
-          Person
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="120" y="260">
-          age: 30
-        </text>
-        <line stroke="black" stroke-width="2" x1="280" x2="280" y1="90" y2="181"></line>
-        <line stroke="black" stroke-width="2" x1="240" x2="240" y1="90" y2="187"></line>
-        <line stroke="black" stroke-width="2" x1="200" x2="200" y1="90" y2="193"></line>
-        <line stroke="black" stroke-width="2" x1="160" x2="160" y1="90" y2="199"></line>
-        <line stroke="black" stroke-width="2" x1="120" x2="120" y1="90" y2="205"></line>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="550" y="25">
-          Deep copy of array
-        </text>
-        <use class="copy" href="#cell" x="610" y="70"></use>
-        <use href="#arr-box-copy" x="610" y="191"></use>
-        <use class="copy" href="#cell" x="570" y="70"></use>
-        <use href="#arr-box-copy" x="570" y="197"></use>
-        <use class="copy" href="#cell" x="530" y="70"></use>
-        <use href="#arr-box-copy" x="530" y="203"></use>
-        <use class="copy" href="#cell" x="490" y="70"></use>
-        <use href="#arr-box-copy" x="490" y="209"></use>
-        <use class="copy" href="#cell" x="450" y="70"></use>
-        <use href="#arr-box-copy" x="450" y="215"></use>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="470" y="230">
-          Person
-        </text>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="470" y="260">
-          age: 30
-        </text>
-        <line class="copy" stroke-width="2" x1="630" x2="630" y1="90" y2="181"></line>
-        <line class="copy" stroke-width="2" x1="590" x2="590" y1="90" y2="187"></line>
-        <line class="copy" stroke-width="2" x1="550" x2="550" y1="90" y2="193"></line>
-        <line class="copy" stroke-width="2" x1="510" x2="510" y1="90" y2="199"></line>
-        <line class="copy" stroke-width="2" x1="470" x2="470" y1="90" y2="205"></line></svg>
-      </div>
-      <h2>If there are no children?</h2>
-      <p>Since the concept of deep vs shallow concerns treatment of children, it’s meaningless to talk about deep vs shallow copying of objects (or arrays) that doesn’t have any children. When creating a copy of an array of integers for example, the copy can be seen as both shallow (no children were copied) and deep (all children were copied).</p>
-      <h2>What about <code>pointerA = pointerB</code>?</h2>
-      <p>When you do <code>pointerA = pointerB</code> no object is copied, so it’s neither a deep nor a shallow copy. A pointer value <em>is</em> copied but the value itself (the <em>address</em>) can’t possibly have any children so it doesn’t make sense to try to categorize this copying as shallow or deep.</p>
-      <h2>Mixed copies</h2>
-      <p>Mixed copies are part shallow, part deep. If you for instance make shallow copies of the immediate children, then the original and the copy may share the same grand children. You could say that the copying is <em>one level deep</em>.</p>
-      <p>Another type of mixed copy would be if you create copies of some children, while sharing others. If you for example have a reference to a singleton, or an immutable object it doesn’t make sense to clone these objects.</p>
-      <h2>When to use which?</h2>
-      <p>This has to be decided on a case by case basis. Here are a few pro’s and con’s of each approach to help you decide.</p>
-      <ul>
-        <li>
-          <p>Shallow copies are easier to implement since they don’t require traversal of the object tree.</p>
-        </li>
-        <li>
-          <p>If the data structure to be copied can have cycles, a deep copy implementation needs to keep track of already copied objects to avoid infinite copying.</p>
-        </li>
-        <li>
-          <p>If the data structure to be copied is immutable, there’s no risk in sharing state and shallow copies are therefore typically preferred.</p>
-        </li>
-        <li>
-          <p>If the data structure is mutable, sharing data could lead to complex code. For this reason deep copies may be preferred. There’s also a middle way, where shallow copies are used until the children are modified, at which point they are copied. This “lazy deep copying” is called copy on write.</p>
-        </li>
-      </ul>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="shallow-vs-deep-copy.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Shallow vs Deep Copy (with examples)</h1>
+        <ul>
+          <li>A shallow copy shares its children with the original</li>
+          <li>A deep copy has its own copies of the children</li>
+        </ul>
+        <div class="article-box">
+          <svg
+            style="margin: 0 auto; max-width: 30em; display: block"
+            viewbox="0 0 715 340"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <g id="box1">
+                <rect
+                  fill="white"
+                  height="60"
+                  rx="10"
+                  ry="10"
+                  stroke-width="2"
+                  width="140"
+                  x="0"
+                  y="0"
+                ></rect>
+                <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
+              </g>
+              <g id="box2">
+                <rect
+                  fill="white"
+                  height="100"
+                  rx="10"
+                  ry="10"
+                  stroke-width="2"
+                  width="140"
+                  x="0"
+                  y="0"
+                ></rect>
+                <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
+              </g>
+              <path
+                d="m 0 0 l -4 -10 l 8 0 l -4 10"
+                id="arr"
+                stroke-width="1"
+              ></path>
+              <circle id="ref" r="5" stroke-width="0"></circle>
+            </defs>
+            <use class="orig" href="#box2" x="100" y="70"></use>
+            <text height="50" text-anchor="middle" width="120" x="175" y="85">
+              Car
+            </text>
+            <text height="50" text-anchor="end" width="100" x="180" y="110">
+              make:
+            </text>
+            <text height="50" width="100" x="185" y="110">BMW</text>
+            <text height="50" text-anchor="end" width="100" x="180" y="135">
+              engine:
+            </text>
+            <use href="#ref" x="193" y="130"></use>
+            <text height="50" text-anchor="end" width="100" x="180" y="160">
+              gearbox:
+            </text>
+            <use href="#ref" x="193" y="155"></use>
+            <use class="orig" href="#box1" x="5" y="250"></use>
+            <text height="50" text-anchor="middle" width="100" x="75" y="265">
+              Gearbox
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="75" y="295">
+              gears: 6
+            </text>
+            <use class="orig" href="#box1" x="185" y="270"></use>
+            <text height="50" text-anchor="middle" width="100" x="255" y="285">
+              Engine
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="255" y="315">
+              cylinders: 12
+            </text>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="535"
+              y="25"
+            >
+              Shallow copy of Car object
+            </text>
+            <use class="copy" href="#box2" x="460" y="70"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="120"
+              x="535"
+              y="85"
+            >
+              Car
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="110"
+            >
+              make:
+            </text>
+            <text class="copy" height="50" width="100" x="545" y="110">
+              BMW
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="135"
+            >
+              engine:
+            </text>
+            <use class="copy" href="#ref" x="553" y="130"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="160"
+            >
+              gearbox:
+            </text>
+            <use class="copy" href="#ref" x="553" y="155"></use>
+            <path
+              class="copy"
+              d="M 553 130 q 40 0 40 40 c 0 80 -335 0 -335 90"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 553 155 c 40 0 40 40 -80 40 h -320"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M 193 130 q 65 0 65 130"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use href="#arr" style="stroke: black" x="258" y="270"></use>
+            <path
+              d="M 193 155 c 40 0 40 40 -40 40 q -85 0 -85 45"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use href="#arr" style="stroke: black" x="68" y="250"></use>
+          </svg>
+        </div>
+        <div class="article-box">
+          <svg
+            style="margin: 0 auto; max-width: 30em; display: block"
+            viewbox="0 0 715 340"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use class="orig" href="#box2" x="100" y="70"></use>
+            <text height="50" text-anchor="middle" width="120" x="175" y="85">
+              Car
+            </text>
+            <text height="50" text-anchor="end" width="100" x="180" y="110">
+              make:
+            </text>
+            <text height="50" width="100" x="185" y="110">BMW</text>
+            <text height="50" text-anchor="end" width="100" x="180" y="135">
+              engine:
+            </text>
+            <use href="#ref" x="193" y="130"></use>
+            <text height="50" text-anchor="end" width="100" x="180" y="160">
+              gearbox:
+            </text>
+            <use href="#ref" x="193" y="155"></use>
+            <use class="orig" href="#box1" x="5" y="250"></use>
+            <text height="50" text-anchor="middle" width="100" x="75" y="265">
+              Gearbox
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="75" y="295">
+              gears: 6
+            </text>
+            <use class="orig" href="#box1" x="185" y="270"></use>
+            <text height="50" text-anchor="middle" width="100" x="255" y="285">
+              Engine
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="255" y="315">
+              cylinders: 12
+            </text>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="535"
+              y="25"
+            >
+              Deep copy of Car object
+            </text>
+            <use class="copy" href="#box2" x="460" y="70"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="120"
+              x="535"
+              y="85"
+            >
+              Car
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="110"
+            >
+              make:
+            </text>
+            <text class="copy" height="50" width="100" x="545" y="110">
+              BMW
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="135"
+            >
+              engine:
+            </text>
+            <use class="copy" href="#ref" r="5" x="553" y="130"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="160"
+            >
+              gearbox:
+            </text>
+            <use class="copy" href="#ref" x="553" y="155"></use>
+            <use class="copy" href="#box1" x="365" y="250"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="435"
+              y="265"
+            >
+              Gearbox
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="435"
+              y="295"
+            >
+              gears: 6
+            </text>
+            <use class="copy" href="#box1" x="545" y="270"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="615"
+              y="285"
+            >
+              Engine
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="615"
+              y="315"
+            >
+              cylinders: 12
+            </text>
+            <path
+              d="M 193 130 q 65 0 65 130"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use href="#arr" style="stroke: black" x="258" y="270"></use>
+            <path
+              d="M 193 155 c 40 0 40 40 -40 40 q -85 0 -85 45"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use href="#arr" style="stroke: black" x="68" y="250"></use>
+            <path
+              class="copy"
+              d="M 553 130 q 65 0 65 130"
+              stroke-width="2"
+            ></path>
+            <use class="copy" href="#arr" x="618" y="270"></use>
+            <path
+              class="copy"
+              d="M 553 155 c 40 0 40 40 -40 40 q -85 0 -85 45"
+              stroke-width="2"
+            ></path>
+            <use class="copy" href="#arr" x="428" y="250"></use>
+          </svg>
+        </div>
+        <h2>Arrays</h2>
+        <p>The above example showed an object graph. Same story for arrays.</p>
+        <div class="article-box">
+          <svg
+            style="margin: 0 auto; max-width: 30em; display: block"
+            viewbox="0 0 715 280"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <g id="cell">
+                <rect
+                  fill="white"
+                  height="40"
+                  stroke-width="2"
+                  width="40"
+                  x="0"
+                  y="0"
+                ></rect>
+                <circle cx="20" cy="20" r="5"></circle>
+              </g>
+              <g id="arr-box">
+                <use href="#arr" x="20" y="0"></use>
+                <use class="orig" href="#box1" x="-50" y="0"></use>
+              </g>
+              <g id="arr-box-copy">
+                <use class="copy" href="#arr" x="20" y="0"></use>
+                <use class="copy" href="#box1" x="-50" y="0"></use>
+              </g>
+            </defs>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="550"
+              y="25"
+            >
+              Shallow copy of array
+            </text>
+            <use class="orig" href="#cell" x="260" y="70"></use>
+            <use href="#arr-box" x="260" y="191"></use>
+            <use class="orig" href="#cell" x="220" y="70"></use>
+            <use href="#arr-box" x="220" y="197"></use>
+            <use class="orig" href="#cell" x="180" y="70"></use>
+            <use href="#arr-box" x="180" y="203"></use>
+            <use class="orig" href="#cell" x="140" y="70"></use>
+            <use href="#arr-box" x="140" y="209"></use>
+            <use class="orig" href="#cell" x="100" y="70"></use>
+            <use href="#arr-box" x="100" y="215"></use>
+            <text height="50" text-anchor="middle" width="100" x="120" y="230">
+              Person
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="120" y="260">
+              age: 30
+            </text>
+            <use class="copy" href="#cell" x="610" y="70"></use>
+            <use class="copy" href="#cell" x="570" y="70"></use>
+            <use class="copy" href="#cell" x="530" y="70"></use>
+            <use class="copy" href="#cell" x="490" y="70"></use>
+            <use class="copy" href="#cell" x="450" y="70"></use>
+            <path
+              class="copy"
+              d="M 470 90 v 0 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 510 90 v 5 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 550 90 v 10 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 590 90 v 15 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 630 90 v 20 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="280"
+              x2="280"
+              y1="90"
+              y2="181"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="240"
+              x2="240"
+              y1="90"
+              y2="187"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="200"
+              x2="200"
+              y1="90"
+              y2="193"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="160"
+              x2="160"
+              y1="90"
+              y2="199"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="120"
+              x2="120"
+              y1="90"
+              y2="205"
+            ></line>
+          </svg>
+        </div>
+        <div class="article-box">
+          <svg
+            style="margin: 0 auto; max-width: 30em; display: block"
+            viewbox="0 0 715 280"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <use class="orig" href="#cell" x="260" y="70"></use>
+            <use href="#arr-box" x="260" y="191"></use>
+            <use class="orig" href="#cell" x="220" y="70"></use>
+            <use href="#arr-box" x="220" y="197"></use>
+            <use class="orig" href="#cell" x="180" y="70"></use>
+            <use href="#arr-box" x="180" y="203"></use>
+            <use class="orig" href="#cell" x="140" y="70"></use>
+            <use href="#arr-box" x="140" y="209"></use>
+            <use class="orig" href="#cell" x="100" y="70"></use>
+            <use href="#arr-box" x="100" y="215"></use>
+            <text height="50" text-anchor="middle" width="100" x="120" y="230">
+              Person
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="120" y="260">
+              age: 30
+            </text>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="280"
+              x2="280"
+              y1="90"
+              y2="181"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="240"
+              x2="240"
+              y1="90"
+              y2="187"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="200"
+              x2="200"
+              y1="90"
+              y2="193"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="160"
+              x2="160"
+              y1="90"
+              y2="199"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="120"
+              x2="120"
+              y1="90"
+              y2="205"
+            ></line>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="550"
+              y="25"
+            >
+              Deep copy of array
+            </text>
+            <use class="copy" href="#cell" x="610" y="70"></use>
+            <use href="#arr-box-copy" x="610" y="191"></use>
+            <use class="copy" href="#cell" x="570" y="70"></use>
+            <use href="#arr-box-copy" x="570" y="197"></use>
+            <use class="copy" href="#cell" x="530" y="70"></use>
+            <use href="#arr-box-copy" x="530" y="203"></use>
+            <use class="copy" href="#cell" x="490" y="70"></use>
+            <use href="#arr-box-copy" x="490" y="209"></use>
+            <use class="copy" href="#cell" x="450" y="70"></use>
+            <use href="#arr-box-copy" x="450" y="215"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="470"
+              y="230"
+            >
+              Person
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="470"
+              y="260"
+            >
+              age: 30
+            </text>
+            <line
+              class="copy"
+              stroke-width="2"
+              x1="630"
+              x2="630"
+              y1="90"
+              y2="181"
+            ></line>
+            <line
+              class="copy"
+              stroke-width="2"
+              x1="590"
+              x2="590"
+              y1="90"
+              y2="187"
+            ></line>
+            <line
+              class="copy"
+              stroke-width="2"
+              x1="550"
+              x2="550"
+              y1="90"
+              y2="193"
+            ></line>
+            <line
+              class="copy"
+              stroke-width="2"
+              x1="510"
+              x2="510"
+              y1="90"
+              y2="199"
+            ></line>
+            <line
+              class="copy"
+              stroke-width="2"
+              x1="470"
+              x2="470"
+              y1="90"
+              y2="205"
+            ></line>
+          </svg>
+        </div>
+        <h2>If there are no children?</h2>
+        <p>
+          Since the concept of deep vs shallow concerns treatment of children,
+          it’s meaningless to talk about deep vs shallow copying of objects (or
+          arrays) that doesn’t have any children. When creating a copy of an
+          array of integers for example, the copy can be seen as both shallow
+          (no children were copied) and deep (all children were copied).
+        </p>
+        <h2>What about <code>pointerA = pointerB</code>?</h2>
+        <p>
+          When you do <code>pointerA = pointerB</code> no object is copied, so
+          it’s neither a deep nor a shallow copy. A pointer value
+          <em>is</em> copied but the value itself (the <em>address</em>) can’t
+          possibly have any children so it doesn’t make sense to try to
+          categorize this copying as shallow or deep.
+        </p>
+        <h2>Mixed copies</h2>
+        <p>
+          Mixed copies are part shallow, part deep. If you for instance make
+          shallow copies of the immediate children, then the original and the
+          copy may share the same grand children. You could say that the copying
+          is <em>one level deep</em>.
+        </p>
+        <p>
+          Another type of mixed copy would be if you create copies of some
+          children, while sharing others. If you for example have a reference to
+          a singleton, or an immutable object it doesn’t make sense to clone
+          these objects.
+        </p>
+        <h2>When to use which?</h2>
+        <p>
+          This has to be decided on a case by case basis. Here are a few pro’s
+          and con’s of each approach to help you decide.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Shallow copies are easier to implement since they don’t require
+              traversal of the object tree.
+            </p>
+          </li>
+          <li>
+            <p>
+              If the data structure to be copied can have cycles, a deep copy
+              implementation needs to keep track of already copied objects to
+              avoid infinite copying.
+            </p>
+          </li>
+          <li>
+            <p>
+              If the data structure to be copied is immutable, there’s no risk
+              in sharing state and shallow copies are therefore typically
+              preferred.
+            </p>
+          </li>
+          <li>
+            <p>
+              If the data structure is mutable, sharing data could lead to
+              complex code. For this reason deep copies may be preferred.
+              There’s also a middle way, where shallow copies are used until the
+              children are modified, at which point they are copied. This “lazy
+              deep copying” is called copy on write.
+            </p>
+          </li>
+        </ul>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="shallow-vs-deep-copy.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

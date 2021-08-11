@@ -1,257 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Normal vs Subnormal Floats | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="A normal value has a 1 before the binary point and a subnormal value has a 0 before the binary point. In IEEE 754 a value is subnormal if all exponent bits are 0." name="description">
-  <meta content="float, double, normalized, normal, subnormal, floating point value, bits, bit pattern, mantissa, significand, exponent, IEEE754" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Normal vs Subnormal Floats | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="A normal value has a 1 before the binary point and a subnormal value has a 0 before the binary point. In IEEE 754 a value is subnormal if all exponent bits are 0."
+      name="description"
+    />
+    <meta
+      content="float, double, normalized, normal, subnormal, floating point value, bits, bit pattern, mantissa, significand, exponent, IEEE754"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Floating Point Values</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="bits-of-a-floating-point-value.html">Bits of a Floating Point Value</a>
-        </li>
-        <li class="current">Normal vs Subnormal Floats</li>
-        <li>
-          <a href="why-is-it-called-floating-point-and-what-is-fixed-point.html">Why is it called Floating Point? And what is Fixed Point?</a>
-        </li>
-      </ol>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Normal vs Subnormal Floats</h1>
-      <ul>
-        <li>A <strong>normal</strong> value has a 1 before the binary point: <span style="white-space: nowrap">1.<span style="font-style: italic">significand bits</span> × 2<sup>exp</sup></span></li>
-        <li>A <strong>subnormal</strong> value has a 0 before the binary point: <span style="white-space: nowrap">0.<span style="font-style: italic">significand bits</span> × 2<sup>exp</sup></span></li>
-      </ul>
-      <h2>What does this mean?</h2>
-      <p>Computers store floating point values similar to how we write numbers in <strong>scientific notation</strong>:</p>
-      <div class="centered-content">
-        1.2325 × 10<sup>2</sup>
-      </div>
-      <p>Or, as computers prefer it, in base 2:</p>
-      <div class="centered-content">
-        1.11101101 × 2<sup>110</sup>
-      </div>
-      <p>See <a href="bits-of-a-floating-point-value.html">Bits of a Floating Point Value</a> for details.</p>
-      <p>The exponent (2 and 110 in the decimal and binary examples above) are not chosen arbitrarily. They are chosen so that there is <strong>precisely one non-zero digit</strong> in front of the decimal (or binary) point. This is called the <strong>normal form</strong>.</p>
-      <h2>Leading bit is implicit</h2>
-      <p>Since 1 is the only non-zero digit in binary, values will normally (pun intended) start with 1 followed by a binary point. This is taken advantage of in the IEEE 754 format: The leading bit is implicit, i.e. only the bits after the binary point are stored explicitly.</p>
-      <h2>Smallest normal value</h2>
-      <p>While keeping the initial bit implicit saves one bit, it means that the <strong>smallest normal value</strong> is</p>
-      <div class="centered-content" style="padding: 1em 0em;">
-        <div style="display: inline-block">
-          <div style="display: inline-block; vertical-align: top;">
-            1.
-          </div>
-          <div style="display: inline-block; vertical-align: top;">
-            <div>
-              00000000000000000000000
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Floating Point Values</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="bits-of-a-floating-point-value.html"
+              >Bits of a Floating Point Value</a
+            >
+          </li>
+          <li class="current">Normal vs Subnormal Floats</li>
+          <li>
+            <a
+              href="why-is-it-called-floating-point-and-what-is-fixed-point.html"
+              >Why is it called Floating Point? And what is Fixed Point?</a
+            >
+          </li>
+        </ol>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Normal vs Subnormal Floats</h1>
+        <ul>
+          <li>
+            A <strong>normal</strong> value has a 1 before the binary point:
+            <span style="white-space: nowrap"
+              >1.<span style="font-style: italic">significand bits</span
+              > × 2<sup>exp</sup></span
+            >
+          </li>
+          <li>
+            A <strong>subnormal</strong> value has a 0 before the binary point:
+            <span style="white-space: nowrap"
+              >0.<span style="font-style: italic">significand bits</span
+              > × 2<sup>exp</sup></span
+            >
+          </li>
+        </ul>
+        <h2>What does this mean?</h2>
+        <p>
+          Computers store floating point values similar to how we write numbers
+          in <strong>scientific notation</strong>:
+        </p>
+        <div class="centered-content">1.2325 × 10<sup>2</sup></div>
+        <p>Or, as computers prefer it, in base 2:</p>
+        <div class="centered-content">1.11101101 × 2<sup>110</sup></div>
+        <p>
+          See
+          <a href="bits-of-a-floating-point-value.html"
+            >Bits of a Floating Point Value</a
+          >
+          for details.
+        </p>
+        <p>
+          The exponent (2 and 110 in the decimal and binary examples above) are
+          not chosen arbitrarily. They are chosen so that there is
+          <strong>precisely one non-zero digit</strong> in front of the decimal
+          (or binary) point. This is called the <strong>normal form</strong>.
+        </p>
+        <h2>Leading bit is implicit</h2>
+        <p>
+          Since 1 is the only non-zero digit in binary, values will normally
+          (pun intended) start with 1 followed by a binary point. This is taken
+          advantage of in the IEEE 754 format: The leading bit is implicit, i.e.
+          only the bits after the binary point are stored explicitly.
+        </p>
+        <h2>Smallest normal value</h2>
+        <p>
+          While keeping the initial bit implicit saves one bit, it means that
+          the <strong>smallest normal value</strong> is
+        </p>
+        <div class="centered-content" style="padding: 1em 0em">
+          <div style="display: inline-block">
+            <div style="display: inline-block; vertical-align: top">1.</div>
+            <div style="display: inline-block; vertical-align: top">
+              <div>00000000000000000000000</div>
+              <div
+                style="
+                  border: 0.1em solid black;
+                  border-top: none;
+                  height: 0.3em;
+                  margin-top: 0.3em;
+                "
+              ></div>
+              <div
+                class="centered-content"
+                style="margin-top: 0.3em; font-size: smaller"
+              >
+                explicitly stored<br />
+                significand bits
+              </div>
             </div>
-            <div style="border: .1em solid black; border-top: none; height: .3em; margin-top: .3em"></div>
-            <div class="centered-content" style="margin-top: .3em; font-size: smaller;">
-              explicitly stored<br>
-              significand bits
-            </div>
-          </div>
-          <div style="display: inline-block; vertical-align: top;">
-             × 2
-          </div>
-          <div style="display: inline-block; vertical-align: top;">
-            <div>
-              <sup>−126</sup>
-            </div>
-            <div style="border: .1em solid black; border-top: none; height: .3em; margin-top: .3em"></div>
-            <div class="centered-content" style="width: 0em; margin-left: -.7em; margin-top: .3em; font-size: smaller;">
-              smallest exponent
+            <div style="display: inline-block; vertical-align: top"> × 2</div>
+            <div style="display: inline-block; vertical-align: top">
+              <div>
+                <sup>−126</sup>
+              </div>
+              <div
+                style="
+                  border: 0.1em solid black;
+                  border-top: none;
+                  height: 0.3em;
+                  margin-top: 0.3em;
+                "
+              ></div>
+              <div
+                class="centered-content"
+                style="
+                  width: 0em;
+                  margin-left: -0.7em;
+                  margin-top: 0.3em;
+                  font-size: smaller;
+                "
+              >
+                smallest exponent
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <p>This is for single precision (<code>float</code>) values where the exponent is 8 bits. For double precision (<code>double</code>) values the exponent has 11 bits.</p>
-      <h2>Smallest subnormal value</h2>
-      <p>To allow for even smaller values, IEEE 754 specifies that if all exponent bits are zero, the implicit leading bit is 0. This means that the <strong>smallest subnormal non-zero value</strong> is</p>
-      <div class="centered-content" style="padding-top: 1em;">
-        <div style="display: inline-block">
-          <div style="display: inline-block; vertical-align: top;">
-            0.
-          </div>
-          <div style="display: inline-block; vertical-align: top;">
-            <div>
-              00000000000000000000001
+        <p>
+          This is for single precision (<code>float</code>) values where the
+          exponent is 8 bits. For double precision (<code>double</code>) values
+          the exponent has 11 bits.
+        </p>
+        <h2>Smallest subnormal value</h2>
+        <p>
+          To allow for even smaller values, IEEE 754 specifies that if all
+          exponent bits are zero, the implicit leading bit is 0. This means that
+          the <strong>smallest subnormal non-zero value</strong> is
+        </p>
+        <div class="centered-content" style="padding-top: 1em">
+          <div style="display: inline-block">
+            <div style="display: inline-block; vertical-align: top">0.</div>
+            <div style="display: inline-block; vertical-align: top">
+              <div>00000000000000000000001</div>
+              <div
+                style="
+                  border: 0.1em solid black;
+                  border-top: none;
+                  height: 0.3em;
+                  margin-top: 0.3em;
+                "
+              ></div>
+              <div
+                class="centered-content"
+                style="margin-top: 0.3em; font-size: smaller"
+              >
+                explicitly stored<br />
+                significand bits
+              </div>
             </div>
-            <div style="border: .1em solid black; border-top: none; height: .3em; margin-top: .3em"></div>
-            <div class="centered-content" style="margin-top: .3em; font-size: smaller;">
-              explicitly stored<br>
-              significand bits
-            </div>
-          </div>
-          <div style="display: inline-block; vertical-align: top;">
-             × 2
-          </div>
-          <div style="display: inline-block; vertical-align: top;">
-            <div>
-              <sup>−126</sup>
-            </div>
-            <div style="border: .1em solid black; border-top: none; height: .3em; margin-top: .3em"></div>
-            <div class="centered-content" style="width: 0em; margin-left: -.7em; margin-top: .3em; font-size: smaller;">
-              smallest exponent
+            <div style="display: inline-block; vertical-align: top"> × 2</div>
+            <div style="display: inline-block; vertical-align: top">
+              <div>
+                <sup>−126</sup>
+              </div>
+              <div
+                style="
+                  border: 0.1em solid black;
+                  border-top: none;
+                  height: 0.3em;
+                  margin-top: 0.3em;
+                "
+              ></div>
+              <div
+                class="centered-content"
+                style="
+                  width: 0em;
+                  margin-left: -0.7em;
+                  margin-top: 0.3em;
+                  font-size: smaller;
+                "
+              >
+                smallest exponent
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <h2>Precision</h2>
-      <p>Subnormal numbers give up significant digits in order to push the first non-zero digit away from the decimal point. Normal values always have 24 bits of significant digits (53 for doubles), while in the (extreme) example above, there's only 1 significant digit. In other words, beware of the loss of precision when dealing with subnormal values.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <h2>Precision</h2>
+        <p>
+          Subnormal numbers give up significant digits in order to push the
+          first non-zero digit away from the decimal point. Normal values always
+          have 24 bits of significant digits (53 for doubles), while in the
+          (extreme) example above, there's only 1 significant digit. In other
+          words, beware of the loss of precision when dealing with subnormal
+          values.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="normal-vs-subnormal-floats.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="normal-vs-subnormal-floats.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

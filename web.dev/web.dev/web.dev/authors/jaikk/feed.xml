@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Jai Krishnan on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Jai Krishnan</name>
+  </author>
+  <link href="https://web.dev/authors/jaikk/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/BKGlQ9PreNrLEV74mhKX.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Product Manager at Google working on open codecs</subtitle>
+  
+  
+  <entry>
+    <title>Using AVIF to compress images on your site</title>
+    <link href="https://web.dev/compress-images-avif/"/>
+    <updated>2021-06-07T00:00:00Z</updated>
+    <id>https://web.dev/compress-images-avif/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;We
+&lt;a href=&quot;https://web.dev/fast/#optimize-your-images&quot;&gt;frequently write&lt;/a&gt;
+about the bloat on websites from images,
+and tools like
+&lt;a href=&quot;https://web.dev/optimize-vitals-lighthouse/&quot;&gt;Lighthouse&lt;/a&gt;
+highlight when image loading is having a negative impact on user experience,
+such as increasing load time,
+or taking bandwidth away from more important resources.
+One way to fix this is to use modern compression to reduce the file size of images,
+and a new option for web developers is the
+&lt;a href=&quot;https://aomediacodec.github.io/av1-avif/&quot; rel=&quot;noopener&quot;&gt;AVIF image format&lt;/a&gt;.
+This blog post talks about recent updates to open source tooling for AVIF,
+introduces the libaom and libavif encoding libraries,
+and includes a tutorial for using these libraries to encode AVIF images efficiently.&lt;/p&gt;
+&lt;p&gt;AVIF is an image format based on the AV1 video codec,
+and standardized by the
+&lt;a href=&quot;https://aomedia.org/&quot; rel=&quot;noopener&quot;&gt;Alliance for Open Media&lt;/a&gt;.
+AVIF offers significant compression gains over other image formats like JPEG and WebP.
+While the exact savings will depend on the content, encoding settings, and quality target,
+&lt;a href=&quot;https://jakearchibald.com/2020/avif-has-landed/&quot; rel=&quot;noopener&quot;&gt;we&lt;/a&gt; and
+&lt;a href=&quot;https://netflixtechblog.com/avif-for-next-generation-image-coding-b1d75675fe4&quot; rel=&quot;noopener&quot;&gt;others&lt;/a&gt;
+have seen &amp;gt;50% savings vs. JPEG.&lt;/p&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;a href=&quot;https://storage.googleapis.com/web-dev-uploads/image/foR0vJZKULb5AGJExlazy1xYDgI2/kVqh1xli2O6mqKF3fQNx.avif&quot; target=&quot;_blank&quot;&gt;
+    &lt;img src=&quot;https://storage.googleapis.com/web-dev-uploads/image/foR0vJZKULb5AGJExlazy1xYDgI2/kVqh1xli2O6mqKF3fQNx.avif&quot; width=&quot;1120&quot; height=&quot;840&quot; alt=&quot;The image using AVIF&quot; /&gt;
+  &lt;/a&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+  1120 x 840 AVIF at 18,769 bytes (click to enlarge)
+&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;a href=&quot;https://storage.googleapis.com/web-dev-uploads/image/foR0vJZKULb5AGJExlazy1xYDgI2/Jy0O0q0mLXl668HAo43n.jpeg&quot; target=&quot;_blank&quot;&gt;
+    &lt;img src=&quot;https://storage.googleapis.com/web-dev-uploads/image/foR0vJZKULb5AGJExlazy1xYDgI2/Jy0O0q0mLXl668HAo43n.jpeg&quot; width=&quot;1120&quot; height=&quot;840&quot; alt=&quot;The image using JPEG&quot; /&gt;
+  &lt;/a&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+  1120 x 840 JPEG at 20,036 bytes (click to enlarge)
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;p&gt;Additionally, AVIF adds codec and container support for new image features such as
+&lt;a href=&quot;https://w3c.github.io/ColorWeb-CG/&quot; rel=&quot;noopener&quot;&gt;High Dynamic Range and Wide Color Gamut&lt;/a&gt;,
+&lt;a href=&quot;https://norkin.org/research/film_grain/&quot; rel=&quot;noopener&quot;&gt;film grain synthesis&lt;/a&gt;,
+and progressive decoding.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;AVIF supports two types of progressive decoding.
+Spatial scalability can be used to offer a lower resolution image for network constrained users
+and &#39;progressively&#39; provide a higher resolution image by sending just
+the additional data required to fill in the high frequency details.
+Quality scalability offers a similar progression by steadily improving visual quality with each render.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;what&#39;s-new&quot;&gt;What&#39;s New &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#what&#39;s-new&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Since landing AVIF support in Chrome M85 last summer,
+AVIF support in the open source ecosystem has improved on a number of fronts.&lt;/p&gt;
+&lt;h3 id=&quot;libaom&quot;&gt;Libaom &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#libaom&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://aomedia.googlesource.com/aom/&quot; rel=&quot;noopener&quot;&gt;Libaom&lt;/a&gt;
+is an open source AV1 encoder and decoder maintained by the companies in the Alliance for Open Media,
+and used in many production services at Google and other member companies.
+Between the libaom 2.0.0 release—around the same time Chrome added AVIF support—and the recent 3.1.0 release,
+there have been significant still image encoding optimizations added to the codebase.
+These include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Optimizations for multi-threading and tiled encoding.&lt;/li&gt;
+&lt;li&gt;5x reduction in memory usage.&lt;/li&gt;
+&lt;li&gt;6.5x reduction in CPU usage, as shown in the chart below.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;&quot; decoding=&quot;async&quot; height=&quot;467&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/mJJfiNsC7Qgl98IJ1LNi.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Using speed=6, cq-level=18, for 8.1 MP images&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;These changes massively reduce the cost of encoding AVIF—
+particularly the most frequently loaded,
+or highest priority images on your site.
+As &lt;a href=&quot;https://www.cnet.com/news/google-supercharges-youtube-with-a-custom-video-chip/&quot; rel=&quot;noopener&quot;&gt;hardware-accelerated encoding&lt;/a&gt;
+of AV1 becomes more available on servers and cloud services,
+the cost to create AVIF images will continue to drop.&lt;/p&gt;
+&lt;h3 id=&quot;libavif&quot;&gt;Libavif &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#libavif&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/AOMediaCodec/libavif&quot; rel=&quot;noopener&quot;&gt;Libavif&lt;/a&gt;,
+the reference implementation of AVIF,
+is an open source AVIF muxer and parser which is used in Chrome for decoding AVIF images.
+It can also be used with libaom for creating AVIF images from your existing uncompressed images,
+or transcoding from existing web images (JPEG, PNG, etc).&lt;/p&gt;
+&lt;p&gt;Libavif recently added support for a wider range of encoder settings,
+including integration with more advanced libaom encoder settings.
+Optimizations in the processing pipeline like fast YUV-to-RGB conversion using libyuv
+and premultiplied alpha support further speed up the decoding process.
+And finally, support for the all-intra encoding mode newly added in libaom 3.1.0
+brings all the libaom improvements mentioned in the above.&lt;/p&gt;
+&lt;p&gt;Note: &lt;a href=&quot;https://github.com/strukturag/libheif&quot; rel=&quot;noopener&quot;&gt;libheif&lt;/a&gt;
+is another popular open source AVIF muxer and parser,
+used in
+&lt;a href=&quot;https://imagemagick.org/index.php&quot; rel=&quot;noopener&quot;&gt;ImageMagick&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/libvips/libvips&quot; rel=&quot;noopener&quot;&gt;libvips&lt;/a&gt;, and the
+&lt;a href=&quot;https://sharp.pixelplumbing.com/&quot; rel=&quot;noopener&quot;&gt;sharp&lt;/a&gt; Node.js module.&lt;/p&gt;
+&lt;h2 id=&quot;encoding-avif-images-with-avifenc&quot;&gt;Encoding AVIF images with avifenc &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#encoding-avif-images-with-avifenc&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A quick way to experiment with AVIF is
+&lt;a href=&quot;https://squoosh.app/&quot; rel=&quot;noopener&quot;&gt;Squoosh.app&lt;/a&gt;.
+Squoosh runs a WebAssembly version of libavif,
+and exposes many of the same features as the command line tools.
+It&#39;s an easy way to compare AVIF to other formats old and new.
+There&#39;s also a
+&lt;a href=&quot;https://www.npmjs.com/package/@squoosh/cli&quot; rel=&quot;noopener&quot;&gt;CLI version&lt;/a&gt;
+of Squoosh aimed at Node apps.&lt;/p&gt;
+&lt;p&gt;However, WebAssembly doesn&#39;t yet have access to all the performance primitives of CPUs,
+so if you want to run libavif at its fastest,
+we recommend the command line encoder, avifenc.&lt;/p&gt;
+&lt;p&gt;To understand how to encode AVIF images,
+we will present a tutorial using the
+&lt;a href=&quot;https://codelabs.developers.google.com/codelabs/avif/images/happy_dog.jpg&quot; rel=&quot;noopener&quot;&gt;same source image&lt;/a&gt;
+used in our example above.  To start, you will need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.google.com/chrome/&quot; rel=&quot;noopener&quot;&gt;Chrome&lt;/a&gt; version 85 or later&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cmake.org/&quot; rel=&quot;noopener&quot;&gt;cmake&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://git-scm.com/&quot; rel=&quot;noopener&quot;&gt;git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://ninja-build.org/&quot; rel=&quot;noopener&quot;&gt;ninja&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You will also need to install the development packages for zlib, libpng, and libjpeg.
+The commands for the Debian and Ubuntu Linux distributions are:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; zlib1g-dev&lt;br /&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; libpng-dev&lt;br /&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; libjpeg-dev&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h3 id=&quot;building-command-line-encoder-avifenc&quot;&gt;Building command line encoder avifenc &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#building-command-line-encoder-avifenc&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;1.-get-the-code&quot;&gt;1. Get the code &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#1.-get-the-code&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Check out a release tag of libavif.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone -b v0.9.1 https://github.com/AOMediaCodec/libavif.git&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h4 id=&quot;2.-change-directory-to-libavif&quot;&gt;2. Change directory to libavif &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#2.-change-directory-to-libavif&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; libavif&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;There are many different ways you can configure avifenc and libavif to build.
+You can find more information at &lt;a href=&quot;https://github.com/AOMediaCodec/libavif&quot; rel=&quot;noopener&quot;&gt;libavif&lt;/a&gt;.
+We are going to build avifenc so that it is statically linked to the
+AV1 encoder and decoder library, &lt;a href=&quot;https://aomedia.googlesource.com/aom&quot; rel=&quot;noopener&quot;&gt;libaom&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;3.-get-and-build-libaom&quot;&gt;3. Get and build libaom &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#3.-get-and-build-libaom&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Change to the libavif external dependencies directory.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ext&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The next command will pull the libaom source code
+and build libaom statically.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;./aom.cmd&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Change directory to libavif.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h4 id=&quot;4.-build-the-command-line-encoding-tool-avifenc&quot;&gt;4. Build the command line encoding tool, avifenc &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#4.-build-the-command-line-encoding-tool-avifenc&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;It is a good idea to create a build directory for avifenc.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; build&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Change to the build directory.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; build&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Create the build files for avifenc.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;cmake -DCMAKE_BUILD_TYPE&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;Release -DBUILD_SHARED_LIBS&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; -DAVIF_CODEC_AOM&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; -DAVIF_LOCAL_AOM&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; -DAVIF_BUILD_APPS&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Build avifenc.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You have successfully built avifenc!&lt;/p&gt;
+&lt;h3 id=&quot;understanding-the-avifenc-command-line-parameters&quot;&gt;Understanding the avifenc command line parameters &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#understanding-the-avifenc-command-line-parameters&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;avifenc uses the command-line structure:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;./avifenc &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; input.file output.avif&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The basic parameters for avifenc used in this tutorial are:&lt;/p&gt;
+&lt;table class=&quot;w-table&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;avifenc&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;--min 0&lt;/td&gt;&lt;td&gt;Set min quantizer for color to 0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;--max 63&lt;/td&gt;&lt;td&gt;Set max quantizer for color to 63&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;--minalpha 0&lt;/td&gt;&lt;td&gt;Set min quantizer for alpha to 0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;--maxalpha 63&lt;/td&gt;&lt;td&gt;Set max quantizer for alpha to 63&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-a end-usage=q&lt;/td&gt;&lt;td&gt;Set the rate control mode to Constant Quality (Q) mode&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-a cq-level=Q&lt;/td&gt;&lt;td&gt;Set quantize level for both color and alpha to Q&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-a color:cq-level=Q&lt;/td&gt;&lt;td&gt;Set quantize level for color to Q&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-a alpha:cq-level=Q&lt;/td&gt;&lt;td&gt;Set quantize level for alpha to Q&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-a tune=ssim&lt;/td&gt;&lt;td&gt;Tune for SSIM (default is to tune for PSNR)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;--jobs J&lt;/td&gt;&lt;td&gt;Use J worker threads (default: 1)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;--speed S&lt;/td&gt;&lt;td&gt;Set encoder speed from 0-10 (slowest-fastest. default: 6)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The cq-level option sets the quantize level (0-63) to control the quality for color or alpha.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;You can think of cq-level as the &amp;quot;amount&amp;quot; of quantization, so a lower value yields higher quality&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Higher speed settings will run faster,
+but produce worse compression efficiency and quality.
+This tutorial uses the default setting of Speed 6,
+which we recommend as a balance of encode speed, compression efficiency, and quality.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;create-an-avif-image-with-default-settings&quot;&gt;Create an AVIF image with default settings &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#create-an-avif-image-with-default-settings&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The most basic parameters for avifenc to run, are setting the input and output files.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;./avifenc happy_dog.jpg happy_dog.avif&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;We recommend the following command line to encode an image, say at quantize level 18:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;./avifenc --min &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; --max &lt;span class=&quot;token number&quot;&gt;63&lt;/span&gt; -a end-usage&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;q -a cq-level&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;18&lt;/span&gt; -a &lt;span class=&quot;token assign-left variable&quot;&gt;tune&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;ssim happy_dog.jpg happy_dog.avif&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;--min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim&amp;quot;&lt;/code&gt;
+are the recommended settings for AVIF images.
+If the image has an alpha channel,
+add &lt;code&gt;&amp;quot;--minalpha 0 --maxalpha 63&amp;quot;&lt;/code&gt;.
+To specify different quantize levels for color and alpha,
+replace &lt;code&gt;&amp;quot;-a cq-level=18&amp;quot;&lt;/code&gt; with, say,
+&lt;code&gt;&amp;quot;-a color:cq-level=18 -a alpha:cq-level=10&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Avifenc has a lot of options that will affect both quality and speed.
+If you want to see the options and learn more about them just run &lt;code&gt;./avifenc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You now have your very own AVIF image!&lt;/p&gt;
+&lt;h3 id=&quot;speeding-up-the-encoder&quot;&gt;Speeding up the encoder &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#speeding-up-the-encoder&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;One parameter that may be good to change
+depending on how many cores you have on your machine is the &lt;code&gt;--jobs&lt;/code&gt; parameter.
+This parameter sets how many threads avifenc will use to create AVIF images.
+Try running this at the command line.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;./avifenc --min &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; --max &lt;span class=&quot;token number&quot;&gt;63&lt;/span&gt; -a end-usage&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;q -a cq-level&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;18&lt;/span&gt; -a &lt;span class=&quot;token assign-left variable&quot;&gt;tune&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;ssim --jobs &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; happy_dog.jpg happy_dog.avif&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This tells avifenc to use 8 threads when creating the AVIF image,
+which speeds up AVIF encoding by roughly 5x.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/compress-images-avif/#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Using libaom, libavif and other open source tooling,
+you can get the best image quality and performance for your website using AVIF.
+The format is still relatively new,
+and optimizations and tooling integrations are actively being developed.
+If you have questions, comments, or feature requests,
+reach out on the
+&lt;a href=&quot;https://groups.google.com/a/aomedia.org/g/av1-discuss&quot; rel=&quot;noopener&quot;&gt;av1-discuss mailing list&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/AOMediaCodec/community/wiki&quot; rel=&quot;noopener&quot;&gt;AOM Github community&lt;/a&gt;, and
+&lt;a href=&quot;https://github.com/AOMediaCodec/av1-avif/wiki&quot; rel=&quot;noopener&quot;&gt;AVIF wiki&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <author>
+      <name>Jai Krishnan</name>
+    </author><author>
+      <name>Wan-Teh Chang</name>
+    </author>
+  </entry>
+</feed>

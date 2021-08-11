@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Jonathan Chen on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Jonathan Chen</name>
+  </author>
+  <link href="https://web.dev/authors/jonchen/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/DSWao9z2Qq584d9kbjit.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Web Ecosystem Consultant</subtitle>
+  
+  
+  <entry>
+    <title>Automating audits with AutoWebPerf</title>
+    <link href="https://web.dev/autowebperf/"/>
+    <updated>2020-12-09T00:00:00Z</updated>
+    <id>https://web.dev/autowebperf/</id>
+    <content type="text/html" mode="escaped">&lt;h2 id=&quot;what-is-autowebperf-(awp)&quot;&gt;What is AutoWebPerf (AWP)? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#what-is-autowebperf-(awp)&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AutoWebPerf&lt;/a&gt; (AWP) is a
+modular tool that enables automatic gathering of performance data from multiple
+sources. Currently there are &lt;a href=&quot;https://web.dev/vitals-tools/&quot;&gt;many tools
+available&lt;/a&gt; to measure website performance for
+different scopes (&lt;a href=&quot;https://web.dev/how-to-measure-speed/#lab-data-vs-field-data&quot;&gt;lab and
+field&lt;/a&gt;), such as
+Chrome UX Report, PageSpeed Insights, or WebPageTest. AWP offers integration
+with various audit tools with a simple setup so you can continuously monitor the
+site performance in one place.&lt;/p&gt;
+&lt;p&gt;The release of &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Web Vitals&lt;/a&gt; guidance means that close
+and active monitoring of web pages is becoming increasingly important. The
+engineers behind this tool have been doing performance audits for years and they
+created AWP to automate a manual, recurring, and time consuming part of their
+daily activities. Today, AWP has reached a level of maturity and it&#39;s ready to
+be shared broadly so anyone can benefit from the automation it brings.&lt;/p&gt;
+&lt;p&gt;The tool is accessible on the
+&lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AutoWebPerf&lt;/a&gt; public repository
+on GitHub.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-awp-for&quot;&gt;What is AWP for? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#what-is-awp-for&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Although several tools and APIs are available to monitor the performance of web
+pages, most of them expose data measured at a specific time. To adequately
+monitor a website and maintain good performance of key pages, it&#39;s recommended
+to continuously take measurements of &lt;a href=&quot;https://web.dev/vitals/#core-web-vitals&quot;&gt;Core Web
+Vitals&lt;/a&gt; over time and observe trends.&lt;/p&gt;
+&lt;p&gt;AWP makes that easier by providing an engine and pre-built API integrations
+which can be programmatically configured to automate recurrent queries to
+various performance monitoring APIs.&lt;/p&gt;
+&lt;p&gt;For example, with AWP, you can set a daily test on your home page to capture the
+field data from &lt;a href=&quot;https://web.dev/chrome-ux-report-api/&quot;&gt;CrUX API&lt;/a&gt; and lab data
+from a
+&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;Lighthouse report from PageSpeed Insights&lt;/a&gt;.
+This data can be written and stored over time, for example, in &lt;a href=&quot;https://www.google.co.uk/sheets/about/&quot; rel=&quot;noopener&quot;&gt;Google
+Sheets&lt;/a&gt; and then visualised in the
+&lt;a href=&quot;https://datastudio.google.com/c/u/0/navigation/reporting&quot; rel=&quot;noopener&quot;&gt;Data Studio dashboard&lt;/a&gt;.
+AWP automates the heavy-lifting part of the entire process, making it a great
+solution to follow lab and field trends over time. See &lt;a href=&quot;https://web.dev/autowebperf/#data-studio&quot;&gt;Visualising audit
+results in Data Studio&lt;/a&gt; below for more details).&lt;/p&gt;
+&lt;h2 id=&quot;architecture-overview&quot;&gt;Architecture overview &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#architecture-overview&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWP is a modular-based library with three different types of modules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the &lt;strong&gt;engine&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;connector&lt;/strong&gt; modules&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;gatherer&lt;/strong&gt; modules&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The engine takes a list of tests from a connector (for example, from a
+local CSV file), runs performance audits through selected gatherers (such as
+PageSpeed Insights), and writes results to the output connector (for example,
+Google Sheets).&lt;/p&gt;
+&lt;img alt=&quot;A diagram of AWP&amp;#x27;s architecture.&quot; decoding=&quot;async&quot; height=&quot;439&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/GqufPfzbuslrT4st1FmP.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;AWP comes with a number of pre-implemented gatherers and connectors:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pre-implemented gatherers:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/chrome-ux-report-api/&quot;&gt;CrUX API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/chrome-ux-report-bigquery/&quot;&gt;CrUX BigQuery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/speed/docs/insights/v5/get-started&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.webpagetest.org/getkey.php&quot; rel=&quot;noopener&quot;&gt;WebPageTest API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pre-implemented connectors:
+&lt;ul&gt;
+&lt;li&gt;Google Sheets&lt;/li&gt;
+&lt;li&gt;JSON&lt;/li&gt;
+&lt;li&gt;CSV&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;automating-audits-with-awp&quot;&gt;Automating audits with AWP &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#automating-audits-with-awp&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWP automates the performance audits via your preferred audit platforms such as
+&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt;,
+&lt;a href=&quot;https://webpagetest.org/&quot; rel=&quot;noopener&quot;&gt;WebPageTest&lt;/a&gt;, or
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/api/reference&quot; rel=&quot;noopener&quot;&gt;CrUX API&lt;/a&gt;.
+AWP offers the flexibility to choose where to load the list of tests, and where
+to write the results to.&lt;/p&gt;
+&lt;p&gt;For example, you can run audits for a list of tests stored in a Google Sheet,
+and write the results to a CSV file, with the command below:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;SHEETS_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run sheets:&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;SheetID&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h3 id=&quot;recurring-audits&quot;&gt;Recurring audits &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#recurring-audits&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You can run recurring audits in daily, weekly, or monthly frequency. For
+example, you can run daily audits for a list of tests defined in a local JSON
+like below:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;&quot;tests&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;label&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;web.dev&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://web.dev&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;gatherer&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;psi&quot;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The command below reads the list of audit tests from the local JSON file, runs
+audits on a local machine, then outputs results to a local CSV file:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run json:tests.json csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;To run audits every day as a background service continuously, you can use the
+command below instead:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp &lt;span class=&quot;token builtin class-name&quot;&gt;continue&lt;/span&gt; json:tests.json csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Alternatively, you can set up the
+&lt;a href=&quot;https://www.geeksforgeeks.org/how-to-setup-cron-jobs-in-ubuntu/&quot; rel=&quot;noopener&quot;&gt;crontab&lt;/a&gt; in a
+Unix-like environment to run AWP as a daily cron job:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; * * * &lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run json:tests.json csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You can find more ways to automate daily audits and result collection in the
+&lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AWP GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;data-studio&quot;&gt;Visualising audit results in Data Studio &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#data-studio&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Along with continuously measuring Core Web Vitals, it is important to be able to
+evaluate the trends and discover potential regressions with real user metrics
+(RUM) or the Chrome UX Report (CrUX) data collected by AWP. Note that
+Chrome UX Report (CrUX) is a 28-day moving aggregation, hence it is recommended
+to also use your own RUM data along with CrUX so you can spot regressions
+sooner.&lt;/p&gt;
+&lt;p&gt;Data Studio is a free visualization tool that you can easily load performance
+metrics into and draw trends as charts. For example, the time series charts
+below show Core Web Vitals based on Chrome UX Report data. One of the charts
+shows increasing Cumulative Layout Shift in recent weeks, which means
+regressions in the layout stability for certain pages. In this scenario, you
+would want to prioritize the efforts to analyze the underlying issues of these
+pages.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A screenshot of Core Web Vitals results in Data Studio.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;904&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Cpi7NkLvKyvf2xYzFwAn.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;To simplify the end-to-end process from data collection to visualization, you
+can run AWP with a list of URLs to automatically export results to Google Sheets
+with the following command:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;PSI_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;SHEETS_APIKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;YOUR_KEY&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ./awp run sheets:&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;SheetID&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; csv:output.csv&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;After collecting daily metrics in a spreadsheet, you can create a Data Studio
+dashboard that loads the data directly from the spreadsheet, and plots the
+trends into a time series chart. Check out &lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf/blob/stable/docs/sheets-connector.md&quot; rel=&quot;noopener&quot;&gt;Google Spreadsheets API
+Connector&lt;/a&gt;
+for detailed steps about how to set up AWP with spreadsheets as a data source to
+visualize on Data Studio.&lt;/p&gt;
+&lt;h2 id=&quot;what&#39;s-next&quot;&gt;What&#39;s next? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/autowebperf/#what&#39;s-next&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWP provides a simple and integrated way to minimize the efforts to set up a
+continuous monitoring pipeline to measure Core Web Vitals and other performance
+metrics. As for now, AWP covers the most common use cases and will continue to
+provide more features to address other use cases in the future.&lt;/p&gt;
+&lt;p&gt;Learn more in the &lt;a href=&quot;https://github.com/GoogleChromeLabs/AutoWebPerf&quot; rel=&quot;noopener&quot;&gt;AutoWebPerf&lt;/a&gt; repository.&lt;/p&gt;
+</content>
+    <author>
+      <name>Jonathan Chen</name>
+    </author><author>
+      <name>Gilberto Cocchi</name>
+    </author><author>
+      <name>Antoine Bisch</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Service worker caching and HTTP caching</title>
+    <link href="https://web.dev/service-worker-caching-and-http-caching/"/>
+    <updated>2020-07-17T00:00:00Z</updated>
+    <id>https://web.dev/service-worker-caching-and-http-caching/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;While service workers and PWAs are becoming standards of modern web applications, resource caching
+has become more complex than ever. This article covers the big picture of browser caching,
+including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The use cases of and differences between service worker caching and HTTP caching.&lt;/li&gt;
+&lt;li&gt;The pros and cons of different service worker caching expiry strategies compared to regular
+HTTP caching strategies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;overview-of-caching-flow&quot;&gt;Overview of caching flow &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#overview-of-caching-flow&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;At a high-level, a browser follows the caching order below when it requests a resource:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Service worker cache&lt;/strong&gt;: The service worker checks if the resource is in its cache and
+decides whether to return the resource itself based on its programmed caching strategies. Note
+that this does not happen automatically. You need to create a fetch event handler in your
+service worker and intercept network requests so that the requests are served from the service
+worker&#39;s cache rather than the network.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HTTP cache (also known as the browser cache)&lt;/strong&gt;: If the resource is found in the &lt;a href=&quot;https://web.dev/http-cache&quot;&gt;HTTP
+Cache&lt;/a&gt; and has not yet expired, the browser automatically uses the
+resource from the  HTTP cache.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server-side:&lt;/strong&gt; If nothing is found in the service worker cache or the HTTP cache, the
+browser goes to the network to request the resource. If the resource isn&#39;t cached in a CDN, the
+request must go all the way back to the origin server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img alt=&quot;Caching flow&quot; decoding=&quot;async&quot; height=&quot;585&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/vtKWC9Bg9dAMzoFKTeAM.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Note that some browsers like Chrome have a &lt;strong&gt;memory cache&lt;/strong&gt; layer in front of the service
+worker cache. The details of the memory cache depend on each browser&#39;s implementation.
+Unfortunately, there is no clear specification for this part yet.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+&lt;h2 id=&quot;caching-layers&quot;&gt;Caching layers &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#caching-layers&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;service-worker-caching&quot;&gt;Service worker caching &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#service-worker-caching&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A service worker intercepts network-type HTTP requests and uses a
+&lt;a href=&quot;https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#serving-suggestions&quot; rel=&quot;noopener&quot;&gt;caching strategy&lt;/a&gt;
+to determine what resources should be returned to the browser. The service worker cache and the HTTP
+cache serve the same general purpose, but the service worker cache offers more caching capabilities,
+such as fine-grained control over exactly what is cached and how caching is done.&lt;/p&gt;
+&lt;h4 id=&quot;controlling-the-service-worker-cache&quot;&gt;Controlling the service worker cache &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#controlling-the-service-worker-cache&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A service worker intercepts HTTP requests with &lt;a href=&quot;https://github.com/mdn/sw-test/blob/gh-pages/sw.js#L19&quot; rel=&quot;noopener&quot;&gt;event
+listeners&lt;/a&gt; (usually the &lt;code&gt;fetch&lt;/code&gt; event). This
+&lt;a href=&quot;https://github.com/mdn/sw-test/blob/gh-pages/sw.js#L19&quot; rel=&quot;noopener&quot;&gt;code snippet&lt;/a&gt; demonstrates the logic of a
+&lt;a href=&quot;https://developers.google.com/web/tools/workbox/modules/workbox-strategies#cache_first_cache_falling_back_to_network&quot; rel=&quot;noopener&quot;&gt;Cache-First&lt;/a&gt;
+caching strategy.&lt;/p&gt;
+&lt;img alt=&quot;A diagram showing how service workers intercept HTTP requests&quot; decoding=&quot;async&quot; height=&quot;516&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/INLfnhEpmL4KpMmFXnTL.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;It&#39;s highly recommended to use &lt;a href=&quot;https://developers.google.com/web/tools/workbox&quot; rel=&quot;noopener&quot;&gt;Workbox&lt;/a&gt; to avoid
+reinventing the wheel. For example, you can
+&lt;a href=&quot;https://developers.google.com/web/tools/workbox/modules/workbox-routing#how_to_register_a_regular_expression_route&quot; rel=&quot;noopener&quot;&gt;register resource URL paths with a single line of regex code&lt;/a&gt;.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;registerRoute&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;workbox-routing&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token function&quot;&gt;registerRoute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;styles/.*\\.css&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; callbackHandler&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h4 id=&quot;service-worker-caching-strategies-and-use-cases&quot;&gt;Service worker caching strategies and use cases &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#service-worker-caching-strategies-and-use-cases&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The next table outlines common service worker caching strategies and when each strategy is useful.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Strategies&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Freshness rationale&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Use cases&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#network-only&quot;&gt;Network
+only&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;The content has to be up-to-date at all times.&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;&lt;li&gt;Payments and checkouts&lt;/li&gt;
+&lt;li&gt;Balance statements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#network-falling-back-to-cache&quot;&gt;Network
+falling back to cache &lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;It&#39;s preferable to serve the fresh content. However if the network fails or is unstable, it&#39;s
+acceptable to serve slightly old content.&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;&lt;li&gt;Timely data&lt;/li&gt;
+&lt;li&gt;Prices and rates (requires disclaimers)&lt;/li&gt;
+&lt;li&gt;Order statuses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;https://web.dev/stale-while-revalidate/&quot;&gt;Stale-while-revalidate&lt;/a&gt;&lt;/strong&gt;
+&lt;/td&gt;
+&lt;td&gt;It&#39;s okay to serve cached content right away, but updated cached content should be used in the
+future.&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;&lt;li&gt;News feeds&lt;/li&gt;
+&lt;li&gt;Product listing pages&lt;/li&gt;
+&lt;li&gt;Messages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#cache-then-network&quot;&gt;Cache first, fall back to network&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;The content is non-critical and can be served from the cache for performance gains, but the
+service worker should occasionally check for updates.&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;&lt;li&gt;App shells&lt;/li&gt;
+&lt;li&gt;Common resources&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#cache-only&quot;&gt;Cache only&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;The content rarely changes.&lt;/td&gt;
+&lt;td&gt;&lt;ul&gt;&lt;li&gt;Static content&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&quot;additional-benefits-of-service-worker-caching&quot;&gt;Additional benefits of service worker caching &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#additional-benefits-of-service-worker-caching&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;In addition to fine-grained control of caching logic, service worker caching also provides:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;More memory and storage space for your origin:&lt;/strong&gt; The browser allocates HTTP cache
+resources on a per-&lt;a href=&quot;https://web.dev/same-site-same-origin/#origin&quot;&gt;origin&lt;/a&gt; basis. In other
+words, if you have multiple subdomains, they all share the same HTTP cache. There is no
+guarantee that the content of your origin/domain stays in the HTTP cache for a long time. For
+example, a user may purge the cache by manually cleaning up from a browser&#39;s settings UI, or
+triggering a hard-reload on a page. With a service worker cache you have a much higher
+likelihood that your cached content stays cached. See &lt;a href=&quot;https://developers.google.com/web/updates/2016/06/persistent-storage&quot; rel=&quot;noopener&quot;&gt;Persistent
+storage&lt;/a&gt; to learn more.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Higher flexibility with flaky networks or offline experiences:&lt;/strong&gt; With the HTTP cache you
+only have a binary choice: either the resource is cached, or not. With service worker caching
+you can mitigate little &amp;quot;hiccups&amp;quot; much easier (with the &amp;quot;stale-while-revalidate&amp;quot; strategy),
+offer a complete offline experience (with the &amp;quot;Cache only&amp;quot; strategy) or even something in
+between, like customized UIs with parts of the page coming from the service worker cache and
+some parts excluded (with the &amp;quot;Set catch handler&amp;quot; strategy) where appropriate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;http-caching&quot;&gt;HTTP caching &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#http-caching&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The first time a browser loads a web page and related resources, it stores these resources in its
+HTTP cache. The HTTP cache is usually enabled automatically by browsers, unless it has been
+explicitly disabled by the end user.&lt;/p&gt;
+&lt;p&gt;Using HTTP caching means relying on the server to determine when to cache a resource and for how
+long.&lt;/p&gt;
+&lt;h4 id=&quot;control-http-cache-expiry-with-http-response-headers&quot;&gt;Control HTTP cache expiry with HTTP response headers &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#control-http-cache-expiry-with-http-response-headers&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When a server responds to a browser request for a resource, the server uses HTTP response headers to
+tell a browser how long it should cache the resource. See &lt;a href=&quot;https://web.dev/http-cache/#response-headers&quot;&gt;Response headers: configure your web
+server&lt;/a&gt; to learn more.&lt;/p&gt;
+&lt;h4 id=&quot;http-caching-strategies-and-use-cases&quot;&gt;HTTP caching strategies and use cases &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#http-caching-strategies-and-use-cases&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;HTTP caching is much simpler than service worker caching, because HTTP caching only deals with
+time-based (TTL) resource expiration logic. See
+&lt;a href=&quot;https://web.dev/http-cache/#response-header-strategies&quot;&gt;Which response header values should you use?&lt;/a&gt;
+and &lt;a href=&quot;https://web.dev/http-cache/#summary&quot;&gt;Summary&lt;/a&gt; to learn more about HTTP caching strategies.&lt;/p&gt;
+&lt;h2 id=&quot;designing-your-cache-expiry-logic&quot;&gt;Designing your cache expiry logic &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#designing-your-cache-expiry-logic&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This section explains the pros and cons of using consistent expiry logic across the service worker
+cache and HTTP cache layers, as well as the pros and cons of separate expiry logic across these
+layers.&lt;/p&gt;
+&lt;p&gt;The Glitch below demonstrates how service worker caching and HTTP caching work in action across
+different scenarios:&lt;/p&gt;
+&lt;div class=&quot;glitch-embed-wrap&quot; style=&quot;height: 480px; width: 100%;&quot;&gt;
+  &lt;iframe allow=&quot;camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi&quot; loading=&quot;lazy&quot; src=&quot;https://glitch.com/embed/#!/embed/compare-sw-and-http-caching?attributionHidden=true&amp;sidebarCollapsed=true&amp;previewSize=100&quot; style=&quot;height: 100%; width: 100%; border: 0;&quot; title=&quot;compare-sw-and-http-caching on Glitch&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;consistent-expiry-logic-for-all-cache-layers&quot;&gt;Consistent expiry logic for all cache layers &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#consistent-expiry-logic-for-all-cache-layers&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;To demonstrate the pros and cons, we&#39;ll look at 3 scenarios: long-term, medium-term, and
+short-term.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Scenarios&lt;/th&gt;
+&lt;th&gt;Long-term caching&lt;/th&gt;
+&lt;th&gt;Medium-term caching&lt;/th&gt;
+&lt;th&gt;Short-term caching&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Service worker caching strategy&lt;/td&gt;
+&lt;td&gt;Cache, falling back to network&lt;/td&gt;
+&lt;td&gt;Stale-while-revalidate&lt;/td&gt;
+&lt;td&gt;Network falling back to cache&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Service worker cache TTL&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;30 days&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;1 day&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;10 mins&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HTTP cache max-age&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;30 days&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;1 day&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;10 mins&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&quot;scenario:-long-term-caching-(cache-falling-back-to-network)&quot;&gt;Scenario: Long-term caching (Cache, falling back to network) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#scenario:-long-term-caching-(cache-falling-back-to-network)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When a cached resource is valid (&amp;lt;= 30 days): The service worker returns the cached
+resource immediately without going to the network.&lt;/li&gt;
+&lt;li&gt;When a cached resource is expired (&amp;gt; 30 days): The service worker goes to the network to
+fetch the resource. The browser doesn&#39;t have a copy of the resource in its HTTP cache, so it
+goes server-side for the resource.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Con: In this scenario, HTTP caching provides less value because the browser will always
+pass the request to the server-side when the cache expires in the service worker.&lt;/p&gt;
+&lt;h4 id=&quot;scenario:-medium-term-caching-(stale-while-revalidate)&quot;&gt;Scenario: Medium-term caching (Stale-while-revalidate) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#scenario:-medium-term-caching-(stale-while-revalidate)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When a cached resource is valid (&amp;lt;= 1 day): The service worker returns the cached
+resource immediately, and goes to the network to fetch the resource. The browser has a copy of
+the resource in its HTTP cache, so it returns that copy to the service worker.&lt;/li&gt;
+&lt;li&gt;When a cached resource is expired (&amp;gt; 1 day): The service worker returns the cached
+resource immediately, and goes to the network to fetch the resource. The browser doesn&#39;t have a
+copy of the resource in its HTTP cache, so it goes server-side to fetch the resource.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Con: The service worker requires additional cache-busting to override the HTTP cache in
+order to make the most of the &amp;quot;revalidate&amp;quot; step.&lt;/p&gt;
+&lt;h4 id=&quot;scenario:-short-term-caching-(network-falling-back-to-cache)&quot;&gt;Scenario: Short-term caching (Network falling back to cache) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#scenario:-short-term-caching-(network-falling-back-to-cache)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When a cached resource is valid (&amp;lt;= 10 mins): The service worker goes to the network
+to fetch the resource. The browser has a copy of the resource in its HTTP cache so it returns
+that to the service worker without going server-side.&lt;/li&gt;
+&lt;li&gt;When a cached resource is expired (&amp;gt; 10 mins): The service worker returns the cached
+resource immediately, and goes to the network to fetch the resource. The browser doesn&#39;t have a
+copy of the resource in its HTTP cache, so it goes server-side to fetch the resource.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Con: Similar to the medium-term caching scenario, the service worker requires additional
+cache-busting logic to override the HTTP cache in order to fetch the latest resource from the
+server-side.&lt;/p&gt;
+&lt;h4 id=&quot;service-worker-in-all-scenarios&quot;&gt;Service worker in all scenarios &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#service-worker-in-all-scenarios&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;In all scenarios, the service worker cache can still return cached resources when the network is
+unstable. On the other hand, the HTTP cache is not reliable when the network is unstable or down.&lt;/p&gt;
+&lt;h3 id=&quot;different-cache-expiry-logic-at-the-service-worker-cache-and-http-layers&quot;&gt;Different cache expiry logic at the service worker cache and HTTP layers &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#different-cache-expiry-logic-at-the-service-worker-cache-and-http-layers&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;To demonstrate the pros and cons, we&#39;ll again look at long-term, medium-term, and short-term
+scenarios.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Scenarios&lt;/th&gt;
+&lt;th&gt;Long-term caching&lt;/th&gt;
+&lt;th&gt;Medium-term caching&lt;/th&gt;
+&lt;th&gt;Short-term caching&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Service worker caching strategy&lt;/td&gt;
+&lt;td&gt;Cache, falling back to network&lt;/td&gt;
+&lt;td&gt;Stale-while-revalidate&lt;/td&gt;
+&lt;td&gt;Network falling back to cache&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Service worker cache TTL&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;90 days&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;30 days&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;1 day&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HTTP cache max-age&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;30 days&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;1 day&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;10 mins&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&quot;scenario:-long-term-caching-(cache-falling-back-to-network)-2&quot;&gt;Scenario: Long-term caching (Cache, falling back to network) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#scenario:-long-term-caching-(cache-falling-back-to-network)-2&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When a cached resource is valid in the service worker cache (&amp;lt;= 90 days): The service
+worker returns the cached resource immediately.&lt;/li&gt;
+&lt;li&gt;When a cached resource is expired in the service worker cache (&amp;gt; 90 days): The service
+worker goes to the network to fetch the resource. The browser doesn&#39;t have a copy of the
+resource in its HTTP cache, so it goes server-side.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pros and cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pro: Users experience instant response as the service worker returns cached resources
+immediately.&lt;/li&gt;
+&lt;li&gt;Pro: The service worker has more fine-grained control of when to use its cache and when
+to request new versions of resources.&lt;/li&gt;
+&lt;li&gt;Con: A well-defined service worker caching strategy is required.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;scenario:-mid-term-caching-(stale-while-revalidate)&quot;&gt;Scenario: Mid-term caching (Stale-while-revalidate) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#scenario:-mid-term-caching-(stale-while-revalidate)&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When a cached resource is valid in the service worker cache (&amp;lt;= 30 days): The service
+worker returns the cached resource immediately.&lt;/li&gt;
+&lt;li&gt;When a cached resource is expired in the service worker cache (&amp;gt; 30 days): The service
+worker goes to the network for the resource. The browser doesn&#39;t have a copy of the resource in
+its HTTP cache, so it goes server-side.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pros and cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pro: Users experience instant response as the service worker returns cached resources
+immediately.&lt;/li&gt;
+&lt;li&gt;Pro: The service worker can ensure that the &lt;strong&gt;next&lt;/strong&gt; request for a given URL uses a
+fresh response from the network, thanks to the revalidation that happens &amp;quot;in the background.&amp;quot;&lt;/li&gt;
+&lt;li&gt;Con: A well-defined service worker caching strategy is required.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;scenario:-short-term-caching-(network-falling-back-to-cache)-2&quot;&gt;Scenario: Short-term caching (Network falling back to cache) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#scenario:-short-term-caching-(network-falling-back-to-cache)-2&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When a cached resource is valid in the service worker cache (&amp;lt;= 1 day): The service
+worker goes to the network for the resource. The browser returns the resource from the HTTP
+cache if it&#39;s there. If the network is down, the service worker returns the resource from the
+service worker cache&lt;/li&gt;
+&lt;li&gt;When a cached resource is expired in the service worker cache (&amp;gt; 1 day): The service
+worker goes to the network to fetch the resource. The browser fetches the resources over the
+network as the cached version in its HTTP cache is expired.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pros and cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pro: When the network is unstable or down, the service worker returns cached
+resources immediately.&lt;/li&gt;
+&lt;li&gt;Con: The service worker requires additional cache-busting to override the HTTP Cache and
+make &amp;quot;Network first&amp;quot; requests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Given the complexity of the combination of caching scenarios, it&#39;s not possible to design one rule
+that covers all cases. However, based on the findings in the previous sections, there are a few
+suggestions to look at when designing your cache strategies:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Service worker caching logic doesn&#39;t need to be consistent with HTTP caching expiry
+logic. If possible, use longer expiry logic in the service worker to grant the service worker
+more control.&lt;/li&gt;
+&lt;li&gt;HTTP caching still plays an important role, but it&#39;s not reliable when the network is
+unstable or down.&lt;/li&gt;
+&lt;li&gt;Revisit your caching strategies for each resource to make sure your service worker caching
+strategy provides its value, without conflicting with the HTTP cache.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;learn-more&quot;&gt;Learn more &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/service-worker-caching-and-http-caching/#learn-more&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/reliable/&quot;&gt;Network reliability&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/http-cache&quot;&gt;Prevent unnecessary network requests with the HTTP Cache&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/codelab-http-cache/&quot;&gt;HTTP cache codelab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/web/showcase/2016/service-worker-perf&quot; rel=&quot;noopener&quot;&gt;Measuring the real-world performance impact of service workers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/5799906/what-s-the-difference-between-expires-and-cache-control-headers&quot; rel=&quot;noopener&quot;&gt;Cache-Control vs. Expires&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>Jonathan Chen</name>
+    </author>
+  </entry>
+</feed>

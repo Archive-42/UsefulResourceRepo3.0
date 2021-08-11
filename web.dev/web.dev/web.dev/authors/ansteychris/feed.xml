@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Chris Anstey on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Chris Anstey</name>
+  </author>
+  <link href="https://web.dev/authors/ansteychris/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/n9o3c8Qxz0uUprZnlsRk.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Our latest news, updates, and stories by Chris Anstey.</subtitle>
+  
+  
+  <entry>
+    <title>Keeping third-party scripts under control</title>
+    <link href="https://web.dev/controlling-third-party-scripts/"/>
+    <updated>2021-04-22T00:00:00Z</updated>
+    <id>https://web.dev/controlling-third-party-scripts/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Third-party scripts, or &amp;quot;tags&amp;quot; can be a source of performance problems on your site,
+and therefore a target for optimization.
+However, before you start optimizing the tags you have added,
+make sure that you are not optimizing tags you don&#39;t even need.
+This article shows you how to assess requests for new tags,
+and manage and review existing ones.&lt;/p&gt;
+&lt;p&gt;When discussing third-party tags,
+the conversation often quickly moves to performance problems,
+losing sight of the foundations of what the &amp;quot;core&amp;quot; role of these tags are.
+They provide a wide range of useful functionality,
+making the web
+&lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript&quot; rel=&quot;noopener&quot;&gt;more dynamic, interactive, and interconnected&lt;/a&gt;.
+However, third-party tags can be added by different teams across the organization
+and are often forgotten about over time.
+People move on, contracts expire, or the results are yielded,
+but the teams never get back in touch to have the scripts removed.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;In the article
+&lt;a href=&quot;https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5&quot; rel=&quot;noopener&quot;&gt;Improving Third-Party Web Performance&lt;/a&gt;,
+the web team at The Telegraph removed old tags where they could not identify the requester,
+deciding that if the tags were missed the responsible party would get in touch.
+However, no one ever did.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Before you start to think about third-party tag script execution,
+or which tags can be
+&lt;a href=&quot;https://web.dev/codelab-optimize-third-party-javascript/&quot;&gt;deferred, lazy-loaded or preconnected&lt;/a&gt;
+from a technical lens,
+there&#39;s an opportunity to govern which tags are added to a site/page from an organizational point of view.
+A common theme with websites that are being slowed down due to vast amounts of third-party tags,
+is this part of the website is not owned by a single person or team,
+and therefore falls between the cracks.
+There&#39;s nothing more frustrating than optimizing your website,
+being happy with the performance in a staging environment,
+only for the speed to regress in production because of tags that are being added.
+Implementing a &amp;quot;vetting process&amp;quot; for third-party tags can help prevent this,
+by building a workflow that creates cross-functional accountability and responsibility for these tags.&lt;/p&gt;
+&lt;p&gt;The manner in which you vet third-party tags depends solely on the organisation,
+its structure and its current processes.
+It could be as basic as having a single team who govern and act as the gatekeeper
+for analysing tags before they are added.
+Or more advanced and formal,
+for example by providing a form to teams to submit requests for a tag.
+This might ask for context in terms of why it needs to be on the website,
+for how long it should be present,
+and what benefit it would bring to the business.&lt;/p&gt;
+&lt;h2 id=&quot;tag-governance-process&quot;&gt;Tag governance process &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#tag-governance-process&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;However you choose to vet tags within your organization,
+the following stages should be considered as part of the lifecycle of a tag.&lt;/p&gt;
+&lt;h3 id=&quot;compliance&quot;&gt;Compliance &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#compliance&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first step of &amp;#x27;Compliance&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;67&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/33aRnqMUCnbTSvaw5h0m.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Before any tag is added onto a page,
+check that it has been thoroughly vetted by a legal team to ensure it passes all compliance requirements for it to be present.
+This might include checking that the tag is compliant with the &lt;a href=&quot;https://iapp.org/news/a/what-you-must-know-about-third-parties-under-the-gdpr-ccpa/&quot; rel=&quot;noopener&quot;&gt;EU General Data Protection Regulation (GDPR),
+and California Consumer Privacy Act (CCPA)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is critical,
+if there is any doubt with this step it needs to be addressed
+before assessing the tag from a performance point of view.&lt;/p&gt;
+&lt;h3 id=&quot;required&quot;&gt;Required &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#required&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first two steps of &amp;#x27;Compliance&amp;#x27; and &amp;#x27;Required&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;60&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kX91VwuEJzBBdf76HIm9.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The second step is to question whether a specific tag is needed on the page.
+Consider the following discussion points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is the tag actively being used? If not, can it be removed?&lt;/li&gt;
+&lt;li&gt;If the tag is loading sitewide,
+is this necessary?
+For example, if we&#39;re analysing an A/B testing suite and you are currently only testing on Landing Pages,
+can we only drop the tag on this page type?&lt;/li&gt;
+&lt;li&gt;Can we add further logic to this, can we detect if there is a live A/B test?
+If so, allow the tag to be added, but if not ensure that it is not present.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;ownership&quot;&gt;Ownership &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#ownership&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first three steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, and &amp;#x27;Ownership&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;62&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/VsE2wzqT56RJ7Yl7wx2P.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Having a  clear person or team as an owner of a tag,
+helps to proactively keep track of tags.
+Usually this would be whomever has added the tag. By having an assignee next to the tag,
+this will ensure reviews and audits in the future can be conducted to re-visit whether the tag is required.&lt;/p&gt;
+&lt;h3 id=&quot;purpose&quot;&gt;Purpose &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#purpose&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with the first four steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, &amp;#x27;Ownership&amp;#x27;, and &amp;#x27;Purpose&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;58&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/kKJCySoXMCTPjrID1CVg.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The fourth step begins to create cross-functional accountability and responsibility
+by ensuring people understand why the tag is added to the page.
+It&#39;s important for there to be a cross-functional understanding of what each tag is bringing to the website,
+and why it is being used.
+For example, if the tag is recording user session actions to allow personalization,
+do all teams know why this should be present?&lt;/p&gt;
+&lt;p&gt;Furthermore, have there been any commercial vs performance trade-off discussions?
+If there is a tag that is deemed as &amp;quot;required&amp;quot; because it brings in revenue,
+has there been an analysis to the potential revenue lost through speed regression&lt;/p&gt;
+&lt;h3 id=&quot;review&quot;&gt;Review &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/controlling-third-party-scripts/#review&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;img alt=&quot;Five arrows, with all five steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, &amp;#x27;Ownership&amp;#x27;, &amp;#x27;Purpose&amp;#x27;, and &amp;#x27;Review&amp;#x27; completed.&quot; decoding=&quot;async&quot; height=&quot;61&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/txmJbO1xdLzfo3PYsDgZ.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The fifth, final and arguably most important step is to ensure tags are being reviewed on a regular basis.
+This should be dependent on the size of the website,
+the number of tags that are on the site,
+and their turnaround time (e.g. weekly, monthly, quarterly).
+This should be treated in the same manner as optimizing other website assets (JS, CSS, images, etc.)
+and proactively checked on a regular basis.
+Failure to review could lead to a &amp;quot;bloated&amp;quot; tag manager,
+which slows down the pages.
+It can be a complex task to revert back to being performant,
+while not regressing the required functionality on the page&lt;/p&gt;
+&lt;img alt=&quot;Five arrows, with all five steps of &amp;#x27;Compliance&amp;#x27;, &amp;#x27;Required&amp;#x27;, &amp;#x27;Ownership&amp;#x27;, &amp;#x27;Purpose&amp;#x27;, and &amp;#x27;Review&amp;#x27; completed. Indicating that these are all steps in the performance vetting process.&quot; decoding=&quot;async&quot; height=&quot;305&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/TqyTENFItXjxfEDHLsad.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The vetting process should leave you with a final list
+of tags which are classified as needed for a specific page.
+At this stage, you can then delve into
+&lt;a href=&quot;https://web.dev/codelab-optimize-third-party-javascript/&quot;&gt;technical optimisation approaches&lt;/a&gt;.
+This also opens up the opportunity to define the number of tags in this final list within a
+&lt;a href=&quot;https://web.dev/your-first-performance-budget/&quot;&gt;performance budget&lt;/a&gt;,
+which can be monitored within
+&lt;a href=&quot;https://web.dev/lighthouse-ci/#overview&quot;&gt;Lighthouse CI&lt;/a&gt;
+and incorporated into performance-specific goal setting.
+For example:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If we stick to &amp;lt;5 tags on our Landing Pages along with our own optimized JS,
+we&#39;re confident the
+&lt;a href=&quot;https://web.dev/tbt/&quot;&gt;Total Blocking Time (TBT)&lt;/a&gt; can hit &#39;good&#39; in the
+&lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Core Web Vitals&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    <author>
+      <name>Chris Anstey</name>
+    </author><author>
+      <name>Antoine Bisch</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Why does speed matter?</title>
+    <link href="https://web.dev/why-speed-matters/"/>
+    <updated>2019-05-01T00:00:00Z</updated>
+    <id>https://web.dev/why-speed-matters/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Consumers increasingly rely on mobile to access digital content and services,
+and if you look at your site analytics,
+you&#39;ll probably see this story playing out in your own data.
+Consumers are also more demanding than they&#39;ve ever been,
+and when they weigh the experience on your site, they aren&#39;t just comparing you with your competitors,
+they&#39;re rating you against the best-in-class services they use every day.&lt;/p&gt;
+&lt;p&gt;This post rounds up some of the research that has been done on the relationship between performance and business success.&lt;/p&gt;
+&lt;h2 id=&quot;performance-is-about-retaining-users&quot;&gt;Performance is about retaining users &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-speed-matters/#performance-is-about-retaining-users&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;figure class=&quot;w-figure w-figure--inline-right&quot;&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;
+  	Performance has directly impacted the company&#39;s bottom line.
+    &lt;/p&gt;
+    &lt;cite&gt;
+      &lt;a href=&quot;https://www.youtube.com/watch?v=Xryhxi45Q5M&amp;feature=youtu.be&amp;t=1366&quot;&gt;Pinterest&lt;/a&gt;
+    &lt;/cite&gt;
+  &lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;p&gt;Performance plays a major role in the success of any online venture.
+High-performing sites engage and retain users better than low-performing ones.&lt;/p&gt;
+&lt;p&gt;Pinterest reduced perceived wait times by 40%
+and this &lt;a href=&quot;https://medium.com/@Pinterest_Engineering/driving-user-growth-with-performance-improvements-cfc50dafadd7&quot; rel=&quot;noopener&quot;&gt;increased search engine traffic and sign-ups by 15%&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;COOK reduced average page load time by 850 milliseconds which
+&lt;a href=&quot;https://www.nccgroup.trust/globalassets/resources/uk/case-studies/web-performance/cook-case-study.pdf&quot; rel=&quot;noopener&quot;&gt;increased conversions by 7%, decreased bounce rates by 7%, and increased pages per session by 10%&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Studies have also shown the negative impact poor performance can have on business goals.
+For example, &lt;a href=&quot;https://www.creativebloq.com/features/how-the-bbc-builds-websites-that-scale&quot; rel=&quot;noopener&quot;&gt;the BBC&lt;/a&gt;
+found they lost an additional 10% of users for every additional second their site took to load.&lt;/p&gt;
+&lt;h2 id=&quot;performance-is-about-improving-conversions&quot;&gt;Performance is about improving conversions &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-speed-matters/#performance-is-about-improving-conversions&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Retaining users is crucial to improving conversions.
+Slow sites have a negative impact on revenue, and fast sites are shown to increase conversion rates.&lt;/p&gt;
+&lt;p&gt;For &lt;a href=&quot;http://resources.mobify.com/2016-Q2-mobile-insights-benchmark-report.html&quot; rel=&quot;noopener&quot;&gt;Mobify&lt;/a&gt;,
+every 100ms decrease in homepage load speed worked out to a 1.11% increase in session-based conversion,
+yielding an average annual revenue increase of nearly $380,000.
+Additionally, a 100ms decrease in checkout page load speed amounted to a 1.55% increase in session-based conversion,
+which in turn yielded an average annual revenue increase of nearly $530,000.&lt;/p&gt;
+&lt;p&gt;When &lt;a href=&quot;https://www.digitalcommerce360.com/2010/08/19/web-accelerator-revs-conversion-and-sales-autoanything/&quot; rel=&quot;noopener&quot;&gt;AutoAnything reduced page load time by half&lt;/a&gt;,
+they saw a boost of 12% to 13% in sales.&lt;/p&gt;
+&lt;p&gt;Retailer &lt;a href=&quot;https://www.thinkwithgoogle.com/intl/en-gb/success-stories/uk-success-stories/furniture-village-and-greenlight-slash-page-load-times-boosting-user-experience/&quot; rel=&quot;noopener&quot;&gt;Furniture Village&lt;/a&gt; audited their site speed and developed a plan to address the problems they found,
+leading to a 20% reduction in page load time and a 10% increase in conversion rate.&lt;/p&gt;
+&lt;h2 id=&quot;performance-is-about-user-experience&quot;&gt;Performance is about user experience &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-speed-matters/#performance-is-about-user-experience&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When it comes to user experience, speed matters.
+A &lt;a href=&quot;https://www.ericsson.com/en/press-releases/2016/2/streaming-delays-mentally-taxing-for-smartphone-users-ericsson-mobility-report&quot; rel=&quot;noopener&quot;&gt;consumer study&lt;/a&gt;
+shows that the stress response to delays in mobile speed are similar to that of watching a horror movie or solving a mathematical problem,
+and greater than waiting in a checkout line at a retail store.&lt;/p&gt;
+&lt;p&gt;As a site begins to load, there&#39;s a period of time where users wait for content to appear.
+Until this happens, there&#39;s no user experience to speak of.
+This lack of an experience is fleeting on fast connections.
+On slower connections, however, users are forced to wait.
+Users may experience more problems as page resources slowly trickle in.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A comparison of two filmstrip reels of a page loading. The first shows a page loading on a slow connection, while the second shows the same page loading on a fast connection.&quot; decoding=&quot;async&quot; height=&quot;264&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/W0ctiX3cMOfWnNF6AQMg.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption&gt;A comparison of page load on a very slow connection
+(top) versus a faster connection (bottom).&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Performance is a foundational aspect of good user experiences.
+When sites ship a lot of code, browsers must use megabytes of the user&#39;s data plan in order to download the code.
+Mobile devices have limited CPU power and memory.
+They often get overwhelmed with what we might consider a small amount of unoptimized code.
+This creates poor performance which leads to unresponsiveness.
+Knowing what we know about human behavior, users will only tolerate low performing applications for so long before abandoning them.&lt;/p&gt;
+&lt;h2 id=&quot;performance-is-about-people&quot;&gt;Performance is about people &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-speed-matters/#performance-is-about-people&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Poorly performing sites and applications can also pose real costs for the
+people who use them.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://gs.statcounter.com/platform-market-share/desktop-mobile-tablet&quot; rel=&quot;noopener&quot;&gt;As mobile users continue to make up a larger portion of internet users
+worldwide&lt;/a&gt;,
+it&#39;s important to bear in mind that many of these users access the web through
+mobile LTE, 4G, 3G, and even 2G networks.
+As Ben Schwarz of Calibre points out in
+&lt;a href=&quot;https://calibreapp.com/blog/beyond-the-bubble&quot; rel=&quot;noopener&quot;&gt;this study of real world performance&lt;/a&gt;,
+the cost of prepaid data plans is decreasing,
+which in turn is making access to the internet more affordable in places where it once wasn&#39;t.
+Mobile devices and internet access are no longer luxuries.
+They are common tools necessary to navigate and function in an increasingly interconnected world.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://beta.httparchive.org/reports/state-of-the-web#bytesTotal&quot; rel=&quot;noopener&quot;&gt;Total page size has been steadily increasing since at least 2011&lt;/a&gt;,
+and the trend appears to be continuing.
+As the typical page sends more data,
+users must replenish their metered data plans more often, which costs them money.&lt;/p&gt;
+&lt;p&gt;In addition to saving your users money,
+fast and lightweight user experiences can also prove crucial for users in crisis.
+Public resources such as hospitals, clinics,
+and crisis centers have online resources that give users important and specific information that they need during a crisis.
+&lt;a href=&quot;https://aneventapart.com/news/post/eric-meyer-designing-for-crisis&quot; rel=&quot;noopener&quot;&gt;While design is pivotal in presenting important information efficiently in stressful moments&lt;/a&gt;,
+the importance of delivering this information fast can&#39;t be understated.
+It&#39;s part of our job.&lt;/p&gt;
+&lt;h2 id=&quot;get-started&quot;&gt;Get started with improving your website speed &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-speed-matters/#get-started&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Read up on the &lt;a href=&quot;https://web.dev/vitals/#core-web-vitals&quot;&gt;Core Web Vitals&lt;/a&gt; to learn about the metrics
+that Google believes all websites should focus on.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+	  Today, we’re building on this work and providing an early
+	  look at an upcoming Search ranking change that incorporates
+	  these page experience metrics. We will introduce a new signal
+	  that combines Core Web Vitals with our existing signals for page
+	  experience to provide a holistic picture of the quality of a user’s
+	  experience on a web page.
+  &lt;/p&gt;
+  &lt;cite&gt;
+    &lt;a href=&quot;https://webmasters.googleblog.com/2020/05/evaluating-page-experience.html&quot;&gt;
+      Evaluating page experience for a better web
+    &lt;/a&gt;, Official Google Webmaster Central Blog
+  &lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then check out &lt;a href=&quot;https://web.dev/fast/&quot;&gt;Fast load times&lt;/a&gt; for lots of tips and tricks
+related to getting fast and staying fast.&lt;/p&gt;
+</content>
+    <author>
+      <name>Bojan Pavic</name>
+    </author><author>
+      <name>Chris Anstey</name>
+    </author><author>
+      <name>Jeremy Wagner</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>How to measure speed?</title>
+    <link href="https://web.dev/how-to-measure-speed/"/>
+    <updated>2019-05-01T00:00:00Z</updated>
+    <id>https://web.dev/how-to-measure-speed/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Real-world performance is highly variable due to differences in users&#39; devices, network connections, and other factors. For example, if you load your website using a cable network connection in your office and compare it against the load using WiFi in a coffee shop, the experiences are likely to be very different. There are many tools on the market that can help you collect lab or field data to assess page performance.&lt;/p&gt;
+&lt;h2 id=&quot;lab-data-vs-field-data&quot;&gt;Lab data vs Field data &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-to-measure-speed/#lab-data-vs-field-data&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;img alt=&quot;Speed tools graphics&quot; decoding=&quot;async&quot; height=&quot;232&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/6OMEfvIKRuDWWSiVDto4.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;&lt;strong&gt;Lab data&lt;/strong&gt; is performance data collected within a controlled environment with predefined device and network settings, while &lt;strong&gt;Field data&lt;/strong&gt; is performance data collected from real page loads experienced by your users in the wild. Each type has its own strengths and limitations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lab data&lt;/strong&gt; offers reproducible results and a debugging environment, but might not capture real-world bottlenecks and cannot correlate against real-world page KPIs. With lab data, you need to understand your users&#39; typical devices and networks and appropriately mirror those conditions when you test performance. Have in mind that even in areas with 4G, users may still experience slower or intermittent connections when in elevators, while commuting, or in comparable environments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Field data&lt;/strong&gt; (also called Real User Monitoring or RUM) captures true real-world user experience and enables correlation to business KPIs, but has a restricted set of metrics and limited debugging capabilities.&lt;/p&gt;
+&lt;h2 id=&quot;tools&quot;&gt;Tools &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-to-measure-speed/#tools&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;lab-data&quot;&gt;Lab data &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-to-measure-speed/#lab-data&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/tools/lighthouse/&quot; rel=&quot;noopener&quot;&gt;Lighthouse&lt;/a&gt; takes a URL and runs a series of audits against the page, generating a report on how well the page did. There are multiple ways to run Lighthouse, including an option to easily audit a page from within Chrome DevTools.&lt;/p&gt;
+&lt;h3 id=&quot;field-data&quot;&gt;Field data &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-to-measure-speed/#field-data&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/&quot; rel=&quot;noopener&quot;&gt;Chrome User Experience Report (CrUX)&lt;/a&gt; provides metrics showing how real-world Chrome users experience popular destinations on the web.&lt;/p&gt;
+&lt;h3 id=&quot;other-tools&quot;&gt;Other tools &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-to-measure-speed/#other-tools&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt; provides both lab and field data about a page. It uses Lighthouse to collect and analyze lab data about the page, while real-world field data is based on the Chrome User Experience Report dataset.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/&quot; rel=&quot;noopener&quot;&gt;Chrome Developer Tools&lt;/a&gt; is a set of web developer tools built directly into the Google Chrome browser. It allows you to profile the runtime of a page, as well as identify and debug performance bottlenecks.&lt;/p&gt;
+</content>
+    <author>
+      <name>Bojan Pavic</name>
+    </author><author>
+      <name>Chris Anstey</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>How to stay fast?</title>
+    <link href="https://web.dev/how-to-stay-fast/"/>
+    <updated>2019-05-01T00:00:00Z</updated>
+    <id>https://web.dev/how-to-stay-fast/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Brands that optimize speed will often find they regress quickly. This is because website performance is a lot like getting fit: it&#39;s not enough to make a one time effort; you have to change your lifestyle.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=YJGCZCaIZkQ&quot; rel=&quot;noopener&quot;&gt;Internal Google study&lt;/a&gt; has found that 40% of brands regress on web performance after 6 months.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Performance budgets are one way to address this. A performance budget is a set of limits on metrics that affect site performance. The concept is similar to a financial budget: you set a limit and make sure you stay within it. In general, a good performance budget combines different types of metrics; so, for example, the performance budget for a product page might look as follows:&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Time To Interactive on slow 3G&lt;/td&gt;
+        &lt;td&gt;Less than&lt;/td&gt;
+        &lt;td&gt;5 seconds&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;First Contentful Paint on slow 3G&lt;/td&gt;
+        &lt;td&gt;Less than&lt;/td&gt;
+        &lt;td&gt;2 seconds&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Lighthouse performance score&lt;/td&gt;
+        &lt;td&gt;Greater than&lt;/td&gt;
+        &lt;td&gt;80&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Total JavaScript size&lt;/td&gt;
+        &lt;td&gt;Less than&lt;/td&gt;
+        &lt;td&gt;170 kb&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;caption&gt;Example performance budget.&lt;/caption&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Once set, a performance budget has to be enforced, which means for example incorporating the budget into your build process and reporting. Tools like Lighthouse can be included in your continuous integration, and you can write tests that fail a build if key metrics drop below a set threshold. Additionally, regular reporting through dashboards or summary reports can help with visibility and accountability. &lt;a href=&quot;https://www.youtube.com/watch?v=Xryhxi45Q5M&quot; rel=&quot;noopener&quot;&gt;Pinterest&lt;/a&gt; are one example of a business that have implemented performance budgets to make sure their fast experience stays fast, while brands like &lt;a href=&quot;https://www.thinkwithgoogle.com/intl/en-gb/success-stories/uk-success-stories/how-mobile-first-mindset-helped-experian-slash-page-load-times/&quot; rel=&quot;noopener&quot;&gt;Experian&lt;/a&gt; are now using site speed as a key metric in their monthly executive KPI reports.&lt;/p&gt;
+&lt;p&gt;You can find more details on performance budgets &lt;a href=&quot;https://web.dev/performance-budgets-101&quot;&gt;here&lt;/a&gt;. A guide that describes how to further instill performance culture and make speed metrics visible and tangible for all stakeholders can be found &lt;a href=&quot;https://web.dev/how-to-report-metrics/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <author>
+      <name>Bojan Pavic</name>
+    </author><author>
+      <name>Chris Anstey</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>What is speed?</title>
+    <link href="https://web.dev/what-is-speed/"/>
+    <updated>2019-05-01T00:00:00Z</updated>
+    <id>https://web.dev/what-is-speed/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;So, speed matters, but what exactly do we mean by it? What does it mean to have a fast site?&lt;/p&gt;
+&lt;p&gt;It&#39;s common to hear people talk in terms of their website loading in x.xx seconds or similar, but a &lt;a href=&quot;https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics&quot; rel=&quot;noopener&quot;&gt;load is not a single moment in time&lt;/a&gt;; it&#39;s an experience that no single metric can fully capture. There are multiple moments during the load experience that can affect whether a user perceives it as &#39;fast&#39;, and if you just focus solely on one, you might miss bad experiences that happen during the rest of the time.&lt;/p&gt;
+&lt;p&gt;Rather than measuring load with just one metric, you should time each moment during the experience that affects the user&#39;s perception of load speed. When a user navigates to a web page, they&#39;re typically looking for certain types of feedback:&lt;/p&gt;
+&lt;img alt=&quot;Image of feedback user is typically looking for&quot; decoding=&quot;async&quot; height=&quot;185&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/NGX9WC2BXTRY6FP5TTGl.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Traditional performance metrics like load time or DOMContentLoaded time are unreliable, since their occurrence may or may not correspond with these feedback milestones. So, &lt;a href=&quot;https://web.dev/lighthouse-performance/#metrics&quot;&gt;additional metrics&lt;/a&gt; have emerged that could be used to understand when a page delivers this feedback to its users:&lt;/p&gt;
+&lt;img alt=&quot;Image of speed metrics&quot; decoding=&quot;async&quot; height=&quot;654&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/tz1aubGGvefskjcPfjBQ.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;It&#39;s important to understand the different insights offered by these metrics, then establish the ones that are important to your user experience. Some brands even define additional custom metrics specific to the expectations people have of their service. In the case of Pinterest, users want to see images, so they defined a custom metric, &lt;a href=&quot;https://www.youtube.com/watch?v=Xryhxi45Q5M&quot; rel=&quot;noopener&quot;&gt;Pinner Wait Time&lt;/a&gt;, that combines Time to Interactive and Above the Fold Image load times.&lt;/p&gt;
+&lt;p&gt;Even though the load is more than one moment in time, it can still be useful to have a single metric for the purposes of simplified reporting or comparison: &lt;a href=&quot;https://web.dev/speed-index&quot;&gt;Speed Index&lt;/a&gt; and &lt;a href=&quot;https://developers.google.com/web/tools/lighthouse/v3/scoring&quot; rel=&quot;noopener&quot;&gt;Lighthouse score&lt;/a&gt; can both be used in this way.&lt;/p&gt;
+</content>
+    <author>
+      <name>Bojan Pavic</name>
+    </author><author>
+      <name>Chris Anstey</name>
+    </author>
+  </entry>
+</feed>

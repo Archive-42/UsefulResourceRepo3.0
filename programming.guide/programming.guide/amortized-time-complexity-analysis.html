@@ -1,208 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Amortized time complexity | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="Amortized complexity analysis is most commonly used with data structures, which have state that persists between operations. The idea is that an expensive operation can alter the state so that the worst case cannot occur again for a long time, thus amortizing its cost." name="description">
-  <meta content="amortized, complexity, analysis, time, worst-case, dynamic array, example" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Amortized time complexity | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="Amortized complexity analysis is most commonly used with data structures, which have state that persists between operations. The idea is that an expensive operation can alter the state so that the worst case cannot occur again for a long time, thus amortizing its cost."
+      name="description"
+    />
+    <meta
+      content="amortized, complexity, analysis, time, worst-case, dynamic array, example"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Related</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="time-complexity-explained.html">Time complexity explained</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="big-o-notation-explained.html">Big O notation explained</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="go/append-explained.html">Go: Append function explained</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Amortized time complexity</h1>
-      <p>Amortized analysis is used for algorithms that have <strong>expensive operations</strong> that happen <strong>rarely</strong>.</p>
-      <p><strong>Amortized complexity analysis</strong> is most commonly used with data structures, which have state that persists between operations. The basic idea is that an expensive operation can alter the state so that the worst case cannot occur again for a long time, thus amortizing its cost.</p>
-      <div class="article-box">
-        <p><strong>Definition:</strong> Let T<sub>1</sub>, T<sub>2</sub>,&nbsp;…, T<sub>k</sub> be the complexities of a sequence of operations on a data structuture. The <b>amortized complexity</b> of a single operation in this sequence is (T<sub>1</sub>&nbsp;+&nbsp;T<sub>2</sub>&nbsp;+&nbsp;…+&nbsp;T<sub>k</sub>)&nbsp;/&nbsp;k.</p>
-      </div>
-      <h2>Example</h2>
-      <pre><b>Algorithm</b> append(arr, x):
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a href="time-complexity-explained.html">Time complexity explained</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="big-o-notation-explained.html">Big O notation explained</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="go/append-explained.html">Go: Append function explained</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Amortized time complexity</h1>
+        <p>
+          Amortized analysis is used for algorithms that have
+          <strong>expensive operations</strong> that happen
+          <strong>rarely</strong>.
+        </p>
+        <p>
+          <strong>Amortized complexity analysis</strong> is most commonly used
+          with data structures, which have state that persists between
+          operations. The basic idea is that an expensive operation can alter
+          the state so that the worst case cannot occur again for a long time,
+          thus amortizing its cost.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Definition:</strong> Let T<sub>1</sub>,
+            T<sub>2</sub>,&nbsp;…, T<sub>k</sub> be the complexities of a
+            sequence of operations on a data structuture. The
+            <b>amortized complexity</b> of a single operation in this sequence
+            is
+            (T<sub>1</sub>&nbsp;+&nbsp;T<sub>2</sub>&nbsp;+&nbsp;…+&nbsp;T<sub>k</sub>)&nbsp;/&nbsp;k.
+          </p>
+        </div>
+        <h2>Example</h2>
+        <pre><b>Algorithm</b> append(arr, x):
     <b>if</b> arr.size == arr.capacity
         arr.capacity ← 2 * arr.capacity
         resize arr
     arr[arr.size] ← x
     arr.size ← arr.size + 1
 </pre>
-      <p>Let's start by looking at the worst case:</p>
-      <div class="article-box">
-        The worst-case time complexity for appending an element to an array of length&nbsp;<i>n</i> using this algorithm is&nbsp;Θ(<i>n</i>):
-        <ul>
-          <li>if the array is full, the algorithm allocates a new array of length&nbsp;2<i>n</i>,</li>
-          <li>and then copies the elements from the old array into the new one.</li>
-        </ul>
-      </div>
-      <p>Cleary, this result is overly pessimistic. The following <i>n</i>&nbsp;append operations will be much cheaper: each of them will run in constant time since the newly allocated array has room for all of the new elements.</p>
-      <p>An amortized time analysis gives a better understanding of the algorithm:</p>
-      <div class="article-box">
-        Consider a sequence of <i>n</i>&nbsp;append operations, where we start with an array of length&nbsp;1. A careful analysis shows that the total time of these operations is only&nbsp;Θ(<i>n</i>):
-        <ul>
-          <li>There will be a total of <i>n</i> constant-time assignment and increment operations.</li>
-          <li>The resizing will happen only at operation 1, 2, 4, …, 2<sup>k</sup>, for a total of 1&nbsp;+&nbsp;2&nbsp;+&nbsp;4&nbsp;+&nbsp;…+&nbsp;2<sup>k</sup>&nbsp;= 2·2<sup>k</sup>&nbsp;-&nbsp;1 constant-time element copy operations. Since&nbsp;2<sup>k</sup>&nbsp;≤&nbsp;<i>n</i>, this is at most&nbsp;2<i>n</i>&nbsp;-&nbsp;1.</li>
-        </ul>Hence, the amortized time complexity for a single append operation is&nbsp;Θ(1).
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>Let's start by looking at the worst case:</p>
+        <div class="article-box">
+          The worst-case time complexity for appending an element to an array of
+          length&nbsp;<i>n</i> using this algorithm is&nbsp;Θ(<i>n</i>):
+          <ul>
+            <li>
+              if the array is full, the algorithm allocates a new array of
+              length&nbsp;2<i>n</i>,
+            </li>
+            <li>
+              and then copies the elements from the old array into the new one.
+            </li>
+          </ul>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="amortized-time-complexity-analysis.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <p>
+          Cleary, this result is overly pessimistic. The following
+          <i>n</i>&nbsp;append operations will be much cheaper: each of them
+          will run in constant time since the newly allocated array has room for
+          all of the new elements.
+        </p>
+        <p>
+          An amortized time analysis gives a better understanding of the
+          algorithm:
+        </p>
+        <div class="article-box">
+          Consider a sequence of <i>n</i>&nbsp;append operations, where we start
+          with an array of length&nbsp;1. A careful analysis shows that the
+          total time of these operations is only&nbsp;Θ(<i>n</i>):
+          <ul>
+            <li>
+              There will be a total of <i>n</i> constant-time assignment and
+              increment operations.
+            </li>
+            <li>
+              The resizing will happen only at operation 1, 2, 4, …,
+              2<sup>k</sup>, for a total of
+              1&nbsp;+&nbsp;2&nbsp;+&nbsp;4&nbsp;+&nbsp;…+&nbsp;2<sup>k</sup>&nbsp;=
+              2·2<sup>k</sup>&nbsp;-&nbsp;1 constant-time element copy
+              operations. Since&nbsp;2<sup>k</sup>&nbsp;≤&nbsp;<i>n</i>, this is
+              at most&nbsp;2<i>n</i>&nbsp;-&nbsp;1.
+            </li>
+          </ul>
+          Hence, the amortized time complexity for a single append operation
+          is&nbsp;Θ(1).
+        </div>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="amortized-time-complexity-analysis.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

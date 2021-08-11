@@ -1,253 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Custom Exception | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="This page explains and provides examples for how to implement user defined custom exceptions." name="description">
-  <meta content="java, exception, custom, user defined, checked, unchecked" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: Custom Exception | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="This page explains and provides examples for how to implement user defined custom exceptions."
+      name="description"
+    />
+    <meta
+      content="java, exception, custom, user defined, checked, unchecked"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Java Exceptions</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="exceptions-throw-try-catch.html">Throw, Try and Catch</a>
-        </li>
-        <li>
-          <a href="exception-types.html">Java Exception Types</a>
-        </li>
-        <li>
-          <a href="chained-exceptions.html">Chained Exceptions</a>
-        </li>
-        <li class="current">Custom Exception</li>
-        <li>
-          <a href="difference-between-checked-and-unchecked-exceptions.html">Difference between Checked and Unchecked Exceptions</a>
-        </li>
-        <li>
-          <a href="choosing-between-checked-and-unchecked-exceptions.html">Choosing between Checked and Unchecked Exceptions</a>
-        </li>
-        <li>
-          <a href="checked-exceptions-good-or-bad.html">Checked Exceptions: Good or Bad?</a>
-        </li>
-        <li>
-          <a href="return-values-vs-exceptions.html">Return Values vs Exceptions</a>
-        </li>
-        <li>
-          <a href="try-finally.html">try + finally</a>
-        </li>
-        <li>
-          <a href="try-with-resources.html">try-with-resources</a>
-        </li>
-        <li>
-          <a href="stack-trace.html">Stack Traces</a>
-        </li>
-        <li>
-          <a href="suppressed-exceptions.html">Suppressed Exceptions</a>
-        </li>
-        <li>
-          <a href="throw-vs-throws-vs-throwable.html">throw vs throws vs Throwable</a>
-        </li>
-        <li>
-          <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
-        </li>
-      </ol>
-      <h2>Exception Related Keywords</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="throw.html">throw</a>
-        </li>
-        <li>
-          <a href="throws.html">throws</a>
-        </li>
-        <li>
-          <a href="catch.html">catch</a>
-        </li>
-        <li>
-          <a href="try.html">try</a>
-        </li>
-        <li>
-          <a href="finally.html">finally</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Custom Exception</h1>
-      <p>You create a custom exception by extending <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html"><code>Exception</code></a>, directly or indirectly. Technically speaking you could extend any <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html"><code>Throwable</code></a>, but ordinary programs should stick to the <code>Exception</code> hierarchy. See <a href="exception-types.html">Java Exception Types</a>.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong></p>
-        <pre><code><span class="keyword">class</span> <span class="type">MyException</span> <span class="keyword">extends</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html"><span class="type">Exception</span></a> {
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Java Exceptions</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="exceptions-throw-try-catch.html">Throw, Try and Catch</a>
+          </li>
+          <li>
+            <a href="exception-types.html">Java Exception Types</a>
+          </li>
+          <li>
+            <a href="chained-exceptions.html">Chained Exceptions</a>
+          </li>
+          <li class="current">Custom Exception</li>
+          <li>
+            <a href="difference-between-checked-and-unchecked-exceptions.html"
+              >Difference between Checked and Unchecked Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="choosing-between-checked-and-unchecked-exceptions.html"
+              >Choosing between Checked and Unchecked Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="checked-exceptions-good-or-bad.html"
+              >Checked Exceptions: Good or Bad?</a
+            >
+          </li>
+          <li>
+            <a href="return-values-vs-exceptions.html"
+              >Return Values vs Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="try-finally.html">try + finally</a>
+          </li>
+          <li>
+            <a href="try-with-resources.html">try-with-resources</a>
+          </li>
+          <li>
+            <a href="stack-trace.html">Stack Traces</a>
+          </li>
+          <li>
+            <a href="suppressed-exceptions.html">Suppressed Exceptions</a>
+          </li>
+          <li>
+            <a href="throw-vs-throws-vs-throwable.html"
+              >throw vs throws vs Throwable</a
+            >
+          </li>
+          <li>
+            <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
+          </li>
+        </ol>
+        <h2>Exception Related Keywords</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="throw.html">throw</a>
+          </li>
+          <li>
+            <a href="throws.html">throws</a>
+          </li>
+          <li>
+            <a href="catch.html">catch</a>
+          </li>
+          <li>
+            <a href="try.html">try</a>
+          </li>
+          <li>
+            <a href="finally.html">finally</a>
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Custom Exception</h1>
+        <p>
+          You create a custom exception by extending
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html"
+            ><code>Exception</code></a
+          >, directly or indirectly. Technically speaking you could extend any
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html"
+            ><code>Throwable</code></a
+          >, but ordinary programs should stick to the
+          <code>Exception</code> hierarchy. See
+          <a href="exception-types.html">Java Exception Types</a>.
+        </p>
+        <div class="article-box">
+          <p><strong>Example:</strong></p>
+          <pre><code><span class="keyword">class</span> <span class="type">MyException</span> <span class="keyword">extends</span> <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Exception.html"><span class="type">Exception</span></a> {
     <span class="comment">// ...</span>
 }
 </code></pre>
-        <p>This can be used as any other exception:</p>
-        <pre><code><span class="keyword">try</span> {
+          <p>This can be used as any other exception:</p>
+          <pre><code><span class="keyword">try</span> {
     <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">MyException</span>();
 } <span class="keyword">catch</span> (<span class="type">MyException</span> <span class="type">e</span>) {
     <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"Caught custom exception."</span>);
 }
 </code></pre>
-      </div>
-      <p>It's also customary to allow clients to specify a message and/or cause by overriding one or more <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html"><code>Throwable</code></a> constructors. See the "real world" example at the end of the article.</p>
-      <h2>Which class to extend?</h2>
-      <p>If you extend <code>RuntimeException</code> your exception will be an <strong>unchecked</strong> exception. Otherwise it will be a <strong>checked</strong> exception.</p>
-      <div style="margin: 0 auto;"><img alt="Schematic Exception Hierarchy" src="custom-exception/checked-unchecked-hierarchy.svg" style="width: 80%; padding: 1em;"></div>
-      <p>This is an important decision and you should read the following two articles to understand the implications.</p>
-      <ul>
-        <li>
-          <a href="difference-between-checked-and-unchecked-exceptions.html">Difference between Checked and Unchecked Exceptions</a>
-        </li>
-        <li>
-          <a href="choosing-between-checked-and-unchecked-exceptions.html">Choosing between Checked and Unchecked Exceptions</a>
-        </li>
-      </ul>
-      <h2>Use a standard exception if possible</h2>
-      <p>By reusing exceptions from the standard API, either by extending it or by using it off the shelf, you get two benefits:</p>
-      <ul>
-        <li>
-          <p>As always with code reuse, you end up with less code to test and maintain</p>
-        </li>
-        <li>
-          <p>It makes your API easier to understand, as most programmers are already familiar with the semantics of the standard exceptions</p>
-        </li>
-      </ul>
-      <p>Make sure to always read the Javadoc of the exception you intend to use. Even though an exception may have a generic and fitting name, it may be intended for something specific and entirely different. Don't use a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/zip/ZipException.html"><code>ZipException</code></a> for malformed Zip Codes, or an <a href="https://docs.oracle.com/javase/8/docs/api/org/omg/CosNaming/NamingContextExtPackage/InvalidAddress.html"><code>InvalidAddress</code></a> (which belongs to the CORBA package) for invalid email addresses.</p>
-      <p>Here's a <a href="list-of-java-exceptions.html">list of all Java Exceptions</a>.</p>
-      <h2>Real World Example</h2>
-      <p>Here's an example that follows the above mentioned best practices.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> The exception below is thrown when the application fails to save the document to disk.</p>
+        </div>
+        <p>
+          It's also customary to allow clients to specify a message and/or cause
+          by overriding one or more
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html"
+            ><code>Throwable</code></a
+          >
+          constructors. See the "real world" example at the end of the article.
+        </p>
+        <h2>Which class to extend?</h2>
+        <p>
+          If you extend <code>RuntimeException</code> your exception will be an
+          <strong>unchecked</strong> exception. Otherwise it will be a
+          <strong>checked</strong> exception.
+        </p>
+        <div style="margin: 0 auto">
+          <img
+            alt="Schematic Exception Hierarchy"
+            src="custom-exception/checked-unchecked-hierarchy.svg"
+            style="width: 80%; padding: 1em"
+          />
+        </div>
+        <p>
+          This is an important decision and you should read the following two
+          articles to understand the implications.
+        </p>
         <ul>
-          <li>It reuses the well known <code>IOException</code> from the API</li>
-          <li>It allows clients to specify message and cause, and</li>
-          <li>It includes information useful when handling the exception</li>
+          <li>
+            <a href="difference-between-checked-and-unchecked-exceptions.html"
+              >Difference between Checked and Unchecked Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="choosing-between-checked-and-unchecked-exceptions.html"
+              >Choosing between Checked and Unchecked Exceptions</a
+            >
+          </li>
         </ul>
-        <pre><code><span class="keyword">import</span> java.io.IOException;
+        <h2>Use a standard exception if possible</h2>
+        <p>
+          By reusing exceptions from the standard API, either by extending it or
+          by using it off the shelf, you get two benefits:
+        </p>
+        <ul>
+          <li>
+            <p>
+              As always with code reuse, you end up with less code to test and
+              maintain
+            </p>
+          </li>
+          <li>
+            <p>
+              It makes your API easier to understand, as most programmers are
+              already familiar with the semantics of the standard exceptions
+            </p>
+          </li>
+        </ul>
+        <p>
+          Make sure to always read the Javadoc of the exception you intend to
+          use. Even though an exception may have a generic and fitting name, it
+          may be intended for something specific and entirely different. Don't
+          use a
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/zip/ZipException.html"
+            ><code>ZipException</code></a
+          >
+          for malformed Zip Codes, or an
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/org/omg/CosNaming/NamingContextExtPackage/InvalidAddress.html"
+            ><code>InvalidAddress</code></a
+          >
+          (which belongs to the CORBA package) for invalid email addresses.
+        </p>
+        <p>
+          Here's a
+          <a href="list-of-java-exceptions.html">list of all Java Exceptions</a
+          >.
+        </p>
+        <h2>Real World Example</h2>
+        <p>
+          Here's an example that follows the above mentioned best practices.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> The exception below is thrown when the
+            application fails to save the document to disk.
+          </p>
+          <ul>
+            <li>
+              It reuses the well known <code>IOException</code> from the API
+            </li>
+            <li>It allows clients to specify message and cause, and</li>
+            <li>It includes information useful when handling the exception</li>
+          </ul>
+          <pre><code><span class="keyword">import</span> java.io.IOException;
 <span class="keyword">import</span> java.nio.file.Path;
 
 <span class="keyword">public</span> <span class="keyword">class</span> SaveDocException <span class="keyword">extends</span> IOException {
@@ -280,34 +450,51 @@
     }
 }
 </code></pre>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/custom-exception.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/custom-exception.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

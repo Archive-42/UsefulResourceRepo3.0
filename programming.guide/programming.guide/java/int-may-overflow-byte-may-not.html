@@ -1,311 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <style>
+      #type01,
+      #doesNotCompile,
+      #compiles,
+      #squiggly {
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+      }
 
-  <style>
+      #type01 {
+        overflow: hidden;
+        /* 6 steps = 6 key presses */
+        animation-timing-function: steps(6, end);
+        animation-name: type01x;
+      }
 
-  #type01, #doesNotCompile, #compiles, #squiggly {
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-  }
+      #emptyTrailingLine {
+        animation-name: antityping;
+        height: 0;
+      }
 
-  #type01 {
-    overflow: hidden;
-    /* 6 steps = 6 key presses */
-    animation-timing-function: steps(6, end);
-    animation-name: type01x;
-  }
+      @keyframes type01x {
+        0% {
+          width: 0ch;
+          font-weight: normal;
+          color: black;
+        }
+        40% {
+          width: 0ch;
+        }
+        58% {
+          font-weight: normal;
+          color: black;
+        }
+        60% {
+          width: 6ch;
+          font-weight: bold;
+          color: #000080;
+        }
+        100% {
+          width: 6ch;
+          font-weight: bold;
+          color: #000080;
+        }
+      }
 
-  #emptyTrailingLine {
-    animation-name: antityping;
-    height: 0;
-  }
+      #squiggly {
+        animation-name: hideSquiggly;
+      }
 
-  @keyframes type01x {
-    0%   { width: 0ch; font-weight: normal; color: black; }
-    40%  { width: 0ch; }
-    58% { font-weight: normal; color: black; }
-    60%  { width: 6ch; font-weight: bold; color: #000080; }
-    100% { width: 6ch; font-weight: bold; color: #000080; }
-  }
+      @keyframes hideSquiggly {
+        0%,
+        59% {
+          text-decoration-line: underline;
+          text-decoration-style: wavy;
+          text-decoration-color: red;
+        }
+        60%,
+        100% {
+          text-decoration: none;
+        }
+      }
 
-  #squiggly {
-    animation-name: hideSquiggly;
-  }
+      #compilationComment {
+        display: flex;
+        flex-direction: column;
+      }
 
-  @keyframes hideSquiggly {
-    0%, 59% {
-        text-decoration-line: underline;
-        text-decoration-style: wavy;
-        text-decoration-color: red;
-    }
-    60%, 100% {
-        text-decoration: none;
-    }
-  }
+      #doesNotCompile,
+      #compiles {
+        animation-timing-function: linear;
+        overflow: hidden;
+      }
 
-  #compilationComment {
-    display: flex;
-    flex-direction: column;
-  }
+      #doesNotCompile {
+        animation-name: hideComment;
+      }
 
-  #doesNotCompile, #compiles {
-    animation-timing-function: linear;
-    overflow: hidden;
-  }
+      #compiles {
+        animation-name: showComment;
+      }
 
-  #doesNotCompile {
-    animation-name: hideComment;
-  }
+      @keyframes hideComment {
+        0%,
+        59.999% {
+          height: 0em;
+          opacity: 0;
+        }
+        60%,
+        100% {
+          height: auto;
+          opacity: 1;
+        }
+      }
 
-  #compiles {
-    animation-name: showComment;
-  }
+      @keyframes showComment {
+        0%,
+        59.999% {
+          height: auto;
+          opacity: 1;
+        }
+        60%,
+        100% {
+          height: 0em;
+          opacity: 0;
+        }
+      }
+    </style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+      Java: Integers may overflow, but bytes may not? | Programming.Guide
+    </title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Why are integers and longs allowed to overflow in assignments, but not bytes and shorts? The answer lies in the Java language rules for so called assignment contexts."
+      name="description"
+    />
+    <meta
+      content="java, byte, int, overflow, constant propagation, constant expression, assignment context"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  @keyframes hideComment {
-    0%, 59.999% { height: 0em; opacity: 0; }
-    60%, 100%  { height: auto; opacity: 1; }
-  }
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  @keyframes showComment {
-    0%, 59.999% { height: auto; opacity: 1; }
-    60%, 100%  { height: 0em; opacity: 0; }
-  }
-  </style>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Integers may overflow, but bytes may not? | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Why are integers and longs allowed to overflow in assignments, but not bytes and shorts? The answer lies in the Java language rules for so called assignment contexts." name="description">
-  <meta content="java, byte, int, overflow, constant propagation, constant expression, assignment context" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Integers may overflow, but bytes may not?</h1>
-      <p>Why are <code>int</code> expressions allowed to overflow, but not <code>byte</code> expressions?</p>
-      <pre><code><span class="keyword">int</span> i = Integer.<span class="static_final_field">MAX_VALUE</span> + <span class="num_lit">1</span>;  <span class="comment">// allowed to overflow</span>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Integers may overflow, but bytes may not?</h1>
+        <p>
+          Why are <code>int</code> expressions allowed to overflow, but not
+          <code>byte</code> expressions?
+        </p>
+        <pre><code><span class="keyword">int</span> i = Integer.<span class="static_final_field">MAX_VALUE</span> + <span class="num_lit">1</span>;  <span class="comment">// allowed to overflow</span>
 <span class="keyword">byte</span> b = <span class="err-squiggly tooltip"><span class="tooltiptext">possible lossy conversion from int to byte</span>Byte.<span class="static_final_field">MAX_VALUE</span> + <span class="num_lit">1</span></span>;    <span class="comment">// not allowed to overflow</span>
 
 
 </code></pre>
-      <p>Before you shout <em>"<code>Byte.MAX_VALUE + 1</code> is an <code>int</code> expression! This is a simple type error!"</em> note that this <strong>does compile</strong>:</p>
-      <pre><code><span class="keyword">byte</span> b = Byte.<span class="static_final_field">MAX_VALUE</span> + <span class="num_lit">0</span>;
+        <p>
+          Before you shout
+          <em
+            >"<code>Byte.MAX_VALUE + 1</code> is an <code>int</code> expression!
+            This is a simple type error!"</em
+          >
+          note that this <strong>does compile</strong>:
+        </p>
+        <pre><code><span class="keyword">byte</span> b = Byte.<span class="static_final_field">MAX_VALUE</span> + <span class="num_lit">0</span>;
 </code></pre>
-      <h2>The + Operator</h2>
-      <p>The <code>+</code> operator is indeed only defined for <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code> and <code>String</code> operands. In our snippet <code>Byte.MAX_VALUE</code> will therefore be promoted to an <code>int</code> and the <strong>result of the addition will be of type <code>int</code></strong>.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> A <code>byte</code> plus a <code>byte</code> is an <code>int</code>:</p>
-        <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="static_method">type</span>(<span class="keyword">byte</span> <span class="type">b</span>) { <span class="keyword">return</span> <span class="text_lit">"byte"</span>; }
+        <h2>The + Operator</h2>
+        <p>
+          The <code>+</code> operator is indeed only defined for
+          <code>int</code>, <code>long</code>, <code>float</code>,
+          <code>double</code> and <code>String</code> operands. In our snippet
+          <code>Byte.MAX_VALUE</code> will therefore be promoted to an
+          <code>int</code> and the
+          <strong
+            >result of the addition will be of type <code>int</code></strong
+          >.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> A <code>byte</code> plus a
+            <code>byte</code> is an <code>int</code>:
+          </p>
+          <pre><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="static_method">type</span>(<span class="keyword">byte</span> <span class="type">b</span>) { <span class="keyword">return</span> <span class="text_lit">"byte"</span>; }
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html"><span class="type">String</span></a> <span class="static_method">type</span>(<span class="keyword">int</span> <span class="type">i</span>)  { <span class="keyword">return</span> <span class="text_lit">"int"</span>; }
 …
 <span class="keyword">byte</span> <span class="type">a</span> = <span class="num_lit">10</span>, <span class="type">b</span> = <span class="num_lit">20</span>;
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="static_method">type</span>(<span class="type">a</span> + <span class="type">b</span>)); <span class="comment">// "int"</span></code></pre>
-      </div>
-      <p>But as we saw earlier, there's something else at play here…</p>
-      <h2>Something about that overflow…</h2>
-      <p>The compile error only occurs when there's a byte overflow, which reveals that the computation is performed at compile time. The JLS refers to this as a compile-time <strong>constant expression</strong>:</p>
-      <blockquote>
-        <p><strong>15.28 Constant Expression</strong></p>
-        <p>A compile-time <em>constant expression</em> is an expression denoting a value of primitive type or a <span class="mono">String</span> that does not complete abruptly and is composed using only the following:</p>
-        <ul>
-          <li>…</li>
-          <li>Literals of primitive type and literals of type <span class="mono">String</span> (§3.10.5)</li>
-          <li>The additive operators <span class="mono">+</span> and <span class="mono">-</span></li>
-          <li>Qualified names of the form <em>TypeName.Identifier</em> that refer to constant variables (§4.12.4) <a class="quote-source" href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.28">JLS §15.28</a>
-          </li>
-        </ul>
-      </blockquote>
-      <p>A constant variable is a variable that is <strong>final</strong> and <strong>initialized with a compile-time constant expression</strong>. <code>Byte.MAX_VALUE</code> happens to be a constant variable. (If it wasn’t <code>byte b = Byte.MAX_VALUE + 0</code> would not have compiled!)</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Making a variable final makes it a constant expression.</p>
-        <div class="codeblock">
-          <div style="display: flex">
-            <div class="code" id="type01">
-              final&nbsp;
+        </div>
+        <p>But as we saw earlier, there's something else at play here…</p>
+        <h2>Something about that overflow…</h2>
+        <p>
+          The compile error only occurs when there's a byte overflow, which
+          reveals that the computation is performed at compile time. The JLS
+          refers to this as a compile-time <strong>constant expression</strong>:
+        </p>
+        <blockquote>
+          <p><strong>15.28 Constant Expression</strong></p>
+          <p>
+            A compile-time <em>constant expression</em> is an expression
+            denoting a value of primitive type or a
+            <span class="mono">String</span> that does not complete abruptly and
+            is composed using only the following:
+          </p>
+          <ul>
+            <li>…</li>
+            <li>
+              Literals of primitive type and literals of type
+              <span class="mono">String</span> (§3.10.5)
+            </li>
+            <li>
+              The additive operators <span class="mono">+</span> and
+              <span class="mono">-</span>
+            </li>
+            <li>
+              Qualified names of the form <em>TypeName.Identifier</em> that
+              refer to constant variables (§4.12.4)
+              <a
+                class="quote-source"
+                href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.28"
+                >JLS §15.28</a
+              >
+            </li>
+          </ul>
+        </blockquote>
+        <p>
+          A constant variable is a variable that is <strong>final</strong> and
+          <strong>initialized with a compile-time constant expression</strong>.
+          <code>Byte.MAX_VALUE</code> happens to be a constant variable. (If it
+          wasn’t <code>byte b = Byte.MAX_VALUE + 0</code> would not have
+          compiled!)
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> Making a variable final makes it a
+            constant expression.
+          </p>
+          <div class="codeblock">
+            <div style="display: flex">
+              <div class="code" id="type01">final&nbsp;</div>
+              <div class="code">
+                <span class="keyword">byte</span> a =
+                <span class="num_lit">1</span>;
+              </div>
             </div>
-            <div class="code">
-              <span class="keyword">byte</span> a = <span class="num_lit">1</span>;
+            <div class="code" id="doesNotCompile" style="height: 0em">
+              <span
+                ><span class="keyword">byte</span> b = a +
+                <span class="num_lit">1</span>;</span
+              >
             </div>
-          </div>
-          <div class="code" id="doesNotCompile" style="height: 0em;">
-            <span><span class="keyword">byte</span> b = a + <span class="num_lit">1</span>;</span>
-          </div>
-          <div class="code" id="compiles">
-            <span class="err-squiggly"><span class="keyword">byte</span> b = a + <span class="num_lit">1</span>;</span> <span class="comment">// can't convert from int to byte</span>
+            <div class="code" id="compiles">
+              <span class="err-squiggly"
+                ><span class="keyword">byte</span> b = a +
+                <span class="num_lit">1</span>;</span
+              >
+              <span class="comment">// can't convert from int to byte</span>
+            </div>
           </div>
         </div>
-      </div>
-      <h2>Why is a byte not allowed to overflow like an int?</h2>
-      <p>There are some special language rules for so called <strong>assignment contexts</strong>. Constant expressions that fit in the type of the variable (<code>byte</code> in our case) will be automatically converted by the compiler.</p>
-      <blockquote>
-        <p><strong>5.2. Assignment Context</strong></p>
-        <p>[…]</p>
-        <p>A <span class="highlight">narrowing primitive conversion</span> may be used if the type of the variable is <span class="mono highlight">byte</span>, <span class="mono">short</span>, or <span class="mono">char</span>, and the value of the constant expression is representable in the type of the variable. <a class="quote-source" href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.2">JLS §5.2</a></p>
-      </blockquote>
-      <p>So here’s the actual reason the snippet at the top doesn’t compile: Constant expressions <strong>that do not fit does not get converted</strong>, and thus the expression remains as an <code>int</code> and <strong>a typing error occurs</strong> since an <code>int</code> cannot be stored in a <code>byte</code> variable.</p>
-      <h2>An even funnier case</h2>
-      <p>During evaluation of constant expressions, the compiler follows the rules of 2’s complement 2 arithmetic. This means that an <code>int</code> expression can overflow and wrap back into the range of a <code>byte</code>!</p>
-      <pre><code><span class="err-squiggly"><span class="keyword">byte</span> a = Integer.<span class="static_final_field">MAX_VALUE</span></span>;      <span class="comment">// Does not compile.</span>
+        <h2>Why is a byte not allowed to overflow like an int?</h2>
+        <p>
+          There are some special language rules for so called
+          <strong>assignment contexts</strong>. Constant expressions that fit in
+          the type of the variable (<code>byte</code> in our case) will be
+          automatically converted by the compiler.
+        </p>
+        <blockquote>
+          <p><strong>5.2. Assignment Context</strong></p>
+          <p>[…]</p>
+          <p>
+            A <span class="highlight">narrowing primitive conversion</span> may
+            be used if the type of the variable is
+            <span class="mono highlight">byte</span>,
+            <span class="mono">short</span>, or <span class="mono">char</span>,
+            and the value of the constant expression is representable in the
+            type of the variable.
+            <a
+              class="quote-source"
+              href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-5.html#jls-5.2"
+              >JLS §5.2</a
+            >
+          </p>
+        </blockquote>
+        <p>
+          So here’s the actual reason the snippet at the top doesn’t compile:
+          Constant expressions
+          <strong>that do not fit does not get converted</strong>, and thus the
+          expression remains as an <code>int</code> and
+          <strong>a typing error occurs</strong> since an
+          <code>int</code> cannot be stored in a <code>byte</code> variable.
+        </p>
+        <h2>An even funnier case</h2>
+        <p>
+          During evaluation of constant expressions, the compiler follows the
+          rules of 2’s complement 2 arithmetic. This means that an
+          <code>int</code> expression can overflow and wrap back into the range
+          of a <code>byte</code>!
+        </p>
+        <pre><code><span class="err-squiggly"><span class="keyword">byte</span> a = Integer.<span class="static_final_field">MAX_VALUE</span></span>;      <span class="comment">// Does not compile.</span>
 <span class="keyword">byte</span> b = Integer.<span class="static_final_field">MAX_VALUE</span> * <span class="num_lit">2</span>;  <span class="comment">// Does compile!</span>
 </code></pre>
-      <p>The <code>b</code> variable will contain the value −2.</p>
-      <h2>Similar article</h2>
-      <p>There are literals for all primitive types (<code>int</code>, <code>long</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>char</code>, and <code>boolean</code>) <strong>except</strong> <code>byte</code> and <code>short</code>. <a href="byte-short-literals.html">No byte or short literals?</a> discusses this oddity.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>The <code>b</code> variable will contain the value −2.</p>
+        <h2>Similar article</h2>
+        <p>
+          There are literals for all primitive types (<code>int</code>,
+          <code>long</code>, <code>char</code>, <code>float</code>,
+          <code>double</code>, <code>char</code>, and <code>boolean</code>)
+          <strong>except</strong> <code>byte</code> and <code>short</code>.
+          <a href="byte-short-literals.html">No byte or short literals?</a>
+          discusses this oddity.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/int-may-overflow-byte-may-not.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/int-may-overflow-byte-may-not.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

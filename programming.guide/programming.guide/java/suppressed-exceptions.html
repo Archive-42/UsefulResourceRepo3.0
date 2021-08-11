@@ -1,256 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Suppressed Exceptions | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Suppressed exceptions are primarily used to deal with exceptions that are suppressed in a try-with-resource construct." name="description">
-  <meta content="java, exception, suppressed exception" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: Suppressed Exceptions | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Suppressed exceptions are primarily used to deal with exceptions that are suppressed in a try-with-resource construct."
+      name="description"
+    />
+    <meta content="java, exception, suppressed exception" name="keywords" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Java Exceptions</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="exceptions-throw-try-catch.html">Throw, Try and Catch</a>
-        </li>
-        <li>
-          <a href="exception-types.html">Java Exception Types</a>
-        </li>
-        <li>
-          <a href="chained-exceptions.html">Chained Exceptions</a>
-        </li>
-        <li>
-          <a href="custom-exception.html">Custom Exception</a>
-        </li>
-        <li>
-          <a href="difference-between-checked-and-unchecked-exceptions.html">Difference between Checked and Unchecked Exceptions</a>
-        </li>
-        <li>
-          <a href="choosing-between-checked-and-unchecked-exceptions.html">Choosing between Checked and Unchecked Exceptions</a>
-        </li>
-        <li>
-          <a href="checked-exceptions-good-or-bad.html">Checked Exceptions: Good or Bad?</a>
-        </li>
-        <li>
-          <a href="return-values-vs-exceptions.html">Return Values vs Exceptions</a>
-        </li>
-        <li>
-          <a href="try-finally.html">try + finally</a>
-        </li>
-        <li>
-          <a href="try-with-resources.html">try-with-resources</a>
-        </li>
-        <li>
-          <a href="stack-trace.html">Stack Traces</a>
-        </li>
-        <li class="current">Suppressed Exceptions</li>
-        <li>
-          <a href="throw-vs-throws-vs-throwable.html">throw vs throws vs Throwable</a>
-        </li>
-        <li>
-          <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
-        </li>
-      </ol>
-      <h2>Exception Related Keywords</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="throw.html">throw</a>
-        </li>
-        <li>
-          <a href="throws.html">throws</a>
-        </li>
-        <li>
-          <a href="catch.html">catch</a>
-        </li>
-        <li>
-          <a href="try.html">try</a>
-        </li>
-        <li>
-          <a href="finally.html">finally</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Suppressed Exceptions</h1>
-      <p>Suppressed exceptions were introduced at the same time as the try-with-resource feature. This is because in a try-with-resource two exceptions may be thrown (one from the <code>try</code> block and one from the implicit call to <code>close()</code>), and since a method can throw at most one exception, the other exception must be <strong>suppressed</strong>.</p>
-      <p>Suppressed exceptions can be used manually as well. To add an exception as suppressed by another exception, you call <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html#addSuppressed-java.lang.Throwable-"><code>Throwable.addSuppressed</code></a>. To retrieve the suppressed exceptions you call <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html#getSuppressed--"><code>Throwable.getSuppressed</code></a>.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Adding and retrieving suppressed exceptions.</p>
-        <pre><code>Exception exc = <span class="keyword">new</span> Exception();
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Java Exceptions</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="exceptions-throw-try-catch.html">Throw, Try and Catch</a>
+          </li>
+          <li>
+            <a href="exception-types.html">Java Exception Types</a>
+          </li>
+          <li>
+            <a href="chained-exceptions.html">Chained Exceptions</a>
+          </li>
+          <li>
+            <a href="custom-exception.html">Custom Exception</a>
+          </li>
+          <li>
+            <a href="difference-between-checked-and-unchecked-exceptions.html"
+              >Difference between Checked and Unchecked Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="choosing-between-checked-and-unchecked-exceptions.html"
+              >Choosing between Checked and Unchecked Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="checked-exceptions-good-or-bad.html"
+              >Checked Exceptions: Good or Bad?</a
+            >
+          </li>
+          <li>
+            <a href="return-values-vs-exceptions.html"
+              >Return Values vs Exceptions</a
+            >
+          </li>
+          <li>
+            <a href="try-finally.html">try + finally</a>
+          </li>
+          <li>
+            <a href="try-with-resources.html">try-with-resources</a>
+          </li>
+          <li>
+            <a href="stack-trace.html">Stack Traces</a>
+          </li>
+          <li class="current">Suppressed Exceptions</li>
+          <li>
+            <a href="throw-vs-throws-vs-throwable.html"
+              >throw vs throws vs Throwable</a
+            >
+          </li>
+          <li>
+            <a href="list-of-java-exceptions.html">List of Java Exceptions</a>
+          </li>
+        </ol>
+        <h2>Exception Related Keywords</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="throw.html">throw</a>
+          </li>
+          <li>
+            <a href="throws.html">throws</a>
+          </li>
+          <li>
+            <a href="catch.html">catch</a>
+          </li>
+          <li>
+            <a href="try.html">try</a>
+          </li>
+          <li>
+            <a href="finally.html">finally</a>
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Suppressed Exceptions</h1>
+        <p>
+          Suppressed exceptions were introduced at the same time as the
+          try-with-resource feature. This is because in a try-with-resource two
+          exceptions may be thrown (one from the <code>try</code> block and one
+          from the implicit call to <code>close()</code>), and since a method
+          can throw at most one exception, the other exception must be
+          <strong>suppressed</strong>.
+        </p>
+        <p>
+          Suppressed exceptions can be used manually as well. To add an
+          exception as suppressed by another exception, you call
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html#addSuppressed-java.lang.Throwable-"
+            ><code>Throwable.addSuppressed</code></a
+          >. To retrieve the suppressed exceptions you call
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html#getSuppressed--"
+            ><code>Throwable.getSuppressed</code></a
+          >.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> Adding and retrieving suppressed
+            exceptions.
+          </p>
+          <pre><code>Exception exc = <span class="keyword">new</span> Exception();
 exc.addSuppressed(<span class="keyword">new</span> Exception(<span class="text_lit">"Sup. 1"</span>));
 exc.addSuppressed(<span class="keyword">new</span> Exception(<span class="text_lit">"Sup. 2"</span>));
 
 System.out.println(Arrays.toString(exc.getSuppressed()));
 </code></pre>
-        <p><strong>Output:</strong></p>
-        <pre><code>[java.lang.Exception: Suppressed 1, java.lang.Exception: Suppressed 2]</code></pre>
-      </div>
-      <p>Stack traces includes suppressed exceptions, similarly to how they print "caused by" exceptions.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> <code>exc.printStackTrace()</code> would in the previous example print:</p>
-        <pre><code>java.lang.Exception
+          <p><strong>Output:</strong></p>
+          <pre><code>[java.lang.Exception: Suppressed 1, java.lang.Exception: Suppressed 2]</code></pre>
+        </div>
+        <p>
+          Stack traces includes suppressed exceptions, similarly to how they
+          print "caused by" exceptions.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> <code>exc.printStackTrace()</code> would
+            in the previous example print:
+          </p>
+          <pre><code>java.lang.Exception
         at Example.main(Example.java:5)
         <span class="highlight">Suppressed:</span> java.lang.Exception: Sup. 1
                 at Example.main(Example.java:6)
         <span class="highlight">Suppressed:</span> java.lang.Exception: Sup. 2
                 at Example.main(Example.java:7)</code></pre>
-      </div>
-      <div class="article-box">
-        <small>Suppressed exceptions should not be confused with chained exceptions, also known as wrapped exceptions. See article on <a href="chained-exceptions.html">Chained Exceptions</a> for details.</small>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/suppressed-exceptions.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <div class="article-box">
+          <small
+            >Suppressed exceptions should not be confused with chained
+            exceptions, also known as wrapped exceptions. See article on
+            <a href="chained-exceptions.html">Chained Exceptions</a> for
+            details.</small
+          >
+        </div>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/suppressed-exceptions.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

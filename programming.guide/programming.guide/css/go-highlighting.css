@@ -1,20 +1,20 @@
 .keyword {
-    color: rgb(0, 0, 128);
-    font-weight: bold;
+  color: rgb(0, 0, 128);
+  font-weight: bold;
 
-    /* For SVG text and tspan elements */
-    fill: rgb(0, 0, 128);
+  /* For SVG text and tspan elements */
+  fill: rgb(0, 0, 128);
 }
 
 .num_lit {
-    color: rgb(0, 9, 255);
+  color: rgb(0, 9, 255);
 }
 
 .text_lit {
-    color: rgb(0, 128, 0);
-    font-weight: bold;
+  color: rgb(0, 128, 0);
+  font-weight: bold;
 }
 
 .comment {
-    color: rgb(128, 128, 128);
+  color: rgb(128, 128, 128);
 }

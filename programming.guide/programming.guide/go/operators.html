@@ -1,357 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: Operators | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="List of arithmetic, equality, comparison, logical, bitwise and other operators in Go." name="description">
-  <meta content="go, golang, operators, arithmetic, equality, comparison, logical, bitwise, address, pointer indirection, receive" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: Operators | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="List of arithmetic, equality, comparison, logical, bitwise and other operators in Go."
+      name="description"
+    />
+    <meta
+      content="go, golang, operators, arithmetic, equality, comparison, logical, bitwise, address, pointer indirection, receive"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Further Reading</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="operator-priority.html">Operator precedence</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://golang.org/ref/spec#Operators">Operators</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Programming Language Specification</span>
-      </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: Operators</h1>
-      <ul class="toc">
-        <li>
-          <a href="operators.html#arithmetic">Arithmetic</a>
-        </li>
-        <li>
-          <a href="operators.html#comparison">Comparison</a>
-        </li>
-        <li>
-          <a href="operators.html#logical">Logical</a>
-        </li>
-        <li>
-          <a href="operators.html#others">Others</a>
-        </li>
-      </ul>
-      <p><em>See <a href="operator-priority.html">Operator precedence</a> for evaluation order.</em></p>
-      <h2 id="arithmetic">Arithmetic</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>Operator</th>
-            <th>Name</th>
-            <th>Types</th>
-          </tr>
-          <tr>
-            <td style="text-align: center">+</td>
-            <td>sum</td>
-            <td>integers, floats, complex values, strings</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">-</td>
-            <td>difference</td>
-            <td>integers, floats, complex values</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">*</td>
-            <td>product</td>
-            <td>integers, floats, complex values</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">/</td>
-            <td>quotient</td>
-            <td>integers, floats, complex values</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">%</td>
-            <td>remainder</td>
-            <td>integers</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">&amp;</td>
-            <td>bitwise AND</td>
-            <td>integers</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">|</td>
-            <td>bitwise OR</td>
-            <td>integers</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">^</td>
-            <td>bitwise XOR</td>
-            <td>integers</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">&amp;^</td>
-            <td>bit clear (AND NOT)</td>
-            <td>integers</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">&lt;&lt;</td>
-            <td>left shift</td>
-            <td>integer &lt;&lt; unsigned integer</td>
-          </tr>
-          <tr>
-            <td style="text-align: center">&gt;&gt;</td>
-            <td>right shift</td>
-            <td>integer &gt;&gt; unsigned integer</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>See <a href="https://golang.org/ref/spec#Arithmetic_operators">Arithmetic operators</a> in the Go language specification for complete definitions of the shift, quotient and remainder operators, integer overflow, and floating point behavior.</p>
-      <h2 id="comparison">Comparison</h2>
-      <p>Comparison operators compare two operands and yield an untyped boolean value.</p>
-      <table>
-        <tbody>
-          <tr>
-            <th>Operator</th>
-            <th>Name</th>
-            <th>Types</th>
-          </tr>
-          <tr>
-            <td class="centered-content">==</td>
-            <td>equal</td>
-            <td>comparable</td>
-          </tr>
-          <tr>
-            <td class="centered-content">!=</td>
-            <td>not equal</td>
-            <td>comparable</td>
-          </tr>
-          <tr>
-            <td class="centered-content">&lt;</td>
-            <td>less</td>
-            <td>integers, floats, strings</td>
-          </tr>
-          <tr>
-            <td class="centered-content">&lt;=</td>
-            <td>less or equal</td>
-            <td>integers, floats, strings</td>
-          </tr>
-          <tr>
-            <td class="centered-content">&gt;</td>
-            <td>greater</td>
-            <td>integers, floats, strings</td>
-          </tr>
-          <tr>
-            <td class="centered-content">&gt;=</td>
-            <td>greater or equal</td>
-            <td>integers, floats, strings</td>
-          </tr>
-        </tbody>
-      </table>
-      <ul>
-        <li>Boolean, integer, floats, complex values and strings are comparable.</li>
-        <li>Strings are ordered lexically byte-wise.</li>
-        <li>Two pointers are equal if they point to the same variable or if both are nil.</li>
-        <li>Two channel values are equal if they were created by the same call to make or if both are nil.</li>
-        <li>Two interface values are equal if they have identical dynamic types and equal concrete values or if both are nil.</li>
-        <li>A value x of non-interface type X and a value t of interface type T are equal if t's dynamic type is identical to X and t's concrete value is equal to x.</li>
-        <li>Two struct values are equal if their corresponding non-blank fields are equal.</li>
-        <li>Two array values are equal if their corresponding elements are equal.</li>
-      </ul>
-      <h2 id="logical">Logical</h2>
-      <p>Logical operators apply to boolean values. The right operand is evaluated conditionally.</p>
-      <table>
-        <tbody>
-          <tr>
-            <th>Operator</th>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-          <tr>
-            <td class="centered-content">&amp;&amp;</td>
-            <td>conditional AND</td>
-            <td>p &amp;&amp; q denotes "if p then q else false"</td>
-          </tr>
-          <tr>
-            <td class="centered-content">||</td>
-            <td>conditional OR</td>
-            <td>p || q denotes "if p then true else q"</td>
-          </tr>
-          <tr>
-            <td class="centered-content">!</td>
-            <td>NOT</td>
-            <td>!p denotes "not p"</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2 id="others">Others</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>Operator</th>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-          <tr>
-            <td class="centered-content">&amp;</td>
-            <td>address of</td>
-            <td>&amp;x generates a pointer to x</td>
-          </tr>
-          <tr>
-            <td class="centered-content">*</td>
-            <td>pointer indirection</td>
-            <td>*x denotes the variable pointed to by x</td>
-          </tr>
-          <tr>
-            <td class="centered-content">&lt;-</td>
-            <td>receive</td>
-            <td>&lt;-ch is the value received from channel ch</td>
-          </tr>
-        </tbody>
-      </table>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="go/operators.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <h2>Further Reading</h2>
+        <div style="margin-bottom: 1em">
+          <a href="operator-priority.html">Operator precedence</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://golang.org/ref/spec#Operators">Operators</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >The Go Programming Language Specification</span
+          >
+        </div>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: Operators</h1>
+        <ul class="toc">
+          <li>
+            <a href="operators.html#arithmetic">Arithmetic</a>
+          </li>
+          <li>
+            <a href="operators.html#comparison">Comparison</a>
+          </li>
+          <li>
+            <a href="operators.html#logical">Logical</a>
+          </li>
+          <li>
+            <a href="operators.html#others">Others</a>
+          </li>
+        </ul>
+        <p>
+          <em
+            >See <a href="operator-priority.html">Operator precedence</a> for
+            evaluation order.</em
+          >
+        </p>
+        <h2 id="arithmetic">Arithmetic</h2>
+        <table>
+          <tbody>
+            <tr>
+              <th>Operator</th>
+              <th>Name</th>
+              <th>Types</th>
+            </tr>
+            <tr>
+              <td style="text-align: center">+</td>
+              <td>sum</td>
+              <td>integers, floats, complex values, strings</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">-</td>
+              <td>difference</td>
+              <td>integers, floats, complex values</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">*</td>
+              <td>product</td>
+              <td>integers, floats, complex values</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">/</td>
+              <td>quotient</td>
+              <td>integers, floats, complex values</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">%</td>
+              <td>remainder</td>
+              <td>integers</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">&amp;</td>
+              <td>bitwise AND</td>
+              <td>integers</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">|</td>
+              <td>bitwise OR</td>
+              <td>integers</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">^</td>
+              <td>bitwise XOR</td>
+              <td>integers</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">&amp;^</td>
+              <td>bit clear (AND NOT)</td>
+              <td>integers</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">&lt;&lt;</td>
+              <td>left shift</td>
+              <td>integer &lt;&lt; unsigned integer</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">&gt;&gt;</td>
+              <td>right shift</td>
+              <td>integer &gt;&gt; unsigned integer</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          See
+          <a href="https://golang.org/ref/spec#Arithmetic_operators"
+            >Arithmetic operators</a
+          >
+          in the Go language specification for complete definitions of the
+          shift, quotient and remainder operators, integer overflow, and
+          floating point behavior.
+        </p>
+        <h2 id="comparison">Comparison</h2>
+        <p>
+          Comparison operators compare two operands and yield an untyped boolean
+          value.
+        </p>
+        <table>
+          <tbody>
+            <tr>
+              <th>Operator</th>
+              <th>Name</th>
+              <th>Types</th>
+            </tr>
+            <tr>
+              <td class="centered-content">==</td>
+              <td>equal</td>
+              <td>comparable</td>
+            </tr>
+            <tr>
+              <td class="centered-content">!=</td>
+              <td>not equal</td>
+              <td>comparable</td>
+            </tr>
+            <tr>
+              <td class="centered-content">&lt;</td>
+              <td>less</td>
+              <td>integers, floats, strings</td>
+            </tr>
+            <tr>
+              <td class="centered-content">&lt;=</td>
+              <td>less or equal</td>
+              <td>integers, floats, strings</td>
+            </tr>
+            <tr>
+              <td class="centered-content">&gt;</td>
+              <td>greater</td>
+              <td>integers, floats, strings</td>
+            </tr>
+            <tr>
+              <td class="centered-content">&gt;=</td>
+              <td>greater or equal</td>
+              <td>integers, floats, strings</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>
+            Boolean, integer, floats, complex values and strings are comparable.
+          </li>
+          <li>Strings are ordered lexically byte-wise.</li>
+          <li>
+            Two pointers are equal if they point to the same variable or if both
+            are nil.
+          </li>
+          <li>
+            Two channel values are equal if they were created by the same call
+            to make or if both are nil.
+          </li>
+          <li>
+            Two interface values are equal if they have identical dynamic types
+            and equal concrete values or if both are nil.
+          </li>
+          <li>
+            A value x of non-interface type X and a value t of interface type T
+            are equal if t's dynamic type is identical to X and t's concrete
+            value is equal to x.
+          </li>
+          <li>
+            Two struct values are equal if their corresponding non-blank fields
+            are equal.
+          </li>
+          <li>
+            Two array values are equal if their corresponding elements are
+            equal.
+          </li>
+        </ul>
+        <h2 id="logical">Logical</h2>
+        <p>
+          Logical operators apply to boolean values. The right operand is
+          evaluated conditionally.
+        </p>
+        <table>
+          <tbody>
+            <tr>
+              <th>Operator</th>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td class="centered-content">&amp;&amp;</td>
+              <td>conditional AND</td>
+              <td>p &amp;&amp; q denotes "if p then q else false"</td>
+            </tr>
+            <tr>
+              <td class="centered-content">||</td>
+              <td>conditional OR</td>
+              <td>p || q denotes "if p then true else q"</td>
+            </tr>
+            <tr>
+              <td class="centered-content">!</td>
+              <td>NOT</td>
+              <td>!p denotes "not p"</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="others">Others</h2>
+        <table>
+          <tbody>
+            <tr>
+              <th>Operator</th>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td class="centered-content">&amp;</td>
+              <td>address of</td>
+              <td>&amp;x generates a pointer to x</td>
+            </tr>
+            <tr>
+              <td class="centered-content">*</td>
+              <td>pointer indirection</td>
+              <td>*x denotes the variable pointed to by x</td>
+            </tr>
+            <tr>
+              <td class="centered-content">&lt;-</td>
+              <td>receive</td>
+              <td>&lt;-ch is the value received from channel ch</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input name="reply_to" type="hidden" value="go/operators.html" />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

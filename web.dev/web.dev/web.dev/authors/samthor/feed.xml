@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Sam Thorogood on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Sam Thorogood</name>
+  </author>
+  <link href="https://web.dev/authors/samthor/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>¯‍\‍_‍(‍ツ‍)‍_‍/‍¯</subtitle>
+  
+  
+  <entry>
+    <title>Love your cache ❤️</title>
+    <link href="https://web.dev/love-your-cache/"/>
+    <updated>2020-12-11T00:00:00Z</updated>
+    <id>https://web.dev/love-your-cache/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;em&gt;This post is a companion to the &lt;strong&gt;Love your cache&lt;/strong&gt; video, part of the Extended
+Content at Chrome Dev Summit 2020. Be sure to check out the video:&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;youtube&quot;&gt;  &lt;lite-youtube videoid=&quot;tprJYFkv4LU&quot;&gt;  &lt;/lite-youtube&gt;&lt;/div&gt;
+&lt;p&gt;When users load your site a second time, their browser will use resources inside
+its HTTP cache to help make that load faster. But the standards for caching on
+the web date back to 1999, and they&#39;re defined pretty broadly—determining
+whether a file, like CSS or an image, might be fetched again from the network
+versus loaded from your cache is a bit of an inexact science.&lt;/p&gt;
+&lt;p&gt;In this post, I&#39;ll talk through a sensible, modern default for caching—one that
+actually does &lt;em&gt;no caching at all&lt;/em&gt;. But that&#39;s just the default, and it&#39;s of
+course more nuanced than just &amp;quot;turning it off&amp;quot;. Read on!&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Something to remember when building your site is that performance
+metrics &lt;a href=&quot;https://web.dev/vitals&quot;&gt;like Core Web Vitals&lt;/a&gt; include all loads, not
+just the 1st load. Yet, a lot of Google&#39;s guidance focuses on optimizing the
+first load (which is definitely important to bring users in!), and Lighthouse
+only tests your site on an empty cache.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;goals&quot;&gt;Goals &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#goals&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When a site is loaded for the 2nd time, you have two goals:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ensure that your users get the most up-to-date version available—if
+you&#39;ve changed something, it should be reflected quickly&lt;/li&gt;
+&lt;li&gt;Do #1 while fetching as little from the network as possible&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the broadest sense, you only want to send the smallest change to your clients
+when they load your site again. And structuring your site to ensure the most
+efficient distribution of any change is challenging (more on that below, and in
+the video).&lt;/p&gt;
+&lt;p&gt;Having said that, you also have other knobs when you consider caching—perhaps
+you&#39;ve decided to let a user&#39;s browser HTTP cache hold onto your site for a long
+time so that no network requests are required to serve it at all. Or you&#39;ve
+constructed a service worker that will serve a site entirely offline before
+checking if it&#39;s up-to-date. This is an extreme option, which is valid—and used
+for many offline-first app-like web experiences—but the web doesn&#39;t need to be
+at a cache-only extreme, or even a completely network-only extreme.&lt;/p&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As web developers, we&#39;re all accustomed to the idea of having a &amp;quot;stale cache&amp;quot;.
+But we know, almost instinctively, the tools available to solve this: do a &amp;quot;hard
+refresh&amp;quot;, or open an incognito window, or use some combination of your browser&#39;s
+developer tools to clear a site&#39;s data.&lt;/p&gt;
+&lt;p&gt;Regular users out there on the internet don&#39;t have that same luxury. So while we
+have some core goals of ensuring our users have a great time with their 2nd
+load, it&#39;s also really important to make sure they don&#39;t have a &lt;em&gt;bad time&lt;/em&gt; or
+get stuck. (Check out the video if you&#39;d like to hear me talk about how we
+nearly got the &lt;a href=&quot;https://web.dev/live&quot;&gt;web.dev/live&lt;/a&gt; site stuck!)&lt;/p&gt;
+&lt;p&gt;For a bit of background, a really common reason for &amp;quot;stale cache&amp;quot; is actually
+the 1999-era default for caching. It relies on the &lt;code&gt;Last-Modified&lt;/code&gt; header:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Diagram showing how long different assets are cached by a user&amp;#x27;s browser&quot; decoding=&quot;async&quot; height=&quot;342&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Z6ApNGczaZ4ikhLEBkT4.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Assets generated at different times (in gray) will be cached for
+different times, so a 2nd load can get a combination of cached and fresh assets&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Every file you load is kept for an additional 10% of its current lifetime, as
+your browser sees it. For example, if &lt;code&gt;index.html&lt;/code&gt; was created a month ago,
+it&#39;ll be cached by your browser for about another three days.&lt;/p&gt;
+&lt;p&gt;This was a well-intentioned idea back in the day, but given the tightly
+integrated nature of today&#39;s websites this default behavior means it&#39;s possible
+to get into a state where a user has files designed for different releases of
+your website (e.g., the JS from Tuesday&#39;s release, and the CSS from Friday&#39;s
+release), all because those files were not updated at exactly the same time.&lt;/p&gt;
+&lt;h2 id=&quot;the-well-lit-path&quot;&gt;The well-lit path &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#the-well-lit-path&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A modern default for caching is to actually do no caching at all, and use
+&lt;a href=&quot;https://web.dev/content-delivery-networks/&quot;&gt;CDNs&lt;/a&gt; to bring your content close
+to your users. Every time a user loads your site, they&#39;ll go to the network to
+see whether it&#39;s up-to-date. This request will have low latency, as it&#39;ll be
+provided by a CDN geographically close to each end user.&lt;/p&gt;
+&lt;p&gt;You can configure your web host to respond to web requests with this header:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Cache-Control: max-age=0,must-revalidate,public&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This basically says; the file is valid for no time at all, and you must validate
+it from the network before you can use it again (otherwise it&#39;s only
+&amp;quot;suggested&amp;quot;).&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Instead of &lt;code&gt;max-age=0,must-revalidate&lt;/code&gt;, you could also specify &lt;code&gt;no-cache&lt;/code&gt;: this
+is equivalent. However, &lt;code&gt;no-cache&lt;/code&gt; is a confusing name, because it could be
+interpreted as &amp;quot;never cache this file&amp;quot;—even though that&#39;s not the case. For some
+heavy reading, see
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Directives&quot; rel=&quot;noopener&quot;&gt;Cache-Control on MDN&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This validation process is relatively cheap in terms of bytes transferred—if a
+large image file hasn&#39;t changed, your browser will receive a small 304
+response—but it costs &lt;em&gt;latency&lt;/em&gt; as a user must still go to the network to find
+out. And this is the primary downside of this approach. It can work really well
+for folks on fast connections in the 1st world, and where your CDN of choice has
+great coverage, but not for those folks who might be on slower mobile
+connections or using poor infrastructure.&lt;/p&gt;
+&lt;p&gt;Regardless, this is a modern approach that
+&lt;a href=&quot;https://www.netlify.com/blog/2017/02/23/better-living-through-caching/&quot; rel=&quot;noopener&quot;&gt;is the default on a popular CDN, Netlify&lt;/a&gt;,
+but can be configured on nearly any CDN. For Firebase Hosting, you can include
+this header
+&lt;a href=&quot;https://firebase.google.com/docs/hosting/full-config#headers&quot; rel=&quot;noopener&quot;&gt;in the hosting section&lt;/a&gt;
+of your firebase.json file:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token property&quot;&gt;&quot;headers&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token comment&quot;&gt;// Be sure to put this last, to not override other headers&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token property&quot;&gt;&quot;source&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;**&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token property&quot;&gt;&quot;headers&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;key&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Cache-Control&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;      &lt;span class=&quot;token property&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;max-age=0,must-revalidate,public&quot;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;So while I still suggest this as a sensible default, it&#39;s only that—the default!
+Read on to find out how to step in and upgrade the defaults.&lt;/p&gt;
+&lt;h2 id=&quot;fingerprinted-urls&quot;&gt;Fingerprinted URLs &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#fingerprinted-urls&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;By including a hash of the file&#39;s content in the name of assets, images, and so
+on served on your site, you can ensure that these files will always have unique
+content—this will result in files named &lt;code&gt;sitecode.af12de.js&lt;/code&gt; for example. When
+your server responds to requests for these files, you can safely instruct your
+end-user&#39;s browsers to cache them for a long time by configuring them with this
+header:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Cache-Control: max-age=31536000,immutable&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This value is a year, in seconds. And according to the spec, this is effectively
+equal to &amp;quot;forever&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Importantly, don&#39;t generate these hashes by hand—it&#39;s too much manual work! You
+can use tools like Webpack, Rollup and so on to help you out with this. Be sure
+to read more about them on &lt;a href=&quot;https://tooling.report/&quot; rel=&quot;noopener&quot;&gt;Tooling Report&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Remember that it&#39;s not just JavaScript that can benefit from fingerprinted URLs;
+assets like icons, CSS and other immutable data files can also be named this
+way. (And be sure to watch the video above to learn a bit more about code
+splitting, which lets you ship less code whenever your site changes.)&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;We include the keyword &lt;code&gt;immutable&lt;/code&gt; in the &lt;code&gt;Cache-Control&lt;/code&gt;
+recommendation above. Without this keyword, our long &lt;code&gt;Cache-Control&lt;/code&gt; is only
+considered to be a suggestion, and some browsers will &lt;em&gt;still&lt;/em&gt; ignore it and go
+to the server. (In 2017, Chrome
+&lt;a href=&quot;https://blog.chromium.org/2017/01/reload-reloaded-faster-and-leaner-page_26.html&quot; rel=&quot;noopener&quot;&gt;changed its behavior&lt;/a&gt;,
+so it always acts as if the immutable keyword is on anyway—so right now, it&#39;s
+only needed for Safari and Firefox).&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Regardless of how your site approaches caching, these sorts of fingerprinted
+files are incredibly valuable to any site you might build. Most sites just
+aren&#39;t changing on every release.&lt;/p&gt;
+&lt;p&gt;Of course, we can&#39;t rename our &#39;friendly&#39;, user-facing pages this way: renaming
+your &lt;code&gt;index.html&lt;/code&gt; file to &lt;code&gt;index.abcd12.html&lt;/code&gt;—that&#39;s infeasible, you can&#39;t tell
+users to go to a new URL every time they load your site! These &#39;friendly&#39; URLs
+can&#39;t be renamed and cached in this way, which leads me on to a possible middle
+ground.&lt;/p&gt;
+&lt;h2 id=&quot;the-middle-ground&quot;&gt;The middle ground &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#the-middle-ground&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;There&#39;s obviously room for a middle ground when it comes to caching. I&#39;ve
+presented two extreme options; cache &lt;em&gt;never&lt;/em&gt;, or cache &lt;em&gt;forever&lt;/em&gt;. And there will
+be a number of files which you might like to cache for a time, such as the
+&amp;quot;friendly&amp;quot; URLs I mentioned above.&lt;/p&gt;
+&lt;p&gt;If you do want to cache these &amp;quot;friendly&amp;quot; URLs and their HTML, it&#39;s worth
+considering what dependencies they include, how &lt;em&gt;they&lt;/em&gt; may be cached, and how
+caching their URLs for a time might affect you. Let&#39;s look at a HTML page which
+includes an image like this:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;img&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/images/foo.jpeg&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;lazy&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;If you update or change your site by deleting or changing this lazy-loaded
+image, users who view a cached version of your HTML might get an incorrect or
+missing image—because they&#39;ve still cached the original &lt;code&gt;/images/foo.jpeg&lt;/code&gt; when
+they revisit your site.&lt;/p&gt;
+&lt;p&gt;If you&#39;re careful, this might not affect you. But broadly it&#39;s important to
+remember that your site—when cached by your end users—no longer just exists on
+your servers. Rather, it may exist in &lt;em&gt;pieces&lt;/em&gt; inside the caches of your end user&#39;s
+browsers.&lt;/p&gt;
+&lt;p&gt;In general, most guides out there on caching will talk about this kind of
+setting—do you want to cache for an hour, several hours, and so on. To set this
+kind of cache up, use a header like this (which caches for 3600 seconds, or one
+hour):&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Cache-Control: max-age=3600,immutable,public&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;One last point. If you&#39;re creating timely content which typically might only be
+accessed by users once—like news articles!—my opinion is that these should never
+be cached, and you should use our sensible default above. I think we often
+overestimate the value of caching over a user&#39;s desire to always see the latest
+and greatest content, such as a critical update on a news story or current
+event.&lt;/p&gt;
+&lt;h3 id=&quot;non-html-options&quot;&gt;Non-HTML options &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#non-html-options&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Aside from HTML, some other options for files that live in the middle ground
+include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In general, look for assets that don&#39;t affect others&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For example: avoid CSS, as it causes changes in how your HTML is
+rendered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Large images that are used as part of timely articles&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your users probably aren&#39;t going to visit any single article more
+than a handful of times, so don&#39;t cache photos or hero images forever and
+waste storage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;An asset which represents something that itself has lifetime&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JSON data about the weather might only be published every hour, so
+you can cache the previous result for an hour—it won&#39;t change in your window&lt;/li&gt;
+&lt;li&gt;Builds of an open-source project might be rate-limited, so cache a
+build status image until it&#39;s possible that the status might change&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#summary&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When users load your site a second time, you&#39;ve already had a vote of
+confidence—they want to come back and get more of what you&#39;re offering. At this
+point, it&#39;s not always just about bringing that load time down, and you have a
+bunch of options available to you to ensure that your browser does only the work
+it needs to deliver both a fast and an up-to-date experience.&lt;/p&gt;
+&lt;p&gt;Caching is not a new concept on the web, but perhaps it needs a sensible
+default—consider using one and strongly opting-in to better caching strategies
+when you need them. Thanks for reading!&lt;/p&gt;
+&lt;h2 id=&quot;see-also&quot;&gt;See also &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/love-your-cache/#see-also&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;For a general guide on the HTTP cache, check out
+&lt;a href=&quot;https://web.dev/http-cache&quot;&gt;Prevent unnecessary network requests with the HTTP Cache&lt;/a&gt;.&lt;/p&gt;
+</content>
+    <author>
+      <name>Sam Thorogood</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>web.dev engineering blog #1: How we build the site and use Web Components</title>
+    <link href="https://web.dev/how-we-build-webdev-and-use-web-components/"/>
+    <updated>2020-04-09T00:00:00Z</updated>
+    <id>https://web.dev/how-we-build-webdev-and-use-web-components/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;This is the first post in web.dev&#39;s engineering blog.
+Over the coming months, we hope to share actionable insights from our work—so watch for posts with the &lt;a href=&quot;https://web.dev/tags/engineering-blog/&quot;&gt;Engineering Blog tag&lt;/a&gt;!
+Here we&#39;ll be covering the build process for our static site and the (optional!) JavaScript behind our web components.&lt;/p&gt;
+&lt;p&gt;web.dev provides content about building modern web experiences and allows you to &lt;a href=&quot;https://web.dev/measure/&quot;&gt;measure&lt;/a&gt; your site&#39;s performance.
+Savvy users may have realized that &lt;a href=&quot;https://web.dev/measure/&quot;&gt;our Measure page&lt;/a&gt; is just an interface for &lt;a href=&quot;https://developers.google.com/web/tools/lighthouse&quot; rel=&quot;noopener&quot;&gt;Lighthouse&lt;/a&gt;, which is also available in Chrome&#39;s DevTools.
+Signing in to web.dev lets you run regular Lighthouse audits on your site so you can see how its score changes over time.
+I&#39;ll be revisiting the Measure page a bit later, as we think it&#39;s fairly special. 🎊&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#introduction&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Fundamentally, web.dev is a static site that is generated from a collection of Markdown files.
+We&#39;ve chosen to use &lt;a href=&quot;https://www.11ty.dev/&quot; rel=&quot;noopener&quot;&gt;Eleventy&lt;/a&gt; because it&#39;s a polished, extensible tool which makes it easy to turn Markdown into HTML.&lt;/p&gt;
+&lt;p&gt;We also use modern JavaScript bundles that we only serve to browsers supporting &lt;a href=&quot;https://medium.com/dev-channel/es6-modules-in-chrome-canary-m60-ba588dfb8ab7&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;type=&amp;quot;module&amp;quot;&lt;/code&gt;&lt;/a&gt;, which includes &lt;code&gt;async&lt;/code&gt; and &lt;code&gt;await&lt;/code&gt;.
+We also happily use features that are supported by evergreen browsers but not by a minority of older versions.
+Because we&#39;re a static site, JavaScript is &lt;em&gt;just not required&lt;/em&gt; to read our content.&lt;/p&gt;
+&lt;p&gt;Once the build process—which involves generating static HTML and bundling our JavaScript with Rollup—is complete, web.dev can be hosted with a simple static server for testing.
+The site is &lt;em&gt;almost&lt;/em&gt; completely static, but we have a few special needs that still benefit from &lt;a href=&quot;https://github.com/GoogleChrome/web.dev/blob/2050fe6352e024943195a438841dc99217f34e63/server.js&quot; rel=&quot;noopener&quot;&gt;a custom Node.js server&lt;/a&gt;.
+These include redirects for invalid domains, as well as code &lt;a href=&quot;https://github.com/GoogleChrome/web.dev/blob/2050fe6352e024943195a438841dc99217f34e63/locale-handler.js&quot; rel=&quot;noopener&quot;&gt;to parse a user&#39;s preferred language&lt;/a&gt; for an upcoming internationalization feature.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Despite being a Google product, web.dev doesn&#39;t use any internal Google tools or processes.
+You can check out &lt;a href=&quot;https://github.com/GoogleChrome/web.dev&quot; rel=&quot;noopener&quot;&gt;our repo&lt;/a&gt;.
+We do this because the team that builds and maintains web.dev is responsible for advocating
+within Google on behalf of the broader web developer ecosystem so it makes more sense for us
+to have the same tools as external web developers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;static-generation&quot;&gt;Static generation &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#static-generation&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Each page on web.dev is written in Markdown.
+All pages include &lt;a href=&quot;https://www.11ty.dev/docs/data-frontmatter/&quot; rel=&quot;noopener&quot;&gt;front matter&lt;/a&gt;, which describes metadata about each post.
+This metadata is ingested into the layout of each page, creating headings, tags, and so on.
+Here&#39;s an example:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-md&quot;&gt;&lt;code class=&quot;language-md&quot;&gt;&lt;span class=&quot;token front-matter-block&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token font-matter yaml language-yaml&quot;&gt;layout: post&lt;br /&gt;title: What is network reliability and how do you measure it?&lt;br /&gt;authors:&lt;br /&gt;  - jeffposnick&lt;br /&gt;date: 2018-11-05&lt;br /&gt;description: |&lt;br /&gt;  The modern web is enjoyed by a wide swath of people…&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;The modern web is enjoyed by a wide swath of &lt;span class=&quot;token url&quot;&gt;[&lt;span class=&quot;token content&quot;&gt;people&lt;/span&gt;](&lt;span class=&quot;token url&quot;&gt;https://www.youtube.com/watch?v=dQw4w9WgXcQ&lt;/span&gt;)&lt;/span&gt;, using a range of different devices and types of network connections.&lt;br /&gt;&lt;br /&gt;Your creations can reach users all across the world...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;This front matter lets us define arbitrary properties like author(s), publish date, and tags.
+Eleventy conveniently exposes the front matter as &lt;a href=&quot;https://www.11ty.dev/docs/data/&quot; rel=&quot;noopener&quot;&gt;data&lt;/a&gt; in nearly every plugin, template, or other context where we&#39;d like to do something intelligent.
+The data object also contains what Eleventy describes as the &lt;a href=&quot;https://www.11ty.dev/docs/data-cascade/&quot; rel=&quot;noopener&quot;&gt;data cascade&lt;/a&gt;—a variety of data pulled from each individual page, from the layout the page uses, and from data found in the hierarchical folder structure.&lt;/p&gt;
+&lt;p&gt;Each unique layout describes a different type of content and can &lt;a href=&quot;https://www.11ty.dev/docs/layout-chaining/&quot; rel=&quot;noopener&quot;&gt;inherit&lt;/a&gt; from &lt;em&gt;other&lt;/em&gt; layouts.
+On web.dev, we use this feature to correctly frame different types of content (like posts and codelabs) while still sharing one top-level HTML layout.&lt;/p&gt;
+&lt;h3 id=&quot;collections&quot;&gt;Collections &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#collections&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Eleventy provides a programmatic way to build arbitrary collections of content.
+This has let us build pagination support and generate virtual pages (pages that don&#39;t have a matching Markdown file on disk) for post authors.
+For example, we construct our authors pages using a template containing &lt;a href=&quot;https://github.com/GoogleChrome/web.dev/blob/2050fe6352e024943195a438841dc99217f34e63/src/site/content/en/authors/index.njk#L4&quot; rel=&quot;noopener&quot;&gt;an expression for its permalink&lt;/a&gt; (so the template is re-rendered for every author) and a backing &lt;a href=&quot;https://github.com/GoogleChrome/web.dev/blob/2050fe6352e024943195a438841dc99217f34e63/src/site/_collections/paginated-posts-by-author.js#L23&quot; rel=&quot;noopener&quot;&gt;collection&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This results in, for example, a simple page containing &lt;a href=&quot;https://web.dev/authors/addyosmani/&quot;&gt;all of Addy&#39;s posts&lt;/a&gt;!&lt;/p&gt;
+&lt;h3 id=&quot;limitations&quot;&gt;Limitations &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#limitations&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Right now we can&#39;t easily hook into Eleventy&#39;s build process because it&#39;s &lt;em&gt;declarative&lt;/em&gt;, rather than &lt;em&gt;imperative&lt;/em&gt;: you describe what you want, rather than how you want it.
+It&#39;s difficult to run Eleventy as part of a larger build tool, as it can only be invoked via its command-line interface.&lt;/p&gt;
+&lt;h2 id=&quot;templating&quot;&gt;Templating &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#templating&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;web.dev uses the &lt;a href=&quot;https://mozilla.github.io/nunjucks/&quot; rel=&quot;noopener&quot;&gt;Nunjucks&lt;/a&gt; templating system originally developed by Mozilla.
+Nunjucks has the typical templating features like loops and conditionals but also lets us define &lt;a href=&quot;https://www.11ty.dev/docs/shortcodes/&quot; rel=&quot;noopener&quot;&gt;shortcodes&lt;/a&gt; that generate further HTML or invoke other logic.&lt;/p&gt;
+&lt;p&gt;Like most teams building static content sites, we started small and added shortcodes over time—about 20 so far.
+Most of these just generate further HTML (including our custom web components).
+Here&#39;s an example:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;#123;% Aside %&amp;#125;&lt;br /&gt;[See how Asides work in the web.dev codebase](/handbook/web-dev-components/#asides)&lt;br /&gt;&amp;#123;% endAside %&amp;#125;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;It will end up looking like this:&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://web.dev/handbook/web-dev-components/#asides&quot;&gt;See how Asides work in the web.dev codebase&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;But it&#39;s actually creating HTML that looks like this:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;w-aside w-aside--note&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/handbook/web-dev-components/#asides&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;See how Asides work in the web.dev codebase&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;While out of the scope of this post, web.dev also uses shortcodes as a type of metaprogramming language.
+Shortcodes accept arguments, with one of their arguments being the contained content.
+It&#39;s not required that shortcodes return anything, so they can be used to build up state or trigger some other behavior. 🤔💭&lt;/p&gt;
+&lt;h2 id=&quot;scripting&quot;&gt;Scripting &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#scripting&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As mentioned before, because web.dev is a static site, it can be served and used without JavaScript and by older browsers that don&#39;t support &lt;code&gt;type=&amp;quot;module&amp;quot;&lt;/code&gt; or our other modern code.
+This is an incredibly important part of our approach for making web.dev accessible to everyone.&lt;/p&gt;
+&lt;p&gt;However, our code for modern browsers consists of two major parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bootstrap code, which includes code for global state, Analytics, and SPA routing&lt;/li&gt;
+&lt;li&gt;Code and CSS for Web Components which progressively enhance the site&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The bootstrap code is fairly straightforward: web.dev can load new pages as a single-page application (SPA), so we install a global listener that listens for clicks on local &lt;code&gt;&amp;lt;a href=&amp;quot;...&amp;quot;&amp;gt;&lt;/code&gt; elements.
+The SPA model helps us maintain global state about the user&#39;s current session, as otherwise every new page load would trigger calls to Firebase to access a user&#39;s signed-in state.&lt;/p&gt;
+&lt;p&gt;We also specify a couple of different &lt;a href=&quot;https://github.com/GoogleChrome/web.dev/blob/2050fe6352e024943195a438841dc99217f34e63/src/lib/loader.js#L18&quot; rel=&quot;noopener&quot;&gt;entrypoints&lt;/a&gt; into our site based on which URL you&#39;ve hit, and load the correct one using dynamic &lt;code&gt;import()&lt;/code&gt;.
+This cuts down on the number of bytes our users need before the site is enhanced with code.&lt;/p&gt;
+&lt;h3 id=&quot;web-components&quot;&gt;Web Components &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#web-components&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Web_Components&quot; rel=&quot;noopener&quot;&gt;Web Components&lt;/a&gt;
+are custom elements which encapsulate runtime functionality provided in JavaScript, and are identified by custom names like &lt;code&gt;&amp;lt;web-codelab&amp;gt;&lt;/code&gt;.
+The design lends itself well to largely static sites like web.dev: your browser manages an element&#39;s lifecycle as a site&#39;s HTML is updated, correctly informing any elements when they are attached or detached from the page.
+And antiquated browsers just ignore Web Components altogether and render whatever is left in the DOM.&lt;/p&gt;
+&lt;p&gt;Each Web Component is a class with methods including &lt;code&gt;connectedCallback()&lt;/code&gt;, &lt;code&gt;disconnectedCallback()&lt;/code&gt;, and &lt;code&gt;attributeChangedCallback()&lt;/code&gt;.
+web.dev&#39;s custom elements mostly inherit from &lt;a href=&quot;https://lit-element.polymer-project.org/&quot; rel=&quot;noopener&quot;&gt;LitElement&lt;/a&gt;, which provides a simple base for complex components.&lt;/p&gt;
+&lt;p&gt;While web.dev uses Web Components on many pages, nowhere is it more necessary than on the &lt;a href=&quot;https://web.dev/measure&quot;&gt;Measure&lt;/a&gt; page.
+Two elements provide the bulk of the functionality you see on this page:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;web-url-chooser-container&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;web-url-chooser-container&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;web-lighthouse-scores-container&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;web-lighthouse-scores-container&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;These elements create further elements which provide more functionality.
+Importantly, these elements are just part of &lt;a href=&quot;https://github.com/GoogleChrome/web.dev/blob/2050fe6352e024943195a438841dc99217f34e63/src/site/content/en/measure/index.njk#L33&quot; rel=&quot;noopener&quot;&gt;our regular Markdown source code&lt;/a&gt;—and our content team can add extended functionality to &lt;em&gt;any&lt;/em&gt; page, not just the Measure node.&lt;/p&gt;
+&lt;p&gt;Our Web Components most commonly utilize the &lt;a href=&quot;https://flaviocopes.com/react-presentational-vs-container-components/&quot; rel=&quot;noopener&quot;&gt;Container Component&lt;/a&gt; model, made popular by React, although this model &lt;a href=&quot;https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0&quot; rel=&quot;noopener&quot;&gt;is now a bit passé&lt;/a&gt;.
+Each &lt;code&gt;-container&lt;/code&gt; element connects to our global state (provided by &lt;a href=&quot;https://github.com/developit/unistore&quot; rel=&quot;noopener&quot;&gt;unistore&lt;/a&gt;), and then renders a visual element, which in turn goes on to render actual DOM nodes that have styling or other built-in functionality.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A diagram that shows the relationship between global state and HTML elements that use it.&quot; decoding=&quot;async&quot; height=&quot;220&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 640px) 640px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/0vvvEFtKSNNvD79QS2i2.png?auto=format&amp;w=1280 1280w&quot; width=&quot;640&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Global state and a Web Component&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Our most complex Web Components exist to visualize global actions and state.
+For example, web.dev lets you audit your favourite site and then navigate away from the Measure page.
+If you return, you&#39;ll see that the task is still ongoing.&lt;/p&gt;
+&lt;p&gt;Our simple components purely enhance otherwise static content or create amazing visualizations (for example, each line graph is its own &lt;a href=&quot;https://github.com/GoogleChrome/web.dev/blob/2050fe6352e024943195a438841dc99217f34e63/src/lib/components/SparklineChart/index.js&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;&amp;lt;web-sparkline-chart&amp;gt;&lt;/code&gt;&lt;/a&gt;), which has no relationship to the global state.&lt;/p&gt;
+&lt;h2 id=&quot;let&#39;s-chat&quot;&gt;Let&#39;s chat &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/how-we-build-webdev-and-use-web-components/#let&#39;s-chat&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The web.dev engineering team (&lt;a href=&quot;https://twitter.com/rob_dodson&quot; rel=&quot;noopener&quot;&gt;Rob&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/devnook&quot; rel=&quot;noopener&quot;&gt;Ewa&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/michaelsolati&quot; rel=&quot;noopener&quot;&gt;Michael&lt;/a&gt;, and &lt;a href=&quot;https://twitter.com/samthor&quot; rel=&quot;noopener&quot;&gt;Sam&lt;/a&gt;) will be following up with more technical deep dives soon.&lt;/p&gt;
+&lt;p&gt;We hope hearing about how we do things gave you some ideas for your own projects.
+Hit us up on Twitter if you&#39;ve got questions or topic requests for this blog!&lt;/p&gt;
+&lt;!-- Test content change --&gt;
+</content>
+    <author>
+      <name>Sam Thorogood</name>
+    </author>
+  </entry>
+</feed>

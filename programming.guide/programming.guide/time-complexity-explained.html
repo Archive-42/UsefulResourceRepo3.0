@@ -1,279 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Time complexity explained | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="Time complexity estimates the time to run an algorithm. It's calculated by counting elementary operations." name="description">
-  <meta content="time complexity, elementary operations, worst-case, constant, linear, quadratic" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Time complexity explained | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="Time complexity estimates the time to run an algorithm. It's calculated by counting elementary operations."
+      name="description"
+    />
+    <meta
+      content="time complexity, elementary operations, worst-case, constant, linear, quadratic"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Related</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="amortized-time-complexity-analysis.html">Amortized time complexity</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="big-o-notation-explained.html">Big O notation explained</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="java/do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="java/executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="java/functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="java/handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="java/why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="java/index.html"><strong>See all Java articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Time complexity explained</h1>
-      <p>Time complexity estimates the time to run an algorithm. It's calculated by counting <strong>elementary operations</strong>.</p>
-      <ul class="toc">
-        <li>
-          <a href="time-complexity-explained.html#example">Example</a>
-        </li>
-        <li>
-          <a href="time-complexity-explained.html#worst-case-time">Worst-case time</a>
-        </li>
-        <li>
-          <a href="time-complexity-explained.html#average-case-time">Average-case time</a>
-        </li>
-        <li>
-          <a href="time-complexity-explained.html#linear-vs-quadratic-time">Linear vs. quadratic time</a>
-        </li>
-      </ul>
-      <h2 id="example">Example</h2>
-      <p>What's the running time of the following algorithm?</p>
-      <pre><b>Algorithm</b> max(arr):
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a href="amortized-time-complexity-analysis.html"
+            >Amortized time complexity</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="big-o-notation-explained.html">Big O notation explained</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="java/do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="java/executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="java/functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="java/handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="java/why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="java/index.html"><strong>See all Java articles</strong></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Time complexity explained</h1>
+        <p>
+          Time complexity estimates the time to run an algorithm. It's
+          calculated by counting <strong>elementary operations</strong>.
+        </p>
+        <ul class="toc">
+          <li>
+            <a href="time-complexity-explained.html#example">Example</a>
+          </li>
+          <li>
+            <a href="time-complexity-explained.html#worst-case-time"
+              >Worst-case time</a
+            >
+          </li>
+          <li>
+            <a href="time-complexity-explained.html#average-case-time"
+              >Average-case time</a
+            >
+          </li>
+          <li>
+            <a href="time-complexity-explained.html#linear-vs-quadratic-time"
+              >Linear vs. quadratic time</a
+            >
+          </li>
+        </ul>
+        <h2 id="example">Example</h2>
+        <p>What's the running time of the following algorithm?</p>
+        <pre><b>Algorithm</b> max(arr):
    max ← arr[0]
    <b>for</b> i = 1 <b>to</b> len(arr)-1
        <b>if</b> arr[i] &gt; max
             max ← arr[i]
    <b>return</b> max
 </pre>
-      <p>The answer depends on factors such as input, programming language and runtime, coding skill, compiler, operating system, and hardware.</p>
-      <p>We often want to reason about <strong>execution time</strong> in a way that depends only on the <strong>algorithm</strong> and its <strong>input</strong>. This can be achieved by choosing an <strong>elementary operation</strong>, which the algorithm performs repeatedly, and define the <strong>time complexity</strong> T(<i>n</i>) as the number of such operations the algorithm performs given an array of length&nbsp;<em>n</em>.</p>
-      <p>For the algorithm above we can choose the comparison <code>arr[i] &gt; max</code> as an elementary operation.</p>
-      <ol>
-        <li>This captures the running time of the algorithm well, since comparisons dominate all other operations in this particular algorithm.</li>
-        <li>Also, the time to perform a comparison is constant: it doesn't depend on the size of&nbsp;<code>arr</code>.</li>
-      </ol>
-      <p>The time complexity, measured in the number of comparisons, then becomes T(<i>n</i>)&nbsp;=&nbsp;<i>n</i>&nbsp;-&nbsp;1.</p>
-      <p>In general, an <strong>elementary operation</strong> must have two properties:</p>
-      <ol>
-        <li>There can't be any other operations that are performed more frequently as the size of the input grows.</li>
-        <li>The time to execute an elementary operation must be constant: it mustn't increase as the size of the input grows.</li>
-      </ol>
-      <h2 id="worst-case-time">Worst-case time</h2>
-      <p>Consider this algorithm:</p>
-      <pre><b>Algorithm</b> contains(arr, x):
+        <p>
+          The answer depends on factors such as input, programming language and
+          runtime, coding skill, compiler, operating system, and hardware.
+        </p>
+        <p>
+          We often want to reason about <strong>execution time</strong> in a way
+          that depends only on the <strong>algorithm</strong> and its
+          <strong>input</strong>. This can be achieved by choosing an
+          <strong>elementary operation</strong>, which the algorithm performs
+          repeatedly, and define the
+          <strong>time complexity</strong> T(<i>n</i>) as the number of such
+          operations the algorithm performs given an array of
+          length&nbsp;<em>n</em>.
+        </p>
+        <p>
+          For the algorithm above we can choose the comparison
+          <code>arr[i] &gt; max</code> as an elementary operation.
+        </p>
+        <ol>
+          <li>
+            This captures the running time of the algorithm well, since
+            comparisons dominate all other operations in this particular
+            algorithm.
+          </li>
+          <li>
+            Also, the time to perform a comparison is constant: it doesn't
+            depend on the size of&nbsp;<code>arr</code>.
+          </li>
+        </ol>
+        <p>
+          The time complexity, measured in the number of comparisons, then
+          becomes T(<i>n</i>)&nbsp;=&nbsp;<i>n</i>&nbsp;-&nbsp;1.
+        </p>
+        <p>
+          In general, an <strong>elementary operation</strong> must have two
+          properties:
+        </p>
+        <ol>
+          <li>
+            There can't be any other operations that are performed more
+            frequently as the size of the input grows.
+          </li>
+          <li>
+            The time to execute an elementary operation must be constant: it
+            mustn't increase as the size of the input grows.
+          </li>
+        </ol>
+        <h2 id="worst-case-time">Worst-case time</h2>
+        <p>Consider this algorithm:</p>
+        <pre><b>Algorithm</b> contains(arr, x):
    <b>for</b> i = 0 <b>to</b> len(arr)-1
        <b>if</b> x == arr[i]
             <b>return</b> true
    <b>return</b> false
 </pre>
-      <p>The comparison <code>x == arr[i]</code> can be used as an elementary operation in this case. However, for this algorithm the number of comparisons depends not only on the number of elements, <em>n</em>, in the array but also on the value of <code>x</code> and the values in&nbsp;<code>arr</code>:</p>
-      <ul>
-        <li>If <code>x</code> isn't found in <code>arr</code> the algorithm makes <em>n</em> comparisons,</li>
-        <li>but if <code>x</code> equals <code>arr[0]</code> there is only one comparison.</li>
-      </ul>
-      <p>Because of this, we often choose to study <strong>worst-case</strong> time complexity:</p>
-      <ul>
-        <li>Let T<sub>1</sub>(<i>n</i>), T<sub>2</sub>(<i>n</i>),&nbsp;… be the execution times for all possible inputs of size&nbsp;<i>n</i>.</li>
-        <li>The worst-cast time complexity W(<i>n</i>) is then defined as W(<i>n</i>)&nbsp;=&nbsp;max(T<sub>1</sub>(<i>n</i>), T<sub>2</sub>(<i>n</i>),&nbsp;…).</li>
-      </ul>
-      <p>The worst-cast time complexity for the <code>contains</code> algorithm thus becomes W(<i>n</i>)&nbsp;=&nbsp;<i>n</i>.</p>
-      <p>Worst-case time complexity gives an upper bound on time requirements and is often easy to compute. The drawback is that it's often overly pessimistic.</p>
-      <h2 id="average-case-time">Average-case time</h2>
-      <p><strong>Average-case</strong> time complexity is a less common measure:</p>
-      <ul>
-        <li>Let T<sub>1</sub>(<i>n</i>), T<sub>2</sub>(<i>n</i>),&nbsp;… be the execution times for all possible inputs of size&nbsp;<i>n</i>, and let P<sub>1</sub>(<i>n</i>), P<sub>2</sub>(<i>n</i>),&nbsp;… be the probabilities of these inputs.</li>
-        <li>The average-case time complexity is then defined as P<sub>1</sub>(<i>n</i>)T<sub>1</sub>(<i>n</i>) + P<sub>2</sub>(<i>n</i>)T<sub>2</sub>(<i>n</i>)&nbsp;+&nbsp;…</li>
-      </ul>
-      <p>Average-case time is often harder to compute, and it also requires knowledge of how the input is distributed.</p>
-      <h2 id="linear-vs-quadratic-time">Linear vs. quadratic time</h2>
-      <p>Finally, we'll look at an algorithm with poor time complexity.</p>
-      <pre><b>Algorithm</b> reverse(arr):
+        <p>
+          The comparison <code>x == arr[i]</code> can be used as an elementary
+          operation in this case. However, for this algorithm the number of
+          comparisons depends not only on the number of elements, <em>n</em>, in
+          the array but also on the value of <code>x</code> and the values
+          in&nbsp;<code>arr</code>:
+        </p>
+        <ul>
+          <li>
+            If <code>x</code> isn't found in <code>arr</code> the algorithm
+            makes <em>n</em> comparisons,
+          </li>
+          <li>
+            but if <code>x</code> equals <code>arr[0]</code> there is only one
+            comparison.
+          </li>
+        </ul>
+        <p>
+          Because of this, we often choose to study
+          <strong>worst-case</strong> time complexity:
+        </p>
+        <ul>
+          <li>
+            Let T<sub>1</sub>(<i>n</i>), T<sub>2</sub>(<i>n</i>),&nbsp;… be the
+            execution times for all possible inputs of size&nbsp;<i>n</i>.
+          </li>
+          <li>
+            The worst-cast time complexity W(<i>n</i>) is then defined as
+            W(<i>n</i>)&nbsp;=&nbsp;max(T<sub>1</sub>(<i>n</i>),
+            T<sub>2</sub>(<i>n</i>),&nbsp;…).
+          </li>
+        </ul>
+        <p>
+          The worst-cast time complexity for the <code>contains</code> algorithm
+          thus becomes W(<i>n</i>)&nbsp;=&nbsp;<i>n</i>.
+        </p>
+        <p>
+          Worst-case time complexity gives an upper bound on time requirements
+          and is often easy to compute. The drawback is that it's often overly
+          pessimistic.
+        </p>
+        <h2 id="average-case-time">Average-case time</h2>
+        <p>
+          <strong>Average-case</strong> time complexity is a less common
+          measure:
+        </p>
+        <ul>
+          <li>
+            Let T<sub>1</sub>(<i>n</i>), T<sub>2</sub>(<i>n</i>),&nbsp;… be the
+            execution times for all possible inputs of size&nbsp;<i>n</i>, and
+            let P<sub>1</sub>(<i>n</i>), P<sub>2</sub>(<i>n</i>),&nbsp;… be the
+            probabilities of these inputs.
+          </li>
+          <li>
+            The average-case time complexity is then defined as
+            P<sub>1</sub>(<i>n</i>)T<sub>1</sub>(<i>n</i>) +
+            P<sub>2</sub>(<i>n</i>)T<sub>2</sub>(<i>n</i>)&nbsp;+&nbsp;…
+          </li>
+        </ul>
+        <p>
+          Average-case time is often harder to compute, and it also requires
+          knowledge of how the input is distributed.
+        </p>
+        <h2 id="linear-vs-quadratic-time">Linear vs. quadratic time</h2>
+        <p>Finally, we'll look at an algorithm with poor time complexity.</p>
+        <pre><b>Algorithm</b> reverse(arr):
    <b>for</b> i = 1 <b>to</b> len(arr)-1
        x ← arr[i]
        <b>for</b> j = i <b>downto</b> 1
            arr[j] ← arr[j-1]
        arr[0] ← x
 </pre>
-      <p>We choose the assignment <code>arr[j] ← arr[j-1]</code> as elementary operation. Updating an element in an array is a constant-time operation, and the assignment dominates the cost of the algorithm.</p>
-      <p>The number of elementary operations only depends on&nbsp;<em>n</em> in this case, and the time complexity becomes</p>
-      <div style="display: table; margin: 0 auto;">
-        <div style="display: table-row">
-          <div style="display: table-cell">
-            W(<i>n</i>)
+        <p>
+          We choose the assignment <code>arr[j] ← arr[j-1]</code> as elementary
+          operation. Updating an element in an array is a constant-time
+          operation, and the assignment dominates the cost of the algorithm.
+        </p>
+        <p>
+          The number of elementary operations only depends on&nbsp;<em>n</em> in
+          this case, and the time complexity becomes
+        </p>
+        <div style="display: table; margin: 0 auto">
+          <div style="display: table-row">
+            <div style="display: table-cell">W(<i>n</i>)</div>
+            <div style="display: table-cell">
+              &nbsp;=&nbsp;1&nbsp;+&nbsp;2&nbsp;+&nbsp;...&nbsp;+&nbsp;<i>n</i>&nbsp;-&nbsp;1&nbsp;
+            </div>
           </div>
-          <div style="display: table-cell">
-            &nbsp;=&nbsp;1&nbsp;+&nbsp;2&nbsp;+&nbsp;...&nbsp;+&nbsp;<i>n</i>&nbsp;-&nbsp;1&nbsp;
+          <div style="display: table-row">
+            <div style="display: table-cell"></div>
+            <div style="display: table-cell">
+              &nbsp;=&nbsp;<i>n</i>(<i>n</i>&nbsp;-&nbsp;1)/2&nbsp;
+            </div>
+          </div>
+          <div style="display: table-row">
+            <div style="display: table-cell"></div>
+            <div style="display: table-cell">
+              &nbsp;=&nbsp;<i>n<sup>2</sup></i
+              >/2&nbsp;-&nbsp;<i>n</i>/2
+            </div>
           </div>
         </div>
-        <div style="display: table-row">
-          <div style="display: table-cell"></div>
-          <div style="display: table-cell">
-            &nbsp;=&nbsp;<i>n</i>(<i>n</i>&nbsp;-&nbsp;1)/2&nbsp;
-          </div>
-        </div>
-        <div style="display: table-row">
-          <div style="display: table-cell"></div>
-          <div style="display: table-cell">
-            &nbsp;=&nbsp;<i>n<sup>2</sup></i>/2&nbsp;-&nbsp;<i>n</i>/2
-          </div>
-        </div>
-      </div>
-      <p>The quadratic term dominates for large <em>n</em>, and we therefore say that this algorithm has <strong>quadratic</strong> time complexity. This means that the algorithm <strong>scales poorly</strong> and can be used <strong>only for small input</strong>: to reverse the elements of an array with 10,000 elements, the algorithm will perform about 50,000,000 assignments.</p>
-      <p>In this case it's easy to find an algorithm with <strong>linear</strong> time complexity.</p>
-      <pre><b>Algorithm</b> reverse(arr):
+        <p>
+          The quadratic term dominates for large <em>n</em>, and we therefore
+          say that this algorithm has <strong>quadratic</strong> time
+          complexity. This means that the algorithm
+          <strong>scales poorly</strong> and can be used
+          <strong>only for small input</strong>: to reverse the elements of an
+          array with 10,000 elements, the algorithm will perform about
+          50,000,000 assignments.
+        </p>
+        <p>
+          In this case it's easy to find an algorithm with
+          <strong>linear</strong> time complexity.
+        </p>
+        <pre><b>Algorithm</b> reverse(arr):
    <b>for</b> i = 0 <b>to</b> n/2
        swap arr[i] and arr[n-i-1]
 </pre>
-      <p>This is a <strong>huge improvement</strong> over the previous algorithm: an array with 10,000&nbsp;elements can now be reversed with only 5,000&nbsp;swaps, i.e. 10,000&nbsp;assignments. That's roughly a 5,000-fold speed improvement, and the improvement keeps growing as the the input gets larger.</p>
-      <p>It's common to use <a href="big-o-notation-explained.html"><strong>Big O notation</strong></a> when talking about time complexity. We could then say that the time complexity of the first algorithm is Θ(<i>n</i><sup>2</sup>), and that the improved algorithm has Θ(<i>n</i>) time complexity.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>
+          This is a <strong>huge improvement</strong> over the previous
+          algorithm: an array with 10,000&nbsp;elements can now be reversed with
+          only 5,000&nbsp;swaps, i.e. 10,000&nbsp;assignments. That's roughly a
+          5,000-fold speed improvement, and the improvement keeps growing as the
+          the input gets larger.
+        </p>
+        <p>
+          It's common to use
+          <a href="big-o-notation-explained.html"
+            ><strong>Big O notation</strong></a
+          >
+          when talking about time complexity. We could then say that the time
+          complexity of the first algorithm is Θ(<i>n</i><sup>2</sup>), and that
+          the improved algorithm has Θ(<i>n</i>) time complexity.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="time-complexity-explained.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="time-complexity-explained.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

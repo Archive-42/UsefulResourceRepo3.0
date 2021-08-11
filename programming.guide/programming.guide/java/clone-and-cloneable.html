@@ -1,191 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: Clone and Cloneable | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Object.clone offers a shortcut for creating exact, field-by-field, copies of objects. A lot of the boiler plate typically required in copy constructors or static factory methods goes away." name="description">
-  <meta content="java, clone, copy, cloneable, copy object, copy array, clone object, clone array, deep copy, shallow copy, deep clone, shallow clone" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: Clone and Cloneable | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Object.clone offers a shortcut for creating exact, field-by-field, copies of objects. A lot of the boiler plate typically required in copy constructors or static factory methods goes away."
+      name="description"
+    />
+    <meta
+      content="java, clone, copy, cloneable, copy object, copy array, clone object, clone array, deep copy, shallow copy, deep clone, shallow clone"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-  <style>
-    path:not(#arr) {
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+    <style>
+      path:not(#arr) {
         fill: none;
-    }
+      }
 
-    .orig {
+      .orig {
         stroke: black;
-    }
+      }
 
-    use.copy {
+      use.copy {
         stroke: lightgray;
         fill: #ccc;
-    }
-    
-    use[href="#arr"].copy, use[href="#ref"].copy {
+      }
+
+      use[href="#arr"].copy,
+      use[href="#ref"].copy {
         stroke: #ccc;
         fill: #ccc;
-    }
+      }
 
-    circle.copy, text.copy {
+      circle.copy,
+      text.copy {
         fill: #ccc;
-    }
+      }
 
-    path.copy, line.copy {
+      path.copy,
+      line.copy {
         stroke: #ccc;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      }
+    </style>
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Related</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="copying-objects-deep-and-shallow.html">Copying Objects</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#clone()">Javadoc for Object.clone</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">docs.oracle.com</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Cloneable.html">Javadoc for the Cloneable interface</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">docs.oracle.com</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://www.artima.com/intv/bloch13.html">Josh Bloch on Design: Copy Constructor versus Cloning</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Bill Venners</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://books.google.se/books?id=BIpDDwAAQBAJ">Effective Java, Item 13: Override clone judiciously</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Joshua Bloch</span>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: Clone and Cloneable</h1>
-      <p><code>Object.clone</code> offers a shortcut for creating exact, field-by-field, copies of objects. A lot of the boiler plate typically required in copy constructors or static factory methods goes away.</p>
-      <p>Unfortunately the cloning API is poorly designed and should almost always be avoided. See sections <a href="clone-and-cloneable.html#critique"><em>Critique</em></a> and <a href="clone-and-cloneable.html#alternatives-to-cloning"><em>Alternatives to Cloning</em></a> for more information.</p>
-      <p>Both arrays and objects can be cloned. Apart from the section specifically on arrays, this article focuses on cloning objects.</p>
-      <h2>Example</h2>
-      <p>Here's how to make a <code>Car</code> class cloneable:</p>
-      <pre><code><span class="keyword">class</span> Car <span class="highlight tooltip"><span class="keyword">implements</span> Cloneable<span class="tooltiptext" style="width: 28em; white-space: normal">This tells <code>Object.clone</code> that it's safe to clone of <code>Car</code> objects. If we omit this, <code>Object.clone</code> will throw a <code>CloneNotSupportedException</code>.</span></span> {
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a href="copying-objects-deep-and-shallow.html">Copying Objects</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a
+            href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#clone()"
+            >Javadoc for Object.clone</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >docs.oracle.com</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a
+            href="https://docs.oracle.com/javase/10/docs/api/java/lang/Cloneable.html"
+            >Javadoc for the Cloneable interface</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >docs.oracle.com</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://www.artima.com/intv/bloch13.html"
+            >Josh Bloch on Design: Copy Constructor versus Cloning</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Bill Venners</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://books.google.se/books?id=BIpDDwAAQBAJ"
+            >Effective Java, Item 13: Override clone judiciously</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Joshua Bloch</span
+          >
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: Clone and Cloneable</h1>
+        <p>
+          <code>Object.clone</code> offers a shortcut for creating exact,
+          field-by-field, copies of objects. A lot of the boiler plate typically
+          required in copy constructors or static factory methods goes away.
+        </p>
+        <p>
+          Unfortunately the cloning API is poorly designed and should almost
+          always be avoided. See sections
+          <a href="clone-and-cloneable.html#critique"><em>Critique</em></a> and
+          <a href="clone-and-cloneable.html#alternatives-to-cloning"
+            ><em>Alternatives to Cloning</em></a
+          >
+          for more information.
+        </p>
+        <p>
+          Both arrays and objects can be cloned. Apart from the section
+          specifically on arrays, this article focuses on cloning objects.
+        </p>
+        <h2>Example</h2>
+        <p>Here's how to make a <code>Car</code> class cloneable:</p>
+        <pre><code><span class="keyword">class</span> Car <span class="highlight tooltip"><span class="keyword">implements</span> Cloneable<span class="tooltiptext" style="width: 28em; white-space: normal">This tells <code>Object.clone</code> that it's safe to clone of <code>Car</code> objects. If we omit this, <code>Object.clone</code> will throw a <code>CloneNotSupportedException</code>.</span></span> {
 
 
 
@@ -243,321 +355,836 @@
     …
 }
 </code></pre>
-      <p>Then, clone away…</p>
-      <pre><code>Car car1 = <span class="keyword">new</span> Car(<span class="text_lit">"BMW"</span>, <span class="num_lit">4</span>, someMotor, someGearbox);
+        <p>Then, clone away…</p>
+        <pre><code>Car car1 = <span class="keyword">new</span> Car(<span class="text_lit">"BMW"</span>, <span class="num_lit">4</span>, someMotor, someGearbox);
 Car car2 = p1.clone();
 
 <span class="comment">// car1 and car2 refer to distinct objects</span>
 </code></pre>
-      <h2>Shallow vs Deep Cloning</h2>
-      <p><em>See <a href="../shallow-vs-deep-copy.html">Shallow vs Deep Copy (with examples)</a> if you're not familiar with these terms.</em></p>
-      <p>According to convention, clone should return a <strong>deep copy</strong>. This is typically the expected / most useful alternative. Consider the <code>Car</code> example at the top of the article. It would be quite annoying if <code>car1.getGearbox().setGear(4)</code> would affect the current gear of <code>car2</code>!</p>
-      <p><code>Object.clone</code> however, creates a <strong>shallow copy</strong>. This means that the object returned by <code>super.clone()</code> refers to the same "children" as the original object. It's therefore important that the <code>clone</code> method clones the referenced objects and updates the references before returning the result, as was done with <code>motor</code> and <code>gearbox</code> in the example above.</p>
-      <div class="article-box">
-        <svg style="margin: 0 auto; max-width: 44em; display: block;" viewbox="0 0 1050 340" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="box1">
-            <rect fill="white" height="60" rx="10" ry="10" stroke-width="2" width="140" x="0" y="0"></rect>
-            <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
-          </g>
-          <g id="box2">
-            <rect fill="white" height="100" rx="10" ry="10" stroke-width="2" width="140" x="0" y="0"></rect>
-            <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
-          </g>
-          <path d="m 0 0 l -4 -10 l 8 0 l -4 10" id="arr" stroke-width="1"></path>
-          <circle id="ref" r="5" stroke-width="0"></circle>
-        </defs>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="170" y="25">
-          Original
-        </text>
-        <use class="orig" href="#box2" x="100" y="70"></use>
-        <text height="50" text-anchor="middle" width="120" x="175" y="85">
-          Car
-        </text>
-        <text height="50" text-anchor="end" width="100" x="180" y="110">
-          make:
-        </text>
-        <text height="50" width="100" x="185" y="110">
-          BMW
-        </text>
-        <text height="50" text-anchor="end" width="100" x="180" y="135">
-          engine:
-        </text>
-        <use href="#ref" x="193" y="130"></use>
-        <text height="50" text-anchor="end" width="100" x="180" y="160">
-          gearbox:
-        </text>
-        <use href="#ref" x="193" y="155"></use>
-        <use class="orig" href="#box1" x="5" y="250"></use>
-        <text height="50" text-anchor="middle" width="100" x="75" y="265">
-          Gearbox
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="75" y="295">
-          gears: 6
-        </text>
-        <use class="orig" href="#box1" x="185" y="270"></use>
-        <text height="50" text-anchor="middle" width="100" x="255" y="285">
-          Engine
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="255" y="315">
-          cylinders: 12
-        </text>
-        <line stroke-dasharray="5,5" stroke-width="2" style="stroke: black" x1="380" x2="380" y1="30" y2="330"></line>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="535" y="25">
-          After super.clone()
-        </text>
-        <use class="copy" href="#box2" x="460" y="70"></use>
-        <text class="copy" height="50" text-anchor="middle" width="120" x="535" y="85">
-          Car
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="110">
-          make:
-        </text>
-        <text class="copy" height="50" width="100" x="545" y="110">
-          BMW
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="135">
-          engine:
-        </text>
-        <use class="copy" href="#ref" x="553" y="130"></use>
-        <text class="copy" height="50" text-anchor="end" width="100" x="540" y="160">
-          gearbox:
-        </text>
-        <use class="copy" href="#ref" x="553" y="155"></use>
-        <path class="copy" d="M 553 130 q 40 0 40 40 c 0 80 -335 0 -335 90" stroke-width="2"></path>
-        <path class="copy" d="M 553 155 c 40 0 40 40 -80 40 h -320" stroke-width="2"></path>
-        <path d="M 193 130 q 65 0 65 130" stroke="black" stroke-width="2"></path>
-        <use href="#arr" style="stroke: black" x="258" y="270"></use>
-        <path d="M 193 155 c 40 0 40 40 -40 40 q -85 0 -85 45" stroke="black" stroke-width="2"></path>
-        <use href="#arr" style="stroke: black" x="68" y="250"></use>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="895" y="25">
-          After completed clone
-        </text>
-        <line stroke-dasharray="5,5" stroke-width="2" style="stroke: black" x1="690" x2="690" y1="30" y2="330"></line>
-        <use class="copy" href="#box2" x="820" y="70"></use>
-        <text class="copy" height="50" text-anchor="middle" width="120" x="895" y="85">
-          Car
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="900" y="110">
-          make:
-        </text>
-        <text class="copy" height="50" width="100" x="905" y="110">
-          BMW
-        </text>
-        <text class="copy" height="50" text-anchor="end" width="100" x="900" y="135">
-          engine:
-        </text>
-        <use class="copy" href="#ref" x="913" y="130"></use>
-        <text class="copy" height="50" text-anchor="end" width="100" x="900" y="160">
-          gearbox:
-        </text>
-        <use class="copy" href="#ref" x="913" y="155"></use>
-        <use class="copy" href="#box1" x="725" y="250"></use>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="795" y="265">
-          Gearbox
-        </text>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="795" y="295">
-          gears: 6
-        </text>
-        <use class="copy" href="#box1" x="905" y="270"></use>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="975" y="285">
-          Engine
-        </text>
-        <text class="copy" height="50" text-anchor="middle" width="100" x="975" y="315">
-          cylinders: 12
-        </text>
-        <path class="copy" d="M 913 130 q 65 0 65 130" stroke="black" stroke-width="2"></path>
-        <use class="copy" href="#arr" x="978" y="270"></use>
-        <path class="copy" d="M 913 155 c 40 0 40 40 -40 40 q -85 0 -85 45" stroke="black" stroke-width="2"></path>
-        <use class="copy" href="#arr" x="788" y="250"></use></svg>
-      </div>
-      <p>Returning a deep clone is not a strict requirement though. There are situations when a shallow copy makes more sense, and sometimes cloning the children is not even an option. The clone methods of all standard collections for example (<code>ArrayList</code>, <code>HashMap</code>, …) return shallow clones.</p>
-      <h2>The black magic of <code>Object.clone</code></h2>
-      <p><code>Object.clone</code> achieves two things that ordinary Java methods can't:</p>
-      <ol>
-        <li>
-          <p>It creates an instance of the same type as <code>this</code>, i.e. the following always holds:</p>
-          <p>super.clone().getClass() == this.getClass()</p>
-        </li>
-        <li>
-          <p>It then copies all fields from the original object to the clone.</p>
-        </li>
-      </ol>
-      <p>It manages to do this without invoking any constructors and the field-by-field copy includes private and final fields.</p>
-      <div class="article-box">
-        <strong>But… how!?</strong> The <code>Object.clone</code> method is <em>native</em>:
-        <pre><code class="dynamic-font-size"><span class="keyword">protected</span> <span class="highlight keyword">native</span> Object clone() <span class="keyword">throws</span> CloneNotSupportedException;</code></pre>This means that it's implemented as part of a system library, typically written in C or C++. This allows it to use low level calls such as <code>memcpy</code>, ignore access modifiers, and do other things ordinary Java methods can't.
-      </div>
-      <h2>Why use <code>super.clone()</code> instead of <code>new Car(…)</code>?</h2>
-      <p>Had we used <code>new Car(…)</code> instead of <code>super.clone()</code> <strong>subclasses would run into trouble</strong>.</p>
-      <p>Suppose there's a subclass, <code>Minivan</code>. <code>Minivan.clone</code> would have to call <code>super.clone()</code> to make sure private fields in the <code>Car</code> class was cloned properly. This would however return a <code>Car</code> object which would be of little use to <code>Minivan.clone</code> which needs to return an <code>Minivan</code> object!</p>
-      <p>If the <code>clone</code> method of every class in the hierarchy starts with <code>super.clone()</code> we ensure that <code>Object.clone</code> is always called, and as noted in the previous section, this guarantees that the correct type is instantiated. In this case <code>Minivan.clone</code> would get an <code>Minivan</code> object from <code>super.clone()</code>.</p>
-      <p>Note that if <code>Car</code> had been declared final, there would be no subclasses, and using <code>new Car(…)</code> would have been completely fine.</p>
-      <h2>Gotchas</h2>
-      <p>A few things to keep in mind when overriding <code>clone</code>:</p>
-      <dl>
-        <dt>Don't leak <code>this</code></dt>
-        <dd>Just as for constructors, you <strong>shouldn't leak the <code>this</code> reference</strong> from within a <code>clone</code> method as code elsewhere might access the object before it's in an initialized state. This implies that you <strong>should not call overridable methods</strong> from within <code>clone</code>.</dd>
-        <dt>Concurrency</dt>
-        <dd>If the object is shared among other threads, make sure you <strong>synchronize</strong> so you don't make a copy when the object is in a bad state. Also, <code>Object.clone</code> is not an atomic operation, (and even if it was, you'd still need to worry about word tearing).</dd>
-        <dt>Design for extension</dt>
-        <dd>
-          Design for inheritance, or prohibit it (Effective Java, item 19). In a non-final class you have three options when it comes to cloning:
-          <ol>
-            <li>Make the class itself <code>Cloneable</code> with a proper public <code>clone</code> method.</li>
-            <li>Don't implement <code>Cloneable</code> but leave the door open for subclasses to do so. In this case you should mimic the behavior of <code>Object.clone</code> by providing a functioning <code>clone</code> method, but leave it as protected and with the <code>throws CloneNotSupportedException</code> declaration.</li>
-            <li>Prevent cloning altogether by creating a protected final <code>clone</code> method that throws a <code>CloneNotSupportedException</code> exception.</li>
-          </ol>
-        </dd>
-        <dt>Extending a cloneable class</dt>
-        <dd>If you extend a cloneable class, directly or indirectly, your will automatically implement <code>Cloneable</code> and inherit a public <code>clone</code> method. There's no way to opt out from this, so you must play along and override <code>clone</code> properly. If this is not possible, you could throw an <code>CloneNotSupportedException</code>, but only if the signature of the super class's <code>clone</code> method allows for it.</dd>
-      </dl>
-      <h2>Why implement <code>Cloneable</code>? It has no methods!</h2>
-      <p>If you don't implement <code>Cloneable</code>, then <code>Object.clone</code> will throw a <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CloneNotSupportedException.html"><code>CloneNotSupportedException</code></a>.</p>
-      <p>An interface with no methods is called a <em>marker interface</em> (see <a href="marker-interface.html">Java: Marker interfaces, with examples</a>).</p>
-      <h2>The Contract of <code>clone</code></h2>
-      <p>The contract says that it should <em>"return a copy of this object"</em> where the meaning of copy <em>"…may depend on the class of the object"</em>. In other words, <strong>the contract doesn't specify any absolute requirements</strong>. It does however list the following conventions:</p>
-      <ul>
-        <li><code>x.clone() != x</code></li>
-        <li><code>x.clone().getClass() == x.getClass()</code></li>
-        <li><code>x.clone().equals(x)</code></li>
-        <li>The returned object should be independent of the object being cloned</li>
-      </ul>
-      <p>The first two items can be achieved by following the convention to always start with <code>super.clone()</code>.</p>
-      <p>As mention further up in the article <code>Object.clone</code> produces a shallow copy, which means that overriding <code>clone</code> methods should take care of cloning referenced objects to adhere to the last convention. This only applies to mutable objects however, since it's always safe to share references to immutable objects.</p>
-      <p>The method should throw <code>CloneNotSupportedException</code> if the object's class doesn't implement <code>Cloneable</code> (again, achieved by always calling <code>super.clone</code>). Furthermore, subclasses are allowed to throw this exception to indicate that an object can't be cloned for other reasons.</p>
-      <h2 id="critique">Critique</h2>
-      <p>The general consensus is that the cloneable API is poorly designed and should be avoided. Here's why:</p>
-      <dl>
-        <dt>Marker interfaces in general…</dt>
-        <dd>…are considered a bad idea in the first place. Instead of describing what clients can do with an object, they describe an internal capability. They require out of band knowledge and encourages a procedural programming style.<br>
-        <br>
-        There's no way to "opt out" from them in subclasses. If a <code>Car</code> is <code>Cloneable</code>, then so is a <code>Minivan</code> and there's nothing you can do about it.<br>
-        <br>
-        Since the first marker interfaces were introduced, annotations have been added to the language which are better suited for expressing this type of meta data.</dd>
-        <dt><code>Cloneable</code> in particular lacks a clone method</dt>
-        <dd>This means for example that if you have an array of <code>Cloneable</code> objects you can't iterate over it and create a deep copy of the array.<br>
-        <br>
-        If you cast something to a <code>Cloneable</code>, and the runtime type really do implement the interface, you <em>still</em> can't call the <code>clone</code> method, since it's <code>protected</code> in <code>Object</code>.<br>
-        <br>
-        If you implement <code>Cloneable</code> but forget to implement a public <code>clone</code> method, the compiler will not catch the error. And just being <code>Cloneable</code> is pretty useless, since there's still no way for clients to clone objects.</dd>
-        <dt><code>Object.clone</code> bends the rules of the language</dt>
-        <dd>The <code>Object.clone</code> creates an instance without going through any constructor. This is easy to forget when maintaining code, which may result in class invariants being broken.</dd>
-        <dt>Incompatibility with <code>final</code> references</dt>
-        <dd>Since references to mutable objects should be updated by the clone method, such fields can't be marked as <code>final</code>.</dd>
-        <dt>CloneNotSupportedException is a checked exception…</dt>
-        <dd>
-          …while it should have been unchecked. The client may know for sure that a clone will succeed, yet it is forced to wrap the call in a <code>try</code>/<code>catch</code>.<br>
-          <br>
-          See <a href="choosing-between-checked-and-unchecked-exceptions.html">Choosing between Checked and Unchecked Exceptions</a>.
-        </dd>
-        <dt>It's hard to get right</dt>
-        <dd>Even though you know the rules of the game, it's hard to override <code>clone</code> correctly. What if you have cycles in the object graph you're trying to clone? What if you reference mutable third party classes that don't support cloning?</dd>
-        <dt><code>Object.clone</code> returns an <code>Object</code>…</dt>
-        <dd>…which means you must resort to casts.</dd>
-      </dl>
-      <h2>Cloning Arrays</h2>
-      <p>Arrays implement <code>Cloneable</code> and provide a public <code>clone</code> method. None of the drawbacks mentioned in previous section applies to arrays. In fact <code>arr.clone()</code> is the preferred idiom for cloning arrays. You don't even have to cast the result as the return type of the array <code>clone</code> method is the same as the type of the array being cloned.</p>
-      <p>Keep in mind however, that the result is a <strong>shallow copy</strong>. If the array stores references to other objects, the clone will reference the same objects.</p>
-      <div class="article-box">
-        <svg style="margin: 0 auto; max-width: 30em; display: block;" viewbox="0 0 715 280" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="box1">
-            <rect fill="white" height="60" rx="10" ry="10" stroke-width="2" width="140" x="0" y="0"></rect>
-            <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
-          </g>
-          <path d="m 0 0 l -4 -10 l 8 0 l -4 10" id="arr" stroke-width="1"></path>
-          <circle id="ref" r="5" stroke-width="0"></circle>
-          <g id="cell">
-            <rect fill="white" height="40" stroke-width="2" width="40" x="0" y="0"></rect>
-            <circle cx="20" cy="20" r="5"></circle>
-          </g>
-          <g id="arr-box">
-            <use href="#arr" x="20" y="0"></use>
-            <use class="orig" href="#box1" x="-50" y="0"></use>
-          </g>
-        </defs>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="200" y="25">
-          Original array
-        </text>
-        <text font-size="140%" height="50" style="font-weight: bold" text-anchor="middle" width="120" x="550" y="25">
-          Cloned array
-        </text>
-        <use class="orig" href="#cell" x="260" y="70"></use>
-        <use href="#arr-box" x="260" y="191"></use>
-        <use class="orig" href="#cell" x="220" y="70"></use>
-        <use href="#arr-box" x="220" y="197"></use>
-        <use class="orig" href="#cell" x="180" y="70"></use>
-        <use href="#arr-box" x="180" y="203"></use>
-        <use class="orig" href="#cell" x="140" y="70"></use>
-        <use href="#arr-box" x="140" y="209"></use>
-        <use class="orig" href="#cell" x="100" y="70"></use>
-        <use href="#arr-box" x="100" y="215"></use>
-        <text height="50" text-anchor="middle" width="100" x="120" y="230">
-          Car
-        </text>
-        <text height="50" text-anchor="middle" width="100" x="120" y="260">
-          make: BMW
-        </text>
-        <use class="copy" href="#cell" x="610" y="70"></use>
-        <use class="copy" href="#cell" x="570" y="70"></use>
-        <use class="copy" href="#cell" x="530" y="70"></use>
-        <use class="copy" href="#cell" x="490" y="70"></use>
-        <use class="copy" href="#cell" x="450" y="70"></use>
-        <path class="copy" d="M 470 90 v 0 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 510 90 v 5 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 550 90 v 10 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 590 90 v 15 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <path class="copy" d="M 630 90 v 20 q 0 35 -35 35 h -280 q -35 0 -35 35" stroke-width="2"></path>
-        <line stroke="black" stroke-width="2" x1="280" x2="280" y1="90" y2="181"></line>
-        <line stroke="black" stroke-width="2" x1="240" x2="240" y1="90" y2="187"></line>
-        <line stroke="black" stroke-width="2" x1="200" x2="200" y1="90" y2="193"></line>
-        <line stroke="black" stroke-width="2" x1="160" x2="160" y1="90" y2="199"></line>
-        <line stroke="black" stroke-width="2" x1="120" x2="120" y1="90" y2="205"></line></svg>
-      </div>
-      <h2 id="alternatives-to-cloning">Alternatives to Cloning</h2>
-      <p>For full details and examples please refer to the full article <a href="copying-objects-deep-and-shallow.html">Java: Copying Objects, Deep and Shallow)</a>.</p>
-      <dl>
-        <dt>Copy Constructors / Copy Factory Methods</dt>
-        <dd>A copy constructor, <code>public Car(Car c) { … }</code>, or a static copy factory method, <code>public Car newInstance(Car c) { … }</code>, is the simplest and most straight forward way of creating copies. It easy to understand (no black magic) which also makes it easy to debug and maintain.</dd>
-        <dt>Homegrown copy method</dt>
-        <dd>A home grown copy method that doesn't rely on the <code>Cloneable</code>/<code>Object.clone</code> mechanism may be a viable option. It's more verbose but that may be a an acceptable price to pay considering the alternative. It's possible to name it "<code>clone</code>" but you may want to go for something different (<code>copy</code>, <code>copyOf</code>, <code>deepCopy</code>, <code>shallowCopy</code>, …) to avoid confusion.</dd>
-        <dt>Builders</dt>
-        <dd>
-          When using the builder pattern it's common to provide a way to initialize the state of the builder with the state of a given object. Creating a copy of a car <code>c</code> could look like <code>new&nbsp;Car.Builder(c).build()</code>. The <a href="https://immutables.github.io">Immutables library</a> for example, generates a builder with a <code>from(…)</code> method for this purpose.
-        </dd>
-        <dt>Serialization / deserialization</dt>
-        <dd>By serializing an object, then deserializing the result you end up with a copy. If you already have a library such as Jackson set up for json serialization, you can reuse this for cloning.<br>
-        <br>
-        Another alternative is to use the <code>Serializable</code> mechanism and <code>ObjectInputStream</code>/<code>ObjectOutputStream</code> but then you trade one type of black magic for another.</dd>
-      </dl>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <h2>Shallow vs Deep Cloning</h2>
+        <p>
+          <em
+            >See
+            <a href="../shallow-vs-deep-copy.html"
+              >Shallow vs Deep Copy (with examples)</a
+            >
+            if you're not familiar with these terms.</em
+          >
+        </p>
+        <p>
+          According to convention, clone should return a
+          <strong>deep copy</strong>. This is typically the expected / most
+          useful alternative. Consider the <code>Car</code> example at the top
+          of the article. It would be quite annoying if
+          <code>car1.getGearbox().setGear(4)</code> would affect the current
+          gear of <code>car2</code>!
+        </p>
+        <p>
+          <code>Object.clone</code> however, creates a
+          <strong>shallow copy</strong>. This means that the object returned by
+          <code>super.clone()</code> refers to the same "children" as the
+          original object. It's therefore important that the
+          <code>clone</code> method clones the referenced objects and updates
+          the references before returning the result, as was done with
+          <code>motor</code> and <code>gearbox</code> in the example above.
+        </p>
+        <div class="article-box">
+          <svg
+            style="margin: 0 auto; max-width: 44em; display: block"
+            viewbox="0 0 1050 340"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <g id="box1">
+                <rect
+                  fill="white"
+                  height="60"
+                  rx="10"
+                  ry="10"
+                  stroke-width="2"
+                  width="140"
+                  x="0"
+                  y="0"
+                ></rect>
+                <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
+              </g>
+              <g id="box2">
+                <rect
+                  fill="white"
+                  height="100"
+                  rx="10"
+                  ry="10"
+                  stroke-width="2"
+                  width="140"
+                  x="0"
+                  y="0"
+                ></rect>
+                <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
+              </g>
+              <path
+                d="m 0 0 l -4 -10 l 8 0 l -4 10"
+                id="arr"
+                stroke-width="1"
+              ></path>
+              <circle id="ref" r="5" stroke-width="0"></circle>
+            </defs>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="170"
+              y="25"
+            >
+              Original
+            </text>
+            <use class="orig" href="#box2" x="100" y="70"></use>
+            <text height="50" text-anchor="middle" width="120" x="175" y="85">
+              Car
+            </text>
+            <text height="50" text-anchor="end" width="100" x="180" y="110">
+              make:
+            </text>
+            <text height="50" width="100" x="185" y="110">BMW</text>
+            <text height="50" text-anchor="end" width="100" x="180" y="135">
+              engine:
+            </text>
+            <use href="#ref" x="193" y="130"></use>
+            <text height="50" text-anchor="end" width="100" x="180" y="160">
+              gearbox:
+            </text>
+            <use href="#ref" x="193" y="155"></use>
+            <use class="orig" href="#box1" x="5" y="250"></use>
+            <text height="50" text-anchor="middle" width="100" x="75" y="265">
+              Gearbox
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="75" y="295">
+              gears: 6
+            </text>
+            <use class="orig" href="#box1" x="185" y="270"></use>
+            <text height="50" text-anchor="middle" width="100" x="255" y="285">
+              Engine
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="255" y="315">
+              cylinders: 12
+            </text>
+            <line
+              stroke-dasharray="5,5"
+              stroke-width="2"
+              style="stroke: black"
+              x1="380"
+              x2="380"
+              y1="30"
+              y2="330"
+            ></line>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="535"
+              y="25"
+            >
+              After super.clone()
+            </text>
+            <use class="copy" href="#box2" x="460" y="70"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="120"
+              x="535"
+              y="85"
+            >
+              Car
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="110"
+            >
+              make:
+            </text>
+            <text class="copy" height="50" width="100" x="545" y="110">
+              BMW
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="135"
+            >
+              engine:
+            </text>
+            <use class="copy" href="#ref" x="553" y="130"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="540"
+              y="160"
+            >
+              gearbox:
+            </text>
+            <use class="copy" href="#ref" x="553" y="155"></use>
+            <path
+              class="copy"
+              d="M 553 130 q 40 0 40 40 c 0 80 -335 0 -335 90"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 553 155 c 40 0 40 40 -80 40 h -320"
+              stroke-width="2"
+            ></path>
+            <path
+              d="M 193 130 q 65 0 65 130"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use href="#arr" style="stroke: black" x="258" y="270"></use>
+            <path
+              d="M 193 155 c 40 0 40 40 -40 40 q -85 0 -85 45"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use href="#arr" style="stroke: black" x="68" y="250"></use>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="895"
+              y="25"
+            >
+              After completed clone
+            </text>
+            <line
+              stroke-dasharray="5,5"
+              stroke-width="2"
+              style="stroke: black"
+              x1="690"
+              x2="690"
+              y1="30"
+              y2="330"
+            ></line>
+            <use class="copy" href="#box2" x="820" y="70"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="120"
+              x="895"
+              y="85"
+            >
+              Car
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="900"
+              y="110"
+            >
+              make:
+            </text>
+            <text class="copy" height="50" width="100" x="905" y="110">
+              BMW
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="900"
+              y="135"
+            >
+              engine:
+            </text>
+            <use class="copy" href="#ref" x="913" y="130"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="end"
+              width="100"
+              x="900"
+              y="160"
+            >
+              gearbox:
+            </text>
+            <use class="copy" href="#ref" x="913" y="155"></use>
+            <use class="copy" href="#box1" x="725" y="250"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="795"
+              y="265"
+            >
+              Gearbox
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="795"
+              y="295"
+            >
+              gears: 6
+            </text>
+            <use class="copy" href="#box1" x="905" y="270"></use>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="975"
+              y="285"
+            >
+              Engine
+            </text>
+            <text
+              class="copy"
+              height="50"
+              text-anchor="middle"
+              width="100"
+              x="975"
+              y="315"
+            >
+              cylinders: 12
+            </text>
+            <path
+              class="copy"
+              d="M 913 130 q 65 0 65 130"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use class="copy" href="#arr" x="978" y="270"></use>
+            <path
+              class="copy"
+              d="M 913 155 c 40 0 40 40 -40 40 q -85 0 -85 45"
+              stroke="black"
+              stroke-width="2"
+            ></path>
+            <use class="copy" href="#arr" x="788" y="250"></use>
+          </svg>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/clone-and-cloneable.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <p>
+          Returning a deep clone is not a strict requirement though. There are
+          situations when a shallow copy makes more sense, and sometimes cloning
+          the children is not even an option. The clone methods of all standard
+          collections for example (<code>ArrayList</code>, <code>HashMap</code>,
+          …) return shallow clones.
+        </p>
+        <h2>The black magic of <code>Object.clone</code></h2>
+        <p>
+          <code>Object.clone</code> achieves two things that ordinary Java
+          methods can't:
+        </p>
+        <ol>
+          <li>
+            <p>
+              It creates an instance of the same type as <code>this</code>, i.e.
+              the following always holds:
+            </p>
+            <p>super.clone().getClass() == this.getClass()</p>
+          </li>
+          <li>
+            <p>
+              It then copies all fields from the original object to the clone.
+            </p>
+          </li>
+        </ol>
+        <p>
+          It manages to do this without invoking any constructors and the
+          field-by-field copy includes private and final fields.
+        </p>
+        <div class="article-box">
+          <strong>But… how!?</strong> The <code>Object.clone</code> method is
+          <em>native</em>:
+          <pre><code class="dynamic-font-size"><span class="keyword">protected</span> <span class="highlight keyword">native</span> Object clone() <span class="keyword">throws</span> CloneNotSupportedException;</code></pre>
+          This means that it's implemented as part of a system library,
+          typically written in C or C++. This allows it to use low level calls
+          such as <code>memcpy</code>, ignore access modifiers, and do other
+          things ordinary Java methods can't.
+        </div>
+        <h2>
+          Why use <code>super.clone()</code> instead of <code>new Car(…)</code>?
+        </h2>
+        <p>
+          Had we used <code>new Car(…)</code> instead of
+          <code>super.clone()</code>
+          <strong>subclasses would run into trouble</strong>.
+        </p>
+        <p>
+          Suppose there's a subclass, <code>Minivan</code>.
+          <code>Minivan.clone</code> would have to call
+          <code>super.clone()</code> to make sure private fields in the
+          <code>Car</code> class was cloned properly. This would however return
+          a <code>Car</code> object which would be of little use to
+          <code>Minivan.clone</code> which needs to return an
+          <code>Minivan</code> object!
+        </p>
+        <p>
+          If the <code>clone</code> method of every class in the hierarchy
+          starts with <code>super.clone()</code> we ensure that
+          <code>Object.clone</code> is always called, and as noted in the
+          previous section, this guarantees that the correct type is
+          instantiated. In this case <code>Minivan.clone</code> would get an
+          <code>Minivan</code> object from <code>super.clone()</code>.
+        </p>
+        <p>
+          Note that if <code>Car</code> had been declared final, there would be
+          no subclasses, and using <code>new Car(…)</code> would have been
+          completely fine.
+        </p>
+        <h2>Gotchas</h2>
+        <p>A few things to keep in mind when overriding <code>clone</code>:</p>
+        <dl>
+          <dt>Don't leak <code>this</code></dt>
+          <dd>
+            Just as for constructors, you
+            <strong>shouldn't leak the <code>this</code> reference</strong> from
+            within a <code>clone</code> method as code elsewhere might access
+            the object before it's in an initialized state. This implies that
+            you <strong>should not call overridable methods</strong> from within
+            <code>clone</code>.
+          </dd>
+          <dt>Concurrency</dt>
+          <dd>
+            If the object is shared among other threads, make sure you
+            <strong>synchronize</strong> so you don't make a copy when the
+            object is in a bad state. Also, <code>Object.clone</code> is not an
+            atomic operation, (and even if it was, you'd still need to worry
+            about word tearing).
+          </dd>
+          <dt>Design for extension</dt>
+          <dd>
+            Design for inheritance, or prohibit it (Effective Java, item 19). In
+            a non-final class you have three options when it comes to cloning:
+            <ol>
+              <li>
+                Make the class itself <code>Cloneable</code> with a proper
+                public <code>clone</code> method.
+              </li>
+              <li>
+                Don't implement <code>Cloneable</code> but leave the door open
+                for subclasses to do so. In this case you should mimic the
+                behavior of <code>Object.clone</code> by providing a functioning
+                <code>clone</code> method, but leave it as protected and with
+                the <code>throws CloneNotSupportedException</code> declaration.
+              </li>
+              <li>
+                Prevent cloning altogether by creating a protected final
+                <code>clone</code> method that throws a
+                <code>CloneNotSupportedException</code> exception.
+              </li>
+            </ol>
+          </dd>
+          <dt>Extending a cloneable class</dt>
+          <dd>
+            If you extend a cloneable class, directly or indirectly, your will
+            automatically implement <code>Cloneable</code> and inherit a public
+            <code>clone</code> method. There's no way to opt out from this, so
+            you must play along and override <code>clone</code> properly. If
+            this is not possible, you could throw an
+            <code>CloneNotSupportedException</code>, but only if the signature
+            of the super class's <code>clone</code> method allows for it.
+          </dd>
+        </dl>
+        <h2>Why implement <code>Cloneable</code>? It has no methods!</h2>
+        <p>
+          If you don't implement <code>Cloneable</code>, then
+          <code>Object.clone</code> will throw a
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/CloneNotSupportedException.html"
+            ><code>CloneNotSupportedException</code></a
+          >.
+        </p>
+        <p>
+          An interface with no methods is called a
+          <em>marker interface</em> (see
+          <a href="marker-interface.html"
+            >Java: Marker interfaces, with examples</a
+          >).
+        </p>
+        <h2>The Contract of <code>clone</code></h2>
+        <p>
+          The contract says that it should
+          <em>"return a copy of this object"</em> where the meaning of copy
+          <em>"…may depend on the class of the object"</em>. In other words,
+          <strong>the contract doesn't specify any absolute requirements</strong
+          >. It does however list the following conventions:
+        </p>
+        <ul>
+          <li><code>x.clone() != x</code></li>
+          <li><code>x.clone().getClass() == x.getClass()</code></li>
+          <li><code>x.clone().equals(x)</code></li>
+          <li>
+            The returned object should be independent of the object being cloned
+          </li>
+        </ul>
+        <p>
+          The first two items can be achieved by following the convention to
+          always start with <code>super.clone()</code>.
+        </p>
+        <p>
+          As mention further up in the article
+          <code>Object.clone</code> produces a shallow copy, which means that
+          overriding <code>clone</code> methods should take care of cloning
+          referenced objects to adhere to the last convention. This only applies
+          to mutable objects however, since it's always safe to share references
+          to immutable objects.
+        </p>
+        <p>
+          The method should throw <code>CloneNotSupportedException</code> if the
+          object's class doesn't implement <code>Cloneable</code> (again,
+          achieved by always calling <code>super.clone</code>). Furthermore,
+          subclasses are allowed to throw this exception to indicate that an
+          object can't be cloned for other reasons.
+        </p>
+        <h2 id="critique">Critique</h2>
+        <p>
+          The general consensus is that the cloneable API is poorly designed and
+          should be avoided. Here's why:
+        </p>
+        <dl>
+          <dt>Marker interfaces in general…</dt>
+          <dd>
+            …are considered a bad idea in the first place. Instead of describing
+            what clients can do with an object, they describe an internal
+            capability. They require out of band knowledge and encourages a
+            procedural programming style.<br />
+            <br />
+            There's no way to "opt out" from them in subclasses. If a
+            <code>Car</code> is <code>Cloneable</code>, then so is a
+            <code>Minivan</code> and there's nothing you can do about it.<br />
+            <br />
+            Since the first marker interfaces were introduced, annotations have
+            been added to the language which are better suited for expressing
+            this type of meta data.
+          </dd>
+          <dt><code>Cloneable</code> in particular lacks a clone method</dt>
+          <dd>
+            This means for example that if you have an array of
+            <code>Cloneable</code> objects you can't iterate over it and create
+            a deep copy of the array.<br />
+            <br />
+            If you cast something to a <code>Cloneable</code>, and the runtime
+            type really do implement the interface, you <em>still</em> can't
+            call the <code>clone</code> method, since it's
+            <code>protected</code> in <code>Object</code>.<br />
+            <br />
+            If you implement <code>Cloneable</code> but forget to implement a
+            public <code>clone</code> method, the compiler will not catch the
+            error. And just being <code>Cloneable</code> is pretty useless,
+            since there's still no way for clients to clone objects.
+          </dd>
+          <dt><code>Object.clone</code> bends the rules of the language</dt>
+          <dd>
+            The <code>Object.clone</code> creates an instance without going
+            through any constructor. This is easy to forget when maintaining
+            code, which may result in class invariants being broken.
+          </dd>
+          <dt>Incompatibility with <code>final</code> references</dt>
+          <dd>
+            Since references to mutable objects should be updated by the clone
+            method, such fields can't be marked as <code>final</code>.
+          </dd>
+          <dt>CloneNotSupportedException is a checked exception…</dt>
+          <dd>
+            …while it should have been unchecked. The client may know for sure
+            that a clone will succeed, yet it is forced to wrap the call in a
+            <code>try</code>/<code>catch</code>.<br />
+            <br />
+            See
+            <a href="choosing-between-checked-and-unchecked-exceptions.html"
+              >Choosing between Checked and Unchecked Exceptions</a
+            >.
+          </dd>
+          <dt>It's hard to get right</dt>
+          <dd>
+            Even though you know the rules of the game, it's hard to override
+            <code>clone</code> correctly. What if you have cycles in the object
+            graph you're trying to clone? What if you reference mutable third
+            party classes that don't support cloning?
+          </dd>
+          <dt><code>Object.clone</code> returns an <code>Object</code>…</dt>
+          <dd>…which means you must resort to casts.</dd>
+        </dl>
+        <h2>Cloning Arrays</h2>
+        <p>
+          Arrays implement <code>Cloneable</code> and provide a public
+          <code>clone</code> method. None of the drawbacks mentioned in previous
+          section applies to arrays. In fact <code>arr.clone()</code> is the
+          preferred idiom for cloning arrays. You don't even have to cast the
+          result as the return type of the array <code>clone</code> method is
+          the same as the type of the array being cloned.
+        </p>
+        <p>
+          Keep in mind however, that the result is a
+          <strong>shallow copy</strong>. If the array stores references to other
+          objects, the clone will reference the same objects.
+        </p>
+        <div class="article-box">
+          <svg
+            style="margin: 0 auto; max-width: 30em; display: block"
+            viewbox="0 0 715 280"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <g id="box1">
+                <rect
+                  fill="white"
+                  height="60"
+                  rx="10"
+                  ry="10"
+                  stroke-width="2"
+                  width="140"
+                  x="0"
+                  y="0"
+                ></rect>
+                <line stroke-width="2" x1="0" x2="140" y1="20" y2="20"></line>
+              </g>
+              <path
+                d="m 0 0 l -4 -10 l 8 0 l -4 10"
+                id="arr"
+                stroke-width="1"
+              ></path>
+              <circle id="ref" r="5" stroke-width="0"></circle>
+              <g id="cell">
+                <rect
+                  fill="white"
+                  height="40"
+                  stroke-width="2"
+                  width="40"
+                  x="0"
+                  y="0"
+                ></rect>
+                <circle cx="20" cy="20" r="5"></circle>
+              </g>
+              <g id="arr-box">
+                <use href="#arr" x="20" y="0"></use>
+                <use class="orig" href="#box1" x="-50" y="0"></use>
+              </g>
+            </defs>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="200"
+              y="25"
+            >
+              Original array
+            </text>
+            <text
+              font-size="140%"
+              height="50"
+              style="font-weight: bold"
+              text-anchor="middle"
+              width="120"
+              x="550"
+              y="25"
+            >
+              Cloned array
+            </text>
+            <use class="orig" href="#cell" x="260" y="70"></use>
+            <use href="#arr-box" x="260" y="191"></use>
+            <use class="orig" href="#cell" x="220" y="70"></use>
+            <use href="#arr-box" x="220" y="197"></use>
+            <use class="orig" href="#cell" x="180" y="70"></use>
+            <use href="#arr-box" x="180" y="203"></use>
+            <use class="orig" href="#cell" x="140" y="70"></use>
+            <use href="#arr-box" x="140" y="209"></use>
+            <use class="orig" href="#cell" x="100" y="70"></use>
+            <use href="#arr-box" x="100" y="215"></use>
+            <text height="50" text-anchor="middle" width="100" x="120" y="230">
+              Car
+            </text>
+            <text height="50" text-anchor="middle" width="100" x="120" y="260">
+              make: BMW
+            </text>
+            <use class="copy" href="#cell" x="610" y="70"></use>
+            <use class="copy" href="#cell" x="570" y="70"></use>
+            <use class="copy" href="#cell" x="530" y="70"></use>
+            <use class="copy" href="#cell" x="490" y="70"></use>
+            <use class="copy" href="#cell" x="450" y="70"></use>
+            <path
+              class="copy"
+              d="M 470 90 v 0 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 510 90 v 5 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 550 90 v 10 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 590 90 v 15 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <path
+              class="copy"
+              d="M 630 90 v 20 q 0 35 -35 35 h -280 q -35 0 -35 35"
+              stroke-width="2"
+            ></path>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="280"
+              x2="280"
+              y1="90"
+              y2="181"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="240"
+              x2="240"
+              y1="90"
+              y2="187"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="200"
+              x2="200"
+              y1="90"
+              y2="193"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="160"
+              x2="160"
+              y1="90"
+              y2="199"
+            ></line>
+            <line
+              stroke="black"
+              stroke-width="2"
+              x1="120"
+              x2="120"
+              y1="90"
+              y2="205"
+            ></line>
+          </svg>
+        </div>
+        <h2 id="alternatives-to-cloning">Alternatives to Cloning</h2>
+        <p>
+          For full details and examples please refer to the full article
+          <a href="copying-objects-deep-and-shallow.html"
+            >Java: Copying Objects, Deep and Shallow)</a
+          >.
+        </p>
+        <dl>
+          <dt>Copy Constructors / Copy Factory Methods</dt>
+          <dd>
+            A copy constructor, <code>public Car(Car c) { … }</code>, or a
+            static copy factory method,
+            <code>public Car newInstance(Car c) { … }</code>, is the simplest
+            and most straight forward way of creating copies. It easy to
+            understand (no black magic) which also makes it easy to debug and
+            maintain.
+          </dd>
+          <dt>Homegrown copy method</dt>
+          <dd>
+            A home grown copy method that doesn't rely on the
+            <code>Cloneable</code>/<code>Object.clone</code> mechanism may be a
+            viable option. It's more verbose but that may be a an acceptable
+            price to pay considering the alternative. It's possible to name it
+            "<code>clone</code>" but you may want to go for something different
+            (<code>copy</code>, <code>copyOf</code>, <code>deepCopy</code>,
+            <code>shallowCopy</code>, …) to avoid confusion.
+          </dd>
+          <dt>Builders</dt>
+          <dd>
+            When using the builder pattern it's common to provide a way to
+            initialize the state of the builder with the state of a given
+            object. Creating a copy of a car <code>c</code> could look like
+            <code>new&nbsp;Car.Builder(c).build()</code>. The
+            <a href="https://immutables.github.io">Immutables library</a> for
+            example, generates a builder with a <code>from(…)</code> method for
+            this purpose.
+          </dd>
+          <dt>Serialization / deserialization</dt>
+          <dd>
+            By serializing an object, then deserializing the result you end up
+            with a copy. If you already have a library such as Jackson set up
+            for json serialization, you can reuse this for cloning.<br />
+            <br />
+            Another alternative is to use the
+            <code>Serializable</code> mechanism and
+            <code>ObjectInputStream</code>/<code>ObjectOutputStream</code> but
+            then you trade one type of black magic for another.
+          </dd>
+        </dl>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/clone-and-cloneable.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

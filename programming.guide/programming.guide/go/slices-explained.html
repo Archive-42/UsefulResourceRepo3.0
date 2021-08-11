@@ -1,638 +1,1651 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: Slices explained | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Usage and internals of Go slices." name="description">
-  <meta content="go, golang, slice, array, make, append, len, cap" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: Slices explained | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta content="Usage and internals of Go slices." name="description" />
+    <meta
+      content="go, golang, slice, array, make, append, len, cap"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Further Reading</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="append-explained.html">Append function explained</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="copy-explained.html">Copy function explained</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="delete-element-slice.html">Delete an element from a slice</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="clear-slice.html">Clear a slice</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="https://blog.golang.org/go-slices-usage-and-internals">Go Slices: usage and internals</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">The Go Blog</span>
-      </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: Slices explained</h1>
-      <p>A slice is a view of an underlying array. You can use <code>s[i]</code> to view and modify an element of a slice&nbsp;<code>s</code>. Modifications will affect the underlying array as well.</p>
-      <p>You may think of a slice as a <strong>descriptor of an array segment</strong>:</p>
-      <ul>
-        <li>passing a slice as argument to a method does not cause the data to be copied (as with arrays),</li>
-        <li>and a slice can grow and shrink within the bounds of the underlying array.</li>
-      </ul>
-      <h2>Create</h2>
-      <p>The type of a slice is <code>[]T</code>. Here's a simple way to declare and initialize a slice:</p>
-      <pre><code>s := []string{"foo", "bar", "baz", "qux"}</code></pre>
-      <p>Here's how to use the <a href="make-slice-map-channel.html"><code>make</code></a> function to create and initialize a slice with five zeroes:</p>
-      <pre><code>s := make([]int, 5)
-</code></pre>
-      <p>You can also create a slice backed by an existing array.</p>
-      <div class="codeblock">
-        <svg height="250" width="420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <rect fill="none" height="30" id="cell" stroke-width="2" width="30"></rect>
-        </defs>
-        <text class="code-like" x="20" y="27">
-          a := [...]int{0, 1, 2, 3, 4, 5}
-        </text>
-        <text class="code-like" x="20" y="75">
-          s1 := a[1:4]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="71">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="71">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="71">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="71">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="71">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="71">
-          5
-        </text>
-        <use style="stroke: red" x="252" xlink:href="#cell" y="58"></use>
-        <use style="stroke: red" x="282" xlink:href="#cell" y="58"></use>
-        <use style="stroke: red" x="312" xlink:href="#cell" y="58"></use>
-        <text class="code-like" x="20" y="123">
-          s2 := a[:4]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="119">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="119">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="119">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="119">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="119">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="119">
-          5
-        </text>
-        <use style="stroke: red" x="222" xlink:href="#cell" y="106"></use>
-        <use style="stroke: red" x="252" xlink:href="#cell" y="106"></use>
-        <use style="stroke: red" x="282" xlink:href="#cell" y="106"></use>
-        <use style="stroke: red" x="312" xlink:href="#cell" y="106"></use>
-        <text class="code-like" x="20" y="171">
-          s3 := a[4:]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="167">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="167">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="167">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="167">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="167">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="167">
-          5
-        </text>
-        <use style="stroke: red" x="342" xlink:href="#cell" y="154"></use>
-        <use style="stroke: red" x="372" xlink:href="#cell" y="154"></use>
-        <text class="code-like" x="20" y="219">
-          s4 := a[:]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="200"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="215">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="200"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="215">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="200"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="215">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="200"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="215">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="200"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="215">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="200"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="215">
-          5
-        </text>
-        <use style="stroke: red" x="222" xlink:href="#cell" y="202"></use>
-        <use style="stroke: red" x="252" xlink:href="#cell" y="202"></use>
-        <use style="stroke: red" x="282" xlink:href="#cell" y="202"></use>
-        <use style="stroke: red" x="312" xlink:href="#cell" y="202"></use>
-        <use style="stroke: red" x="342" xlink:href="#cell" y="202"></use>
-        <use style="stroke: red" x="372" xlink:href="#cell" y="202"></use></svg>
-      </div>
-      <h2>Length and capacity</h2>
-      <div class="codeblock">
-        <svg height="120" width="350" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <rect fill="none" height="30" id="cell" stroke-width="2" width="30"></rect>
-        </defs>
-        <use style="stroke: rgb(120, 120, 120)" x="20" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="35" y="55">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="50" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="65" y="55">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="80" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="95" y="55">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="110" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="125" y="55">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="140" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="155" y="55">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="170" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="185" y="55">
-          5
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="200" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="215" y="55">
-          6
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="230" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="245" y="55">
-          7
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="260" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="275" y="55">
-          8
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="290" xlink:href="#cell" y="40"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="305" y="55">
-          9
-        </text>
-        <use style="stroke: red" x="82" xlink:href="#cell" y="42"></use>
-        <use style="stroke: red" x="112" xlink:href="#cell" y="42"></use>
-        <use style="stroke: red" x="142" xlink:href="#cell" y="42"></use>
-        <text fill="red" x="102" y="18">
-          length
-        </text>
-        <path d="M 82 42 m -2 -6 q 0 -5, 5 -5 l 35 0 q 5 0, 5 -5 q 0 5, 5 5 l 35 0 q 5 0, 5 5" fill="none" stroke="red" stroke-width="2"></path>
-        <text fill="red" x="166" y="102">
-          capacity
-        </text>
-        <path d="M 82 72 m -2 6 q 0 5, 5 5 l 110 0 q 5 0, 5 5 q 0 -5, 5 -5 l 110 0 q 5 0, 5 -5" fill="none" stroke="red" stroke-width="2"></path></svg>
-      </div>
-      <p>The <strong>length</strong> and <strong>capacity</strong> can be retrieved using the built-in functions <a href="https://golang.org/pkg/builtin/#len"><code>len</code></a> and <a href="https://golang.org/pkg/builtin/#cap"><code>cap</code></a>.</p>
-      <p>The <a href="https://golang.org/pkg/builtin/#make"><code>make</code></a> function optionally takes a capacity as a third argument. <code>make([]int, 10, 100)</code> for example, is the same as <code>new([100]int)[:10]</code>.</p>
-      <h2>Reslice and extend</h2>
-      <p>You can slice a slice:</p>
-      <div class="codeblock">
-        <svg height="160" width="420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <rect fill="none" height="30" id="cell" stroke-width="2" width="30"></rect>
-        </defs>
-        <text class="code-like" x="20" y="27">
-          // Create slice
-        </text>
-        <text class="code-like" x="20" y="49">
-          s := a[1:5]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="45">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="45">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="45">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="45">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="45">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="45">
-          5
-        </text>
-        <use style="stroke: red" x="252" xlink:href="#cell" y="32"></use>
-        <use style="stroke: red" x="282" xlink:href="#cell" y="32"></use>
-        <use style="stroke: red" x="312" xlink:href="#cell" y="32"></use>
-        <use style="stroke: red" x="342" xlink:href="#cell" y="32"></use>
-        <text class="code-like" x="20" y="97">
-          // Slice again!
-        </text>
-        <text class="code-like" x="20" y="119">
-          s = s[1:3]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="115">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="115">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="115">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="115">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="115">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="115">
-          5
-        </text>
-        <use style="stroke: red" x="282" xlink:href="#cell" y="102"></use>
-        <use style="stroke: red" x="312" xlink:href="#cell" y="102"></use></svg>
-      </div>
-      <p>The indices in the last line are relative to the slice itself, not to the backing array. The end index is not bound by the slice's length, but by it's the <strong>capacity</strong>, which means we can <strong>extend the slices length</strong>:</p>
-      <div class="codeblock">
-        <svg height="160" width="420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <rect fill="none" height="30" id="cell" stroke-width="2" width="30"></rect>
-        </defs>
-        <text class="code-like" x="20" y="28">
-          // Create slice
-        </text>
-        <text class="code-like" x="20" y="50">
-          s := a[1:3]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="45">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="45">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="45">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="45">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="45">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="30"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="45">
-          5
-        </text>
-        <use style="stroke: red" x="252" xlink:href="#cell" y="32"></use>
-        <use style="stroke: red" x="282" xlink:href="#cell" y="32"></use>
-        <text class="code-like" x="20" y="98">
-          // Extend length
-        </text>
-        <text class="code-like" x="20" y="120">
-          s = s[0:4]
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="220" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="235" y="115">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="250" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="265" y="115">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="280" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="295" y="115">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="310" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="325" y="115">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="340" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="355" y="115">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="370" xlink:href="#cell" y="100"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="385" y="115">
-          5
-        </text>
-        <use style="stroke: red" x="252" xlink:href="#cell" y="102"></use>
-        <use style="stroke: red" x="282" xlink:href="#cell" y="102"></use>
-        <use style="stroke: red" x="312" xlink:href="#cell" y="102"></use>
-        <use style="stroke: red" x="342" xlink:href="#cell" y="102"></use></svg>
-      </div>
-      <p>Trying to extend beyond the capacity will cause a panic. You can not use a negative start index.</p>
-      <h2>Append</h2>
-      <p>There's a built-in function called <a href="append-explained.html"><code>append</code></a> which appends elements to a slice. It will automatically allocate a larger backing array if the capacity is exceeded.</p>
-      <div class="codeblock">
-        <svg height="200" width="520" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <rect fill="none" height="30" id="cell" stroke-width="2" width="30"></rect>
-        </defs>
-        <text class="code-like" x="20" y="27">
-          s := make([]int, 0, 3)
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="270" xlink:href="#cell" y="8"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="285" y="23">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="300" xlink:href="#cell" y="8"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="315" y="23">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="330" xlink:href="#cell" y="8"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="345" y="23">
-          0
-        </text>
-        <rect fill="none" height="30" stroke-width="2" style="stroke: red" width="3" x="272" y="10"></rect>
-        <text class="code-like" x="20" y="75">
-          s = append(s, 1)
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="270" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="285" y="71">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="300" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="315" y="71">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="330" xlink:href="#cell" y="56"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="345" y="71">
-          0
-        </text>
-        <use style="stroke: red" x="272" xlink:href="#cell" y="58"></use>
-        <text class="code-like" x="20" y="123">
-          s = append(s, 2)
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="270" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="285" y="119">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="300" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="315" y="119">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="330" xlink:href="#cell" y="104"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="345" y="119">
-          0
-        </text>
-        <use style="stroke: red" x="272" xlink:href="#cell" y="106"></use>
-        <use style="stroke: red" x="302" xlink:href="#cell" y="106"></use>
-        <text class="code-like" x="20" y="171">
-          s = append(s, 3, 4, 5)
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="270" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="285" y="167">
-          1
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="300" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="315" y="167">
-          2
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="330" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="345" y="167">
-          3
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="360" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="375" y="167">
-          4
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="390" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="405" y="167">
-          5
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="420" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="435" y="167">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="450" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="465" y="167">
-          0
-        </text>
-        <use style="stroke: rgb(120, 120, 120)" x="480" xlink:href="#cell" y="152"></use>
-        <text dominant-baseline="middle" fill="rgb(120, 120, 120)" text-anchor="middle" x="495" y="167">
-          0
-        </text>
-        <use style="stroke: red" x="272" xlink:href="#cell" y="154"></use>
-        <use style="stroke: red" x="302" xlink:href="#cell" y="154"></use>
-        <use style="stroke: red" x="332" xlink:href="#cell" y="154"></use>
-        <use style="stroke: red" x="362" xlink:href="#cell" y="154"></use>
-        <use style="stroke: red" x="392" xlink:href="#cell" y="154"></use></svg>
-      </div>
-      <h2>Zero value</h2>
-      <p>The default value of a slice is <code>nil</code>. The functions <code>len</code>, <code>cap</code> and <code>append</code> all regard <code>nil</code> as an empty slice with 0 capacity.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="go/slices-explained.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <h2>Further Reading</h2>
+        <div style="margin-bottom: 1em">
+          <a href="append-explained.html">Append function explained</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="copy-explained.html">Copy function explained</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="delete-element-slice.html">Delete an element from a slice</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="clear-slice.html">Clear a slice</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="https://blog.golang.org/go-slices-usage-and-internals"
+            >Go Slices: usage and internals</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >The Go Blog</span
+          >
+        </div>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: Slices explained</h1>
+        <p>
+          A slice is a view of an underlying array. You can use
+          <code>s[i]</code> to view and modify an element of a
+          slice&nbsp;<code>s</code>. Modifications will affect the underlying
+          array as well.
+        </p>
+        <p>
+          You may think of a slice as a
+          <strong>descriptor of an array segment</strong>:
+        </p>
+        <ul>
+          <li>
+            passing a slice as argument to a method does not cause the data to
+            be copied (as with arrays),
+          </li>
+          <li>
+            and a slice can grow and shrink within the bounds of the underlying
+            array.
+          </li>
+        </ul>
+        <h2>Create</h2>
+        <p>
+          The type of a slice is <code>[]T</code>. Here's a simple way to
+          declare and initialize a slice:
+        </p>
+        <pre><code>s := []string{"foo", "bar", "baz", "qux"}</code></pre>
+        <p>
+          Here's how to use the
+          <a href="make-slice-map-channel.html"><code>make</code></a> function
+          to create and initialize a slice with five zeroes:
+        </p>
+        <pre><code>s := make([]int, 5)
+</code></pre>
+        <p>You can also create a slice backed by an existing array.</p>
+        <div class="codeblock">
+          <svg
+            height="250"
+            width="420"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <rect
+                fill="none"
+                height="30"
+                id="cell"
+                stroke-width="2"
+                width="30"
+              ></rect>
+            </defs>
+            <text class="code-like" x="20" y="27">
+              a := [...]int{0, 1, 2, 3, 4, 5}
+            </text>
+            <text class="code-like" x="20" y="75">s1 := a[1:4]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="71"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="71"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="71"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="71"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="71"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="71"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="252" xlink:href="#cell" y="58"></use>
+            <use style="stroke: red" x="282" xlink:href="#cell" y="58"></use>
+            <use style="stroke: red" x="312" xlink:href="#cell" y="58"></use>
+            <text class="code-like" x="20" y="123">s2 := a[:4]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="119"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="119"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="119"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="119"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="119"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="119"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="222" xlink:href="#cell" y="106"></use>
+            <use style="stroke: red" x="252" xlink:href="#cell" y="106"></use>
+            <use style="stroke: red" x="282" xlink:href="#cell" y="106"></use>
+            <use style="stroke: red" x="312" xlink:href="#cell" y="106"></use>
+            <text class="code-like" x="20" y="171">s3 := a[4:]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="167"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="167"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="167"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="167"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="167"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="167"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="342" xlink:href="#cell" y="154"></use>
+            <use style="stroke: red" x="372" xlink:href="#cell" y="154"></use>
+            <text class="code-like" x="20" y="219">s4 := a[:]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="200"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="215"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="200"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="215"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="200"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="215"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="200"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="215"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="200"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="215"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="200"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="215"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="222" xlink:href="#cell" y="202"></use>
+            <use style="stroke: red" x="252" xlink:href="#cell" y="202"></use>
+            <use style="stroke: red" x="282" xlink:href="#cell" y="202"></use>
+            <use style="stroke: red" x="312" xlink:href="#cell" y="202"></use>
+            <use style="stroke: red" x="342" xlink:href="#cell" y="202"></use>
+            <use style="stroke: red" x="372" xlink:href="#cell" y="202"></use>
+          </svg>
+        </div>
+        <h2>Length and capacity</h2>
+        <div class="codeblock">
+          <svg
+            height="120"
+            width="350"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <rect
+                fill="none"
+                height="30"
+                id="cell"
+                stroke-width="2"
+                width="30"
+              ></rect>
+            </defs>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="20"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="35"
+              y="55"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="50"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="65"
+              y="55"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="80"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="95"
+              y="55"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="110"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="125"
+              y="55"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="140"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="155"
+              y="55"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="170"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="185"
+              y="55"
+            >
+              5
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="200"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="215"
+              y="55"
+            >
+              6
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="230"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="245"
+              y="55"
+            >
+              7
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="260"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="275"
+              y="55"
+            >
+              8
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="290"
+              xlink:href="#cell"
+              y="40"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="305"
+              y="55"
+            >
+              9
+            </text>
+            <use style="stroke: red" x="82" xlink:href="#cell" y="42"></use>
+            <use style="stroke: red" x="112" xlink:href="#cell" y="42"></use>
+            <use style="stroke: red" x="142" xlink:href="#cell" y="42"></use>
+            <text fill="red" x="102" y="18">length</text>
+            <path
+              d="M 82 42 m -2 -6 q 0 -5, 5 -5 l 35 0 q 5 0, 5 -5 q 0 5, 5 5 l 35 0 q 5 0, 5 5"
+              fill="none"
+              stroke="red"
+              stroke-width="2"
+            ></path>
+            <text fill="red" x="166" y="102">capacity</text>
+            <path
+              d="M 82 72 m -2 6 q 0 5, 5 5 l 110 0 q 5 0, 5 5 q 0 -5, 5 -5 l 110 0 q 5 0, 5 -5"
+              fill="none"
+              stroke="red"
+              stroke-width="2"
+            ></path>
+          </svg>
+        </div>
+        <p>
+          The <strong>length</strong> and <strong>capacity</strong> can be
+          retrieved using the built-in functions
+          <a href="https://golang.org/pkg/builtin/#len"><code>len</code></a> and
+          <a href="https://golang.org/pkg/builtin/#cap"><code>cap</code></a
+          >.
+        </p>
+        <p>
+          The
+          <a href="https://golang.org/pkg/builtin/#make"><code>make</code></a>
+          function optionally takes a capacity as a third argument.
+          <code>make([]int, 10, 100)</code> for example, is the same as
+          <code>new([100]int)[:10]</code>.
+        </p>
+        <h2>Reslice and extend</h2>
+        <p>You can slice a slice:</p>
+        <div class="codeblock">
+          <svg
+            height="160"
+            width="420"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <rect
+                fill="none"
+                height="30"
+                id="cell"
+                stroke-width="2"
+                width="30"
+              ></rect>
+            </defs>
+            <text class="code-like" x="20" y="27">// Create slice</text>
+            <text class="code-like" x="20" y="49">s := a[1:5]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="45"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="45"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="45"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="45"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="45"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="45"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="252" xlink:href="#cell" y="32"></use>
+            <use style="stroke: red" x="282" xlink:href="#cell" y="32"></use>
+            <use style="stroke: red" x="312" xlink:href="#cell" y="32"></use>
+            <use style="stroke: red" x="342" xlink:href="#cell" y="32"></use>
+            <text class="code-like" x="20" y="97">// Slice again!</text>
+            <text class="code-like" x="20" y="119">s = s[1:3]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="115"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="115"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="115"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="115"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="115"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="115"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="282" xlink:href="#cell" y="102"></use>
+            <use style="stroke: red" x="312" xlink:href="#cell" y="102"></use>
+          </svg>
+        </div>
+        <p>
+          The indices in the last line are relative to the slice itself, not to
+          the backing array. The end index is not bound by the slice's length,
+          but by it's the <strong>capacity</strong>, which means we can
+          <strong>extend the slices length</strong>:
+        </p>
+        <div class="codeblock">
+          <svg
+            height="160"
+            width="420"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <rect
+                fill="none"
+                height="30"
+                id="cell"
+                stroke-width="2"
+                width="30"
+              ></rect>
+            </defs>
+            <text class="code-like" x="20" y="28">// Create slice</text>
+            <text class="code-like" x="20" y="50">s := a[1:3]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="45"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="45"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="45"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="45"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="45"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="30"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="45"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="252" xlink:href="#cell" y="32"></use>
+            <use style="stroke: red" x="282" xlink:href="#cell" y="32"></use>
+            <text class="code-like" x="20" y="98">// Extend length</text>
+            <text class="code-like" x="20" y="120">s = s[0:4]</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="220"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="235"
+              y="115"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="250"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="265"
+              y="115"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="280"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="295"
+              y="115"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="310"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="325"
+              y="115"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="340"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="355"
+              y="115"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="370"
+              xlink:href="#cell"
+              y="100"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="385"
+              y="115"
+            >
+              5
+            </text>
+            <use style="stroke: red" x="252" xlink:href="#cell" y="102"></use>
+            <use style="stroke: red" x="282" xlink:href="#cell" y="102"></use>
+            <use style="stroke: red" x="312" xlink:href="#cell" y="102"></use>
+            <use style="stroke: red" x="342" xlink:href="#cell" y="102"></use>
+          </svg>
+        </div>
+        <p>
+          Trying to extend beyond the capacity will cause a panic. You can not
+          use a negative start index.
+        </p>
+        <h2>Append</h2>
+        <p>
+          There's a built-in function called
+          <a href="append-explained.html"><code>append</code></a> which appends
+          elements to a slice. It will automatically allocate a larger backing
+          array if the capacity is exceeded.
+        </p>
+        <div class="codeblock">
+          <svg
+            height="200"
+            width="520"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <rect
+                fill="none"
+                height="30"
+                id="cell"
+                stroke-width="2"
+                width="30"
+              ></rect>
+            </defs>
+            <text class="code-like" x="20" y="27">s := make([]int, 0, 3)</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="270"
+              xlink:href="#cell"
+              y="8"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="285"
+              y="23"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="300"
+              xlink:href="#cell"
+              y="8"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="315"
+              y="23"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="330"
+              xlink:href="#cell"
+              y="8"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="345"
+              y="23"
+            >
+              0
+            </text>
+            <rect
+              fill="none"
+              height="30"
+              stroke-width="2"
+              style="stroke: red"
+              width="3"
+              x="272"
+              y="10"
+            ></rect>
+            <text class="code-like" x="20" y="75">s = append(s, 1)</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="270"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="285"
+              y="71"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="300"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="315"
+              y="71"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="330"
+              xlink:href="#cell"
+              y="56"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="345"
+              y="71"
+            >
+              0
+            </text>
+            <use style="stroke: red" x="272" xlink:href="#cell" y="58"></use>
+            <text class="code-like" x="20" y="123">s = append(s, 2)</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="270"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="285"
+              y="119"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="300"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="315"
+              y="119"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="330"
+              xlink:href="#cell"
+              y="104"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="345"
+              y="119"
+            >
+              0
+            </text>
+            <use style="stroke: red" x="272" xlink:href="#cell" y="106"></use>
+            <use style="stroke: red" x="302" xlink:href="#cell" y="106"></use>
+            <text class="code-like" x="20" y="171">s = append(s, 3, 4, 5)</text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="270"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="285"
+              y="167"
+            >
+              1
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="300"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="315"
+              y="167"
+            >
+              2
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="330"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="345"
+              y="167"
+            >
+              3
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="360"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="375"
+              y="167"
+            >
+              4
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="390"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="405"
+              y="167"
+            >
+              5
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="420"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="435"
+              y="167"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="450"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="465"
+              y="167"
+            >
+              0
+            </text>
+            <use
+              style="stroke: rgb(120, 120, 120)"
+              x="480"
+              xlink:href="#cell"
+              y="152"
+            ></use>
+            <text
+              dominant-baseline="middle"
+              fill="rgb(120, 120, 120)"
+              text-anchor="middle"
+              x="495"
+              y="167"
+            >
+              0
+            </text>
+            <use style="stroke: red" x="272" xlink:href="#cell" y="154"></use>
+            <use style="stroke: red" x="302" xlink:href="#cell" y="154"></use>
+            <use style="stroke: red" x="332" xlink:href="#cell" y="154"></use>
+            <use style="stroke: red" x="362" xlink:href="#cell" y="154"></use>
+            <use style="stroke: red" x="392" xlink:href="#cell" y="154"></use>
+          </svg>
+        </div>
+        <h2>Zero value</h2>
+        <p>
+          The default value of a slice is <code>nil</code>. The functions
+          <code>len</code>, <code>cap</code> and <code>append</code> all regard
+          <code>nil</code> as an empty slice with 0 capacity.
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="go/slices-explained.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

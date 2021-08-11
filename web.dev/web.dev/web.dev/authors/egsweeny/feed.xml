@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Elizabeth Sweeny on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Elizabeth Sweeny</name>
+  </author>
+  <link href="https://web.dev/authors/egsweeny/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/IyB0bE6NGAvhRJkD6wRz.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Product manager for developer tools on the web platform in Chrome.</subtitle>
+  
+  
+  <entry>
+    <title>Evolving Cumulative Layout Shift in web tooling</title>
+    <link href="https://web.dev/cls-web-tooling/"/>
+    <updated>2021-06-02T00:00:00Z</updated>
+    <id>https://web.dev/cls-web-tooling/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Today we would like to share how we are evolving measurement of the
+&lt;a href=&quot;https://web.dev/cls&quot;&gt;Cumulative Layout Shift&lt;/a&gt; (CLS)
+metric across a number of Chrome&#39;s web tooling surfaces.
+For developers, these changes will better reflect the user-experience for
+&lt;a href=&quot;https://web.dev/evolving-cls/&quot;&gt;long-lived pages&lt;/a&gt;
+(such as those with infinite scroll or single-page apps).
+These updates to CLS will be rolling out to tools including Lighthouse,
+PageSpeed Insights, and Chrome UX Report.&lt;/p&gt;
+&lt;p&gt;We all wish we saw fewer layout shifts on the web.
+This is where the CLS metric has proved useful in measuring the visual stability of a web page.
+It helps to encourage sites to better set dimensions for content,
+such as images or ads,
+that may contribute to surprising jumps of content for their users.&lt;/p&gt;
+&lt;p&gt;The metric is named &amp;quot;cumulative&amp;quot;
+because the score of each individual shift is summed throughout the lifespan of a page.
+While all layout shifts on the web cause poor user experiences,
+long-lived pages like Single-Page Apps (SPAs) or infinite scroll apps naturally accumulate more CLS over time.
+By capping the aggregation to the worst &#39;window&#39; of shifts,
+CLS can now be more consistently measured regardless of session duration.&lt;/p&gt;
+&lt;p&gt;As we announced in &lt;a href=&quot;https://web.dev/evolving-cls/&quot;&gt;Evolving the CLS metric&lt;/a&gt;, we are adjusting the CLS metric to a
+&lt;a href=&quot;https://web.dev/evolving-cls/&quot;&gt;maximum session window with a 1 second gap, capped at 5 seconds&lt;/a&gt;,
+this update better reflects the user experience for long lived pages.
+With this change in place,
+70% of origins should not expect to see any CLS change at the 75th percentile,
+and the remaining 30% of origins will see an improvement.&lt;/p&gt;
+&lt;h2 id=&quot;rolling-out-the-windowing-adjustment-to-cls&quot;&gt;Rolling out the windowing adjustment to CLS &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cls-web-tooling/#rolling-out-the-windowing-adjustment-to-cls&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We&#39;ve talked about the updated CLS definition being a max session window with a 1 second gap,
+capped at 5 seconds. What does that mean for tools?&lt;/p&gt;
+&lt;p&gt;Starting today,
+this change to CLS has been rolled out across a number of Chrome&#39;s web tooling surfaces including
+Lighthouse, PageSpeed Insights, and Chrome UX Report.
+Below you can see a summary of the CLS windowing adjustment rollout,
+as well as which tools still provide the ability to benchmark against the original implementation.&lt;/p&gt;
+&lt;div class=&quot;w-table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Tool&lt;/th&gt;
+        &lt;th&gt;CLS windowing adjustment  &#39;live&#39;&lt;/th&gt;
+        &lt;th&gt;&quot;Old&quot; CLS Availability&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Lighthouse DevTools Panel&lt;/td&gt;
+        &lt;td&gt;Canary channel, 2 June 2021&lt;/td&gt;
+        &lt;td&gt;N/A&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://developers.google.com/web/tools/lighthouse#cli&quot;&gt;
+        Lighthouse CLI&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;v8, released 1 June 2021&lt;/td&gt;
+        &lt;td&gt;Available as totalCumulativeLayoutShift in Lighthouse v8&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-ci&quot;&gt;Lighthouse CI&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;v0.7.3, 3 June 2021&lt;/td&gt;
+        &lt;td&gt;N/A&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot;&gt;
+        PageSpeed Insights&lt;/a&gt; (PSI)&lt;/td&gt;
+        &lt;td&gt;1 June 2021&lt;/td&gt;
+        &lt;td&gt;NA&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://developers.google.com/speed/docs/insights/v5/get-started&quot;&gt;
+        PSI API&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;1 June 2021&lt;/td&gt;
+        &lt;td&gt;Available in the &lt;code&gt;lighthouseResult&lt;/code&gt; as &lt;code&gt;totalCumulativeLayoutShift&lt;/code&gt;. Not available in the field &lt;code&gt;loadingExperience&lt;/code&gt; data&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://web.dev/chrome-ux-report-bigquery/&quot;&gt;
+        Chrome UX Report (CrUX) - BigQuery&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;202105 dataset, published 8 June 2021&lt;/td&gt;
+        &lt;td&gt;Available as &lt;code&gt;experimental.uncapped_cumulative_layout_shift&lt;/code&gt; through 202111&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/api/reference&quot;&gt;
+        Chrome UX Report (CrUX) - API&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;1 June 2021&lt;/td&gt;
+        &lt;td&gt;After 1 June 2021, available as
+        &lt;code&gt;experimental_uncapped_cumulative_layout_shift&lt;/code&gt;
+        December 14th, 2021&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+    &lt;/tr&gt;&lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Chrome DevTools will also be updated to support the windowing adjustment shortly. The update to CLS has also been made to &lt;a href=&quot;https://search.google.com/search-console/about&quot; rel=&quot;noopener&quot;&gt;Search Console&lt;/a&gt; and will be reflective from 1 June, 2021.&lt;/p&gt;
+&lt;p&gt;For most developers,
+this change is expected to happen seamlessly with no action needed to take advantage of data from the fix.&lt;/p&gt;
+&lt;h2 id=&quot;&amp;quot;old&amp;quot;-cls&quot;&gt;&amp;quot;Old&amp;quot; CLS &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cls-web-tooling/#%22old%22-cls&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As a reminder, the &amp;quot;old&amp;quot; CLS measures layout shift over the entire lifespan of the page. As some developers may wish to monitor the older definition of CLS alongside the windowing-adjustment,
+we have good news to share: we are exposing &amp;quot;old CLS&amp;quot; in Lighthouse and CrUX.&lt;/p&gt;
+&lt;p&gt;In Lighthouse v8,
+it&#39;s available in the JSON as
+&lt;code&gt;audits[&#39;cumulative-layout-shift&#39;].details.items[0].totalCumulativeLayoutShift&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You&#39;ll find it as
+&lt;code&gt;experimental_uncapped_cumulative_layout_shift&lt;/code&gt;
+in the CrUX API and as
+&lt;code&gt;experimental.uncapped_cumulative_layout_shift&lt;/code&gt; in CrUX BigQuery.&lt;/p&gt;
+&lt;p&gt;After June 1st,
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/api/reference/rest/v1/records/queryRecord?apix_params=%7B%22resource%22%3A%7B%22origin%22%3A%22https%3A%2F%2Fweb.dev%22%2C%22metrics%22%3A%5B%22experimental_uncapped_cumulative_layout_shift%22%5D%7D%7D&quot; rel=&quot;noopener&quot;&gt;the following CrUX API request&lt;/a&gt;
+will return the &amp;quot;old CLS&amp;quot; metric:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token string&quot;&gt;&quot;origin&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://web.dev&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token string&quot;&gt;&quot;metrics&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token string&quot;&gt;&quot;experimental_uncapped_cumulative_layout_shift&quot;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;After June 8, the following
+&lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/bigquery/getting-started&quot; rel=&quot;noopener&quot;&gt;CrUX BigQuery&lt;/a&gt;
+will compare old and new CLS:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WITH&lt;/span&gt;&lt;br /&gt;  new_data &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt;&lt;br /&gt;    cls&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt;chrome&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;ux&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;report&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.202105&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    UNNEST&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;layout_instability&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cumulative_layout_shift&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;histogram&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; cls&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt;&lt;br /&gt;    origin &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;https://web.dev&#39;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token operator&quot;&gt;AND&lt;/span&gt; effective_connection_type&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;4G&#39;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token operator&quot;&gt;AND&lt;/span&gt; form_factor&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;phone&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  old_data &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt;&lt;br /&gt;    uncapped_cls&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt;chrome&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;ux&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;report&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.202105&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    UNNEST&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;experimental&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uncapped_cumulative_layout_shift&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;histogram&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bin&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; uncapped_cls&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt;&lt;br /&gt;    origin &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;https://web.dev&#39;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token operator&quot;&gt;AND&lt;/span&gt; effective_connection_type&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;4G&#39;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token operator&quot;&gt;AND&lt;/span&gt; form_factor&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;phone&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt;&lt;br /&gt;  cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;END&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;density &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; cls_density&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;  uncapped_cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;density &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; uncapped_cls_density&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt;&lt;br /&gt;  new_data&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;INNER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;JOIN&lt;/span&gt;&lt;br /&gt;  old_data&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;ON&lt;/span&gt;&lt;br /&gt;  new_data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; old_data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uncapped_cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;start&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;You will be able to continue relying on this data to be present for a period of up to 6 months,
+with &amp;quot;old CLS&amp;quot; being retired on December 14th, 2021.&lt;/p&gt;
+&lt;h2 id=&quot;updating-the-cls-weighting-in-lighthouse&quot;&gt;Updating the CLS weighting in Lighthouse &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cls-web-tooling/#updating-the-cls-weighting-in-lighthouse&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When CLS was first introduced in Lighthouse,
+it was a brand new sparkly metric.
+As such, in order to make sure developers had time to test, benchmark,
+and optimize against it, CLS was weighed less heavily in the performance score.&lt;/p&gt;
+&lt;p&gt;Now, after having had some time in the hands of developers,
+the Lighthouse score has increased the weight of CLS from 5% to 15%,
+consistent with the methodology of having Core Web Vitals
+be the most heavily weighted metrics in the Lighthouse score.&lt;/p&gt;
+&lt;p&gt;You can find the updated weightings of metrics in Lighthouse v8 in the
+&lt;a href=&quot;https://googlechrome.github.io/lighthouse/scorecalc/&quot; rel=&quot;noopener&quot;&gt;scoring calculator&lt;/a&gt;.&lt;/p&gt;
+&lt;img alt=&quot;Lighthouse scoring calculator&quot; decoding=&quot;async&quot; height=&quot;405&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/ZDZVuXt6QqfXtxkpXcPGfnygYjd2/UAslFmRMON2y5qtY1TZE.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Lighthouse 8.0&#39;s CLS implementation includes both windowing and CLS contribution from subframes. Prior to 8.0, CLS in Lighthouse didn&#39;t include subframes&#39; CLS in the metric calculation, but now does. And just for confirmation, field CLS measured by CrUX also handles windowing and subframes similarly.&lt;/p&gt;
+&lt;p&gt;Still, the primary difference between lab and field CLS is that lab CLS&#39;s window of observation ends at &amp;quot;fully loaded&amp;quot; as determined under lab conditions, whereas in the field, the window of observation extends to the entire page lifetime, including post-load activity. That said, the windowing adjustment does mitigate this difference substantially.&lt;/p&gt;
+&lt;h2 id=&quot;measuring-in-the-field-yourself&quot;&gt;Measuring in the field yourself &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cls-web-tooling/#measuring-in-the-field-yourself&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Should you wish to measure the latest CLS implementation,
+you can also record this for your field data via RUM using the &lt;a href=&quot;https://web.dev/cls/#measure-cls-in-javascript&quot;&gt;following&lt;/a&gt; PerformanceObserver snippet.&lt;/p&gt;
+&lt;p&gt;Or by relying directly on the
+&lt;a href=&quot;https://github.com/GoogleChrome/web-vitals&quot; rel=&quot;noopener&quot;&gt;Web Vitals JavaScript library&lt;/a&gt;,
+which has also been updated with this change.&lt;/p&gt;
+&lt;h2 id=&quot;additional-updates&quot;&gt;Additional updates &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cls-web-tooling/#additional-updates&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Outside of the updates to Cumulative Layout Shift,
+the following metrics-related updates have also been made to our web tooling:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We&#39;re updating to
+&lt;a href=&quot;https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/speed/metrics_changelog/2020_11_lcp.md&quot; rel=&quot;noopener&quot;&gt;the most recent definition of the Largest Contentful Paint metric&lt;/a&gt;.
+CrUX API, PSI, PSI API, Search Console will update on June 1, 2021. CrUX BigQuery will update on June 8, 2021.&lt;/li&gt;
+&lt;li&gt;In CrUX, First Contentful Paint tri-binning thresholds have been updated to be,
+Good: [0-1.8s], Needs Improvement: (1.8s-3s), Poor: [3s-∞]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/cls-web-tooling/#conclusions&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We expect this change to reflect a smooth transition for most sites and encourage you to check out
+&lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Web Vitals&lt;/a&gt; and
+&lt;a href=&quot;https://web.dev/cls-web-tooling/optimize-cls&quot;&gt;Optimize CLS&lt;/a&gt;
+for tips and tricks on how to measure and optimize your layout shifts away.
+As always, feel free to reach out on the
+&lt;a href=&quot;https://groups.google.com/g/web-vitals-feedback&quot; rel=&quot;noopener&quot;&gt;web-vitals-feedback group&lt;/a&gt;
+for feedback about the metrics and our tooling specific feedback forums for
+&lt;a href=&quot;https://github.com/GoogleChrome/lighthouse&quot; rel=&quot;noopener&quot;&gt;Lighthouse&lt;/a&gt;, and
+&lt;a href=&quot;https://groups.google.com/a/chromium.org/g/chrome-ux-report&quot; rel=&quot;noopener&quot;&gt;Chrome UX Report&lt;/a&gt;
+for tooling issues. Cheers!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;With thanks to Johannes Henkel, Rick Viscomi, Vivek Sekhar, Rachel Andrew, Milica Mihajlija, Jeff Jose and Paul Irish for their feedback.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Hero image by Barn Images / @barnimages on &lt;a href=&quot;https://unsplash.com/photos/t5YUoHW6zRo&quot; rel=&quot;noopener&quot;&gt;Unsplash&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Addy Osmani</name>
+    </author><author>
+      <name>Elizabeth Sweeny</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Tools to measure Core Web Vitals</title>
+    <link href="https://web.dev/vitals-tools/"/>
+    <updated>2020-05-28T00:00:00Z</updated>
+    <id>https://web.dev/vitals-tools/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;The recently announced &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Web Vitals&lt;/a&gt; initiative provides unified guidance about quality signals that are essential for all sites to deliver a great user experience on the web. We&#39;re happy to announce that &lt;strong&gt;all of Google&#39;s popular tools for web developers now support measurement of Core Web Vitals&lt;/strong&gt;, helping you more easily diagnose and fix user experience issues. This includes &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse&quot; rel=&quot;noopener&quot;&gt;Lighthouse&lt;/a&gt;, &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt;, &lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools&quot; rel=&quot;noopener&quot;&gt;Chrome DevTools&lt;/a&gt;, &lt;a href=&quot;https://search.google.com/search-console/about&quot; rel=&quot;noopener&quot;&gt;Search Console&lt;/a&gt;, &lt;a href=&quot;https://web.dev/measure/&quot;&gt;web.dev&#39;s measure tool&lt;/a&gt;, the &lt;a href=&quot;https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma&quot; rel=&quot;noopener&quot;&gt;Web Vitals Chrome extension&lt;/a&gt; and a new (!) &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report&quot; rel=&quot;noopener&quot;&gt;Chrome UX Report&lt;/a&gt; API.&lt;/p&gt;
+&lt;p&gt;With Google Search now including Core Web Vitals as the foundation for evaluating &lt;a href=&quot;https://webmasters.googleblog.com/2020/05/evaluating-page-experience.html&quot; rel=&quot;noopener&quot;&gt;page experience&lt;/a&gt;, it&#39;s important that these metrics are as available and actionable as possible.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Summary of Chrome and Search Tools that support the Core Web Vitals metrics&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;509&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/V00vjrHmwzljYo04f3d3.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;w-aside w-aside--key-term&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Key Term&lt;/strong&gt;:
+&lt;strong&gt;Lab tools&lt;/strong&gt; provide insight into how a &lt;em&gt;potential user&lt;/em&gt; will likely experience your website and offer reproducible results for debugging. &lt;strong&gt;Field&lt;/strong&gt; tools provide insight into how your &lt;em&gt;real users&lt;/em&gt; are experiencing your website; this type of measurement is often called Real User Monitoring (RUM). Each &lt;a href=&quot;https://web.dev/how-to-measure-speed/#lab-data-vs-field-data&quot;&gt;lab or field tool&lt;/a&gt; offers distinct value for optimizing your user experience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;To begin your journey optimizing user-experience with Core Web Vitals, try the following workflow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Search Console&#39;s new Core Web Vitals report to identify groups of pages that require attention (based on the field data).&lt;/li&gt;
+&lt;li&gt;Once you&#39;ve identified pages that need work, use PageSpeed Insights (powered by Lighthouse and Chrome UX Report) to diagnose lab and field issues on a page. PageSpeed Insights (PSI) is available via Search Console or you can enter a URL on PSI directly.&lt;/li&gt;
+&lt;li&gt;Ready to optimize your site locally in the lab? Use Lighthouse and Chrome DevTools to measure Core Web Vitals and get actionable guidance on exactly what to fix. The Web Vitals Chrome extension can give you a real-time view of metrics on desktop.&lt;/li&gt;
+&lt;li&gt;Need a custom dashboard of Core Web Vitals? Use the updated CrUX Dashboard or new Chrome UX Report API for field data or PageSpeed Insights API for lab data.&lt;/li&gt;
+&lt;li&gt;Looking for guidance? web.dev/measure can measure your page and show you a prioritized set of guides and codelabs for optimization, using PSI data.&lt;/li&gt;
+&lt;li&gt;Finally, use Lighthouse CI on pull requests to ensure there are no regressions in Core Web Vitals before you deploy a change to production.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With that introduction, let&#39;s dive into the specific updates for each tool!&lt;/p&gt;
+&lt;h3 id=&quot;lighthouse&quot;&gt;Lighthouse &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#lighthouse&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Lighthouse is an automated website auditing tool that helps developers diagnose issues and identify opportunities to improve the user experience of their sites. It measures several dimensions of user experience quality in a lab environment, including performance and accessibility. The latest version of Lighthouse (&lt;a href=&quot;https://web.dev/lighthouse-whats-new-6.0/&quot;&gt;6.0&lt;/a&gt;, released mid-May 2020) includes additional audits, new metrics, and a newly composed performance score.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Lighthouse 6.0 showing the latest Core Web Vitals metrics&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;527&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/4j72CWywp2D88Xti8zBf.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;Lighthouse 6.0 introduces three new metrics to the report. Two of these new metrics—&lt;a href=&quot;https://web.dev/lcp/&quot;&gt;Largest Contentful Paint&lt;/a&gt; (LCP) and &lt;a href=&quot;https://web.dev/cls/&quot;&gt;Cumulative Layout Shift&lt;/a&gt; (CLS)—are lab implementations of Core Web Vitals and provide important diagnostic information for optimizing user experience. Given their importance for assessing user experience, the new metrics are not only measured and included in the report, they are also factored in calculating the performance score.&lt;/p&gt;
+&lt;p&gt;The third new metric included in Lighthouse—&lt;a href=&quot;https://web.dev/tbt/&quot;&gt;Total Blocking Time&lt;/a&gt; (TBT)—correlates well with the field metric &lt;a href=&quot;https://web.dev/fid/&quot;&gt;First Input Delay&lt;/a&gt; (FID), another Core Web Vitals metric. Following the recommendations provided in the Lighthouse report and optimizing against your scores sets you up to provide the best possible experience to your users.&lt;/p&gt;
+&lt;p&gt;All of the products that Lighthouse powers are updated to reflect the latest version, including &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-ci&quot; rel=&quot;noopener&quot;&gt;Lighthouse CI&lt;/a&gt; which enables you to easily measure your Core Web Vitals on pull requests before they&#39;re merged and deployed.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Lighthouse CI displaying a diff view with Largest Contentful Paint&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;498&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/aOm5ZAIUbspjcyRMIXbn.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;To learn more about the latest updates to Lighthouse, check out our
+&lt;a href=&quot;https://web.dev/lighthouse-whats-new-6.0/&quot;&gt;What&#39;s New in Lighthouse 6.0&lt;/a&gt; blog post.&lt;/p&gt;
+&lt;h3 id=&quot;pagespeed-insights&quot;&gt;PageSpeed Insights &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#pagespeed-insights&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights&lt;/a&gt; (PSI) reports on the lab and field performance of a page on both mobile and desktop devices. The tool provides an overview of how real-world users experience the page (powered by the Chrome UX Report) and a set of actionable recommendations on how a site owner can improve page experience (provided by Lighthouse).&lt;/p&gt;
+&lt;p&gt;PageSpeed Insights and the &lt;a href=&quot;https://developers.google.com/speed/docs/insights/v5/get-started&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights API&lt;/a&gt; have also been upgraded to use Lighthouse 6.0 under the hood and now support measuring Core Web Vitals in both the lab and field sections of the report! Core Web Vitals are annotated with a blue ribbon as shown below.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;PageSpeed Insights with Core Web Vitals data displayed for field and lab&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;873&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/l1posckVsR7JeVGnk6Jv.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;While &lt;a href=&quot;https://search.google.com/search-console/&quot; rel=&quot;noopener&quot;&gt;Search Console&lt;/a&gt; provides site owners with a great overview of groups of pages that need attention, PSI helps identify per-page opportunities to improve page experience. In PSI, you are able to clearly see whether or not your page meets the thresholds for a good experience across all Core Web Vitals at the top of the report, indicated by &lt;strong&gt;passes the Core Web Vitals assessment&lt;/strong&gt; or &lt;strong&gt;does not pass the Core Web Vitals assessment&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;crux&quot;&gt;CrUX &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#crux&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/&quot; rel=&quot;noopener&quot;&gt;Chrome UX Report&lt;/a&gt; (CrUX) is a public dataset of real user experience data on millions of websites. It measures field versions of all the Core Web Vitals. Unlike lab data, CrUX data comes from &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/#methodology&quot; rel=&quot;noopener&quot;&gt;opted-in users&lt;/a&gt; in the field. Using this data, developers are able to understand the distribution of real-world user experiences on their own or even competitors&#39; websites. Even if you don&#39;t have RUM on your site, CrUX can provide a quick and easy way to assess your Core Web Vitals. The &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/bigquery/getting-started&quot; rel=&quot;noopener&quot;&gt;CrUX dataset on BigQuery&lt;/a&gt; includes fine-grained performance data for all Core Web Vitals and is available in monthly snapshots at the origin-level.&lt;/p&gt;
+&lt;p&gt;The only way to truly know how your site performs for your users is to actually measure its performance in the field as those users are loading and interacting with it. This type of measurement is commonly referred to as Real User Monitoring—or RUM for short. Even if you don&#39;t have RUM on your site, CrUX can provide a quick and easy way to assess your Core Web Vitals.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Introducing the CrUX API&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Today we&#39;re happy to announce the &lt;a href=&quot;http://developers.google.com/web/tools/chrome-user-experience-report/api/reference/&quot; rel=&quot;noopener&quot;&gt;CrUX API&lt;/a&gt;, a fast and free way to easily integrate your development workflows with origin and URL-level quality measurement for the following field metrics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Largest Contentful Paint&lt;/li&gt;
+&lt;li&gt;Cumulative Layout Shift&lt;/li&gt;
+&lt;li&gt;First Input Delay&lt;/li&gt;
+&lt;li&gt;First Contentful Paint&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Developers can query for an origin or URL and segment results by different form factors. The API updates daily and summarizes the previous 28 days worth of data (unlike the BigQuery dataset, which is aggregated monthly). The API also has the same relaxed public API quotas we place on our other API, the PageSpeed Insights API (25,000 requests per day).&lt;/p&gt;
+&lt;p&gt;Below is a &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started&quot; rel=&quot;noopener&quot;&gt;demo&lt;/a&gt; using the CrUX API to visualize the Core Web Vitals metrics with distributions for &lt;strong&gt;good&lt;/strong&gt;, &lt;strong&gt;needs improvement&lt;/strong&gt;, and &lt;strong&gt;poor&lt;/strong&gt;:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Chrome User Experience Report API demo showing Core Web Vitals metrics&quot; class=&quot;w-screenshot w-screenshot--filled&quot; decoding=&quot;async&quot; height=&quot;523&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/ye3CMKfacSItYA2lqItP.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;In future releases, we plan to expand the API to enable access to additional CrUX dataset dimensions and metrics.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Revamped CrUX Dashboard&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The newly redesigned &lt;a href=&quot;http://g.co/chromeuxdash&quot; rel=&quot;noopener&quot;&gt;CrUX Dashboard&lt;/a&gt; allows you to easily track an origin&#39;s performance over time, and now you can use it to monitor the distributions of all of the Core Web Vitals metrics. To get started with the dashboard, check out our &lt;a href=&quot;https://web.dev/chrome-ux-report-data-studio-dashboard/&quot;&gt;tutorial&lt;/a&gt; on web.dev.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Chrome UX Report dashboard displaying the Core Web Vitals metrics in a new landing page&quot; class=&quot;w-screenshot w-screenshot--filled&quot; decoding=&quot;async&quot; height=&quot;497&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/OjbICyhI21RNfGXrFP1x.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;We&#39;ve introduced a new Core Web Vitals landing page to make it even easier to see how your site is performing at a glance. We welcome your feedback on all CrUX tooling; to share your thoughts and questions reach us at the &lt;a href=&quot;https://twitter.com/chromeuxreport&quot; rel=&quot;noopener&quot;&gt;@ChromeUXReport&lt;/a&gt; Twitter account or &lt;a href=&quot;https://groups.google.com/a/chromium.org/g/chrome-ux-report&quot; rel=&quot;noopener&quot;&gt;Google Group&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;chrome-devtools-performance-panel&quot;&gt;Chrome DevTools Performance panel &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#chrome-devtools-performance-panel&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Debug Layout Shift events in the Experience section&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The Chrome DevTools &lt;strong&gt;Performance&lt;/strong&gt; panel has a new &lt;strong&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2020/05/devtools#cls&quot; rel=&quot;noopener&quot;&gt;Experience section&lt;/a&gt;&lt;/strong&gt; that can help you detect unexpected layout shifts. This is helpful for finding and fixing visual instability issues on your page that contribute to Cumulative Layout Shift.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Cumulative Layout Shift displayed with red records in the Performance panel&quot; class=&quot;w-screenshot w-screenshot--filled&quot; decoding=&quot;async&quot; height=&quot;517&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/VMbZAgKCi5V6FiQyu631.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;Select a Layout Shift to view its details in the &lt;strong&gt;Summary&lt;/strong&gt; tab. To visualize where the shift itself occurred, hover over the &lt;strong&gt;Moved from&lt;/strong&gt; and &lt;strong&gt;Moved to&lt;/strong&gt; fields.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Debug interaction readiness with Total Blocking Time in the footer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The Total Blocking Time (TBT) metric can be measured in lab tools and is an excellent proxy for First Input Delay. TBT measures the total amount of time between &lt;a href=&quot;https://web.dev/fcp/&quot;&gt;First Contentful Paint (FCP)&lt;/a&gt; and &lt;a href=&quot;https://web.dev/tti/&quot;&gt;Time to Interactive (TTI)&lt;/a&gt; where the main thread was blocked for long enough to prevent input responsiveness. Performance optimizations that improve TBT in the lab should improve FID in the field.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Total Blocking Time displayed in the footer of the DevTools performance panel&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;517&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/WufuLpvrZfgbRn70C74V.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;TBT is now shown in the footer of the Chrome DevTools &lt;strong&gt;Performance&lt;/strong&gt; panel when you measure page performance:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Press &lt;code&gt;Control+Shift+J&lt;/code&gt; (or &lt;code&gt;Command+Option+J&lt;/code&gt; on Mac) to open DevTools.&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;Performance&lt;/strong&gt; tab.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Record&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Manually reload the page.&lt;/li&gt;
+&lt;li&gt;Wait for the page to load and then stop recording.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For more information, see &lt;a href=&quot;https://developers.google.com/web/updates/2020/05/devtools#cls&quot; rel=&quot;noopener&quot;&gt;What&#39;s New In DevTools (Chrome 84)&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;search-console&quot;&gt;Search Console &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#search-console&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The new &lt;a href=&quot;https://support.google.com/webmasters/answer/9205520&quot; rel=&quot;noopener&quot;&gt;Core Web Vitals report&lt;/a&gt; in Search Console helps you identify groups of pages across your site that require attention, based on real-world (field) data from CrUX. URL performance is grouped by status, metric type and URL group (groups of similar web pages).&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Search Console&amp;#x27;s new Core Web Vitals Report&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;1000&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/BjTUt0xdWXD9hrLsbhLK.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;The report is based on the three Core Web Vitals metrics: LCP, FID, and CLS.  If a URL does not have a minimum amount of reporting data for these metrics, it&#39;s omitted from the report. Try the new report to get a holistic view of performance for your origin.&lt;/p&gt;
+&lt;p&gt;Once you identify a type of page that has Core Web Vitals related issues, you can use PageSpeed Insights to learn about specific optimization suggestions for representative pages.&lt;/p&gt;
+&lt;h4 id=&quot;web.dev&quot;&gt;web.dev &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#web.dev&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://web.dev/measure/&quot;&gt;web.dev/measure&lt;/a&gt; allows you to measure the performance of your page over time, providing a prioritized list of guides and codelabs on how to improve. It&#39;s measurement is powered by PageSpeed Insights. The measure tool now also supports the Core Web Vitals metrics, as shown below:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Measure Core Web Vitals metrics over time and get prioritized guidance with the web.dev measure tool&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;459&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/ryoV1T1PhxUmo9zdCsDe.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;web-vitals-extension&quot;&gt;Web Vitals extension &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#web-vitals-extension&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The Web Vitals extension measures the three Core Web Vitals metrics in real-time for (desktop) Google Chrome. This is helpful for catching issues early on during your development workflow and as a diagnostic tool to assess performance of Core Web Vitals as you browse the web.&lt;/p&gt;
+&lt;p&gt;The extension is now available to install from the &lt;a href=&quot;https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en&quot; rel=&quot;noopener&quot;&gt;Chrome Web Store&lt;/a&gt;! We hope you find it useful. We welcome any contributions to improve it as well as feedback on the project&#39;s &lt;a href=&quot;https://github.com/GoogleChrome/web-vitals-extension/&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt; repository.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Core Web Vitals displayed in real-time with the Web Vitals Chrome Extension&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;459&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/woROdEmNV4jlHDPryjBQ.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;h4 id=&quot;quick-highlights&quot;&gt;Quick highlights &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vitals-tools/#quick-highlights&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;That&#39;s a wrap! What can you do next:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;Lighthouse&lt;/strong&gt; in DevTools to optimize your user experience and ensure you are setting yourself up for success with Core Web Vitals in the field.&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;PageSpeed Insights&lt;/strong&gt; to compare your lab and field Core Web Vitals performance.&lt;/li&gt;
+&lt;li&gt;Try out the new &lt;strong&gt;Chrome User Experience Report API&lt;/strong&gt; to easily access how well your origin and URL have performed against Core Web Vitals over the last 28 days.&lt;/li&gt;
+&lt;li&gt;Use the &lt;strong&gt;Experience&lt;/strong&gt; section and footer in DevTools &lt;strong&gt;Performance&lt;/strong&gt; panel to dive deep and debug against specific Core Web Vitals.&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;Search Console&#39;s Core Web Vitals report&lt;/strong&gt; for a summary of how your origins are performing in the field.&lt;/li&gt;
+&lt;li&gt;Use the &lt;strong&gt;Web Vitals Extension&lt;/strong&gt; to track a page&#39;s performance against Core Web Vitals in real-time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+&lt;dt&gt;We will cover more about our Core Web Vitals tooling at &lt;a href=&quot;https://web.dev/live/&quot;&gt;web.dev Live&lt;/a&gt; in June. Sign up to get updates on the event!&lt;/dt&gt;
+&lt;dd&gt;by Elizabeth and Addy, WebPerf Janitors&lt;/dd&gt;
+&lt;/dl&gt;
+</content>
+    <author>
+      <name>Addy Osmani</name>
+    </author><author>
+      <name>Elizabeth Sweeny</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Lighthouse evolution: continuous integration, new performance score formula, and more</title>
+    <link href="https://web.dev/lighthouse-evolution-cds-2019/"/>
+    <updated>2019-12-16T00:00:00Z</updated>
+    <id>https://web.dev/lighthouse-evolution-cds-2019/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;In the &lt;a href=&quot;https://youtu.be/iaWLXf1FgI0&quot; rel=&quot;noopener&quot;&gt;Speed Tooling Evolutions&lt;/a&gt; talk at Chrome
+Developer Summit (CDS), Paul Irish and I presented the newest products and
+features coming from Google that can help you build and maintain an exceptionally fast experience for all your users. At the center of that story
+are additions to the &lt;a href=&quot;https://developers.google.com/web/tools/lighthouse&quot; rel=&quot;noopener&quot;&gt;Lighthouse&lt;/a&gt; family of performance monitoring tools.&lt;/p&gt;
+&lt;h2 id=&quot;lighthouse-ci-alpha-release&quot;&gt;Lighthouse CI alpha release &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lighthouse-evolution-cds-2019/#lighthouse-ci-alpha-release&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The Lighthouse team has launched the alpha version of &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-ci&quot; rel=&quot;noopener&quot;&gt;Lighthouse
+CI&lt;/a&gt; the new continuous
+integration product that enables you to run Lighthouse on every commit before
+pushing to production. Lighthouse CI runs Lighthouse multiple times, asserts
+static audit or metric thresholds, and then uploads Lighthouse reports to a
+server for visual diffing and basic category score history. Existing
+&lt;a href=&quot;https://web.dev/use-lighthouse-for-performance-budgets&quot;&gt;budgets.json configurations&lt;/a&gt; work
+seamlessly alongside the new expressive syntax for asserting &lt;em&gt;any&lt;/em&gt; Lighthouse
+audit or category result.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Lighthouse CI report.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;356&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 400px) 400px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xvyxLU5J0bap6s0LdrD3.png?auto=format&amp;w=800 800w&quot; width=&quot;400&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;Lighthouse CI supports &lt;a href=&quot;https://travis-ci.com/&quot; rel=&quot;noopener&quot;&gt;Travis CI&lt;/a&gt;, &lt;a href=&quot;https://circleci.com/&quot; rel=&quot;noopener&quot;&gt;Circle
+CI&lt;/a&gt;, and &lt;a href=&quot;https://github.com/features/actions&quot; rel=&quot;noopener&quot;&gt;GitHub
+Actions&lt;/a&gt; out-of-the-box and any Ubuntu or
+container-based CI service with some configuration. You can install the
+Lighthouse CI server on-premise or use a &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-ci/blob/master/docs/recipes/docker-server/README.md&quot; rel=&quot;noopener&quot;&gt;docker image for instant
+setup&lt;/a&gt;.
+Free, public, temporary Lighthouse report storage is available as an alternative
+to get started right away.&lt;/p&gt;
+&lt;h2 id=&quot;coming-soon:-performance-score-updates&quot;&gt;Coming soon: Performance score updates &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lighthouse-evolution-cds-2019/#coming-soon:-performance-score-updates&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Changes are coming to the Lighthouse Performance score version 6! In version 5
+(as of November 2019), Lighthouse has five metrics that are &lt;a href=&quot;https://web.dev/performance-scoring/#weightings&quot;&gt;weighted and
+blended&lt;/a&gt; to form the 0-100 Performance score:
+&lt;a href=&quot;https://web.dev/fcp/&quot;&gt;First Contentful Paint&lt;/a&gt;, &lt;a href=&quot;https://web.dev/speed-index/&quot;&gt;Speed Index&lt;/a&gt;, &lt;a href=&quot;https://web.dev/first-meaningful-paint/&quot;&gt;First Meaningful
+Paint&lt;/a&gt;, &lt;a href=&quot;https://web.dev/interactive/&quot;&gt;Time to Interactive&lt;/a&gt;, and
+&lt;a href=&quot;https://web.dev/first-cpu-idle/&quot;&gt;First CPU Idle&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Comparison of Lighthouse performance score formulas in versions 5 and 6.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;211&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/X0u1YQC63JaPfE0DWgz8.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;See &lt;a href=&quot;https://web.dev/performance-scoring/&quot;&gt;Lighthouse performance scoring&lt;/a&gt; for detailed
+information.&lt;/p&gt;
+&lt;p&gt;In Lighthouse version 6, new metrics, &lt;a href=&quot;https://web.dev/lcp/&quot;&gt;Largest Contentful Paint (LCP)&lt;/a&gt;
+and &lt;a href=&quot;https://web.dev/tbt/&quot;&gt;Total Blocking Time (TBT)&lt;/a&gt;, are replacing First CPU Idle (FCI) and
+First Meaningful Paint (FMP). The weights of each of the five metrics will be
+adjusted to better balance different phases of load and interactivity measures.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://web.dev/cls/&quot;&gt;Cumulative Layout Shift (CLS)&lt;/a&gt; is another new metric that&#39;s
+still being finessed and should become a part of the Lighthouse Performance
+score eventually. &lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The Lighthouse team is still working to ensure that all scoring curves are
+fine-tuned, and the metrics are mature and thoroughly tested. They aim to ship
+the Lighthouse v6 Performance score in January 2020.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Performance engineers sometimes find speed tools results difficult
+to reproduce due to two discrete challenges--variability and cross-environment
+inconsistency. Variability is the issue of seeing numbers change even when the
+testing environment remains the same. Cross-environment inconsistency is the
+issue of getting different results when running tests on the same page, but in
+differing environments (for example, DevTools and PageSpeed Insights). While the
+Lighthouse team is working on ways to mitigate variability, it&#39;s helpful to
+understand &lt;a href=&quot;https://developers.google.com/web/tools/lighthouse/variability#sources_of_variability&quot; rel=&quot;noopener&quot;&gt;sources of
+variability&lt;/a&gt;
+and &lt;a href=&quot;https://developers.google.com/web/tools/lighthouse/variability#strategies_for_dealing_with_variance&quot; rel=&quot;noopener&quot;&gt;how you can deal with
+it&lt;/a&gt;.
+The Lighthouse team is also investigating calibration methods to reduce
+differences between environments, but it&#39;s fair to expect that different
+conditions and hardware lead to different measurements—at least for now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;lighthouse-stack-packs&quot;&gt;Lighthouse Stack Packs &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lighthouse-evolution-cds-2019/#lighthouse-stack-packs&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Lighthouse can automatically detect if sites use a framework or a &lt;a href=&quot;https://en.wikipedia.org/wiki/Content_management_system&quot; rel=&quot;noopener&quot;&gt;content
+management system
+(CMS)&lt;/a&gt; and include
+stack-specific advice in the report. &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-stack-packs&quot; rel=&quot;noopener&quot;&gt;Stack
+Packs&lt;/a&gt; add customized
+recommendations, curated by community experts (like you!), on top of Lighthouse
+report core audits.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Lighthouse report recommendation for deferring offscreen images in React applications.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;194&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/qdhyyYLFj0avPPHgx8in.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;At the moment, there are Stack Packs for Angular, WordPress, Magento, React, and
+AMP. To create your own Stack Pack, visit the &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-stack-packs/blob/master/CONTRIBUTING.md&quot; rel=&quot;noopener&quot;&gt;GitHub
+repo&lt;/a&gt;
+or &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse-stack-packs/issues&quot; rel=&quot;noopener&quot;&gt;contact the Lighthouse team&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;coming-soon:-lighthouse-plugins-as-chrome-extensions&quot;&gt;Coming soon: Lighthouse plugins as Chrome Extensions &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lighthouse-evolution-cds-2019/#coming-soon:-lighthouse-plugins-as-chrome-extensions&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Lighthouse plugin icon.&quot; decoding=&quot;async&quot; height=&quot;220&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 250px) 250px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/pPFz27fWWNVyT42ptr7a.png?auto=format&amp;w=500 500w&quot; width=&quot;250&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/GoogleChrome/lighthouse/blob/master/docs/plugins.md&quot; rel=&quot;noopener&quot;&gt;Lighthouse
+Plugins&lt;/a&gt;
+are another way you can take advantage of Lighthouse&#39;s extensibility. There
+are a lot of quality checks that Lighthouse core audits currently don&#39;t cover,
+either because they are only applicable to a subset of developers or because the
+team hasn&#39;t had the bandwidth to create the audits yet.&lt;/p&gt;
+&lt;p&gt;Lighthouse plugins allow community experts to implement a new set of checks that
+Lighthouse can run and add to the report as a new category. Right now, plugins
+only work in &lt;a href=&quot;https://developers.google.com/web/tools/lighthouse#cli&quot; rel=&quot;noopener&quot;&gt;Lighthouse
+CLI&lt;/a&gt;, but the goal is to
+enable running them in the DevTools &lt;strong&gt;Audits&lt;/strong&gt; panel too.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Chrome DevTools Audits panel with options for running Lighthouse plugins for Google Publisher Ads and User Experience.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;753&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 400px) 400px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/I6WOZkh3Wdbb6vk2sE4z.png?auto=format&amp;w=800 800w&quot; width=&quot;400&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Community Plugins in DevTools Audits panel (beta)&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;When users install Lighthouse plugin extensions from the &lt;a href=&quot;https://chrome.google.com/webstore/category/extensions&quot; rel=&quot;noopener&quot;&gt;Chrome Web
+Store&lt;/a&gt;, DevTools will
+identify installed plugins and offer them as an option in the &lt;strong&gt;Audits&lt;/strong&gt; panel.
+The Lighthouse team will be building the support for the plugin approach in the
+coming months, so stay tuned. In the meantime, you can create a plugin today as
+a node module and make it accessible to all Lighthouse users via the CLI!&lt;/p&gt;
+&lt;h2 id=&quot;learn-more&quot;&gt;Learn more &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/lighthouse-evolution-cds-2019/#learn-more&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;For more details about Lighthouse and other performance tooling updates from
+CDS 2019, watch the Speed tooling evolutions talk:&lt;/p&gt;
+&lt;div class=&quot;youtube&quot;&gt;  &lt;lite-youtube videoid=&quot;iaWLXf1FgI0&quot;&gt;  &lt;/lite-youtube&gt;&lt;/div&gt;
+&lt;p&gt;Your feedback is invaluable in making Lighthouse better, so go on and try out
+&lt;a href=&quot;http://bit.ly/lhci&quot; rel=&quot;noopener&quot;&gt;Lighthouse CI&lt;/a&gt;, write a &lt;a href=&quot;http://bit.ly/lh-stackpacks&quot; rel=&quot;noopener&quot;&gt;Stack
+Pack&lt;/a&gt;, or create a &lt;a href=&quot;http://bit.ly/lh-plugins&quot; rel=&quot;noopener&quot;&gt;Lighthouse
+Plugin&lt;/a&gt; and &lt;a href=&quot;https://github.com/GoogleChrome/lighthouse/issues&quot; rel=&quot;noopener&quot;&gt;let us
+know&lt;/a&gt; what you think.&lt;/p&gt;
+</content>
+    <author>
+      <name>Elizabeth Sweeny</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Speed tooling evolutions: highlights from Chrome Developer Summit 2019</title>
+    <link href="https://web.dev/speed-tooling-evolutions-cds-2019/"/>
+    <updated>2019-12-16T00:00:00Z</updated>
+    <id>https://web.dev/speed-tooling-evolutions-cds-2019/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;At Chrome Developer Summit, Paul Irish and I announced updates to
+Lighthouse—&lt;a href=&quot;https://web.dev/lighthouse-evolution-cds-2019&quot;&gt;Lighthouse CI, new performance score formula, and
+more&lt;/a&gt;. Along with big Lighthouse news, we
+presented exciting performance tooling developments including new performance
+metrics, updates to PageSpeed Insights and Chrome User Experience Report (CrUX),
+and insights from the Web Almanac&#39;s analysis of the web ecosystem.&lt;/p&gt;
+&lt;h2 id=&quot;new-performance-metrics&quot;&gt;New performance metrics &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#new-performance-metrics&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Measuring the nuances of a user&#39;s experience is the key to quantifying the
+impact it has on your bottom line and tracking improvements and regressions.
+Over time, new metrics have evolved to capture those nuances and fill in the
+gaps in measuring user experience. The newest addition to the metrics story are
+two &lt;a href=&quot;https://web.dev/user-centric-performance-metrics/#in-the-field&quot;&gt;field metrics&lt;/a&gt;—&lt;a href=&quot;https://web.dev/lcp&quot;&gt;Largest
+Contentful Paint (LCP)&lt;/a&gt; and &lt;a href=&quot;https://web.dev/cls&quot;&gt;Cumulative Layout Shift (CLS)&lt;/a&gt;—which
+are being incubated in W3C Web Performance Working Group, and a new &lt;a href=&quot;https://web.dev/user-centric-performance-metrics/#in-the-lab&quot;&gt;lab
+metric&lt;/a&gt;—&lt;a href=&quot;https://web.dev/tbt&quot;&gt;Total Blocking Time
+(TBT)&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;largest-contentful-paint-(lcp)&quot;&gt;Largest Contentful Paint (LCP) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#largest-contentful-paint-(lcp)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://web.dev/lcp/&quot;&gt;Largest Contentful Paint (LCP)&lt;/a&gt; reports the time when the largest
+content element becomes visible in the viewport.&lt;/p&gt;
+&lt;p&gt;Before Largest Contentful Paint, &lt;a href=&quot;https://web.dev/first-meaningful-paint/&quot;&gt;First Meaningful Paint
+(FMP)&lt;/a&gt; and &lt;a href=&quot;https://web.dev/speed-index/&quot;&gt;Speed Index (SI)&lt;/a&gt; served to
+capture the loading experience after the initial paint, but these metrics are
+complex and often do not identify when the main content of the page has loaded.
+Research has shown that simply looking at when &lt;a href=&quot;https://web.dev/lcp/#examples&quot;&gt;the largest element on the
+page&lt;/a&gt; is rendered better represents when the main content of a
+page is loaded.&lt;/p&gt;
+&lt;p&gt;The new Largest Contentful Paint metric will soon be available in Lighthouse
+reports and in the meantime you can &lt;a href=&quot;https://web.dev/lcp/#measure-lcp-in-javascript&quot;&gt;measure LCP in
+JavaScript&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;total-blocking-time-(tbt)&quot;&gt;Total Blocking Time (TBT) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#total-blocking-time-(tbt)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://web.dev/tbt/&quot;&gt;Total Blocking Time (TBT)&lt;/a&gt; metric measures the total amount of time
+between &lt;a href=&quot;https://web.dev/first-contentful-paint/&quot;&gt;First Contentful Paint (FCP)&lt;/a&gt; and &lt;a href=&quot;https://web.dev/interactive/&quot;&gt;Time to
+Interactive (TTI)&lt;/a&gt; where the main thread was blocked for long
+enough to prevent input responsiveness.&lt;/p&gt;
+&lt;p&gt;A &lt;a href=&quot;https://web.dev/custom-metrics/#long-tasks-api&quot;&gt;task is considered long&lt;/a&gt; if it runs on the
+main thread for more than 50 milliseconds. Any millisecond over that is counted
+towards that task&#39;s blocking time.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A diagram representing a 150 millisecond task which has 100 miliseconds of blocking time.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;292&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 633px) 633px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/73CEd4i55qCVQKdOb6iK.png?auto=format&amp;w=1266 1266w&quot; width=&quot;633&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;The Total Blocking Time for a page is the sum of the blocking times of all long
+tasks that occured between FCP and TTI.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;A diagram representing a five tasks with 60 miliseconds of total blocking time out of 270 milliseconds of main thread time.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;236&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/OGlrzhJ7ViNsywtZmUAh.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;While Time to Interactive does a good job of identifying when the main thread
+calms down later in load, Total Blocking Time aims to quantify how strained the
+main thread is throughout load. This way, TTI and TBT complement each other and
+provide balance.&lt;/p&gt;
+&lt;h3 id=&quot;cumulative-layout-shift-(cls)&quot;&gt;Cumulative Layout Shift (CLS) &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#cumulative-layout-shift-(cls)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://web.dev/cls/&quot;&gt;Cumulative Layout Shift (CLS)&lt;/a&gt; measures visual stability of a page and
+quantifies how often users experience unexpected layout shifts. Unexpected
+movement of content can be very frustrating and this new metric helps you
+address that problem by measuring how often it&#39;s occurring for your users.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video autoplay=&quot;&quot; controls=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot; poster=&quot;https://storage.googleapis.com/web-dev-assets/layout-instability-api/layout-instability-poster.png&quot; width=&quot;658&quot; height=&quot;510&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/layout-instability-api/layout-instability2.webm&quot; type=&quot;video/webm; codecs=vp8&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/layout-instability-api/layout-instability2.mp4&quot; type=&quot;video/mp4; codecs=h264&quot; /&gt;
+  &lt;/video&gt;
+  &lt;figcaption class=&quot;w-figcaption w-figcaption--fullbleed&quot;&gt;
+    A screencast illustrating how layout instability can negatively affect
+    users.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/cls&quot;&gt;detailed guide to Cumulative Layout Shift&lt;/a&gt; to learn how
+it&#39;s calculated and how to measure it.&lt;/p&gt;
+&lt;p&gt;The new Lighthouse performance score formula will soon de-emphasize FMP and FCI
+and include the three new metrics—LCP, TBT, and CLS—as they better capture when
+a page feels usable.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;In Lighthouse v6 First Contentful Paint, Speed Index, and Largest Contentful Paint are the main load performance metrics; Time To Interactive, First Input Delay, Max Potential First Input Delay, and Total Blocking Time are the main interactivity metrics; And Cumulative Layout Shift is the main predictability metric.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;375&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/wB1bqc1tymL2uPuDgqpP.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;Check out &lt;a href=&quot;https://web.dev/performance-scoring/&quot;&gt;Lighthouse performance scoring&lt;/a&gt; and the new
+&lt;a href=&quot;https://web.dev/metrics/&quot;&gt;web.dev metrics collection&lt;/a&gt; to learn more.&lt;/p&gt;
+&lt;h2 id=&quot;field-data-(crux)-thresholds-adjusted-in-pagespeed-insights&quot;&gt;Field data (CrUX) thresholds adjusted in PageSpeed Insights &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#field-data-(crux)-thresholds-adjusted-in-pagespeed-insights&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Over the past year we have been analyzing &lt;a href=&quot;https://web.dev/user-centric-performance-metrics/#in-the-field&quot;&gt;web performance from the
+field&lt;/a&gt; via &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report&quot; rel=&quot;noopener&quot;&gt;Chrome User
+Experience&lt;/a&gt;
+(CrUX) data. With insights from that data we reassessed the thresholds that we
+use to label a website &amp;quot;slow&amp;quot;, &amp;quot;moderate&amp;quot;, or &amp;quot;fast&amp;quot; in field performance.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The term &amp;quot;average&amp;quot; that used to describe sites that are in between
+&amp;quot;slow&amp;quot; and &amp;quot;fast&amp;quot; is now changed to &amp;quot;moderate&amp;quot; which is more fitting since this
+middle group was not related to a statistical average. &lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Two bar charts showing the distribution of slow, fast, and moderate speed for FCP and FID.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;200&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 748px) 748px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/jvGzonBGrlqZD2LtzaPB.png?auto=format&amp;w=1496 1496w&quot; width=&quot;748&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;In order to get an overall assessment for a site, &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights&quot; rel=&quot;noopener&quot;&gt;PageSpeed Insights
+(PSI)&lt;/a&gt; uses a certain
+percentile of the total distribution of field data as the golden number for that
+site; the previous thresholds used were 90th percentile for First Contentful
+Paint and 95th percentile for First Input Delay (FID).&lt;/p&gt;
+&lt;p&gt;For example, if a site has an FCP distribution of 50% fast, 30% moderate, 20%
+slow, the 90th percentile FCP is in the slow section, making the overall field
+score for the site slow.&lt;/p&gt;
+&lt;p&gt;This has been adjusted to have a better overall distribution across websites and
+the new breakdown is:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Metric&lt;/td&gt; &lt;td&gt;Overall Percentile&lt;/td&gt; &lt;td&gt;Fast (ms)&lt;/td&gt; &lt;td&gt;Moderate
+    (ms)&lt;/td&gt; &lt;td&gt;Slow (ms)&lt;/td&gt;
+  &lt;/tr&gt; &lt;tr&gt;
+    &lt;td&gt;FCP&lt;/td&gt; &lt;td&gt;75th percentile&lt;/td&gt; &lt;td&gt;1000&lt;/td&gt; &lt;td&gt;1000-3000&lt;/td&gt;
+    &lt;td&gt;3000+&lt;/td&gt;
+  &lt;/tr&gt; &lt;tr&gt;
+    &lt;td&gt;FID&lt;/td&gt; &lt;td&gt;95th percentile&lt;/td&gt; &lt;td&gt;100&lt;/td&gt; &lt;td&gt;100-300&lt;/td&gt;
+    &lt;td&gt;300+&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;For example, now if a site has an FCP distribution of 50% fast, 30% moderate,
+20% slow, the 75th percentile FCP is in the moderate section, making the overall
+field score for the site moderate.&lt;/p&gt;
+&lt;h2 id=&quot;canonical-url-redirects-in-pagespeed-insights&quot;&gt;Canonical URL redirects in PageSpeed Insights &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#canonical-url-redirects-in-pagespeed-insights&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To enable you to measure the user&#39;s experience as accurately as possible, the
+PageSpeed Insights team has added a reanalyze prompt to PSI. For sites that are
+redirected to a new URL, you&#39;re prompted to rerun the report on the landing URL
+for a more complete picture of your actual performance.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;PSI user interface showing the URL redirect and the &amp;#x27;Reanalyze&amp;#x27; button&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;223&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/K299AL6Ni7dO5W4ksqXF.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;crux-in-the-new-search-console-speed-report&quot;&gt;CrUX in the new Search Console Speed report &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#crux-in-the-new-search-console-speed-report&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Search Console rolled out their &lt;a href=&quot;https://webmasters.googleblog.com/2019/11/search-console-speed-report.html&quot; rel=&quot;noopener&quot;&gt;new Speed
+report&lt;/a&gt;
+a week before Chrome Dev Summit. It uses data from the Chrome User Experience
+Report to help site owners discover potential user experience problems. The
+Speed report automatically assigns groups of similar URLs into &amp;quot;Fast&amp;quot;,
+&amp;quot;Moderate,&amp;quot; and &amp;quot;Slow&amp;quot; buckets, and helps prioritize performance improvements
+for specific issues.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Search Console Speed report.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;801&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ny8QAjPaET6sIUX4z3Pz.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;web-almanac&quot;&gt;Web Almanac &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#web-almanac&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Dion Almaer presenting Web Almanac at CDS 2019.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;450&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lVldn64qc3gc5UDHeMBo.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;In the opening keynote we announced the launch of the &lt;a href=&quot;https://almanac.httparchive.org/en/2019/&quot; rel=&quot;noopener&quot;&gt;Web
+Almanac&lt;/a&gt;, an annual project that
+matches the stats and trends about the state of the web with the expertise of
+the web community. 85 contributors, made up of Chrome developers and the web
+community, have volunteered to work on the project, which analyzes 20 core
+aspects about the web addressing how sites are built, delivered, and
+experienced. Start exploring the Web Almanac to learn more about the state of &lt;a href=&quot;https://almanac.httparchive.org/en/2019/performance&quot; rel=&quot;noopener&quot;&gt;performance&lt;/a&gt;, &lt;a href=&quot;https://almanac.httparchive.org/en/2019/javascript&quot; rel=&quot;noopener&quot;&gt;JavaScript&lt;/a&gt;, and &lt;a href=&quot;https://almanac.httparchive.org/en/2019/third-parties&quot; rel=&quot;noopener&quot;&gt;third-party&lt;/a&gt; code on the web.&lt;/p&gt;
+&lt;h2 id=&quot;learn-more&quot;&gt;Learn more &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/speed-tooling-evolutions-cds-2019/#learn-more&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;For more details about performance tooling updates from
+Chrome Developer Summit, watch the Speed tooling evolutions talk:&lt;/p&gt;
+&lt;div class=&quot;youtube&quot;&gt;  &lt;lite-youtube videoid=&quot;iaWLXf1FgI0&quot;&gt;  &lt;/lite-youtube&gt;&lt;/div&gt;
+</content>
+    <author>
+      <name>Elizabeth Sweeny</name>
+    </author>
+  </entry>
+</feed>

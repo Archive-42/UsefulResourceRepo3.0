@@ -1,171 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: Data races explained | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="A data race is easily introduced by mistake and can lead to situations that are very hard to debug. This article explains how to avoid this headache." name="description">
-  <meta content="go, golang, data race, race condition, synchronize, lock, channel" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: Data races explained | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="A data race is easily introduced by mistake and can lead to situations that are very hard to debug. This article explains how to avoid this headache."
+      name="description"
+    />
+    <meta
+      content="go, golang, data race, race condition, synchronize, lock, channel"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Further Reading</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="https://research.swtch.com/gorace">Off to the Races</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">by Russ Cox</span>
-      </div>
-      <h2>Concurrency in Go</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="goroutines-explained.html">Goroutines explained</a>
-        </li>
-        <li>
-          <a href="channels-explained.html">Channels explained</a>
-        </li>
-        <li>
-          <a href="select-explained.html">Select explained</a>
-        </li>
-        <li class="current">Data races explained</li>
-        <li>
-          <a href="detect-data-races.html">Detect data races</a>
-        </li>
-        <li>
-          <a href="detect-deadlock.html">Deadlock</a>
-        </li>
-        <li>
-          <a href="wait-for-goroutines-waitgroup.html">Wait for goroutines</a>
-        </li>
-        <li>
-          <a href="broadcast-channel.html">Broadcast a signal on a channel</a>
-        </li>
-        <li>
-          <a href="stop-goroutine.html">Stop a goroutine</a>
-        </li>
-        <li>
-          <a href="time-reset-wait-stop-timeout-cancel-interval.html">Timer and Ticker explained</a>
-        </li>
-        <li>
-          <a href="mutex-explained.html">Mutual exclusion lock (mutex)</a>
-        </li>
-        <li>
-          <a href="efficient-parallel-computation.html">Efficient parallel computation</a>
-        </li>
-      </ol>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: Data races explained</h1>
-      <p>A <strong>data&nbsp;race</strong> happens when two goroutines access the same variable concur­rently, and at least one of the accesses is a&nbsp;write.</p>
-      <div style="text-align: center; padding: 1em;">
-        <img alt="Two cars racing, illustrating a data race" src="data-races-explained/data-race.svg" style="width: 25em; border: 1px solid black;">
-        <div style="font-style: italic">
-          The output of the program is subject to scheduling.
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
         </div>
-      </div>
-      <p>Data races can easily be introduced by mistake and often result in situations that are hard to debug.</p>
-      <p>The function below has a data race and it's behavior is not deterministic. It may, for example, print the number&nbsp;1. Try to figure out how that can happen. One possible explanation comes after the&nbsp;code.</p>
-      <pre><code>func race() {
+        <h2>Further Reading</h2>
+        <div style="margin-bottom: 1em">
+          <a href="https://research.swtch.com/gorace">Off to the Races</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >by Russ Cox</span
+          >
+        </div>
+        <h2>Concurrency in Go</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="goroutines-explained.html">Goroutines explained</a>
+          </li>
+          <li>
+            <a href="channels-explained.html">Channels explained</a>
+          </li>
+          <li>
+            <a href="select-explained.html">Select explained</a>
+          </li>
+          <li class="current">Data races explained</li>
+          <li>
+            <a href="detect-data-races.html">Detect data races</a>
+          </li>
+          <li>
+            <a href="detect-deadlock.html">Deadlock</a>
+          </li>
+          <li>
+            <a href="wait-for-goroutines-waitgroup.html">Wait for goroutines</a>
+          </li>
+          <li>
+            <a href="broadcast-channel.html">Broadcast a signal on a channel</a>
+          </li>
+          <li>
+            <a href="stop-goroutine.html">Stop a goroutine</a>
+          </li>
+          <li>
+            <a href="time-reset-wait-stop-timeout-cancel-interval.html"
+              >Timer and Ticker explained</a
+            >
+          </li>
+          <li>
+            <a href="mutex-explained.html">Mutual exclusion lock (mutex)</a>
+          </li>
+          <li>
+            <a href="efficient-parallel-computation.html"
+              >Efficient parallel computation</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: Data races explained</h1>
+        <p>
+          A <strong>data&nbsp;race</strong> happens when two goroutines access
+          the same variable concur­rently, and at least one of the accesses is
+          a&nbsp;write.
+        </p>
+        <div style="text-align: center; padding: 1em">
+          <img
+            alt="Two cars racing, illustrating a data race"
+            src="data-races-explained/data-race.svg"
+            style="width: 25em; border: 1px solid black"
+          />
+          <div style="font-style: italic">
+            The output of the program is subject to scheduling.
+          </div>
+        </div>
+        <p>
+          Data races can easily be introduced by mistake and often result in
+          situations that are hard to debug.
+        </p>
+        <p>
+          The function below has a data race and it's behavior is not
+          deterministic. It may, for example, print the number&nbsp;1. Try to
+          figure out how that can happen. One possible explanation comes after
+          the&nbsp;code.
+        </p>
+        <pre><code>func race() {
         wait := make(chan struct{})
         n := 0
         go func() {
@@ -176,59 +263,116 @@
         &lt;-wait
         fmt.Println(n) <span class="comment">// Output: ?</span>
 }</code></pre>
-      <p>The two goroutines, g1 and g2, participate in a race and there is no way to know in which order the operations will take place. The following is one out of many possible outcomes.</p>
-      <div style="margin: 0 auto;">
-        <table class="column" style="width: auto;">
-          <thead>
-            <tr>
-              <th>g1</th>
-              <th>g2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Read the value 0 from&nbsp;<code>n</code>.</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Read the value&nbsp;0 from&nbsp;<code>n</code>.</td>
-            </tr>
-            <tr>
-              <td>Incre­ment value from&nbsp;0 to&nbsp;1.</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Write 1 to&nbsp;<code>n</code>.</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Incre­ment value from&nbsp;0 to&nbsp;1.</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Write 1 to&nbsp;<code>n</code>.</td>
-            </tr>
-            <tr>
-              <td>Print <code>n</code>, which is now&nbsp;1.</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>The name "data race" is somewhat misleading. Not only is the scheduling of different threads undefined; instructions within a single thread may even be reordered! Here's what the spec says:</p>
-      <blockquote>
-        <p>Within a single goroutine, reads and writes must behave as if they executed in the order specified by the program. That is, compilers and processors may reorder the reads and writes executed within a single goroutine only when the reordering does not change the behavior within that goroutine as defined by the language specification. Because of this reordering, the execution order observed by one goroutine may differ from the order perceived by another. For example, if one goroutine executes <code>a = 1; b = 2;</code>, another might observe the updated value of <code>b</code> before the updated value of <code>a</code>. <a class="quote-source" href="https://golang.org/ref/mem">The Go Memory Model: Happens Before</a></p>
-      </blockquote>
-      <p>In addition to this type of instruction reordering, a thread is allowed to <strong>cache</strong> previously read values until the next synchronization point. This means for instance that a snippet like <code>for&nbsp;!done&nbsp;{&nbsp;}</code> (that never synchronizes) may continue looping for ever, even if another thread sets <code>done</code> to <code>true</code>.</p>
-      <p>It gets worse. Reads and writes of values larger than a single machine word behave as multiple machine-word-sized operations. This means that a thread could read a variable and, if unlucky, observe a value that has never been written to that variable.</p>
-      <p>While the above gives rise to surprising behaviors in multithreaded programs, it allows for optimizations and more efficient execution of individual threads.</p>
-      <p><strong>Conclusion</strong>: it's <em>very</em> hard to reason about programs with data races.</p>
-      <h2>How to avoid data races</h2>
-      <p>The only way to avoid data races is to synchronize access to all mutable data that is shared between threads. There are several ways to achieve this. In Go, you would normally use a <strong>channel</strong> or a <strong>lock</strong>. (Lower-lever mechanisms are available in the <a href="https://golang.org/pkg/sync/"><code>sync</code></a> and <a href="https://golang.org/pkg/sync/atomic/"><code>sync/atomic</code></a> packages.)</p>
-      <p>The preferred way to handle concurrent data access in Go is to use a channel to pass the actual data from one goroutine to the next. The motto is: "Don’t communicate by sharing memory; share memory by communicating."</p>
-      <pre><code>func sharingIsCaring() {
+        <p>
+          The two goroutines, g1 and g2, participate in a race and there is no
+          way to know in which order the operations will take place. The
+          following is one out of many possible outcomes.
+        </p>
+        <div style="margin: 0 auto">
+          <table class="column" style="width: auto">
+            <thead>
+              <tr>
+                <th>g1</th>
+                <th>g2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Read the value 0 from&nbsp;<code>n</code>.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Read the value&nbsp;0 from&nbsp;<code>n</code>.</td>
+              </tr>
+              <tr>
+                <td>Incre­ment value from&nbsp;0 to&nbsp;1.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Write 1 to&nbsp;<code>n</code>.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Incre­ment value from&nbsp;0 to&nbsp;1.</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Write 1 to&nbsp;<code>n</code>.</td>
+              </tr>
+              <tr>
+                <td>Print <code>n</code>, which is now&nbsp;1.</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The name "data race" is somewhat misleading. Not only is the
+          scheduling of different threads undefined; instructions within a
+          single thread may even be reordered! Here's what the spec says:
+        </p>
+        <blockquote>
+          <p>
+            Within a single goroutine, reads and writes must behave as if they
+            executed in the order specified by the program. That is, compilers
+            and processors may reorder the reads and writes executed within a
+            single goroutine only when the reordering does not change the
+            behavior within that goroutine as defined by the language
+            specification. Because of this reordering, the execution order
+            observed by one goroutine may differ from the order perceived by
+            another. For example, if one goroutine executes
+            <code>a = 1; b = 2;</code>, another might observe the updated value
+            of <code>b</code> before the updated value of <code>a</code>.
+            <a class="quote-source" href="https://golang.org/ref/mem"
+              >The Go Memory Model: Happens Before</a
+            >
+          </p>
+        </blockquote>
+        <p>
+          In addition to this type of instruction reordering, a thread is
+          allowed to <strong>cache</strong> previously read values until the
+          next synchronization point. This means for instance that a snippet
+          like <code>for&nbsp;!done&nbsp;{&nbsp;}</code> (that never
+          synchronizes) may continue looping for ever, even if another thread
+          sets <code>done</code> to <code>true</code>.
+        </p>
+        <p>
+          It gets worse. Reads and writes of values larger than a single machine
+          word behave as multiple machine-word-sized operations. This means that
+          a thread could read a variable and, if unlucky, observe a value that
+          has never been written to that variable.
+        </p>
+        <p>
+          While the above gives rise to surprising behaviors in multithreaded
+          programs, it allows for optimizations and more efficient execution of
+          individual threads.
+        </p>
+        <p>
+          <strong>Conclusion</strong>: it's <em>very</em> hard to reason about
+          programs with data races.
+        </p>
+        <h2>How to avoid data races</h2>
+        <p>
+          The only way to avoid data races is to synchronize access to all
+          mutable data that is shared between threads. There are several ways to
+          achieve this. In Go, you would normally use a
+          <strong>channel</strong> or a <strong>lock</strong>. (Lower-lever
+          mechanisms are available in the
+          <a href="https://golang.org/pkg/sync/"><code>sync</code></a> and
+          <a href="https://golang.org/pkg/sync/atomic/"
+            ><code>sync/atomic</code></a
+          >
+          packages.)
+        </p>
+        <p>
+          The preferred way to handle concurrent data access in Go is to use a
+          channel to pass the actual data from one goroutine to the next. The
+          motto is: "Don’t communicate by sharing memory; share memory by
+          communicating."
+        </p>
+        <pre><code>func sharingIsCaring() {
         ch := make(chan int)
         go func() {
                 n := 0 <span class="comment">// A local variable is only visible to one goroutine.</span>
@@ -239,66 +383,86 @@
         n++
         fmt.Println(n) <span class="comment">// Output: 2</span>
 }</code></pre>
-      <p>In this code the channel does double duty:</p>
-      <ul>
-        <li>it passes the data from one goroutine to another,</li>
-        <li>and it acts as a point of synchronization.</li>
-      </ul>
-      <p>The sending goroutine will wait for the other goroutine to receive the data and the receiving goroutine will wait for the other goroutine to send the data.</p>
-      <div class="prev-next-container">
-        <!-- PREV -->
-         <a class="prev" href="select-explained.html">
-        <div class="button-content">
-          « Prev
-          <div class="prev-next-text">
-            Select explained
-          </div>
-        </div></a> <!-- TOC -->
-         <a href="go-concurrency-tutorial.html#toc">
-        <div class="button-content">
-          TOC
-          <div class="prev-next-text">
-            Concurrency in Go
-          </div>
-          <div class="prev-next-text" style="font-weight: normal">
-            4&nbsp;of&nbsp;12
-          </div>
-        </div></a> <!-- NEXT -->
-         <a class="next" href="detect-data-races.html">
-        <div class="button-content">
-          Next »
-          <div class="prev-next-text">
-            Detect data races
-          </div>
-        </div></a>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>In this code the channel does double duty:</p>
+        <ul>
+          <li>it passes the data from one goroutine to another,</li>
+          <li>and it acts as a point of synchronization.</li>
+        </ul>
+        <p>
+          The sending goroutine will wait for the other goroutine to receive the
+          data and the receiving goroutine will wait for the other goroutine to
+          send the data.
+        </p>
+        <div class="prev-next-container">
+          <!-- PREV -->
+          <a class="prev" href="select-explained.html">
+            <div class="button-content">
+              « Prev
+              <div class="prev-next-text">Select explained</div>
+            </div></a
+          >
+          <!-- TOC -->
+          <a href="go-concurrency-tutorial.html#toc">
+            <div class="button-content">
+              TOC
+              <div class="prev-next-text">Concurrency in Go</div>
+              <div class="prev-next-text" style="font-weight: normal">
+                4&nbsp;of&nbsp;12
+              </div>
+            </div></a
+          >
+          <!-- NEXT -->
+          <a class="next" href="detect-data-races.html">
+            <div class="button-content">
+              Next »
+              <div class="prev-next-text">Detect data races</div>
+            </div></a
+          >
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="go/data-races-explained.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="go/data-races-explained.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

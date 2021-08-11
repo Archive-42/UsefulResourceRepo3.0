@@ -1,249 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java: for each loop | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="For each loops are written as 'for (Type x : iterable) { ... }' and can be used to iterate over arrays or collections." name="description">
-  <meta content="java, loops, for each, iterate collection, iterate array, for in" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java: for each loop | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="For each loops are written as 'for (Type x : iterable) { ... }' and can be used to iterate over arrays or collections."
+      name="description"
+    />
+    <meta
+      content="java, loops, for each, iterate collection, iterate array, for in"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Loops in Java</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="while-loop.html">while loop</a>
-        </li>
-        <li>
-          <a href="for-loop.html">for loop</a>
-        </li>
-        <li class="current">for each loop</li>
-        <li>
-          <a href="do-while-loop.html">do…while loop</a>
-        </li>
-        <li>
-          <a href="break-loop.html">break</a>
-        </li>
-        <li>
-          <a href="continue.html">continue</a>
-        </li>
-        <li>
-          <a href="beware-of-accidental-semicolons-in-while-and-for-loops.html">Beware of accidental semicolons in while and for loops!</a>
-        </li>
-      </ol>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java: for each loop</h1>
-      <p>The following code iterates over the elements in <code class="highlight">iterable</code>:</p>
-      <pre><code><span class="keyword">for</span> (Type elem : <span class="highlight">iterable</span>) {
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Loops in Java</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="while-loop.html">while loop</a>
+          </li>
+          <li>
+            <a href="for-loop.html">for loop</a>
+          </li>
+          <li class="current">for each loop</li>
+          <li>
+            <a href="do-while-loop.html">do…while loop</a>
+          </li>
+          <li>
+            <a href="break-loop.html">break</a>
+          </li>
+          <li>
+            <a href="continue.html">continue</a>
+          </li>
+          <li>
+            <a
+              href="beware-of-accidental-semicolons-in-while-and-for-loops.html"
+              >Beware of accidental semicolons in while and for loops!</a
+            >
+          </li>
+        </ol>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java: for each loop</h1>
+        <p>
+          The following code iterates over the elements in
+          <code class="highlight">iterable</code>:
+        </p>
+        <pre><code><span class="keyword">for</span> (Type elem : <span class="highlight">iterable</span>) {
     <span class="comment">// process elem</span>
 }</code></pre>
-      <p>Where <code class="highlight">iterable</code> can be</p>
-      <ul>
-        <li>An array, such as a <code>String[]</code>, or</li>
-        <li>An implementation of <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterable.html"><code>Iterable</code></a> such as an <code>ArrayList</code> or a <code>HashSet</code>.
-        </li>
-      </ul>
-      <h3>Behind the scenes</h3>
-      <p>In case <code>iterable</code> is an array, the above snippet is equivalent to</p>
-      <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">0</span>; <span class="type">i</span> &lt; <span class="type">iterable</span>.<span class="type">length</span>; <span class="type">i</span>++) {
+        <p>Where <code class="highlight">iterable</code> can be</p>
+        <ul>
+          <li>An array, such as a <code>String[]</code>, or</li>
+          <li>
+            An implementation of
+            <a
+              href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterable.html"
+              ><code>Iterable</code></a
+            >
+            such as an <code>ArrayList</code> or a <code>HashSet</code>.
+          </li>
+        </ul>
+        <h3>Behind the scenes</h3>
+        <p>
+          In case <code>iterable</code> is an array, the above snippet is
+          equivalent to
+        </p>
+        <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> = <span class="num_lit">0</span>; <span class="type">i</span> &lt; <span class="type">iterable</span>.<span class="type">length</span>; <span class="type">i</span>++) {
     <span class="type">Type</span> <span class="type">elem</span> = <span class="type">iterable</span>[<span class="type">i</span>];
     <span class="comment">// process elem</span>
 }</code></pre>
-      <p>In case <code>iterable</code> is an <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html"><code>Iterable</code></a>, it's equivalent to</p>
-      <pre><code><span class="type">Iterator</span>&lt;<span class="type">Type</span>&gt; <span class="type">iter</span> = <span class="type">iterable</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html#iterator()"><span class="method">iterator</span></a>();
+        <p>
+          In case <code>iterable</code> is an
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html"
+            ><code>Iterable</code></a
+          >, it's equivalent to
+        </p>
+        <pre><code><span class="type">Iterator</span>&lt;<span class="type">Type</span>&gt; <span class="type">iter</span> = <span class="type">iterable</span>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Iterable.html#iterator()"><span class="method">iterator</span></a>();
 <span class="keyword">while</span> (<span class="type">iter</span>.<span class="type">hasNext</span>()) {
     <span class="type">Type</span> <span class="type">elem</span> = <span class="type">iter</span>.<span class="type">next</span>();
     <span class="comment">// process elem</span>
 }</code></pre>
-      <h3>Auto boxing</h3>
-      <p>Thanks to auto (un)boxing, you can for instance use an <code>int</code> to iterate over a list of <code>Integer</code>:</p>
-      <div class="article-box">
-        <p><strong>Example:</strong></p>
-        <pre><code class="skiphl">List&lt;<span class="highlight">Integer</span>&gt; ints = <span class="keyword">new</span> ArrayList&lt;&gt;();
+        <h3>Auto boxing</h3>
+        <p>
+          Thanks to auto (un)boxing, you can for instance use an
+          <code>int</code> to iterate over a list of <code>Integer</code>:
+        </p>
+        <div class="article-box">
+          <p><strong>Example:</strong></p>
+          <pre><code class="skiphl">List&lt;<span class="highlight">Integer</span>&gt; ints = <span class="keyword">new</span> ArrayList&lt;&gt;();
 <span class="comment">// ...</span>
 <span class="keyword">for</span> (<span class="highlight"><span class="keyword">int</span> i</span> : ints) {
     <span class="comment">// ...</span>
 }</code></pre>
-      </div>
-      <h2>Optional Braces</h2>
-      <p>For single statement bodies, the <strong>braces are optional</strong>, just as with <code class="keyword">if</code> and <code class="keyword">while</code> statements.</p>
-      <div class="article-box">
-        These two snippets are equivalent:
-        <div class="side-by-side">
-          <div>
-            <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> : <span class="type">arr</span>) {
+        </div>
+        <h2>Optional Braces</h2>
+        <p>
+          For single statement bodies, the <strong>braces are optional</strong>,
+          just as with <code class="keyword">if</code> and
+          <code class="keyword">while</code> statements.
+        </p>
+        <div class="article-box">
+          These two snippets are equivalent:
+          <div class="side-by-side">
+            <div>
+              <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> : <span class="type">arr</span>) {
     <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<span class="type">i</span>);
 }
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"done"</span>);
 </code></pre>
-          </div>
-          <div>
-            <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> : <span class="type">arr</span>)
+            </div>
+            <div>
+              <pre><code><span class="keyword">for</span> (<span class="keyword">int</span> <span class="type">i</span> : <span class="type">arr</span>)
     <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(int)"><span class="method">println</span></a>(<span class="type">i</span>);
 
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html"><span class="type">System</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/System.html#out"><span class="static_final_field">out</span></a>.<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/PrintStream.html#println(java.lang.String)"><span class="method">println</span></a>(<span class="text_lit">"done"</span>);
 </code></pre>
+            </div>
           </div>
         </div>
-      </div>
-      <p>The official style guide does however madate the use of braces for safety.</p>
-      <h2>Accidental semicolon</h2>
-      <p>There should <strong>not</strong> be a semicolon after the loop declaration:</p>
-      <pre><code><span class="keyword">for</span> (…)<span class="badCode">;</span> { … }</code></pre>
-      <p>See <a href="beware-of-accidental-semicolons-in-while-and-for-loops.html"><em>Beware of accidental semicolons in while and for loops!</em></a></p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <p>
+          The official style guide does however madate the use of braces for
+          safety.
+        </p>
+        <h2>Accidental semicolon</h2>
+        <p>
+          There should <strong>not</strong> be a semicolon after the loop
+          declaration:
+        </p>
+        <pre><code><span class="keyword">for</span> (…)<span class="badCode">;</span> { … }</code></pre>
+        <p>
+          See
+          <a href="beware-of-accidental-semicolons-in-while-and-for-loops.html"
+            ><em>Beware of accidental semicolons in while and for loops!</em></a
+          >
+        </p>
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/for-each-loop.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/for-each-loop.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

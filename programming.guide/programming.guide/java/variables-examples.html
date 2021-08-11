@@ -1,190 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Java Variables (with examples) | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Variables are used when you need to store a value and refer to it elsewhere in the code. This article explains how to declare, initialize and use variables in Java." name="description">
-  <meta content="java, variable, declaration, initialization, type, scope" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Java Variables (with examples) | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Variables are used when you need to store a value and refer to it elsewhere in the code. This article explains how to declare, initialize and use variables in Java."
+      name="description"
+    />
+    <meta
+      content="java, variable, declaration, initialization, type, scope"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/intellij-defaults.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/intellij-defaults.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <div class="box">
-        <h2>Featured Stack Overflow Post</h2><a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;">In Java, difference between default, public, protected, and private</a><br>
-        <br>
-        <a href="https://stackoverflow.com/a/33627846/276052" onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;" style="display: block; text-align: center;"><img alt="StackOverflow screenshot thumbnail" class="screenshot" src="../images/so-featured-33627846.png" style="width: 100%; max-width: 15em;"></a>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Java Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="do-interfaces-inherit-from-object.html">Do interfaces inherit from Object?</a>
-        </li>
-        <li>
-          <a href="executing-code-in-comments.html">Executing code in comments?!</a>
-        </li>
-        <li>
-          <a href="functional-interfaces.html">Functional Interfaces</a>
-        </li>
-        <li>
-          <a href="handling-interrupted-exceptions.html">Handling InterruptedException</a>
-        </li>
-        <li>
-          <a href="why-wait-must-be-in-synchronized.html">Why wait must be called in a synchronized block</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 190 Java articles</strong></a></p>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-    </aside>
-    <article>
-      <h1>Java Variables (with examples)</h1>
-      <p>You use a variable when you need to store a value and refer to it elsewhere in the code.</p>
-      <p>In the example below, the two variables are highlighted.</p>
-      <pre><code>String <span class="highlight">username</span> = enterUsername();
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <div class="box">
+          <h2>Featured Stack Overflow Post</h2>
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            >In Java, difference between default, public, protected, and
+            private</a
+          ><br />
+          <br />
+          <a
+            href="https://stackoverflow.com/a/33627846/276052"
+            onclick="trackOutboundLink('https://stackoverflow.com/a/33627846/276052'); return false;"
+            style="display: block; text-align: center"
+            ><img
+              alt="StackOverflow screenshot thumbnail"
+              class="screenshot"
+              src="../images/so-featured-33627846.png"
+              style="width: 100%; max-width: 15em"
+          /></a>
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Java Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="do-interfaces-inherit-from-object.html"
+              >Do interfaces inherit from Object?</a
+            >
+          </li>
+          <li>
+            <a href="executing-code-in-comments.html"
+              >Executing code in comments?!</a
+            >
+          </li>
+          <li>
+            <a href="functional-interfaces.html">Functional Interfaces</a>
+          </li>
+          <li>
+            <a href="handling-interrupted-exceptions.html"
+              >Handling InterruptedException</a
+            >
+          </li>
+          <li>
+            <a href="why-wait-must-be-in-synchronized.html"
+              >Why wait must be called in a synchronized block</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 190 Java articles</strong></a>
+        </p>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+      </aside>
+      <article>
+        <h1>Java Variables (with examples)</h1>
+        <p>
+          You use a variable when you need to store a value and refer to it
+          elsewhere in the code.
+        </p>
+        <p>In the example below, the two variables are highlighted.</p>
+        <pre><code>String <span class="highlight">username</span> = enterUsername();
 String <span class="highlight">password</span> = enterPassword();
 if (login(<span class="highlight">username</span>, <span class="highlight">password</span>)) {
     System.out.println("Welcome " + <span class="highlight">username</span> + "!");
 } else {
     System.out.println("Invalid username/password");
 }</code></pre>
-      <h2>Declaring</h2>
-      <p>To use a variable you must first <em>declare</em> it. When you declare a variable you specify</p>
-      <ul>
-        <li>the <strong>type</strong> of data you will store in it,</li>
-        <li>its <strong>name</strong> (or <em>identifier</em>), and,</li>
-        <li>optionally, an <strong>initial value</strong>.</li>
-      </ul>
-      <p>This code</p>
-      <pre><code>int maxLength = 100;</code></pre>
-      <p>…means:</p>
-      <div class="article-box">
-        <p><em>From here on, let <code>maxLength</code> represent an integer (<code>int</code>). Initialize it with value <code>100</code>.</em></p>
-      </div>
-      <p>If you try to use a variable that hasn't been declared (e.g. if you misspell a variable name) the compiler will complain and say something like <em>"Identifier amxLength not found."</em></p>
-      <h3>Multiple variables</h3>
-      <p>You can declare multiple variables at once with the same type:</p>
-      <pre><code>int i, j, l;
+        <h2>Declaring</h2>
+        <p>
+          To use a variable you must first <em>declare</em> it. When you declare
+          a variable you specify
+        </p>
+        <ul>
+          <li>the <strong>type</strong> of data you will store in it,</li>
+          <li>its <strong>name</strong> (or <em>identifier</em>), and,</li>
+          <li>optionally, an <strong>initial value</strong>.</li>
+        </ul>
+        <p>This code</p>
+        <pre><code>int maxLength = 100;</code></pre>
+        <p>…means:</p>
+        <div class="article-box">
+          <p>
+            <em
+              >From here on, let <code>maxLength</code> represent an integer
+              (<code>int</code>). Initialize it with value <code>100</code>.</em
+            >
+          </p>
+        </div>
+        <p>
+          If you try to use a variable that hasn't been declared (e.g. if you
+          misspell a variable name) the compiler will complain and say something
+          like <em>"Identifier amxLength not found."</em>
+        </p>
+        <h3>Multiple variables</h3>
+        <p>You can declare multiple variables at once with the same type:</p>
+        <pre><code>int i, j, l;
 boolean y = true, n = false;</code></pre>
-      <p>Most style guides however, recommend against this.</p>
-      <h2>Variable names…</h2>
-      <ul>
-        <li>…are <strong>case sensitive</strong>.</li>
-        <li>…may include <strong>any unicode letter or digit</strong></li>
-        <li>…<strong>must not</strong> start with a digit</li>
-        <li>…<strong>must not</strong> be spelled the same way as a keyword, <code>true</code>, <code>false</code> or <code>null</code></li>
-        <li>…should by convention <strong>start with a lower case letter</strong> and be written in <strong>camelCase</strong></li>
-      </ul>
-      <h2>Types</h2>
-      <p>You <strong>must choose a type</strong> for each variable. There's no such thing as an untyped variable in Java. The type must be respected throughout the code. This code would give you a compiler error:</p>
-      <pre><code>int i;
+        <p>Most style guides however, recommend against this.</p>
+        <h2>Variable names…</h2>
+        <ul>
+          <li>…are <strong>case sensitive</strong>.</li>
+          <li>…may include <strong>any unicode letter or digit</strong></li>
+          <li>…<strong>must not</strong> start with a digit</li>
+          <li>
+            …<strong>must not</strong> be spelled the same way as a keyword,
+            <code>true</code>, <code>false</code> or <code>null</code>
+          </li>
+          <li>
+            …should by convention
+            <strong>start with a lower case letter</strong> and be written in
+            <strong>camelCase</strong>
+          </li>
+        </ul>
+        <h2>Types</h2>
+        <p>
+          You <strong>must choose a type</strong> for each variable. There's no
+          such thing as an untyped variable in Java. The type must be respected
+          throughout the code. This code would give you a compiler error:
+        </p>
+        <pre><code>int i;
 i = true; <span class="comment">// Can't store a boolean value in an integer variable</span></code></pre>
-      <p>Types come in two shapes:</p>
-      <ul>
-        <li><strong>Primitive types</strong> --- simple types used to hold numbers, characters, etc</li>
-        <li><strong>Reference types</strong> --- used to store references to objects, such as <code>Person</code>, <code>Car</code>, etc</li>
-      </ul>
-      <p>See <a href="primitives-vs-objects-references.html">Java: Primitives vs Objects and References</a> for further details.</p>
-      <p>Here are some examples, including all 8 primitive types:</p>
-      <pre><code>byte b;      <span class="comment">// integers, −128–127</span>
+        <p>Types come in two shapes:</p>
+        <ul>
+          <li>
+            <strong>Primitive types</strong> --- simple types used to hold
+            numbers, characters, etc
+          </li>
+          <li>
+            <strong>Reference types</strong> --- used to store references to
+            objects, such as <code>Person</code>, <code>Car</code>, etc
+          </li>
+        </ul>
+        <p>
+          See
+          <a href="primitives-vs-objects-references.html"
+            >Java: Primitives vs Objects and References</a
+          >
+          for further details.
+        </p>
+        <p>Here are some examples, including all 8 primitive types:</p>
+        <pre><code>byte b;      <span class="comment">// integers, −128–127</span>
 short s;     <span class="comment">// integers, ±32 thousand</span>
 int i;       <span class="comment">// integers, ±2 billion</span>
 long l;      <span class="comment">// integers, ±9 quintillion</span>
@@ -196,107 +322,320 @@ char c;      <span class="comment">// character</span>
 Person p;    <span class="comment">// References to a Person objects</span>
 Car v;       <span class="comment">// References to a Car objects</span>
 </code></pre>
-      <h3>Which numeric type to choose?</h3>
-      <p><strong>For integers</strong>, use <code>int</code> unless you have reasons to use something else. Common exceptions: Unix timestamps and database IDs typically require <code>long</code>.</p>
-      <p><strong>For reals</strong>, use <code>double</code> unless you have reasons to use something else. Common exceptions: Use <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html"><code>BigDecimal</code></a> if you want to avoid rounding errors, for instance when dealing with currency.</p>
-      <h3>Arrays</h3>
-      <p>If you need to store, say 10 integers (but don't want to create 10 variables) you can use an <strong>array</strong>, or list. See <a href="arrays.html">Java Arrays (with examples)</a> and <a href="array-vs-arraylist.html">Java: Array vs ArrayList (and other Lists)</a>.</p>
-      <div class="article-box">
-        For more information on the Java type system, see separate article: <a href="types.html">Types in Java</a>.
-      </div>
-      <h2>Scope</h2>
-      <p>If you for instance declare a variable in one method, you can't access that same variable in another method. Each variable has a <strong>scope</strong>; a section of code where it's accessible.</p>
-      <p>The scope is delimited by <code>{</code> and <code>}</code>.</p>
-      <div class="codeblock">
-        <!-- ROW 1 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 0;">&nbsp;&nbsp;&nbsp;&nbsp;void method() {</code>
-          <div style="flex-grow: 1; background-color: #dfdff9; position: relative;">
-            <span style="position: absolute; top: 0; right: 0; padding: .1em .3em; font-size: smaller; font-weight: bold; color: blue;">scope of d</span>
-          </div>
-        </div><!-- ROW 2 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 1; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double d;</code>
-        </div><!-- ROW 3 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 1; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code>
-        </div><!-- ROW 4 -->
-        <div style="display: flex; background-color: #dfdff9;">
-          <code style="background-color: transparent; flex-grow: 0; border-bottom: 0.2em solid #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (…) {</code>
-          <div style="flex-grow: 1; border: 0.2em solid #dfdff9; border-bottom-style: none; background-color: rgba(255, 0, 0, .1); position: relative;">
-            <span style="position: absolute; top: 0; right: 0; padding: .1em .3em; font-size: smaller; font-weight: bold; color: #DD0000;">scope of i</span>
-          </div>
-        </div><!-- ROW 5 -->
-        <div style="background-color: #dfdff9;">
-          <div style="border-left: 0.2em solid #dfdff9; border-right: 0.2em solid #dfdff9; background-color: rgba(255, 0, 0, .1);">
-            <code style="background-color: transparent;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int i;</code>
-          </div>
-        </div><!-- ROW 6 -->
-        <div style="background-color: #dfdff9;">
-          <div style="display: flex; border-left: 0.2em solid #dfdff9; border-right: 0.2em solid #dfdff9; background-color: rgba(255, 0, 0, .1);">
-            <code style="flex-grow: 0; background-color: transparent;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> <code style="flex-grow: 1; background-color: transparent; border-bottom: 0.2em solid #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;…</code>
-          </div>
-        </div><!-- ROW 7 -->
-        <div style="background-color: #dfdff9;">
-          <div style="display: flex;">
-            <div style="display: flex; flex-grow: 0; border-bottom: 0.2em solid #dfdff9;">
-              <code style="flex-grow: 0; border: 0.2em solid #dfdff9; border-top-style: none; background-color: rgba(255, 0, 0, .1);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>
-            </div><code style="flex-grow: 0; border-bottom: 0.2em solid #dfdff9; background-color: transparent;">} else {</code>
-            <div style="flex-grow: 1; background-color: rgba(0, 255, 0, .1); border: 0.2em solid #dfdff9; border-bottom-style: none; position: relative;">
-              <span style="position: absolute; top: 0; right: 0; padding: .1em .3em; font-size: smaller; font-weight: bold; color: green;">scope of s</span>
+        <h3>Which numeric type to choose?</h3>
+        <p>
+          <strong>For integers</strong>, use <code>int</code> unless you have
+          reasons to use something else. Common exceptions: Unix timestamps and
+          database IDs typically require <code>long</code>.
+        </p>
+        <p>
+          <strong>For reals</strong>, use <code>double</code> unless you have
+          reasons to use something else. Common exceptions: Use
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html"
+            ><code>BigDecimal</code></a
+          >
+          if you want to avoid rounding errors, for instance when dealing with
+          currency.
+        </p>
+        <h3>Arrays</h3>
+        <p>
+          If you need to store, say 10 integers (but don't want to create 10
+          variables) you can use an <strong>array</strong>, or list. See
+          <a href="arrays.html">Java Arrays (with examples)</a> and
+          <a href="array-vs-arraylist.html"
+            >Java: Array vs ArrayList (and other Lists)</a
+          >.
+        </p>
+        <div class="article-box">
+          For more information on the Java type system, see separate article:
+          <a href="types.html">Types in Java</a>.
+        </div>
+        <h2>Scope</h2>
+        <p>
+          If you for instance declare a variable in one method, you can't access
+          that same variable in another method. Each variable has a
+          <strong>scope</strong>; a section of code where it's accessible.
+        </p>
+        <p>The scope is delimited by <code>{</code> and <code>}</code>.</p>
+        <div class="codeblock">
+          <!-- ROW 1 -->
+          <div style="display: flex">
+            <code style="flex-grow: 0"
+              >&nbsp;&nbsp;&nbsp;&nbsp;void method() {</code
+            >
+            <div
+              style="
+                flex-grow: 1;
+                background-color: #dfdff9;
+                position: relative;
+              "
+            >
+              <span
+                style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  padding: 0.1em 0.3em;
+                  font-size: smaller;
+                  font-weight: bold;
+                  color: blue;
+                "
+                >scope of d</span
+              >
             </div>
           </div>
-        </div><!-- ROW 8 -->
-        <div style="background-color: #dfdff9;">
-          <div style="border-left: 0.2em solid #dfdff9; border-right: 0.2em solid #dfdff9; background-color: rgba(0, 255, 0, .1);">
-            <code style="background-color: transparent;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String s;</code>
+          <!-- ROW 2 -->
+          <div style="display: flex">
+            <code style="flex-grow: 1; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double d;</code
+            >
           </div>
-        </div><!-- ROW 9 -->
-        <div style="background-color: #dfdff9;">
-          <div style="display: flex; border-left: 0.2em solid #dfdff9; border-right: 0.2em solid #dfdff9; background-color: rgba(0, 255, 0, .1);">
-            <code style="flex-grow: 0; background-color: transparent;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> <code style="flex-grow: 1; background-color: transparent; border-bottom: 0.2em solid #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;…</code>
+          <!-- ROW 3 -->
+          <div style="display: flex">
+            <code style="flex-grow: 1; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code
+            >
           </div>
-        </div><!-- ROW 10 -->
-        <div style="display: flex; background-color: #dfdff9;">
-          <code style="flex-grow: 0; background-color: rgba(0, 255, 0, .1); border: 0.2em solid #dfdff9; border-top-style: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code> <code style="flex-grow: 1; background-color: transparent;">}</code>
-        </div><!-- ROW 11 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 1; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code>
-        </div><!-- ROW 12 -->
-        <div style="display: flex;">
-          <code style="flex-grow: 1; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = 17; <span class="comment">// Error: i is out of scope</span></code>
-        </div><!-- ROW 13 -->
-        <div style="display: flex">
-          <code style="flex-grow: 0; background-color: #dfdff9;">&nbsp;&nbsp;&nbsp;&nbsp;</code> <code style="flex-grow: 1;">}</code>
+          <!-- ROW 4 -->
+          <div style="display: flex; background-color: #dfdff9">
+            <code
+              style="
+                background-color: transparent;
+                flex-grow: 0;
+                border-bottom: 0.2em solid #dfdff9;
+              "
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (…) {</code
+            >
+            <div
+              style="
+                flex-grow: 1;
+                border: 0.2em solid #dfdff9;
+                border-bottom-style: none;
+                background-color: rgba(255, 0, 0, 0.1);
+                position: relative;
+              "
+            >
+              <span
+                style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  padding: 0.1em 0.3em;
+                  font-size: smaller;
+                  font-weight: bold;
+                  color: #dd0000;
+                "
+                >scope of i</span
+              >
+            </div>
+          </div>
+          <!-- ROW 5 -->
+          <div style="background-color: #dfdff9">
+            <div
+              style="
+                border-left: 0.2em solid #dfdff9;
+                border-right: 0.2em solid #dfdff9;
+                background-color: rgba(255, 0, 0, 0.1);
+              "
+            >
+              <code style="background-color: transparent"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int
+                i;</code
+              >
+            </div>
+          </div>
+          <!-- ROW 6 -->
+          <div style="background-color: #dfdff9">
+            <div
+              style="
+                display: flex;
+                border-left: 0.2em solid #dfdff9;
+                border-right: 0.2em solid #dfdff9;
+                background-color: rgba(255, 0, 0, 0.1);
+              "
+            >
+              <code style="flex-grow: 0; background-color: transparent"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code
+              >
+              <code
+                style="
+                  flex-grow: 1;
+                  background-color: transparent;
+                  border-bottom: 0.2em solid #dfdff9;
+                "
+                >&nbsp;&nbsp;&nbsp;&nbsp;…</code
+              >
+            </div>
+          </div>
+          <!-- ROW 7 -->
+          <div style="background-color: #dfdff9">
+            <div style="display: flex">
+              <div
+                style="
+                  display: flex;
+                  flex-grow: 0;
+                  border-bottom: 0.2em solid #dfdff9;
+                "
+              >
+                <code
+                  style="
+                    flex-grow: 0;
+                    border: 0.2em solid #dfdff9;
+                    border-top-style: none;
+                    background-color: rgba(255, 0, 0, 0.1);
+                  "
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code
+                >
+              </div>
+              <code
+                style="
+                  flex-grow: 0;
+                  border-bottom: 0.2em solid #dfdff9;
+                  background-color: transparent;
+                "
+                >} else {</code
+              >
+              <div
+                style="
+                  flex-grow: 1;
+                  background-color: rgba(0, 255, 0, 0.1);
+                  border: 0.2em solid #dfdff9;
+                  border-bottom-style: none;
+                  position: relative;
+                "
+              >
+                <span
+                  style="
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 0.1em 0.3em;
+                    font-size: smaller;
+                    font-weight: bold;
+                    color: green;
+                  "
+                  >scope of s</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- ROW 8 -->
+          <div style="background-color: #dfdff9">
+            <div
+              style="
+                border-left: 0.2em solid #dfdff9;
+                border-right: 0.2em solid #dfdff9;
+                background-color: rgba(0, 255, 0, 0.1);
+              "
+            >
+              <code style="background-color: transparent"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String
+                s;</code
+              >
+            </div>
+          </div>
+          <!-- ROW 9 -->
+          <div style="background-color: #dfdff9">
+            <div
+              style="
+                display: flex;
+                border-left: 0.2em solid #dfdff9;
+                border-right: 0.2em solid #dfdff9;
+                background-color: rgba(0, 255, 0, 0.1);
+              "
+            >
+              <code style="flex-grow: 0; background-color: transparent"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code
+              >
+              <code
+                style="
+                  flex-grow: 1;
+                  background-color: transparent;
+                  border-bottom: 0.2em solid #dfdff9;
+                "
+                >&nbsp;&nbsp;&nbsp;&nbsp;…</code
+              >
+            </div>
+          </div>
+          <!-- ROW 10 -->
+          <div style="display: flex; background-color: #dfdff9">
+            <code
+              style="
+                flex-grow: 0;
+                background-color: rgba(0, 255, 0, 0.1);
+                border: 0.2em solid #dfdff9;
+                border-top-style: none;
+              "
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code
+            >
+            <code style="flex-grow: 1; background-color: transparent">}</code>
+          </div>
+          <!-- ROW 11 -->
+          <div style="display: flex">
+            <code style="flex-grow: 1; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…</code
+            >
+          </div>
+          <!-- ROW 12 -->
+          <div style="display: flex">
+            <code style="flex-grow: 1; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = 17;
+              <span class="comment">// Error: i is out of scope</span></code
+            >
+          </div>
+          <!-- ROW 13 -->
+          <div style="display: flex">
+            <code style="flex-grow: 0; background-color: #dfdff9"
+              >&nbsp;&nbsp;&nbsp;&nbsp;</code
+            >
+            <code style="flex-grow: 1">}</code>
+          </div>
         </div>
-      </div>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
+        <div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input
+              name="reply_to"
+              type="hidden"
+              value="java/variables-examples.html"
+            />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="java/variables-examples.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

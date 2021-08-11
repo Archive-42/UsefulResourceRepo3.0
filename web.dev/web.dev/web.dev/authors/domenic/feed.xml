@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Domenic Denicola on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Domenic Denicola</name>
+  </author>
+  <link href="https://web.dev/authors/domenic/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/HXHbHrl9qxcxCQK90yIc.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Our latest news, updates, and stories by Domenic Denicola.</subtitle>
+  
+  
+  <entry>
+    <title>Why you need &quot;cross-origin isolated&quot; for powerful features</title>
+    <link href="https://web.dev/why-coop-coep/"/>
+    <updated>2020-05-04T00:00:00Z</updated>
+    <id>https://web.dev/why-coop-coep/</id>
+    <content type="text/html" mode="escaped">&lt;h2 id=&quot;introduction&quot;&gt;Introduction &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#introduction&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&quot;https://web.dev/coop-coep/&quot;&gt;Making your website &amp;quot;cross-origin isolated&amp;quot; using COOP and
+COEP&lt;/a&gt; we explained how to adopt to &amp;quot;cross-origin
+isolated&amp;quot; state using COOP and COEP. This is a companion article that explains
+why cross-origin isolation is required to enable powerful features on the browser.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--key-term&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Key Term&lt;/strong&gt;:
+This article uses many similar-sounding terminologies. To make things
+clearer, let&#39;s define them:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://wicg.github.io/cross-origin-embedder-policy/&quot; rel=&quot;noopener&quot;&gt;COEP: Cross Origin Embedder
+Policy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/whatwg/html/pull/5334/files&quot; rel=&quot;noopener&quot;&gt;COOP: Cross Origin Opener
+Policy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)&quot; rel=&quot;noopener&quot;&gt;CORP: Cross Origin Resource
+Policy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/docs/Web/HTTP/CORS&quot; rel=&quot;noopener&quot;&gt;CORS: Cross Origin Resource
+Sharing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.chromium.org/Home/chromium-security/corb-for-developers&quot; rel=&quot;noopener&quot;&gt;CORB: Cross Origin Read
+Blocking&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The web is built on the &lt;a href=&quot;https://web.dev/same-origin-policy/&quot;&gt;same-origin
+policy&lt;/a&gt;: a security feature that restricts
+how documents and scripts can interact with resources from another origin. This
+principle restricts the ways websites can access cross-origin resources. For
+example, a document from &lt;code&gt;https://a.example&lt;/code&gt; is prevented from accessing data
+hosted at &lt;code&gt;https://b.example&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;However, the same-origin policy has had some historical exceptions. Any website can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Embed cross-origin iframes&lt;/li&gt;
+&lt;li&gt;Include cross-origin resources such as images or scripts&lt;/li&gt;
+&lt;li&gt;Open cross-origin popup windows with a DOM reference&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the web could be designed from scratch, these exceptions wouldn&#39;t exist.
+Unfortunately, by the time the web community realized the key benefits of a
+strict same-origin policy, the web was already relying on these exceptions.&lt;/p&gt;
+&lt;p&gt;The security side-effects of such a lax same-origin policy were patched in two
+ways. One way was through the introduction of a new protocol called &lt;a href=&quot;https://developer.mozilla.org/docs/Web/HTTP/CORS&quot; rel=&quot;noopener&quot;&gt;Cross
+Origin Resource Sharing (CORS)&lt;/a&gt;
+whose purpose is to make sure that the server allows sharing a resource with a
+given origin. The other way is by implicitly removing direct script access to
+cross-origin resources while preserving backward compatibility. Such
+cross-origin resources are called &amp;quot;opaque&amp;quot; resources. For example, this is why
+manipulating the pixels of a cross-origin image via &lt;code&gt;CanvasRenderingContext2D&lt;/code&gt;
+fails unless CORS is applied to the image.&lt;/p&gt;
+&lt;p&gt;All these policy decisions are happening within a browsing context group.&lt;/p&gt;
+&lt;img alt=&quot;Browsing Context Group&quot; decoding=&quot;async&quot; height=&quot;469&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/z1Gr4mmJMo383dR9FQUk.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;For a long time, the combination of CORS and opaque resources was enough to make
+browsers safe. Sometimes edge cases (such as &lt;a href=&quot;https://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.aspx/&quot; rel=&quot;noopener&quot;&gt;JSON
+vulnerabilities&lt;/a&gt;)
+were discovered, and needed to be patched, but overall the principle of not
+allowing direct read access to the raw bytes of cross-origin resources was
+successful.&lt;/p&gt;
+&lt;p&gt;This all changed with
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)&quot; rel=&quot;noopener&quot;&gt;Spectre&lt;/a&gt;, which
+makes any data that is loaded to the same browsing context group as your code
+potentially readable. By measuring the time certain operations take, attackers
+can guess the contents of the CPU caches, and through that, the contents of the
+process&#39; memory. Such timing attacks are possible with low-granularity timers
+that exist in the platform, but can be sped up with high-granularity timers,
+both explicit (like &lt;code&gt;performance.now()&lt;/code&gt;) and implicit (like
+&lt;code&gt;SharedArrayBuffer&lt;/code&gt;s). If &lt;code&gt;evil.com&lt;/code&gt; embeds a cross-origin image, they can use a
+Spectre attack to read its pixel data, which makes protections relying on
+&amp;quot;opaqueness&amp;quot; ineffective.&lt;/p&gt;
+&lt;img alt=&quot;Spectr&quot; decoding=&quot;async&quot; height=&quot;500&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;Ideally, all cross-origin requests should be explicitly vetted by the server
+that owns the resource. If vetting is not provided by
+the resource-owning server, then the data will never make it into the browsing
+context group of an evil actor, and therefore will stay out of reach of any Spectre
+attacks a web page could carry out. We call it a cross-origin isolated state.
+This is exactly what COOP+COEP is about.&lt;/p&gt;
+&lt;p&gt;Under a cross-origin isolated state, the requesting site is considered less
+dangerous and this unlocks powerful features such as &lt;code&gt;SharedArrayBuffer&lt;/code&gt;,
+&lt;code&gt;performance.measureUserAgentSpecificMemory()&lt;/code&gt; and &lt;a href=&quot;https://www.w3.org/TR/hr-time/&quot; rel=&quot;noopener&quot;&gt;high resolution
+timers&lt;/a&gt; with better precision which could
+otherwise be used for Spectre-like attacks. It also prevents modifying
+&lt;code&gt;document.domain&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;coep&quot;&gt;Cross Origin Embedder Policy &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#coep&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://wicg.github.io/cross-origin-embedder-policy/&quot; rel=&quot;noopener&quot;&gt;Cross Origin Embedder
+Policy (COEP)&lt;/a&gt; prevents a
+document from loading any cross-origin resources that don&#39;t explicitly grant
+the document permission (using CORP or CORS). With this feature, you can declare
+that a document cannot load such resources.&lt;/p&gt;
+&lt;img alt=&quot;How COEP works&quot; decoding=&quot;async&quot; height=&quot;410&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/MAhaVZdShm8tRntWieU4.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;To activate this policy, append the following HTTP header to the document:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Cross-Origin-Embedder-Policy:&lt;/span&gt; require-corp&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The &lt;code&gt;require-corp&lt;/code&gt; keyword is the only accepted value for COEP. This enforces
+the policy that the document can only load resources from the same origin, or
+resources explicitly marked as loadable from another origin.&lt;/p&gt;
+&lt;p&gt;For resources to be loadable from another origin, they need to support either
+Cross Origin Resource Sharing (CORS) or Cross Origin Resource Policy (CORP).&lt;/p&gt;
+&lt;h3 id=&quot;cors&quot;&gt;Cross Origin Resource Sharing &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#cors&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If a cross origin resource supports &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS&quot; rel=&quot;noopener&quot;&gt;Cross Origin Resource Sharing
+(CORS)&lt;/a&gt;, you may use the
+&lt;a href=&quot;https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;crossorigin&lt;/code&gt;
+attribute&lt;/a&gt;
+to load it to your web page without being blocked by COEP.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;img&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://third-party.example.com/image.jpg&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;crossorigin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;For example, if this image resource is served with CORS headers, use the
+&lt;code&gt;crossorigin&lt;/code&gt; attribute so that the request to fetch the resource will use &lt;a href=&quot;https://developer.mozilla.org/docs/Web/API/Request/mode&quot; rel=&quot;noopener&quot;&gt;CORS
+mode&lt;/a&gt;. This also
+prevents the image from being loaded unless it sets CORS headers.&lt;/p&gt;
+&lt;p&gt;Similarly, you may fetch cross origin data through the &lt;code&gt;fetch()&lt;/code&gt; method, which
+doesn&#39;t require special handling as long as the server responds with &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#The_HTTP_response_headers&quot; rel=&quot;noopener&quot;&gt;the right
+HTTP
+headers&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;corp&quot;&gt;Cross Origin Resource Policy &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#corp&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/docs/Web/HTTP/Cross-Origin_Resource_Policy_%28CORP%29&quot; rel=&quot;noopener&quot;&gt;Cross Origin Resource Policy
+(CORP)&lt;/a&gt;
+was originally introduced as an opt-in to protect your resources from being
+loaded by another origin. In the context of COEP, CORP can specify the resource
+owner&#39;s policy for who can load a resource.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Cross-Origin-Resource-Policy&lt;/code&gt; header takes three possible values:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Cross-Origin-Resource-Policy:&lt;/span&gt; same-site&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Resources that are marked &lt;code&gt;same-site&lt;/code&gt; can only be loaded from the same site.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Cross-Origin-Resource-Policy:&lt;/span&gt; same-origin&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Resources that are marked &lt;code&gt;same-origin&lt;/code&gt; can only be loaded from the same origin.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Cross-Origin-Resource-Policy:&lt;/span&gt; cross-origin&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Resources that are marked &lt;code&gt;cross-origin&lt;/code&gt; can be loaded by any website. (&lt;a href=&quot;https://mikewest.github.io/corpp/#integration-fetch&quot; rel=&quot;noopener&quot;&gt;This
+value&lt;/a&gt; was added to the
+CORP spec along with COEP.)&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Once you add the COEP header, you won&#39;t be able to bypass the restriction by
+using service workers. If the document is protected by a COEP header, the policy
+is respected before the response enters the document process, or before it
+enters the service worker that is controlling the document.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;coop&quot;&gt;Cross Origin Opener Policy &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#coop&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/whatwg/html/pull/5334/files&quot; rel=&quot;noopener&quot;&gt;Cross Origin Opener Policy
+(COOP)&lt;/a&gt; allows you to ensure
+that a top-level window is isolated from other documents by putting them in a
+different browsing context group, so that they cannot directly interact with the
+top-level window. For example, if a document with COOP opens a pop-up, its
+&lt;code&gt;window.opener&lt;/code&gt; property will be &lt;code&gt;null&lt;/code&gt;. Also, the &lt;code&gt;.closed&lt;/code&gt; property of the
+opener&#39;s reference to it will return &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;img alt=&quot;COOP&quot; decoding=&quot;async&quot; height=&quot;452&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/eUu74n3GIlK1fj9ACxF8.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;p&gt;The &lt;code&gt;Cross-Origin-Opener-Policy&lt;/code&gt; header takes three possible values:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Cross-Origin-Opener-Policy:&lt;/span&gt; same-origin&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Documents that are marked &lt;code&gt;same-origin&lt;/code&gt; can share the same browsing context
+group with same-origin documents that are also explicitly marked &lt;code&gt;same-origin&lt;/code&gt;.&lt;/p&gt;
+&lt;img alt=&quot;COOP&quot; decoding=&quot;async&quot; height=&quot;507&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/he8FaRE2ef67lamrFG60.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Cross-Origin-Opener-Policy:&lt;/span&gt; same-origin-allow-popups&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;A top-level document with &lt;code&gt;same-origin-allow-popups&lt;/code&gt; retains references to any
+of its popups which either don&#39;t set COOP or which opt out of isolation by
+setting a COOP of &lt;code&gt;unsafe-none&lt;/code&gt;.&lt;/p&gt;
+&lt;img alt=&quot;COOP&quot; decoding=&quot;async&quot; height=&quot;537&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/AJdm6vFq4fQXUWOTFeFa.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Cross-Origin-Opener-Policy:&lt;/span&gt; unsafe-none&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;unsafe-none&lt;/code&gt; is the default and allows the document to be added to its opener&#39;s
+browsing context group unless the opener itself has a COOP of &lt;code&gt;same-origin&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/open#Window_features&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;noopener&lt;/code&gt;&lt;/a&gt;
+attribute has a similar effect to what you would expect from COOP except that it
+works only from the opener side. (You can&#39;t disassociate your window when it is opened
+by a third party.) When you attach &lt;code&gt;noopener&lt;/code&gt; by doing something such as
+&lt;code&gt;window.open(url, &#39;_blank&#39;, &#39;noopener&#39;)&lt;/code&gt; or &lt;code&gt;&amp;lt;a target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noopener&amp;quot;&amp;gt;&lt;/code&gt;, you can deliberately disassociate your window from the opened
+window.&lt;/p&gt;
+&lt;p&gt;While &lt;code&gt;noopener&lt;/code&gt; can be replaced by COOP, it&#39;s still useful for when you want to
+protect your website in browsers that don&#39;t support COOP.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#summary&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you want guaranteed access to powerful features like &lt;code&gt;SharedArrayBuffer&lt;/code&gt;,
+&lt;code&gt;performance.measureUserAgentSpecificMemory()&lt;/code&gt; or &lt;a href=&quot;https://www.w3.org/TR/hr-time/&quot; rel=&quot;noopener&quot;&gt;high resolution
+timers&lt;/a&gt; with better precision, just remember
+that your document needs to use both COEP with the value of &lt;code&gt;require-corp&lt;/code&gt; and
+COOP with the value of &lt;code&gt;same-origin&lt;/code&gt;. In the absence of either, the browser will
+not guarantee sufficient isolation to safely enable those powerful features. You
+can determine your page&#39;s situation by checking if
+&lt;a href=&quot;https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/crossOriginIsolated&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;self.crossOriginIsolated&lt;/code&gt;&lt;/a&gt;
+returns &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Learn the steps to implement this at &lt;a href=&quot;https://web.dev/coop-coep/&quot;&gt;Making your website &amp;quot;cross-origin
+isolated&amp;quot; using COOP and COEP&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;resources&quot;&gt;Resources &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/why-coop-coep/#resources&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/d/1zDlfvfTJ_9e8Jdc8ehuV4zMEu9ySMCiTGMS9y0GU92k/edit&quot; rel=&quot;noopener&quot;&gt;COOP and COEP
+explained&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/Planned_changes&quot; rel=&quot;noopener&quot;&gt;Planned changes to shared memory - JavaScript |
+MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>Eiji Kitamura</name>
+    </author><author>
+      <name>Domenic Denicola</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Requesting performance isolation with the Origin-Agent-Cluster header</title>
+    <link href="https://web.dev/origin-agent-cluster/"/>
+    <updated>2021-02-01T00:00:00Z</updated>
+    <id>https://web.dev/origin-agent-cluster/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; is a new HTTP response header that instructs the browser to prevent
+synchronous scripting access between same-site cross-origin pages. Browsers may also use
+&lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; as a hint that your origin should get its own, separate resources, such as a
+dedicated process.&lt;/p&gt;
+&lt;h2 id=&quot;browser-compatibility&quot;&gt;Browser compatibility &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#browser-compatibility&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Currently the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header is only implemented in Chrome 88 onward. It was designed
+in close collaboration with representatives from Mozilla Firefox who have marked it as &lt;a href=&quot;https://mozilla.github.io/standards-positions/#domenic-origin-isolation&quot; rel=&quot;noopener&quot;&gt;worth
+prototyping&lt;/a&gt;, and has &lt;a href=&quot;https://lists.webkit.org/pipermail/webkit-dev/2020-August/031355.html&quot; rel=&quot;noopener&quot;&gt;a
+preliminary positive
+reception&lt;/a&gt; from
+representatives of WebKit, the browser engine used by Safari.&lt;/p&gt;
+&lt;p&gt;But in the meantime, there&#39;s no problem with deploying the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header to all your
+users today. Browsers which don&#39;t understand it will just ignore it. And, since pages in
+origin-keyed agent clusters can actually do &lt;a href=&quot;https://web.dev/origin-agent-cluster/#limitations&quot;&gt;fewer things&lt;/a&gt; than site-keyed ones (the
+default), there&#39;s no interoperability issue to be worried about.&lt;/p&gt;
+&lt;h2 id=&quot;why-browsers-can&#39;t-automatically-segregate-same-site-origins&quot;&gt;Why browsers can&#39;t automatically segregate same-site origins &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#why-browsers-can&#39;t-automatically-segregate-same-site-origins&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The web is built on the &lt;a href=&quot;https://web.dev/same-origin-policy/&quot;&gt;same-origin policy&lt;/a&gt;, which is a security feature that
+restricts how documents and scripts can interact with resources from another
+&lt;a href=&quot;https://web.dev/same-site-same-origin/#origin&quot;&gt;origin&lt;/a&gt;. For example, a page hosted at &lt;code&gt;https://a.example&lt;/code&gt; is at a
+different origin from one at &lt;code&gt;https://b.example&lt;/code&gt;, or one at &lt;code&gt;https://sub.a.example&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Behind the scenes, browsers use the separation that origins provide in different ways. In the old
+days, even though separate origins would not be able to access each other&#39;s data, they would still
+share resources like operating system threads, processes, and memory allocation. This meant that if
+one tab was slow, it would slow down all the other tabs. Or if one tab used too much memory, it
+would crash the entire browser.&lt;/p&gt;
+&lt;p&gt;These days browsers are more sophisticated, and try to separate different origins into different
+processes. How exactly this works varies per browser: most browsers have some level of separation
+between tabs, but different iframes inside a single tab might share a process. And because processes
+come with some memory overhead, they use heuristics to avoid spawning too many: for example, Firefox
+has a &lt;a href=&quot;https://support.mozilla.org/en-US/kb/performance-settings&quot; rel=&quot;noopener&quot;&gt;user-configurable process limit&lt;/a&gt;,
+and Chrome varies its behavior between desktop (where memory is more plentiful) and mobile (where it
+is scarce).&lt;/p&gt;
+&lt;p&gt;These heuristics are not perfect. And they suffer from an important limitation: because there are
+exceptions to the same-origin policy which allow subdomains like &lt;code&gt;https://sub.a.example&lt;/code&gt; and
+&lt;code&gt;https://a.example&lt;/code&gt; to talk to each other, browsers cannot automatically segregate subdomains from
+each other.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;The technical distinction here is that the browser cannot automatically segregate pages which are
+same-site to each other, even if they are cross-origin. The most common cases of same-site
+cross-origin pages happen with subdomains, but see the article &lt;a href=&quot;https://web.dev/same-site-same-origin/&quot;&gt;Understanding &amp;quot;same-site&amp;quot; and
+&amp;quot;same-origin&amp;quot;&lt;/a&gt; for more.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This default behavior is called &amp;quot;site-keyed agent clusters&amp;quot;: that is, the browser groups pages based
+on their &lt;em&gt;site&lt;/em&gt;. The new &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header asks the browser to change this default
+behavior for a given page, putting it into an &lt;em&gt;origin&lt;/em&gt;-keyed agent cluster, so that it is grouped
+only with other pages that have the exact same origin. In particular, same-site cross-origin pages
+will be excluded from the agent cluster.&lt;/p&gt;
+&lt;p&gt;This opt-in separation allows browsers to give these new origin-keyed agent clusters their own
+dedicated resources, which are not combined with those of other origins. For example, such pages
+could get their own process, or be scheduled on separate threads. By adding the
+&lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header to your page, you&#39;re indicating to the browser that the page would
+benefit from such dedicated resources.&lt;/p&gt;
+&lt;p&gt;However, in order to perform the separation, and get these benefits, the browser needs to disable
+some legacy features.&lt;/p&gt;
+&lt;h2 id=&quot;limitations&quot;&gt;What origin-keyed pages cannot do &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#limitations&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When your page is in an origin-keyed agent cluster, you give up some abilities to talk to same-site
+cross-origin pages that were previously available. In particular:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You can no longer set
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document/domain&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;document.domain&lt;/code&gt;&lt;/a&gt;. This is a
+legacy feature that normally allows same-site cross-origin pages to synchronously access each
+other&#39;s DOM, but in origin-keyed agent clusters, it is disabled.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can no longer send
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;WebAssembly.Module&lt;/code&gt;&lt;/a&gt;
+objects to other same-site cross-origin pages via &lt;code&gt;postMessage()&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;(Chrome-only) You can no longer send
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;SharedArrayBuffer&lt;/code&gt;&lt;/a&gt;
+or
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;WebAssembly.Memory&lt;/code&gt;&lt;/a&gt;
+objects to other same-site cross-origin pages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:
+Chrome is the only browser that allows sending &lt;code&gt;SharedArrayBuffer&lt;/code&gt; and &lt;code&gt;WebAssembly.Memory&lt;/code&gt; objects
+to same-site cross-origin pages. Other browsers, and &lt;a href=&quot;https://groups.google.com/a/chromium.org/g/blink-dev/c/1NKvbIj3dq4/m/Vgfisu5HAwAJ&quot; rel=&quot;noopener&quot;&gt;future versions of
+Chrome&lt;/a&gt;, will
+prevent sending these objects across the origin boundary regardless of whether the agent cluster is
+origin-keyed or site-keyed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;when-to-use-origin-keyed-agent-clusters&quot;&gt;When to use origin-keyed agent clusters &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#when-to-use-origin-keyed-agent-clusters&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The origins that most benefit from the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header are those that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Perform best with their own dedicated resources when possible. Examples include
+performance-intensive games, video conferencing sites, or multimedia creation apps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Contains resource-intensive iframes that are different-origin, but same-site. For example, if
+&lt;code&gt;https://mail.example.com&lt;/code&gt; embeds &lt;code&gt;https://chat.example.com&lt;/code&gt; iframes, origin-keying
+&lt;code&gt;https://mail.example.com/&lt;/code&gt; ensures that the code written by the chat team cannot accidentally
+interfere with code written by the mail team, and can hint to the browser to give them separate
+processes to schedule them independently and decrease their performance impact on each other.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Expect to be embedded on different-origin, same-site pages, but know themselves to be
+resource-intensive. For example, if &lt;code&gt;https://customerservicewidget.example.com&lt;/code&gt; expects to use
+lots of resources for video chat, and will be embedded on various origins throughout
+&lt;code&gt;https://*.example.com&lt;/code&gt;, the team maintaining that widget could use the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt;
+header to try to decrease their performance impact on embedders.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additionally, you&#39;ll also need to make sure you&#39;re OK disabling the above-discussed &lt;a href=&quot;https://web.dev/origin-agent-cluster/#limitations&quot;&gt;rarely-used
+cross-origin communication features&lt;/a&gt;, and that your site is &lt;a href=&quot;https://web.dev/why-https-matters/&quot;&gt;using
+HTTPS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But in the end, these are just guidelines. Whether origin-keyed agent clusters will help your site
+or not is ultimately best determined through measurements. In particular, you&#39;ll want to &lt;a href=&quot;https://web.dev/vitals-measurement-getting-started/&quot;&gt;measure
+your Web Vitals&lt;/a&gt;, and potentially your &lt;a href=&quot;https://web.dev/monitor-total-page-memory-usage/&quot;&gt;memory
+usage&lt;/a&gt;, to see what impact origin-keying has. (Memory usage in
+particular is a potential concern, as increasing the number of processes in play can cause more
+per-process memory overhead.) You shouldn&#39;t just roll out origin-keying and hope for the best.&lt;/p&gt;
+&lt;h3 id=&quot;cross-origin-isolation&quot;&gt;How is this related to cross-origin isolation? &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#cross-origin-isolation&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Origin-keying of agent clusters via the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header is related to, but separate
+from, &lt;a href=&quot;https://web.dev/coop-coep/&quot;&gt;cross-origin isolation&lt;/a&gt; via the &lt;code&gt;Cross-Origin-Opener-Policy&lt;/code&gt; and
+&lt;code&gt;Cross-Origin-Embedder-Policy&lt;/code&gt; headers.&lt;/p&gt;
+&lt;p&gt;Any site which makes itself cross-origin isolated will also disable the same &lt;a href=&quot;https://web.dev/origin-agent-cluster/#limitations&quot;&gt;same-site cross-origin
+communications features&lt;/a&gt; as when using the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header. However, the
+&lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header can still be useful on top of cross-origin isolation, as an additional
+hint to the browser to modify its resource allocation heuristics. So you should still consider
+applying the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header, and measuring the results, even on pages that are
+already cross-origin isolated.&lt;/p&gt;
+&lt;h2 id=&quot;how-to-use&quot;&gt;How to use the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#how-to-use&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To use the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header, configure your web server to send the following HTTP
+response header:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Origin-Agent-Cluster:&lt;/span&gt; ?1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The value of &lt;code&gt;?1&lt;/code&gt; is the &lt;a href=&quot;https://www.fastly.com/blog/improve-http-structured-headers&quot; rel=&quot;noopener&quot;&gt;structured
+header&lt;/a&gt; syntax for a boolean &lt;code&gt;true&lt;/code&gt;
+value.&lt;/p&gt;
+&lt;p&gt;It&#39;s important to send this header on &lt;em&gt;all&lt;/em&gt; responses from your origin, not just some pages.
+Otherwise, you can get inconsistent results, where the browser &amp;quot;remembers&amp;quot; seeing an origin-keying
+request and so it origin-keys even on pages that don&#39;t ask for it. Or the reverse: if the first page
+a user visits doesn&#39;t have the header, then the browser will remember that your origin does not want
+to be origin-keyed, and will ignore the header on subsequent pages.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:
+Don&#39;t forget to send the header on error pages, like your 404 page!&lt;/p&gt;
+&lt;/div&gt;
+&lt;details class=&quot;w-details&quot;&gt;
+&lt;summary class=&quot;w-details__summary&quot;&gt;
+  &lt;h2 class=&quot;w-details__header&quot;&gt;
+    Why can&#39;t the browser always respect the header?
+  &lt;/h2&gt;
+&lt;/summary&gt;
+&lt;p&gt;The reason for this &amp;quot;memory&amp;quot; is to ensure consistency of keying for an origin. If some pages on an
+origin were origin-keyed, while others weren&#39;t, then you could have two same-origin pages which were
+put into different agent clusters, and thus weren&#39;t allowed to talk to each other. This would be
+very strange, both for web developers and for the internals of the browser. So, the specification
+for &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; instead ignores the header if it&#39;s inconsistent with what it&#39;s previously
+seen for a given origin. In Chrome, this will result in a console warning.&lt;/p&gt;
+&lt;p&gt;This consistency is scoped to a browsing context group, which is a group of tabs, windows, or
+iframes which can all reach each other via mechanisms like &lt;code&gt;window.opener&lt;/code&gt;, &lt;code&gt;frames[0]&lt;/code&gt;, or
+&lt;code&gt;window.parent&lt;/code&gt;. This means that, once an origin&#39;s origin- or site-keying has been settled (by the
+browser either seeing, or not seeing, the header), changing it requires opening up an entirely new
+tab, not connected to the old one in any way.&lt;/p&gt;
+&lt;p&gt;These details can be important for testing the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header. When first adding it
+to your site, just reloading the page will not work; you&#39;ll need to close the tab and open a new
+one.&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;To check whether the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header is applied, use the JavaScript
+&lt;code&gt;window.originAgentCluster&lt;/code&gt; property. This will be &lt;code&gt;true&lt;/code&gt; in cases where the header (or other
+mechanisms, like &lt;a href=&quot;https://web.dev/origin-agent-cluster/#cross-origin-isolation&quot;&gt;cross-origin isolation&lt;/a&gt;) caused origin-keying; &lt;code&gt;false&lt;/code&gt;
+when it did not; and &lt;code&gt;undefined&lt;/code&gt; in browsers that don&#39;t implement the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header.
+Logging this data to your analytics platform can provide a valuable check that you&#39;ve configured
+your server correctly.&lt;/p&gt;
+&lt;p&gt;Finally, note that the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header will only work on &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts&quot; rel=&quot;noopener&quot;&gt;secure
+contexts&lt;/a&gt;, i.e. on HTTPS
+pages or on &lt;code&gt;http://localhost&lt;/code&gt;. Non-localhost HTTP pages do &lt;em&gt;not&lt;/em&gt; support origin-keyed agent
+clusters.&lt;/p&gt;
+&lt;h2 id=&quot;origin-keying-is-not-a-security-feature&quot;&gt;Origin-keying is not a security feature &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#origin-keying-is-not-a-security-feature&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;While using an origin-keyed agent cluster does isolate your origin from synchronous access from
+same-site cross-origin pages, it does not give the &lt;a href=&quot;https://web.dev/why-coop-coep/&quot;&gt;protection&lt;/a&gt; of
+security-related headers like
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;Cross-Origin-Resource-Policy&lt;/code&gt;&lt;/a&gt;
+and
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;Cross-Origin-Opener-Policy&lt;/code&gt;&lt;/a&gt;.
+In particular, it is not a reliable protection against side channel attacks like
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)&quot; rel=&quot;noopener&quot;&gt;Spectre&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This might be a bit surprising, because origin-keying can sometimes cause your origin to get its own
+process, and separate processes are an important defence against side-channel attacks. But remember
+that the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header is only a hint in that regard. The browser is under no
+obligation to give your origin a separate process, and it might not do so for a variety of reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A browser might not implement the technology to do so. For example, currently Safari and Firefox
+can put separate tabs into their own processes, but cannot yet do so for iframes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The browser might decide it&#39;s not worth the overhead of a separate process. For example, on
+low-memory Android devices, or in Android WebView, Chrome uses as few processes as possible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The browser might want to respect the request that the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header indicates,
+but it could do so using different isolation technology than processes. For example, Chrome is
+&lt;a href=&quot;https://docs.google.com/document/d/12wEWJsZmxVnNwVGuxuEJF4922OWUr4fCs1xKHi9mTiI/edit?usp=sharing&quot; rel=&quot;noopener&quot;&gt;exploring&lt;/a&gt;
+using threads instead of processes for this sort of performance isolation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The user, or code running on a different site, might have already navigated to a site-keyed page
+on your origin, causing the &lt;a href=&quot;https://web.dev/origin-agent-cluster/#how-to-use&quot;&gt;consistency guarantee&lt;/a&gt; to kick in and the
+&lt;code&gt;Origin-Agent-Cluster&lt;/code&gt; header to be ignored entirely.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For these reasons, it&#39;s important not to think of origin-keyed agent clusters as a security feature.
+Instead, it&#39;s a way of helping the browser prioritize resource allocation, by hinting that your
+origin would benefit from dedicated resources (and that you&#39;re willing to give up &lt;a href=&quot;https://web.dev/origin-agent-cluster/#limitations&quot;&gt;certain
+features&lt;/a&gt; in exchange).&lt;/p&gt;
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#feedback&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The Chrome team would love to hear from you if you&#39;re using, or considering using, the &lt;code&gt;Origin-Agent-Cluster&lt;/code&gt;
+header. Your public interest and support helps us prioritize features and show other
+browser vendors how important they are. Tweet at &lt;a href=&quot;https://twitter.com/chromiumdev&quot; rel=&quot;noopener&quot;&gt;@ChromiumDev&lt;/a&gt; and
+let Chrome DevRel know your thoughts and experiences.&lt;/p&gt;
+&lt;p&gt;If you have more questions about the specification, or the details of how the feature works, you can
+file an issue on the &lt;a href=&quot;https://github.com/whatwg/html&quot; rel=&quot;noopener&quot;&gt;HTML Standard GitHub repository&lt;/a&gt;. And if you
+encounter any issues with Chrome&#39;s implementation, you can file a bug at
+&lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/entry?components=Internals%3ESandbox%3ESiteIsolation&quot; rel=&quot;noopener&quot;&gt;new.crbug.com&lt;/a&gt;
+with the Components field set to &lt;code&gt;Internals&amp;gt;Sandbox&amp;gt;SiteIsolation&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;learn-more&quot;&gt;Learn more &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/origin-agent-cluster/#learn-more&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To learn more about origin-keyed agent clusters, you can dive into the details at these links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://origin-isolation-test.com/&quot; rel=&quot;noopener&quot;&gt;Demo&lt;/a&gt; and &lt;a href=&quot;https://github.com/domenic/origin-isolation-test.com&quot; rel=&quot;noopener&quot;&gt;demo
+source&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/WICG/origin-agent-cluster&quot; rel=&quot;noopener&quot;&gt;Explainer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/origin.html#origin-keyed-agent-clusters&quot; rel=&quot;noopener&quot;&gt;Specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tracking bugs: &lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=1042415&quot; rel=&quot;noopener&quot;&gt;Chrome&lt;/a&gt;,
+&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=1665474&quot; rel=&quot;noopener&quot;&gt;Firefox&lt;/a&gt;,
+&lt;a href=&quot;https://bugs.webkit.org/show_bug.cgi?id=216618&quot; rel=&quot;noopener&quot;&gt;Safari&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <author>
+      <name>Domenic Denicola</name>
+    </author>
+  </entry>
+</feed>

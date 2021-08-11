@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Yi Gu on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Yi Gu</name>
+  </author>
+  <link href="https://web.dev/authors/yigu/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <icon>https://web-dev.imgix.net/image/admin/1jsaXAFfmWcyGObF0MF3.jpg?auto=format</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>Software Engineer working on Chromium</subtitle>
+  
+  
+  <entry>
+    <title>Fill OTP forms within cross-origin iframes with WebOTP API</title>
+    <link href="https://web.dev/web-otp-iframe/"/>
+    <updated>2021-04-21T00:00:00Z</updated>
+    <id>https://web.dev/web-otp-iframe/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;SMS OTPs (one-time passwords) are commonly used to verify phone numbers, for
+example as a second step in authentication, or to verify payments on the web.
+However, switching between the browser and the SMS app, to copy-paste or manually
+enter the OTP makes it easy to make mistakes and adds friction to the user experience.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://web.dev/web-otp&quot;&gt;WebOTP API&lt;/a&gt; gives websites the ability to programmatically
+obtain the one-time password from a SMS message and enter it
+automatically in the form for the users with just one tap without switching the
+app. The SMS is specially-formatted and bound to the origin, so it mitigates
+chances for phishing websites to steal the OTP as well.&lt;/p&gt;
+&lt;p&gt;One use case that has yet to be supported in WebOTP was targeting an origin
+inside an iframe. This is typically used for payment confirmation, especially
+with &lt;a href=&quot;https://en.wikipedia.org/wiki/3-D_Secure&quot; rel=&quot;noopener&quot;&gt;3D Secure&lt;/a&gt;. Having &lt;a href=&quot;https://wicg.github.io/sms-one-time-codes/&quot; rel=&quot;noopener&quot;&gt;the common
+format to support cross-origin
+iframes&lt;/a&gt;, WebOTP API now delivers
+OTPs bound to nested origins starting in Chrome 91.&lt;/p&gt;
+&lt;h2 id=&quot;how-webotp-api-works&quot;&gt;How WebOTP API works &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#how-webotp-api-works&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;WebOTP API itself is simple enough:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;…&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; otp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; navigator&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;credentials&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;    otp&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; transport&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;sms&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;…&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;The SMS message must be &lt;a href=&quot;https://web.dev/web-otp/#format&quot;&gt;formatted with the origin-bound one-time
+codes&lt;/a&gt;.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Your OTP is: 123456.&lt;br /&gt;&lt;br /&gt;@web-otp.glitch.me #12345&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Notice that at the last line it contains the origin to be bound to preceded with
+a &lt;code&gt;@&lt;/code&gt; followed by the OTP preceded with a &lt;code&gt;#&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When the text message arrives, an info bar pops up and prompts the user to
+verify their phone number. After the user clicks the &lt;code&gt;Verify&lt;/code&gt; button, the
+browser automatically forwards the OTP to the site and resolves the
+&lt;code&gt;navigator.credentials.get()&lt;/code&gt;. The website can then extract the OTP and complete
+the verification process.&lt;/p&gt;
+&lt;p&gt;Learn the basics of using WebOTP at &lt;a href=&quot;https://web.dev/web-otp/&quot;&gt;Verify phone numbers on the web with the
+WebOTP API&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;cross-origin-iframes-use-cases&quot;&gt;Cross-origin iframes use cases &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#cross-origin-iframes-use-cases&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Entering an OTP in a form within a cross-origin iframe is common in payment
+scenarios. Some credit card issuers require an additional verification step to
+check the payer&#39;s authenticity. This is called 3D Secure and the form is
+typically exposed within an iframe on the same page as if it&#39;s a part of the
+payment flow.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A user visits &lt;code&gt;shop.example&lt;/code&gt; to purchase a pair of shoes with a credit card.&lt;/li&gt;
+&lt;li&gt;After entering the credit card number, the integrated payment provider shows a
+form from &lt;code&gt;bank.example&lt;/code&gt; within an iframe asking the user to verify their
+phone number for fast checkout.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bank.example&lt;/code&gt; sends an SMS that contains an OTP to the user so that they can
+enter it to verify their identity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;how-to-use-webotp-api-from-a-cross-origin-iframe&quot;&gt;How to use WebOTP API from a cross-origin iframe &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#how-to-use-webotp-api-from-a-cross-origin-iframe&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To use WebOTP API from within a cross-origin iframe, you need to do two
+things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Annotate both the top-frame origin and the iframe origin in the SMS text
+message.&lt;/li&gt;
+&lt;li&gt;Configure permissions policy to allow the cross-origin iframe to receive OTP
+from the user directly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+&lt;video autoplay=&quot;&quot; class=&quot;w-screenshot&quot; controls=&quot;&quot; height=&quot;600&quot; loop=&quot;&quot; muted=&quot;&quot; preload=&quot;auto&quot; width=&quot;300&quot;&gt;      &lt;source src=&quot;https://storage.googleapis.com/web-dev-uploads/video/YLflGBAPWecgtKJLqCJHSzHqe2J2/Ba3OSkSsB4NwFkHGOuvc.mp4&quot; type=&quot;video/mp4&quot; /&gt;    &lt;/video&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    WebOTP API within an iframe in action.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;You can try the demo yourself at
+&lt;a href=&quot;https://web-otp-iframe-demo.stackblitz.io/&quot; rel=&quot;noopener&quot;&gt;https://web-otp-iframe-demo.stackblitz.io&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;annotate-bound-origins-to-the-sms-text-message&quot;&gt;Annotate bound-origins to the SMS text message &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#annotate-bound-origins-to-the-sms-text-message&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;When WebOTP API is called from within an iframe, the SMS text message must
+include the top-frame origin preceded by &lt;code&gt;@&lt;/code&gt; followed by the OTP preceded by &lt;code&gt;#&lt;/code&gt;
+followed by the iframe origin preceded by &lt;code&gt;@&lt;/code&gt;.&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;@shop.example #123456 @bank.exmple&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;h3 id=&quot;configure-permissions-policy&quot;&gt;Configure Permissions Policy &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#configure-permissions-policy&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;To use WebOTP in a cross-origin iframe, the embedder must grant access to this
+API via otp-credentials &lt;a href=&quot;https://www.w3.org/TR/permissions-policy-1&quot; rel=&quot;noopener&quot;&gt;permissions
+policy&lt;/a&gt; to avoid unintended
+behavior. In general there are two ways to achieve this goal:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;via HTTP Header:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;pre class=&quot;language-http&quot;&gt;&lt;code class=&quot;language-http&quot;&gt;&lt;span class=&quot;token header-name keyword&quot;&gt;Permissions-Policy:&lt;/span&gt; otp-credentials=(self &quot;https://bank.example&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;via iframe &lt;code&gt;allow&lt;/code&gt; attribute:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;iframe&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;https://bank.example/…&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;otp-credentials&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;iframe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;See &lt;a href=&quot;https://github.com/w3c/webappsec-permissions-policy/blob/master/permissions-policy-explainer.md#how-is-a-policy-specified&quot; rel=&quot;noopener&quot;&gt;more examples on how to specify a permission policy
+&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;caveats&quot;&gt;Caveats &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#caveats&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;nesting-levels&quot;&gt;Nesting levels &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#nesting-levels&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;At the moment Chrome only supports WebOTP API calls from cross-origin iframes
+that have &lt;strong&gt;no more than one&lt;/strong&gt; unique origin in its ancestor chain. In the
+following scenarios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a.com -&amp;gt; b.com&lt;/li&gt;
+&lt;li&gt;a.com -&amp;gt; b.com -&amp;gt; b.com&lt;/li&gt;
+&lt;li&gt;a.com -&amp;gt; a.com -&amp;gt; b.com&lt;/li&gt;
+&lt;li&gt;a.com -&amp;gt; b.com -&amp;gt; c.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;using WebOTP in b.com is supported but using it in c.com is not.&lt;/p&gt;
+&lt;p&gt;Note that the following scenario is also not supported because of lack of demand
+and UX complexities.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a.com -&amp;gt; b.com -&amp;gt; a.com (calls WebOTP API)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;interoperability&quot;&gt;Interoperability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#interoperability&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;While browser engines other than Chromium do not implement the WebOTP API,
+Safari shares the same &lt;a href=&quot;https://wicg.github.io/sms-one-time-codes/&quot; rel=&quot;noopener&quot;&gt;SMS format&lt;/a&gt;
+with its &lt;code&gt;input[autocomplete=&amp;quot;one-time-code&amp;quot;]&lt;/code&gt; support. In Safari, as soon as an
+SMS that contains an origin-bound one-time code format arrives with the matched
+origin, the keyboard suggests to enter the OTP to the input field.&lt;/p&gt;
+&lt;p&gt;As of April 2021, Safari supports iframe with &lt;a href=&quot;https://github.com/WICG/sms-one-time-codes/issues/4#issuecomment-709557866&quot; rel=&quot;noopener&quot;&gt;a unique SMS format using
+&lt;code&gt;%&lt;/code&gt;&lt;/a&gt;.
+However, as the spec discussion concluded to go with &lt;code&gt;@&lt;/code&gt; instead, we hope the
+implementation of supported SMS format will converge.&lt;/p&gt;
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#feedback&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your feedback is invaluable in making WebOTP API better, so go on and try it out
+and &lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=1136506&quot; rel=&quot;noopener&quot;&gt;let us know&lt;/a&gt;
+what you think.&lt;/p&gt;
+&lt;h2 id=&quot;resources&quot;&gt;Resources &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/web-otp-iframe/#resources&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/web-otp/&quot;&gt;Verify phone numbers on the web with the Web OTP
+API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/sms-otp-form/&quot;&gt;SMS OTP form best practices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://wicg.github.io/web-otp/&quot; rel=&quot;noopener&quot;&gt;WebOTP API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://wicg.github.io/sms-one-time-codes/&quot; rel=&quot;noopener&quot;&gt;Origin-bound one-time codes delivered via
+SMS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Photo by &lt;a href=&quot;https://unsplash.com/@rupixen?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot; rel=&quot;noopener&quot;&gt;rupixen.com&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/online-payment?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot; rel=&quot;noopener&quot;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+</content>
+    <author>
+      <name>Yi Gu</name>
+    </author><author>
+      <name>Eiji Kitamura</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Scroll snapping after layout changes</title>
+    <link href="https://web.dev/snap-after-layout/"/>
+    <updated>2020-02-22T00:00:00Z</updated>
+    <id>https://web.dev/snap-after-layout/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2018/07/css-scroll-snap&quot; rel=&quot;noopener&quot;&gt;CSS Scroll Snap&lt;/a&gt;
+allows web developers to create well-controlled scroll experiences by declaring
+scroll snapping positions. One shortcoming of the current implementation is that
+scroll snapping does not work well when the layout changes, such as when the viewport is
+resized or the device is rotated. This shortcoming is fixed in Chrome 81.&lt;/p&gt;
+&lt;h2 id=&quot;interoperability&quot;&gt;Interoperability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#interoperability&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Many browsers have basic support for CSS Scroll Snap. See &lt;a href=&quot;https://caniuse.com/#feat=css-snappoints&quot; rel=&quot;noopener&quot;&gt;Can I use CSS
+Scroll Snap?&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;Chrome is currently the only browser to implement scroll snapping after layout
+changes.  Firefox has a
+&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=1530253&quot; rel=&quot;noopener&quot;&gt;ticket&lt;/a&gt; open for
+implementing this and Safari also has an open
+&lt;a href=&quot;https://bugs.webkit.org/show_bug.cgi?id=144826&quot; rel=&quot;noopener&quot;&gt;ticket&lt;/a&gt; for re-snapping after a
+scroller&#39;s content changes. For now, you can simulate this behaviour by adding
+the following code to event listeners to force a snapping to execute:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;scroller&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;scrollBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;However, this will not guarantee that the scroller snaps back to the same
+element.&lt;/p&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;css-scroll-snap&quot;&gt;CSS Scroll Snap &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#css-scroll-snap&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The CSS Scroll Snap feature allows web developers to create well-controlled
+scroll experiences by declaring scroll snapping positions. These positions
+ensure that scrollable content is properly aligned with its container to
+overcome the issues of imprecise scrolling. In other words, scroll snapping:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prevents awkward scroll positions when scrolling.&lt;/li&gt;
+&lt;li&gt;Creates the effect of paging through content.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Paginated articles and image carousels are two common use cases for scroll
+snaps.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Example of CSS scroll snap.&quot; decoding=&quot;async&quot; height=&quot;356&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/MzdzDJ2j4jJtfAYgg9e6.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;Example of CSS scroll snap. At the end of
+    scrolling an image&#39;s horizontal center is aligned with the horizontal center
+    of the scroll container.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;shortcomings&quot;&gt;Shortcomings &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#shortcomings&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/resizing-breaks-snap-positions.webm&quot; type=&quot;video/webm;&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/resizing-breaks-snap-positions.mp4&quot; type=&quot;video/mp4;&quot; /&gt;
+  &lt;/video&gt;
+ &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Snap positions get lost when resizing a window.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Scroll snapping allows users to effortlessly navigate through content, but its
+inability to adapt to changes in content and layout blocks some of its potential
+benefits. As shown in the &lt;a href=&quot;https://codepen.io/argyleink/pen/MWWpOmz&quot; rel=&quot;noopener&quot;&gt;example&lt;/a&gt;
+above, users have to re-adjust scroll positions whenever resizing a window to
+find the previously snapped element. Some common scenarios that cause layout
+change are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Resizing a window&lt;/li&gt;
+&lt;li&gt;Rotating a device&lt;/li&gt;
+&lt;li&gt;Opening DevTools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The first two scenarios make CSS Scroll Snap less appealing for users and the
+third one is a nightmare for developers when debugging. Developers also need to
+consider these shortcomings when trying to make a dynamic experience that
+supports actions such as adding, removing, or moving content.&lt;/p&gt;
+&lt;p&gt;A common fix for this is to add listeners that execute a programmatic scroll via
+JavaScript to force snapping to execute whenever any of these mentioned layout
+changes happen. This workaround can be ineffective when the user expects the
+scroller to snap back to the same content as before. Any further handling with
+JavaScript seems to almost defeat the purpose of this CSS feature.&lt;/p&gt;
+&lt;h2 id=&quot;built-in-support-for-re-snapping-after-layout-changes-in-chrome-81&quot;&gt;Built-in support for re-snapping after layout changes in Chrome 81 &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#built-in-support-for-re-snapping-after-layout-changes-in-chrome-81&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The mentioned shortcomings no longer exist in Chrome 81: scrollers will remain
+snapped even after changing layout. They will re-evaluate scroll positions after
+changing their layout, and re-snap to the closest snap position if necessary. If
+the scroller was previously snapped to an element that still exists after the
+layout change, then the scroller will try to snap back to it. Pay attention to
+what happens when the layout changes in the following
+&lt;a href=&quot;https://codepen.io/argyleink/full/YzXyOaX&quot; rel=&quot;noopener&quot;&gt;example&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+&lt;figure class=&quot;w-compare&quot;&gt;&lt;p class=&quot;w-compare__label w-compare__label--worse&quot;&gt;Snap position lost&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/snap-positions-lost.webm&quot; type=&quot;video/webm;&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/snap-positions-lost.mp4&quot; type=&quot;video/mp4;&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+&lt;figcaption class=&quot;w-compare__caption&quot;&gt;
+&lt;p&gt;Rotating a device &lt;strong&gt;does not&lt;/strong&gt; preserve the snap positions in Chrome 80.
+After scrolling to the slide that says &lt;code&gt;NOPE&lt;/code&gt; and changing the device orientation
+from portrait to landscape, a blank screen is shown, which indicates that the
+scroll snap position was lost.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;w-compare&quot;&gt;&lt;p class=&quot;w-compare__label w-compare__label--better&quot;&gt;Snap position preserved&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/snap-positions-preserved.webm&quot; type=&quot;video/webm;&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/snap-positions-preserved.mp4&quot; type=&quot;video/mp4;&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+&lt;figcaption class=&quot;w-compare__caption&quot;&gt;
+&lt;p&gt;Rotating a device &lt;strong&gt;does&lt;/strong&gt; preserve the snap positions in Chrome 81. The slide that
+says &lt;code&gt;NOPE&lt;/code&gt; remains in view even though the device orientation changes multiple times.&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/div&gt;
+&lt;p&gt;See the &lt;a href=&quot;https://drafts.csswg.org/css-scroll-snap-1/#re-snap&quot; rel=&quot;noopener&quot;&gt;Re-snapping after layout changes
+specification&lt;/a&gt; for more
+details.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--caution&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Caution&lt;/strong&gt;:  Snapping is also executed when the page loads. This
+affects the initial scroll offset of scrollers using the scroll snap feature.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;example:-sticky-scrollbars&quot;&gt;Example: Sticky scrollbars &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#example:-sticky-scrollbars&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;With &amp;quot;Snap after layout changes&amp;quot;, developers can implement sticky scrollbars with a few
+lines of CSS:&lt;/p&gt;
+&lt;div&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;scroll-snap-type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; y proximity&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token selector&quot;&gt;.container::after&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;scroll-snap-align&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; end&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; block&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;&lt;p&gt;Want to learn more? See the following &lt;a href=&quot;https://codepen.io/argyleink/pen/RwPWqKe&quot; rel=&quot;noopener&quot;&gt;demo chat
+UI&lt;/a&gt; for visuals.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;video controls=&quot;&quot; autoplay=&quot;&quot; loop=&quot;&quot; muted=&quot;&quot; class=&quot;w-screenshot&quot;&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/scroll-snap-bottom.webm&quot; type=&quot;video/webm;&quot; /&gt;
+    &lt;source src=&quot;https://storage.googleapis.com/web-dev-assets/snap-after-layout/scroll-snap-bottom.mp4&quot; type=&quot;video/mp4;&quot; /&gt;
+  &lt;/video&gt;
+  &lt;figcaption class=&quot;w-figcaption&quot;&gt;
+    Adding a new message triggers re-snap which makes it stick to the bottom in
+    Chrome 81.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;future-work&quot;&gt;Future work &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#future-work&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All re-snapping scroll effects are currently instant; a potential follow-up is
+to support re-snapping with &lt;a href=&quot;https://developers.google.com/web/updates/2016/02/smooth-scrolling-in-chrome-49&quot; rel=&quot;noopener&quot;&gt;smooth scrolling
+effects&lt;/a&gt;.
+See the &lt;a href=&quot;https://github.com/w3c/csswg-drafts/issues/4609&quot; rel=&quot;noopener&quot;&gt;specification issue&lt;/a&gt;
+for details.&lt;/p&gt;
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/snap-after-layout/#feedback&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your feedback is invaluable in making re-snapping after layout changes better, so go on
+and try it out and &lt;a href=&quot;https://bugs.chromium.org/p/chromium/issues/detail?id=866127&quot; rel=&quot;noopener&quot;&gt;let the Chromium engineers
+know&lt;/a&gt; what you
+think.&lt;/p&gt;
+</content>
+    <author>
+      <name>Yi Gu</name>
+    </author><author>
+      <name>Kaan Alsan</name>
+    </author><author>
+      <name>Adam Argyle</name>
+    </author>
+  </entry>
+</feed>

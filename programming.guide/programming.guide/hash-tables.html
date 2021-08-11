@@ -1,1782 +1,3597 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Hash Tables | Programming.Guide</title>
-  <link href="css/base.css" rel="stylesheet">
-  <link href="favicon.ico" rel="icon">
-  <meta content="Hash tables (also known as hash maps) are associative arrays, or dictionaries, that allow for fast insertion, lookup and removal regardless of the number of items stored." name="description">
-  <meta content="hash table, hash set, hash function, complexity, examples, explanation, data structure, separate chaining, pseudo code, rehashing, collision resolution, primes" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hash Tables | Programming.Guide</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="icon" />
+    <meta
+      content="Hash tables (also known as hash maps) are associative arrays, or dictionaries, that allow for fast insertion, lookup and removal regardless of the number of items stored."
+      name="description"
+    />
+    <meta
+      content="hash table, hash set, hash function, complexity, examples, explanation, data structure, separate chaining, pseudo code, rehashing, collision resolution, primes"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="css/go-highlighting.css" rel="stylesheet">
-  <style>
-        /* <![CDATA[ */
-            #lookup-animation * {
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="css/go-highlighting.css" rel="stylesheet" />
+    <style>
+      /* <![CDATA[ */
+      #lookup-animation * {
         animation-duration: 15s;
-    }
-    #lookup-animation text {
+      }
+      #lookup-animation text {
         font-size: 70%;
-    }
-    #lookup-animation .label-text > text {
+      }
+      #lookup-animation .label-text > text {
         font-size: 45%;
         fill: white;
-    }
-    @keyframes lookup-kv1 {
-        0%, 14% { opacity: 0; }
-        15%, 25% { opacity: 1; }
-        26%, 100% { opacity: 0; }
-    }
-    @keyframes lookup-k1 {
-        0%, 19% { opacity: 1; fill: black; }
-        19.4%, 19.599999999999998% { opacity: 0; fill: red; }
-        19.799999999999997%, 19.999999999999996% { opacity: 1; }
-        20.199999999999996%, 20.399999999999995% { opacity: 0; }
-        20.599999999999994%, 20.799999999999994% { opacity: 1; }
-        20.999999999999993%, 21.199999999999992% { opacity: 0; }
-        21.39999999999999%, 100% { opacity: 1; }
-    }
-    @keyframes lookup-kv2 {
-        0%, 29% { opacity: 0; }
-        30%, 40% { opacity: 1; }
-        41%, 100% { opacity: 0; }
-    }
-    @keyframes lookup-k2 {
-        0%, 34% { opacity: 1; fill: black; }
-        34.4%, 34.6% { opacity: 0; fill: red; }
-        34.8%, 35.0% { opacity: 1; }
-        35.199999999999996%, 35.4% { opacity: 0; }
-        35.599999999999994%, 35.8% { opacity: 1; }
-        35.99999999999999%, 36.199999999999996% { opacity: 0; }
-        36.39999999999999%, 100% { opacity: 1; }
-    }
-    @keyframes lookup-kv3 {
-        0%, 44% { opacity: 0; }
-        45%, 100% { opacity: 1; }
-    }
-    @keyframes lookup-k3 {
-        0%, 49% { opacity: 1; fill: black; }
-        49.4%, 49.6% { opacity: 0; fill: green; }
-        49.8%, 50.0% { opacity: 1; }
-        50.199999999999996%, 50.4% { opacity: 0; }
-        50.599999999999994%, 50.8% { opacity: 1; }
-        50.99999999999999%, 51.199999999999996% { opacity: 0; }
-        51.39999999999999%, 61.39999999999999% { fill: green; opacity: 1; }
-        61.40099999999999%, 100% { opacity: 0; }
-    }
-    @keyframes lookup-comma3 {
-        from, 61.398999999999994% { opacity: 1; }
-        61.39999999999999%, to { opacity: 0; }
-    }
-    @keyframes lookup-v3 {
-        from, 61.398999999999994% { transform: scale(1) translateX(0px); fill: black; }
-        63.39999999999999%, to { transform: scale(1.5) translateX(-3px); transform-origin: 18px -2px; fill: green; }
-    }
-    @keyframes node-box {
-        from, 13% { transform: scaleX(0); transform-origin: 0px 0px; }
-        15% { transform: scaleX(1); }
-        15.001% { transform-origin: 0px 0px; }
-        15.002% { transform-origin: 40px 0px; }
-        25% { transform: scaleX(1); }
-        27% { transform: scaleX(0); }
-        27.001% { transform-origin: 40px 0px; }
-        27.002% { transform-origin: 0px 0px; }
-        27.003% { transform: scaleX(0); }
-        30% { transform: scaleX(1); }
-        30.001% { transform-origin: 0px 0px; }
-        30.002% { transform-origin: 40px 0px; }
-        40% { transform: scaleX(1); }
-        42% { transform: scaleX(0); }
-        42.001% { transform-origin: 40px 0px; }
-        42.002% { transform-origin: 0px 0px; }
-        42.003% { transform: scaleX(0); }
-        44% { transform: scaleX(1); }
-        80% { opacity: 1; }
-        82%, to { opacity: 0; transform: scaleX(1); }
-    }
-    @keyframes lookup-magnifier-translation {
-        0%, 3% { transform: translate(-50px, -30px); }
-        6%, 10% { transform: translate(-23.5px, 135px); }
-        15%, 25% { transform: translate(37.5px, 135px); }
-        30%, 40% { transform: translate(76.5px, 135px); }
-        45%, 100% { transform: translate(115.5px, 135px); }
-    }
-    @keyframes wrong-key-label {
-        from, 18% { opacity: 0; }
-        19%, 24% { opacity: 1; }
-        25%, 32% { opacity: 0; }
-        33%, 38% { opacity: 1; }
-        40%, to { opacity: 0; }
-    }
-    @keyframes key-found-label {
-        from, 45% { opacity: 0; }
-        48%, 52% { opacity: 1; }
-        55%, to { opacity: 0; }
-    }
-    @keyframes return-val-label {
-        from, 57% { opacity: 0; }
-        59%, to { opacity: 1; }
-    }
-    @keyframes lookup-magnifier {
-        from, 52% { opacity: 1; }
-        55%, to { opacity: 0; }
-    }
-    #insert-animation * {
+      }
+      @keyframes lookup-kv1 {
+        0%,
+        14% {
+          opacity: 0;
+        }
+        15%,
+        25% {
+          opacity: 1;
+        }
+        26%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes lookup-k1 {
+        0%,
+        19% {
+          opacity: 1;
+          fill: black;
+        }
+        19.4%,
+        19.599999999999998% {
+          opacity: 0;
+          fill: red;
+        }
+        19.799999999999997%,
+        19.999999999999996% {
+          opacity: 1;
+        }
+        20.199999999999996%,
+        20.399999999999995% {
+          opacity: 0;
+        }
+        20.599999999999994%,
+        20.799999999999994% {
+          opacity: 1;
+        }
+        20.999999999999993%,
+        21.199999999999992% {
+          opacity: 0;
+        }
+        21.39999999999999%,
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes lookup-kv2 {
+        0%,
+        29% {
+          opacity: 0;
+        }
+        30%,
+        40% {
+          opacity: 1;
+        }
+        41%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes lookup-k2 {
+        0%,
+        34% {
+          opacity: 1;
+          fill: black;
+        }
+        34.4%,
+        34.6% {
+          opacity: 0;
+          fill: red;
+        }
+        34.8%,
+        35.0% {
+          opacity: 1;
+        }
+        35.199999999999996%,
+        35.4% {
+          opacity: 0;
+        }
+        35.599999999999994%,
+        35.8% {
+          opacity: 1;
+        }
+        35.99999999999999%,
+        36.199999999999996% {
+          opacity: 0;
+        }
+        36.39999999999999%,
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes lookup-kv3 {
+        0%,
+        44% {
+          opacity: 0;
+        }
+        45%,
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes lookup-k3 {
+        0%,
+        49% {
+          opacity: 1;
+          fill: black;
+        }
+        49.4%,
+        49.6% {
+          opacity: 0;
+          fill: green;
+        }
+        49.8%,
+        50.0% {
+          opacity: 1;
+        }
+        50.199999999999996%,
+        50.4% {
+          opacity: 0;
+        }
+        50.599999999999994%,
+        50.8% {
+          opacity: 1;
+        }
+        50.99999999999999%,
+        51.199999999999996% {
+          opacity: 0;
+        }
+        51.39999999999999%,
+        61.39999999999999% {
+          fill: green;
+          opacity: 1;
+        }
+        61.40099999999999%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes lookup-comma3 {
+        from,
+        61.398999999999994% {
+          opacity: 1;
+        }
+        61.39999999999999%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes lookup-v3 {
+        from,
+        61.398999999999994% {
+          transform: scale(1) translateX(0px);
+          fill: black;
+        }
+        63.39999999999999%,
+        to {
+          transform: scale(1.5) translateX(-3px);
+          transform-origin: 18px -2px;
+          fill: green;
+        }
+      }
+      @keyframes node-box {
+        from,
+        13% {
+          transform: scaleX(0);
+          transform-origin: 0px 0px;
+        }
+        15% {
+          transform: scaleX(1);
+        }
+        15.001% {
+          transform-origin: 0px 0px;
+        }
+        15.002% {
+          transform-origin: 40px 0px;
+        }
+        25% {
+          transform: scaleX(1);
+        }
+        27% {
+          transform: scaleX(0);
+        }
+        27.001% {
+          transform-origin: 40px 0px;
+        }
+        27.002% {
+          transform-origin: 0px 0px;
+        }
+        27.003% {
+          transform: scaleX(0);
+        }
+        30% {
+          transform: scaleX(1);
+        }
+        30.001% {
+          transform-origin: 0px 0px;
+        }
+        30.002% {
+          transform-origin: 40px 0px;
+        }
+        40% {
+          transform: scaleX(1);
+        }
+        42% {
+          transform: scaleX(0);
+        }
+        42.001% {
+          transform-origin: 40px 0px;
+        }
+        42.002% {
+          transform-origin: 0px 0px;
+        }
+        42.003% {
+          transform: scaleX(0);
+        }
+        44% {
+          transform: scaleX(1);
+        }
+        80% {
+          opacity: 1;
+        }
+        82%,
+        to {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+      }
+      @keyframes lookup-magnifier-translation {
+        0%,
+        3% {
+          transform: translate(-50px, -30px);
+        }
+        6%,
+        10% {
+          transform: translate(-23.5px, 135px);
+        }
+        15%,
+        25% {
+          transform: translate(37.5px, 135px);
+        }
+        30%,
+        40% {
+          transform: translate(76.5px, 135px);
+        }
+        45%,
+        100% {
+          transform: translate(115.5px, 135px);
+        }
+      }
+      @keyframes wrong-key-label {
+        from,
+        18% {
+          opacity: 0;
+        }
+        19%,
+        24% {
+          opacity: 1;
+        }
+        25%,
+        32% {
+          opacity: 0;
+        }
+        33%,
+        38% {
+          opacity: 1;
+        }
+        40%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes key-found-label {
+        from,
+        45% {
+          opacity: 0;
+        }
+        48%,
+        52% {
+          opacity: 1;
+        }
+        55%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes return-val-label {
+        from,
+        57% {
+          opacity: 0;
+        }
+        59%,
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes lookup-magnifier {
+        from,
+        52% {
+          opacity: 1;
+        }
+        55%,
+        to {
+          opacity: 0;
+        }
+      }
+      #insert-animation * {
         animation-duration: 30s;
-    }
-    #insert-animation text {
+      }
+      #insert-animation text {
         font-size: 70%;
-    }
-    #insert-animation .label-text > text {
+      }
+      #insert-animation .label-text > text {
         font-size: 45%;
         fill: white;
         text-anchor: middle;
-    }
-    @keyframes insert-new-header {
-        from, 49% { opacity: 1 }
-        50%, to { opacity: 0 }
-    }
-    @keyframes insert-upd-header {
-        from, 50% { opacity: 0 }
-        51%, to { opacity: 1 }
-    }
-    @keyframes insert-new-kv1 {
-        0%, 7% { opacity: 0; }
-        7.5%, 12.5% { opacity: 1; }
-        13%, to { opacity: 0; }
-    }
-    @keyframes insert-new-k1 {
-        0%, 9.5% { opacity: 1; fill: black; }
-        9.7%, 9.799999999999999% { opacity: 0; fill: red; }
-        9.899999999999999%, 9.999999999999998% { opacity: 1; }
-        10.099999999999998%, 10.199999999999998% { opacity: 0; }
-        10.299999999999997%, 10.399999999999997% { opacity: 1; }
-        10.499999999999996%, 10.599999999999996% { opacity: 0; }
-        10.699999999999996%, 50% { opacity: 1; }
-    }
-    @keyframes insert-new-kv2 {
-        0%, 14.5% { opacity: 0; }
-        15%, 20% { opacity: 1; }
-        20.5%, to { opacity: 0; }
-    }
-    @keyframes insert-new-node-label {
-        0%, 28.5% { opacity: 0; }
-        29.5%, 50% { opacity: 1; }
-        51%, to { opacity: 0; }
-    }
-    @keyframes insert-new-new-node-node {
-        0%, 32.5% { opacity: 0; }
-        33.5%, to { opacity: 1; }
-    }
-    @keyframes insert-new-new-node-kv {
-        0%, 34.5% { opacity: 0; }
-        35.5%, 50% { opacity: 1; }
-        51%, to { opacity: 0; }
-    }
-    @keyframes insert-new-new-node-arrow {
-        0%, 37.5% { opacity: 0; }
-        38.5%, to { opacity: 1; }
-    }
-    @keyframes insert-new-k2 {
-        0%, 17% { opacity: 1; fill: black; }
-        17.2%, 17.3% { opacity: 0; fill: red; }
-        17.4%, 17.5% { opacity: 1; }
-        17.599999999999998%, 17.7% { opacity: 0; }
-        17.799999999999997%, 17.9% { opacity: 1; }
-        17.999999999999996%, 18.099999999999998% { opacity: 0; }
-        18.199999999999996%, 50% { opacity: 1; }
-    }
-    @keyframes insert-new-kv3 {
-        0%, 22% { opacity: 0; }
-        22.5%, 50% { opacity: 1; }
-    }
-    @keyframes insert-new-k3 {
-        0%, 24.5% { opacity: 1; fill: black; }
-        24.7%, 24.8% { opacity: 0; fill: green; }
-        24.9%, 25.0% { opacity: 1; }
-        25.099999999999998%, 25.2% { opacity: 0; }
-        25.299999999999997%, 25.4% { opacity: 1; }
-        25.499999999999996%, 25.599999999999998% { opacity: 0; }
-        25.699999999999996%, 30.699999999999996%, 50% { fill: green; opacity: 1; }
-    }
-    @keyframes insert-node-box {
-        0%, 6.5% { opacity: 1; transform: scaleX(0); transform-origin: 0px 0px; }
-        7.5% { transform: scaleX(1); }
-        7.501% { transform-origin: 0px 0px; }
-        7.502% { transform-origin: 40px 0px; }
-        12.5% { transform: scaleX(1); }
-        13.5% { transform: scaleX(0); }
-        13.501% { transform-origin: 40px 0px; }
-        13.502% { transform-origin: 0px 0px; }
-        13.503% { transform: scaleX(0); }
-        15% { transform: scaleX(1); }
-        15.001% { transform-origin: 0px 0px; }
-        15.002% { transform-origin: 40px 0px; }
-        20% { transform: scaleX(1); }
-        21% { transform: scaleX(0); }
-        21.001% { transform-origin: 40px 0px; }
-        21.002% { transform-origin: 0px 0px; }
-        21.003% { transform: scaleX(0); }
-        22% { transform: scaleX(1); }
-        40% { opacity: 1; }
-        41%, 50% { opacity: 0; transform: scaleX(1); }
-        51%, 56.5% { opacity: 1; transform: scaleX(0); transform-origin: 0px 0px; }
-        57.5% { transform: scaleX(1); }
-        57.501% { transform-origin: 0px 0px; }
-        57.502% { transform-origin: 40px 0px; }
-        62.5% { transform: scaleX(1); }
-        63.5% { transform: scaleX(0); }
-        63.501% { transform-origin: 40px 0px; }
-        63.502% { transform-origin: 0px 0px; }
-        63.503% { transform: scaleX(0); }
-        65% { transform: scaleX(1); }
-        65.001% { transform-origin: 0px 0px; }
-        65.002% { transform-origin: 40px 0px; }
-        70% { transform: scaleX(1); }
-        71% { transform: scaleX(0); }
-        71.001% { transform-origin: 40px 0px; }
-        71.002% { transform-origin: 0px 0px; }
-        71.003% { transform: scaleX(0); }
-        72% { transform: scaleX(1); }
-        90% { opacity: 1; }
-        91%, 100% { opacity: 0; transform: scaleX(1); }
-    }
-    @keyframes insert-magnifier-translation {
+      }
+      @keyframes insert-new-header {
+        from,
+        49% {
+          opacity: 1;
+        }
+        50%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-upd-header {
+        from,
+        50% {
+          opacity: 0;
+        }
+        51%,
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-new-kv1 {
+        0%,
+        7% {
+          opacity: 0;
+        }
+        7.5%,
+        12.5% {
+          opacity: 1;
+        }
+        13%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-new-k1 {
+        0%,
+        9.5% {
+          opacity: 1;
+          fill: black;
+        }
+        9.7%,
+        9.799999999999999% {
+          opacity: 0;
+          fill: red;
+        }
+        9.899999999999999%,
+        9.999999999999998% {
+          opacity: 1;
+        }
+        10.099999999999998%,
+        10.199999999999998% {
+          opacity: 0;
+        }
+        10.299999999999997%,
+        10.399999999999997% {
+          opacity: 1;
+        }
+        10.499999999999996%,
+        10.599999999999996% {
+          opacity: 0;
+        }
+        10.699999999999996%,
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-new-kv2 {
+        0%,
+        14.5% {
+          opacity: 0;
+        }
+        15%,
+        20% {
+          opacity: 1;
+        }
+        20.5%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-new-node-label {
+        0%,
+        28.5% {
+          opacity: 0;
+        }
+        29.5%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-new-new-node-node {
+        0%,
+        32.5% {
+          opacity: 0;
+        }
+        33.5%,
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-new-new-node-kv {
+        0%,
+        34.5% {
+          opacity: 0;
+        }
+        35.5%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-new-new-node-arrow {
+        0%,
+        37.5% {
+          opacity: 0;
+        }
+        38.5%,
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-new-k2 {
+        0%,
+        17% {
+          opacity: 1;
+          fill: black;
+        }
+        17.2%,
+        17.3% {
+          opacity: 0;
+          fill: red;
+        }
+        17.4%,
+        17.5% {
+          opacity: 1;
+        }
+        17.599999999999998%,
+        17.7% {
+          opacity: 0;
+        }
+        17.799999999999997%,
+        17.9% {
+          opacity: 1;
+        }
+        17.999999999999996%,
+        18.099999999999998% {
+          opacity: 0;
+        }
+        18.199999999999996%,
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-new-kv3 {
+        0%,
+        22% {
+          opacity: 0;
+        }
+        22.5%,
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-new-k3 {
+        0%,
+        24.5% {
+          opacity: 1;
+          fill: black;
+        }
+        24.7%,
+        24.8% {
+          opacity: 0;
+          fill: green;
+        }
+        24.9%,
+        25.0% {
+          opacity: 1;
+        }
+        25.099999999999998%,
+        25.2% {
+          opacity: 0;
+        }
+        25.299999999999997%,
+        25.4% {
+          opacity: 1;
+        }
+        25.499999999999996%,
+        25.599999999999998% {
+          opacity: 0;
+        }
+        25.699999999999996%,
+        30.699999999999996%,
+        50% {
+          fill: green;
+          opacity: 1;
+        }
+      }
+      @keyframes insert-node-box {
+        0%,
+        6.5% {
+          opacity: 1;
+          transform: scaleX(0);
+          transform-origin: 0px 0px;
+        }
+        7.5% {
+          transform: scaleX(1);
+        }
+        7.501% {
+          transform-origin: 0px 0px;
+        }
+        7.502% {
+          transform-origin: 40px 0px;
+        }
+        12.5% {
+          transform: scaleX(1);
+        }
+        13.5% {
+          transform: scaleX(0);
+        }
+        13.501% {
+          transform-origin: 40px 0px;
+        }
+        13.502% {
+          transform-origin: 0px 0px;
+        }
+        13.503% {
+          transform: scaleX(0);
+        }
+        15% {
+          transform: scaleX(1);
+        }
+        15.001% {
+          transform-origin: 0px 0px;
+        }
+        15.002% {
+          transform-origin: 40px 0px;
+        }
+        20% {
+          transform: scaleX(1);
+        }
+        21% {
+          transform: scaleX(0);
+        }
+        21.001% {
+          transform-origin: 40px 0px;
+        }
+        21.002% {
+          transform-origin: 0px 0px;
+        }
+        21.003% {
+          transform: scaleX(0);
+        }
+        22% {
+          transform: scaleX(1);
+        }
+        40% {
+          opacity: 1;
+        }
+        41%,
+        50% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        51%,
+        56.5% {
+          opacity: 1;
+          transform: scaleX(0);
+          transform-origin: 0px 0px;
+        }
+        57.5% {
+          transform: scaleX(1);
+        }
+        57.501% {
+          transform-origin: 0px 0px;
+        }
+        57.502% {
+          transform-origin: 40px 0px;
+        }
+        62.5% {
+          transform: scaleX(1);
+        }
+        63.5% {
+          transform: scaleX(0);
+        }
+        63.501% {
+          transform-origin: 40px 0px;
+        }
+        63.502% {
+          transform-origin: 0px 0px;
+        }
+        63.503% {
+          transform: scaleX(0);
+        }
+        65% {
+          transform: scaleX(1);
+        }
+        65.001% {
+          transform-origin: 0px 0px;
+        }
+        65.002% {
+          transform-origin: 40px 0px;
+        }
+        70% {
+          transform: scaleX(1);
+        }
+        71% {
+          transform: scaleX(0);
+        }
+        71.001% {
+          transform-origin: 40px 0px;
+        }
+        71.002% {
+          transform-origin: 0px 0px;
+        }
+        71.003% {
+          transform: scaleX(0);
+        }
+        72% {
+          transform: scaleX(1);
+        }
+        90% {
+          opacity: 1;
+        }
+        91%,
+        100% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+      }
+      @keyframes insert-magnifier-translation {
         /* Stage: new */
-        0%, 1.5% { transform: translate(-50px, -30px); }
-        3%, 5% { transform: translate(-23.5px, 105px); }
-        7.5%, 12.5% { transform: translate(37.5px, 105px); }
-        15%, 20% { transform: translate(76.5px, 105px); }
-        22.5%, 50% { transform: translate(115.5px, 105px); }
+        0%,
+        1.5% {
+          transform: translate(-50px, -30px);
+        }
+        3%,
+        5% {
+          transform: translate(-23.5px, 105px);
+        }
+        7.5%,
+        12.5% {
+          transform: translate(37.5px, 105px);
+        }
+        15%,
+        20% {
+          transform: translate(76.5px, 105px);
+        }
+        22.5%,
+        50% {
+          transform: translate(115.5px, 105px);
+        }
         /* Stage: update */
-        50.001%, 51.5% { transform: translate(-50px, -30px); }
-        53%, 55% { transform: translate(-23.5px, 135px); }
-        57.5%, 62.5% { transform: translate(37.5px, 135px); }
-        65%, 70% { transform: translate(76.5px, 135px); }
-        72.5%, 100% { transform: translate(115.5px, 135px); }
-    }
-    @keyframes insert-wrong-key-label {
+        50.001%,
+        51.5% {
+          transform: translate(-50px, -30px);
+        }
+        53%,
+        55% {
+          transform: translate(-23.5px, 135px);
+        }
+        57.5%,
+        62.5% {
+          transform: translate(37.5px, 135px);
+        }
+        65%,
+        70% {
+          transform: translate(76.5px, 135px);
+        }
+        72.5%,
+        100% {
+          transform: translate(115.5px, 135px);
+        }
+      }
+      @keyframes insert-wrong-key-label {
         /* Stage: new */
-        0%, 9% { opacity: 0; }
-        9.5%, 12% { opacity: 1; }
-        12.5%, 16% { opacity: 0; }
-        16.5%, 19% { opacity: 1; }
-        20%, 50% { opacity: 0; }
+        0%,
+        9% {
+          opacity: 0;
+        }
+        9.5%,
+        12% {
+          opacity: 1;
+        }
+        12.5%,
+        16% {
+          opacity: 0;
+        }
+        16.5%,
+        19% {
+          opacity: 1;
+        }
+        20%,
+        50% {
+          opacity: 0;
+        }
         /* Stage: update */
-        59% { opacity: 0; }
-        59.5%, 62% { opacity: 1; }
-        62.5%, 66% { opacity: 0; }
-        66.5%, 69% { opacity: 1; }
-        70%, 100% { opacity: 0; }
-    }
-    @keyframes insert-new-key-not-found-label {
-        0%, 22.5% { opacity: 0; }
-        24%, 26% { opacity: 1; }
-        27.5%, to { opacity: 0; }
-    }
-    @keyframes insert-magnifier {
+        59% {
+          opacity: 0;
+        }
+        59.5%,
+        62% {
+          opacity: 1;
+        }
+        62.5%,
+        66% {
+          opacity: 0;
+        }
+        66.5%,
+        69% {
+          opacity: 1;
+        }
+        70%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-new-key-not-found-label {
+        0%,
+        22.5% {
+          opacity: 0;
+        }
+        24%,
+        26% {
+          opacity: 1;
+        }
+        27.5%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-magnifier {
         /* Stage: new */
-        0%, 26% { opacity: 1; }
-        27.5%, 50% { opacity: 0; }
+        0%,
+        26% {
+          opacity: 1;
+        }
+        27.5%,
+        50% {
+          opacity: 0;
+        }
         /* Stage: existing */
-        50.001%, 76% { opacity: 1; }
-        77.5%, 100% { opacity: 0; }
-    }
-    @keyframes insert-upd-kv1 {
-        from, 57% { opacity: 0; }
-        57.5%, 62.5% { opacity: 1; }
-        63%, 100% { opacity: 0; }
-    }
-    @keyframes insert-upd-k1 {
-        from, 59.5% { opacity: 1; fill: black; }
-        59.9%, 60.1% { opacity: 0; fill: red; }
-        60.3%, 60.5% { opacity: 1; }
-        60.699999999999996%, 60.9% { opacity: 0; }
-        61.099999999999994%, 61.3% { opacity: 1; }
-        61.49999999999999%, 61.699999999999996% { opacity: 0; }
-        61.89999999999999%, 100% { opacity: 1; }
-    }
-    @keyframes insert-upd-kv2 {
-        from, 64.5% { opacity: 0; }
-        65%, 70% { opacity: 1; }
-        70.5%, 100% { opacity: 0; }
-    }
-    @keyframes insert-upd-k2 {
-        from, 67% { opacity: 1; fill: black; }
-        67.4%, 67.60000000000001% { opacity: 0; fill: red; }
-        67.80000000000001%, 68.00000000000001% { opacity: 1; }
-        68.20000000000002%, 68.40000000000002% { opacity: 0; }
-        68.60000000000002%, 68.80000000000003% { opacity: 1; }
-        69.00000000000003%, 69.20000000000003% { opacity: 0; }
-        69.40000000000003%, 100% { opacity: 1; }
-    }
-    @keyframes insert-upd-kv3 {
-        from, 72% { opacity: 0; }
-        72.5%, 100% { opacity: 1; }
-    }
-    @keyframes insert-upd-k3 {
-        from, 74.5% { opacity: 1; fill: black; }
-        74.9%, 75.10000000000001% { opacity: 0; fill: green; }
-        75.30000000000001%, 75.50000000000001% { opacity: 1; }
-        75.70000000000002%, 75.90000000000002% { opacity: 0; }
-        76.10000000000002%, 76.30000000000003% { opacity: 1; }
-        76.50000000000003%, 76.70000000000003% { opacity: 0; }
-        76.90000000000003%, 86.90000000000003%, 100% { fill: green; opacity: 1; }
-    }
-    @keyframes insert-upd-key-found-label {
-        from, 72.5% { opacity: 0; }
-        74%, 76% { opacity: 1; }
-        77.5%, 100% { opacity: 0; }
-    }
-    @keyframes insert-upd-update-val-label {
-        from, 78.5% { opacity: 0; }
-        79.5%, 90% { opacity: 1; }
-        91%, to { opacity: 0; }
-    }
-    @keyframes insert-upd-v3-curtain {
-        from, 81% { transform: scaleY(0); transform-origin: 0px -9px; }
-        83%, 84.5% { transform: scaleY(1); transform-origin: 0px -9px; }
-        84.501%, 83.501% { transform: scaleY(1); transform-origin: 0px 3px; }
-        86%, 100% { transform: scaleY(0); }
-    }
-    @keyframes insert-upd-v3-updated {
-        from, 80.5% { fill: black; }
-        81%, 83% { fill: red; }
-        83.001%, 100% { fill: green; }
-    }
-    #rehash-animation * {
+        50.001%,
+        76% {
+          opacity: 1;
+        }
+        77.5%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-upd-kv1 {
+        from,
+        57% {
+          opacity: 0;
+        }
+        57.5%,
+        62.5% {
+          opacity: 1;
+        }
+        63%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-upd-k1 {
+        from,
+        59.5% {
+          opacity: 1;
+          fill: black;
+        }
+        59.9%,
+        60.1% {
+          opacity: 0;
+          fill: red;
+        }
+        60.3%,
+        60.5% {
+          opacity: 1;
+        }
+        60.699999999999996%,
+        60.9% {
+          opacity: 0;
+        }
+        61.099999999999994%,
+        61.3% {
+          opacity: 1;
+        }
+        61.49999999999999%,
+        61.699999999999996% {
+          opacity: 0;
+        }
+        61.89999999999999%,
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-upd-kv2 {
+        from,
+        64.5% {
+          opacity: 0;
+        }
+        65%,
+        70% {
+          opacity: 1;
+        }
+        70.5%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-upd-k2 {
+        from,
+        67% {
+          opacity: 1;
+          fill: black;
+        }
+        67.4%,
+        67.60000000000001% {
+          opacity: 0;
+          fill: red;
+        }
+        67.80000000000001%,
+        68.00000000000001% {
+          opacity: 1;
+        }
+        68.20000000000002%,
+        68.40000000000002% {
+          opacity: 0;
+        }
+        68.60000000000002%,
+        68.80000000000003% {
+          opacity: 1;
+        }
+        69.00000000000003%,
+        69.20000000000003% {
+          opacity: 0;
+        }
+        69.40000000000003%,
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-upd-kv3 {
+        from,
+        72% {
+          opacity: 0;
+        }
+        72.5%,
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes insert-upd-k3 {
+        from,
+        74.5% {
+          opacity: 1;
+          fill: black;
+        }
+        74.9%,
+        75.10000000000001% {
+          opacity: 0;
+          fill: green;
+        }
+        75.30000000000001%,
+        75.50000000000001% {
+          opacity: 1;
+        }
+        75.70000000000002%,
+        75.90000000000002% {
+          opacity: 0;
+        }
+        76.10000000000002%,
+        76.30000000000003% {
+          opacity: 1;
+        }
+        76.50000000000003%,
+        76.70000000000003% {
+          opacity: 0;
+        }
+        76.90000000000003%,
+        86.90000000000003%,
+        100% {
+          fill: green;
+          opacity: 1;
+        }
+      }
+      @keyframes insert-upd-key-found-label {
+        from,
+        72.5% {
+          opacity: 0;
+        }
+        74%,
+        76% {
+          opacity: 1;
+        }
+        77.5%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-upd-update-val-label {
+        from,
+        78.5% {
+          opacity: 0;
+        }
+        79.5%,
+        90% {
+          opacity: 1;
+        }
+        91%,
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes insert-upd-v3-curtain {
+        from,
+        81% {
+          transform: scaleY(0);
+          transform-origin: 0px -9px;
+        }
+        83%,
+        84.5% {
+          transform: scaleY(1);
+          transform-origin: 0px -9px;
+        }
+        84.501%,
+        83.501% {
+          transform: scaleY(1);
+          transform-origin: 0px 3px;
+        }
+        86%,
+        100% {
+          transform: scaleY(0);
+        }
+      }
+      @keyframes insert-upd-v3-updated {
+        from,
+        80.5% {
+          fill: black;
+        }
+        81%,
+        83% {
+          fill: red;
+        }
+        83.001%,
+        100% {
+          fill: green;
+        }
+      }
+      #rehash-animation * {
         animation-duration: 10s;
-    }
-    @keyframes hide-first-20 {
-        0% { opacity: 0; }
-        19.9% { opacity: 0; }
-        20% { opacity: 1; }
-        100% { opacity: 1; }
-    }
-    @keyframes show-in-the-middle {
-        0% { opacity: 0; }
-        19.9% { opacity: 0; }
-        20% { opacity: 1; }
-        80% { opacity: 1; }
-        81% { opacity: 0; }
-        100% { opacity: 0; }
-    }
-    @keyframes rehash-link-0 {
-        from, 30% { opacity: 1; transform: scaleX(3); }
-        31.9% { transform: scaleX(2); }
-        33.8% { opacity: 1; }
-        33.81% { opacity: 0; transform: scaleX(1); }
-        35.71% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-1 {
-        from, 30% { opacity: 1; transform: scaleX(3); }
-        35.71% { transform: scaleX(3); }
-        37.62% { transform: scaleX(2); }
-        39.51% { opacity: 1; }
-        39.52% { opacity: 0; transform: scaleX(1); }
-        41.43% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-2 {
-        from, 30% { opacity: 1; transform: scaleX(3); }
-        41.43% { transform: scaleX(3); }
-        43.33% { transform: scaleX(2); }
-        45.23% { opacity: 1; }
-        45.24% { opacity: 0; transform: scaleX(1); }
-        47.14% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-3 {
-        from, 30% { opacity: 1; transform: scaleX(2); }
-        47.14% { transform: scaleX(2); }
-        49.04% { opacity: 1; }
-        49.05% { opacity: 0; transform: scaleX(1); }
-        50.95% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-4 {
-        from, 30% { opacity: 1; transform: scaleX(2); }
-        50.95% { transform: scaleX(2); }
-        52.85% { opacity: 1; }
-        52.86% { opacity: 0; transform: scaleX(1); }
-        54.76% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-5 {
-        from, 30% { opacity: 1; transform: scaleX(3); }
-        54.76% { transform: scaleX(3); }
-        56.67% { transform: scaleX(2); }
-        58.56% { opacity: 1; }
-        58.57% { opacity: 0; transform: scaleX(1); }
-        60.48% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-6 {
-        from, 30% { opacity: 1; transform: scaleX(3); }
-        60.48% { transform: scaleX(3); }
-        62.38% { transform: scaleX(2); }
-        64.28% { opacity: 1; }
-        64.29% { opacity: 0; transform: scaleX(1); }
-        66.19% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-7 {
-        from, 30% { opacity: 1; transform: scaleX(2); }
-        66.19% { transform: scaleX(2); }
-        68.09% { opacity: 1; }
-        68.1% { opacity: 0; transform: scaleX(1); }
-        70.0% , to { transform: scaleX(0); }
-    }
-    @keyframes rehash-link-8 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        49.05% { transform: scaleX(0); }
-        50.95% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-9 {
-        from, 30% { transform: scaleX(0); }
-        31.9% { transform: scaleX(1); }
-        56.67% { transform: scaleX(1); }
-        58.57% , to { transform: scaleX(2); }
-    }
-    @keyframes rehash-link-10 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        66.19% { transform: scaleX(0); }
-        68.1% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-11 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        37.62% { transform: scaleX(0); }
-        39.52% { transform: scaleX(1); }
-        68.1% { transform: scaleX(1); }
-        70.0% , to { transform: scaleX(2); }
-    }
-    @keyframes rehash-link-12 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        58.57% { transform: scaleX(0); }
-        60.48% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-13 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        64.29% { transform: scaleX(0); }
-        66.19% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-14 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        47.14% { transform: scaleX(0); }
-        49.05% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-15 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        31.9% { transform: scaleX(0); }
-        33.81% { transform: scaleX(1); }
-        50.95% { transform: scaleX(1); }
-        52.86% , to { transform: scaleX(2); }
-    }
-    @keyframes rehash-link-16 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        45.24% { transform: scaleX(0); }
-        47.14% { transform: scaleX(1); }
-        62.38% { transform: scaleX(1); }
-        64.29% , to { transform: scaleX(2); }
-    }
-    @keyframes rehash-link-17 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        35.71% { transform: scaleX(0); }
-        37.62% { transform: scaleX(1); }
-        54.76% { transform: scaleX(1); }
-        56.67% , to { transform: scaleX(2); }
-    }
-    @keyframes rehash-link-18 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        33.81% { transform: scaleX(0); }
-        35.71% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-19 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        52.86% { transform: scaleX(0); }
-        54.76% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-20 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        43.33% { transform: scaleX(0); }
-        45.24% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-21 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        60.48% { transform: scaleX(0); }
-        62.38% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-22 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        41.43% { transform: scaleX(0); }
-        43.33% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-link-23 {
-        29.99% { opacity: 1; }
-        from, 30% { transform: scaleX(0); }
-        39.52% { transform: scaleX(0); }
-        41.43% , to { transform: scaleX(1); }
-    }
-    @keyframes rehash-node-0 {
-        from, 30% { transform: translate(14.0px, 0px) }
-        31.905% { transform: translate(114.0px, 10px) }
-        56.667% { transform: translate(114.0px, 10px) }
-        to, 58.571% { transform: translate(125.0px, 10px) }
-    }
-    @keyframes rehash-node-1 {
-        from, 30% { transform: translate(25.0px, 0px) }
-        31.905% { transform: translate(14.0px, 0px) }
-        33.81% { transform: translate(114.0px, 70px) }
-        50.952% { transform: translate(114.0px, 70px) }
-        to, 52.857% { transform: translate(125.0px, 70px) }
-    }
-    @keyframes rehash-node-2 {
-        from, 30% { transform: translate(36.0px, 0px) }
-        31.905% { transform: translate(25.0px, 0px) }
-        33.81% { transform: translate(14.0px, 0px) }
-        to, 35.714% { transform: translate(114.0px, 100px) }
-    }
-    @keyframes rehash-node-3 {
-        from, 30% { transform: translate(14.0px, 10px) }
-        35.714% { transform: translate(14.0px, 10px) }
-        37.619% { transform: translate(114.0px, 90px) }
-        54.762% { transform: translate(114.0px, 90px) }
-        to, 56.667% { transform: translate(125.0px, 90px) }
-    }
-    @keyframes rehash-node-4 {
-        from, 30% { transform: translate(25.0px, 10px) }
-        35.714% { transform: translate(25.0px, 10px) }
-        37.619% { transform: translate(14.0px, 10px) }
-        39.524% { transform: translate(114.0px, 30px) }
-        68.095% { transform: translate(114.0px, 30px) }
-        to, 70.0% { transform: translate(125.0px, 30px) }
-    }
-    @keyframes rehash-node-5 {
-        from, 30% { transform: translate(36.0px, 10px) }
-        35.714% { transform: translate(36.0px, 10px) }
-        37.619% { transform: translate(25.0px, 10px) }
-        39.524% { transform: translate(14.0px, 10px) }
-        to, 41.429% { transform: translate(114.0px, 150px) }
-    }
-    @keyframes rehash-node-6 {
-        from, 30% { transform: translate(14.0px, 20px) }
-        41.429% { transform: translate(14.0px, 20px) }
-        to, 43.333% { transform: translate(114.0px, 140px) }
-    }
-    @keyframes rehash-node-7 {
-        from, 30% { transform: translate(25.0px, 20px) }
-        41.429% { transform: translate(25.0px, 20px) }
-        43.333% { transform: translate(14.0px, 20px) }
-        to, 45.238% { transform: translate(114.0px, 120px) }
-    }
-    @keyframes rehash-node-8 {
-        from, 30% { transform: translate(14.0px, 60px) }
-        60.476% { transform: translate(14.0px, 60px) }
-        to, 62.381% { transform: translate(114.0px, 130px) }
-    }
-    @keyframes rehash-node-9 {
-        from, 30% { transform: translate(14.0px, 30px) }
-        47.143% { transform: translate(14.0px, 30px) }
-        to, 49.048% { transform: translate(114.0px, 60px) }
-    }
-    @keyframes rehash-node-10 {
-        from, 30% { transform: translate(25.0px, 30px) }
-        47.143% { transform: translate(25.0px, 30px) }
-        49.048% { transform: translate(14.0px, 30px) }
-        to, 50.952% { transform: translate(114.0px, 0px) }
-    }
-    @keyframes rehash-node-11 {
-        from, 30% { transform: translate(14.0px, 40px) }
-        50.952% { transform: translate(14.0px, 40px) }
-        to, 52.857% { transform: translate(114.0px, 70px) }
-    }
-    @keyframes rehash-node-12 {
-        from, 30% { transform: translate(25.0px, 40px) }
-        50.952% { transform: translate(25.0px, 40px) }
-        52.857% { transform: translate(14.0px, 40px) }
-        to, 54.762% { transform: translate(114.0px, 110px) }
-    }
-    @keyframes rehash-node-13 {
-        from, 30% { transform: translate(14.0px, 50px) }
-        54.762% { transform: translate(14.0px, 50px) }
-        to, 56.667% { transform: translate(114.0px, 90px) }
-    }
-    @keyframes rehash-node-14 {
-        from, 30% { transform: translate(25.0px, 50px) }
-        54.762% { transform: translate(25.0px, 50px) }
-        56.667% { transform: translate(14.0px, 50px) }
-        to, 58.571% { transform: translate(114.0px, 10px) }
-    }
-    @keyframes rehash-node-15 {
-        from, 30% { transform: translate(36.0px, 50px) }
-        54.762% { transform: translate(36.0px, 50px) }
-        56.667% { transform: translate(25.0px, 50px) }
-        58.571% { transform: translate(14.0px, 50px) }
-        to, 60.476% { transform: translate(114.0px, 40px) }
-    }
-    @keyframes rehash-node-16 {
-        from, 30% { transform: translate(25.0px, 60px) }
-        60.476% { transform: translate(25.0px, 60px) }
-        62.381% { transform: translate(14.0px, 60px) }
-        to, 64.286% { transform: translate(114.0px, 80px) }
-    }
-    @keyframes rehash-node-17 {
-        from, 30% { transform: translate(36.0px, 60px) }
-        60.476% { transform: translate(36.0px, 60px) }
-        62.381% { transform: translate(25.0px, 60px) }
-        64.286% { transform: translate(14.0px, 60px) }
-        to, 66.19% { transform: translate(114.0px, 50px) }
-    }
-    @keyframes rehash-node-18 {
-        from, 30% { transform: translate(36.0px, 20px) }
-        41.429% { transform: translate(36.0px, 20px) }
-        43.333% { transform: translate(25.0px, 20px) }
-        45.238% { transform: translate(14.0px, 20px) }
-        47.143% { transform: translate(114.0px, 80px) }
-        62.381% { transform: translate(114.0px, 80px) }
-        to, 64.286% { transform: translate(125.0px, 80px) }
-    }
-    @keyframes rehash-node-19 {
-        from, 30% { transform: translate(14.0px, 70px) }
-        66.19% { transform: translate(14.0px, 70px) }
-        to, 68.095% { transform: translate(114.0px, 20px) }
-    }
-    @keyframes rehash-node-20 {
-        from, 30% { transform: translate(25.0px, 70px) }
-        66.19% { transform: translate(25.0px, 70px) }
-        68.095% { transform: translate(14.0px, 70px) }
-        to, 70.0% { transform: translate(114.0px, 30px) }
-    }
-    @keyframes slide-left-in-the-end {
-        0% { transform: translate(4px, 25px); }
-        80% { transform: translate(4px, 25px); }
-        83% { transform: translate(-96px, 25px); }
-        95% { opacity: 1; }
-        100% { transform: translate(-96px, 25px); opacity: 0; }
-    }
+      }
+      @keyframes hide-first-20 {
+        0% {
+          opacity: 0;
+        }
+        19.9% {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes show-in-the-middle {
+        0% {
+          opacity: 0;
+        }
+        19.9% {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        81% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes rehash-link-0 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(3);
+        }
+        31.9% {
+          transform: scaleX(2);
+        }
+        33.8% {
+          opacity: 1;
+        }
+        33.81% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        35.71%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-1 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(3);
+        }
+        35.71% {
+          transform: scaleX(3);
+        }
+        37.62% {
+          transform: scaleX(2);
+        }
+        39.51% {
+          opacity: 1;
+        }
+        39.52% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        41.43%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-2 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(3);
+        }
+        41.43% {
+          transform: scaleX(3);
+        }
+        43.33% {
+          transform: scaleX(2);
+        }
+        45.23% {
+          opacity: 1;
+        }
+        45.24% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        47.14%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-3 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(2);
+        }
+        47.14% {
+          transform: scaleX(2);
+        }
+        49.04% {
+          opacity: 1;
+        }
+        49.05% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        50.95%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-4 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(2);
+        }
+        50.95% {
+          transform: scaleX(2);
+        }
+        52.85% {
+          opacity: 1;
+        }
+        52.86% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        54.76%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-5 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(3);
+        }
+        54.76% {
+          transform: scaleX(3);
+        }
+        56.67% {
+          transform: scaleX(2);
+        }
+        58.56% {
+          opacity: 1;
+        }
+        58.57% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        60.48%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-6 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(3);
+        }
+        60.48% {
+          transform: scaleX(3);
+        }
+        62.38% {
+          transform: scaleX(2);
+        }
+        64.28% {
+          opacity: 1;
+        }
+        64.29% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        66.19%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-7 {
+        from,
+        30% {
+          opacity: 1;
+          transform: scaleX(2);
+        }
+        66.19% {
+          transform: scaleX(2);
+        }
+        68.09% {
+          opacity: 1;
+        }
+        68.1% {
+          opacity: 0;
+          transform: scaleX(1);
+        }
+        70.0%,
+        to {
+          transform: scaleX(0);
+        }
+      }
+      @keyframes rehash-link-8 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        49.05% {
+          transform: scaleX(0);
+        }
+        50.95%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-9 {
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        31.9% {
+          transform: scaleX(1);
+        }
+        56.67% {
+          transform: scaleX(1);
+        }
+        58.57%,
+        to {
+          transform: scaleX(2);
+        }
+      }
+      @keyframes rehash-link-10 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        66.19% {
+          transform: scaleX(0);
+        }
+        68.1%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-11 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        37.62% {
+          transform: scaleX(0);
+        }
+        39.52% {
+          transform: scaleX(1);
+        }
+        68.1% {
+          transform: scaleX(1);
+        }
+        70.0%,
+        to {
+          transform: scaleX(2);
+        }
+      }
+      @keyframes rehash-link-12 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        58.57% {
+          transform: scaleX(0);
+        }
+        60.48%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-13 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        64.29% {
+          transform: scaleX(0);
+        }
+        66.19%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-14 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        47.14% {
+          transform: scaleX(0);
+        }
+        49.05%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-15 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        31.9% {
+          transform: scaleX(0);
+        }
+        33.81% {
+          transform: scaleX(1);
+        }
+        50.95% {
+          transform: scaleX(1);
+        }
+        52.86%,
+        to {
+          transform: scaleX(2);
+        }
+      }
+      @keyframes rehash-link-16 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        45.24% {
+          transform: scaleX(0);
+        }
+        47.14% {
+          transform: scaleX(1);
+        }
+        62.38% {
+          transform: scaleX(1);
+        }
+        64.29%,
+        to {
+          transform: scaleX(2);
+        }
+      }
+      @keyframes rehash-link-17 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        35.71% {
+          transform: scaleX(0);
+        }
+        37.62% {
+          transform: scaleX(1);
+        }
+        54.76% {
+          transform: scaleX(1);
+        }
+        56.67%,
+        to {
+          transform: scaleX(2);
+        }
+      }
+      @keyframes rehash-link-18 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        33.81% {
+          transform: scaleX(0);
+        }
+        35.71%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-19 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        52.86% {
+          transform: scaleX(0);
+        }
+        54.76%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-20 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        43.33% {
+          transform: scaleX(0);
+        }
+        45.24%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-21 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        60.48% {
+          transform: scaleX(0);
+        }
+        62.38%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-22 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        41.43% {
+          transform: scaleX(0);
+        }
+        43.33%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-link-23 {
+        29.99% {
+          opacity: 1;
+        }
+        from,
+        30% {
+          transform: scaleX(0);
+        }
+        39.52% {
+          transform: scaleX(0);
+        }
+        41.43%,
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @keyframes rehash-node-0 {
+        from,
+        30% {
+          transform: translate(14px, 0px);
+        }
+        31.905% {
+          transform: translate(114px, 10px);
+        }
+        56.667% {
+          transform: translate(114px, 10px);
+        }
+        to,
+        58.571% {
+          transform: translate(125px, 10px);
+        }
+      }
+      @keyframes rehash-node-1 {
+        from,
+        30% {
+          transform: translate(25px, 0px);
+        }
+        31.905% {
+          transform: translate(14px, 0px);
+        }
+        33.81% {
+          transform: translate(114px, 70px);
+        }
+        50.952% {
+          transform: translate(114px, 70px);
+        }
+        to,
+        52.857% {
+          transform: translate(125px, 70px);
+        }
+      }
+      @keyframes rehash-node-2 {
+        from,
+        30% {
+          transform: translate(36px, 0px);
+        }
+        31.905% {
+          transform: translate(25px, 0px);
+        }
+        33.81% {
+          transform: translate(14px, 0px);
+        }
+        to,
+        35.714% {
+          transform: translate(114px, 100px);
+        }
+      }
+      @keyframes rehash-node-3 {
+        from,
+        30% {
+          transform: translate(14px, 10px);
+        }
+        35.714% {
+          transform: translate(14px, 10px);
+        }
+        37.619% {
+          transform: translate(114px, 90px);
+        }
+        54.762% {
+          transform: translate(114px, 90px);
+        }
+        to,
+        56.667% {
+          transform: translate(125px, 90px);
+        }
+      }
+      @keyframes rehash-node-4 {
+        from,
+        30% {
+          transform: translate(25px, 10px);
+        }
+        35.714% {
+          transform: translate(25px, 10px);
+        }
+        37.619% {
+          transform: translate(14px, 10px);
+        }
+        39.524% {
+          transform: translate(114px, 30px);
+        }
+        68.095% {
+          transform: translate(114px, 30px);
+        }
+        to,
+        70.0% {
+          transform: translate(125px, 30px);
+        }
+      }
+      @keyframes rehash-node-5 {
+        from,
+        30% {
+          transform: translate(36px, 10px);
+        }
+        35.714% {
+          transform: translate(36px, 10px);
+        }
+        37.619% {
+          transform: translate(25px, 10px);
+        }
+        39.524% {
+          transform: translate(14px, 10px);
+        }
+        to,
+        41.429% {
+          transform: translate(114px, 150px);
+        }
+      }
+      @keyframes rehash-node-6 {
+        from,
+        30% {
+          transform: translate(14px, 20px);
+        }
+        41.429% {
+          transform: translate(14px, 20px);
+        }
+        to,
+        43.333% {
+          transform: translate(114px, 140px);
+        }
+      }
+      @keyframes rehash-node-7 {
+        from,
+        30% {
+          transform: translate(25px, 20px);
+        }
+        41.429% {
+          transform: translate(25px, 20px);
+        }
+        43.333% {
+          transform: translate(14px, 20px);
+        }
+        to,
+        45.238% {
+          transform: translate(114px, 120px);
+        }
+      }
+      @keyframes rehash-node-8 {
+        from,
+        30% {
+          transform: translate(14px, 60px);
+        }
+        60.476% {
+          transform: translate(14px, 60px);
+        }
+        to,
+        62.381% {
+          transform: translate(114px, 130px);
+        }
+      }
+      @keyframes rehash-node-9 {
+        from,
+        30% {
+          transform: translate(14px, 30px);
+        }
+        47.143% {
+          transform: translate(14px, 30px);
+        }
+        to,
+        49.048% {
+          transform: translate(114px, 60px);
+        }
+      }
+      @keyframes rehash-node-10 {
+        from,
+        30% {
+          transform: translate(25px, 30px);
+        }
+        47.143% {
+          transform: translate(25px, 30px);
+        }
+        49.048% {
+          transform: translate(14px, 30px);
+        }
+        to,
+        50.952% {
+          transform: translate(114px, 0px);
+        }
+      }
+      @keyframes rehash-node-11 {
+        from,
+        30% {
+          transform: translate(14px, 40px);
+        }
+        50.952% {
+          transform: translate(14px, 40px);
+        }
+        to,
+        52.857% {
+          transform: translate(114px, 70px);
+        }
+      }
+      @keyframes rehash-node-12 {
+        from,
+        30% {
+          transform: translate(25px, 40px);
+        }
+        50.952% {
+          transform: translate(25px, 40px);
+        }
+        52.857% {
+          transform: translate(14px, 40px);
+        }
+        to,
+        54.762% {
+          transform: translate(114px, 110px);
+        }
+      }
+      @keyframes rehash-node-13 {
+        from,
+        30% {
+          transform: translate(14px, 50px);
+        }
+        54.762% {
+          transform: translate(14px, 50px);
+        }
+        to,
+        56.667% {
+          transform: translate(114px, 90px);
+        }
+      }
+      @keyframes rehash-node-14 {
+        from,
+        30% {
+          transform: translate(25px, 50px);
+        }
+        54.762% {
+          transform: translate(25px, 50px);
+        }
+        56.667% {
+          transform: translate(14px, 50px);
+        }
+        to,
+        58.571% {
+          transform: translate(114px, 10px);
+        }
+      }
+      @keyframes rehash-node-15 {
+        from,
+        30% {
+          transform: translate(36px, 50px);
+        }
+        54.762% {
+          transform: translate(36px, 50px);
+        }
+        56.667% {
+          transform: translate(25px, 50px);
+        }
+        58.571% {
+          transform: translate(14px, 50px);
+        }
+        to,
+        60.476% {
+          transform: translate(114px, 40px);
+        }
+      }
+      @keyframes rehash-node-16 {
+        from,
+        30% {
+          transform: translate(25px, 60px);
+        }
+        60.476% {
+          transform: translate(25px, 60px);
+        }
+        62.381% {
+          transform: translate(14px, 60px);
+        }
+        to,
+        64.286% {
+          transform: translate(114px, 80px);
+        }
+      }
+      @keyframes rehash-node-17 {
+        from,
+        30% {
+          transform: translate(36px, 60px);
+        }
+        60.476% {
+          transform: translate(36px, 60px);
+        }
+        62.381% {
+          transform: translate(25px, 60px);
+        }
+        64.286% {
+          transform: translate(14px, 60px);
+        }
+        to,
+        66.19% {
+          transform: translate(114px, 50px);
+        }
+      }
+      @keyframes rehash-node-18 {
+        from,
+        30% {
+          transform: translate(36px, 20px);
+        }
+        41.429% {
+          transform: translate(36px, 20px);
+        }
+        43.333% {
+          transform: translate(25px, 20px);
+        }
+        45.238% {
+          transform: translate(14px, 20px);
+        }
+        47.143% {
+          transform: translate(114px, 80px);
+        }
+        62.381% {
+          transform: translate(114px, 80px);
+        }
+        to,
+        64.286% {
+          transform: translate(125px, 80px);
+        }
+      }
+      @keyframes rehash-node-19 {
+        from,
+        30% {
+          transform: translate(14px, 70px);
+        }
+        66.19% {
+          transform: translate(14px, 70px);
+        }
+        to,
+        68.095% {
+          transform: translate(114px, 20px);
+        }
+      }
+      @keyframes rehash-node-20 {
+        from,
+        30% {
+          transform: translate(25px, 70px);
+        }
+        66.19% {
+          transform: translate(25px, 70px);
+        }
+        68.095% {
+          transform: translate(14px, 70px);
+        }
+        to,
+        70.0% {
+          transform: translate(114px, 30px);
+        }
+      }
+      @keyframes slide-left-in-the-end {
+        0% {
+          transform: translate(4px, 25px);
+        }
+        80% {
+          transform: translate(4px, 25px);
+        }
+        83% {
+          transform: translate(-96px, 25px);
+        }
+        95% {
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-96px, 25px);
+          opacity: 0;
+        }
+      }
 
-        /* ]]> */
+      /* ]]> */
 
-        .instr-tbl {
-            display: table;
-        }
-        .instr-tbl > div {
-            display: table-row;
-        }
-        .instr-tbl > div > div {
-            display: table-cell;
-        }
-        .instr-tbl > div > div:nth-child(1) {
-            padding-left: .5em;
-        }
-        .instr-tbl > div > div:nth-child(2) {
-            padding: .5em;
-        }
-        .instr-tbl > div > div:nth-child(3) {
-            padding: .5em;
-            width: 50%;
-        }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      .instr-tbl {
+        display: table;
+      }
+      .instr-tbl > div {
+        display: table-row;
+      }
+      .instr-tbl > div > div {
+        display: table-cell;
+      }
+      .instr-tbl > div > div:nth-child(1) {
+        padding-left: 0.5em;
+      }
+      .instr-tbl > div > div:nth-child(2) {
+        padding: 0.5em;
+      }
+      .instr-tbl > div > div:nth-child(3) {
+        padding: 0.5em;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Hash Tables</h2>
-      <ol class="nostyle">
-        <li class="current">Hash Tables</li>
-        <li>
-          <a href="hash-tables-complexity.html">Complexity</a>
-        </li>
-        <li>
-          <a href="hash-table-load-factor-and-capacity.html">Hash Table Load Factor and Capacity</a>
-        </li>
-        <li>
-          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
-        </li>
-        <li>
-          <a href="hash-tables-open-vs-closed-addressing.html">Open vs Closed Addressing</a>
-        </li>
-        <li>
-          <a href="hash-tables-open-addressing.html">Open Addressing</a>
-        </li>
-        <li>
-          <a href="coalesced-hashing.html">Coalesced Hashing</a>
-        </li>
-        <li>
-          <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
-        </li>
-        <li>
-          <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
-        </li>
-        <li>
-          <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
-        </li>
-        <li>
-          <a href="2-choice-hashing.html">2-Choice Hashing</a>
-        </li>
-        <li>
-          <a href="2-left-hashing.html">2-Left Hashing</a>
-        </li>
-        <li>
-          <a href="linked-hash-table.html">Linked Hash Table</a>
-        </li>
-        <li>
-          <a href="prime-numbers-in-hash-tables.html">Why large prime numbers are used in hash tables</a>
-        </li>
-      </ol>
-      <h2>Related</h2>
-      <div style="margin-bottom: 1em;">
-        <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="amortized-time-complexity-analysis.html">Amortized time complexity</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-      <div style="margin-bottom: 1em;">
-        <a href="big-o-notation-explained.html">Big O notation explained</a><br>
-        <span style="color: grey; font-style: italic; font-size: smaller;">Programming.Guide</span>
-      </div>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="algorithms.html"><strong>See all algorithm articles</strong></a></p>
-    </aside>
-    <article>
-      <h1>Hash Tables</h1><svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <rect fill="white" height="30" id="cell" stroke="black" width="30"></rect>
-        <rect fill="white" height="20" id="node" rx="5" ry="5" stroke="black" width="25" x="17" y="5.0"></rect>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="blue" id="r-arrow-head"></path>
-        <path d="M -1 -3 l 0 6 l 10 -3 l -10 -3" fill="black" id="r-arrow-head-black"></path>
-        <path d="M -1 -4 l 0 8 l 12 -4 l -12 -4" fill="red" id="r-arrow-head-red"></path>
-        <g id="arrow-and-node">
-          <line stroke="black" x1="0" x2="10" y1="15.0" y2="15.0"></line>
-          <use href="#r-arrow-head-black" x="10" y="15.0"></use>
-          <use href="#node" x="0"></use>
-        </g>
-      </defs></svg>
-      <p>Hash tables (also known as hash maps) are associative arrays, or dictionaries, that allow for fast insertion, lookup and removal regardless of the number of items stored.</p>
-      <p>Here’s an example of how they can be used:</p>
-      <pre><code>HashTable phoneBook = new HashTable()
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Hash Tables</h2>
+        <ol class="nostyle">
+          <li class="current">Hash Tables</li>
+          <li>
+            <a href="hash-tables-complexity.html">Complexity</a>
+          </li>
+          <li>
+            <a href="hash-table-load-factor-and-capacity.html"
+              >Hash Table Load Factor and Capacity</a
+            >
+          </li>
+          <li>
+            <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a>
+          </li>
+          <li>
+            <a href="hash-tables-open-vs-closed-addressing.html"
+              >Open vs Closed Addressing</a
+            >
+          </li>
+          <li>
+            <a href="hash-tables-open-addressing.html">Open Addressing</a>
+          </li>
+          <li>
+            <a href="coalesced-hashing.html">Coalesced Hashing</a>
+          </li>
+          <li>
+            <a href="cuckoo-hashing.html">Cuckoo Hashing</a>
+          </li>
+          <li>
+            <a href="robin-hood-hashing.html">Robin Hood Hashing</a>
+          </li>
+          <li>
+            <a href="hopscotch-hashing.html">Hopscotch Hashing</a>
+          </li>
+          <li>
+            <a href="2-choice-hashing.html">2-Choice Hashing</a>
+          </li>
+          <li>
+            <a href="2-left-hashing.html">2-Left Hashing</a>
+          </li>
+          <li>
+            <a href="linked-hash-table.html">Linked Hash Table</a>
+          </li>
+          <li>
+            <a href="prime-numbers-in-hash-tables.html"
+              >Why large prime numbers are used in hash tables</a
+            >
+          </li>
+        </ol>
+        <h2>Related</h2>
+        <div style="margin-bottom: 1em">
+          <a href="hash-table-vs-hash-set.html">Hash Table vs Hash Set</a><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="amortized-time-complexity-analysis.html"
+            >Amortized time complexity</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+        <div style="margin-bottom: 1em">
+          <a href="big-o-notation-explained.html">Big O notation explained</a
+          ><br />
+          <span style="color: grey; font-style: italic; font-size: smaller"
+            >Programming.Guide</span
+          >
+        </div>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="big-o-notation-explained.html">Big O notation explained</a>
+          </li>
+          <li>
+            <a href="sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="algorithms.html"
+            ><strong>See all algorithm articles</strong></a
+          >
+        </p>
+      </aside>
+      <article>
+        <h1>Hash Tables</h1>
+        <svg
+          style="display: none"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <rect
+              fill="white"
+              height="30"
+              id="cell"
+              stroke="black"
+              width="30"
+            ></rect>
+            <rect
+              fill="white"
+              height="20"
+              id="node"
+              rx="5"
+              ry="5"
+              stroke="black"
+              width="25"
+              x="17"
+              y="5.0"
+            ></rect>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="blue"
+              id="r-arrow-head"
+            ></path>
+            <path
+              d="M -1 -3 l 0 6 l 10 -3 l -10 -3"
+              fill="black"
+              id="r-arrow-head-black"
+            ></path>
+            <path
+              d="M -1 -4 l 0 8 l 12 -4 l -12 -4"
+              fill="red"
+              id="r-arrow-head-red"
+            ></path>
+            <g id="arrow-and-node">
+              <line stroke="black" x1="0" x2="10" y1="15.0" y2="15.0"></line>
+              <use href="#r-arrow-head-black" x="10" y="15.0"></use>
+              <use href="#node" x="0"></use>
+            </g>
+          </defs>
+        </svg>
+        <p>
+          Hash tables (also known as hash maps) are associative arrays, or
+          dictionaries, that allow for fast insertion, lookup and removal
+          regardless of the number of items stored.
+        </p>
+        <p>Here’s an example of how they can be used:</p>
+        <pre><code>HashTable phoneBook = new HashTable()
 phoneBook.put(<span class="text_lit">"Adam"</span>, <span class="text_lit">"(202) 555-0309"</span>)
 phoneBook.put(<span class="text_lit">"Beth"</span>, <span class="text_lit">"(335) 754-1215"</span>)
 
 print(<span class="text_lit">"Adam’s number: "</span> + phoneBook.get(<span class="text_lit">"Adam"</span>))
 </code></pre>
-      <p>Internally they are similar to card indexes: An item can be found quickly by first jumping to its approximate location, and then searching locally from there.</p>
-      <div style="text-align: center; margin: 4em 0em;">
-        <object data="hash-tables/card-index-box.svg" style="max-width: 27em;" type="image/svg+xml">
-        </object>
-      </div>
-      <h2>Representation</h2>
-      <p>The simplest way to implement a hash table is to use an <strong>array of linked lists</strong>.</p>
-      <p>Each array cell is called a <strong>bucket</strong>, and each list node stores a <strong>key-value pair</strong>.</p>
-      <p>Following the analogy from the previous section, the array cells that can be accessed quickly can be thought of as index cards, and nodes in the list as data cards.</p><svg style="display: block; margin: 3em auto 3em auto; max-width: 20em" viewbox="-15 0 190 270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <rect fill="white" height="20" id="node-wo-kv" rx="4" ry="4" stroke="black" width="25" y="5.0"></rect>
-        <g id="node-w-kv">
-          <use href="#node-wo-kv"></use>
-          <text fill="#999" style="font-size: 50%" x="3" y="17.0">
-            (k, v)
-          </text>
-        </g>
-        <path d="M -2 2 l 4 0 l -2 -6 l -2 6" fill="black" id="arrow-head"></path>
-        <g id="right-arrow">
-          <line stroke="black" x1="0" x2="13" y1="0" y2="0"></line>
-          <use href="#arrow-head" transform="translate(10,0) rotate(90)"></use>
-        </g>
-        <g id="node-with-arrow">
-          <use href="#right-arrow" x="0" y="15.0"></use>
-          <use href="#node-w-kv" x="14"></use>
-        </g>
-      </defs>
-      <text fill="blue" style="font-size: 50%" transform="rotate(-90)" x="-170" y="-5">
-        Array of buckets
-      </text>
-      <text fill="blue" style="font-size: 50%" x="60" y="10">
-        Nodes of key-value pairs
-      </text>
-      <g transform="translate(5, 20)">
-        <use href="#cell" y="0"></use>
-        <use href="#node-with-arrow" x="30" y="0"></use>
-        <use href="#cell" y="30"></use>
-        <use href="#node-with-arrow" x="30" y="30"></use>
-        <use href="#node-with-arrow" x="69" y="30"></use>
-        <use href="#node-with-arrow" x="108" y="30"></use>
-        <use href="#cell" y="60"></use>
-        <use href="#node-with-arrow" x="30" y="60"></use>
-        <use href="#node-with-arrow" x="69" y="60"></use>
-        <use href="#node-with-arrow" x="108" y="60"></use>
-        <use href="#cell" y="90"></use>
-        <use href="#node-with-arrow" x="30" y="90"></use>
-        <use href="#cell" y="120"></use>
-        <use href="#node-with-arrow" x="30" y="120"></use>
-        <use href="#node-with-arrow" x="69" y="120"></use>
-        <use href="#cell" y="150"></use>
-        <use href="#node-with-arrow" x="30" y="150"></use>
-        <use href="#node-with-arrow" x="69" y="150"></use>
-        <use href="#node-with-arrow" x="108" y="150"></use>
-        <use href="#cell" y="180"></use>
-        <use href="#node-with-arrow" x="30" y="180"></use>
-        <use href="#node-with-arrow" x="69" y="180"></use>
-        <use href="#cell" y="210"></use>
-        <use href="#node-with-arrow" x="30" y="210"></use>
-        <use href="#node-with-arrow" x="69" y="210"></use>
-        <use href="#node-with-arrow" x="108" y="210"></use>
-      </g></svg>
-      <h2>Finding the right bucket</h2>
-      <p>Which bucket a given key belongs to, is determined by a <strong>hash function</strong> as follows…</p>
-      <div class="indented">
-        <p><em>bucket index</em> = hash(<em>key</em>) % length(<em>bucket array</em>)</p>
-      </div>
-      <p>…where % denotes the remainder operator.</p>
-      <p>For efficiency reasons, an additional variable is used to keep track of the current total number of key-value pairs.</p>
-      <div class="article-box">
-        <div style="display: flex">
-          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
-            ☞
-          </div>
-          <div>
-            <p>There are other ways to implement hash tables, but this is the representation that will be used here to introduce the subject. See section <a href="hash-tables.html#other-impl">Other Collision Resolution Strategies</a> for alternatives.</p>
-          </div>
+        <p>
+          Internally they are similar to card indexes: An item can be found
+          quickly by first jumping to its approximate location, and then
+          searching locally from there.
+        </p>
+        <div style="text-align: center; margin: 4em 0em">
+          <object
+            data="hash-tables/card-index-box.svg"
+            style="max-width: 27em"
+            type="image/svg+xml"
+          ></object>
         </div>
-      </div>
-      <h2>Insertion</h2>
-      <p>Here's how a mapping from key <code>k</code> to value <code>v</code> is inserted in a hash table:</p>
-      <div class="instr-tbl">
-        <div>
-          <div>
-            1.
-          </div>
-          <div>
-            Rehash if load factor is too high. (Explained in separate section.)
-          </div>
-          <div class="code-like">
-            rehash_if_needed()
-          </div>
-        </div>
-        <div>
-          <div>
-            2.
-          </div>
-          <div>
-            Compute the hash for the key
-          </div>
-          <div class="code-like">
-            h = hash(k)
-          </div>
-        </div>
-        <div>
-          <div>
-            3.
-          </div>
-          <div>
-            Use remainder operator to compute the bucket index
-          </div>
-          <div class="code-like">
-            i = h % length(buckets)
-          </div>
-        </div>
-        <div>
-          <div>
-            4.
-          </div>
-          <div>
-            Look for key among existing nodes.<br>
-            <br>
-            If found update value of existing node.
-          </div>
-          <div class="code-like">
-            last = NULL<br>
-            n = buckets[i]<br>
-            while n ≠ NULL:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;if n.key == k:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.value = v<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;last = n<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;n = n.next
-          </div>
-        </div>
-        <div>
-          <div>
-            5.
-          </div>
-          <div>
-            If not found, append new node to list
-          </div>
-          <div class="code-like">
-            new_node = new Node(k, v)<br>
-            if last == NULL:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;bucket[i] = new_node<br>
-            else:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;last.next = new_node
-          </div>
-        </div>
-      </div>
-      <div class="centered-content pause-on-hover-animation" style="margin-top: 3em;">
-        <div class="pause-on-hover-animation-label"></div><svg id="insert-animation" style="max-width: 25em;" viewbox="-50 -50 250 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="node-wo-kv-with-arrow">
-            <use href="#right-arrow" x="0" y="15.0"></use>
-            <use href="#node-wo-kv" x="14"></use>
-          </g>
-        </defs>
-        <g transform="translate(75, -30)">
-          <text fill="blue" style="animation-name: insert-new-header" text-anchor="middle">
-            Insert (new key)
-          </text>
-          <text fill="blue" style="animation-name: insert-upd-header" text-anchor="middle">
-            Insert (update existing key)
-          </text>
-        </g>
-        <use href="#cell" y="0"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="0"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="0"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="0"></use>
-        <use href="#cell" y="30"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="30"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="30"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="30"></use>
-        <use href="#cell" y="60"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="60"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="60"></use>
-        <use href="#cell" y="90"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="90"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="90"></use>
-        <g transform="translate(108, 90)">
-          <use href="#node-wo-kv" style="animation-name: insert-new-new-node-node" x="14"></use>
-          <text style="animation-name: insert-new-new-node-kv" x="18" y="19">
-            k,v
-          </text>
-          <use href="#right-arrow" style="animation-name: insert-new-new-node-arrow" y="15.0"></use>
-        </g>
-        <use href="#cell" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="147" y="120"></use>
-        <use href="#cell" y="150"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="150"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="150"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="150"></use>
-        <use href="#cell" y="180"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="180"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="180"></use>
-        <use href="#cell" y="210"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="210"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="210"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="210"></use>
-        <g style="animation-name: insert-magnifier-translation">
-          <rect fill="#44a" height="24" style="animation-name: insert-node-box" width="40" x="0" y="-47"></rect>
-          <g class="label-text" style="animation-name: insert-wrong-key-label">
-            <text text-anchor="middle" x="20" y="-37">
-              Wrong
-            </text>
-            <text text-anchor="middle" x="20" y="-28">
-              key
-            </text>
-          </g>
-          <g class="label-text" style="animation-name: insert-new-key-not-found-label">
-            <text text-anchor="middle" x="20" y="-37">
-              Key not
-            </text>
-            <text text-anchor="middle" x="20" y="-28">
-              found
-            </text>
-          </g>
-          <g class="label-text" style="animation-name: insert-new-node-label">
-            <text text-anchor="middle" x="20" y="-37">
-              Append
-            </text>
-            <text text-anchor="middle" x="20" y="-28">
-              new node
-            </text>
-          </g>
-          <g class="label-text" style="animation-name: insert-upd-update-val-label">
-            <text text-anchor="middle" x="20" y="-37">
-              Update
-            </text>
-            <text text-anchor="middle" x="20" y="-28">
-              value
-            </text>
-          </g>
-          <g class="label-text" style="animation-name: insert-upd-key-found-label">
-            <text text-anchor="middle" x="20" y="-37">
-              Key
-            </text>
-            <text text-anchor="middle" x="20" y="-28">
-              found
-            </text>
-          </g>
-          <g style="animation-name: insert-magnifier">
-            <circle cx="19" cy="0" fill="none" r="16" stroke="#44a" stroke-width="3"></circle>
-            <line stroke="#44a" stroke-width="7" x1="14" x2="7" y1="14" y2="35"></line>
-          </g>
-        </g># First (new) k, v
-        <g style="animation-name: insert-new-kv1">
-          <text style="animation-name: insert-new-k1" x="48" y="109">
-            k
-          </text>
-          <text x="56" y="109">
-            ,v
-          </text>
-        </g># Second (new) k, v
-        <g style="animation-name: insert-new-kv2">
-          <text style="animation-name: insert-new-k2" x="86" y="109">
-            k
-          </text>
-          <text x="94" y="109">
-            ,v
-          </text>
-        </g># First (update) k, v
-        <g style="animation-name: insert-upd-kv1">
-          <text style="animation-name: insert-upd-k1" x="48" y="139">
-            k
-          </text>
-          <text x="56" y="139">
-            ,v
-          </text>
-        </g># Second (update) k, v
-        <g style="animation-name: insert-upd-kv2">
-          <text style="animation-name: insert-upd-k2" x="86" y="139">
-            k
-          </text>
-          <text x="94" y="139">
-            ,v
-          </text>
-        </g># Third k, v
-        <g style="animation-name: insert-upd-kv3" transform="translate(125, 139)">
-          <text style="animation-name: insert-upd-k3" x="0" y="0">
-            k
-          </text>
-          <text x="8" y="0">
-            ,
-          </text>
-          <text style="animation-name: insert-upd-v3-updated" x="12" y="0">
-            v
-          </text>
-          <rect fill="white" height="10" style="animation-name: insert-upd-v3-curtain" width="8" x="12" y="-9"></rect>
-        </g></svg>
-      </div>
-      <h2>Lookup</h2>
-      <p>Here's how the value for a key <code>k</code> is retrieved from a hash table:</p>
-      <div class="instr-tbl">
-        <div>
-          <div>
-            1.
-          </div>
-          <div>
-            Compute the hash for the key
-          </div>
-          <div class="code-like">
-            h = hash(k)
-          </div>
-        </div>
-        <div>
-          <div>
-            2.
-          </div>
-          <div>
-            Use remainder operator to compute the bucket index
-          </div>
-          <div class="code-like">
-            i = h % length(buckets)
-          </div>
-        </div>
-        <div>
-          <div>
-            3.
-          </div>
-          <div>
-            Search through bucket linearly
-          </div>
-          <div class="code-like">
-            n = buckets[i]<br>
-            while n ≠ NULL:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;if n.key == k:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;n.value<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;n = n.next<br>
-            return NOT_FOUND
-          </div>
-        </div>
-      </div>
-      <div class="centered-content pause-on-hover-animation" style="margin-top: 3em;">
-        <div class="pause-on-hover-animation-label"></div><svg id="lookup-animation" style="max-width: 25em;" viewbox="-50 -50 250 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="node-wo-kv-with-arrow">
-            <use href="#right-arrow" y="15.0"></use>
-            <use href="#node-wo-kv" x="14"></use>
-          </g>
-        </defs>
-        <use href="#cell" y="0"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="0"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="0"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="0"></use>
-        <use href="#cell" y="30"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="30"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="30"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="30"></use>
-        <use href="#cell" y="60"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="60"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="60"></use>
-        <use href="#cell" y="90"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="90"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="90"></use>
-        <use href="#cell" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="120"></use>
-        <use href="#node-wo-kv-with-arrow" x="147" y="120"></use>
-        <use href="#cell" y="150"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="150"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="150"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="150"></use>
-        <use href="#cell" y="180"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="180"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="180"></use>
-        <use href="#cell" y="210"></use>
-        <use href="#node-wo-kv-with-arrow" x="30" y="210"></use>
-        <use href="#node-wo-kv-with-arrow" x="69" y="210"></use>
-        <use href="#node-wo-kv-with-arrow" x="108" y="210"></use>
-        <g style="animation-name: fade-out-in-the-end">
-          <g style="animation-name: lookup-magnifier-translation">
-            <rect fill="#44a" height="24" style="animation-name: node-box" width="40" y="-47"></rect>
-            <g class="label-text" style="animation-name: wrong-key-label">
-              <text text-anchor="middle" x="20" y="-37">
-                Wrong
-              </text>
-              <text text-anchor="middle" x="20" y="-28">
-                key
+        <h2>Representation</h2>
+        <p>
+          The simplest way to implement a hash table is to use an
+          <strong>array of linked lists</strong>.
+        </p>
+        <p>
+          Each array cell is called a <strong>bucket</strong>, and each list
+          node stores a <strong>key-value pair</strong>.
+        </p>
+        <p>
+          Following the analogy from the previous section, the array cells that
+          can be accessed quickly can be thought of as index cards, and nodes in
+          the list as data cards.
+        </p>
+        <svg
+          style="display: block; margin: 3em auto 3em auto; max-width: 20em"
+          viewbox="-15 0 190 270"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <defs>
+            <rect
+              fill="white"
+              height="20"
+              id="node-wo-kv"
+              rx="4"
+              ry="4"
+              stroke="black"
+              width="25"
+              y="5.0"
+            ></rect>
+            <g id="node-w-kv">
+              <use href="#node-wo-kv"></use>
+              <text fill="#999" style="font-size: 50%" x="3" y="17.0">
+                (k, v)
               </text>
             </g>
-            <g class="label-text" style="animation-name: key-found-label">
-              <text text-anchor="middle" x="20" y="-37">
-                Key
+            <path
+              d="M -2 2 l 4 0 l -2 -6 l -2 6"
+              fill="black"
+              id="arrow-head"
+            ></path>
+            <g id="right-arrow">
+              <line stroke="black" x1="0" x2="13" y1="0" y2="0"></line>
+              <use
+                href="#arrow-head"
+                transform="translate(10,0) rotate(90)"
+              ></use>
+            </g>
+            <g id="node-with-arrow">
+              <use href="#right-arrow" x="0" y="15.0"></use>
+              <use href="#node-w-kv" x="14"></use>
+            </g>
+          </defs>
+          <text
+            fill="blue"
+            style="font-size: 50%"
+            transform="rotate(-90)"
+            x="-170"
+            y="-5"
+          >
+            Array of buckets
+          </text>
+          <text fill="blue" style="font-size: 50%" x="60" y="10">
+            Nodes of key-value pairs
+          </text>
+          <g transform="translate(5, 20)">
+            <use href="#cell" y="0"></use>
+            <use href="#node-with-arrow" x="30" y="0"></use>
+            <use href="#cell" y="30"></use>
+            <use href="#node-with-arrow" x="30" y="30"></use>
+            <use href="#node-with-arrow" x="69" y="30"></use>
+            <use href="#node-with-arrow" x="108" y="30"></use>
+            <use href="#cell" y="60"></use>
+            <use href="#node-with-arrow" x="30" y="60"></use>
+            <use href="#node-with-arrow" x="69" y="60"></use>
+            <use href="#node-with-arrow" x="108" y="60"></use>
+            <use href="#cell" y="90"></use>
+            <use href="#node-with-arrow" x="30" y="90"></use>
+            <use href="#cell" y="120"></use>
+            <use href="#node-with-arrow" x="30" y="120"></use>
+            <use href="#node-with-arrow" x="69" y="120"></use>
+            <use href="#cell" y="150"></use>
+            <use href="#node-with-arrow" x="30" y="150"></use>
+            <use href="#node-with-arrow" x="69" y="150"></use>
+            <use href="#node-with-arrow" x="108" y="150"></use>
+            <use href="#cell" y="180"></use>
+            <use href="#node-with-arrow" x="30" y="180"></use>
+            <use href="#node-with-arrow" x="69" y="180"></use>
+            <use href="#cell" y="210"></use>
+            <use href="#node-with-arrow" x="30" y="210"></use>
+            <use href="#node-with-arrow" x="69" y="210"></use>
+            <use href="#node-with-arrow" x="108" y="210"></use>
+          </g>
+        </svg>
+        <h2>Finding the right bucket</h2>
+        <p>
+          Which bucket a given key belongs to, is determined by a
+          <strong>hash function</strong> as follows…
+        </p>
+        <div class="indented">
+          <p>
+            <em>bucket index</em> = hash(<em>key</em>) % length(<em
+              >bucket array</em
+            >)
+          </p>
+        </div>
+        <p>…where % denotes the remainder operator.</p>
+        <p>
+          For efficiency reasons, an additional variable is used to keep track
+          of the current total number of key-value pairs.
+        </p>
+        <div class="article-box">
+          <div style="display: flex">
+            <div
+              style="
+                font-family: times new roman;
+                font-size: 220%;
+                padding-right: 0.5em;
+              "
+            >
+              ☞
+            </div>
+            <div>
+              <p>
+                There are other ways to implement hash tables, but this is the
+                representation that will be used here to introduce the subject.
+                See section
+                <a href="hash-tables.html#other-impl"
+                  >Other Collision Resolution Strategies</a
+                >
+                for alternatives.
+              </p>
+            </div>
+          </div>
+        </div>
+        <h2>Insertion</h2>
+        <p>
+          Here's how a mapping from key <code>k</code> to value
+          <code>v</code> is inserted in a hash table:
+        </p>
+        <div class="instr-tbl">
+          <div>
+            <div>1.</div>
+            <div>
+              Rehash if load factor is too high. (Explained in separate
+              section.)
+            </div>
+            <div class="code-like">rehash_if_needed()</div>
+          </div>
+          <div>
+            <div>2.</div>
+            <div>Compute the hash for the key</div>
+            <div class="code-like">h = hash(k)</div>
+          </div>
+          <div>
+            <div>3.</div>
+            <div>Use remainder operator to compute the bucket index</div>
+            <div class="code-like">i = h % length(buckets)</div>
+          </div>
+          <div>
+            <div>4.</div>
+            <div>
+              Look for key among existing nodes.<br />
+              <br />
+              If found update value of existing node.
+            </div>
+            <div class="code-like">
+              last = NULL<br />
+              n = buckets[i]<br />
+              while n ≠ NULL:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;if n.key == k:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.value = v<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;last = n<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;n = n.next
+            </div>
+          </div>
+          <div>
+            <div>5.</div>
+            <div>If not found, append new node to list</div>
+            <div class="code-like">
+              new_node = new Node(k, v)<br />
+              if last == NULL:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;bucket[i] = new_node<br />
+              else:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;last.next = new_node
+            </div>
+          </div>
+        </div>
+        <div
+          class="centered-content pause-on-hover-animation"
+          style="margin-top: 3em"
+        >
+          <div class="pause-on-hover-animation-label"></div>
+          <svg
+            id="insert-animation"
+            style="max-width: 25em"
+            viewbox="-50 -50 250 300"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <g id="node-wo-kv-with-arrow">
+                <use href="#right-arrow" x="0" y="15.0"></use>
+                <use href="#node-wo-kv" x="14"></use>
+              </g>
+            </defs>
+            <g transform="translate(75, -30)">
+              <text
+                fill="blue"
+                style="animation-name: insert-new-header"
+                text-anchor="middle"
+              >
+                Insert (new key)
               </text>
-              <text text-anchor="middle" x="20" y="-28">
-                found
+              <text
+                fill="blue"
+                style="animation-name: insert-upd-header"
+                text-anchor="middle"
+              >
+                Insert (update existing key)
               </text>
             </g>
-            <g class="label-text" style="animation-name: return-val-label">
-              <text text-anchor="middle" x="20" y="-37">
-                Return
+            <use href="#cell" y="0"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="0"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="0"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="0"></use>
+            <use href="#cell" y="30"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="30"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="30"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="30"></use>
+            <use href="#cell" y="60"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="60"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="60"></use>
+            <use href="#cell" y="90"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="90"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="90"></use>
+            <g transform="translate(108, 90)">
+              <use
+                href="#node-wo-kv"
+                style="animation-name: insert-new-new-node-node"
+                x="14"
+              ></use>
+              <text
+                style="animation-name: insert-new-new-node-kv"
+                x="18"
+                y="19"
+              >
+                k,v
               </text>
-              <text text-anchor="middle" x="20" y="-28">
-                value
+              <use
+                href="#right-arrow"
+                style="animation-name: insert-new-new-node-arrow"
+                y="15.0"
+              ></use>
+            </g>
+            <use href="#cell" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="147" y="120"></use>
+            <use href="#cell" y="150"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="150"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="150"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="150"></use>
+            <use href="#cell" y="180"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="180"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="180"></use>
+            <use href="#cell" y="210"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="210"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="210"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="210"></use>
+            <g style="animation-name: insert-magnifier-translation">
+              <rect
+                fill="#44a"
+                height="24"
+                style="animation-name: insert-node-box"
+                width="40"
+                x="0"
+                y="-47"
+              ></rect>
+              <g
+                class="label-text"
+                style="animation-name: insert-wrong-key-label"
+              >
+                <text text-anchor="middle" x="20" y="-37">Wrong</text>
+                <text text-anchor="middle" x="20" y="-28">key</text>
+              </g>
+              <g
+                class="label-text"
+                style="animation-name: insert-new-key-not-found-label"
+              >
+                <text text-anchor="middle" x="20" y="-37">Key not</text>
+                <text text-anchor="middle" x="20" y="-28">found</text>
+              </g>
+              <g
+                class="label-text"
+                style="animation-name: insert-new-node-label"
+              >
+                <text text-anchor="middle" x="20" y="-37">Append</text>
+                <text text-anchor="middle" x="20" y="-28">new node</text>
+              </g>
+              <g
+                class="label-text"
+                style="animation-name: insert-upd-update-val-label"
+              >
+                <text text-anchor="middle" x="20" y="-37">Update</text>
+                <text text-anchor="middle" x="20" y="-28">value</text>
+              </g>
+              <g
+                class="label-text"
+                style="animation-name: insert-upd-key-found-label"
+              >
+                <text text-anchor="middle" x="20" y="-37">Key</text>
+                <text text-anchor="middle" x="20" y="-28">found</text>
+              </g>
+              <g style="animation-name: insert-magnifier">
+                <circle
+                  cx="19"
+                  cy="0"
+                  fill="none"
+                  r="16"
+                  stroke="#44a"
+                  stroke-width="3"
+                ></circle>
+                <line
+                  stroke="#44a"
+                  stroke-width="7"
+                  x1="14"
+                  x2="7"
+                  y1="14"
+                  y2="35"
+                ></line>
+              </g>
+            </g>
+            # First (new) k, v
+            <g style="animation-name: insert-new-kv1">
+              <text style="animation-name: insert-new-k1" x="48" y="109">
+                k
+              </text>
+              <text x="56" y="109">,v</text>
+            </g>
+            # Second (new) k, v
+            <g style="animation-name: insert-new-kv2">
+              <text style="animation-name: insert-new-k2" x="86" y="109">
+                k
+              </text>
+              <text x="94" y="109">,v</text>
+            </g>
+            # First (update) k, v
+            <g style="animation-name: insert-upd-kv1">
+              <text style="animation-name: insert-upd-k1" x="48" y="139">
+                k
+              </text>
+              <text x="56" y="139">,v</text>
+            </g>
+            # Second (update) k, v
+            <g style="animation-name: insert-upd-kv2">
+              <text style="animation-name: insert-upd-k2" x="86" y="139">
+                k
+              </text>
+              <text x="94" y="139">,v</text>
+            </g>
+            # Third k, v
+            <g
+              style="animation-name: insert-upd-kv3"
+              transform="translate(125, 139)"
+            >
+              <text style="animation-name: insert-upd-k3" x="0" y="0">k</text>
+              <text x="8" y="0">,</text>
+              <text style="animation-name: insert-upd-v3-updated" x="12" y="0">
+                v
+              </text>
+              <rect
+                fill="white"
+                height="10"
+                style="animation-name: insert-upd-v3-curtain"
+                width="8"
+                x="12"
+                y="-9"
+              ></rect>
+            </g>
+          </svg>
+        </div>
+        <h2>Lookup</h2>
+        <p>
+          Here's how the value for a key <code>k</code> is retrieved from a hash
+          table:
+        </p>
+        <div class="instr-tbl">
+          <div>
+            <div>1.</div>
+            <div>Compute the hash for the key</div>
+            <div class="code-like">h = hash(k)</div>
+          </div>
+          <div>
+            <div>2.</div>
+            <div>Use remainder operator to compute the bucket index</div>
+            <div class="code-like">i = h % length(buckets)</div>
+          </div>
+          <div>
+            <div>3.</div>
+            <div>Search through bucket linearly</div>
+            <div class="code-like">
+              n = buckets[i]<br />
+              while n ≠ NULL:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;if n.key == k:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;n.value<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;n = n.next<br />
+              return NOT_FOUND
+            </div>
+          </div>
+        </div>
+        <div
+          class="centered-content pause-on-hover-animation"
+          style="margin-top: 3em"
+        >
+          <div class="pause-on-hover-animation-label"></div>
+          <svg
+            id="lookup-animation"
+            style="max-width: 25em"
+            viewbox="-50 -50 250 300"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <g id="node-wo-kv-with-arrow">
+                <use href="#right-arrow" y="15.0"></use>
+                <use href="#node-wo-kv" x="14"></use>
+              </g>
+            </defs>
+            <use href="#cell" y="0"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="0"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="0"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="0"></use>
+            <use href="#cell" y="30"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="30"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="30"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="30"></use>
+            <use href="#cell" y="60"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="60"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="60"></use>
+            <use href="#cell" y="90"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="90"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="90"></use>
+            <use href="#cell" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="120"></use>
+            <use href="#node-wo-kv-with-arrow" x="147" y="120"></use>
+            <use href="#cell" y="150"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="150"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="150"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="150"></use>
+            <use href="#cell" y="180"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="180"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="180"></use>
+            <use href="#cell" y="210"></use>
+            <use href="#node-wo-kv-with-arrow" x="30" y="210"></use>
+            <use href="#node-wo-kv-with-arrow" x="69" y="210"></use>
+            <use href="#node-wo-kv-with-arrow" x="108" y="210"></use>
+            <g style="animation-name: fade-out-in-the-end">
+              <g style="animation-name: lookup-magnifier-translation">
+                <rect
+                  fill="#44a"
+                  height="24"
+                  style="animation-name: node-box"
+                  width="40"
+                  y="-47"
+                ></rect>
+                <g class="label-text" style="animation-name: wrong-key-label">
+                  <text text-anchor="middle" x="20" y="-37">Wrong</text>
+                  <text text-anchor="middle" x="20" y="-28">key</text>
+                </g>
+                <g class="label-text" style="animation-name: key-found-label">
+                  <text text-anchor="middle" x="20" y="-37">Key</text>
+                  <text text-anchor="middle" x="20" y="-28">found</text>
+                </g>
+                <g class="label-text" style="animation-name: return-val-label">
+                  <text text-anchor="middle" x="20" y="-37">Return</text>
+                  <text text-anchor="middle" x="20" y="-28">value</text>
+                </g>
+                <g style="animation-name: lookup-magnifier">
+                  <circle
+                    cx="19"
+                    cy="0"
+                    fill="none"
+                    r="16"
+                    stroke="#44a"
+                    stroke-width="3"
+                  ></circle>
+                  <line
+                    stroke="#44a"
+                    stroke-width="7"
+                    x1="14"
+                    x2="7"
+                    y1="14"
+                    y2="35"
+                  ></line>
+                </g>
+              </g>
+              # First k, v
+              <g style="animation-name: lookup-kv1">
+                <text style="animation-name: lookup-k1" x="48" y="139">k</text>
+                <text x="56" y="139">,v</text>
+              </g>
+              # Second k, v
+              <g style="animation-name: lookup-kv2">
+                <text style="animation-name: lookup-k2" x="86" y="139">k</text>
+                <text x="94" y="139">,v</text>
+              </g>
+              # Third k, v
+              <g
+                style="animation-name: lookup-kv3"
+                transform="translate(125, 139)"
+              >
+                <text style="animation-name: lookup-k3" x="0" y="0">k</text>
+                <text style="animation-name: lookup-comma3" x="8" y="0">,</text>
+                <text style="animation-name: lookup-v3" x="12" y="0">v</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h2>Remove</h2>
+        <p>Here's how a key-value pair is removed from a hash table:</p>
+        <div class="instr-tbl">
+          <div>
+            <div>1.</div>
+            <div>Compute the hash for the key</div>
+            <div class="code-like">h = hash(k)</div>
+          </div>
+          <div>
+            <div>2.</div>
+            <div>Use remainder operator to compute the bucket index</div>
+            <div class="code-like">i = h % length(buckets)</div>
+          </div>
+          <div>
+            <div>3.</div>
+            <div>Search through bucket linearly to find key</div>
+            <div class="code-like">
+              last = NULL<br />
+              n = buckets[i]<br />
+              while n ≠ NULL:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;if n.key == k:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if last ==
+              NULL:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buckets[i]
+              = n.next<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last.next
+              = n.next<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;n = n.next
+            </div>
+          </div>
+        </div>
+        <h2>Rehashing</h2>
+        <p>
+          As the lengths of the linked lists grow, the average lookup time
+          increases.
+        </p>
+        <p>
+          To keep the linked lists short and lookups fast, the number of buckets
+          must be increased (and nodes redistributed). This is called
+          <strong>rehashing</strong>.
+        </p>
+        <div class="instr-tbl">
+          <div>
+            <div>1.</div>
+            <div>Allocate a new bucket array.</div>
+            <div class="code-like">
+              new_size = 2 * length(buckets)<br />
+              new_buckets = new Bucket[new_size]
+            </div>
+          </div>
+          <div>
+            <div>2.</div>
+            <div>Reinsert all elements in new array.</div>
+            <div class="code-like no-wrap">
+              for i in 0..buckets.length - 1:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;while buckets[i] ≠ NULL:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = buckets[i]<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buckets[i] =
+              n.next<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h = hash(n.k)<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = h %
+              new_length<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.next =
+              new_buckets[i]<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_buckets[i] =
+              n<br />
+            </div>
+          </div>
+          <div>
+            <div>3.</div>
+            <div>Replace old array with new array</div>
+            <div class="code-like">buckets = new_buckets</div>
+          </div>
+        </div>
+        <div
+          class="centered-content pause-on-hover-animation"
+          style="margin-top: 3em"
+        >
+          <div class="pause-on-hover-animation-label"></div>
+          <svg
+            id="rehash-animation"
+            style="max-width: 25em; margin: 0em auto; display: block"
+            viewbox="-5 -5 200 200"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <rect
+                fill="white"
+                height="10"
+                id="cell-s"
+                stroke="black"
+                width="10"
+              ></rect>
+              <g id="node-s">
+                <rect
+                  fill="white"
+                  height="7.0"
+                  rx="2"
+                  ry="2"
+                  stroke="black"
+                  width="7.0"
+                  y="1.5"
+                ></rect>
+              </g>
+              <g id="rh-link">
+                <line stroke="black" x1="0" x2="11.0" y1="0" y2="0"></line>
+              </g>
+            </defs>
+            <text fill="blue" style="font-size: 65%" x="0" y="10">buckets</text>
+            <text
+              fill="blue"
+              style="font-size: 65%; animation-name: show-in-the-middle"
+              x="100"
+              y="10"
+            >
+              new_buckets
+            </text>
+            <g style="animation-name: slide-left-in-the-end">
+              <use href="#cell-s" y="0"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-0"
+                  x="0"
+                  y="5.0"
+                ></use>
+              </g>
+              <use href="#cell-s" y="10"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-1"
+                  x="0"
+                  y="15.0"
+                ></use>
+              </g>
+              <use href="#cell-s" y="20"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-2"
+                  x="0"
+                  y="25.0"
+                ></use>
+              </g>
+              <use href="#cell-s" y="30"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-3"
+                  x="0"
+                  y="35.0"
+                ></use>
+              </g>
+              <use href="#cell-s" y="40"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-4"
+                  x="0"
+                  y="45.0"
+                ></use>
+              </g>
+              <use href="#cell-s" y="50"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-5"
+                  x="0"
+                  y="55.0"
+                ></use>
+              </g>
+              <use href="#cell-s" y="60"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-6"
+                  x="0"
+                  y="65.0"
+                ></use>
+              </g>
+              <use href="#cell-s" y="70"></use>
+              <g transform="translate(10,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-7"
+                  x="0"
+                  y="75.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="0"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-8"
+                  x="0"
+                  y="5.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="10"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-9"
+                  x="0"
+                  y="15.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="20"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-10"
+                  x="0"
+                  y="25.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="30"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-11"
+                  x="0"
+                  y="35.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="40"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-12"
+                  x="0"
+                  y="45.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="50"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-13"
+                  x="0"
+                  y="55.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="60"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-14"
+                  x="0"
+                  y="65.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="70"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-15"
+                  x="0"
+                  y="75.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="80"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-16"
+                  x="0"
+                  y="85.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="90"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-17"
+                  x="0"
+                  y="95.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="100"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-18"
+                  x="0"
+                  y="105.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="110"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-19"
+                  x="0"
+                  y="115.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="120"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-20"
+                  x="0"
+                  y="125.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="130"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-21"
+                  x="0"
+                  y="135.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="140"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-22"
+                  x="0"
+                  y="145.0"
+                ></use>
+              </g>
+              <use
+                href="#cell-s"
+                style="animation-name: hide-first-20"
+                x="100"
+                y="150"
+              ></use>
+              <g transform="translate(110,0)">
+                <use
+                  href="#rh-link"
+                  style="animation-name: rehash-link-23"
+                  x="0"
+                  y="155.0"
+                ></use>
+              </g>
+              <use href="#node-s" style="animation-name: rehash-node-0"></use>
+              <use href="#node-s" style="animation-name: rehash-node-1"></use>
+              <use href="#node-s" style="animation-name: rehash-node-2"></use>
+              <use href="#node-s" style="animation-name: rehash-node-3"></use>
+              <use href="#node-s" style="animation-name: rehash-node-4"></use>
+              <use href="#node-s" style="animation-name: rehash-node-5"></use>
+              <use href="#node-s" style="animation-name: rehash-node-6"></use>
+              <use href="#node-s" style="animation-name: rehash-node-7"></use>
+              <use href="#node-s" style="animation-name: rehash-node-8"></use>
+              <use href="#node-s" style="animation-name: rehash-node-9"></use>
+              <use href="#node-s" style="animation-name: rehash-node-10"></use>
+              <use href="#node-s" style="animation-name: rehash-node-11"></use>
+              <use href="#node-s" style="animation-name: rehash-node-12"></use>
+              <use href="#node-s" style="animation-name: rehash-node-13"></use>
+              <use href="#node-s" style="animation-name: rehash-node-14"></use>
+              <use href="#node-s" style="animation-name: rehash-node-15"></use>
+              <use href="#node-s" style="animation-name: rehash-node-16"></use>
+              <use href="#node-s" style="animation-name: rehash-node-17"></use>
+              <use href="#node-s" style="animation-name: rehash-node-18"></use>
+              <use href="#node-s" style="animation-name: rehash-node-19"></use>
+              <use href="#node-s" style="animation-name: rehash-node-20"></use>
+            </g>
+          </svg>
+        </div>
+        <p>
+          During rehashing the number of buckets is increased by some factor,
+          typically 2. As shown in the article
+          <a href="hash-tables-complexity.html">Hash Tables: Complexity</a>, it
+          is important that the growth is exponential.
+        </p>
+        <h2>Traversal</h2>
+        <div class="instr-tbl">
+          <div>
+            <div>1.</div>
+            <div>For each bucket…</div>
+            <div class="code-like">for i in 0..buckets.length - 1:</div>
+          </div>
+          <div>
+            <div>2.</div>
+            <div>…traverse each node</div>
+            <div class="code-like no-wrap">
+              &nbsp;&nbsp;&nbsp;&nbsp;n = buckets[i]:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;while n ≠ NULL:<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;process(n)<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = n.next
+            </div>
+          </div>
+        </div>
+        <p>
+          Note that the order in which the key-value pairs are traversed is
+          <strong>unpredictable</strong> due to the nature of hashing and
+          rehashing.
+        </p>
+        <h2>Load Factor and Capacity</h2>
+        <p>
+          The <strong>load factor</strong> is the average number of key-value
+          pairs per bucket.
+        </p>
+        <div
+          class="article-box"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          "
+        >
+          <div style="margin: 0em 0.3em">load factor</div>
+          <div style="margin: 0em 0.3em">=</div>
+          <div
+            style="
+              margin: 0em 0.3em;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            "
+          >
+            <div
+              style="
+                padding-bottom: 0.25em;
+                margin-bottom: 0.2em;
+                border-bottom: 0.12em solid black;
+              "
+            >
+              total number of key-value pairs
+            </div>
+            <div>number of buckets</div>
+          </div>
+        </div>
+        <p>
+          It is when the load factor reaches a given limit that rehashing kicks
+          in. Since rehashing increases the number of buckets, it reduces the
+          load factor.
+        </p>
+        <p>
+          The load factor limit is usually configurable and offers a
+          <strong>tradeoff between time and space costs</strong>.
+        </p>
+        <div class="centered-content" style="margin: 3em 0em">
+          <svg
+            style="max-width: 600px"
+            viewbox="-300 -60 600.0 140"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <line stroke="black" x1="-195" x2="195" y1="0" y2="0"></line>
+            <line stroke="black" x1="-190" x2="-190" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-160" x2="-160" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-130" x2="-130" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-100" x2="-100" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-70" x2="-70" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-40" x2="-40" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="-10" x2="-10" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="20" x2="20" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="50" x2="50" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="80" x2="80" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="110" x2="110" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="140" x2="140" y1="-2.5" y2="2.5"></line>
+            <line stroke="black" x1="170" x2="170" y1="-2.5" y2="2.5"></line>
+            <use href="#r-arrow-head-black" x="190"></use>
+            <use
+              href="#r-arrow-head-black"
+              transform="translate(-190, 0) rotate(180)"
+            ></use>
+            <text text-anchor="middle" x="-190" y="-30">Lower limit</text>
+            <text text-anchor="middle" x="-190" y="40">More empty buckets</text>
+            <text text-anchor="middle" x="-190" y="60">
+              More memory overhead
+            </text>
+            <text text-anchor="middle" x="190" y="-30">Higher limit</text>
+            <text text-anchor="middle" x="190" y="40">Larger buckets</text>
+            <text text-anchor="middle" x="190" y="60">Slower lookups</text>
+          </svg>
+        </div>
+        <p>
+          The default load factor for a Java
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"
+            ><code>HashMap</code></a
+          >
+          is 0.75 and for a C#
+          <a
+            href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"
+            ><code>Hashtable</code></a
+          >
+          it’s 1.0.
+        </p>
+        <p>
+          The <strong>capacity</strong> is the maximum number of key-value pairs
+          for the given load factor limit and current bucket count.
+        </p>
+        <div
+          class="article-box"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+          "
+        >
+          <div style="margin: 0em 0.3em">capacity</div>
+          <div style="margin: 0em 0.3em">=</div>
+          <div style="margin: 0em 0.3em">number of buckets</div>
+          <div style="margin: 0em 0.3em">×</div>
+          <div style="margin: 0em 0.3em">load factor limit</div>
+        </div>
+        <p>
+          Since rehashing increases the number of buckets, it increases the
+          capacity.
+        </p>
+        <p>
+          The default initial capacity for a Java
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"
+            ><code>HashMap</code></a
+          >
+          is 12 and for a C#
+          <a
+            href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"
+            ><code>Hashtable</code></a
+          >
+          it’s 0, i.e. the bucket array is initialized lazily upon first
+          insertion.
+        </p>
+        <div class="article-box">
+          <p>
+            <strong>Example:</strong> Here’s the structure of a hash table,
+            configured with load factor limit of&nbsp;4.
+          </p>
+          <svg
+            style="max-width: 30em; display: block; margin: 1em auto 0em auto"
+            viewbox="-15 0 250 320"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <g id="lf-c-arrow-head">
+                <path d="M -2 2 l 4 0 l -2 -6 l -2 6" fill="black"></path>
+              </g>
+              <g id="lf-c-right-arrow">
+                <line stroke="black" x1="0" x2="10" y1="0" y2="0"></line>
+                <use
+                  href="#lf-c-arrow-head"
+                  transform="translate(10,0) rotate(90)"
+                ></use>
+              </g>
+              <g id="lf-c-cell">
+                <rect fill="white" height="30" stroke="black" width="30"></rect>
+              </g>
+              <g id="lf-c-node">
+                <rect
+                  fill="white"
+                  height="20"
+                  rx="4"
+                  ry="4"
+                  stroke="black"
+                  width="25"
+                  y="5.0"
+                ></rect>
+              </g>
+              <g id="lf-c-node-with-arrow">
+                <use href="#lf-c-node"></use>
+                <use href="#lf-c-right-arrow" x="25" y="15.0"></use>
+              </g>
+            </defs>
+            <g transform="translate(5, 60)">
+              <use href="#lf-c-cell" y="0"></use>
+              <use href="#lf-c-right-arrow" x="30" y="15.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="0"></use>
+              <use href="#lf-c-node-with-arrow" x="83" y="0"></use>
+              <use href="#lf-c-node" x="122" y="0"></use>
+              <use href="#lf-c-cell" y="30"></use>
+              <use href="#lf-c-right-arrow" x="30" y="45.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="30"></use>
+              <use href="#lf-c-node-with-arrow" x="83" y="30"></use>
+              <use href="#lf-c-node" x="122" y="30"></use>
+              <use href="#lf-c-cell" y="60"></use>
+              <use href="#lf-c-right-arrow" x="30" y="75.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="60"></use>
+              <use href="#lf-c-node" x="83" y="60"></use>
+              <use href="#lf-c-cell" y="90"></use>
+              <use href="#lf-c-right-arrow" x="30" y="105.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="90"></use>
+              <use href="#lf-c-node-with-arrow" x="83" y="90"></use>
+              <use href="#lf-c-node-with-arrow" x="122" y="90"></use>
+              <use href="#lf-c-node" x="161" y="90"></use>
+              <use href="#lf-c-cell" y="120"></use>
+              <use href="#lf-c-right-arrow" x="30" y="135.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="120"></use>
+              <use href="#lf-c-node-with-arrow" x="83" y="120"></use>
+              <use href="#lf-c-node" x="122" y="120"></use>
+              <use href="#lf-c-cell" y="150"></use>
+              <use href="#lf-c-right-arrow" x="30" y="165.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="150"></use>
+              <use href="#lf-c-node-with-arrow" x="83" y="150"></use>
+              <use href="#lf-c-node-with-arrow" x="122" y="150"></use>
+              <use href="#lf-c-node" x="161" y="150"></use>
+              <use href="#lf-c-cell" y="180"></use>
+              <use href="#lf-c-right-arrow" x="30" y="195.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="180"></use>
+              <use href="#lf-c-node" x="83" y="180"></use>
+              <use href="#lf-c-cell" y="210"></use>
+              <use href="#lf-c-right-arrow" x="30" y="225.0"></use>
+              <use href="#lf-c-node-with-arrow" x="44" y="210"></use>
+              <use href="#lf-c-node-with-arrow" x="83" y="210"></use>
+              <use href="#lf-c-node" x="122" y="210"></use>
+              <line
+                stroke="blue"
+                stroke-dasharray="5 2"
+                x1="154"
+                x2="154"
+                y1="-15"
+                y2="255"
+              ></line>
+              <text
+                fill="blue"
+                style="font-size: 50%"
+                text-anchor="middle"
+                x="148"
+                y="-50"
+              >
+                Current
+              </text>
+              <text
+                fill="blue"
+                style="font-size: 50%"
+                text-anchor="middle"
+                x="148"
+                y="-39"
+              >
+                load factor:
+              </text>
+              <text
+                fill="blue"
+                style="font-size: 50%"
+                text-anchor="middle"
+                x="148"
+                y="-25"
+              >
+                24 / 8 = 3
+              </text>
+              <text
+                fill="red"
+                style="font-size: 50%"
+                text-anchor="middle"
+                x="198"
+                y="-50"
+              >
+                Configured
+              </text>
+              <text
+                fill="red"
+                style="font-size: 50%"
+                text-anchor="middle"
+                x="198"
+                y="-39"
+              >
+                limit:
+              </text>
+              <text
+                fill="red"
+                style="font-size: 50%"
+                text-anchor="middle"
+                x="195"
+                y="-25"
+              >
+                4
+              </text>
+              <line
+                stroke="red"
+                stroke-dasharray="5 2"
+                x1="195"
+                x2="195"
+                y1="-15"
+                y2="255"
+              ></line>
+              <rect
+                fill="none"
+                height="240"
+                stroke="red"
+                width="156"
+                x="36"
+                y="0"
+              ></rect>
+              <text fill="red" style="font-size: 50%" x="36" y="-15">
+                Current capacity:
+              </text>
+              <text fill="red" style="font-size: 50%" x="36" y="-5">
+                8 × 4 = 32
               </text>
             </g>
-            <g style="animation-name: lookup-magnifier">
-              <circle cx="19" cy="0" fill="none" r="16" stroke="#44a" stroke-width="3"></circle>
-              <line stroke="#44a" stroke-width="7" x1="14" x2="7" y1="14" y2="35"></line>
-            </g>
-          </g># First k, v
-          <g style="animation-name: lookup-kv1">
-            <text style="animation-name: lookup-k1" x="48" y="139">
-              k
-            </text>
-            <text x="56" y="139">
-              ,v
-            </text>
-          </g># Second k, v
-          <g style="animation-name: lookup-kv2">
-            <text style="animation-name: lookup-k2" x="86" y="139">
-              k
-            </text>
-            <text x="94" y="139">
-              ,v
-            </text>
-          </g># Third k, v
-          <g style="animation-name: lookup-kv3" transform="translate(125, 139)">
-            <text style="animation-name: lookup-k3" x="0" y="0">
-              k
-            </text>
-            <text style="animation-name: lookup-comma3" x="8" y="0">
-              ,
-            </text>
-            <text style="animation-name: lookup-v3" x="12" y="0">
-              v
-            </text>
-          </g>
-        </g></svg>
-      </div>
-      <h2>Remove</h2>
-      <p>Here's how a key-value pair is removed from a hash table:</p>
-      <div class="instr-tbl">
+          </svg>
+        </div>
+        <h2>Complexity Analysis</h2>
+        <p>
+          As is clear from the way insert, lookup and remove works, the run time
+          is proportional to the length of the linked lists. In worst case all
+          keys hash to the same bucket, i.e. the whole data structure becomes
+          equivalent to a linked list. This means that all operations run in
+          <em>O</em>(<em>n</em>).
+        </p>
+        <p>
+          Assuming however that keys are dispersed evenly among the buckets, it
+          can be shown that the complexity of the expected run time is
+          <em>O</em>(1) for all operations.
+        </p>
+        <p>
+          See article
+          <a href="hash-tables-complexity.html">Hash Tables: Complexity</a> for
+          a detailed analysis.
+        </p>
+        <h2 id="other-impl">Other Collision Resolution Strategies</h2>
+        <p>When two keys hash to the same bucket, i.e. when</p>
+        <div class="centered-content">
+          hash(<em>k</em><sub>1</sub>) ≡ hash(<em>k</em><sub>2</sub>) (mod
+          number of buckets)
+        </div>
+        <p>
+          it’s called a <strong>collision</strong>. The collision handling
+          strategy described so far (one linked list per bucket) is an example
+          of <strong>closed addressing</strong> using separate chains. Instead
+          of linked lists, one can also use binary search trees, or as in the
+          case of Java 9, a linked list up to a certain limit, and then convert
+          it to a BST when more elements are added.
+        </p>
+        <p>
+          The alternative, <strong>open addressing</strong>, is to store all
+          key-value pairs directly in the hash table array, i.e. there's at most
+          one element per bucket. (The size of the array must always be at least
+          as large as the number of elements stored.)
+        </p>
+        <div class="article-box">
+          <div style="display: flex">
+            <div
+              style="
+                font-family: times new roman;
+                font-size: 220%;
+                padding-right: 0.5em;
+              "
+            >
+              ☞
+            </div>
+            <div>
+              <p>
+                See
+                <a href="hash-tables-open-vs-closed-addressing.html"
+                  >Open vs Closed Addressing</a
+                >
+                for a brief side-by-side comparison of the techniques or
+                <a href="hash-tables-open-addressing.html">Open Addressing</a>
+                for details on open addressing.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p>
+          A third option, which is more of theoretical interest but mentioned
+          here for completeness, is to use a hash function that maps each key to
+          slot of its own, and thus avoiding collisions all together. This is
+          called <strong>perfect hashing</strong>.
+        </p>
         <div>
-          <div>
-            1.
-          </div>
-          <div>
-            Compute the hash for the key
-          </div>
-          <div class="code-like">
-            h = hash(k)
-          </div>
+          <h2>Comments</h2>
+          <div style="margin-bottom: 1.5em">Be the first to comment!</div>
+          <form
+            action="https://programming.guide/_comments/add-comment"
+            method="post"
+          >
+            <input name="reply_to" type="hidden" value="hash-tables.html" />
+            <textarea name="text" placeholder="Comment"></textarea>
+            <input name="author" placeholder="Name" type="text" />
+            <input
+              name="email"
+              placeholder="E-mail (will not be published)"
+              type="text"
+            />
+            <input type="submit" value="Submit" />
+          </form>
         </div>
-        <div>
-          <div>
-            2.
-          </div>
-          <div>
-            Use remainder operator to compute the bucket index
-          </div>
-          <div class="code-like">
-            i = h % length(buckets)
-          </div>
-        </div>
-        <div>
-          <div>
-            3.
-          </div>
-          <div>
-            Search through bucket linearly to find key
-          </div>
-          <div class="code-like">
-            last = NULL<br>
-            n = buckets[i]<br>
-            while n ≠ NULL:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;if n.key == k:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if last == NULL:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buckets[i] = n.next<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last.next = n.next<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;n = n.next
-          </div>
-        </div>
-      </div>
-      <h2>Rehashing</h2>
-      <p>As the lengths of the linked lists grow, the average lookup time increases.</p>
-      <p>To keep the linked lists short and lookups fast, the number of buckets must be increased (and nodes redistributed). This is called <strong>rehashing</strong>.</p>
-      <div class="instr-tbl">
-        <div>
-          <div>
-            1.
-          </div>
-          <div>
-            Allocate a new bucket array.
-          </div>
-          <div class="code-like">
-            new_size = 2 * length(buckets)<br>
-            new_buckets = new Bucket[new_size]
-          </div>
-        </div>
-        <div>
-          <div>
-            2.
-          </div>
-          <div>
-            Reinsert all elements in new array.
-          </div>
-          <div class="code-like no-wrap">
-            for i in 0..buckets.length - 1:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;while buckets[i] ≠ NULL:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = buckets[i]<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buckets[i] = n.next<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h = hash(n.k)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = h % new_length<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.next = new_buckets[i]<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_buckets[i] = n<br>
-          </div>
-        </div>
-        <div>
-          <div>
-            3.
-          </div>
-          <div>
-            Replace old array with new array
-          </div>
-          <div class="code-like">
-            buckets = new_buckets
-          </div>
-        </div>
-      </div>
-      <div class="centered-content pause-on-hover-animation" style="margin-top: 3em;">
-        <div class="pause-on-hover-animation-label"></div><svg id="rehash-animation" style="max-width: 25em; margin: 0em auto; display: block;" viewbox="-5 -5 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <rect fill="white" height="10" id="cell-s" stroke="black" width="10"></rect>
-          <g id="node-s">
-            <rect fill="white" height="7.0" rx="2" ry="2" stroke="black" width="7.0" y="1.5"></rect>
-          </g>
-          <g id="rh-link">
-            <line stroke="black" x1="0" x2="11.0" y1="0" y2="0"></line>
-          </g>
-        </defs>
-        <text fill="blue" style="font-size: 65%;" x="0" y="10">
-          buckets
-        </text>
-        <text fill="blue" style="font-size: 65%; animation-name: show-in-the-middle;" x="100" y="10">
-          new_buckets
-        </text>
-        <g style="animation-name: slide-left-in-the-end">
-          <use href="#cell-s" y="0"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-0" x="0" y="5.0"></use>
-          </g>
-          <use href="#cell-s" y="10"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-1" x="0" y="15.0"></use>
-          </g>
-          <use href="#cell-s" y="20"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-2" x="0" y="25.0"></use>
-          </g>
-          <use href="#cell-s" y="30"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-3" x="0" y="35.0"></use>
-          </g>
-          <use href="#cell-s" y="40"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-4" x="0" y="45.0"></use>
-          </g>
-          <use href="#cell-s" y="50"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-5" x="0" y="55.0"></use>
-          </g>
-          <use href="#cell-s" y="60"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-6" x="0" y="65.0"></use>
-          </g>
-          <use href="#cell-s" y="70"></use>
-          <g transform="translate(10,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-7" x="0" y="75.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="0"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-8" x="0" y="5.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="10"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-9" x="0" y="15.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="20"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-10" x="0" y="25.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="30"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-11" x="0" y="35.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="40"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-12" x="0" y="45.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="50"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-13" x="0" y="55.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="60"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-14" x="0" y="65.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="70"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-15" x="0" y="75.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="80"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-16" x="0" y="85.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="90"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-17" x="0" y="95.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="100"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-18" x="0" y="105.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="110"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-19" x="0" y="115.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="120"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-20" x="0" y="125.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="130"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-21" x="0" y="135.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="140"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-22" x="0" y="145.0"></use>
-          </g>
-          <use href="#cell-s" style="animation-name: hide-first-20" x="100" y="150"></use>
-          <g transform="translate(110,0)">
-            <use href="#rh-link" style="animation-name: rehash-link-23" x="0" y="155.0"></use>
-          </g>
-          <use href="#node-s" style="animation-name: rehash-node-0;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-1;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-2;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-3;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-4;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-5;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-6;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-7;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-8;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-9;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-10;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-11;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-12;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-13;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-14;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-15;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-16;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-17;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-18;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-19;"></use>
-          <use href="#node-s" style="animation-name: rehash-node-20;"></use>
-        </g></svg>
-      </div>
-      <p>During rehashing the number of buckets is increased by some factor, typically 2. As shown in the article <a href="hash-tables-complexity.html">Hash Tables: Complexity</a>, it is important that the growth is exponential.</p>
-      <h2>Traversal</h2>
-      <div class="instr-tbl">
-        <div>
-          <div>
-            1.
-          </div>
-          <div>
-            For each bucket…
-          </div>
-          <div class="code-like">
-            for i in 0..buckets.length - 1:
-          </div>
-        </div>
-        <div>
-          <div>
-            2.
-          </div>
-          <div>
-            …traverse each node
-          </div>
-          <div class="code-like no-wrap">
-            &nbsp;&nbsp;&nbsp;&nbsp;n = buckets[i]:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;while n ≠ NULL:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;process(n)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = n.next
-          </div>
-        </div>
-      </div>
-      <p>Note that the order in which the key-value pairs are traversed is <strong>unpredictable</strong> due to the nature of hashing and rehashing.</p>
-      <h2>Load Factor and Capacity</h2>
-      <p>The <strong>load factor</strong> is the average number of key-value pairs per bucket.</p>
-      <div class="article-box" style="display: flex; align-items: center; justify-content: center; text-align: center">
-        <div style="margin: 0em .3em">
-          load factor
-        </div>
-        <div style="margin: 0em .3em">
-          =
-        </div>
-        <div style="margin: 0em .3em; display: flex; flex-direction: column; align-items: center;">
-          <div style="padding-bottom: .25em; margin-bottom: .2em; border-bottom: .12em solid black;">
-            total number of key-value pairs
-          </div>
-          <div>
-            number of buckets
-          </div>
-        </div>
-      </div>
-      <p>It is when the load factor reaches a given limit that rehashing kicks in. Since rehashing increases the number of buckets, it reduces the load factor.</p>
-      <p>The load factor limit is usually configurable and offers a <strong>tradeoff between time and space costs</strong>.</p>
-      <div class="centered-content" style="margin: 3em 0em;">
-        <svg style="max-width: 600px;" viewbox="-300 -60 600.0 140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <line stroke="black" x1="-195" x2="195" y1="0" y2="0"></line>
-        <line stroke="black" x1="-190" x2="-190" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-160" x2="-160" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-130" x2="-130" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-100" x2="-100" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-70" x2="-70" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-40" x2="-40" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="-10" x2="-10" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="20" x2="20" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="50" x2="50" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="80" x2="80" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="110" x2="110" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="140" x2="140" y1="-2.5" y2="2.5"></line>
-        <line stroke="black" x1="170" x2="170" y1="-2.5" y2="2.5"></line>
-        <use href="#r-arrow-head-black" x="190"></use>
-        <use href="#r-arrow-head-black" transform="translate(-190, 0) rotate(180)"></use>
-        <text text-anchor="middle" x="-190" y="-30">
-          Lower limit
-        </text>
-        <text text-anchor="middle" x="-190" y="40">
-          More empty buckets
-        </text>
-        <text text-anchor="middle" x="-190" y="60">
-          More memory overhead
-        </text>
-        <text text-anchor="middle" x="190" y="-30">
-          Higher limit
-        </text>
-        <text text-anchor="middle" x="190" y="40">
-          Larger buckets
-        </text>
-        <text text-anchor="middle" x="190" y="60">
-          Slower lookups
-        </text></svg>
-      </div>
-      <p>The default load factor for a Java <a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"><code>HashMap</code></a> is 0.75 and for a C# <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"><code>Hashtable</code></a> it’s 1.0.</p>
-      <p>The <strong>capacity</strong> is the maximum number of key-value pairs for the given load factor limit and current bucket count.</p>
-      <div class="article-box" style="display: flex; align-items: center; justify-content: center; text-align: center">
-        <div style="margin: 0em .3em">
-          capacity
-        </div>
-        <div style="margin: 0em .3em">
-          =
-        </div>
-        <div style="margin: 0em .3em">
-          number of buckets
-        </div>
-        <div style="margin: 0em .3em">
-          ×
-        </div>
-        <div style="margin: 0em .3em">
-          load factor limit
-        </div>
-      </div>
-      <p>Since rehashing increases the number of buckets, it increases the capacity.</p>
-      <p>The default initial capacity for a Java <a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"><code>HashMap</code></a> is 12 and for a C# <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8"><code>Hashtable</code></a> it’s 0, i.e. the bucket array is initialized lazily upon first insertion.</p>
-      <div class="article-box">
-        <p><strong>Example:</strong> Here’s the structure of a hash table, configured with load factor limit of&nbsp;4.</p><svg style="max-width: 30em; display: block; margin: 1em auto 0em auto;" viewbox="-15 0 250 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="lf-c-arrow-head">
-            <path d="M -2 2 l 4 0 l -2 -6 l -2 6" fill="black"></path>
-          </g>
-          <g id="lf-c-right-arrow">
-            <line stroke="black" x1="0" x2="10" y1="0" y2="0"></line>
-            <use href="#lf-c-arrow-head" transform="translate(10,0) rotate(90)"></use>
-          </g>
-          <g id="lf-c-cell">
-            <rect fill="white" height="30" stroke="black" width="30"></rect>
-          </g>
-          <g id="lf-c-node">
-            <rect fill="white" height="20" rx="4" ry="4" stroke="black" width="25" y="5.0"></rect>
-          </g>
-          <g id="lf-c-node-with-arrow">
-            <use href="#lf-c-node"></use>
-            <use href="#lf-c-right-arrow" x="25" y="15.0"></use>
-          </g>
-        </defs>
-        <g transform="translate(5, 60)">
-          <use href="#lf-c-cell" y="0"></use>
-          <use href="#lf-c-right-arrow" x="30" y="15.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="0"></use>
-          <use href="#lf-c-node-with-arrow" x="83" y="0"></use>
-          <use href="#lf-c-node" x="122" y="0"></use>
-          <use href="#lf-c-cell" y="30"></use>
-          <use href="#lf-c-right-arrow" x="30" y="45.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="30"></use>
-          <use href="#lf-c-node-with-arrow" x="83" y="30"></use>
-          <use href="#lf-c-node" x="122" y="30"></use>
-          <use href="#lf-c-cell" y="60"></use>
-          <use href="#lf-c-right-arrow" x="30" y="75.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="60"></use>
-          <use href="#lf-c-node" x="83" y="60"></use>
-          <use href="#lf-c-cell" y="90"></use>
-          <use href="#lf-c-right-arrow" x="30" y="105.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="90"></use>
-          <use href="#lf-c-node-with-arrow" x="83" y="90"></use>
-          <use href="#lf-c-node-with-arrow" x="122" y="90"></use>
-          <use href="#lf-c-node" x="161" y="90"></use>
-          <use href="#lf-c-cell" y="120"></use>
-          <use href="#lf-c-right-arrow" x="30" y="135.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="120"></use>
-          <use href="#lf-c-node-with-arrow" x="83" y="120"></use>
-          <use href="#lf-c-node" x="122" y="120"></use>
-          <use href="#lf-c-cell" y="150"></use>
-          <use href="#lf-c-right-arrow" x="30" y="165.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="150"></use>
-          <use href="#lf-c-node-with-arrow" x="83" y="150"></use>
-          <use href="#lf-c-node-with-arrow" x="122" y="150"></use>
-          <use href="#lf-c-node" x="161" y="150"></use>
-          <use href="#lf-c-cell" y="180"></use>
-          <use href="#lf-c-right-arrow" x="30" y="195.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="180"></use>
-          <use href="#lf-c-node" x="83" y="180"></use>
-          <use href="#lf-c-cell" y="210"></use>
-          <use href="#lf-c-right-arrow" x="30" y="225.0"></use>
-          <use href="#lf-c-node-with-arrow" x="44" y="210"></use>
-          <use href="#lf-c-node-with-arrow" x="83" y="210"></use>
-          <use href="#lf-c-node" x="122" y="210"></use>
-          <line stroke="blue" stroke-dasharray="5 2" x1="154" x2="154" y1="-15" y2="255"></line>
-          <text fill="blue" style="font-size: 50%" text-anchor="middle" x="148" y="-50">
-            Current
-          </text>
-          <text fill="blue" style="font-size: 50%" text-anchor="middle" x="148" y="-39">
-            load factor:
-          </text>
-          <text fill="blue" style="font-size: 50%" text-anchor="middle" x="148" y="-25">
-            24 / 8 = 3
-          </text>
-          <text fill="red" style="font-size: 50%" text-anchor="middle" x="198" y="-50">
-            Configured
-          </text>
-          <text fill="red" style="font-size: 50%" text-anchor="middle" x="198" y="-39">
-            limit:
-          </text>
-          <text fill="red" style="font-size: 50%" text-anchor="middle" x="195" y="-25">
-            4
-          </text>
-          <line stroke="red" stroke-dasharray="5 2" x1="195" x2="195" y1="-15" y2="255"></line>
-          <rect fill="none" height="240" stroke="red" width="156" x="36" y="0"></rect>
-          <text fill="red" style="font-size: 50%" x="36" y="-15">
-            Current capacity:
-          </text>
-          <text fill="red" style="font-size: 50%" x="36" y="-5">
-            8 × 4 = 32
-          </text>
-        </g></svg>
-      </div>
-      <h2>Complexity Analysis</h2>
-      <p>As is clear from the way insert, lookup and remove works, the run time is proportional to the length of the linked lists. In worst case all keys hash to the same bucket, i.e. the whole data structure becomes equivalent to a linked list. This means that all operations run in <em>O</em>(<em>n</em>).</p>
-      <p>Assuming however that keys are dispersed evenly among the buckets, it can be shown that the complexity of the expected run time is <em>O</em>(1) for all operations.</p>
-      <p>See article <a href="hash-tables-complexity.html">Hash Tables: Complexity</a> for a detailed analysis.</p>
-      <h2 id="other-impl">Other Collision Resolution Strategies</h2>
-      <p>When two keys hash to the same bucket, i.e. when</p>
-      <div class="centered-content">
-        hash(<em>k</em><sub>1</sub>) ≡ hash(<em>k</em><sub>2</sub>) (mod number of buckets)
-      </div>
-      <p>it’s called a <strong>collision</strong>. The collision handling strategy described so far (one linked list per bucket) is an example of <strong>closed addressing</strong> using separate chains. Instead of linked lists, one can also use binary search trees, or as in the case of Java 9, a linked list up to a certain limit, and then convert it to a BST when more elements are added.</p>
-      <p>The alternative, <strong>open addressing</strong>, is to store all key-value pairs directly in the hash table array, i.e. there's at most one element per bucket. (The size of the array must always be at least as large as the number of elements stored.)</p>
-      <div class="article-box">
-        <div style="display: flex">
-          <div style="font-family: times new roman; font-size: 220%; padding-right: .5em;">
-            ☞
-          </div>
-          <div>
-            <p>See <a href="hash-tables-open-vs-closed-addressing.html">Open vs Closed Addressing</a> for a brief side-by-side comparison of the techniques or <a href="hash-tables-open-addressing.html">Open Addressing</a> for details on open addressing.</p>
-          </div>
-        </div>
-      </div>
-      <p>A third option, which is more of theoretical interest but mentioned here for completeness, is to use a hash function that maps each key to slot of its own, and thus avoiding collisions all together. This is called <strong>perfect hashing</strong>.</p>
-      <div>
-        <h2>Comments</h2>
-        <div style="margin-bottom: 1.5em">
-          Be the first to comment!
-        </div>
-        <form action="https://programming.guide/_comments/add-comment" method="post">
-          <input name="reply_to" type="hidden" value="hash-tables.html"> 
-          <textarea name="text" placeholder="Comment"></textarea> <input name="author" placeholder="Name" type="text"> <input name="email" placeholder="E-mail (will not be published)" type="text"> <input type="submit" value="Submit">
-        </form>
-      </div>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

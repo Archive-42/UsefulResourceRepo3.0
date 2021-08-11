@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://web.dev/</id>
+  <title>Scale on web on web.dev</title>
+  <updated>2021-08-11T17:14:17Z</updated>
+  <author>
+    <name>Google Developers</name>
+  </author>
+  <link href="https://web.dev/tags/scale-on-web/feed.xml" rel="self"/>
+  <link href="https://web.dev/"/>
+  <category term="Scale on web on web.dev"/>
+  <icon>https://web.dev/images/social.png</icon>
+  <logo>https://web.dev/images/shared/rss-banner.png</logo>
+  <subtitle>A collection of short case studies from India and Southeast Asia celebrating the success stories of Google partners across multiple aspects of modern web development. Learn how these partners achieved scale while building amazing web experiences and delighting their customers.</subtitle>
+  
+  
+  <entry>
+    <title>Vodafone: A 31% improvement in LCP increased sales by 8%</title>
+    <link href="https://web.dev/vodafone/"/>
+    <updated>2021-03-17T00:00:00Z</updated>
+    <id>https://web.dev/vodafone/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://www.vodafone.com/&quot; rel=&quot;noopener&quot;&gt;Vodafone&lt;/a&gt; is a leading telecommunications company in
+Europe and Africa operating fixed and mobile networks in 21 countries and
+partnering with mobile networks in 48 more. By running an A/B test on a landing
+page (where version A was optimized for Web Vitals and had a 31% better LCP
+score in the
+&lt;a href=&quot;https://www.searchenginejournal.com/google-explains-why-field-data-is-more-reliable-than-lab-data/372404/&quot; rel=&quot;noopener&quot;&gt;field&lt;/a&gt;
+than version B), Vodafone determined that optimizing for Web Vitals generated 8%
+more sales.&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;31&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;A 31% improvement in LCP led to…&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;&lt;sub class=&quot;w-stat__sub&quot;&gt;+&lt;/sub&gt;8&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;Increase in total sales&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;&lt;sub class=&quot;w-stat__sub&quot;&gt;+&lt;/sub&gt;15&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;Uplift in the lead to visit rate&lt;/p&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;w-stat&quot;&gt;
+   &lt;p class=&quot;w-stat__figure&quot;&gt;&lt;sub class=&quot;w-stat__sub&quot;&gt;+&lt;/sub&gt;11&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+   &lt;p class=&quot;w-stat__desc&quot;&gt;Uplift in the cart to visit rate&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Vodafone knew that faster websites generally correlate to improved business metrics and were
+interested in optimizing their Web Vitals scores as a potential strategy for increasing sales, but
+they needed to determine exactly what kind of ROI they would get.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Two screenshots of the Vodafone website.&quot; decoding=&quot;async&quot; height=&quot;751&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/3OKAembHLoX5QAdP1vya.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;figcaption&gt;
+    Some example screenshots of Vodafone&#39;s website. Note that these are &lt;b&gt;not&lt;/b&gt; version
+    A and version B from the A/B test. Both versions were visually and functionally identical.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;approach&quot;&gt;The approach they used &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#approach&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;ab-test&quot;&gt;A/B test &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#ab-test&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The traffic for the A/B test came from different paid media channels, including display,
+iOS/Android, search, and social. 50% of the traffic was sent to the optimized landing page (version
+A), and 50% was sent to the baseline page (version B). Version A and version B both got around 100K
+clicks and 34K visits per day. As mentioned before, the only difference between version A and
+version B was that version A was optimized for Web Vitals. There were no functional or visual
+differences between the two versions other than that. Vodafone used the
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;PerformanceObserver&lt;/code&gt;&lt;/a&gt; API to
+measure LCP on real user sessions and sent the
+&lt;a href=&quot;https://www.searchenginejournal.com/google-explains-why-field-data-is-more-reliable-than-lab-data/372404/&quot; rel=&quot;noopener&quot;&gt;field data&lt;/a&gt;
+to their analytics provider.&lt;/p&gt;
+&lt;img alt=&quot;A diagram of the A/B test setup.&quot; decoding=&quot;async&quot; height=&quot;398&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/bDOhlrGwsiuknDTBjUJg.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h3 id=&quot;optimizations&quot;&gt;Optimizations &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#optimizations&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Vodafone made the following changes on the optimized page (version A):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Moved the rendering logic for a widget from client-side to server-side&lt;/strong&gt;, which resulted in
+less &lt;a href=&quot;https://web.dev/render-blocking-resources/&quot;&gt;render-blocking JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Server-side rendered&lt;/strong&gt; critical HTML&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimized images&lt;/strong&gt;, including &lt;a href=&quot;https://web.dev/uses-responsive-images/&quot;&gt;resizing&lt;/a&gt; the hero
+image, &lt;a href=&quot;https://jakearchibald.github.io/svgomg/&quot; rel=&quot;noopener&quot;&gt;optimizing SVG images&lt;/a&gt;, using media queries to
+&lt;a href=&quot;https://web.dev/browser-level-image-lazy-loading/&quot;&gt;avoid loading images&lt;/a&gt; that weren&#39;t yet
+visible in the viewport, and &lt;a href=&quot;https://web.dev/squoosh-v2/&quot;&gt;optimizing PNG images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;results&quot;&gt;Overall business results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/vodafone/#results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;div&gt;
+    &lt;p&gt;
+      After optimizing version A for Web Vitals and comparing it to the
+      unoptimized version B, Vodafone found that version A led to:
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;An 8% increase in sales&lt;/li&gt;
+      &lt;li&gt;
+        A 15% improvement in the lead to visit rate (the number of users who became
+        a lead versus the total number of visitors)
+      &lt;/li&gt;
+      &lt;li&gt;
+        An 11% improvement in the cart to visit rate (the number of users
+        who visited their cart versus the total number of visitors)
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;An illustration that reiterates the business results.&quot; decoding=&quot;async&quot; height=&quot;1175&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/ADfHPOlQ19oaiuRrzmWZ.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;p&gt;The following table shows the values for &lt;code&gt;DOMContentLoaded&lt;/code&gt; (&amp;quot;DCL&amp;quot;) and LCP that
+Vodafone observed on version A (&amp;quot;Optimized Page&amp;quot;) and version B (&amp;quot;Default
+Page&amp;quot;). Note that DCL actually &lt;em&gt;increased&lt;/em&gt; 15%. The absolute values related to
+business metrics have been redacted.&lt;/p&gt;
+&lt;img alt=&quot;Optimized Page had a DCL of 4.05s and a LCP of 5.7s. Default Page had a DCL of 3.52s and a LCP of 8.3s.&quot; decoding=&quot;async&quot; height=&quot;413&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/cvDjZ2T3CfWzp8BlFw6Z.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;blockquote&gt;
+  &lt;p style=&quot;font-style: italic; font-size: 1.5rem;&quot;&gt;
+    At Vodafone, we test new solutions, measure results, keep what worked and question what didn&#39;t,
+    learning from mistakes. We call it &quot;Experiment, Learn Fast&quot;. Thanks to the collaboration with Google
+    and the introduction of LCP as the main KPI for page performance, it was possible to
+    significantly improve the customer experience of our e-commerce.
+  &lt;/p&gt;
+  &lt;cite&gt;Davide Grossi, Head of Digital Marketing, Business&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/tags/scale-on-web&quot;&gt;Scale on web case studies&lt;/a&gt; page for more
+success stories.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>JD.ID improves their mobile conversion rate by 53% with caching strategies, installation, and push notifications
+</title>
+    <link href="https://web.dev/jdid/"/>
+    <updated>2020-11-24T00:00:00Z</updated>
+    <id>https://web.dev/jdid/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://www.jd.id/&quot; rel=&quot;noopener&quot;&gt;JD.ID&lt;/a&gt; is an e-commerce platform in Indonesia providing
+delivery services for a wide range of products including electronic devices,
+household appliances, clothing, fashion accessories, and sports products.
+Currently operating across more than 350 Indonesian cities, JD.ID wanted to
+expand its online presence further by focusing on performance and a strong
+network-independent experience for their &lt;a href=&quot;https://web.dev/pwa&quot;&gt;Progressive Web App
+&lt;/a&gt;(PWA). With this enhanced experience, JD.ID was able to
+increase its overall mobile conversion rate (mCVR) by 53%, its mCVR for
+installed users by 200%, and its daily active users by 26%, putting it on course
+to becoming the most popular and trusted e-commerce company in the country.&lt;/p&gt;
+&lt;img alt=&quot;Screenshots of a user installing the JD.ID PWA&quot; decoding=&quot;async&quot; height=&quot;480&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/0nJBxHM0wbQKuAVnCAEX.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h2 id=&quot;highlighting-the-opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/jdid/#highlighting-the-opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To overcome the unstable mobile networks in Indonesia due to the vast number of
+operators, JD.ID was looking for a solution that would keep its website and user
+experience performing at all times, as well as solve any local caching issues.
+It saw huge acquisition potential from users that had visited its website but
+not downloaded the iOS/Android app. To capture this opportunity it used &lt;a href=&quot;https://web.dev/pwa-checklist/&quot;&gt;PWA
+best practices&lt;/a&gt; to help build an app-like UX on
+its website to enhance engagement, with a focus on &lt;a href=&quot;https://web.dev/reliable/&quot;&gt;network
+resilience&lt;/a&gt; for dependability.&lt;/p&gt;
+&lt;h2 id=&quot;the-approach&quot;&gt;The approach &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/jdid/#the-approach&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;caching-strategies&quot;&gt;Caching strategies &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/jdid/#caching-strategies&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;To mitigate network issues and improve user experience, the JD.ID team used
+&lt;a href=&quot;https://developers.google.com/web/tools/workbox&quot; rel=&quot;noopener&quot;&gt;Workbox&lt;/a&gt; to ensure its PWA
+performed well even when the user was offline or on a bad network. Workbox made
+it easier to execute their PWA caching strategy, which consisted of 3 parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/offline-cookbook/#network-falling-back-to-cache&quot;&gt;&lt;strong&gt;Network first, falling back to cache&lt;/strong&gt;&lt;/a&gt;:
+This strategy aims to get a response from the network first. Once a
+response is received, it passes it to the browser and saves it to a cache.
+If the network request fails, the last cached response will be used. JD.ID
+applied this strategy to the homepage to ensure that users can access the
+homepage even if they&#39;re offline.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/offline-cookbook/#cache-falling-back-to-network&quot;&gt;&lt;strong&gt;Cache first, falling back to network&lt;/strong&gt;&lt;/a&gt;:
+This strategy checks the cache for a response first and uses it if
+available. If not, the JD.ID website goes to the network, caches the
+response, and then passes it to the browser. When the
+&lt;a href=&quot;https://web.dev/service-workers-cache-storage/#service-workers&quot;&gt;service worker&lt;/a&gt;
+gets installed, it will have the static resources of the homepage, offline
+fallback page (explained below), category page, product page, shopping
+cart, and settlement page cached into the user&#39;s
+&lt;a href=&quot;https://web.dev/cache-api-quick-guide/&quot;&gt;cache&lt;/a&gt; in advance. When the user
+routes to any of these pages, this caching strategy ensures the browser
+gets the static resource files from the cache directly, improving the
+loading speed of these critical pages.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/offline-cookbook/#network-only&quot;&gt;&lt;strong&gt;Network only&lt;/strong&gt;&lt;/a&gt;: This
+strategy forces the response to come from the network only. JD.ID uses this
+strategy for the shopping cart and settlement page because those pages
+require very high data accuracy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Workbox also enables JD.ID to configure routing rules, the default duration of
+request timeouts, the number of responses that can be stored in the cache, and
+the duration of how long responses should be cached.&lt;/p&gt;
+&lt;h3 id=&quot;offline-fallback-page&quot;&gt;Offline fallback page &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/jdid/#offline-fallback-page&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The JD.ID team &lt;a href=&quot;https://web.dev/offline-fallback-page/&quot;&gt;created an offline fallback
+page&lt;/a&gt; to provide users with a consistent
+experience and enhance the branding for the website. They also added a &lt;a href=&quot;https://web.dev/add-manifest/&quot;&gt;web app
+manifest&lt;/a&gt; which enables users to easily install
+the web app on their mobile device.&lt;/p&gt;
+&lt;img alt=&quot;A screenshot of the offline fallback page&quot; decoding=&quot;async&quot; height=&quot;480&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/bE0afj8wH2XUmZdKH28R.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h3 id=&quot;push-notifications&quot;&gt;Push notifications &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/jdid/#push-notifications&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Additionally, for further re-engagement, JD.ID implemented push notifications
+with
+&lt;a href=&quot;https://firebase.google.com/docs/cloud-messaging/js/client&quot; rel=&quot;noopener&quot;&gt;Firebase Cloud Messaging for Web&lt;/a&gt;,
+applying them specifically during product sale promotional events.&lt;/p&gt;
+&lt;img alt=&quot;Screenshots of enabling push notifications&quot; decoding=&quot;async&quot; height=&quot;480&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/aTQmYAWe65pkwoaatfcp.jpg?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;h2 id=&quot;overall-business-results&quot;&gt;Overall business results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/jdid/#overall-business-results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Overall mobile conversion rate (mCVR) improved 53%&lt;/li&gt;
+    &lt;li&gt;mCVR for users who installed the JD.ID PWA improved 200%&lt;/li&gt;
+    &lt;li&gt;
+      Daily active users from mobile platforms increased 26% due to increased
+      re-enagement from push notifications
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;The impact statistics.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;870&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/j6cgF8sQt5IH2XcISQsk.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p style=&quot;font-style: italic; font-size: 1.5rem;&quot;&gt;
+    Our business is growing rapidly and we have a deeper focus on improving our
+    user experience. We aim to become the most popular and trusted e-commerce
+    company by constantly striving to provide services and a variety of products to
+    all users and customers in Indonesia. Web performance and PWA are a crucial part
+    of our UX and overall strategy and we will continue to invest in these areas.
+  &lt;/p&gt;
+  &lt;cite&gt;Fengxian Liu, Web Engineering Manager, JD.ID&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/tags/scale-on-web/&quot;&gt;Scale on web case studies
+page&lt;/a&gt; for more success stories from India
+and Southeast Asia.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Rakuten 24’s investment in PWA increases user retention by 450%</title>
+    <link href="https://web.dev/rakuten-24/"/>
+    <updated>2020-11-17T00:00:00Z</updated>
+    <id>https://web.dev/rakuten-24/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://24.rakuten.co.jp/&quot; rel=&quot;noopener&quot;&gt;Rakuten 24&lt;/a&gt; is an online store provided by Rakuten,
+one of the largest e-commerce companies in Japan. It provides a wide selection
+of everyday items including grocery, medicine, healthcare, kitchen utensils, and
+more. The team&#39;s main goal over the last year was to improve mobile customer
+retention and re-engagement. By making their web app
+&lt;a href=&quot;https://web.dev/define-install-strategy/&quot;&gt;installable&lt;/a&gt;, they saw a 450% jump in
+visitor retention rate as compared to the previous mobile web flow over a
+1-month timeframe.&lt;/p&gt;
+&lt;h2 id=&quot;opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In their efforts to gain market share and improve user experience, Rakuten 24
+identified the following areas of opportunities:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;As a relatively new service, Rakuten 24 was not in a position to
+invest the time and cost in developing a platform-specific app both for iOS
+and Android and were seeking an alternative, efficient way to fill this gap.&lt;/li&gt;
+&lt;li&gt;As Rakuten-Ichiba (Rakuten&#39;s e-commerce marketplace) is the biggest
+service in Japan, many people think Rakuten 24 is a seller in
+Rakuten-Ichiba. As a result, they acknowledged the need to invest in brand
+awareness and drive more user retention.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;tools&quot;&gt;The tools they used &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#tools&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;installability&quot;&gt;Installability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#installability&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;To capture the two opportunities identified above, Rakuten 24 decided to build
+&lt;a href=&quot;https://web.dev/pwa&quot;&gt;Progressive Web App&lt;/a&gt; (PWA) features on an incremental
+basis, starting with &lt;a href=&quot;https://web.dev/define-install-strategy/&quot;&gt;installability&lt;/a&gt;.
+Implementing installability resulted in increased traffic, visitor retention,
+sales per customer, and conversions.&lt;/p&gt;
+&lt;h3 id=&quot;beforeinstallprompt&quot;&gt;&lt;code&gt;beforeinstallprompt&lt;/code&gt; &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#beforeinstallprompt&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;To gain more flexibility and control over their install dialogue&#39;s behaviour,
+the team implemented their own install prompt using the
+&lt;a href=&quot;https://developers.google.com/web/updates/2018/06/a2hs-updates&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;beforeinstallprompt&lt;/code&gt;&lt;/a&gt;
+event. In doing so, they were able to detect if the app was already installed on
+Android or iOS and provide a more meaningful and relevant experience to their
+users.&lt;/p&gt;
+&lt;h3 id=&quot;instructions&quot;&gt;Custom installation instructions &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#instructions&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For users who weren&#39;t able to install the PWA from the banner, they created a
+&lt;a href=&quot;https://24.rakuten.co.jp/addto/&quot;&gt;custom guide&lt;/a&gt;
+(linked from the banner) with instructions on how to install the PWA manually on
+both Android and iOS devices.&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Screenshots of the custom installation instructions.&quot; decoding=&quot;async&quot; height=&quot;480&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/APDhzk6SjyxQTgxVidFR.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;workbox&quot;&gt;Workbox for service workers &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#workbox&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The Rakuten 24 team used
+&lt;a href=&quot;https://developers.google.com/web/tools/workbox&quot; rel=&quot;noopener&quot;&gt;Workbox&lt;/a&gt; (the
+&lt;a href=&quot;https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin&quot; rel=&quot;noopener&quot;&gt;workbox-webpack-plugin&lt;/a&gt;
+to be precise) to ensure their PWA worked well even when the user was offline or
+on a bad network.  Workbox&#39;s APIs for controlling
+&lt;a href=&quot;https://web.dev/service-workers-cache-storage/#the-cache-storage-api&quot;&gt;the cache&lt;/a&gt;
+worked significantly better than Rakuten 24&#39;s previous in-house script.
+Moreover, with workbox-webpack-plugin (and Babel), was able to automate the
+process of supporting a wider range of browsers. To further build network
+resilience, they implemented a
+&lt;a href=&quot;https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker&quot; rel=&quot;noopener&quot;&gt;cache-first strategy&lt;/a&gt;
+for their CSS and JS assets, and used
+&lt;a href=&quot;https://web.dev/stale-while-revalidate/&quot;&gt;stale-while-revalidate&lt;/a&gt; for their
+images that don&#39;t change frequently.&lt;/p&gt;
+&lt;h2 id=&quot;results&quot;&gt;Overall business results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;div&gt;
+    &lt;p&gt;
+      By implementing installability, Rakuten 24 was able to increase visit frequency
+      per user by 310% compared to the rest of their web users. It also saw a 450%
+      jump in visitor retention (compared to the previous mobile web flow), a 150%
+      increase in sales per customer, and a 200% increase in conversion rate. All of
+      the improvements were observed over a 1-month timeframe.
+    &lt;/p&gt;
+    &lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+      All stats represent users that installed the Rakuten 24 PWA, compared to
+      web users who did not.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;310% increase in visit frequency per user.  450% increase in visitor retention rate. 150% increase in sales per customer.200% increase in conversion rate.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;1074&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/l49plmwrrFO3V953MQZD.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;other-improvements&quot;&gt;Other ways the business improved with installability &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/rakuten-24/#other-improvements&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Brand Awareness:&lt;/strong&gt; Since users can directly access Rakuten 24 from
+their home screen, it helped both users and Rakuten separate Rakuten 24
+from Rakuten-Ichiba.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Efficiency:&lt;/strong&gt; Rakuten 24 was able to drive these results without
+spending significant time and money building platform-specific apps for iOS
+and Android.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+  &lt;p style=&quot;font-style: italic; font-size: 1.5rem;&quot;&gt;
+    Our mission is to contribute to society by creating value through
+    innovation and　entrepreneurship. A step towards achieving this was to
+    improve the Rakuten 24 customer experience by implementing A2HS. And in the
+    near future we also plan to enhance our PWA engagement and customer
+    proposition by developing push notifications using the Web Push API.
+  &lt;/p&gt;
+  &lt;cite&gt;Masashi Watanabe, General Manager, Group Marketing Department, Rakuten Inc.&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Previously the concept of installability was known as &lt;em&gt;add to homescreen&lt;/em&gt;
+(A2HS).&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/scale-on-web&quot;&gt;Scale on web case studies&lt;/a&gt; page for
+more success stories from India and Asia.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>NDTV achieved a 55% improvement in LCP by optimizing for Core Web Vitals</title>
+    <link href="https://web.dev/ndtv/"/>
+    <updated>2020-10-27T00:00:00Z</updated>
+    <id>https://web.dev/ndtv/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://ndtv.com/&quot; rel=&quot;noopener&quot;&gt;NDTV&lt;/a&gt; is one of India&#39;s leading news stations and websites. By following the &lt;a href=&quot;https://web.dev/vitals/&quot;&gt;Web
+Vitals&lt;/a&gt; program, they improved one of their most important user metrics,
+&lt;a href=&quot;https://web.dev/lcp/&quot;&gt;Largest Contentful Paint&lt;/a&gt; (LCP), by 55% in just a month. This was correlated
+with a 50% reduction in bounce rates.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;NDTV made other product changes while they optimized for Web Vitals
+so it is not possible to conclusively say that optimizing for Web Vitals was
+the only cause of the bounce rate reduction.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;55&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Improvement in LCP&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;50&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Reduction in bounce rates&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;highlighting-the-opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/ndtv/#highlighting-the-opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;With close to 200M unique users every month, it was critical for NDTV to optimize for quality of
+user experience. Although their engagement rates were well over industry average and the highest
+amongst their peers, the NDTV team still saw room for improvement and decided to invest in Web
+Vitals along with other product changes to further improve their engagement rates.&lt;/p&gt;
+&lt;h2 id=&quot;the-approach-they-used&quot;&gt;The approach they used &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/ndtv/#the-approach-they-used&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;With the help of tools like &lt;a href=&quot;https://web.dev/chrome-ux-report-pagespeed-insights/&quot;&gt;PageSpeed
+Insights&lt;/a&gt;,
+&lt;a href=&quot;https://web.dev/measure&quot;&gt;web.dev/measure&lt;/a&gt;, and &lt;a href=&quot;https://www.webpagetest.org/&quot; rel=&quot;noopener&quot;&gt;WebPageTest&lt;/a&gt; the NDTV
+team analyzed potential improvement areas on the site. These clearly defined optimization ideas
+helped them re-prioritize high-impact tasks and achieve immediate results in the improvement of Core
+Web Vitals. Optimizations included:&lt;/p&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;b&gt;Prioritizing the largest content block&lt;/b&gt; by
+      &lt;a href=&quot;https://web.dev/efficiently-load-third-party-javascript/#use-async-or-defer&quot;&gt;delaying third-party requests&lt;/a&gt;,
+      including ad calls for below-the-fold ad slots, and social network embeds, which are also
+      below-the-fold.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Increasing the &lt;a href=&quot;https://web.dev/uses-long-cache-ttl/&quot;&gt;caching&lt;/a&gt;&lt;/b&gt; of static content from a
+      few minutes to 30 days.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Using &lt;a href=&quot;https://web.dev/avoid-invisible-text/&quot;&gt;&lt;code&gt;font-display&lt;/code&gt;&lt;/a&gt;&lt;/b&gt;
+      to display text sooner while fonts are downloaded.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Using vector graphics for icons&lt;/b&gt; instead of TrueType Fonts (TTF).
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;Lazy loading
+      &lt;a href=&quot;https://web.dev/efficiently-load-third-party-javascript/#lazy-load-third-party-resources&quot;&gt;JavaScript&lt;/a&gt;
+      and &lt;a href=&quot;https://css-tricks.com/native-lazy-loading/&quot;&gt;CSS&lt;/a&gt;&lt;/b&gt;: loading the page with the minimum
+      possible JS and CSS and then lazy loading the remaining JS and CSS on page scroll.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;b&gt;&lt;a href=&quot;https://web.dev/uses-rel-preconnect/&quot;&gt;Preconnecting&lt;/a&gt;&lt;/b&gt; to origins delivering critical assets.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;A summary of the optimizations: Largest Contentful Paint, Caching, CSS, vector graphics, lazily loaded JS and CSS, preconnecting.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;920&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/h8k2D4AqsGbeDtpjsfNe.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;impact&quot;&gt;Impact &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/ndtv/#impact&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Web Vitals equipped the team with metric-driven signals to expedite the
+process of improving user experience.&lt;/p&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;p&gt;
+    Before beginning the optimization project, the NDTV team benchmarked their LCP
+    score at 3.0 seconds (for the 75th percentile of their users, based on
+    &lt;a href=&quot;https://web.dev/chrome-ux-report/&quot;&gt;Chrome User Experience Report&lt;/a&gt; field data).
+    After the optimization project, it was down to 1.6 seconds.
+    They also reduced their &lt;a href=&quot;https://web.dev/cls&quot;&gt;Cumulative Layout Shift&lt;/a&gt; (CLS) score to
+    0.05. Other metrics on WebPageTest like
+    &quot;&lt;a href=&quot;https://web.dev/time-to-first-byte&quot;&gt;First Byte Time&lt;/a&gt;&quot; and &quot;Effective use of
+    &lt;a href=&quot;https://web.dev/content-delivery-networks/&quot;&gt;CDN&lt;/a&gt;&quot; improved to an A grade.
+  &lt;/p&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;0.05 CLS score.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;370&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/WSQ9ATmLBzHmNtTWBIf8.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;When optimizing your site, remember that it&#39;s important to not think of your
+metric scores as single values, but rather a distribution of field data values
+from real users. You&#39;ll want to make sure that the distribution overall is improving.
+See &lt;a href=&quot;https://youtu.be/6Ljq-Jn-EgU?t=120&quot; rel=&quot;noopener&quot;&gt;Web Performance: Leveraging The Metrics That Most Affect UX&lt;/a&gt;
+for more information.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;return-on-investment&quot;&gt;Return on investment &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/ndtv/#return-on-investment&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Despite the complexity and depth of &lt;a href=&quot;https://ndtv.com/&quot; rel=&quot;noopener&quot;&gt;ndtv.com&lt;/a&gt;, the site was
+already achieving decent FID and CLS scores, thanks to the team&#39;s longstanding
+focus on performance and UX best practices. To further improve their user
+experience, the team focused on LCP and managed to meet the threshold within a
+few weeks of kicking off their optimization work.&lt;/p&gt;
+&lt;h2 id=&quot;overall-business-results&quot;&gt;Overall business results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/ndtv/#overall-business-results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;55% improvement in LCP as a result of optimizing for Core Web Vitals.&lt;/li&gt;
+    &lt;li&gt;
+      50% reduction in bounce rate on the website after optimizing for Core Web Vitals, along with
+      other product changes.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Increased engagement and consumption of content directly, and proportionally increased
+      revenue for their website.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;55% improvement in LCP. 50% reduction in bounce rate. Increased engagement and consumption.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;825&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lN46T0iOTj45lSOkE8mo.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p style=&quot;font-style: italic; font-size: 1.5rem;&quot;&gt;
+    NDTV has long followed best practices to deliver a top-quality user experience. We consider
+    measuring Web Vitals to be an integral part of our product development now, and the engagement
+    uplift we&#39;ve seen makes it a good ROI.
+  &lt;/p&gt;
+  &lt;cite&gt;Kawaljit Singh Bedi, Chief Technology and Product Officer, NDTV Group&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/scale-on-web&quot;&gt;Scale on web case studies&lt;/a&gt; page for more success
+stories from India and Southeast Asia.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>How focusing on web performance improved Tokopedia&#39;s click-through rate by 35%</title>
+    <link href="https://web.dev/tokopedia/"/>
+    <updated>2020-10-13T00:00:00Z</updated>
+    <id>https://web.dev/tokopedia/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;Tokopedia is one of the largest e-commerce companies in Indonesia. With 2.7M+ nationwide merchant
+networks, 18M+ product listings, and 50M+ monthly visitors, the web team knew  that investment in
+web performance was essential. By building a performance-first culture, they achieved a 35% increase
+in click-through rates (CTR) and an 8% increase in conversions (CVR).&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;35&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Increase in CTR&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;8&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Increase in CVR&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;4&lt;sub class=&quot;w-stat__sub&quot;&gt;sec&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Improvement in TTI&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;highlighting-the-opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/tokopedia/#highlighting-the-opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The web team talked to their leadership team on the importance of investing in web performance to
+improve user experience and engagement, and also showed the impact of performance using advanced
+patterns and APIs.&lt;/p&gt;
+&lt;div class=&quot;w-aside w-aside--note&quot;&gt;
+&lt;p&gt;Check out web.dev&#39;s &lt;a href=&quot;https://web.dev/fast/#build-a-performance-culture&quot;&gt;Build a performance culture&lt;/a&gt;
+collection for tips on how to persuade your cross-functional stakeholders to focus on website
+performance.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;the-approach-they-used&quot;&gt;The approach they used &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/tokopedia/#the-approach-they-used&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;javascript-and-resource-optimization&quot;&gt;JavaScript and resource optimization &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/tokopedia/#javascript-and-resource-optimization&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;div&gt;
+    &lt;p&gt;
+      Render-blocking or long-running &lt;a href=&quot;https://web.dev/fast/#optimize-your-javascript&quot;&gt;JavaScript&lt;/a&gt;
+      is a common cause of performance issues. The team took several steps to minimize this:
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        Built a script controller library to selectively load third-party scripts to optimize for
+        critical rendering path.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Replaced heavier libraries with lighter ones.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Implemented &lt;a href=&quot;https://web.dev/reduce-javascript-payloads-with-code-splitting/&quot;&gt;code splitting&lt;/a&gt;
+        and optimized for above-the-fold content.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Implemented &lt;a href=&quot;https://web.dev/adaptive-loading-cds-2019/&quot;&gt;adaptive loading&lt;/a&gt;, e.g. only
+        loading high-quality images for devices on fast networks and using lower-quality images for
+        devices on slow networks.
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;https://web.dev/lazy-loading-images/&quot;&gt;Lazy-loaded&lt;/a&gt; below-the-fold images.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Deferred loading of non-critical JavaScript.
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Script controller library improved TTI by 4 seconds&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;707&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/G8s0LNl7BwXuNJkCsPwV.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;homepage-optimization&quot;&gt;Homepage optimization &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/tokopedia/#homepage-optimization&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;p&gt;
+    The team used &lt;a href=&quot;https://svelte.dev/&quot;&gt;Svelte&lt;/a&gt; to build a lite version of the homepage
+    for first-time visitors, ensuring a fast website experience. This version also used a service
+    worker to cache the non-lite assets in the background.
+  &lt;/p&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Reduced app JavaScript size by 88% (from 320 KB to 37 KB). Boosted Lighthouse score by 90 points. Achieved FCP of less than 1 second. 35% CTR increase. 8% CVR increase.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;657&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gSJXd2GT8nT7Uzsth4Gg.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;performance-budgeting-and-monitoring&quot;&gt;Performance budgeting and monitoring &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/tokopedia/#performance-budgeting-and-monitoring&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;div&gt;
+    &lt;p&gt;
+      The team built a performance monitoring dashboard using
+      &lt;a href=&quot;https://web.dev/lighthouse-whats-new-6.0/&quot;&gt;Lighthouse&lt;/a&gt;
+      and other tools to improve the quality of web pages:
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        Measures network quality, infrastructure monitoring, frontend performance, and server
+        performance.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Uses a combination of web platform APIs (such as the
+        &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API/Using_the_Resource_Timing_API&quot;&gt;
+          Resource Timing API
+        &lt;/a&gt; and the
+        &lt;code&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing&quot;&gt;Server-Timing&lt;/a&gt;&lt;/code&gt;
+        header), the &lt;a href=&quot;https://developers.google.com/speed/docs/insights/v5/get-started&quot;&gt;
+          PageSpeed Insights (PSI) API&lt;/a&gt;, and
+        &lt;a href=&quot;https://developers.google.com/web/tools/chrome-user-experience-report&quot;&gt;
+          Chrome User Experience Report&lt;/a&gt; data to monitor field and lab metrics.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Analyzes images from Lighthouse to help identify image optimization opportunities.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Enforces a bundle-size budget during continuous integration (CI). The CI run fails if the
+        bundle size is over budget.
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;2.2 second TTI score on the homepage (Lighthouse score: 88). 1.9 second TTI score on product pages (Lighthouse score: 86).&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;1097&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/gObv2y7p7ozM190w61M3.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p style=&quot;font-style: italic; font-size: 1.5rem;&quot;&gt;
+    Being an e-commerce business, user acquisition is at the heart of our success. We acknowledge
+    the importance of the web and thus we are passionate about investing in all
+    the tools and features that will give the best user experience to our users.
+  &lt;/p&gt;
+  &lt;cite&gt;Dendi Sunardi, Engineering Manager, Web Platform, Tokopedia&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/scale-on-web&quot;&gt;Scale on web case studies&lt;/a&gt; page for more success
+stories from India and Southeast Asia.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>How Goibibo&#39;s PWA improved conversions by 60%</title>
+    <link href="https://web.dev/goibibo/"/>
+    <updated>2020-09-29T00:00:00Z</updated>
+    <id>https://web.dev/goibibo/</id>
+    <content type="text/html" mode="escaped">&lt;p&gt;&lt;a href=&quot;https://goibibo.com/&quot; rel=&quot;noopener&quot;&gt;Goibibo&lt;/a&gt; is India&#39;s leading online travel booking portal. By building a full-featured
+and reliable &lt;a href=&quot;https://web.dev/pwa&quot;&gt;Progressive Web App&lt;/a&gt; that matched the capabilities of their iOS and Android
+apps, Goibibo achieved a 60% increase in conversions (compared to their previous web flow).&lt;/p&gt;
+&lt;div class=&quot;w-stats&quot;&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;60&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Increase in conversions&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;w-stat&quot;&gt;
+    &lt;p class=&quot;w-stat__figure&quot;&gt;20&lt;sub class=&quot;w-stat__sub&quot;&gt;%&lt;/sub&gt;&lt;/p&gt;
+    &lt;p class=&quot;w-stat__desc&quot;&gt;Increase in logged-in users&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;opportunity&quot;&gt;Highlighting the opportunity &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#opportunity&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In their journey to improve user experience, Goibibo noticed a few trends:&lt;/p&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;Goibibo&amp;#x27;s PWA.&quot; class=&quot;w-screenshot w-screenshot--filled w-figure--inline-right&quot; decoding=&quot;async&quot; height=&quot;1624&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/0dmwrJViuhgA3I4IDCkj.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;With users either already shifted or quickly shifting to mobile, their initial strategy
+towards mobile web was to build a lightweight and functional application. This worked, with
+search-to-details-page conversions equalizing on web and iOS/Android, but the iOS/Android apps
+won in all further steps of the conversion funnel.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There were significant drop offs at the payment stage of the PWA compared to their
+iOS/Android apps. This was when they decided to invest in their PWA with the goal of letting
+users experience the same UX on their PWA as on their iOS/Android apps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;They also noticed nearly 20% of their users were starting a session on the web and
+converting on the app. This reiterated their belief that a chunk of users will go untapped
+without an aligned PWA and iOS/Android app strategy.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;tools&quot;&gt;The tools they used &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#tools&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;contact-picker&quot;&gt;Contact Picker API &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#contact-picker&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;p&gt;
+    Nearly 15% of Goibibo&#39;s logged-in users make bookings for family or friends on the mobile web.
+    Goibibo used the &lt;a href=&quot;https://web.dev/contact-picker/&quot;&gt;Contact Picker API&lt;/a&gt; to enable PWA users to fill
+    in forms on behalf of others hassle-free.
+  &lt;/p&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Impact: 20% of users chose the seamless Goibibo experience.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;360&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Pdqx8qyXbwzzS8ivNS3l.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;web-otp&quot;&gt;WebOTP &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#web-otp&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;p&gt;
+    Because secure authentication is a big challenge in India, Goibibo
+    used the &lt;a href=&quot;https://web.dev/web-otp/&quot;&gt;WebOTP (One-Time Password) API&lt;/a&gt;
+    to reduce sign-in friction on their PWA.
+  &lt;/p&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Impact: 20% increase in their mobile web logged-in users; 25% drop in OTP retry API calls during sign up.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;526&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/Nf0NeE3sSFOrYleAsxVd.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;web-share&quot;&gt;Web Share API &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#web-share&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;p&gt;
+    To bridge the gap between their web and iOS/Android experiences,  Goibibo adopted the
+    &lt;a href=&quot;https://web.dev/web-share/&quot;&gt;Web Share API&lt;/a&gt; to make it easier to share  links, text, or files around hotel
+    details, train availability, and so on.
+  &lt;/p&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Impact: 5% of new sessions came from Web Share API.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;356&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/u5pl2i6MHBkDZESQRHXR.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;notifications&quot;&gt;Push notifications &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#notifications&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;w-columns&quot;&gt;
+  &lt;p&gt;
+    Goibibo used &lt;a href=&quot;https://developers.google.com/web/fundamentals/push-notifications&quot;&gt;web push
+    notifications&lt;/a&gt; to retarget bounced users with relevant updates like flight fare alerts and other
+    customized content.
+  &lt;/p&gt;
+  &lt;figure class=&quot;w-figure&quot;&gt;
+    &lt;img alt=&quot;Impact: Retargeted users converted 4x more compared to normal user base.&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;414&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 800px) 800px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/baFHO5RXsOVdE6qiT0AR.png?auto=format&amp;w=1600 1600w&quot; width=&quot;800&quot; /&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;funnel&quot;&gt;How new web capabilities improved Goibibo&#39;s funnel &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#funnel&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;style&gt;
+@media (min-width: 865px) {
+  #funnel {
+    max-width: 75%;
+  }
+}
+&lt;/style&gt;
+&lt;figure class=&quot;w-figure&quot;&gt;
+  &lt;img alt=&quot;1. Web Share improved returning user percentage 2. Contact Picker enhanced user experience, making it easier for guests to book 3. WebOTP reduced friction during transactions, resulting in less time spent on OTP screen and less retry API calls 4. Push notifications improved conversions of retargeted users&quot; class=&quot;w-screenshot&quot; decoding=&quot;async&quot; height=&quot;627&quot; loading=&quot;lazy&quot; sizes=&quot;(min-width: 711px) 711px, calc(100vw - 48px)&quot; src=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&quot; srcset=&quot;https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/rsENPcTITCviudxIhPU1.png?auto=format&amp;w=1422 1422w&quot; width=&quot;711&quot; /&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;results&quot;&gt;Overall business results &lt;a class=&quot;w-headline-link&quot; href=&quot;https://web.dev/goibibo/#results&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Iterations to PWA interfaces resulted in a 60% jump in conversion rate (compared to the
+previous mobile web flow) and delighted users.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://web.dev/fugu-status/&quot;&gt;New web capabilities&lt;/a&gt; improved UX and caused a 20% increase
+in logged-in users (who convert 6x more).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+  &lt;p style=&quot;font-style: italic; font-size: 1.5rem;&quot;&gt;
+    We always strive for seamless user experience and in turn better  conversion rates. We saw
+    improved user engagement and better conversion rates on PWA than on the original mobile web flow.
+    Hence,  investing in PWA is critical to our success and if we had not, it would have cost us a
+    fortune.
+  &lt;/p&gt;
+  &lt;cite&gt;Rithish Saralaya, VP Engineering, Goibibo&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Check out the &lt;a href=&quot;https://web.dev/tags/scale-on-web&quot;&gt;Scale on web case studies&lt;/a&gt; page for more
+success stories from India and Southeast Asia.&lt;/p&gt;
+</content>
+    
+  </entry>
+</feed>
