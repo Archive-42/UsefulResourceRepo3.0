@@ -1,315 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go gotcha | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Tutorial covering common mistakes and corner cases in Go." name="description">
-  <meta content="go, golang, tutorial, code, examples, gotchas" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go gotcha | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Tutorial covering common mistakes and corner cases in Go."
+      name="description"
+    />
+    <meta
+      content="go, golang, tutorial, code, examples, gotchas"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li class="current">Go gotcha</li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li>
-          <a href="go-concurrency-tutorial.html">Concurrent programming</a>
-        </li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go gotcha</h1>
-      <p>26 pitfalls and corner cases</p>
-      <p><em>We hope this collection of common mistakes in Go will help you spot similar traps and save you time when debugging your own&nbsp;code.</em></p>
-      <p><a class="button" href="gotcha-assignment-entry-nil-map.html">Take quiz</a></p>
-      <h2 id="toc" style="font-size: 150%;">Table of contents</h2>
-      <ol style="list-style-type: none; padding: 0em;">
-        <li>
-          <a href="gotcha-assignment-entry-nil-map.html" style="font-weight: bold">Go gotcha: Why can't I add elements to my map?</a>
-          <div style="padding: .5em 0 1em 1em">
-            You can't assign an entry to a nil map in Go.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-nil-pointer-dereference.html" style="font-weight: bold">Go gotcha: What's a nil pointer dereference?</a>
-          <div style="padding: .5em 0 1em 1em">
-            You can't follow the nil pointer.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-multiple-value-sinlge-value-context.html" style="font-weight: bold">Go gotcha: Multiple values in single value context?</a>
-          <div style="padding: .5em 0 1em 1em">
-            If a function returns multiple values, you must use all of them.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-function-doesnt-change-array.html" style="font-weight: bold">Go gotcha: Why doesn't this function change my array?</a>
-          <div style="padding: .5em 0 1em 1em">
-            Arrays in Go are values: when you pass an array to a function it gets a copy of the original array data.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-shadowing-variables.html" style="font-weight: bold">Go gotcha: Two variables with the same name?</a>
-          <div style="padding: .5em 0 1em 1em">
-            An identifier declared in a block may be redeclared in an inner block.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-missing-comma-slice-array-map-literal.html" style="font-weight: bold">Go gotcha: Extra comma in slice literal</a>
-          <div style="padding: .5em 0 1em 1em">
-            In a multi-line slice, array or map literal, every line must end with a comma.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-strings-are-immutable.html" style="font-weight: bold">Go gotcha: Why can't I update my string?</a>
-          <div style="padding: .5em 0 1em 1em">
-            Go strings are read-only byte slices (with a few extra properties).
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-concatenate-rune-string.html" style="font-weight: bold">Go gotcha: Why aren't the characters concatenated?</a>
-          <div style="padding: .5em 0 1em 1em">
-            Characters (rune literals) are numbers in Go.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-trim-string.html" style="font-weight: bold">Go gotcha: What happened to ABBA?</a>
-          <div style="padding: .5em 0 1em 1em">
-            The Trim functions strip all Unicode code points contained in a cutset.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-copy-missing.html" style="font-weight: bold">Go gotcha: What happened to my copy?</a>
-          <div style="padding: .5em 0 1em 1em">
-            Copy copies the minimum number of elements in the destination and source slices.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-append.html" style="font-weight: bold">Go gotcha: Why doesn't append work every time?</a>
-          <div style="padding: .5em 0 1em 1em">
-            If there is enough capacity, append reuses the underlying array.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-constant-overflows-int.html" style="font-weight: bold">Go gotcha: Why can't I print large numbers? (constant overflows int)</a>
-          <div style="padding: .5em 0 1em 1em">
-            An untyped integer constant is converted to an int when the type can't be inferred from the context.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-increment-decrement-statement.html" style="font-weight: bold">Go gotcha: Why doesn't increment (++) and decrement (--) work?</a>
-          <div style="padding: .5em 0 1em 1em">
-            In Go increment and decrement are statements written with postfix notation.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-operator-precedence.html" style="font-weight: bold">Go gotcha: Why is my computation wrong?</a>
-          <div style="padding: .5em 0 1em 1em">
-            The multiplication, division, and remainder operators have the same precedence.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-bitwise-operators.html" style="font-weight: bold">Go gotcha: Why does Go and Pythagoras disagree?</a>
-          <div style="padding: .5em 0 1em 1em">
-            The circumflex (^) denotes bitwise XOR in Go.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-integer-overflow-wrap-around.html" style="font-weight: bold">Go gotcha: Why doesn't this loop end?</a>
-          <div style="padding: .5em 0 1em 1em">
-            An integer overflow occurs when an arithmetic operation tries to create a value that is outside the range that can be represented.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-octal-decimal-hexadecimal-literal.html" style="font-weight: bold">Go gotcha: Numbers that start with zero</a>
-          <div style="padding: .5em 0 1em 1em">
-            Octal literals start with 0, hexadecimal with 0x, an decimal literals never start with zero.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-remainder-modulo-operator.html" style="font-weight: bold">Go gotcha: What's wrong with the remainder (modulo) operator?</a>
-          <div style="padding: .5em 0 1em 1em">
-            The remainder operator can give negative answers if the dividend is negative.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-multiply-duration-integer.html" style="font-weight: bold">Go gotcha: Why can't I multiply a time.Duration with an integer?</a>
-          <div style="padding: .5em 0 1em 1em">
-            There is no mixing of numeric types in Go.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-index-out-of-range.html" style="font-weight: bold">Go gotcha: Why is this index out of range?</a>
-          <div style="padding: .5em 0 1em 1em">
-            Arrays, slices and strings are indexed starting from zero.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-unexpected-values-range.html" style="font-weight: bold">Go gotcha: Unexpected values in range loop</a>
-          <div style="padding: .5em 0 1em 1em">
-            The range loop generates two values: first the index, then the data.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-change-value-range.html" style="font-weight: bold">Go gotcha: Can't change entries in range loop</a>
-          <div style="padding: .5em 0 1em 1em">
-            The range loop uses a local variable to store iteration values.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-range-copy-array.html" style="font-weight: bold">Go gotcha: Iteration variable doesn't see change in range loop</a>
-          <div style="padding: .5em 0 1em 1em">
-            The range expression is evaluated once before beginning the loop.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-data-race-closure.html" style="font-weight: bold">Go gotcha: Iteration variables and closures</a>
-          <div style="padding: .5em 0 1em 1em">
-            A data race occurs when two goroutines access the same variable concurrently and at least one of the accesses is a write.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-json-marshal-empty.html" style="font-weight: bold">Go gotcha: Why is the JSON output empty?</a>
-          <div style="padding: .5em 0 1em 1em">
-            Only the the exported fields of a Go struct will be present in the JSON output.
-          </div>
-        </li>
-        <li>
-          <a href="gotcha-why-nil-error-not-equal-nil.html" style="font-weight: bold">Go gotcha: Why is nil not equal to nil?</a>
-          <div style="padding: .5em 0 1em 1em">
-            An interface value is nil only if the concrete value and dynamic type are both nil.
-          </div>
-        </li>
-      </ol>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li class="current">Go gotcha</li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li>
+            <a href="go-concurrency-tutorial.html">Concurrent programming</a>
+          </li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go gotcha</h1>
+        <p>26 pitfalls and corner cases</p>
+        <p>
+          <em
+            >We hope this collection of common mistakes in Go will help you spot
+            similar traps and save you time when debugging your
+            own&nbsp;code.</em
+          >
+        </p>
+        <p>
+          <a class="button" href="gotcha-assignment-entry-nil-map.html"
+            >Take quiz</a
+          >
+        </p>
+        <h2 id="toc" style="font-size: 150%">Table of contents</h2>
+        <ol style="list-style-type: none; padding: 0em">
+          <li>
+            <a
+              href="gotcha-assignment-entry-nil-map.html"
+              style="font-weight: bold"
+              >Go gotcha: Why can't I add elements to my map?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              You can't assign an entry to a nil map in Go.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-nil-pointer-dereference.html"
+              style="font-weight: bold"
+              >Go gotcha: What's a nil pointer dereference?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              You can't follow the nil pointer.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-multiple-value-sinlge-value-context.html"
+              style="font-weight: bold"
+              >Go gotcha: Multiple values in single value context?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              If a function returns multiple values, you must use all of them.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-function-doesnt-change-array.html"
+              style="font-weight: bold"
+              >Go gotcha: Why doesn't this function change my array?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Arrays in Go are values: when you pass an array to a function it
+              gets a copy of the original array data.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-shadowing-variables.html" style="font-weight: bold"
+              >Go gotcha: Two variables with the same name?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              An identifier declared in a block may be redeclared in an inner
+              block.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-missing-comma-slice-array-map-literal.html"
+              style="font-weight: bold"
+              >Go gotcha: Extra comma in slice literal</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              In a multi-line slice, array or map literal, every line must end
+              with a comma.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-strings-are-immutable.html"
+              style="font-weight: bold"
+              >Go gotcha: Why can't I update my string?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Go strings are read-only byte slices (with a few extra
+              properties).
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-concatenate-rune-string.html"
+              style="font-weight: bold"
+              >Go gotcha: Why aren't the characters concatenated?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Characters (rune literals) are numbers in Go.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-trim-string.html" style="font-weight: bold"
+              >Go gotcha: What happened to ABBA?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The Trim functions strip all Unicode code points contained in a
+              cutset.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-copy-missing.html" style="font-weight: bold"
+              >Go gotcha: What happened to my copy?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Copy copies the minimum number of elements in the destination and
+              source slices.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-append.html" style="font-weight: bold"
+              >Go gotcha: Why doesn't append work every time?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              If there is enough capacity, append reuses the underlying array.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-constant-overflows-int.html"
+              style="font-weight: bold"
+              >Go gotcha: Why can't I print large numbers? (constant overflows
+              int)</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              An untyped integer constant is converted to an int when the type
+              can't be inferred from the context.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-increment-decrement-statement.html"
+              style="font-weight: bold"
+              >Go gotcha: Why doesn't increment (++) and decrement (--) work?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              In Go increment and decrement are statements written with postfix
+              notation.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-operator-precedence.html" style="font-weight: bold"
+              >Go gotcha: Why is my computation wrong?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The multiplication, division, and remainder operators have the
+              same precedence.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-bitwise-operators.html" style="font-weight: bold"
+              >Go gotcha: Why does Go and Pythagoras disagree?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The circumflex (^) denotes bitwise XOR in Go.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-integer-overflow-wrap-around.html"
+              style="font-weight: bold"
+              >Go gotcha: Why doesn't this loop end?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              An integer overflow occurs when an arithmetic operation tries to
+              create a value that is outside the range that can be represented.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-octal-decimal-hexadecimal-literal.html"
+              style="font-weight: bold"
+              >Go gotcha: Numbers that start with zero</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Octal literals start with 0, hexadecimal with 0x, an decimal
+              literals never start with zero.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-remainder-modulo-operator.html"
+              style="font-weight: bold"
+              >Go gotcha: What's wrong with the remainder (modulo) operator?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The remainder operator can give negative answers if the dividend
+              is negative.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-multiply-duration-integer.html"
+              style="font-weight: bold"
+              >Go gotcha: Why can't I multiply a time.Duration with an
+              integer?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              There is no mixing of numeric types in Go.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-index-out-of-range.html" style="font-weight: bold"
+              >Go gotcha: Why is this index out of range?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Arrays, slices and strings are indexed starting from zero.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-unexpected-values-range.html"
+              style="font-weight: bold"
+              >Go gotcha: Unexpected values in range loop</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The range loop generates two values: first the index, then the
+              data.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-change-value-range.html" style="font-weight: bold"
+              >Go gotcha: Can't change entries in range loop</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The range loop uses a local variable to store iteration values.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-range-copy-array.html" style="font-weight: bold"
+              >Go gotcha: Iteration variable doesn't see change in range loop</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The range expression is evaluated once before beginning the loop.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-data-race-closure.html" style="font-weight: bold"
+              >Go gotcha: Iteration variables and closures</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A data race occurs when two goroutines access the same variable
+              concurrently and at least one of the accesses is a write.
+            </div>
+          </li>
+          <li>
+            <a href="gotcha-json-marshal-empty.html" style="font-weight: bold"
+              >Go gotcha: Why is the JSON output empty?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Only the the exported fields of a Go struct will be present in the
+              JSON output.
+            </div>
+          </li>
+          <li>
+            <a
+              href="gotcha-why-nil-error-not-equal-nil.html"
+              style="font-weight: bold"
+              >Go gotcha: Why is nil not equal to nil?</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              An interface value is nil only if the concrete value and dynamic
+              type are both nil.
+            </div>
+          </li>
+        </ol>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>

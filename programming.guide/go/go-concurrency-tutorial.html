@@ -1,239 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Go: Concurrent programming | Programming.Guide</title>
-  <link href="../css/base.css" rel="stylesheet">
-  <link href="../favicon.ico" rel="icon">
-  <meta content="Fundamentals of concurrent programming with examples in Go. This tutorial covers concurrent threads of execution (goroutines), basic synchronization techniques (channels and locks), basic concurrency patterns in Go, deadlock and data races, parallel computation." name="description">
-  <meta content="go, golang, tutorial, code, examples, concurrency, goroutines, channels, deadlock, data race, timer, ticker, waitgroup, parallel computation" name="keywords"><!-- Global site tag (gtag.js) - Google Analytics -->
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Go: Concurrent programming | Programming.Guide</title>
+    <link href="../css/base.css" rel="stylesheet" />
+    <link href="../favicon.ico" rel="icon" />
+    <meta
+      content="Fundamentals of concurrent programming with examples in Go. This tutorial covers concurrent threads of execution (goroutines), basic synchronization techniques (channels and locks), basic concurrency patterns in Go, deadlock and data races, parallel computation."
+      name="description"
+    />
+    <meta
+      content="go, golang, tutorial, code, examples, concurrency, goroutines, channels, deadlock, data race, timer, ticker, waitgroup, parallel computation"
+      name="keywords"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-62262792-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-62262792-2');
-  </script>
-  <script>
-  /**
-  * https://support.google.com/analytics/answer/1136920?hl=en
-  *
-  * Function that tracks a click on an outbound link in Analytics.
-  * This function takes a valid URL string as an argument, and uses that URL string
-  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-  * using 'navigator.sendBeacon' in browser that support it.
-  */
-  var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {
-     'transport': 'beacon',
-     'hitCallback': function(){document.location = url;}
-   });
-  }
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1475100101081278",
-    enable_page_level_ads: true
-  });
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" rel="stylesheet" type="text/css">
-  <script src="../cookieconsent.min.js"></script>
-  <script>
-  window.addEventListener("load", function(){
-  window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#006699"
-    },
-    "button": {
-      "background": "#cccccc"
-    }
-  },
-  "theme": "classic",
-  "dismissOnScroll": 200,
-  "dismissOnWindowClick": true,
-  "content": {
-    "message": "By interacting with this site you approve the use of cookies.",
-    "href": "/terms-and-conditions.html"
-  }
-  })});
-  </script>
-  <link href="../css/go-highlighting.css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="ad">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="link" data-ad-slot="6424388494" data-full-width-responsive="true" style="display:block"></ins> 
-      <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-  </header>
-  <main>
-    <aside id="primary-aside">
+      gtag("config", "UA-62262792-2");
+    </script>
+    <script>
+      /**
+       * https://support.google.com/analytics/answer/1136920?hl=en
+       *
+       * Function that tracks a click on an outbound link in Analytics.
+       * This function takes a valid URL string as an argument, and uses that URL string
+       * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+       * using 'navigator.sendBeacon' in browser that support it.
+       */
+      var trackOutboundLink = function (url) {
+        ga("send", "event", "outbound", "click", url, {
+          transport: "beacon",
+          hitCallback: function () {
+            document.location = url;
+          },
+        });
+      };
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1475100101081278",
+        enable_page_level_ads: true,
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#006699",
+            },
+            button: {
+              background: "#cccccc",
+            },
+          },
+          theme: "classic",
+          dismissOnScroll: 200,
+          dismissOnWindowClick: true,
+          content: {
+            message:
+              "By interacting with this site you approve the use of cookies.",
+            href: "/terms-and-conditions.html",
+          },
+        });
+      });
+    </script>
+    <link href="../css/go-highlighting.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
       <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="4885566806" data-full-width-responsive="true" style="display:block"></ins> 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          data-ad-client="ca-pub-1475100101081278"
+          data-ad-format="link"
+          data-ad-slot="6424388494"
+          data-full-width-responsive="true"
+          style="display: block"
+        ></ins>
         <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-      <h2>Top Go Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="go-gotcha.html">Go gotcha</a>
-        </li>
-        <li>
-          <a href="string-functions-reference-cheat-sheet.html">String handling cheat sheet</a>
-        </li>
-        <li>
-          <a href="maps-explained.html">Maps explained</a>
-        </li>
-        <li>
-          <a href="for-loop.html">For loops explained</a>
-        </li>
-        <li class="current">Concurrent programming</li>
-      </ol>
-      <p><a href="index.html"><strong>See all 197 Go articles</strong></a></p>
-    </aside>
-    <aside id="secondary-aside">
-      <div class="ad">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" data-ad-client="ca-pub-1475100101081278" data-ad-format="auto" data-ad-slot="6240200444" data-full-width-responsive="true" style="display:block"></ins> 
-        <script>
-
-                (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-      <h2>Top Algorithm Articles</h2>
-      <ol class="nostyle">
-        <li>
-          <a href="../dynamic-programming-vs-memoization-vs-tabulation.html">Dynamic programming vs memoization vs tabulation</a>
-        </li>
-        <li>
-          <a href="../big-o-notation-explained.html">Big O notation explained</a>
-        </li>
-        <li>
-          <a href="../sliding-window-example.html">Sliding Window Algorithm with Example</a>
-        </li>
-        <li>
-          <a href="../what-makes-a-good-loop-invariant.html">What makes a good loop invariant?</a>
-        </li>
-        <li>
-          <a href="../random-point-within-circle.html">Generating a random point within a circle (uniformly)</a>
-        </li>
-      </ol>
-      <p><a href="../index.html"><b>See all articles</b></a></p>
-    </aside>
-    <article>
-      <h1>Go: Concurrent programming</h1>
-      <p>This tutorial covers</p>
-      <ul>
-        <li>concurrent threads of execution (goroutines),</li>
-        <li>basic synchronization techniques (channels and locks),</li>
-        <li>basic concurrency patterns in Go,</li>
-        <li>deadlock and data races,</li>
-        <li>waitgroups, timers and tickers,</li>
-        <li>parallel computation.</li>
-      </ul>
-      <p>Before you start, you need to know how to write basic Go programs. The resources in <a href="getting-started-hello-world.html">Go:&nbsp;Get started</a> will help you come up to speed quickly with&nbsp;Go.</p>
-      <p><a class="button" href="goroutines-explained.html">Start here</a></p>
-      <h2 id="toc" style="font-size: 150%;">Table of contents</h2>
-      <ol style="list-style-type: none; padding: 0em;">
-        <li>
-          <a href="goroutines-explained.html" style="font-weight: bold">Goroutines explained</a>
-          <div style="padding: .5em 0 1em 1em">
-            A goroutine is a lightweight thread of execution.
-          </div>
-        </li>
-        <li>
-          <a href="channels-explained.html" style="font-weight: bold">Channels explained</a>
-          <div style="padding: .5em 0 1em 1em">
-            A channel is a mechanism for two goroutines to synchronize execution and communicate by passing values.
-          </div>
-        </li>
-        <li>
-          <a href="select-explained.html" style="font-weight: bold">Select explained</a>
-          <div style="padding: .5em 0 1em 1em">
-            A select statement allows you to wait for multiple send or receive operations simultaneously.
-          </div>
-        </li>
-        <li>
-          <a href="data-races-explained.html" style="font-weight: bold">Data races explained</a>
-          <div style="padding: .5em 0 1em 1em">
-            A data race is easily introduced by mistake and can lead to situations that are very hard to debug. This article explains how to avoid this headache.
-          </div>
-        </li>
-        <li>
-          <a href="detect-data-races.html" style="font-weight: bold">Detect data races</a>
-          <div style="padding: .5em 0 1em 1em">
-            By starting your application with the '-race' option, the Go runtime might be able to detect and inform you about data races.
-          </div>
-        </li>
-        <li>
-          <a href="detect-deadlock.html" style="font-weight: bold">Deadlock</a>
-          <div style="padding: .5em 0 1em 1em">
-            The Go runtime can often detect when a program freezes because of a deadlock. This article explains how to debug and solve such issues.
-          </div>
-        </li>
-        <li>
-          <a href="wait-for-goroutines-waitgroup.html" style="font-weight: bold">Wait for goroutines</a>
-          <div style="padding: .5em 0 1em 1em">
-            A sync.WaitGroup waits for a group of goroutines to finish.
-          </div>
-        </li>
-        <li>
-          <a href="broadcast-channel.html" style="font-weight: bold">Broadcast a signal on a channel</a>
-          <div style="padding: .5em 0 1em 1em">
-            When you close a channel, all readers receive a zero value. This can be used to broadcast a signal to several goroutines on a single channel.
-          </div>
-        </li>
-        <li>
-          <a href="stop-goroutine.html" style="font-weight: bold">Stop a goroutine</a>
-          <div style="padding: .5em 0 1em 1em">
-            A goroutine can stop only by returning from it's top level function. To make it stoppable, let it listen to a stop signal on a channel.
-          </div>
-        </li>
-        <li>
-          <a href="time-reset-wait-stop-timeout-cancel-interval.html" style="font-weight: bold">Timer and Ticker explained</a>
-          <div style="padding: .5em 0 1em 1em">
-            Timers and Tickers are used to wait for, repeat, and cancel events in the future.
-          </div>
-        </li>
-        <li>
-          <a href="mutex-explained.html" style="font-weight: bold">Mutual exclusion lock (mutex)</a>
-          <div style="padding: .5em 0 1em 1em">
-            A sync.Mutex is used to synchronize data by explicit locking.
-          </div>
-        </li>
-        <li>
-          <a href="efficient-parallel-computation.html" style="font-weight: bold">Efficient parallel computation</a>
-          <div style="padding: .5em 0 1em 1em">
-            To efficiently schedule parallel computation on separate CPUs is more of an art than a science. This article gives some rules of thumb.
-          </div>
-        </li>
-      </ol>
-    </article>
-  </main>
-  <footer>
-    © 2016–2021 Programming.Guide, <a href="../terms-and-conditions.html" style="color: inherit; text-decoration: underline">Terms&nbsp;and&nbsp;Conditions</a>
-  </footer>
-  <script>
-  // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
-  var test = document.createElement('div');
-  test.innerHTML = '&nbsp;';
-  test.className = 'adsbox';
-  document.body.appendChild(test);
-  window.setTimeout(function() {
-    if (test.offsetHeight === 0) {
-        ga('send', 'event', 'Ad Setting', 'Adblock', 'Enabled');
-    }
-    test.remove();
-  }, 400);
-  </script>
-</body>
+    </header>
+    <main>
+      <aside id="primary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="4885566806"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Go Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="go-gotcha.html">Go gotcha</a>
+          </li>
+          <li>
+            <a href="string-functions-reference-cheat-sheet.html"
+              >String handling cheat sheet</a
+            >
+          </li>
+          <li>
+            <a href="maps-explained.html">Maps explained</a>
+          </li>
+          <li>
+            <a href="for-loop.html">For loops explained</a>
+          </li>
+          <li class="current">Concurrent programming</li>
+        </ol>
+        <p>
+          <a href="index.html"><strong>See all 197 Go articles</strong></a>
+        </p>
+      </aside>
+      <aside id="secondary-aside">
+        <div class="ad">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <ins
+            class="adsbygoogle"
+            data-ad-client="ca-pub-1475100101081278"
+            data-ad-format="auto"
+            data-ad-slot="6240200444"
+            data-full-width-responsive="true"
+            style="display: block"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <h2>Top Algorithm Articles</h2>
+        <ol class="nostyle">
+          <li>
+            <a href="../dynamic-programming-vs-memoization-vs-tabulation.html"
+              >Dynamic programming vs memoization vs tabulation</a
+            >
+          </li>
+          <li>
+            <a href="../big-o-notation-explained.html"
+              >Big O notation explained</a
+            >
+          </li>
+          <li>
+            <a href="../sliding-window-example.html"
+              >Sliding Window Algorithm with Example</a
+            >
+          </li>
+          <li>
+            <a href="../what-makes-a-good-loop-invariant.html"
+              >What makes a good loop invariant?</a
+            >
+          </li>
+          <li>
+            <a href="../random-point-within-circle.html"
+              >Generating a random point within a circle (uniformly)</a
+            >
+          </li>
+        </ol>
+        <p>
+          <a href="../index.html"><b>See all articles</b></a>
+        </p>
+      </aside>
+      <article>
+        <h1>Go: Concurrent programming</h1>
+        <p>This tutorial covers</p>
+        <ul>
+          <li>concurrent threads of execution (goroutines),</li>
+          <li>basic synchronization techniques (channels and locks),</li>
+          <li>basic concurrency patterns in Go,</li>
+          <li>deadlock and data races,</li>
+          <li>waitgroups, timers and tickers,</li>
+          <li>parallel computation.</li>
+        </ul>
+        <p>
+          Before you start, you need to know how to write basic Go programs. The
+          resources in
+          <a href="getting-started-hello-world.html">Go:&nbsp;Get started</a>
+          will help you come up to speed quickly with&nbsp;Go.
+        </p>
+        <p><a class="button" href="goroutines-explained.html">Start here</a></p>
+        <h2 id="toc" style="font-size: 150%">Table of contents</h2>
+        <ol style="list-style-type: none; padding: 0em">
+          <li>
+            <a href="goroutines-explained.html" style="font-weight: bold"
+              >Goroutines explained</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A goroutine is a lightweight thread of execution.
+            </div>
+          </li>
+          <li>
+            <a href="channels-explained.html" style="font-weight: bold"
+              >Channels explained</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A channel is a mechanism for two goroutines to synchronize
+              execution and communicate by passing values.
+            </div>
+          </li>
+          <li>
+            <a href="select-explained.html" style="font-weight: bold"
+              >Select explained</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A select statement allows you to wait for multiple send or receive
+              operations simultaneously.
+            </div>
+          </li>
+          <li>
+            <a href="data-races-explained.html" style="font-weight: bold"
+              >Data races explained</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A data race is easily introduced by mistake and can lead to
+              situations that are very hard to debug. This article explains how
+              to avoid this headache.
+            </div>
+          </li>
+          <li>
+            <a href="detect-data-races.html" style="font-weight: bold"
+              >Detect data races</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              By starting your application with the '-race' option, the Go
+              runtime might be able to detect and inform you about data races.
+            </div>
+          </li>
+          <li>
+            <a href="detect-deadlock.html" style="font-weight: bold"
+              >Deadlock</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              The Go runtime can often detect when a program freezes because of
+              a deadlock. This article explains how to debug and solve such
+              issues.
+            </div>
+          </li>
+          <li>
+            <a
+              href="wait-for-goroutines-waitgroup.html"
+              style="font-weight: bold"
+              >Wait for goroutines</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A sync.WaitGroup waits for a group of goroutines to finish.
+            </div>
+          </li>
+          <li>
+            <a href="broadcast-channel.html" style="font-weight: bold"
+              >Broadcast a signal on a channel</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              When you close a channel, all readers receive a zero value. This
+              can be used to broadcast a signal to several goroutines on a
+              single channel.
+            </div>
+          </li>
+          <li>
+            <a href="stop-goroutine.html" style="font-weight: bold"
+              >Stop a goroutine</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A goroutine can stop only by returning from it's top level
+              function. To make it stoppable, let it listen to a stop signal on
+              a channel.
+            </div>
+          </li>
+          <li>
+            <a
+              href="time-reset-wait-stop-timeout-cancel-interval.html"
+              style="font-weight: bold"
+              >Timer and Ticker explained</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              Timers and Tickers are used to wait for, repeat, and cancel events
+              in the future.
+            </div>
+          </li>
+          <li>
+            <a href="mutex-explained.html" style="font-weight: bold"
+              >Mutual exclusion lock (mutex)</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              A sync.Mutex is used to synchronize data by explicit locking.
+            </div>
+          </li>
+          <li>
+            <a
+              href="efficient-parallel-computation.html"
+              style="font-weight: bold"
+              >Efficient parallel computation</a
+            >
+            <div style="padding: 0.5em 0 1em 1em">
+              To efficiently schedule parallel computation on separate CPUs is
+              more of an art than a science. This article gives some rules of
+              thumb.
+            </div>
+          </li>
+        </ol>
+      </article>
+    </main>
+    <footer>
+      © 2016–2021 Programming.Guide,
+      <a
+        href="../terms-and-conditions.html"
+        style="color: inherit; text-decoration: underline"
+        >Terms&nbsp;and&nbsp;Conditions</a
+      >
+    </footer>
+    <script>
+      // Copied from http://blog.dynamicdrive.com/detecting-adblock-on-your-site-and-logging-it-to-google-analytics/
+      var test = document.createElement("div");
+      test.innerHTML = "&nbsp;";
+      test.className = "adsbox";
+      document.body.appendChild(test);
+      window.setTimeout(function () {
+        if (test.offsetHeight === 0) {
+          ga("send", "event", "Ad Setting", "Adblock", "Enabled");
+        }
+        test.remove();
+      }, 400);
+    </script>
+  </body>
 </html>
