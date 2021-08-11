@@ -1,7 +1,3 @@
-
-
-
-
 ## Unsigned long operations
 
 1.  [Convert unsigned long to BigInteger](convert-unsigned-long-to-biginteger.html)
@@ -22,8 +18,6 @@
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -54,7 +48,5 @@
     System.out.println(Long.toUnsignedString(lng));  // 9223372036854800000
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

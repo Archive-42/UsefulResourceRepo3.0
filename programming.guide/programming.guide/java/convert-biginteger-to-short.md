@@ -1,14 +1,8 @@
-
-
-
-
 ## Featured Stack Overflow Post
 
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -40,7 +34,5 @@ Note that this simply **discards all but the lowest 16 bits**. If the `BigIntege
 <table><thead><tr class="header"><th>BigInteger</th><th>shortValue()</th></tr></thead><tbody><tr class="odd"><td>1,000</td><td>1,000</td></tr><tr class="even"><td>32,767</td><td>32,767</td></tr><tr class="odd"><td>32,768</td><td>−32,768</td></tr><tr class="even"><td>32,769</td><td>−32,767</td></tr><tr class="odd"><td>65,536</td><td>0</td></tr><tr class="even"><td>100,000</td><td>−31,072</td></tr><tr class="odd"><td>−100,000</td><td>31,072</td></tr></tbody></table>
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

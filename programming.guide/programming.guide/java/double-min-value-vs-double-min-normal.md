@@ -1,7 +1,3 @@
-
-
-
-
 ## Related Articles
 
 [Why's Double.​MIN_VALUE is positive? Integer.​MIN_VALUE is negative!](integer-minvalue-negative-double-minvalue-positive.html)  
@@ -18,8 +14,6 @@
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -52,7 +46,5 @@ A **normal** value has a 1 before the binary point: <span style="white-space: no
 For details, see full article here: [Normal vs Subnormal Floats](../normal-vs-subnormal-floats.html)
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

@@ -1,7 +1,3 @@
-
-
-
-
 ## Resources
 
 [Shallow vs Deep Copy (with examples)](../shallow-vs-deep-copy.html)  
@@ -21,8 +17,6 @@
 
 [Effective Java, Item 13: Override clone judiciously](https://books.google.se/books?id=BIpDDwAAQBAJ)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Joshua Bloch</span>
-
-
 
 ## Top Java Articles
 
@@ -399,7 +393,5 @@ This is precisely what the [Immutables library](https://immutables.github.io) do
 - Not easy to extend
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

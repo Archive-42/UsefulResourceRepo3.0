@@ -1,7 +1,3 @@
-
-
-
-
 ## Unsigned int operations
 
 1.  [Convert unsigned int to long](convert-unsigned-int-to-long.html)
@@ -22,8 +18,6 @@
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -54,7 +48,5 @@ Casting to `int` throws away all but the lowest 32 bits.
     System.out.println(Integer.toUnsignedString(i));  // 2200000000
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

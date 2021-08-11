@@ -1,14 +1,8 @@
-
-
-
-
 ## Featured Stack Overflow Post
 
 [In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
-
-
 
 ## Top Java Articles
 
@@ -40,7 +34,5 @@ Use the [`BigDecimal(BigInteger val)`](https://docs.oracle.com/javase/8/docs/api
 Converting the other way around: [Convert from BigDecimal to BigInteger](convert-bigdecimal-to-biginteger.html)
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

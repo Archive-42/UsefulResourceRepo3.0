@@ -1,13 +1,7 @@
-
-
-
-
 ## Related
 
 [Convert enum to and from int](convert-enum-to-and-from-int.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
-
-
 
 ## Top Java Articles
 
@@ -38,7 +32,5 @@
     YourEnum.valueOf(yourString)
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)

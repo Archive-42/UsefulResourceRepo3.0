@@ -1,7 +1,3 @@
-
-
-
-
 ## External Resources
 
 [The Catch or Specify Requirement](https://docs.oracle.com/javase/tutorial/essential/exceptions/catchOrDeclare.html)  
@@ -9,8 +5,6 @@
 
 [Unchecked Exceptions — The Controversy](http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Java Tutorials</span>
-
-
 
 ## Top Java Articles
 
@@ -80,7 +74,5 @@ An **unchecked exception** does **not** have this requirement.
 Checked exceptions are often used as "alternative return values" for unpredictable errors from which client can recover. Unchecked exceptions are usually an indication of a programming error or other condition from which the client can't be expected to recover.
 
 ## Comments
-
-
 
 © 2016–2021 Programming.Guide, [Terms and Conditions](../terms-and-conditions.html)
