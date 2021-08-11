@@ -1,23 +1,15 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format" alt="A closeup photo of a calculator." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/dDEEMFg0WKylKvlOwlQ3.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#performance-budgets-with-the-angular-cli" class="w-toc__header--link">Performance budgets with the Angular CLI</a>
-----------------------------------------------------------------------------------------------------------------------------
+## <a href="#performance-budgets-with-the-angular-cli" class="w-toc__header--link">Performance budgets with the Angular CLI</a>
 
--   [Calculate your performance budget](#calculate-your-performance-budget)
--   [Configure a performance budget in the Angular CLI](#configure-a-performance-budget-in-the-angular-cli)
--   [Enforce your budget as part of continuous integration](#enforce-your-budget-as-part-of-continuous-integration)
--   [Conclusion](#conclusion)
+- [Calculate your performance budget](#calculate-your-performance-budget)
+- [Configure a performance budget in the Angular CLI](#configure-a-performance-budget-in-the-angular-cli)
+- [Enforce your budget as part of continuous integration](#enforce-your-budget-as-part-of-continuous-integration)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Performance budgets with the Angular CLI
-========================================
+# Performance budgets with the Angular CLI
 
 Monitor the sizes of your bundles over time to make sure your application stays fast.
 
@@ -29,24 +21,22 @@ Jul 2, 2019
 
 <a href="/authors/mgechev/" class="w-author__name-link">Minko Gechev</a>
 
--   <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
--   <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
+- <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
 
 Optimizing an Angular application is important, but how do you make sure its performance doesn't regress over time? By introducing performance metrics and monitoring them on each code change!
 
 One important metric is the size of the JavaScript shipped with your application. By introducing a [performance budget](/performance-budgets-101) that you monitor on each build or pull request, you can make sure your optimizations persist over time.
 
-Calculate your performance budget <a href="#calculate-your-performance-budget" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Calculate your performance budget <a href="#calculate-your-performance-budget" class="w-headline-link">#</a>
 
 You can use [this online budget calculator](https://bit.ly/perf-budget-calculator) to estimate how much JavaScript your app can afford to load, depending on the [Time to Interactive](/interactive) you're aiming for.
 
 <img src="https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format" alt="Budget calculator" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/TWPRBRI7ja8d33unYYK6.png?auto=format&amp;w=1600 1600w" width="800" height="524" />
 
-Configure a performance budget in the Angular CLI <a href="#configure-a-performance-budget-in-the-angular-cli" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------
+## Configure a performance budget in the Angular CLI <a href="#configure-a-performance-budget-in-the-angular-cli" class="w-headline-link">#</a>
 
 Once you have a target JavaScript budget, you can enforce it using the [Angular command line interface (CLI)](https://cli.angular.io/). To see how that works, check out [this sample app on GitHub](https://github.com/mgechev/budgets-web-dev/blob/master/angular.json#L33-L38).
 
@@ -61,9 +51,9 @@ You'll see that the following budget has been configured in `angular.json`:
 
 Here's a summary of what's being specified:
 
--   There's a budget for a JavaScript bundle called `main`.
--   If the `main` bundle gets bigger than 170 KB, the Angular CLI will show a warning in the console when you build the app.
--   If the `main` bundle gets bigger than 250 KB, the build will fail.
+- There's a budget for a JavaScript bundle called `main`.
+- If the `main` bundle gets bigger than 170 KB, the Angular CLI will show a warning in the console when you build the app.
+- If the `main` bundle gets bigger than 250 KB, the build will fail.
 
 Now try building the app by running `ng build --prod`.
 
@@ -75,13 +65,12 @@ To fix the build error, take a look at `app.component.ts`, which includes an imp
 
 Note that, since [differential loading](https://dev.to/lacolaco/differential-loading-a-new-feature-of-angular-cli-v8-4jl) is enabled by default in the Angular CLI, the `ng build` command produces two builds of the app:
 
--   A build for browsers *with* ECMAScript 2015 support. This build includes fewer polyfills and more modern JavaScript syntax. That syntax is more expressive, which leads to smaller bundles.
--   A build for older browsers *without* ECMAScript 2015 support. The older syntax is less expressive and requires more polyfills, which leads to larger bundles.
+- A build for browsers _with_ ECMAScript 2015 support. This build includes fewer polyfills and more modern JavaScript syntax. That syntax is more expressive, which leads to smaller bundles.
+- A build for older browsers _without_ ECMAScript 2015 support. The older syntax is less expressive and requires more polyfills, which leads to larger bundles.
 
 The `index.html` file of the sample app refers to both builds so that modern browsers can take advantage of the smaller ECMAScript 2015 build and older browsers can fall back to the ECMAScript 5 build.
 
-Enforce your budget as part of continuous integration <a href="#enforce-your-budget-as-part-of-continuous-integration" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+## Enforce your budget as part of continuous integration <a href="#enforce-your-budget-as-part-of-continuous-integration" class="w-headline-link">#</a>
 
 [Continuous integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration) offers a convenient way to monitor the budget of your app over time. And, luckily, the quickest way to set that up is to build your app with the Angular CLI—no extra steps required! Whenever the JavaScript bundle exceeds the budget, the process will exit with code 1, and the build will fail.
 
@@ -89,8 +78,7 @@ If you prefer, you can also enforce a performance budget using [bundlesize](http
 
 bundlesize is quite similar to the Angular CLI's budget check; the main difference is that bundlesize can show the check results directly in GitHub's user interface.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Establish performance budgets with the Angular CLI to make sure your Angular app's performance doesn't regress over time:
 
@@ -105,35 +93,35 @@ Establish performance budgets with the Angular CLI to make sure your Angular app
 
 <a href="/angular" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

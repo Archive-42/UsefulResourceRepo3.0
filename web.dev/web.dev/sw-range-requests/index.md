@@ -1,26 +1,18 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format" alt="Photo of sliced cucumbers." class="w-hero w-hero--center w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/5HWlDEheVYh9LAs0p8vg.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#handling-range-requests-in-a-service-worker" class="w-toc__header--link">Handling range requests in a service worker</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## <a href="#handling-range-requests-in-a-service-worker" class="w-toc__header--link">Handling range requests in a service worker</a>
 
--   [What's the issue?](#what's-the-issue)
--   [What's been fixed?](#what's-been-fixed)
--   [Which browsers behave correctly?](#which-browsers-behave-correctly)
--   [What about serving range requests from the cache?](#what-about-serving-range-requests-from-the-cache)
+- [What's the issue?](#what's-the-issue)
+- [What's been fixed?](#what's-been-fixed)
+- [Which browsers behave correctly?](#which-browsers-behave-correctly)
+- [What about serving range requests from the cache?](#what-about-serving-range-requests-from-the-cache)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Handling range requests in a service worker
-===========================================
+# Handling range requests in a service worker
 
 Make sure your service worker knows what to do when a partial response is requested.
 
@@ -30,10 +22,10 @@ Oct 6, 2020 <span class="w-author__separator">•</span> Updated Oct 6, 2020
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
 Some HTTP requests contain a [`Range:` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range), indicating that only a portion of the full resource should be returned. They're commonly used for streaming audio or video content to allow smaller chunks of media to be loaded on demand, instead of requesting the entirety of the remote file all at once.
 
@@ -41,8 +33,7 @@ A [service worker](https://developers.google.com/web/fundamentals/primers/servic
 
 Historically, range requests and service workers haven't played nicely together. It's been necessary to take special steps to avoid bad outcomes in your service worker. Fortunately, this is starting to change. In browsers exhibiting the correct behavior, range requests will "just work" when passing through a service worker.
 
-What's the issue? <a href="#what&#39;s-the-issue" class="w-headline-link">#</a>
--------------------------------------------------------------------------------
+## What's the issue? <a href="#what&#39;s-the-issue" class="w-headline-link">#</a>
 
 Consider a service worker with the following `fetch` event listener, which takes every incoming request and passes it to the network:
 
@@ -54,7 +45,7 @@ Consider a service worker with the following `fetch` event listener, which takes
 
 This sort of trivial `fetch` event listener should [normally be avoided](https://developers.google.com/web/fundamentals/primers/service-workers/high-performance-loading#never_use_a_passthrough_fetch_handler); it's used here for illustrative purposes.
 
-In browsers with the incorrect behavior, if `event.request` included a `Range:` header, that header would be silently dropped. The request that was received by the remote server would not include `Range:` at all. This would not necessarily "break" anything, since a server is *technically* allowed to return the full response body, with a [`200` status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200), even when a `Range:` header is present in the original request. But it would result in more data being transferred than is strictly needed from the perspective of the browser.
+In browsers with the incorrect behavior, if `event.request` included a `Range:` header, that header would be silently dropped. The request that was received by the remote server would not include `Range:` at all. This would not necessarily "break" anything, since a server is _technically_ allowed to return the full response body, with a [`200` status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200), even when a `Range:` header is present in the original request. But it would result in more data being transferred than is strictly needed from the perspective of the browser.
 
 Developers who were aware of this behavior could work around it by explicitly checking for the presence of a `Range:` header, and not calling `event.respondWith()` if one is present. By doing this, the service worker effectively removes itself from the response generation picture, and the default browser networking logic, which knows how to preserve range requests, is used instead.
 
@@ -68,10 +59,9 @@ Developers who were aware of this behavior could work around it by explicitly ch
       event.respondWith(fetch(event.request));
     });
 
-It's safe to say that most developers were not aware of the need to do this, though. And it wasn't clear *why* that should be required. Ultimately, this limitation was due to [browsers](https://bugs.chromium.org/p/chromium/issues/detail?id=847428) needing to catch up to [changes in the underlying specification](https://github.com/whatwg/fetch/pull/560), which added support for this functionality.
+It's safe to say that most developers were not aware of the need to do this, though. And it wasn't clear _why_ that should be required. Ultimately, this limitation was due to [browsers](https://bugs.chromium.org/p/chromium/issues/detail?id=847428) needing to catch up to [changes in the underlying specification](https://github.com/whatwg/fetch/pull/560), which added support for this functionality.
 
-What's been fixed? <a href="#what&#39;s-been-fixed" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## What's been fixed? <a href="#what&#39;s-been-fixed" class="w-headline-link">#</a>
 
 Browsers that behave correctly preserve the `Range:` header when `event.request` is passed to `fetch()`. This means the service worker code in my initial example will allow the remote server to see the `Range:` header, if it was set by the browser:
 
@@ -83,8 +73,7 @@ Browsers that behave correctly preserve the `Range:` header when `event.request`
 
 The server now gets a chance to properly handle the range request and return a partial response with a [`206` status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/206).
 
-Which browsers behave correctly? <a href="#which-browsers-behave-correctly" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------
+## Which browsers behave correctly? <a href="#which-browsers-behave-correctly" class="w-headline-link">#</a>
 
 Recent versions of Safari have the [correct functionality](https://trac.webkit.org/changeset/252047/webkit). Chrome and Edge, starting with [version 87](https://chromestatus.com/feature/5648276147666944), behave correctly as well.
 
@@ -92,8 +81,7 @@ As of this October 2020, Firefox has not yet fixed this behavior, so you may sti
 
 Checking the "Include range header in network request" row of the [Web Platform Tests dashboard](https://wpt.fyi/results/fetch/range/sw.https.window.html?label=master&label=experimental&aligned) is the best way to confirm whether or not a given browser has corrected this behavior.
 
-What about serving range requests from the cache? <a href="#what-about-serving-range-requests-from-the-cache" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------------------------
+## What about serving range requests from the cache? <a href="#what-about-serving-range-requests-from-the-cache" class="w-headline-link">#</a>
 
 Service workers can do much more than just pass a request through to the network. A common use case is to add resources, like audio and video files, to a [local cache](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage). A service worker can then fulfill requests from that cache, bypassing the network entirely.
 
@@ -101,7 +89,7 @@ All browsers, including Firefox, support inspecting a request inside a `fetch` h
 
 Fortunately, developers who want some help can turn to [Workbox](https://developers.google.com/web/tools/workbox/), which is a set of libraries that simplifies common service worker use cases. The [`workbox-range-request module`](https://developers.google.com/web/tools/workbox/modules/workbox-range-requests) implements all the logic necessary to serve partial responses directly from the cache. A full recipe for this use case can be found [in the Workbox documentation](https://developers.google.com/web/tools/workbox/guides/advanced-recipes#cached-av).
 
-*The hero image on this post is by [Natalie Rhea Riggs](https://unsplash.com/photos/OnAwTs0tu3k) on Unsplash.*
+_The hero image on this post is by [Natalie Rhea Riggs](https://unsplash.com/photos/OnAwTs0tu3k) on Unsplash._
 
 <a href="/tags/audio/" class="w-chip">Audio</a> <a href="/tags/media/" class="w-chip">Media</a> <a href="/tags/offline/" class="w-chip">Offline</a> <a href="/tags/service-worker/" class="w-chip">Service Worker</a>
 
@@ -109,35 +97,35 @@ Fortunately, developers who want some help can turn to [Workbox](https://develop
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

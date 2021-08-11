@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#custom-controls-have-associated-labels" class="w-toc__header--link">Custom controls have associated labels</a>
 
 - [How to manually test](#how-to-manually-test)

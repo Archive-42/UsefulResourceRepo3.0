@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#defer-non-critical-css" class="w-toc__header--link">Defer non-critical CSS</a>
 
 - [Loading CSS in a suboptimal way](#loading-css-in-a-suboptimal-way)

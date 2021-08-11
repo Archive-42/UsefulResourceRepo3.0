@@ -1,23 +1,15 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/LTvlmRgA6MLec9QT4Tsv.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#pre-render-routes-with-react-snap" class="w-toc__header--link">Pre-render routes with react-snap</a>
---------------------------------------------------------------------------------------------------------------
+## <a href="#pre-render-routes-with-react-snap" class="w-toc__header--link">Pre-render routes with react-snap</a>
 
--   [Why is this useful?](#why-is-this-useful)
--   [react-snap](#react-snap)
--   [Flash of unstyled content](#flash-of-unstyled-content)
--   [Conclusion](#conclusion)
+- [Why is this useful?](#why-is-this-useful)
+- [react-snap](#react-snap)
+- [Flash of unstyled content](#flash-of-unstyled-content)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Pre-render routes with react-snap
-=================================
+# Pre-render routes with react-snap
 
 Not server-side rendering but still want to speed up the performance of your React site? Try pre-rendering!
 
@@ -29,10 +21,10 @@ Apr 29, 2019
 
 <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a>
 
--   <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
--   <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
--   <a href="https://houssein.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
+- <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
+- <a href="https://houssein.me/" class="w-author__link">Blog</a>
 
 [`react-snap`](https://github.com/stereobooster/react-snap) is a third-party library that pre-renders pages on your site into static HTML files. This can improve [First Paint](https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint) times in your application.
 
@@ -40,17 +32,15 @@ Here's a comparison of the same application with and without pre-rendering loade
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format" class="w-screenshot" sizes="(min-width: 600px) 600px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/t5OiDw1VGxrbqbcxMh3J.gif?auto=format&amp;w=1200 1200w" width="600" height="435" /></figure>`react-snap` is not the only library that can pre-render static HTML content for your React application. [`react-snapshot`](https://github.com/geelen/react-snapshot) is another alternative.
 
-Why is this useful? <a href="#why-is-this-useful" class="w-headline-link">#</a>
--------------------------------------------------------------------------------
+## Why is this useful? <a href="#why-is-this-useful" class="w-headline-link">#</a>
 
 The main performance problem with large single-page applications is that the user needs to wait for the JavaScript bundle(s) that make up the site to finish downloading before they can see any real content. The larger the bundles, the longer the user will have to wait.
 
 To solve this, many developers take the approach of rendering the application on the server instead of only booting it up on the browser. With each page/route transition, the complete HTML is generated on the server and sent to the browser, which reduces First Paint times but comes at the cost of a slower Time to First Byte.
 
-**Pre-rendering** is a separate technique that is less complex than server rendering, but also provides a way to improve First Paint times in your application. A headless browser, or a browser without a user interface, is used to generate static HTML files of every route during *build time*. These files can then be shipped along with the JavaScript bundles that are needed for the application.
+**Pre-rendering** is a separate technique that is less complex than server rendering, but also provides a way to improve First Paint times in your application. A headless browser, or a browser without a user interface, is used to generate static HTML files of every route during _build time_. These files can then be shipped along with the JavaScript bundles that are needed for the application.
 
-react-snap <a href="#react-snap" class="w-headline-link">#</a>
---------------------------------------------------------------
+## react-snap <a href="#react-snap" class="w-headline-link">#</a>
 
 `react-snap` uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) to create pre-rendered HTML files of different routes in your application. To begin, install it as a development dependency:
 
@@ -65,7 +55,7 @@ Then add a `postbuild` script in your `package.json`:
 
 This would automatically run the `react-snap` command every time a new build of the applications made (`npm build`).
 
-`npm` supports *pre* and *post* commands for main and arbitrary scripts which will always run directly before or after the original script respectively. You can learn more in the [npm documentation](https://docs.npmjs.com/misc/scripts).
+`npm` supports _pre_ and _post_ commands for main and arbitrary scripts which will always run directly before or after the original script respectively. You can learn more in the [npm documentation](https://docs.npmjs.com/misc/scripts).
 
 The last thing you will need to do is change how the application is booted. Change the `src/index.js` file to the following:
 
@@ -91,8 +81,7 @@ Building the application will now generate static HTML files as payloads for eac
 
 `react-snap` can be used for other frameworks than React! This includes Vue and Preact. More instructions about this can be found in the [`react-snap` README](https://github.com/stereobooster/react-snap).
 
-Flash of unstyled content <a href="#flash-of-unstyled-content" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Flash of unstyled content <a href="#flash-of-unstyled-content" class="w-headline-link">#</a>
 
 Although static HTML is now rendered almost immediately, it still remains unstyled by default which may cause the issue of showing a "flash of unstyled content" (FOUC). This can be especially noticeable if you are using a CSS-in-JS library to generate selectors since the JavaScript bundle will have to finish executing before any styles can be applied.
 
@@ -120,35 +109,35 @@ If you are not server-side rendering routes in your application, use `react-snap
 
 <a href="/react" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

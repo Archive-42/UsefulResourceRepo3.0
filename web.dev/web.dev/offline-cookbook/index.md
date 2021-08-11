@@ -1,39 +1,31 @@
+## <a href="#the-offline-cookbook" class="w-toc__header--link">The Offline Cookbook</a>
 
-
-
-
-
-
-<a href="#the-offline-cookbook" class="w-toc__header--link">The Offline Cookbook</a>
-------------------------------------------------------------------------------------
-
--   [The cache machine—when to store resources](#the-cache-machinewhen-to-store-resources)
--   [On install—as a dependency](#on-install-as-dependency)
--   [On install—not as a dependency](#on-install-not)
--   [On activate](#on-activate)
--   [On user interaction](#on-user-interaction)
--   [On network response](#on-network-response)
--   [Stale-while-revalidate](#stale-while-revalidate)
--   [On push message](#on-push-message)
--   [On background-sync](#on-background-sync)
--   [Cache persistence](#cache-persistence)
--   [Serving Suggestions—responding to requests](#serving-suggestions)
--   [Cache only](#cache-only)
--   [Network only](#network-only)
--   [Cache, falling back to network](#cache-falling-back-to-network)
--   [Cache and network race](#cache-and-network-race)
--   [Network falling back to cache](#network-falling-back-to-cache)
--   [Cache then network](#cache-then-network)
--   [Generic fallback](#generic-fallback)
--   [Service worker-side templating](#Service)
--   [Putting it together](#putting-it-together)
--   [Credits](#credits)
--   [Further reading](#further-reading)
+- [The cache machine—when to store resources](#the-cache-machinewhen-to-store-resources)
+- [On install—as a dependency](#on-install-as-dependency)
+- [On install—not as a dependency](#on-install-not)
+- [On activate](#on-activate)
+- [On user interaction](#on-user-interaction)
+- [On network response](#on-network-response)
+- [Stale-while-revalidate](#stale-while-revalidate)
+- [On push message](#on-push-message)
+- [On background-sync](#on-background-sync)
+- [Cache persistence](#cache-persistence)
+- [Serving Suggestions—responding to requests](#serving-suggestions)
+- [Cache only](#cache-only)
+- [Network only](#network-only)
+- [Cache, falling back to network](#cache-falling-back-to-network)
+- [Cache and network race](#cache-and-network-race)
+- [Network falling back to cache](#network-falling-back-to-cache)
+- [Cache then network](#cache-then-network)
+- [Generic fallback](#generic-fallback)
+- [Service worker-side templating](#Service)
+- [Putting it together](#putting-it-together)
+- [Credits](#credits)
+- [Further reading](#further-reading)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-The Offline Cookbook
-====================
+# The Offline Cookbook
 
 Dec 9, 2014 <span class="w-author__separator">•</span> Updated Sep 28, 2020
 
@@ -43,15 +35,14 @@ Dec 9, 2014 <span class="w-author__separator">•</span> Updated Sep 28, 2020
 
 <a href="/authors/jakearchibald/" class="w-author__name-link">Jake Archibald</a>
 
--   <a href="https://twitter.com/jaffathecake" class="w-author__link">Twitter</a>
--   <a href="https://jakearchibald.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jaffathecake" class="w-author__link">Twitter</a>
+- <a href="https://jakearchibald.com/" class="w-author__link">Blog</a>
 
 With [Service Worker](/service-workers-cache-storage/) we gave up trying to solve offline, and gave developers the moving parts to go solve it themselves. It gives you control over caching and how requests are handled. That means you get to create your own patterns. Let's take a look at a few possible patterns in isolation, but in practice you'll likely use many of them in tandem depending on URL and context.
 
 For a working demo of some of these patterns, see [Trained-to-thrill](https://jakearchibald.github.io/trained-to-thrill/), and [this video](https://www.youtube.com/watch?v=px-J9Ghvcx4) showing the performance impact.
 
-The cache machine—when to store resources <a href="#the-cache-machinewhen-to-store-resources" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------------------------
+## The cache machine—when to store resources <a href="#the-cache-machinewhen-to-store-resources" class="w-headline-link">#</a>
 
 [Service Worker](/service-workers-cache-storage/) lets you handle requests independently from caching, so I'll demonstrate them separately. First up, caching, when should it be done?
 
@@ -130,7 +121,7 @@ Once a new Service Worker has installed and a previous version isn't being used,
       );
     });
 
-During activation, other events such as `fetch` are put into a queue, so a long activation could potentially block page loads. Keep your activation as lean as possible, and only use it for things you *couldn't* do while the old version was active.
+During activation, other events such as `fetch` are put into a queue, so a long activation could potentially block page loads. Keep your activation as lean as possible, and only use it for things you _couldn't_ do while the old version was active.
 
 On [trained-to-thrill](https://jakearchibald.github.io/trained-to-thrill/) I use this to [remove old caches](https://github.com/jakearchibald/trained-to-thrill/blob/3291dd40923346e3cc9c83ae527004d502e0464f/www/static/js-unmin/sw/index.js#L17).
 
@@ -215,7 +206,7 @@ This is very similar to HTTP's [stale-while-revalidate](https://www.mnot.net/blo
 
 **Ideal for:** content relating to a notification, such as a chat message, a breaking news story, or an email. Also infrequently changing content that benefits from immediate sync, such as a todo list update or a calendar alteration.
 
-The common final outcome is a notification which, when tapped, opens/focuses a relevant page, but for which updating caches before this happens is *extremely* important. The user is obviously online at the time of receiving the push message, but they may not be when they finally interact with the notification, so making this content available offline is important.
+The common final outcome is a notification which, when tapped, opens/focuses a relevant page, but for which updating caches before this happens is _extremely_ important. The user is obviously online at the time of receiving the push message, but they may not be when they finally interact with the notification, so making this content available offline is important.
 
 This code updates caches before showing a notification:
 
@@ -265,8 +256,7 @@ This code updates caches before showing a notification:
       }
     });
 
-Cache persistence <a href="#cache-persistence" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Cache persistence <a href="#cache-persistence" class="w-headline-link">#</a>
 
 Your origin is given a certain amount of free space to do what it wants with. That free space is shared between all origin storage: [(local) Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Glossary/IndexedDB), [File System Access](/file-system-access/), and of course [Caches](https://developer.mozilla.org/en-US/docs/Web/API/Cache).
 
@@ -298,8 +288,7 @@ Making the user part of this flow is important, as we can now expect them to be 
 
 For this to work, it requires operating systems to treat "durable" origins as equivalent to platform-specific apps in their breakdowns of storage usage, rather than reporting the browser as a single item.
 
-Serving Suggestions—responding to requests <a href="#serving-suggestions" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------
+## Serving Suggestions—responding to requests <a href="#serving-suggestions" class="w-headline-link">#</a>
 
 It doesn't matter how much caching you do, the service worker won't use the cache unless you tell it when and how. Here are a few patterns for handling requests:
 
@@ -505,15 +494,14 @@ If your page is posting an email, your service worker may fall back to storing t
       );
     });
 
-Putting it together <a href="#putting-it-together" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Putting it together <a href="#putting-it-together" class="w-headline-link">#</a>
 
 You aren't limited to one of these methods. In fact, you'll likely use many of them depending on request URL. For example, [trained-to-thrill](https://jakearchibald.github.io/trained-to-thrill/) uses:
 
--   [cache on install](#on-install-as-dependency), for the static UI and behavior
--   [cache on network response](#on-network-response), for the Flickr images and data
--   [fetch from cache, falling back to network](#cache-falling-back-to-network), for most requests
--   [fetch from cache, then network](#cache-then-network), for the Flickr search results
+- [cache on install](#on-install-as-dependency), for the static UI and behavior
+- [cache on network response](#on-network-response), for the Flickr images and data
+- [fetch from cache, falling back to network](#cache-falling-back-to-network), for most requests
+- [fetch from cache, then network](#cache-then-network), for the Flickr search results
 
 Just look at the request and decide what to do:
 
@@ -565,57 +553,57 @@ Just look at the request and decide what to do:
 
 …for the lovely icons:
 
--   [Code](http://thenounproject.com/term/code/17547/) by buzzyrobot
--   [Calendar](http://thenounproject.com/term/calendar/4672/) by Scott Lewis
--   [Network by](http://thenounproject.com/term/network/12676/) Ben Rizzo
--   [SD](http://thenounproject.com/term/sd-card/6185/) by Thomas Le Bas
--   [CPU](http://thenounproject.com/term/cpu/72043/) by iconsmind.com
--   [Trash](http://thenounproject.com/term/trash/20538/) by trasnik
--   [Notification](http://thenounproject.com/term/notification/32514/) by @daosme
--   [Layout](http://thenounproject.com/term/layout/36872/) by Mister Pixel
--   [Cloud](http://thenounproject.com/term/cloud/2788/) by P.J. Onori
+- [Code](http://thenounproject.com/term/code/17547/) by buzzyrobot
+- [Calendar](http://thenounproject.com/term/calendar/4672/) by Scott Lewis
+- [Network by](http://thenounproject.com/term/network/12676/) Ben Rizzo
+- [SD](http://thenounproject.com/term/sd-card/6185/) by Thomas Le Bas
+- [CPU](http://thenounproject.com/term/cpu/72043/) by iconsmind.com
+- [Trash](http://thenounproject.com/term/trash/20538/) by trasnik
+- [Notification](http://thenounproject.com/term/notification/32514/) by @daosme
+- [Layout](http://thenounproject.com/term/layout/36872/) by Mister Pixel
+- [Cloud](http://thenounproject.com/term/cloud/2788/) by P.J. Onori
 
 And thanks to [Jeff Posnick](https://twitter.com/jeffposnick) for catching many howling errors before I hit "publish".
 
 ### Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
--   [Service Workers—an Introduction](/service-workers-cache-storage/)
--   [Is Service Worker ready?](https://jakearchibald.github.io/isserviceworkerready/)—track the implementation status across the main browsers
--   [JavaScript Promises—an Introduction](/web/fundamentals/getting-started/primers/promises) - guide to promises
+- [Service Workers—an Introduction](/service-workers-cache-storage/)
+- [Is Service Worker ready?](https://jakearchibald.github.io/isserviceworkerready/)—track the implementation status across the main browsers
+- [JavaScript Promises—an Introduction](/web/fundamentals/getting-started/primers/promises) - guide to promises
 
 <span class="w-mr--sm">Last updated: Sep 28, 2020 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/reliable/offline-cookbook/index.md)
 
 <a href="/reliable" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

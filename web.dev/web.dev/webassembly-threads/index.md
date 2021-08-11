@@ -1,32 +1,24 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format" alt="A needle acting as a prism—splitting a single white thread into multiple colourful ones." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/9oK23mr86lhFOwKaoYZ4EySNFp02/YrOqDnzjHFqmZdiNBmbw.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#using-webassembly-threads-from-c-c++-and-rust" class="w-toc__header--link">Using WebAssembly threads from C, C++ and Rust</a>
----------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#using-webassembly-threads-from-c-c++-and-rust" class="w-toc__header--link">Using WebAssembly threads from C, C++ and Rust</a>
 
--   [How WebAssembly threads work](#how-webassembly-threads-work)
--   [Web Workers](#web-workers)
--   [SharedArrayBuffer](#sharedarraybuffer)
--   [WebAssembly atomics](#webassembly-atomics)
--   [How to use WebAssembly threads](#how-to-use-webassembly-threads)
--   [Feature detection](#feature-detection)
--   [C](#c)
--   [C++](#c++)
--   [Rust](#rust)
--   [Real-world use cases](#real-world-use-cases)
+- [How WebAssembly threads work](#how-webassembly-threads-work)
+- [Web Workers](#web-workers)
+- [SharedArrayBuffer](#sharedarraybuffer)
+- [WebAssembly atomics](#webassembly-atomics)
+- [How to use WebAssembly threads](#how-to-use-webassembly-threads)
+- [Feature detection](#feature-detection)
+- [C](#c)
+- [C++](#c++)
+- [Rust](#rust)
+- [Real-world use cases](#real-world-use-cases)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Using WebAssembly threads from C, C++ and Rust
-==============================================
+# Using WebAssembly threads from C, C++ and Rust
 
 Learn how to bring multithreaded applications written in other languages to WebAssembly.
 
@@ -36,16 +28,15 @@ Jul 12, 2021
 
 <a href="/authors/rreverser/" class="w-author__name-link">Ingvar Stepanyan</a>
 
--   <a href="https://twitter.com/RReverser" class="w-author__link">Twitter</a>
--   <a href="https://github.com/RReverser" class="w-author__link">GitHub</a>
--   <a href="https://rreverser.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/RReverser" class="w-author__link">Twitter</a>
+- <a href="https://github.com/RReverser" class="w-author__link">GitHub</a>
+- <a href="https://rreverser.com/" class="w-author__link">Blog</a>
 
 WebAssembly threads support is one of the most important performance additions to WebAssembly. It allows you to either run parts of your code in parallel on separate cores, or the same code over independent parts of the input data, scaling it to as many cores as the user has and significantly reducing the overall execution time.
 
 In this article you will learn how to use WebAssembly threads to bring multithreaded applications written in languages like C, C++, and Rust to the web.
 
-How WebAssembly threads work <a href="#how-webassembly-threads-work" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## How WebAssembly threads work <a href="#how-webassembly-threads-work" class="w-headline-link">#</a>
 
 WebAssembly threads is not a separate feature, but a combination of several components that allows WebAssembly apps to use traditional multithreading paradigms on the web.
 
@@ -88,8 +79,7 @@ While `SharedArrayBuffer` allows each thread to read and write to the same memor
 
 All the higher-level synchronisation primitives, including channels, mutexes, and read-write locks build upon those instructions.
 
-How to use WebAssembly threads <a href="#how-to-use-webassembly-threads" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## How to use WebAssembly threads <a href="#how-to-use-webassembly-threads" class="w-headline-link">#</a>
 
 ### Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
 
@@ -168,7 +158,7 @@ However, when you try to run it in a browser or Node.js, you'll see a warning an
 
 What happened? The problem is, most of the time-consuming APIs on the web are asynchronous and rely on the event loop to execute. This limitation is an important distinction compared to traditional environments, where applications normally run I/O in synchronous, blocking manner. Check out the blog post about [Using asynchronous web APIs from WebAssembly](/asyncify/) if you'd like to learn more.
 
-In this case, the code synchronously invokes `pthread_create` to create a background thread, and follows up by another synchronous call to `pthread_join` that waits for the background thread to finish execution. However, Web Workers, that are used behind the scenes when this code is compiled with Emscripten, are asynchronous. So what happens is, `pthread_create` only *schedules* a new Worker thread to be created on the next event loop run, but then `pthread_join` immediately blocks the event loop to wait for that Worker, and by doing so prevents it from ever being created. It's a classic example of a [deadlock](https://en.wikipedia.org/wiki/Deadlock).
+In this case, the code synchronously invokes `pthread_create` to create a background thread, and follows up by another synchronous call to `pthread_join` that waits for the background thread to finish execution. However, Web Workers, that are used behind the scenes when this code is compiled with Emscripten, are asynchronous. So what happens is, `pthread_create` only _schedules_ a new Worker thread to be created on the next event loop run, but then `pthread_join` immediately blocks the event loop to wait for that Worker, and by doing so prevents it from ever being created. It's a classic example of a [deadlock](https://en.wikipedia.org/wiki/Deadlock).
 
 One way to solve this problem is to create a pool of Workers ahead of time, before the program has even started. When `pthread_create` is invoked, it can take a ready-to-use Worker from the pool, run the provided callback on its background thread, and return the Worker back to the pool. All of this can be done synchronously, so there won't be any deadlocks as long as the pool is sufficiently large.
 
@@ -191,15 +181,15 @@ When `pthread_join` is called, it has to wait for the thread execution to finish
 
 There are few solutions to this:
 
--   `pthread_detach`
--   `-s PROXY_TO_PTHREAD`
--   Custom Worker and Comlink
+- `pthread_detach`
+- `-s PROXY_TO_PTHREAD`
+- Custom Worker and Comlink
 
-#### pthread\_detach <a href="#pthread_detach" class="w-headline-link">#</a>
+#### pthread_detach <a href="#pthread_detach" class="w-headline-link">#</a>
 
 First, if you only need to run some tasks off the main thread, but don't need to wait for the results, you can use [`pthread_detach`](https://man7.org/linux/man-pages/man3/pthread_detach.3.html) instead of `pthread_join`. This will leave the thread callback running in the background. If you're using this option, you can switch off the warning with [`-s PTHREAD_POOL_SIZE_STRICT=0`](https://emsettings.surma.technology/#PTHREAD_POOL_SIZE_STRICT).
 
-#### PROXY\_TO\_PTHREAD <a href="#proxy_to_pthread" class="w-headline-link">#</a>
+#### PROXY_TO_PTHREAD <a href="#proxy_to_pthread" class="w-headline-link">#</a>
 
 Second, if you're compiling a C application rather than a library, you can use [`-s PROXY_TO_PTHREAD`](https://emsettings.surma.technology/#PROXY_TO_PTHREAD) option, which will offload the main application code to a separate thread in addition to any nested threads created by the application itself. This way, main code can block safely at any time without freezing the UI. Incidentally, when using this option, you don't have to precreate the thread pool either—instead, Emscripten can leverage the main thread for creating new underlying Workers, and then block the helper thread in `pthread_join` without deadlocking.
 
@@ -310,14 +300,13 @@ It might be a very short wait or a long one, depending on the complexity of iter
 
 Check out [the wasm-bindgen-rayon example](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/tree/main/demo) for an end-to-end demo showing:
 
--   [Feature detection of threads.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L27)
--   [Building single- and multi-threaded versions of the same Rust app.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/package.json#L4-L5)
--   [Loading the JS+Wasm generated by wasm-bindgen in a Worker.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L28-L31)
--   [Using wasm-bindgen-rayon to initialize a thread pool.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L32)
--   Using Comlink to [expose Worker's API](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L44-L46) to [the main thread](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/index.js#L25-L29).
+- [Feature detection of threads.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L27)
+- [Building single- and multi-threaded versions of the same Rust app.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/package.json#L4-L5)
+- [Loading the JS+Wasm generated by wasm-bindgen in a Worker.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L28-L31)
+- [Using wasm-bindgen-rayon to initialize a thread pool.](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L32)
+- Using Comlink to [expose Worker's API](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/wasm-worker.js#L44-L46) to [the main thread](https://github.com/GoogleChromeLabs/wasm-bindgen-rayon/blob/e13485d6d64a062b890f5bb3a842b1fe609eb3c1/demo/index.js#L25-L29).
 
-Real-world use cases <a href="#real-world-use-cases" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Real-world use cases <a href="#real-world-use-cases" class="w-headline-link">#</a>
 
 We actively use WebAssembly threads in [Squoosh.app](https://squoosh.app/) for client-side image compression—in particular, for formats like AVIF (C++), JPEG-XL (C++), OxiPNG (Rust) and WebP v2 (C++). Thanks to the multithreading alone, we've seen consistent 1.5x-3x speed-ups (exact ratio differs per codec), and were able to push those numbers even further by combining WebAssembly threads with [WebAssembly SIMD](https://v8.dev/features/simd)!
 
@@ -333,35 +322,35 @@ There are many more exciting examples using WebAssembly threads out there. Be su
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

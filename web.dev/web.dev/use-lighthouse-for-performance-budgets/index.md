@@ -1,24 +1,16 @@
+## <a href="#use-lighthouse-for-performance-budgets" class="w-toc__header--link">Use Lighthouse for performance budgets</a>
 
-
-
-
-
-
-<a href="#use-lighthouse-for-performance-budgets" class="w-toc__header--link">Use Lighthouse for performance budgets</a>
-------------------------------------------------------------------------------------------------------------------------
-
--   [Install Lighthouse](#install-lighthouse)
--   [Create a Budget](#create-a-budget)
--   [Run Lighthouse](#run-lighthouse)
--   [View the Results](#view-the-results)
+- [Install Lighthouse](#install-lighthouse)
+- [Create a Budget](#create-a-budget)
+- [Run Lighthouse](#run-lighthouse)
+- [View the Results](#view-the-results)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Use Lighthouse for performance budgets
-======================================
+# Use Lighthouse for performance budgets
 
 Jun 14, 2019 <span class="w-author__separator">•</span> Updated Apr 3, 2020
 
@@ -28,15 +20,14 @@ Jun 14, 2019 <span class="w-author__separator">•</span> Updated Apr 3, 2020
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 [Lighthouse](https://github.com/GoogleChrome/lighthouse) now supports performance budgets. This feature, [LightWallet](https://developers.google.com/web/tools/lighthouse/audits/budgets), can be set up in under five minutes and provides feedback on performance metrics and the size and quantity of page resources.
 
-Install Lighthouse <a href="#install-lighthouse" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Install Lighthouse <a href="#install-lighthouse" class="w-headline-link">#</a>
 
 LightWallet is available in the command line version of Lighthouse v5+.
 
@@ -44,8 +35,7 @@ To get started, install Lighthouse:
 
     npm install -g lighthouse
 
-Create a Budget <a href="#create-a-budget" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Create a Budget <a href="#create-a-budget" class="w-headline-link">#</a>
 
 Create a file named `budget.json`. In this file add the following JSON:
 
@@ -83,16 +73,15 @@ Create a file named `budget.json`. In this file add the following JSON:
 
 This example `budget.json` file sets five separate budgets:
 
--   A budget of 3000ms for Time to Interactive.
--   A budget of 1000ms for First Meaningful Paint
--   A budget of 125 KB for the total amount of JavaScript on the page.
--   A budget of 300 KB for the overall size of the page.
--   A budget of 10 requests for the number of requests made to third-party origins.
+- A budget of 3000ms for Time to Interactive.
+- A budget of 1000ms for First Meaningful Paint
+- A budget of 125 KB for the total amount of JavaScript on the page.
+- A budget of 300 KB for the overall size of the page.
+- A budget of 10 requests for the number of requests made to third-party origins.
 
 For a complete list of supported performance metrics and resource types, refer to the [Performance Budgets](https://github.com/GoogleChrome/lighthouse/blob/master/docs/performance-budgets.md) section of the Lighthouse docs.
 
-Run Lighthouse <a href="#run-lighthouse" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Run Lighthouse <a href="#run-lighthouse" class="w-headline-link">#</a>
 
 Run Lighthouse using the `--budget-path` flag. This flag tells Lighthouse the location of your budget file.
 
@@ -100,8 +89,7 @@ Run Lighthouse using the `--budget-path` flag. This flag tells Lighthouse the lo
 
 **Note**: A budget file does not have to be named `budget.json`.
 
-View the Results <a href="#view-the-results" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## View the Results <a href="#view-the-results" class="w-headline-link">#</a>
 
 If LightWallet has been configured correctly, the Lighthouse report will contain a **Budgets** section within the **Performance** category.
 
@@ -115,35 +103,35 @@ In the JSON version of the Lighthouse report, Lightwallet results can be found w
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

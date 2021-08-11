@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Top Go Articles
 
@@ -12,7 +12,7 @@
 
 [**See all 197 Go articles**](index.html)
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

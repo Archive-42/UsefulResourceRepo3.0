@@ -1,34 +1,26 @@
+## <a href="#urlpattern-brings-routing-to-the-web-platform" class="w-toc__header--link">URLPattern brings routing to the web platform</a>
 
-
-
-
-
-
-<a href="#urlpattern-brings-routing-to-the-web-platform" class="w-toc__header--link">URLPattern brings routing to the web platform</a>
---------------------------------------------------------------------------------------------------------------------------------------
-
--   [Background](#background)
--   [Syntax compatibility](#syntax-compatibility)
--   [Additional features](#additional-features)
--   [Examples](#examples)
--   [Constructing the pattern](#constructing-the-pattern)
--   [Using the pattern](#using-the-pattern)
--   [Anonymous and named groups](#anonymous-and-named-groups)
--   [Unicode support and normalization](#unicode-support-and-normalization)
--   [Putting it all together](#putting-it-all-together)
--   [Browser support and polyfills](#browser-support-and-polyfills)
--   [Feedback and future plans](#feedback-and-future-plans)
--   [Support for templating](#support-for-templating)
--   [Enabling future web platform features](#future-features)
--   [Acknowledgements](#acknowledgements)
+- [Background](#background)
+- [Syntax compatibility](#syntax-compatibility)
+- [Additional features](#additional-features)
+- [Examples](#examples)
+- [Constructing the pattern](#constructing-the-pattern)
+- [Using the pattern](#using-the-pattern)
+- [Anonymous and named groups](#anonymous-and-named-groups)
+- [Unicode support and normalization](#unicode-support-and-normalization)
+- [Putting it all together](#putting-it-all-together)
+- [Browser support and polyfills](#browser-support-and-polyfills)
+- [Feedback and future plans](#feedback-and-future-plans)
+- [Support for templating](#support-for-templating)
+- [Enabling future web platform features](#future-features)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-URLPattern brings routing to the web platform
-=============================================
+# URLPattern brings routing to the web platform
 
 An approach to standardizing common pattern matching use cases.
 
@@ -38,13 +30,12 @@ Jul 22, 2021 <span class="w-author__separator">•</span> Updated Aug 4, 2021
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 Routing is a key piece of every web application. At its heart, routing involves taking a URL, applying some pattern matching or other app-specific logic to it, and then, usually, displaying web content based on the result. Routing might be implemented in a number of ways: it's sometimes code running on a server that maps a path to files on disk, or logic in a single-page app that waits for changes to the current location and creates a corresponding piece of DOM to display.
 
@@ -54,8 +45,7 @@ While there is no one definitive standard, web developers have gravitated toward
 
 Another benefit to providing URL matching directly in the web platform is that a common syntax can then be shared with [other APIs](#future-features) that also need to match against URLs.
 
-Syntax compatibility <a href="#syntax-compatibility" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Syntax compatibility <a href="#syntax-compatibility" class="w-headline-link">#</a>
 
 A guiding philosophy for `URLPattern` is to avoid reinvention. If you're already familiar with the routing syntax used in Express or Ruby on Rails, you shouldn't have to learn anything new. But given the slight divergences between syntaxes in popular routing libraries, something had to be chosen as the base syntax, and the designers of `URLPattern` decided to use the pattern syntax from `path-to-regexp` (though not its API surface) as the starting point.
 
@@ -69,8 +59,7 @@ The syntax of `URLPattern` is a superset of what `path-to-regexp` supports, as `
 
 Taking origins into account opens the door for additional use cases, like routing cross-origin requests inside of a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers)'s `fetch` event handler. If you're only routing same-origin URLs, you can effectively ignore this additional feature and use `URLPattern` like other libraries.
 
-Examples <a href="#examples" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Examples <a href="#examples" class="w-headline-link">#</a>
 
 ### Constructing the pattern <a href="#constructing-the-pattern" class="w-headline-link">#</a>
 
@@ -109,7 +98,7 @@ As an additional shortcut, all of the information about the origin can be provid
       baseURL: 'https://example.com',
     });
 
-When passing a `baseURL` to the constructor, any aspects of the URL that are not provided are treated as if they were set to an empty string, *not* as a `'*'` wildcard. For instance, `new URLPattern({baseURL: 'https://example.com/'})` will create a `URLPattern` with `search`, `hash`, and other unspecified properties set to `''`.
+When passing a `baseURL` to the constructor, any aspects of the URL that are not provided are treated as if they were set to an empty string, _not_ as a `'*'` wildcard. For instance, `new URLPattern({baseURL: 'https://example.com/'})` will create a `URLPattern` with `search`, `hash`, and other unspecified properties set to `''`.
 
 All of these examples assume that your use case involves matching origins. If you're only interested in matching on the other portions of the URL, excluding the origin (as is the case for many "traditional" single-origin routing scenarios), then you can omit the origin information entirely, and just provide some combination of the `pathname`, `search`, and `hash` properties. As before, omitted properties will be treated as if they were set to the `*` wildcard pattern.
 
@@ -201,23 +190,21 @@ If you're familiar with the `exec()` method of a `RegExp` object, then the retur
 
 `URLPattern` supports Unicode characters in a few different ways.
 
--   Named groups, like `:café`, can contain Unicode characters. The rules used for valid [JavaScript identifiers](https://developer.mozilla.org/en-US/docs/Glossary/Identifier) apply to named groups.
+- Named groups, like `:café`, can contain Unicode characters. The rules used for valid [JavaScript identifiers](https://developer.mozilla.org/en-US/docs/Glossary/Identifier) apply to named groups.
 
--   Text within a pattern will be automatically encoded according to the same rules used for URL encoding of that particular component. Unicode characters within `pathname` will be [percent-encoded](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding), so a `pathname` pattern like `/café` is normalized to `/caf%C3%A9` automatically. Unicode characters in the `hostname` are automatically encoded using [Punycode](https://en.wikipedia.org/wiki/Punycode), rather than percent-encoding.
+- Text within a pattern will be automatically encoded according to the same rules used for URL encoding of that particular component. Unicode characters within `pathname` will be [percent-encoded](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding), so a `pathname` pattern like `/café` is normalized to `/caf%C3%A9` automatically. Unicode characters in the `hostname` are automatically encoded using [Punycode](https://en.wikipedia.org/wiki/Punycode), rather than percent-encoding.
 
--   Regular expression groups must contain only ASCII characters. Regular expression syntax makes it difficult and unsafe to automatically encode Unicode characters in these groups. If you want to match a Unicode character in a regular expression group,you need to percent encode it manually, like `(caf%C3%A9)` to match `café`.
+- Regular expression groups must contain only ASCII characters. Regular expression syntax makes it difficult and unsafe to automatically encode Unicode characters in these groups. If you want to match a Unicode character in a regular expression group,you need to percent encode it manually, like `(caf%C3%A9)` to match `café`.
 
 In addition to encoding Unicode characters, `URLPattern` also performs URL normalization. For example, `/foo/./bar` in the `pathname` component is collapsed to the equivalent `/foo/bar`.
 
 When in doubt about how a given input pattern has been normalized, inspect the constructed `URLPattern` instance using your browser's [DevTools](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools).
 
-Putting it all together <a href="#putting-it-all-together" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Putting it all together <a href="#putting-it-all-together" class="w-headline-link">#</a>
 
 The Glitch demo embedded below illustrates a core use case of `URLPattern` inside of a service worker's `fetch event handler`, mapping specific patterns to asynchronous functions that could generate a response to network requests. The concepts in this example could be applied to other routing scenarios as well, either server-side or client-side.
 
-Browser support and polyfills <a href="#browser-support-and-polyfills" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Browser support and polyfills <a href="#browser-support-and-polyfills" class="w-headline-link">#</a>
 
 We're letting developers know about `URLPattern` early, and would appreciate any [feedback](https://github.com/WICG/urlpattern/issues) based on the prerelease interface. This article will be kept up to date with information about browser support over time.
 
@@ -229,8 +216,7 @@ The `urlpattern-polyfill` library provides a way to use the `URLPattern` interfa
       // URLPattern is not available, so the polyfill is needed.
     }
 
-Feedback and future plans <a href="#feedback-and-future-plans" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Feedback and future plans <a href="#feedback-and-future-plans" class="w-headline-link">#</a>
 
 Some aspects of `URLPattern` are [still being developed](https://github.com/WICG/urlpattern/blob/main/202012-update.md#whats-still-left-to-do), and there are a number of [open questions](https://github.com/WICG/urlpattern/blob/main/202012-update.md#open-questions) about specific behaviors that may still be refined. We encourage you to try out `URLPattern` early and provide any feedback via the [Discussions](https://github.com/WICG/urlpattern/discussions) feature in the associated GitHub repo.
 
@@ -246,8 +232,7 @@ Assuming `URLPattern` becomes an established part of the web platform, other fea
 
 There are ongoing discussions about using `URLPattern` for proposed features like [service worker scope pattern matching](https://github.com/WICG/urlpattern/blob/main/explainer.md), [PWAs as file handlers](https://web.dev/pwa-url-handler/#the-web-app-origin-association-file), and [speculative prefetching](https://github.com/jeremyroman/alternate-loading-modes/blob/main/triggers.md).
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 See the [original explainer document](https://github.com/WICG/urlpattern/blob/main/explainer.md#references--acknowledgements) for a full list of acknowledgements.
 
@@ -257,35 +242,35 @@ The thumbnail image for this post is by [Vic](https://unsplash.com/@megindoors?u
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

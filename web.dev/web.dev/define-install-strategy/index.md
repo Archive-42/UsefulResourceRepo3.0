@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#how-to-define-your-install-strategy" class="w-toc__header--link">How to define your install strategy</a>
 
 - [Why make your web app installable?](#why-make-your-web-app-installable)

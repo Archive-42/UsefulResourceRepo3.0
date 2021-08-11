@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#lesscodegreaterandltframeandgtlesscodegreater-or-lesscodegreaterandltiframeandgtlesscodegreater-elements-do-not-have-a-title" class="w-toc__header--link"><code>&lt;frame&gt;</code> or <code>&lt;iframe&gt;</code> elements do not have a title</a>
 
 - [How the Lighthouse frame title audit fails](#how-the-lighthouse-frame-title-audit-fails)

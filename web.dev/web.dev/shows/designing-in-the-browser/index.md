@@ -1,13 +1,6 @@
-
-
-
-
-
-
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Designing in the Browser
-========================
+# Designing in the Browser
 
 Designing in the Browser explores the intersection of design and front-end development, teaching you how to build beautiful UIs with modern web standards in mind.
 
@@ -17,8 +10,7 @@ Designing in the Browser explores the intersection of design and front-end devel
 
 <a href="/shows/designing-in-the-browser/_ZdZh-ESOHY/" class="w-card-base__link"></a>
 
-Accessible Animation - Designing in the Browser
------------------------------------------------
+## Accessible Animation - Designing in the Browser
 
 Sep 28, 2020
 
@@ -30,8 +22,7 @@ Welcome to Designing in the Browser with our host, Una Kravets. Interactive touc
 
 <a href="/shows/designing-in-the-browser/F9VCfA6JJ9U/" class="w-card-base__link"></a>
 
-Working with Media - Designing in the Browser
----------------------------------------------
+## Working with Media - Designing in the Browser
 
 Sep 21, 2020
 
@@ -43,8 +34,7 @@ Welcome to Designing in the Browser with our host, Una Kravets. It’s important
 
 <a href="/shows/designing-in-the-browser/qD7SecF8qWA/" class="w-card-base__link"></a>
 
-Navigating Navigation - Designing in the Browser
-------------------------------------------------
+## Navigating Navigation - Designing in the Browser
 
 Sep 14, 2020
 
@@ -56,8 +46,7 @@ Welcome to Designing in the Browser with our host, Una Kravets. Today we’re di
 
 <a href="/shows/designing-in-the-browser/sEDnmNtEaqQ/" class="w-card-base__link"></a>
 
-Accessible Color Standards - Designing in the Browser
------------------------------------------------------
+## Accessible Color Standards - Designing in the Browser
 
 Sep 8, 2020
 
@@ -69,8 +58,7 @@ Welcome to Designing in the Browser with our host, Una Kravets. Today we’re ta
 
 <a href="/shows/designing-in-the-browser/arMgwKY52Bs/" class="w-card-base__link"></a>
 
-Semantic markup - Designing in the Browser
-------------------------------------------
+## Semantic markup - Designing in the Browser
 
 Aug 28, 2020
 
@@ -82,8 +70,7 @@ Welcome to Designing in the Browser with our host, Una Kravets. Today we’re st
 
 <a href="/shows/designing-in-the-browser/UoRpMVnaqGQ/" class="w-card-base__link"></a>
 
-Typography and variable fonts - Designing in the Browser
---------------------------------------------------------
+## Typography and variable fonts - Designing in the Browser
 
 Dec 19, 2019
 
@@ -95,8 +82,7 @@ On today’s episode of Designing in the Browser with our host Una Kravets, we�
 
 <a href="/shows/designing-in-the-browser/Irp6R69pZGA/" class="w-card-base__link"></a>
 
-Developer tools for designers - Designing in the Browser
---------------------------------------------------------
+## Developer tools for designers - Designing in the Browser
 
 Dec 13, 2019
 
@@ -108,8 +94,7 @@ On today’s episode of Designing in the Browser with our host Una Kravets, we�
 
 <a href="/shows/designing-in-the-browser/K1POS8yPqa8/" class="w-card-base__link"></a>
 
-Building responsive layouts - Designing in the Browser
-------------------------------------------------------
+## Building responsive layouts - Designing in the Browser
 
 Dec 5, 2019
 
@@ -121,8 +106,7 @@ On this episode of Designing in the Browser, we’re going to take a look at bui
 
 <a href="/shows/designing-in-the-browser/HxJnvCOC2vQ/" class="w-card-base__link"></a>
 
-Color & custom properties - Designing in the Browser
-----------------------------------------------------
+## Color & custom properties - Designing in the Browser
 
 Nov 21, 2019
 
@@ -134,8 +118,7 @@ On this episode of Designing in the Browser, we’re going to take a look at col
 
 <a href="/shows/designing-in-the-browser/FtOvR1tKs1Y/" class="w-card-base__link"></a>
 
-Extending CSS — Designing in the Browser
-----------------------------------------
+## Extending CSS — Designing in the Browser
 
 Nov 15, 2019
 
@@ -147,8 +130,7 @@ On this episode of Designing in the Browser, we’re going to take a look at how
 
 <a href="/shows/designing-in-the-browser/jWur1VrxNUg/" class="w-card-base__link"></a>
 
-Motion design in UI - Designing in the Browser
-----------------------------------------------
+## Motion design in UI - Designing in the Browser
 
 Nov 7, 2019
 
@@ -160,8 +142,7 @@ On this episode of Designing in the Browser, we’re going to take a look at how
 
 <a href="/shows/designing-in-the-browser/YK8GZBx3hpg/" class="w-card-base__link"></a>
 
-Intro to Designing in the Browser
----------------------------------
+## Intro to Designing in the Browser
 
 Oct 24, 2019
 
@@ -173,35 +154,35 @@ In this first episode of Designing in the Browser, Una Kravets kicks it off by g
 
 <a href="/shows" class="w-button">See more Shows</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

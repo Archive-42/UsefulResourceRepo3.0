@@ -1,33 +1,25 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format" alt="A screenshot of JavaScript code setting a strict Content Security Policy." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/3lmWcR1VGYVMicNlBh4aZWBTcSg1/mhE0NYvP3JFyvNyiQ1dj.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#mitigate-cross-site-scripting-(xss)-with-a-strict-content-security-policy-(csp)" class="w-toc__header--link">Mitigate cross-site scripting (XSS) with a strict Content Security Policy (CSP)</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#mitigate-cross-site-scripting-(xss)-with-a-strict-content-security-policy-(csp)" class="w-toc__header--link">Mitigate cross-site scripting (XSS) with a strict Content Security Policy (CSP)</a>
 
--   [Why should you deploy a strict Content Security Policy (CSP)?](#why-should-you-deploy-a-strict-content-security-policy-(csp))
--   [Why a strict CSP is recommended over allowlist CSPs](#why-a-strict-csp-is-recommended-over-allowlist-csps)
--   [What is a strict Content Security Policy?](#what-is-a-strict-content-security-policy)
--   [Adopting a strict CSP](#adopting-a-strict-csp)
--   [Step 1: Decide if you need a nonce- or hash-based CSP](#step-1:-decide-if-you-need-a-nonce-or-hash-based-csp)
--   [Step 2: Set a strict CSP and prepare your scripts](#step-2:-set-a-strict-csp-and-prepare-your-scripts)
--   [Step 3: Refactor HTML templates and client-side code to remove patterns incompatible with CSP](#step-3:-refactor-html-templates-and-client-side-code-to-remove-patterns-incompatible-with-csp)
--   [Step 4: Add fallbacks to support Safari and older browsers](#step-4:-add-fallbacks-to-support-safari-and-older-browsers)
--   [Step 5: Deploy your CSP](#step-5:-deploy-your-csp)
--   [Limitations](#limitations)
--   [Further reading](#further-reading)
+- [Why should you deploy a strict Content Security Policy (CSP)?](<#why-should-you-deploy-a-strict-content-security-policy-(csp)>)
+- [Why a strict CSP is recommended over allowlist CSPs](#why-a-strict-csp-is-recommended-over-allowlist-csps)
+- [What is a strict Content Security Policy?](#what-is-a-strict-content-security-policy)
+- [Adopting a strict CSP](#adopting-a-strict-csp)
+- [Step 1: Decide if you need a nonce- or hash-based CSP](#step-1:-decide-if-you-need-a-nonce-or-hash-based-csp)
+- [Step 2: Set a strict CSP and prepare your scripts](#step-2:-set-a-strict-csp-and-prepare-your-scripts)
+- [Step 3: Refactor HTML templates and client-side code to remove patterns incompatible with CSP](#step-3:-refactor-html-templates-and-client-side-code-to-remove-patterns-incompatible-with-csp)
+- [Step 4: Add fallbacks to support Safari and older browsers](#step-4:-add-fallbacks-to-support-safari-and-older-browsers)
+- [Step 5: Deploy your CSP](#step-5:-deploy-your-csp)
+- [Limitations](#limitations)
+- [Further reading](#further-reading)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Mitigate cross-site scripting (XSS) with a strict Content Security Policy (CSP)
-===============================================================================
+# Mitigate cross-site scripting (XSS) with a strict Content Security Policy (CSP)
 
 How to deploy a CSP based on script nonces or hashes as a defense-in-depth against cross-site scripting.
 
@@ -39,50 +31,48 @@ Mar 15, 2021
 
 <a href="/authors/lwe/" class="w-author__name-link">Lukas Weichselbaum</a>
 
--   <a href="https://twitter.com/we1x" class="w-author__link">Twitter</a>
--   <a href="https://github.com/lweichselbaum" class="w-author__link">GitHub</a>
--   <a href="https://webappsec.dev" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/we1x" class="w-author__link">Twitter</a>
+- <a href="https://github.com/lweichselbaum" class="w-author__link">GitHub</a>
+- <a href="https://webappsec.dev" class="w-author__link">Blog</a>
 
-Why should you deploy a strict Content Security Policy (CSP)? <a href="#why-should-you-deploy-a-strict-content-security-policy-(csp)" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Why should you deploy a strict Content Security Policy (CSP)? <a href="#why-should-you-deploy-a-strict-content-security-policy-(csp)" class="w-headline-link">#</a>
 
 [Cross-site scripting (XSS)](https://www.google.com/about/appsecurity/learning/xss/)—the ability to inject malicious scripts into a web application—has been one of the biggest web security vulnerabilities for over a decade.
 
 [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) is an added layer of security that helps to mitigate XSS. Configuring a CSP involves adding the Content-Security-Policy HTTP header to a web page and setting values to control what resources the user agent is allowed to load for that page. This article explains how to use a CSP based on nonces or hashes to mitigate XSS instead of the commonly used host-allowlist-based CSPs which often leave the page exposed to XSS as they can be [bypassed in most configurations](https://research.google.com/pubs/pub45542.html).
 
-**Key Term**: A *nonce* is a random number used only once that can be used to mark a `<script>` tag as trusted.
+**Key Term**: A _nonce_ is a random number used only once that can be used to mark a `<script>` tag as trusted.
 
-**Key Term**: A hash function is a mathematical function that converts an input value into a compressed numerical value—a hash. A *hash* (such as [SHA-256](https://en.wikipedia.org/wiki/SHA-2)) can be used to mark an inline `<script>` tag as trusted.
+**Key Term**: A hash function is a mathematical function that converts an input value into a compressed numerical value—a hash. A _hash_ (such as [SHA-256](https://en.wikipedia.org/wiki/SHA-2)) can be used to mark an inline `<script>` tag as trusted.
 
-A Content Security Policy based on nonces or hashes is often called a *strict CSP*. When an application uses a strict CSP, attackers who find HTML injection flaws will generally not be able to use them to force the browser to execute malicious scripts in the context of the vulnerable document. This is because strict CSP only permits hashed scripts or scripts with the correct nonce value generated on the server, so attackers cannot execute the script without knowing the correct nonce for a given response.
+A Content Security Policy based on nonces or hashes is often called a _strict CSP_. When an application uses a strict CSP, attackers who find HTML injection flaws will generally not be able to use them to force the browser to execute malicious scripts in the context of the vulnerable document. This is because strict CSP only permits hashed scripts or scripts with the correct nonce value generated on the server, so attackers cannot execute the script without knowing the correct nonce for a given response.
 
-To protect your site from XSS, make sure to sanitize user input *and* use CSP as an extra security layer. CSP is a [defense-in-depth](https://en.wikipedia.org/wiki/Defense_in_depth_(computing)) technique that can prevent the execution of malicious scripts, but it's not a substitute for avoiding (and promptly fixing) XSS bugs.
+To protect your site from XSS, make sure to sanitize user input _and_ use CSP as an extra security layer. CSP is a [defense-in-depth](<https://en.wikipedia.org/wiki/Defense_in_depth_(computing)>) technique that can prevent the execution of malicious scripts, but it's not a substitute for avoiding (and promptly fixing) XSS bugs.
 
 ### Why a strict CSP is recommended over allowlist CSPs <a href="#why-a-strict-csp-is-recommended-over-allowlist-csps" class="w-headline-link">#</a>
 
 If your site already has a CSP that looks like this: `script-src www.googleapis.com`, it may not be effective against cross-site scripting! This type of CSP is called an allowlist CSP and it has a couple of downsides:
 
--   It requires a lot of customization.
--   It can be [bypassed in most configurations](https://research.google.com/pubs/pub45542.html).
+- It requires a lot of customization.
+- It can be [bypassed in most configurations](https://research.google.com/pubs/pub45542.html).
 
 This makes allowlist CSPs generally ineffective at preventing attackers from exploiting XSS. That's why it's recommended to use a strict CSP based on cryptographic nonces or hashes, which avoids the pitfalls outlined above.
 
 Allowlist CSP
 
--   Doesn't effectively protect your site. ❌
--   Must be highly customized. 😓
+- Doesn't effectively protect your site. ❌
+- Must be highly customized. 😓
 
 Strict CSP
 
--   Effectively protects your site. ✅
--   Always has the same structure. 😌
+- Effectively protects your site. ✅
+- Always has the same structure. 😌
 
-What is a strict Content Security Policy? <a href="#what-is-a-strict-content-security-policy" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------------------------
+## What is a strict Content Security Policy? <a href="#what-is-a-strict-content-security-policy" class="w-headline-link">#</a>
 
 A strict Content Security Policy has the following structure and is enabled by setting one of the following HTTP response headers:
 
--   **Nonce-based strict CSP**
+- **Nonce-based strict CSP**
 
 <!-- -->
 
@@ -93,7 +83,7 @@ A strict Content Security Policy has the following structure and is enabled by s
 
 <img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/er4BaGCJzBwDaESFKfZd.jpg?auto=format&amp;w=1600 1600w" width="800" height="279" />
 
--   **Hash-based strict CSP**
+- **Hash-based strict CSP**
 
 <!-- -->
 
@@ -106,22 +96,21 @@ This is the most stripped-down version of a strict CSP. You'll need to tweak it 
 
 The following properties make a CSP like the one above "strict" and hence secure:
 
--   Uses nonces `'nonce-{RANDOM}'` or hashes `'sha256-{HASHED_INLINE_SCRIPT}'` to indicate which `<script>` tags are trusted by the site's developer and should be allowed to execute in the user's browser.
+- Uses nonces `'nonce-{RANDOM}'` or hashes `'sha256-{HASHED_INLINE_SCRIPT}'` to indicate which `<script>` tags are trusted by the site's developer and should be allowed to execute in the user's browser.
 
--   Sets [`'strict-dynamic'`](https://www.w3.org/TR/CSP3/#strict-dynamic-usage) to reduce the effort of deploying a nonce- or hash-based CSP by automatically allowing the execution of scripts that are created by an already trusted script. This also unblocks the use of most third party JavaScript libraries and widgets.
+- Sets [`'strict-dynamic'`](https://www.w3.org/TR/CSP3/#strict-dynamic-usage) to reduce the effort of deploying a nonce- or hash-based CSP by automatically allowing the execution of scripts that are created by an already trusted script. This also unblocks the use of most third party JavaScript libraries and widgets.
 
--   Not based on URL allowlists and therefore doesn't suffer from [common CSP bypasses](https://speakerdeck.com/lweichselbaum/csp-is-dead-long-live-strict-csp-deepsec-2016?slide=15).
+- Not based on URL allowlists and therefore doesn't suffer from [common CSP bypasses](https://speakerdeck.com/lweichselbaum/csp-is-dead-long-live-strict-csp-deepsec-2016?slide=15).
 
--   Blocks untrusted inline scripts like inline event handlers or `javascript:` URIs.
+- Blocks untrusted inline scripts like inline event handlers or `javascript:` URIs.
 
--   Restricts `object-src` to disable dangerous plugins such as Flash.
+- Restricts `object-src` to disable dangerous plugins such as Flash.
 
--   Restricts `base-uri` to block the injection of `<base>` tags. This prevents attackers from changing the locations of scripts loaded from relative URLs.
+- Restricts `base-uri` to block the injection of `<base>` tags. This prevents attackers from changing the locations of scripts loaded from relative URLs.
 
 Another advantage of a strict CSP is that the CSP always has the same structure and doesn't need to be customized for your application.
 
-Adopting a strict CSP <a href="#adopting-a-strict-csp" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Adopting a strict CSP <a href="#adopting-a-strict-csp" class="w-headline-link">#</a>
 
 To adopt a strict CSP, you need to:
 
@@ -139,8 +128,8 @@ You can use [Lighthouse](https://developers.google.com/web/tools/lighthouse) (v7
 
 There are two types of strict CSPs, nonce- and hash-based. Here's how they work:
 
--   **Nonce-based CSP**: You generate a random number *at runtime*, include it in your CSP, and associate it with every script tag in your page. An attacker can't include and run a malicious script in your page, because they would need to guess the correct random number for that script. This only works if the number is not guessable and newly generated at runtime for every response.
--   **Hash-based CSP**: The hash of every inline script tag is added to the CSP. Note that each script has a different hash. An attacker can't include and run a malicious script in your page, because the hash of that script would need to be present in your CSP.
+- **Nonce-based CSP**: You generate a random number _at runtime_, include it in your CSP, and associate it with every script tag in your page. An attacker can't include and run a malicious script in your page, because they would need to guess the correct random number for that script. This only works if the number is not guessable and newly generated at runtime for every response.
+- **Hash-based CSP**: The hash of every inline script tag is added to the CSP. Note that each script has a different hash. An attacker can't include and run a malicious script in your page, because the hash of that script would need to be present in your CSP.
 
 Criteria for choosing a strict CSP approach:
 
@@ -150,15 +139,14 @@ Criteria for choosing a strict CSP approach:
 
 When setting a CSP, you have a few options:
 
--   Report-only mode (`Content-Security-Policy-Report-Only`) or enforcement mode (`Content-Security-Policy`). In report-only, the CSP won't block resources yet—nothing will break—but you'll be able to see errors and receive reports for what would have been blocked. Locally, when you're in the process of setting a CSP, this doesn't really matter, because both modes will show you the errors in the browser console. If anything, enforcement mode will make it even easier for you to see blocked resources and tweak your CSP, since your page will look broken. Report-only mode becomes most useful later in the process (see [Step 5](#step-5:-deploy-your-csp)).
--   Header or HTML `<meta>` tag. For local development, a `<meta>` tag may be more convenient for tweaking your CSP and quickly seeing how it affects your site. However:
-    -   Later on, when deploying your CSP in production, it is recommended to set it as an HTTP header.
-    -   If you want to set your CSP in report-only mode, you'll need to set it as a header—CSP meta tags don't support report-only mode.
+- Report-only mode (`Content-Security-Policy-Report-Only`) or enforcement mode (`Content-Security-Policy`). In report-only, the CSP won't block resources yet—nothing will break—but you'll be able to see errors and receive reports for what would have been blocked. Locally, when you're in the process of setting a CSP, this doesn't really matter, because both modes will show you the errors in the browser console. If anything, enforcement mode will make it even easier for you to see blocked resources and tweak your CSP, since your page will look broken. Report-only mode becomes most useful later in the process (see [Step 5](#step-5:-deploy-your-csp)).
+- Header or HTML `<meta>` tag. For local development, a `<meta>` tag may be more convenient for tweaking your CSP and quickly seeing how it affects your site. However:
+  - Later on, when deploying your CSP in production, it is recommended to set it as an HTTP header.
+  - If you want to set your CSP in report-only mode, you'll need to set it as a header—CSP meta tags don't support report-only mode.
 
 <span id="nonce-based-csp"></span>
 
-Option A: Nonce-based CSP
--------------------------
+## Option A: Nonce-based CSP
 
 Set the following `Content-Security-Policy` HTTP response header in your application:
 
@@ -169,20 +157,20 @@ Set the following `Content-Security-Policy` HTTP response header in your applica
 
 **Caution**:
 
-Replace the `{RANDOM}` placeholder with a *random* nonce that is regenerated **on every server response**.
+Replace the `{RANDOM}` placeholder with a _random_ nonce that is regenerated **on every server response**.
 
 #### Generate a nonce for CSP <a href="#generate-a-nonce-for-csp" class="w-headline-link">#</a>
 
 A nonce is a random number used only once per page load. A nonce-based CSP can only mitigate XSS if the nonce value is **not guessable** by an attacker. A nonce for CSP needs to be:
 
--   A cryptographically **strong random** value (ideally 128+ bits in length)
--   Newly **generated for every response**
--   Base64 encoded
+- A cryptographically **strong random** value (ideally 128+ bits in length)
+- Newly **generated for every response**
+- Base64 encoded
 
 Here are some examples on how to add a CSP nonce in server-side frameworks:
 
--   [Django (python)](https://django-csp.readthedocs.io/en/latest/nonce.html)
--   Express (JavaScript):
+- [Django (python)](https://django-csp.readthedocs.io/en/latest/nonce.html)
+- Express (JavaScript):
 
 <!-- -->
 
@@ -222,8 +210,7 @@ With `'strict-dynamic'` in your CSP, you'll only have to add nonces to `<script>
 
 <span id="hash-based-csp"></span>
 
-Option B: Hash-based CSP Response Header
-----------------------------------------
+## Option B: Hash-based CSP Response Header
 
 Set the following `Content-Security-Policy` HTTP response header in your application:
 
@@ -269,15 +256,14 @@ To allow execution of this script, the hash of the inline script must be calcula
 
 When calculating a CSP hash for inline scripts, whitespace characters between the opening and closing `<script>` tags matter. You can calculate CSP hashes for inline scripts using this [tool](https://strict-csp-codelab.glitch.me/csp_sha256_util.html).
 
-About `async = false` and script loading `async = false`
---------------------------------------------------------
+## About `async = false` and script loading `async = false`
 
 isn't blocking in this case, but use this with care.
 
 In the code snippet above, `s.async = false` is added to ensure that foo executes before bar (even if bar loads first). **In this snippet, `s.async = false` does not block the parser while the scripts load**; that's because the scripts are added dynamically. The parser will only stop as the scripts are being executed, just like it would behave for `async` scripts. However, with this snippet, keep in mind:
 
--   One/both scripts may execute before the document has finished downloading. If you want the document to be ready by the time the scripts execute, you need to wait for the [`DOMContentLoaded` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event) before you append the scripts. If this causes a performance issue (because the scripts don't start downloading early enough), you can use [preload tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content) earlier in the page.
--   `defer = true` won't do anything. If you need that behaviour, you'll have to manually run the script at the time you want to run it.
+- One/both scripts may execute before the document has finished downloading. If you want the document to be ready by the time the scripts execute, you need to wait for the [`DOMContentLoaded` event](https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event) before you append the scripts. If this causes a performance issue (because the scripts don't start downloading early enough), you can use [preload tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content) earlier in the page.
+- `defer = true` won't do anything. If you need that behaviour, you'll have to manually run the script at the time you want to run it.
 
 ### Step 3: Refactor HTML templates and client-side code to remove patterns incompatible with CSP <a href="#step-3:-refactor-html-templates-and-client-side-code-to-remove-patterns-incompatible-with-csp" class="w-headline-link">#</a>
 
@@ -337,12 +323,12 @@ You can find these and more examples of such refactoring in this strict CSP Code
 
 CSP is supported by all major browsers, but you'll need two fallbacks:
 
--   Using `'strict-dynamic'` requires adding `https:` as a fallback for Safari, the only major browser without support for `'strict-dynamic'`. By doing so:
+- Using `'strict-dynamic'` requires adding `https:` as a fallback for Safari, the only major browser without support for `'strict-dynamic'`. By doing so:
 
-    -   All browsers that support `'strict-dynamic'` will ignore the `https:` fallback, so this won't reduce the strength of the policy.
-    -   In Safari, externally sourced scripts will be allowed to load only if they come from an HTTPS origin. This is less secure than a strict CSP–it's a fallback–but would still prevent certain common XSS causes like injections of `javascript:` URIs because `'unsafe-inline'` is not present or ignored in presence of a hash or nonce.
+  - All browsers that support `'strict-dynamic'` will ignore the `https:` fallback, so this won't reduce the strength of the policy.
+  - In Safari, externally sourced scripts will be allowed to load only if they come from an HTTPS origin. This is less secure than a strict CSP–it's a fallback–but would still prevent certain common XSS causes like injections of `javascript:` URIs because `'unsafe-inline'` is not present or ignored in presence of a hash or nonce.
 
--   To ensure compatibility with very old browser versions (4+ years), you can add `'unsafe-inline'` as a fallback. All recent browsers will ignore `'unsafe-inline'` if a CSP nonce or hash is present.
+- To ensure compatibility with very old browser versions (4+ years), you can add `'unsafe-inline'` as a fallback. All recent browsers will ignore `'unsafe-inline'` if a CSP nonce or hash is present.
 
 <!-- -->
 
@@ -366,27 +352,25 @@ Make sure that the CSP you're using is "strict" by checking it with the [CSP Eva
 
 **Caution**: When enabling CSP for production traffic, you may see some noise in the CSP violation reports due to browser extensions and malware.
 
-Limitations <a href="#limitations" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Limitations <a href="#limitations" class="w-headline-link">#</a>
 
 Generally speaking, a strict CSP provides a strong added layer of security that helps to mitigate XSS. In most cases, CSP reduces the attack surface significantly (dangerous patterns like `javascript:` URIs are completely turned off). However, based on the type of CSP you're using (nonces, hashes, with or without `'strict-dynamic'`), there are cases where CSP doesn't protect:
 
--   If you nonce a script, but there's an injection directly into the body or into the `src` parameter of that `<script>` element.
--   If there are injections into the locations of dynamically created scripts (`document.createElement('script')`), including into any library functions which create `script` DOM nodes based on the value of their arguments. This includes some common APIs such as jQuery's `.html()`, as well as `.get()` and `.post()` in jQuery &lt; 3.0.
--   If there are template injections in old AngularJS applications. An attacker who can inject an AngularJS template can use it to [execute arbitrary JavaScript](https://sites.google.com/site/bughunteruniversity/nonvuln/angularjs-expression-sandbox-bypass).
--   If the policy contains `'unsafe-eval'`, injections into `eval()`, `setTimeout()` and a few other rarely used APIs.
+- If you nonce a script, but there's an injection directly into the body or into the `src` parameter of that `<script>` element.
+- If there are injections into the locations of dynamically created scripts (`document.createElement('script')`), including into any library functions which create `script` DOM nodes based on the value of their arguments. This includes some common APIs such as jQuery's `.html()`, as well as `.get()` and `.post()` in jQuery &lt; 3.0.
+- If there are template injections in old AngularJS applications. An attacker who can inject an AngularJS template can use it to [execute arbitrary JavaScript](https://sites.google.com/site/bughunteruniversity/nonvuln/angularjs-expression-sandbox-bypass).
+- If the policy contains `'unsafe-eval'`, injections into `eval()`, `setTimeout()` and a few other rarely used APIs.
 
 Developers and security engineers should pay particular attention to such patterns during code reviews and security audits. You can find more details on the cases described above in [this CSP presentation](https://static.sched.com/hosted_files/locomocosec2019/db/CSP%20-%20A%20Successful%20Mess%20Between%20Hardening%20and%20Mitigation%20%281%29.pdf#page=27).
 
 Trusted Types complements strict CSP very well and can efficiently protect against some of the limitations listed above. Learn more about [how to use Trusted Types at web.dev](/trusted-types).
 
-Further reading <a href="#further-reading" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
--   [CSP Is Dead, Long Live CSP! On the Insecurity of Whitelists and the Future of Content Security Policy](https://research.google/pubs/pub45542/)
--   [CSP Evaluator](https://csp-evaluator.withgoogle.com/)
--   [LocoMoco Conference: Content Security Policy - A successful mess between hardening and mitigation](https://static.sched.com/hosted_files/locomocosec2019/db/CSP%20-%20A%20Successful%20Mess%20Between%20Hardening%20and%20Mitigation%20%281%29.pdf)
--   [Google I/O talk: Securing Web Apps with Modern Platform Features](https://webappsec.dev/assets/pub/Google_IO-Securing_Web_Apps_with_Modern_Platform_Features.pdf)
+- [CSP Is Dead, Long Live CSP! On the Insecurity of Whitelists and the Future of Content Security Policy](https://research.google/pubs/pub45542/)
+- [CSP Evaluator](https://csp-evaluator.withgoogle.com/)
+- [LocoMoco Conference: Content Security Policy - A successful mess between hardening and mitigation](https://static.sched.com/hosted_files/locomocosec2019/db/CSP%20-%20A%20Successful%20Mess%20Between%20Hardening%20and%20Mitigation%20%281%29.pdf)
+- [Google I/O talk: Securing Web Apps with Modern Platform Features](https://webappsec.dev/assets/pub/Google_IO-Securing_Web_Apps_with_Modern_Platform_Features.pdf)
 
 <a href="/tags/security/" class="w-chip">Security</a>
 
@@ -394,35 +378,35 @@ Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

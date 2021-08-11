@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Top Algorithm Articles
 
@@ -10,7 +10,7 @@
 4.  [What makes a good loop invariant?](what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](random-point-within-circle.html)
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

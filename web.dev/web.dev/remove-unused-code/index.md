@@ -1,20 +1,12 @@
+## <a href="#remove-unused-code" class="w-toc__header--link">Remove unused code</a>
 
-
-
-
-
-
-<a href="#remove-unused-code" class="w-toc__header--link">Remove unused code</a>
---------------------------------------------------------------------------------
-
--   [Analyze your bundle](#analyze-your-bundle)
--   [Remove unused libraries](#remove-unused-libraries)
--   [Remove unneeded libraries](#remove-unneeded-libraries)
+- [Analyze your bundle](#analyze-your-bundle)
+- [Remove unused libraries](#remove-unused-libraries)
+- [Remove unneeded libraries](#remove-unneeded-libraries)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Remove unused code
-==================
+# Remove unused code
 
 npm makes adding code to your project a breeze. But are you really using all  
 those extra bytes?
@@ -27,15 +19,14 @@ Nov 5, 2018
 
 <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a>
 
--   <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
--   <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
--   <a href="https://houssein.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
+- <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
+- <a href="https://houssein.me/" class="w-author__link">Blog</a>
 
-Registries like [npm](https://docs.npmjs.com/getting-started/what-is-npm) have transformed the JavaScript world for the better by allowing anyone to easily download and use over *half a million* public packages. But we often include libraries we're not fully utilizing. To fix this issue, **analyze your bundle** to detect unused code. Then remove **unused** and **unneeded** libraries.
+Registries like [npm](https://docs.npmjs.com/getting-started/what-is-npm) have transformed the JavaScript world for the better by allowing anyone to easily download and use over _half a million_ public packages. But we often include libraries we're not fully utilizing. To fix this issue, **analyze your bundle** to detect unused code. Then remove **unused** and **unneeded** libraries.
 
-Analyze your bundle <a href="#analyze-your-bundle" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Analyze your bundle <a href="#analyze-your-bundle" class="w-headline-link">#</a>
 
 DevTools makes it easy to see the size of all network requests:
 
@@ -72,8 +63,7 @@ Reloading the application with this plugin included shows a zoomable treemap of 
 
 Using this visualization allows you to inspect which parts of your bundle are larger than others, as well as get a better idea of all the libraries that you're importing. This can help identify if you are using any unused or unnecessary libraries.
 
-Remove unused libraries <a href="#remove-unused-libraries" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Remove unused libraries <a href="#remove-unused-libraries" class="w-headline-link">#</a>
 
 In the previous treemap image, there are quite a few packages within a single `@firebase` domain. If your website only needs the firebase database component, update the imports to fetch that library:
 
@@ -89,8 +79,7 @@ And in case you're using webpack, check out [the list of plugins that automatica
 
 **Try it**! [Remove unused code.](/codelab-remove-unused-code)
 
-Remove unneeded libraries <a href="#remove-unneeded-libraries" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Remove unneeded libraries <a href="#remove-unneeded-libraries" class="w-headline-link">#</a>
 
 Not all libraries can be easily broken down into parts and selectively imported. In these scenarios, consider if the library could be removed entirely. Building a custom solution or leveraging a lighter alternative should always be options worth considering. However, it is important to weigh the complexity and effort required for either of these efforts before removing a library entirely from an application.
 
@@ -98,46 +87,45 @@ Not all libraries can be easily broken down into parts and selectively imported.
 
 <span class="w-mr--sm">Last updated: Nov 5, 2018 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/fast/remove-unused-code/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-remove-unused-code/" class="w-callout__link w-callout__link--codelab">Remove unused code</a>
+- <a href="/codelab-remove-unused-code/" class="w-callout__link w-callout__link--codelab">Remove unused code</a>
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

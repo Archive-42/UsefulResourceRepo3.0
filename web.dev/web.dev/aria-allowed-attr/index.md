@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreateraria-*lesscodegreater-attributes-do-not-match-their-roles" class="w-toc__header--link"><code>[aria-\*]</code> attributes do not match their roles</a>
 
 - [How Lighthouse identifies ARIA mismatches](#how-lighthouse-identifies-aria-mismatches)

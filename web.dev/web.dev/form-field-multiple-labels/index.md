@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#form-fields-have-multiple-labels" class="w-toc__header--link">Form fields have multiple labels</a>
 
 - [How the Lighthouse multiple label audit fails](#how-the-lighthouse-multiple-label-audit-fails)

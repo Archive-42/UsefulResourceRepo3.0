@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#fixing-layout-instability" class="w-toc__header--link">Fixing layout instability</a>
 
 - [Measuring layout shifts](#measuring-layout-shifts)

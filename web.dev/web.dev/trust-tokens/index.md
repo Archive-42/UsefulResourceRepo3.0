@@ -1,32 +1,24 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format" alt="Black and white photograph of hand holding token" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/okxi2ttRG3h1Z4F3cylI.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#getting-started-with-trust-tokens" class="w-toc__header--link">Getting started with Trust Tokens</a>
---------------------------------------------------------------------------------------------------------------
+## <a href="#getting-started-with-trust-tokens" class="w-toc__header--link">Getting started with Trust Tokens</a>
 
--   [Summary](#summary)
--   [Why do we need Trust Tokens?](#why-do-we-need-trust-tokens)
--   [What's in the Trust Tokens proposal?](#what's-in-the-trust-tokens-proposal)
--   [Sample API usage](#sample-api-usage)
--   [Trust token issuance](#trust-token-issuance)
--   [Trust token redemption](#trust-token-redemption)
--   [Privacy considerations](#privacy-considerations)
--   [Security considerations](#security-considerations)
--   [Request mechanisms](#request-mechanisms)
--   [Find out more](#find-out-more)
+- [Summary](#summary)
+- [Why do we need Trust Tokens?](#why-do-we-need-trust-tokens)
+- [What's in the Trust Tokens proposal?](#what's-in-the-trust-tokens-proposal)
+- [Sample API usage](#sample-api-usage)
+- [Trust token issuance](#trust-token-issuance)
+- [Trust token redemption](#trust-token-redemption)
+- [Privacy considerations](#privacy-considerations)
+- [Security considerations](#security-considerations)
+- [Request mechanisms](#request-mechanisms)
+- [Find out more](#find-out-more)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Getting started with Trust Tokens
-=================================
+# Getting started with Trust Tokens
 
 Trust Tokens is a new API to help combat fraud and distinguish bots from real humans, without passive tracking.
 
@@ -38,11 +30,10 @@ Jun 22, 2020 <span class="w-author__separator">•</span> Updated Feb 1, 2021
 
 <a href="/authors/samdutton/" class="w-author__name-link">Sam Dutton</a>
 
--   <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
--   <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
+- <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
 
-Summary <a href="#summary" class="w-headline-link">#</a>
---------------------------------------------------------
+## Summary <a href="#summary" class="w-headline-link">#</a>
 
 Trust tokens enable an origin to issue cryptographic tokens to a user it trusts. The tokens are stored by the user's browser. The browser can then use the tokens in other contexts to evaluate the user's authenticity.
 
@@ -54,8 +45,7 @@ You can try out Trust Tokens with our [demo](https://trust-token-demo.glitch.me)
 
 **This proposal needs your feedback!** If you have comments, please [create an issue](https://github.com/WICG/trust-token-api/issues/new) on the [Trust Token explainer](https://github.com/WICG/trust-token-api) repository.
 
-Why do we need Trust Tokens? <a href="#why-do-we-need-trust-tokens" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------
+## Why do we need Trust Tokens? <a href="#why-do-we-need-trust-tokens" class="w-headline-link">#</a>
 
 The web needs ways to establish trust signals which show that a user is who they say they are, and not a bot pretending to be a human, or a malicious third-party defrauding a real person or service. Fraud protection is particularly important for advertisers, ad providers, and CDNs.
 
@@ -67,8 +57,7 @@ Fingerprinting uses mechanisms that users aren't aware of and can't control. Sit
 
 The API must preserve privacy, enabling trust to be propagated across sites without individual user tracking.
 
-What's in the Trust Tokens proposal? <a href="#what&#39;s-in-the-trust-tokens-proposal" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------------------
+## What's in the Trust Tokens proposal? <a href="#what&#39;s-in-the-trust-tokens-proposal" class="w-headline-link">#</a>
 
 The web relies on building trust signals to detect fraud and spamming. One way to do this is by tracking browsing with global, cross-site per-user identifiers. For a privacy-preserving API, that's not acceptable.
 
@@ -80,8 +69,7 @@ From the proposal [**explainer**](https://github.com/WICG/trust-token-api#overvi
 >
 > We further propose an extension mechanism for the browser to sign outgoing requests with keys bound to a particular token redemption.
 
-Sample API usage <a href="#sample-api-usage" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Sample API usage <a href="#sample-api-usage" class="w-headline-link">#</a>
 
 The following is adapted from [sample code in the API explainer](https://github.com/WICG/trust-token-api#sample-api-usage).
 
@@ -133,8 +121,7 @@ With this code:
 1.  `foo.example` receives the RR and can parse the record to determine whether `issuer.example` thought this user was a human.
 2.  `foo.example` responds accordingly.
 
-How can a website work out whether to trust you?
-------------------------------------------------
+## How can a website work out whether to trust you?
 
 You might have shopping history with an ecommerce site, checkins on a location platform, or account history at a bank. Issuers might also look at other factors such as how long you've had an account, or other interactions (such as CAPTCHAs or form submission) that increase the issuer's trust in the likelihood that you're a real human.
 
@@ -150,7 +137,7 @@ If the user is deemed to be trustworthy by a trust token issuer such as `issuer.
 
 This invokes an extension of the [Privacy Pass](https://privacypass.github.io/) issuance protocol using a [new cryptographic primitive](https://eprint.iacr.org/2020/072.pdf):
 
-1.  Generate a set of pseudo-random numbers known as *nonces*.
+1.  Generate a set of pseudo-random numbers known as _nonces_.
 
 2.  Blind the nonces (encode them so the issuer can't view their contents) and attach them to the request in a `Sec-Trust-Token` header.
 
@@ -206,18 +193,17 @@ It might be possible to allow for sending RRs outside of `fetch()`, for example 
 
 **To reiterate: this proposal needs your feedback!** If you have comments, please [create an issue](https://github.com/WICG/trust-token-api/issues/new) on the Trust Token [explainer repository](https://github.com/WICG/trust-token-api).
 
-Find out more <a href="#find-out-more" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Find out more <a href="#find-out-more" class="w-headline-link">#</a>
 
--   [Trust Tokens demo](https://trust-token-demo.glitch.me)
--   [Digging in to the Privacy Sandbox](/digging-into-the-privacy-sandbox/)
--   [Trust Token API Explainer](https://github.com/WICG/trust-token-api)
--   [Chromium Projects: Trust Token API](https://sites.google.com/a/chromium.org/dev/updates/trust-token)
--   [Intent to Implement: Trust Token API](https://groups.google.com/a/chromium.org/g/blink-dev/c/X9sF2uLe9rA/m/1xV5KEn2DgAJ)
--   [Privacy Pass](https://privacypass.github.io/)
--   [Extensions of Privacy Pass](https://eprint.iacr.org/2020/072.pdf)
+- [Trust Tokens demo](https://trust-token-demo.glitch.me)
+- [Digging in to the Privacy Sandbox](/digging-into-the-privacy-sandbox/)
+- [Trust Token API Explainer](https://github.com/WICG/trust-token-api)
+- [Chromium Projects: Trust Token API](https://sites.google.com/a/chromium.org/dev/updates/trust-token)
+- [Intent to Implement: Trust Token API](https://groups.google.com/a/chromium.org/g/blink-dev/c/X9sF2uLe9rA/m/1xV5KEn2DgAJ)
+- [Privacy Pass](https://privacypass.github.io/)
+- [Extensions of Privacy Pass](https://eprint.iacr.org/2020/072.pdf)
 
-------------------------------------------------------------------------
+---
 
 Thanks to Kayce Basques, David Van Cleve, Steven Valdez, Tancrède Lepoint and Marshall Vale for their help with writing and reviewing this post.
 
@@ -229,35 +215,35 @@ Photo by [ZSun Fu](https://unsplash.com/photos/b4D7FKAghoE) on [Unsplash](https:
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

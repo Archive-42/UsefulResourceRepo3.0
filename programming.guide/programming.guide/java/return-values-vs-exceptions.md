@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## External Resources
 
@@ -38,7 +38,7 @@
 
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

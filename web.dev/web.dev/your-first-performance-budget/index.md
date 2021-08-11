@@ -1,25 +1,17 @@
+## <a href="#your-first-performance-budget" class="w-toc__header--link">Your first performance budget</a>
 
-
-
-
-
-
-<a href="#your-first-performance-budget" class="w-toc__header--link">Your first performance budget</a>
-------------------------------------------------------------------------------------------------------
-
--   [Preliminary analysis](#preliminary-analysis)
--   [Competitive analysis](#competitive-analysis)
--   [Budget for timing milestones](#budget-for-timing-milestones)
--   [Combine different metrics](#combine-different-metrics)
--   [Budget for quantity-based metrics](#budget-for-quantity-based-metrics)
--   [Budget for rule-based metrics](#budget-for-rule-based-metrics)
--   [Prioritize](#prioritize)
--   [Next steps](#next-steps)
+- [Preliminary analysis](#preliminary-analysis)
+- [Competitive analysis](#competitive-analysis)
+- [Budget for timing milestones](#budget-for-timing-milestones)
+- [Combine different metrics](#combine-different-metrics)
+- [Budget for quantity-based metrics](#budget-for-quantity-based-metrics)
+- [Budget for rule-based metrics](#budget-for-rule-based-metrics)
+- [Prioritize](#prioritize)
+- [Next steps](#next-steps)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Your first performance budget
-=============================
+# Your first performance budget
 
 Nov 5, 2018
 
@@ -29,9 +21,9 @@ Nov 5, 2018
 
 <a href="/authors/mihajlija/" class="w-author__name-link">Milica Mihajlija</a>
 
--   <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
--   <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
+- <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
 
 When you set a personal, business or family budget, you are setting a limit to your spending and making sure you stay within it. [Performance budgets](/performance-budgets-101) work in the same way, but for metrics that affect website performance.
 
@@ -39,8 +31,7 @@ With a performance budget established and enforced you can be sure that your sit
 
 Here's how to define your first performance budget in a few simple steps.
 
-Preliminary analysis <a href="#preliminary-analysis" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Preliminary analysis <a href="#preliminary-analysis" class="w-headline-link">#</a>
 
 If you are trying to improve the performance of an existing site, start by identifying the most important pages. For example, these could be pages that have the highest amount of user traffic or a product landing page.
 
@@ -48,8 +39,8 @@ After you identify your key pages, it's time to analyze them. First, we'll focus
 
 Under the Audits panel in Chrome DevTools, you'll find [Lighthouse](https://developers.google.com/web/tools/lighthouse/). Run audits on each page in a [Guest window](https://support.google.com/chrome/answer/6130773?co=GENIE.Platform%3DDesktop&hl=en) to record these two times:
 
--   [First Contentful Paint (FCP)](/first-contentful-paint)
--   [Time to Interactive (TTI)](/interactive)
+- [First Contentful Paint (FCP)](/first-contentful-paint)
+- [Time to Interactive (TTI)](/interactive)
 
 Using a Guest window gives you a clean testing environment without any Chrome extensions that could interfere with the audit.
 
@@ -97,8 +88,7 @@ Results page
 
 Mobile analysis of doggos.io
 
-Competitive analysis <a href="#competitive-analysis" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Competitive analysis <a href="#competitive-analysis" class="w-headline-link">#</a>
 
 Once you've analyzed your own site, it's time to analyze your competitors' sites. Comparing results from websites similar to yours is a great way to figure out a performance budget. Whether you are working on an established project or starting from scratch, this is an important step. You get competitive advantage when you are faster than your competitors.
 
@@ -202,13 +192,12 @@ TTI
 
 Revised doggos.io performance budget
 
-Combine different metrics <a href="#combine-different-metrics" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Combine different metrics <a href="#combine-different-metrics" class="w-headline-link">#</a>
 
 A solid performance budget combines different types of metrics. We've already defined the budget for milestone timings and now we'll add two more to the mix:
 
--   quantity-based metrics
--   rule-based metrics
+- quantity-based metrics
+- rule-based metrics
 
 ### Budget for quantity-based metrics <a href="#budget-for-quantity-based-metrics" class="w-headline-link">#</a>
 
@@ -234,15 +223,13 @@ Very effective rule-based metrics are [Lighthouse](https://developers.google.com
 
 When you try to build a great site, **set Lighthouse performance score budget to at least 85 (out of 100)**. Use [Lighthouse CI](https://github.com/ebidel/lighthouse-ci) to enforce it on pull-requests.
 
-Prioritize <a href="#prioritize" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Prioritize <a href="#prioritize" class="w-headline-link">#</a>
 
 Ask yourself what level of interaction you expect on your site. If it's a news website, users' primary goal is to read content so you should focus on rendering quickly and keeping FCP low. Doggos.com visitors want to click on relevant links as soon as possible, so the top priority is low TTI.
 
 Find out exactly what part of your audience browses on desktop vs. on mobile devices and prioritize accordingly. One way to figure this out is to check what your audience is doing on competitors' websites, through the [Chrome User Experience report](https://developers.google.com/web/updates/2018/08/chrome-ux-report-dashboard) dashboard.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format" alt="Device distribution data from Chrome User Experience report" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1600 1600w" width="800" height="530" /><figcaption>Device distribution data from Chrome User Experience report</figcaption></figure>Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format" alt="Device distribution data from Chrome User Experience report" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/ycZwOrFNzjdjquriM9rJ.png?auto=format&amp;w=1600 1600w" width="800" height="530" /><figcaption>Device distribution data from Chrome User Experience report</figcaption></figure>Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 Make sure your performance budget is enforced throughout the project and incorporate it into your build process.
 
@@ -252,35 +239,35 @@ Make sure your performance budget is enforced throughout the project and incorpo
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Hash Tables
 
@@ -30,7 +30,7 @@
 [Deletion Algorithms for Coalesced Hashing](https://academic.oup.com/comjnl/article/29/5/436/486218)  
 <span style="color: grey; font-style: italic; font-size: smaller">by W. C. Chen, J. S. Vitter</span>
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

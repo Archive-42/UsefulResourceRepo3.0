@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#cumulative-layout-shift-(cls)" class="w-toc__header--link">Cumulative Layout Shift (CLS)</a>
 
 - [What is CLS?](#what-is-cls)

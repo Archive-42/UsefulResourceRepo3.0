@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#containers-and-codecs" class="w-toc__header--link">Containers and codecs</a>
 
 - [Check your work](#check-your-work)

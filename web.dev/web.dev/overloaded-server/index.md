@@ -1,36 +1,28 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/5fmiwGShxNngW0sOeKvf.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#fix-an-overloaded-server" class="w-toc__header--link">Fix an overloaded server</a>
---------------------------------------------------------------------------------------------
+## <a href="#fix-an-overloaded-server" class="w-toc__header--link">Fix an overloaded server</a>
 
--   [Overview](#overview)
--   [Assess](#assess)
--   [Stabilize](#stabilize)
--   [Rate Limiting](#rate-limiting)
--   [HTTP Caching](#http-caching)
--   [Graceful Degradation](#graceful-degradation)
--   [Improve](#improve)
--   [Use a content delivery network (CDN)](#use-a-content-delivery-network-(cdn))
--   [Scale compute resources](#scale-compute-resources)
--   [Enable compression](#enable-compression)
--   [Optimize images and media](#optimize-images-and-media)
--   [Minify JS and CSS](#minify-js-and-css)
--   [Monitor](#monitor)
--   [Fix](#fix-8)
+- [Overview](#overview)
+- [Assess](#assess)
+- [Stabilize](#stabilize)
+- [Rate Limiting](#rate-limiting)
+- [HTTP Caching](#http-caching)
+- [Graceful Degradation](#graceful-degradation)
+- [Improve](#improve)
+- [Use a content delivery network (CDN)](<#use-a-content-delivery-network-(cdn)>)
+- [Scale compute resources](#scale-compute-resources)
+- [Enable compression](#enable-compression)
+- [Optimize images and media](#optimize-images-and-media)
+- [Minify JS and CSS](#minify-js-and-css)
+- [Monitor](#monitor)
+- [Fix](#fix-8)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Fix an overloaded server
-========================
+# Fix an overloaded server
 
 How to determine a server's bottleneck, quickly fix the bottleneck, improve server performance, and prevent regressions.
 
@@ -40,13 +32,12 @@ Mar 31, 2020
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 This guide shows you how to fix an overloaded server in 4 steps:
 
@@ -57,22 +48,20 @@ This guide shows you how to fix an overloaded server in 4 steps:
 
 If you have questions or feedback on this guide, or you want to share your own tips and tricks, please leave a comment in [PR \#2479](https://github.com/GoogleChrome/web.dev/pull/2479).
 
-Assess <a href="#assess" class="w-headline-link">#</a>
-------------------------------------------------------
+## Assess <a href="#assess" class="w-headline-link">#</a>
 
 When traffic overloads a server, one or more of the following can become a bottleneck: CPU, network, memory, or disk I/O. Identifying which of these is the bottleneck makes it possible to focus efforts on the most impactful mitigations.
 
--   CPU: CPU usage that is consistently over 80% should be investigated and fixed. Server performance often degrades once CPU usage reaches ~80-90%, and becomes more pronounced as usuage gets closer to 100%. The CPU utilization of serving a single request is negligible, but doing this at the scale encountered during traffic spikes can sometimes overwhelm a server. Offloading serving to other infrastructure, reducing expensive operations, and limiting the quantity of requests will reduce CPU utilization.
--   Network: During periods of high traffic, the network throughput required to fulfill user requests can exceed capacity. Some sites, depending on the hosting provider, may also hit caps regarding cumulative data transfer. Reducing the size and quantity of data transferred to and from the server will remove this bottleneck.
--   Memory: When a system doesn't have enough memory, data has to be offloaded to disk for storage. Disk is considerably slower to access than memory, and this can slow down an entire application. If memory becomes completely exhausted, it can result in [Out of Memory](https://en.wikipedia.org/wiki/Out_of_memory) (OOM) errors. Adjusting memory allocation, fixing memory leaks, and upgrading memory can remove this bottleneck.
--   Disk I/O: The rate at which data can be read or written from disk is constrained by the disk itself. If disk I/O is a bottleneck, increasing the amount of data cached in memory can alleviate this issue (at the cost of increased memory utilization). If this doesn't work, it may be necessary to upgrade your disks.
+- CPU: CPU usage that is consistently over 80% should be investigated and fixed. Server performance often degrades once CPU usage reaches ~80-90%, and becomes more pronounced as usuage gets closer to 100%. The CPU utilization of serving a single request is negligible, but doing this at the scale encountered during traffic spikes can sometimes overwhelm a server. Offloading serving to other infrastructure, reducing expensive operations, and limiting the quantity of requests will reduce CPU utilization.
+- Network: During periods of high traffic, the network throughput required to fulfill user requests can exceed capacity. Some sites, depending on the hosting provider, may also hit caps regarding cumulative data transfer. Reducing the size and quantity of data transferred to and from the server will remove this bottleneck.
+- Memory: When a system doesn't have enough memory, data has to be offloaded to disk for storage. Disk is considerably slower to access than memory, and this can slow down an entire application. If memory becomes completely exhausted, it can result in [Out of Memory](https://en.wikipedia.org/wiki/Out_of_memory) (OOM) errors. Adjusting memory allocation, fixing memory leaks, and upgrading memory can remove this bottleneck.
+- Disk I/O: The rate at which data can be read or written from disk is constrained by the disk itself. If disk I/O is a bottleneck, increasing the amount of data cached in memory can alleviate this issue (at the cost of increased memory utilization). If this doesn't work, it may be necessary to upgrade your disks.
 
 The techniques in this guide focus on addressing CPU and network bottlenecks. For most sites, CPU and network will be the most relevant bottlenecks during a traffic spike.
 
 Running [`top`](https://linux.die.net/man/1/top) on the affected server is a good starting place for investigating bottlenecks. If available, supplement this with historical data from your hosting provider or monitoring tooling.
 
-Stabilize <a href="#stabilize" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Stabilize <a href="#stabilize" class="w-headline-link">#</a>
 
 An overloaded server can quickly lead to [cascading failures](https://en.wikipedia.org/wiki/Cascading_failure) elsewhere in the system. Thus, it's important to stabilize the server before attempting to make more significant changes.
 
@@ -86,13 +75,13 @@ Although rejecting a request is relatively inexpensive, the best way to protect 
 
 Instructions:
 
--   [NGINX](https://www.nginx.com/blog/rate-limiting-nginx/)
--   [HAProxy](https://www.haproxy.com/blog/four-examples-of-haproxy-rate-limiting/)
--   [Microsoft IIS](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/sites/site/limits)
+- [NGINX](https://www.nginx.com/blog/rate-limiting-nginx/)
+- [HAProxy](https://www.haproxy.com/blog/four-examples-of-haproxy-rate-limiting/)
+- [Microsoft IIS](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/sites/site/limits)
 
 Further reading:
 
--   [Rate-limiting Strategies & Techniques](https://cloud.google.com/solutions/rate-limiting-strategies-techniques)
+- [Rate-limiting Strategies & Techniques](https://cloud.google.com/solutions/rate-limiting-strategies-techniques)
 
 ### HTTP Caching <a href="#http-caching" class="w-headline-link">#</a>
 
@@ -106,8 +95,8 @@ Although [service workers](https://developers.google.com/web/fundamentals/primer
 
 Run [Lighthouse](https://developers.google.com/web/tools/lighthouse) and look at the [Serve static assets with an efficient cache policy](https://developers.google.com/web/tools/lighthouse/audits/cache-policy) audit to view a list of resources with a short to medium [time to live](https://en.wikipedia.org/wiki/Time_to_live) (TTL). For each listed resource, consider if the TTL should be increased. As a rough guideline:
 
--   Static resources should be cached with a long TTL (1 year).
--   Dynamic resources should be cached with a short TTL (3 hours).
+- Static resources should be cached with a long TTL (1 year).
+- Dynamic resources should be cached with a short TTL (3 hours).
 
 #### Fix <a href="#fix-2" class="w-headline-link">#</a>
 
@@ -115,9 +104,9 @@ Set the [`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Head
 
 Instructions:
 
--   [NGINX](http://nginx.org/en/docs/http/ngx_http_headers_module.html)
--   [Apache](http://httpd.apache.org/docs/current/mod/mod_expires.html)
--   [Microsoft](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/clientcache)
+- [NGINX](http://nginx.org/en/docs/http/ngx_http_headers_module.html)
+- [Apache](http://httpd.apache.org/docs/current/mod/mod_expires.html)
+- [Microsoft](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/staticcontent/clientcache)
 
 Note: The `max-age` directive is just one of many caching directives. There are many other directives and headers that will affect the caching behavior of your application. For a more in-depth explanation of caching strategy it is highly recommended that you read [HTTP Caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching).
 
@@ -125,8 +114,7 @@ Note: The `max-age` directive is just one of many caching directives. There are 
 
 Graceful degradation is the strategy of temporarily reducing functionality in order to shed excess load from a system. This concept can be applied in many different ways: for example, serving a static text page instead of a full-featured application, disabling search or returning fewer search results, or disabling certain expensive or non-essential features. Emphasis should be placed on removing functionalities that can be safely and easily removed with minimal business impact.
 
-Improve <a href="#improve" class="w-headline-link">#</a>
---------------------------------------------------------
+## Improve <a href="#improve" class="w-headline-link">#</a>
 
 ### Use a content delivery network (CDN) <a href="#use-a-content-delivery-network-(cdn)" class="w-headline-link">#</a>
 
@@ -148,9 +136,9 @@ Identify resources that are not being served from a CDN (but should be) by runni
 
 If a resource is not being cached by the CDN, check that the following conditions are met:
 
--   It has a [`Cache-Control: public`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Cacheability) header.
--   It has a [`Cache-Control: s-maxage`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Expiration), [`Cache-Control: max-age`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Expiration), or [`Expires`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires) header.
--   It has a [`Content-Length`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length), [`Content-Range`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range), or [`Transfer-Encoding header`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding).
+- It has a [`Cache-Control: public`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Cacheability) header.
+- It has a [`Cache-Control: s-maxage`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Expiration), [`Cache-Control: max-age`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#Expiration), or [`Expires`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires) header.
+- It has a [`Content-Length`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length), [`Content-Range`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range), or [`Transfer-Encoding header`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding).
 
 ### Scale compute resources <a href="#scale-compute-resources" class="w-headline-link">#</a>
 
@@ -180,9 +168,9 @@ Use the Lighthouse [Enable text compression](https://developers.google.com/web/t
 
 Enable compression by updating your server configuration. Instructions:
 
--   [NGINX](http://nginx.org/en/docs/http/ngx_http_gzip_module.html)
--   [Apache](https://httpd.apache.org/docs/trunk/mod/mod_deflate.html)
--   [Microsoft](https://docs.microsoft.com/en-us/iis/extensions/iis-compression/iis-compression-overview)
+- [NGINX](http://nginx.org/en/docs/http/ngx_http_gzip_module.html)
+- [Apache](https://httpd.apache.org/docs/trunk/mod/mod_deflate.html)
+- [Microsoft](https://docs.microsoft.com/en-us/iis/extensions/iis-compression/iis-compression-overview)
 
 ### Optimize images and media <a href="#optimize-images-and-media" class="w-headline-link">#</a>
 
@@ -194,38 +182,38 @@ Lighthouse has a variety of audits that flag potential image optimizations. Alte
 
 Relevant Lighthouse audits:
 
--   [Properly size images](https://developers.google.com/web/tools/lighthouse/audits/oversized-images)
--   [Defer offscreen images](https://developers.google.com/web/tools/lighthouse/audits/offscreen-images)
--   [Efficiently encode images](/uses-optimized-images/)
--   [Serve images in next-gen formats](https://developers.google.com/web/tools/lighthouse/audits/webp)
--   [Use video formats for animated content](/efficient-animated-content/)
+- [Properly size images](https://developers.google.com/web/tools/lighthouse/audits/oversized-images)
+- [Defer offscreen images](https://developers.google.com/web/tools/lighthouse/audits/offscreen-images)
+- [Efficiently encode images](/uses-optimized-images/)
+- [Serve images in next-gen formats](https://developers.google.com/web/tools/lighthouse/audits/webp)
+- [Use video formats for animated content](/efficient-animated-content/)
 
 Chrome DevTools workflow:
 
--   [Log network activity](https://developers.google.com/web/tools/chrome-devtools/network#load)
--   Click **Img** to [filter out non-image resources](https://developers.google.com/web/tools/chrome-devtools/network/reference#filter-by-type)
--   Click the **Size** column to sort the image files by size
+- [Log network activity](https://developers.google.com/web/tools/chrome-devtools/network#load)
+- Click **Img** to [filter out non-image resources](https://developers.google.com/web/tools/chrome-devtools/network/reference#filter-by-type)
+- Click the **Size** column to sort the image files by size
 
 #### Fix <a href="#fix-6" class="w-headline-link">#</a>
 
-*If you have limited time…*
+_If you have limited time…_
 
 Focus your time on Identifying large and frequently loaded images and manually optimizing them with a tool like [Squoosh](https://squoosh.app/). Hero images are often good candidates for optimization.
 
 Things to keep in mind:
 
--   Size: Images should be no larger than necessary.
--   Compression: Generally speaking, a quality level of 80-85 will have a minimal effect on image quality while yielding a 30-40% reduction in file size.
--   Format: Use JPEGs for photos rather than PNG; use MP4 for [animated content](/replace-gifs-with-videos/) rather than GIF.
+- Size: Images should be no larger than necessary.
+- Compression: Generally speaking, a quality level of 80-85 will have a minimal effect on image quality while yielding a 30-40% reduction in file size.
+- Format: Use JPEGs for photos rather than PNG; use MP4 for [animated content](/replace-gifs-with-videos/) rather than GIF.
 
-*If you have more time…*
+_If you have more time…_
 
 Consider setting up an image CDN if images make up a substantial portion of your site. Image CDNs are designed for serving and optimizing images and they will offload image serving from the origin server. Setting up an image CDN is straightforward but requires updating existing image URLs to point at the image CDN.
 
 Further reading:
 
--   [Use image CDNs to optimize images](/image-cdns/#optimize-your-images)
--   [images.guide](https://images.guide/)
+- [Use image CDNs to optimize images](/image-cdns/#optimize-your-images)
+- [images.guide](https://images.guide/)
 
 ### Minify JS and CSS <a href="#minify-js-and-css" class="w-headline-link">#</a>
 
@@ -239,11 +227,10 @@ Use the [Minify CSS](https://developers.google.com/web/tools/lighthouse/audits/m
 
 If you have limited time, focus on minifying your JavaScript. Most sites have more JavaScript than CSS, so this will be more impactful.
 
--   [Minify JavaScript](/reduce-network-payloads-using-text-compression/)
--   [Minify CSS](/minify-css/)
+- [Minify JavaScript](/reduce-network-payloads-using-text-compression/)
+- [Minify CSS](/minify-css/)
 
-Monitor <a href="#monitor" class="w-headline-link">#</a>
---------------------------------------------------------
+## Monitor <a href="#monitor" class="w-headline-link">#</a>
 
 Server monitoring tools provide data collection, dashboards, and alerting regarding server performance. Their usage can help prevent and mitigate future server performance issues.
 
@@ -257,10 +244,10 @@ All major cloud providers offer their own monitoring tooling ([GCP](https://code
 
 Instructions:
 
--   [GCP](https://cloud.google.com/monitoring/alerts)
--   [AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html)
--   [Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/app/alerts)
--   [Netdata](https://docs.netdata.cloud/health/)
+- [GCP](https://cloud.google.com/monitoring/alerts)
+- [AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html)
+- [Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/app/alerts)
+- [Netdata](https://docs.netdata.cloud/health/)
 
 <a href="/tags/performance/" class="w-chip">Performance</a>
 
@@ -268,35 +255,35 @@ Instructions:
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

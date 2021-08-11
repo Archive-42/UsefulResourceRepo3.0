@@ -1,18 +1,10 @@
+## <a href="#prioritize-resources" class="w-toc__header--link">Prioritize resources</a>
 
-
-
-
-
-
-<a href="#prioritize-resources" class="w-toc__header--link">Prioritize resources</a>
-------------------------------------------------------------------------------------
-
--   [Default priorities in the browser](#default-priorities-in-the-browser)
+- [Default priorities in the browser](#default-priorities-in-the-browser)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Prioritize resources
-====================
+# Prioritize resources
 
 Aug 17, 2018 <span class="w-author__separator">•</span> Updated Aug 5, 2020
 
@@ -22,14 +14,13 @@ Aug 17, 2018 <span class="w-author__separator">•</span> Updated Aug 5, 2020
 
 <a href="/authors/sgomes/" class="w-author__name-link">Sérgio Gomes</a>
 
--   <a href="https://twitter.com/sergiomdgomes" class="w-author__link">Twitter</a>
+- <a href="https://twitter.com/sergiomdgomes" class="w-author__link">Twitter</a>
 
 Not every byte that is sent down the wire to the browser has the same degree of importance, and the browser knows this. Browsers have heuristics that attempt to make a best-guess at the most important resources to load first—such as CSS before scripts and images.
 
 That said, as with any heuristic, it doesn't always work out; the browser might make the wrong decision, usually because it doesn't have enough information at that time. There are ways that you can influence this decision-making using `<link rel="preload">`, `<link rel="preconnect">`, and `<link rel="prefetch">`.
 
-Default priorities in the browser <a href="#default-priorities-in-the-browser" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Default priorities in the browser <a href="#default-priorities-in-the-browser" class="w-headline-link">#</a>
 
 The browser assigns different relative priorities to different types of resources based on how critical they might be. So, for example, a `<script>` tag in your page's `<head>` would be loaded in Chrome at a **High** priority (below CSS, at **Highest**), but that priority would change to **Low** if it has the `async` attribute (meaning it can be loaded and run asynchronously).
 
@@ -41,9 +32,9 @@ So what can you do if you find any resources that are marked with a different pr
 
 There are three different declarative solutions, which are all relatively new `<link>` types.
 
--   [`<link rel="preload">`](/preload-critical-assets/) informs the browser that a resource is needed as part of the current navigation, and that it should start getting fetched as soon as possible.
--   [`<link rel="preconnect">`](/preconnect-and-dns-prefetch/) informs the browser that your page intends to establish a connection to another origin, and that you'd like the process to start as soon as possible.
--   [`<link rel="prefetch">`](/link-prefetch/) is somewhat different from `<link rel="preload">` and `<link rel="preconnect">`, in that it doesn't try to make something critical happen faster; instead, it tries to make something non-critical happen earlier, if there's a chance.
+- [`<link rel="preload">`](/preload-critical-assets/) informs the browser that a resource is needed as part of the current navigation, and that it should start getting fetched as soon as possible.
+- [`<link rel="preconnect">`](/preconnect-and-dns-prefetch/) informs the browser that your page intends to establish a connection to another origin, and that you'd like the process to start as soon as possible.
+- [`<link rel="prefetch">`](/link-prefetch/) is somewhat different from `<link rel="preload">` and `<link rel="preconnect">`, in that it doesn't try to make something critical happen faster; instead, it tries to make something non-critical happen earlier, if there's a chance.
 
 <a href="/tags/performance/" class="w-chip">Performance</a>
 
@@ -51,35 +42,35 @@ There are three different declarative solutions, which are all relatively new `<
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

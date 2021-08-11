@@ -1,18 +1,16 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+
+## Featured Stack Overflow Post
+
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java Variables (with examples)
-==============================
+# Java Variables (with examples)
 
 You use a variable when you need to store a value and refer to it elsewhere in the code.
 
@@ -46,14 +42,13 @@ In the example below, the two variables are highlighted.
         System.out.println("Invalid username/password");
     }
 
-Declaring
----------
+## Declaring
 
-To use a variable you must first *declare* it. When you declare a variable you specify
+To use a variable you must first _declare_ it. When you declare a variable you specify
 
--   the **type** of data you will store in it,
--   its **name** (or *identifier*), and,
--   optionally, an **initial value**.
+- the **type** of data you will store in it,
+- its **name** (or _identifier_), and,
+- optionally, an **initial value**.
 
 This code
 
@@ -61,9 +56,9 @@ This code
 
 …means:
 
-*From here on, let `maxLength` represent an integer (`int`). Initialize it with value `100`.*
+_From here on, let `maxLength` represent an integer (`int`). Initialize it with value `100`._
 
-If you try to use a variable that hasn't been declared (e.g. if you misspell a variable name) the compiler will complain and say something like *"Identifier amxLength not found."*
+If you try to use a variable that hasn't been declared (e.g. if you misspell a variable name) the compiler will complain and say something like _"Identifier amxLength not found."_
 
 ### Multiple variables
 
@@ -74,17 +69,15 @@ You can declare multiple variables at once with the same type:
 
 Most style guides however, recommend against this.
 
-Variable names…
----------------
+## Variable names…
 
--   …are **case sensitive**.
--   …may include **any unicode letter or digit**
--   …**must not** start with a digit
--   …**must not** be spelled the same way as a keyword, `true`, `false` or `null`
--   …should by convention **start with a lower case letter** and be written in **camelCase**
+- …are **case sensitive**.
+- …may include **any unicode letter or digit**
+- …**must not** start with a digit
+- …**must not** be spelled the same way as a keyword, `true`, `false` or `null`
+- …should by convention **start with a lower case letter** and be written in **camelCase**
 
-Types
------
+## Types
 
 You **must choose a type** for each variable. There's no such thing as an untyped variable in Java. The type must be respected throughout the code. This code would give you a compiler error:
 
@@ -93,8 +86,8 @@ You **must choose a type** for each variable. There's no such thing as an untype
 
 Types come in two shapes:
 
--   **Primitive types** --- simple types used to hold numbers, characters, etc
--   **Reference types** --- used to store references to objects, such as `Person`, `Car`, etc
+- **Primitive types** --- simple types used to hold numbers, characters, etc
+- **Reference types** --- used to store references to objects, such as `Person`, `Car`, etc
 
 See [Java: Primitives vs Objects and References](primitives-vs-objects-references.html) for further details.
 
@@ -124,14 +117,13 @@ If you need to store, say 10 integers (but don't want to create 10 variables) yo
 
 For more information on the Java type system, see separate article: [Types in Java](types.html).
 
-Scope
------
+## Scope
 
 If you for instance declare a variable in one method, you can't access that same variable in another method. Each variable has a **scope**; a section of code where it's accessible.
 
 The scope is delimited by `{` and `}`.
 
-`    void method() {`
+` void method() {`
 
 <span style="
                   position: absolute;
@@ -143,11 +135,11 @@ The scope is delimited by `{` and `}`.
                   color: blue;
                 ">scope of d</span>
 
-`        double d;`
+` double d;`
 
-`        …`
+` …`
 
-`        if (…) {`
+` if (…) {`
 
 <span style="
                   position: absolute;
@@ -159,11 +151,11 @@ The scope is delimited by `{` and `}`.
                   color: #dd0000;
                 ">scope of i</span>
 
-`            int                 i;`
+` int i;`
 
-`        ` `    …`
+` ` ` …`
 
-`        `
+` `
 
 `} else {`
 
@@ -177,20 +169,19 @@ The scope is delimited by `{` and `}`.
                     color: green;
                   ">scope of s</span>
 
-`            String                 s;`
+` String s;`
 
-`        ` `    …`
+` ` ` …`
 
-`        ` `}`
+` ` `}`
 
-`        …`
+` …`
 
-`        i = 17;               // Error: i is out of scope`
+` i = 17; // Error: i is out of scope`
 
-`    ` `}`
+` ` `}`
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

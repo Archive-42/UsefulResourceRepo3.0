@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#content-reordering" class="w-toc__header--link">Content reordering</a>
 
 - [Source vs. visual order](#source-vs.-visual-order)

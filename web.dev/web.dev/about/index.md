@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Where you can learn and measure
 
 Whether you already have a website or you're just getting started, learn to build for the modern web at web.dev. Then, apply your new skills and solutions to any personal or professional site you work on.

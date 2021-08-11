@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#how-to-provide-your-own-in-app-install-experience" class="w-toc__header--link">How to provide your own in-app install experience</a>
 
 - [Promoting installation](#promote-installation)

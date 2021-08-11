@@ -1,13 +1,6 @@
-
-
-
-
-
-
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Lighthouse
-==========
+# Lighthouse
 
 Our latest news, updates, and stories about Lighthouse.
 
@@ -19,8 +12,7 @@ Our latest news, updates, and stories about Lighthouse.
 
 <a href="/how-mercadolibre-optimized-web-vitals/" class="w-card-base__link"></a>
 
-How Mercado Libre optimized for Web Vitals (TBT/FID)
-----------------------------------------------------
+## How Mercado Libre optimized for Web Vitals (TBT/FID)
 
 <span class="w-author__name"><a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>, <a href="/authors/aranhacarlos/" class="w-author__name-link">Carlos Aranha</a>, <a href="/authors/joanbaca/" class="w-author__name-link">Joan Baca</a></span>
 
@@ -38,8 +30,7 @@ Optimizing interactivity of product details pages for a 90% reduction in Max Pot
 
 <a href="/lighthouse-ci/" class="w-card-base__link"></a>
 
-Performance monitoring with Lighthouse CI
------------------------------------------
+## Performance monitoring with Lighthouse CI
 
 [<img src="https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Katie Hempenius" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/fZo7BJGec2MNRt6cWpeh.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/katiehempenius/)
 
@@ -59,8 +50,7 @@ How to add Lighthouse to a continuous integration system, such as GitHub Actions
 
 <a href="/live-wrap-up/" class="w-card-base__link"></a>
 
-web.dev LIVE wrap-up
---------------------
+## web.dev LIVE wrap-up
 
 Jul 6, 2020
 
@@ -76,8 +66,7 @@ A summary of the major news and updates that were announced during our 3-day onl
 
 <a href="/google-search-tools/" class="w-card-base__link"></a>
 
-Web developer tools for debugging JavaScript issues in Google Search
---------------------------------------------------------------------
+## Web developer tools for debugging JavaScript issues in Google Search
 
 [<img src="https://web-dev.imgix.net/image/admin/HoAwoSaHr3yneJoSxKYc.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Martin Splitt" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/HoAwoSaHr3yneJoSxKYc.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/HoAwoSaHr3yneJoSxKYc.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/HoAwoSaHr3yneJoSxKYc.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/HoAwoSaHr3yneJoSxKYc.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/HoAwoSaHr3yneJoSxKYc.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/martinsplitt/)
 
@@ -93,8 +82,7 @@ How to debug SEO issues on individual pages or across an entire site.
 
 <a href="/rail/" class="w-card-base__link"></a>
 
-Measure performance with the RAIL model
----------------------------------------
+## Measure performance with the RAIL model
 
 Jun 10, 2020
 
@@ -106,8 +94,7 @@ Jun 10, 2020
 
 <a href="/lighthouse-whats-new-6.0/" class="w-card-base__link"></a>
 
-What's New in Lighthouse 6.0
-----------------------------
+## What's New in Lighthouse 6.0
 
 [<img src="https://web-dev.imgix.net/image/admin/JDJv4ZTKpDobwrJ8MSkZ.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Connor Clark" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/JDJv4ZTKpDobwrJ8MSkZ.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/JDJv4ZTKpDobwrJ8MSkZ.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/JDJv4ZTKpDobwrJ8MSkZ.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/JDJv4ZTKpDobwrJ8MSkZ.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/JDJv4ZTKpDobwrJ8MSkZ.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/cjamcl/)
 
@@ -127,8 +114,7 @@ New metrics, Performance score update, new audits, and more.
 
 <a href="/covid19/" class="w-card-base__link"></a>
 
-Ensure your website is available and usable for everyone during COVID-19
-------------------------------------------------------------------------
+## Ensure your website is available and usable for everyone during COVID-19
 
 Updated: Apr 6, 2020
 
@@ -142,35 +128,35 @@ How to ensure that the core functionality of your website is always available, a
 
 <a href="/tags" class="w-button">See more Tags</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

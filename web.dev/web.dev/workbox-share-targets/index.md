@@ -1,25 +1,17 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format" alt="Two pairs of hands holding a cup of tomatoes." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Cos9WFMqJGVZjBdQHcMU.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#integrate-pwas-into-built-in-sharing-uis-with-workbox" class="w-toc__header--link">Integrate PWAs into built-in sharing UIs with Workbox</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#integrate-pwas-into-built-in-sharing-uis-with-workbox" class="w-toc__header--link">Integrate PWAs into built-in sharing UIs with Workbox</a>
 
--   [On the same page](#on-the-same-page)
--   [Service worker share targets with Workbox](#service-worker-share-targets-with-workbox)
--   [Conclusion](#conclusion)
+- [On the same page](#on-the-same-page)
+- [Service worker share targets with Workbox](#service-worker-share-targets-with-workbox)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Integrate PWAs into built-in sharing UIs with Workbox
-=====================================================
+# Integrate PWAs into built-in sharing UIs with Workbox
 
 How to get your PWA to show up next to platform-specific apps in system-level sharing UIs
 
@@ -29,33 +21,32 @@ Dec 19, 2019
 
 <a href="/authors/samrichard/" class="w-author__name-link">Sam Richard</a>
 
--   <a href="https://twitter.com/snugug" class="w-author__link">Twitter</a>
--   <a href="https://github.com/snugug" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@snugug" class="w-author__link">Glitch</a>
--   <a href="https://snugug.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/snugug" class="w-author__link">Twitter</a>
+- <a href="https://github.com/snugug" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@snugug" class="w-author__link">Glitch</a>
+- <a href="https://snugug.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Joe Medley" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/joemedley/)
 
 <a href="/authors/joemedley/" class="w-author__name-link">Joe Medley</a>
 
--   <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Jeff Posnick" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/jeffposnick/)
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
 The [Web Share Target API](/web-share-target/) lets you display your [Progressive Web App](https://developers.google.com/web/progressive-web-apps/checklist) in a user's system-level share [sheet](https://material.io/develop/android/components/bottom-sheet-behavior/) after it's been installed. While it works great if you have a server available to receive the request, it's much harder to get working if you don't.
 
 In this article we'll use [Workbox](https://developers.google.com/web/tools/workbox), a set of JavaScript libraries for adding offline support to web apps, to create a share target URL that lives entirely inside your [service worker](/service-workers-cache-storage/). This lets static sites and single-page apps serve as share targets without a dedicated server endpoint.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format" alt="System-level share target picker with an installed PWA called Share Target Test as an option." sizes="(min-width: 400px) 400px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=800 800w" width="400" height="377" /><figcaption>System-level share target picker with an installed PWA called <code>Share Target Test</code> as an option.</figcaption></figure>On the same page <a href="#on-the-same-page" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format" alt="System-level share target picker with an installed PWA called Share Target Test as an option." sizes="(min-width: 400px) 400px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/mp2bdiP2gVeMQ4UX12vd.png?auto=format&amp;w=800 800w" width="400" height="377" /><figcaption>System-level share target picker with an installed PWA called <code>Share Target Test</code> as an option.</figcaption></figure>On the same page <a href="#on-the-same-page" class="w-headline-link">#</a>
 
 If you're unfamiliar with how Web Share Target Works, [Receiving shared data with the Web Share Target API](/web-share-target/) gives you an in-depth introduction. Here's a quick review.
 
@@ -79,8 +70,7 @@ There are two parts to implementing web share target functionality. First, updat
     }
     …
 
-Service worker share targets with Workbox <a href="#service-worker-share-targets-with-workbox" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------
+## Service worker share targets with Workbox <a href="#service-worker-share-targets-with-workbox" class="w-headline-link">#</a>
 
 While normally handled by a server endpoint, a neat trick you can do for a share target is to register a route directly in your service worker to handle the request. This will let your app be a share target without a backend.
 
@@ -115,8 +105,7 @@ You can try it out on the sample app [Fugu Journal](https://fugu-journal.web.app
 
 One common thing you might do is hold shared resources until better network connections are available. Workbox also supports [periodic background sync](/periodic-background-sync/).
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 The Share Target API is a simple way to deeply integrate your Progressive Web App into user's devices, putting them on-par with platform-specific applications for the critical task of sharing content between apps. But doing so usually requires a server available to receive the request. By leveraging Workbox to create a share target route directly in your service worker, your app is free of this constraint, allowing Share Target to work for apps while offline and without backends.
 
@@ -128,35 +117,35 @@ Photo by [Elaine Casap](https://unsplash.com/@ecasap?utm_source=unsplash&utm_med
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

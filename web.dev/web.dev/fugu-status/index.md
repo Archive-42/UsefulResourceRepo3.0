@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#new-capabilities-status" class="w-toc__header--link">New capabilities status</a>
 
 - [Capabilities available behind a flag](#flag)

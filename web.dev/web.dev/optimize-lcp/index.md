@@ -1,46 +1,38 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format" alt="Optimize LCP banner" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/qqTKhxUFqdLXnST2OFWN.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#optimize-largest-contentful-paint" class="w-toc__header--link">Optimize Largest Contentful Paint</a>
---------------------------------------------------------------------------------------------------------------
+## <a href="#optimize-largest-contentful-paint" class="w-toc__header--link">Optimize Largest Contentful Paint</a>
 
--   [Slow server response times](#slow-servers)
--   [Optimize your server](#optimize-your-server)
--   [Route users to a nearby CDN](#route-users-to-a-nearby-cdn)
--   [Cache assets](#cache-assets)
--   [Serve HTML pages cache-first](#serve-html-pages-cache-first)
--   [Establish third-party connections early](#establish-third-party-connections-early)
--   [Use signed exchanges (SXGs)](#use-signed-exchanges-(sxgs))
--   [Render blocking JavaScript and CSS](#render-blocking-resources)
--   [Reduce CSS blocking time](#reduce-css-blocking-time)
--   [Minify CSS](#minify-css)
--   [Defer non-critical CSS](#defer-non-critical-css)
--   [Inline critical CSS](#inline-critical-css)
--   [Reduce JavaScript blocking time](#reduce-javascript-blocking-time)
--   [Slow resource load times](#slow-resource-load-times)
--   [Optimize and compress images](#optimize-and-compress-images)
--   [Preload important resources](#preload-important-resources)
--   [Compress text files](#compress-text-files)
--   [Adaptive serving](#adaptive-serving)
--   [Cache assets using a service worker](#cache-assets-using-a-service-worker)
--   [Client-side rendering](#client-side-rendering)
--   [Minimize critical JavaScript](#minimize-critical-javascript)
--   [Use server-side rendering](#use-server-side-rendering)
--   [Use pre-rendering](#use-pre-rendering)
--   [Developer tools](#developer-tools)
+- [Slow server response times](#slow-servers)
+- [Optimize your server](#optimize-your-server)
+- [Route users to a nearby CDN](#route-users-to-a-nearby-cdn)
+- [Cache assets](#cache-assets)
+- [Serve HTML pages cache-first](#serve-html-pages-cache-first)
+- [Establish third-party connections early](#establish-third-party-connections-early)
+- [Use signed exchanges (SXGs)](<#use-signed-exchanges-(sxgs)>)
+- [Render blocking JavaScript and CSS](#render-blocking-resources)
+- [Reduce CSS blocking time](#reduce-css-blocking-time)
+- [Minify CSS](#minify-css)
+- [Defer non-critical CSS](#defer-non-critical-css)
+- [Inline critical CSS](#inline-critical-css)
+- [Reduce JavaScript blocking time](#reduce-javascript-blocking-time)
+- [Slow resource load times](#slow-resource-load-times)
+- [Optimize and compress images](#optimize-and-compress-images)
+- [Preload important resources](#preload-important-resources)
+- [Compress text files](#compress-text-files)
+- [Adaptive serving](#adaptive-serving)
+- [Cache assets using a service worker](#cache-assets-using-a-service-worker)
+- [Client-side rendering](#client-side-rendering)
+- [Minimize critical JavaScript](#minimize-critical-javascript)
+- [Use server-side rendering](#use-server-side-rendering)
+- [Use pre-rendering](#use-pre-rendering)
+- [Developer tools](#developer-tools)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Optimize Largest Contentful Paint
-=================================
+# Optimize Largest Contentful Paint
 
 How to render your main content faster.
 
@@ -52,10 +44,10 @@ May 5, 2020 <span class="w-author__separator">•</span> Updated Aug 20, 2020
 
 <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a>
 
--   <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
--   <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
--   <a href="https://houssein.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
+- <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
+- <a href="https://houssein.me/" class="w-author__link">Blog</a>
 
 > I can't see any useful content! Why does it take so long to load? 😖
 
@@ -67,24 +59,23 @@ One factor contributing to a poor user experience is how long it takes a user to
 
 The most common causes of a poor LCP are:
 
--   [Slow server response times](#slow-servers)
--   [Render-blocking JavaScript and CSS](#render-blocking-resources)
--   [Slow resource load times](#slow-resource-load-times)
--   [Client-side rendering](#client-side-rendering)
+- [Slow server response times](#slow-servers)
+- [Render-blocking JavaScript and CSS](#render-blocking-resources)
+- [Slow resource load times](#slow-resource-load-times)
+- [Client-side rendering](#client-side-rendering)
 
-Slow server response times <a href="#slow-servers" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Slow server response times <a href="#slow-servers" class="w-headline-link">#</a>
 
 The longer it takes a browser to receive content from the server, the longer it takes to render anything on the screen. A faster server response time directly improves every single page-load metric, including LCP.
 
 Before anything else, improve how and where your server handles your content. Use [**Time to First Byte**](/time-to-first-byte) (TTFB) to measure your server response times. You can improve your TTFB in a number of different ways:
 
--   Optimize your server
--   Route users to a nearby CDN
--   Cache assets
--   Serve HTML pages cache-first
--   Establish third-party connections early
--   Use signed exchanges
+- Optimize your server
+- Route users to a nearby CDN
+- Cache assets
+- Serve HTML pages cache-first
+- Establish third-party connections early
+- Use signed exchanges
 
 ### Optimize your server <a href="#optimize-your-server" class="w-headline-link">#</a>
 
@@ -104,9 +95,9 @@ If your HTML is static and doesn't need to change on every request, caching can 
 
 Depending on your toolchain, there are many different ways to apply server caching:
 
--   Configure reverse proxies ([Varnish](https://varnish-cache.org/), [nginx](https://www.nginx.com/)) to serve cached content or act as a cache server when installed in front of an application server
--   Configure and manage your cloud provider's ([Firebase](https://firebase.google.com/docs/hosting/manage-cache), [AWS](https://aws.amazon.com/caching/), [Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/caching)) cache behavior
--   Use a CDN that provides edge servers so that your content is cached and stored closer to your users
+- Configure reverse proxies ([Varnish](https://varnish-cache.org/), [nginx](https://www.nginx.com/)) to serve cached content or act as a cache server when installed in front of an application server
+- Configure and manage your cloud provider's ([Firebase](https://firebase.google.com/docs/hosting/manage-cache), [AWS](https://aws.amazon.com/caching/), [Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/caching)) cache behavior
+- Use a CDN that provides edge servers so that your content is cached and stored closer to your users
 
 ### Serve HTML pages cache-first <a href="#serve-html-pages-cache-first" class="w-headline-link">#</a>
 
@@ -142,8 +133,7 @@ Learn more by reading [Establish network connections early to improve perceived 
 
 [Signed exchanges (SXGs)](https://web.dev/signed-exchanges) are a delivery mechanism that allow for faster user experiences by providing content in an easily cacheable format. Specifically, [Google Search](https://developers.google.com/search/docs/advanced/experience/signed-exchange) will cache and sometimes prefetch SXGs. For sites that receive a large portion of their traffic from Google Search, SXGs can be an important tool for improving LCP. For more information, see [Signed Exchanges](/signed-exchanges).
 
-Render blocking JavaScript and CSS <a href="#render-blocking-resources" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------
+## Render blocking JavaScript and CSS <a href="#render-blocking-resources" class="w-headline-link">#</a>
 
 Before a browser can render any content, it needs to parse HTML markup into a DOM tree. The HTML parser will pause if it encounters any external stylesheets (`<link rel="stylesheet">`) or synchronous JavaScript tags (`<script src="main.js">`).
 
@@ -153,9 +143,9 @@ Scripts and stylesheets are both render blocking resources which delay FCP, and 
 
 Ensure that only the minimal amount of necessary CSS is blocking render on your site with the following:
 
--   Minify CSS
--   Defer non-critical CSS
--   Inline critical CSS
+- Minify CSS
+- Defer non-critical CSS
+- Inline critical CSS
 
 ### Minify CSS <a href="#minify-css" class="w-headline-link">#</a>
 
@@ -163,9 +153,9 @@ For easier legibility, CSS files can contain characters such as spacing, indenta
 
 If you use a module bundler or build tool, include an appropriate plugin to minify CSS files on every build:
 
--   For webpack: [optimize-css-assets-webpack-plugin](https://github.com/NMFR/optimize-css-assets-webpack-plugin)
--   For Gulp: [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
--   For Rollup: [rollup-plugin-css-porter](https://www.npmjs.com/package/rollup-plugin-css-porter)
+- For webpack: [optimize-css-assets-webpack-plugin](https://github.com/NMFR/optimize-css-assets-webpack-plugin)
+- For Gulp: [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
+- For Rollup: [rollup-plugin-css-porter](https://www.npmjs.com/package/rollup-plugin-css-porter)
 
 <figure><img src="https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format" alt="Example of LCP improvement: Before and after minifying CSS" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/vQXSKrY1Eq3CKkNbu9Td.png?auto=format&amp;w=1600 1600w" width="800" height="139" /><figcaption>Example of LCP improvement: Before and after minifying CSS</figcaption></figure>For more details, refer to the [Minify CSS](/minify-css/) guide.
 
@@ -177,13 +167,13 @@ Use the [Coverage](https://developers.google.com/web/tools/chrome-devtools/cover
 
 To optimize:
 
--   Remove any unused CSS entirely or move it to another stylesheet if used on a separate page of your site.
+- Remove any unused CSS entirely or move it to another stylesheet if used on a separate page of your site.
 
--   For any CSS not needed for initial rendering, use [loadCSS](https://github.com/filamentgroup/loadCSS/blob/master/README.md) to load files asynchronously, which leverages `rel="preload"`and `onload`.
+- For any CSS not needed for initial rendering, use [loadCSS](https://github.com/filamentgroup/loadCSS/blob/master/README.md) to load files asynchronously, which leverages `rel="preload"`and `onload`.
 
-    `html <link rel="preload" href="stylesheet.css" as="style" onload="this.rel='stylesheet'">`
+  `html <link rel="preload" href="stylesheet.css" as="style" onload="this.rel='stylesheet'">`
 
-    <figure><img src="https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format" alt="Example of LCP improvement: Before and after deferring non-critical CSS" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1600 1600w" width="800" height="139" /><figcaption>Example of LCP improvement: Before and after deferring non-critical CSS</figcaption></figure>
+  <figure><img src="https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format" alt="Example of LCP improvement: Before and after deferring non-critical CSS" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/2fcwrkXQRQrM8w1qyy3P.png?auto=format&amp;w=1600 1600w" width="800" height="139" /><figcaption>Example of LCP improvement: Before and after deferring non-critical CSS</figcaption></figure>
 
 For more details, refer to the [Defer non-critical CSS](/defer-non-critical-css/) guide.
 
@@ -195,8 +185,8 @@ Inline any critical-path CSS used for above-the-fold content by including it dir
 
 If you cannot manually add inline styles to your site, use a library to automate the process. Some examples:
 
--   [Critical](https://github.com/addyosmani/critical), [CriticalCSS](https://github.com/filamentgroup/criticalCSS), and [Penthouse](https://github.com/pocketjoso/penthouse) are all packages that extract and inline above-the-fold CSS
--   [Critters](https://github.com/GoogleChromeLabs/critters) is a webpack plugin that inlines critical CSS and lazy-loads the rest
+- [Critical](https://github.com/addyosmani/critical), [CriticalCSS](https://github.com/filamentgroup/criticalCSS), and [Penthouse](https://github.com/pocketjoso/penthouse) are all packages that extract and inline above-the-fold CSS
+- [Critters](https://github.com/GoogleChromeLabs/critters) is a webpack plugin that inlines critical CSS and lazy-loads the rest
 
 <figure><img src="https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format" alt="Example of LCP improvement: Before and after inlining critical CSS" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/L8sc51bd3ckxwnUfczC4.png?auto=format&amp;w=1600 1600w" width="800" height="175" /><figcaption>Example of LCP improvement: Before and after inlining critical CSS</figcaption></figure>Take a look at the [Extract critical CSS](/extract-critical-css/) guide to learn more.
 
@@ -206,30 +196,29 @@ Download and serve the minimal amount of necessary JavaScript to users. Reducing
 
 This can be accomplished by optimizing your scripts in a few different ways:
 
--   [Minify and compress JavaScript files](https://web.dev/reduce-network-payloads-using-text-compression/)
--   [Defer unused JavaScript](https://web.dev/reduce-javascript-payloads-with-code-splitting/)
--   [Minimize unused polyfills](https://web.dev/serve-modern-code-to-modern-browsers/)
+- [Minify and compress JavaScript files](https://web.dev/reduce-network-payloads-using-text-compression/)
+- [Defer unused JavaScript](https://web.dev/reduce-javascript-payloads-with-code-splitting/)
+- [Minimize unused polyfills](https://web.dev/serve-modern-code-to-modern-browsers/)
 
 The [Optimize First Input Delay](/optimize-fid/) guide covers all techniques needed to reduce JavaScript blocking time in a little more detail.
 
-Slow resource load times <a href="#slow-resource-load-times" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Slow resource load times <a href="#slow-resource-load-times" class="w-headline-link">#</a>
 
 Although an increase in CSS or JavaScript blocking time will directly result in worse performance, the time it takes to load many other types of resources can also affect paint times. The types of elements that affect LCP are:
 
--   `<img>` elements
--   `<image>` elements inside an `<svg>` element
--   `<video>` elements (the [poster](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-poster) image is used to measure LCP)
--   An element with a background image loaded via the [`url()`](https://developer.mozilla.org/en-US/docs/Web/CSS/url()) function (as opposed to a CSS gradient)
--   [Block-level](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) elements containing text nodes or other inline-level text elements
+- `<img>` elements
+- `<image>` elements inside an `<svg>` element
+- `<video>` elements (the [poster](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#attr-poster) image is used to measure LCP)
+- An element with a background image loaded via the [`url()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/url()>) function (as opposed to a CSS gradient)
+- [Block-level](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) elements containing text nodes or other inline-level text elements
 
 The time it takes to load these elements if rendered above-the-fold will have a direct effect on LCP. There are a few ways to ensure these files are loaded as fast as possible:
 
--   Optimize and compress images
--   Preload important resources
--   Compress text files
--   Deliver different assets based on network connection (adaptive serving)
--   Cache assets using a service worker
+- Optimize and compress images
+- Preload important resources
+- Compress text files
+- Deliver different assets based on network connection (adaptive serving)
+- Cache assets using a service worker
 
 ### Optimize and compress images <a href="#optimize-and-compress-images" class="w-headline-link">#</a>
 
@@ -237,11 +226,11 @@ For many sites, images are the largest element in view when the page has finishe
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format" alt="Image as the largest page element: design.google" sizes="(min-width: 459px) 459px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/unWra6cq0hPJJJT7Y3ye.png?auto=format&amp;w=918 918w" width="459" height="925" /><figcaption>Image as the largest page element: <a href="https://design.google/">design.google</a></figcaption></figure>Improving how long it takes to load and render these types of images will directly speed up LCP. To do this:
 
--   Consider not using an image in the first place. If it's not relevant to the content, remove it.
--   Compress images (with [Imagemin](/use-imagemin-to-compress-images) for example)
--   Convert images into newer formats (JPEG 2000, JPEG XR, or WebP)
--   Use responsive images
--   Consider using an image CDN
+- Consider not using an image in the first place. If it's not relevant to the content, remove it.
+- Compress images (with [Imagemin](/use-imagemin-to-compress-images) for example)
+- Convert images into newer formats (JPEG 2000, JPEG XR, or WebP)
+- Use responsive images
+- Consider using an image CDN
 
 Take a look at [Optimize your images](/fast/#optimize-your-images) for guides and resources that explain all of these techniques in detail.
 
@@ -295,10 +284,10 @@ If you have large assets that are critical for initial rendering, you can use di
 
 A list of useful properties that you can use:
 
--   `navigator.connection.effectiveType`: Effective connection type
--   `navigator.connection.saveData`: Data-saver enabled/disabled
--   `navigator.hardwareConcurrency`: CPU core count
--   `navigator.deviceMemory`: Device Memory
+- `navigator.connection.effectiveType`: Effective connection type
+- `navigator.connection.saveData`: Data-saver enabled/disabled
+- `navigator.hardwareConcurrency`: CPU core count
+- `navigator.deviceMemory`: Device Memory
 
 For more information, refer to [Adaptive serving based on network quality](/adaptive-serving-based-on-network-quality/).
 
@@ -310,8 +299,7 @@ Precaching critical resources using a service worker can reduce their load times
 
 Take a look at [Network reliability](/reliable/) to learn more about service workers and Workbox.
 
-Client-side rendering <a href="#client-side-rendering" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Client-side rendering <a href="#client-side-rendering" class="w-headline-link">#</a>
 
 Many sites use client-side JavaScript logic to render pages directly in the browser. Frameworks and libraries, like [React](https://reactjs.org/), [Angular](https://angular.io/), and [Vue](https://vuejs.org/), have made it easier to build single-page applications that handle different facets of a web page entirely on the client rather on the server.
 
@@ -319,17 +307,17 @@ If you're building a site that is mostly rendered on the client, you should be w
 
 When building a client-side rendered site, consider the following optimizations:
 
--   Minimize critical JavaScript
--   Use server-side rendering
--   Use pre-rendering
+- Minimize critical JavaScript
+- Use server-side rendering
+- Use pre-rendering
 
 ### Minimize critical JavaScript <a href="#minimize-critical-javascript" class="w-headline-link">#</a>
 
 If content on your site only becomes visible, or can be interacted with, after a certain amount of JavaScript is downloaded: it becomes even more important to cut down on the size of your bundle as much as possible. This can be done by:
 
--   Minifying JavaScript
--   Deferring unused JavaScript
--   Minimizing unused polyfills
+- Minifying JavaScript
+- Deferring unused JavaScript
+- Minimizing unused polyfills
 
 Go back to the [Reduce JavaScript blocking time](#reduce-javascript-blocking-time) section to read more about these optimizations.
 
@@ -339,9 +327,9 @@ Minimizing the amount of JavaScript should always be the first thing to focus on
 
 This concept works by using the server to render the application into HTML, where the client then "[hydrates](https://www.gatsbyjs.org/docs/react-hydration/)" all the JavaScript and required data onto the same DOM content. This can improve LCP by ensuring the main content of the page is first rendered on the server rather than only on the client, but there are a few drawbacks:
 
--   Maintaining the same JavaScript-rendered application on the server and the client can increase complexity.
--   Executing JavaScript to render an HTML file on the server will always increase server response times (TTFB) as compared to just serving static pages from the server.
--   A server-rendered page may look like it can be interacted with, but it can't respond to any user input until all the client-side JavaScript has executed. In short, it can make [**Time to Interactive**](/tti/) (TTI) worse.
+- Maintaining the same JavaScript-rendered application on the server and the client can increase complexity.
+- Executing JavaScript to render an HTML file on the server will always increase server response times (TTFB) as compared to just serving static pages from the server.
+- A server-rendered page may look like it can be interacted with, but it can't respond to any user input until all the client-side JavaScript has executed. In short, it can make [**Time to Interactive**](/tti/) (TTI) worse.
 
 ### Use pre-rendering <a href="#use-pre-rendering" class="w-headline-link">#</a>
 
@@ -351,22 +339,21 @@ With pre-rendering, TTI is still negatively impacted but server response times a
 
 <figure><img src="https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format" alt="Example of LCP improvement: Before and after pre-rendering" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/sm9s16UHfh8a5MDEWjxa.png?auto=format&amp;w=1600 1600w" width="800" height="139" /><figcaption>Example of LCP improvement: Before and after pre-rendering</figcaption></figure>For a deeper dive into different server-rendering architectures, take a look at [Rendering on the web](https://developers.google.com/web/updates/2019/02/rendering-on-the-web).
 
-Developer tools <a href="#developer-tools" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Developer tools <a href="#developer-tools" class="w-headline-link">#</a>
 
 A number of tools are available to measure and debug LCP:
 
--   [Lighthouse 6.0](https://developers.google.com/web/tools/lighthouse) includes support for measuring LCP in a lab setting.
+- [Lighthouse 6.0](https://developers.google.com/web/tools/lighthouse) includes support for measuring LCP in a lab setting.
 
-    <img src="https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format" alt="Lighthouse 6.0" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1600 1600w" width="800" height="309" />
+  <img src="https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format" alt="Lighthouse 6.0" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Sar3Pa7TDe9ibny6sfq4.jpg?auto=format&amp;w=1600 1600w" width="800" height="309" />
 
--   The **Timings** section of the [Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance) panel in Chrome DevTools includes a LCP marker and shows you which element is associated with LCP when you hover over the **Related Node** field.
+- The **Timings** section of the [Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance) panel in Chrome DevTools includes a LCP marker and shows you which element is associated with LCP when you hover over the **Related Node** field.
 
-    <img src="https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format" alt="LCP in Chrome DevTools" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1600 1600w" width="800" height="509" />
+  <img src="https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format" alt="LCP in Chrome DevTools" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/sxczQPKH0cvMBsNCx5uH.png?auto=format&amp;w=1600 1600w" width="800" height="509" />
 
--   [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) provides real-world LCP values aggregated at the origin-level
+- [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) provides real-world LCP values aggregated at the origin-level
 
-*With thanks to Philip Walton, Katie Hempenius, Kayce Basques, and Ilya Grigorik for their reviews.*
+_With thanks to Philip Walton, Katie Hempenius, Kayce Basques, and Ilya Grigorik for their reviews._
 
 <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/web-vitals/" class="w-chip">Web Vitals</a>
 
@@ -374,35 +361,35 @@ A number of tools are available to measure and debug LCP:
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

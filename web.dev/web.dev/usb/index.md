@@ -1,35 +1,27 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format" alt="A photo of an Arduino Micro board" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/hhnhxiNuRWMfGqy4NSaH.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#access-usb-devices-on-the-web" class="w-toc__header--link">Access USB Devices on the Web</a>
-------------------------------------------------------------------------------------------------------
+## <a href="#access-usb-devices-on-the-web" class="w-toc__header--link">Access USB Devices on the Web</a>
 
--   [Before I start](#before-i-start)
--   [Available for origin trials](#available-for-origin-trials)
--   [Privacy and security](#privacy-and-security)
--   [HTTPS only](#https-only)
--   [User gesture required](#user-gesture-required)
--   [Feature Policy](#feature-policy)
--   [Let's start coding](#let's-start-coding)
--   [Get access to USB devices](#get-access-to-usb-devices)
--   [Talk to an Arduino USB board](#talk-to-an-arduino-usb-board)
--   [I want more](#i-want-more)
--   [Tips](#tips)
--   [Resources](#resources)
--   [Acknowledgements](#acknowledgements)
+- [Before I start](#before-i-start)
+- [Available for origin trials](#available-for-origin-trials)
+- [Privacy and security](#privacy-and-security)
+- [HTTPS only](#https-only)
+- [User gesture required](#user-gesture-required)
+- [Feature Policy](#feature-policy)
+- [Let's start coding](#let's-start-coding)
+- [Get access to USB devices](#get-access-to-usb-devices)
+- [Talk to an Arduino USB board](#talk-to-an-arduino-usb-board)
+- [I want more](#i-want-more)
+- [Tips](#tips)
+- [Resources](#resources)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Access USB Devices on the Web
-=============================
+# Access USB Devices on the Web
 
 The WebUSB API makes USB safer and easier to use by bringing it to the Web.
 
@@ -41,7 +33,7 @@ Mar 30, 2016 <span class="w-author__separator">•</span> Updated Feb 23, 2021
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 If I said plainly and simply "USB", there is a good chance that you will immediately think of keyboards, mice, audio, video, and storage devices. You're right but you'll find other kinds of Universal Serial Bus (USB) devices out there.
 
@@ -63,8 +55,7 @@ What would this procedure be like without the WebUSB API?
 3.  Install the thing. If you're lucky, you'll get no scary OS prompts or popups warning you about installing drivers/applications from the internet. If you're unlucky, the installed drivers or applications malfunction and harm your computer. (Remember, the web is built to [contain malfunctioning websites](https://www.youtube.com/watch?v=29e0CtgXZSI)).
 4.  If you only use the feature once, the code stays on your computer until you think to remove it. (On the Web, the space for unused is eventually reclaimed.)
 
-Before I start <a href="#before-i-start" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Before I start <a href="#before-i-start" class="w-headline-link">#</a>
 
 This article assumes you have some basic knowledge of how USB works. If not, I recommend reading [USB in a NutShell](http://www.beyondlogic.org/usbnutshell). For background information about USB, check out the [official USB specifications](https://www.usb.org/).
 
@@ -76,8 +67,7 @@ In order to get as much feedback as possible from developers using the WebUSB AP
 
 The latest trial has successfully ended in September 2017.
 
-Privacy and security <a href="#privacy-and-security" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Privacy and security <a href="#privacy-and-security" class="w-headline-link">#</a>
 
 ### HTTPS only <a href="#https-only" class="w-headline-link">#</a>
 
@@ -101,8 +91,7 @@ Below is another example of a container policy where USB is allowed:
 
     <iframe allowpaymentrequest allow="usb; fullscreen"></iframe>
 
-Let's start coding <a href="#let&#39;s-start-coding" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Let's start coding <a href="#let&#39;s-start-coding" class="w-headline-link">#</a>
 
 The WebUSB API relies heavily on JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). If you're not familiar with them, check out this great [Promises tutorial](/promises). One more thing, `() => {}` are simply ECMAScript 2015 [Arrow functions](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
@@ -190,8 +179,8 @@ And here's the sketch that has been uploaded to the Arduino board.
 
 The third-party [WebUSB Arduino library](https://github.com/webusb/arduino/tree/gh-pages/library/WebUSB) used in the sample code above does basically two things:
 
--   The device acts as a WebUSB device enabling Chrome to read the [landing page URL](https://wicg.github.io/webusb/#webusb-platform-capability-descriptor).
--   It exposes a WebUSB Serial API that you may use to override the default one.
+- The device acts as a WebUSB device enabling Chrome to read the [landing page URL](https://wicg.github.io/webusb/#webusb-platform-capability-descriptor).
+- It exposes a WebUSB Serial API that you may use to override the default one.
 
 Look at the JavaScript code again. Once I get the `device` picked by the user, `device.open()` runs all platform-specific steps to start a session with the USB device. Then, I have to select an available USB Configuration with `device.selectConfiguration()`. Remember that a configuration specifies how the device is powered, its maximum power consumption and its number of interfaces. Speaking of interfaces, I also need to request exclusive access with `device.claimInterface()` since data can only be transferred to an interface or associated endpoints when the interface is claimed. Finally calling `device.controlTransferOut()` is needed to set up the Arduino device with the appropriate commands to communicate through the WebUSB Serial API.
 
@@ -203,15 +192,14 @@ If you're familiar with USB, all of this should look pretty familiar.
 
 The WebUSB API lets you interact with the all USB transfer/endpoint types:
 
--   CONTROL transfers, used to send or receive configuration or command parameters to a USB device, are handled with `controlTransferIn(setup, length)` and `controlTransferOut(setup, data)`.
--   INTERRUPT transfers, used for a small amount of time sensitive data, are handled with the same methods as BULK transfers with `transferIn(endpointNumber, length)` and `transferOut(endpointNumber, data)`.
--   ISOCHRONOUS transfers, used for streams of data like video and sound, are handled with `isochronousTransferIn(endpointNumber, packetLengths)` and `isochronousTransferOut(endpointNumber, data, packetLengths)`.
--   BULK transfers, used to transfer a large amount of non-time-sensitive data in a reliable way, are handled with `transferIn(endpointNumber, length)` and `transferOut(endpointNumber, data)`.
+- CONTROL transfers, used to send or receive configuration or command parameters to a USB device, are handled with `controlTransferIn(setup, length)` and `controlTransferOut(setup, data)`.
+- INTERRUPT transfers, used for a small amount of time sensitive data, are handled with the same methods as BULK transfers with `transferIn(endpointNumber, length)` and `transferOut(endpointNumber, data)`.
+- ISOCHRONOUS transfers, used for streams of data like video and sound, are handled with `isochronousTransferIn(endpointNumber, packetLengths)` and `isochronousTransferOut(endpointNumber, data, packetLengths)`.
+- BULK transfers, used to transfer a large amount of non-time-sensitive data in a reliable way, are handled with `transferIn(endpointNumber, length)` and `transferOut(endpointNumber, data)`.
 
 You may also want to have a look at Mike Tsao's [WebLight project](https://github.com/sowbug/weblight) which provides a ground-up example of building a USB-controlled LED device designed for the WebUSB API (not using an Arduino here). You'll find hardware, software, and firmware.
 
-Tips <a href="#tips" class="w-headline-link">#</a>
---------------------------------------------------
+## Tips <a href="#tips" class="w-headline-link">#</a>
 
 Debugging USB in Chrome is easier with the internal page `about://device-log` where you can see all USB device related events in one single place.
 
@@ -225,23 +213,21 @@ where `[yourdevicevendor]` is `2341` if your device is an Arduino for instance. 
 
 Microsoft OS 2.0 Descriptors used by the Arduino examples only work on Windows 8.1 and later. Without that Windows support still requires manual installation of an INF file.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   Stack Overflow: <https://stackoverflow.com/questions/tagged/webusb>
--   WebUSB API Spec: [http://wicg.github.io/webusb/](https://wicg.github.io/webusb/)
--   Chrome Feature Status: <https://www.chromestatus.com/feature/5651917954875392>
--   Spec Issues: <https://github.com/WICG/webusb/issues>
--   Implementation Bugs: <http://crbug.com?q=component:Blink%3EUSB>
--   WebUSB ❤ ️Arduino: <https://github.com/webusb/arduino>
--   IRC: [\#webusb](irc://irc.w3.org:6665/#webusb) on W3C's IRC
--   WICG Mailing list: <https://lists.w3.org/Archives/Public/public-wicg/>
--   WebLight project: <https://github.com/sowbug/weblight>
+- Stack Overflow: <https://stackoverflow.com/questions/tagged/webusb>
+- WebUSB API Spec: [http://wicg.github.io/webusb/](https://wicg.github.io/webusb/)
+- Chrome Feature Status: <https://www.chromestatus.com/feature/5651917954875392>
+- Spec Issues: <https://github.com/WICG/webusb/issues>
+- Implementation Bugs: <http://crbug.com?q=component:Blink%3EUSB>
+- WebUSB ❤ ️Arduino: <https://github.com/webusb/arduino>
+- IRC: [\#webusb](irc://irc.w3.org:6665/#webusb) on W3C's IRC
+- WICG Mailing list: <https://lists.w3.org/Archives/Public/public-wicg/>
+- WebLight project: <https://github.com/sowbug/weblight>
 
 Send a tweet to \[@ChromiumDev\]\[cr-dev-twitter\] using the hashtag [`#WebUSB`](https://twitter.com/search?q=%23WebUSB&src=typed_query&f=live) and let us know where and how you're using it.
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Thanks to [Joe Medley](https://github.com/jpmedley) for reviewing this article.
 
@@ -253,35 +239,35 @@ Have a question about using this feature? You can get help by [asking a question
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

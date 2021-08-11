@@ -1,33 +1,25 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format" alt="Multiple Shifting Gears." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/4bvbhJ3F0uGKvw5DLTMy.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#progressive-web-apps-in-multi-origin-sites" class="w-toc__header--link">Progressive Web Apps in multi-origin sites</a>
---------------------------------------------------------------------------------------------------------------------------------
+## <a href="#progressive-web-apps-in-multi-origin-sites" class="w-toc__header--link">Progressive Web Apps in multi-origin sites</a>
 
--   [Background](#background)
--   [Good and bad uses of multiple origins](#good-and-bad-uses-of-multiple-origins)
--   [The good](#the-good)
--   [The bad](#the-bad)
--   [Challenges and Workarounds for PWAs across different origins](#challenges-and-workarounds-for-pwas-across-different-origins)
--   [Service workers](#service-workers)
--   [Caching](#caching)
--   [Permissions](#permissions)
--   [Installation](#installation)
--   [Standalone Mode](#standalone-mode)
--   [Conclusion](#conclusion)
+- [Background](#background)
+- [Good and bad uses of multiple origins](#good-and-bad-uses-of-multiple-origins)
+- [The good](#the-good)
+- [The bad](#the-bad)
+- [Challenges and Workarounds for PWAs across different origins](#challenges-and-workarounds-for-pwas-across-different-origins)
+- [Service workers](#service-workers)
+- [Caching](#caching)
+- [Permissions](#permissions)
+- [Installation](#installation)
+- [Standalone Mode](#standalone-mode)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Progressive Web Apps in multi-origin sites
-==========================================
+# Progressive Web Apps in multi-origin sites
 
 Challenges and workarounds for building Progressive Web Apps in multi-origin sites.
 
@@ -39,17 +31,15 @@ Aug 19, 2019
 
 <a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>
 
--   <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
--   <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/drenzulli" class="w-author__link">Twitter</a>
+- <a href="https://github.com/demianrenzulli" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@demianrenzulli" class="w-author__link">Glitch</a>
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 In the past, there were some advantages to using multi-origin architectures, but for Progressive Web Apps, that approach presents many challenges. In particular, the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), imposes restrictions for sharing things like service workers and caches, permissions, and for achieving a standalone experience across multiple origins. This article will describe the good and bad uses of multiple origins, and explain the challenges and workarounds for building Progressive Web Apps in multi-origin sites.
 
-Good and bad uses of multiple origins <a href="#good-and-bad-uses-of-multiple-origins" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------
+## Good and bad uses of multiple origins <a href="#good-and-bad-uses-of-multiple-origins" class="w-headline-link">#</a>
 
 There are a few legitimate reasons for sites to employ a multi-origin architecture, mostly related to providing an independent set of web applications, or to create experiences that are completely isolated from each other. There are also uses that should be avoided.
 
@@ -57,9 +47,9 @@ There are a few legitimate reasons for sites to employ a multi-origin architectu
 
 Let's look at the useful reasons first:
 
--   **Localization / Language:** Using a [country-code top-level domain](https://developer.mozilla.org/en-US/docs/Glossary/TLD), to separate sites to be served in different countries (e.g. `https://www.google.com.ar`), or using subdomains to divide sites targeted to different locations (e.g.: `https://newyork.craigslist.org`) or to offer content for a specific language (e.g. `https://en.wikipedia.org`).
+- **Localization / Language:** Using a [country-code top-level domain](https://developer.mozilla.org/en-US/docs/Glossary/TLD), to separate sites to be served in different countries (e.g. `https://www.google.com.ar`), or using subdomains to divide sites targeted to different locations (e.g.: `https://newyork.craigslist.org`) or to offer content for a specific language (e.g. `https://en.wikipedia.org`).
 
--   **Independent webapps:** Using different subdomains to provide experiences whose purpose differs considerably from the site on the main origin. For example, in a news site, the crosswords webapp could be intentionally served from `https://crosswords.example.com`, and installed and used as an independent PWA, without having to share any resources or functionality with the main website.
+- **Independent webapps:** Using different subdomains to provide experiences whose purpose differs considerably from the site on the main origin. For example, in a news site, the crosswords webapp could be intentionally served from `https://crosswords.example.com`, and installed and used as an independent PWA, without having to share any resources or functionality with the main website.
 
 ### The bad <a href="#the-bad" class="w-headline-link">#</a>
 
@@ -69,16 +59,15 @@ Despite this, many sites continue being structured this way for no particular re
 
 The following patterns, for example, are highly discouraged:
 
--   **Site sections:** Separating different sections of a site on subdomains. In news sites, it's not uncommon to see the home page at: `https://www.example.com`, while the sports section lives at `https://sports.example.com`, politics at `https://politics.example.com`, and so forth. In the case of an e-commerce site, using something like `https://category.example.com` for product categories, `https://product.example.com` for product pages, etc.
+- **Site sections:** Separating different sections of a site on subdomains. In news sites, it's not uncommon to see the home page at: `https://www.example.com`, while the sports section lives at `https://sports.example.com`, politics at `https://politics.example.com`, and so forth. In the case of an e-commerce site, using something like `https://category.example.com` for product categories, `https://product.example.com` for product pages, etc.
 
--   **User Flow:** Another approach that's discouraged is to separate different smaller parts of the site, like pages for the login or purchase flows in subdomains. For example, using `https://login.example.com`, and `https://checkout.example.com`.
+- **User Flow:** Another approach that's discouraged is to separate different smaller parts of the site, like pages for the login or purchase flows in subdomains. For example, using `https://login.example.com`, and `https://checkout.example.com`.
 
 When building a site from scratch it's highly recommended to avoid dividing it into subdomains. For existing sites, migrating to a single origin is the best approach.
 
 For those cases where migrating to a single origin is not possible, what follows is a list of challenges, and (where possible), workarounds that can be considered when building Progressive Web Apps.
 
-Challenges and Workarounds for PWAs across different origins <a href="#challenges-and-workarounds-for-pwas-across-different-origins" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Challenges and Workarounds for PWAs across different origins <a href="#challenges-and-workarounds-for-pwas-across-different-origins" class="w-headline-link">#</a>
 
 When building a website on multiple origins, providing a unified PWA experience is challenging, mostly because of the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy), which imposes a number of constraints. Let's look at them one at a time.
 
@@ -98,13 +87,13 @@ The Cache object, indexedDB, and localStorage are also constrained to a single o
 
 Here are some things you can do to manage caches properly in scenarios like this:
 
--   **Leverage browser caching:** Using [traditional browser caching best practices](https://webkit.org/blog/8090/workers-at-your-service/) is always recommended. This technique provides the added benefit of reusing cached resources across origins, which can't be done with the service worker's cache. For best practices on how to use HTTP Cache with service workers, you can take a look at [this post](https://jakearchibald.com/2016/caching-best-practices/#the-service-worker-the-http-cache-play-well-together-dont-make-them-fight).
+- **Leverage browser caching:** Using [traditional browser caching best practices](https://webkit.org/blog/8090/workers-at-your-service/) is always recommended. This technique provides the added benefit of reusing cached resources across origins, which can't be done with the service worker's cache. For best practices on how to use HTTP Cache with service workers, you can take a look at [this post](https://jakearchibald.com/2016/caching-best-practices/#the-service-worker-the-http-cache-play-well-together-dont-make-them-fight).
 
--   **Keep service worker installation lightweight:** If you are maintaining multiple service workers, avoid making users pay a big installation cost every time they navigate to a new origin. In other words: only pre-cache resources that are absolutely necessary.
+- **Keep service worker installation lightweight:** If you are maintaining multiple service workers, avoid making users pay a big installation cost every time they navigate to a new origin. In other words: only pre-cache resources that are absolutely necessary.
 
 **Gotchas!**
 
-Once the service worker is active and running, the same-origin policy also restricts cross-origin requests made ***inside*** service workers. Fortunately this has a recommended workaround, which is to use [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (as explained [here](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests)). Using the [no-cors mode](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) when fetching resources inside the service worker is not recommended.
+Once the service worker is active and running, the same-origin policy also restricts cross-origin requests made **_inside_** service workers. Fortunately this has a recommended workaround, which is to use [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) (as explained [here](https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api#cross-origin_requests)). Using the [no-cors mode](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) when fetching resources inside the service worker is not recommended.
 
 ### Permissions <a href="#permissions" class="w-headline-link">#</a>
 
@@ -147,7 +136,7 @@ For existing sites that are already built in this way, it can be challenging to 
 
 When evaluating a long-term strategy or site redesign, consider migrating to a single origin, unless there's an important reason to keep the multi-origin architecture.
 
-*With many thanks for their technical reviews and suggestions: Penny Mclachlan, Paul Covell, Dominick Ng, Alberto Medina, Pete LePage, Joe Medley, Cheney Tsai, Martin Schierle, and Andre Bandarra.*
+_With many thanks for their technical reviews and suggestions: Penny Mclachlan, Paul Covell, Dominick Ng, Alberto Medina, Pete LePage, Joe Medley, Cheney Tsai, Martin Schierle, and Andre Bandarra._
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a> <a href="/tags/service-worker/" class="w-chip">Service Worker</a>
 
@@ -155,35 +144,35 @@ When evaluating a long-term strategy or site redesign, consider migrating to a s
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

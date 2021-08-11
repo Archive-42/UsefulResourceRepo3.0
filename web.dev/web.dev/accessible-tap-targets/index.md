@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#accessible-tap-targets" class="w-toc__header--link">Accessible tap targets</a>
 
 - [Testing your touch targets](#testing-your-touch-targets)

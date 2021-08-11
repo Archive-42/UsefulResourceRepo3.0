@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#custom-metrics" class="w-toc__header--link">Custom metrics</a>
 
 - [APIs to measure custom metrics](#apis-to-measure-custom-metrics)

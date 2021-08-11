@@ -1,22 +1,14 @@
+## <a href="#what-are-security-attacks" class="w-toc__header--link">What are security attacks?</a>
 
-
-
-
-
-
-<a href="#what-are-security-attacks" class="w-toc__header--link">What are security attacks?</a>
------------------------------------------------------------------------------------------------
-
--   [Active attacks vs passive attacks](#active-attacks-vs-passive-attacks)
--   [Active attacks](#active-attacks)
--   [Passive attack](#passive-attack)
--   [Defense against attacks](#defense-against-attacks)
--   [Wrap up](#wrap-up)
+- [Active attacks vs passive attacks](#active-attacks-vs-passive-attacks)
+- [Active attacks](#active-attacks)
+- [Passive attack](#passive-attack)
+- [Defense against attacks](#defense-against-attacks)
+- [Wrap up](#wrap-up)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-What are security attacks?
-==========================
+# What are security attacks?
 
 Nov 5, 2018
 
@@ -26,15 +18,14 @@ Nov 5, 2018
 
 <a href="/authors/kosamari/" class="w-author__name-link">Mariko Kosaka</a>
 
--   <a href="https://twitter.com/kosamari" class="w-author__link">Twitter</a>
--   <a href="https://github.com/kosamari" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@kosamari" class="w-author__link">Glitch</a>
--   <a href="https://kosamari.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/kosamari" class="w-author__link">Twitter</a>
+- <a href="https://github.com/kosamari" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@kosamari" class="w-author__link">Glitch</a>
+- <a href="https://kosamari.com/" class="w-author__link">Blog</a>
 
 An insecure application could expose users and systems to various types of damage. When a malicious party uses vulnerabilities or lack of security features to their advantage to cause damage, it is called an **attack**. We'll take a look at different types of attacks in this guide so you know what to look for when securing your application.
 
-Active attacks vs passive attacks <a href="#active-attacks-vs-passive-attacks" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Active attacks vs passive attacks <a href="#active-attacks-vs-passive-attacks" class="w-headline-link">#</a>
 
 Attacks can be divided into two different types: active and passive.
 
@@ -52,15 +43,13 @@ With a **passive attack**, the attacker tries to collect or learn information fr
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format" alt="Attacker eavesdropping communication between a user and a server." sizes="(min-width: 547px) 547px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/QtAWlZRXJULRaQLQ7bKQ.png?auto=format&amp;w=1094 1094w" width="547" height="344" /><figcaption>Attacker eavesdropping communication between a user and a server.</figcaption></figure>Imagine someone is eavesdropping on your conversation with friends and family, collecting information about your personal life, who your friends are, and where you hang out. The same thing could be done on your web traffic. An attacker could capture data between the browser and the server collecting usernames & passwords, users' browsing history, and data exchanged.
 
-Defense against attacks <a href="#defense-against-attacks" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Defense against attacks <a href="#defense-against-attacks" class="w-headline-link">#</a>
 
 Attackers can directly harm your application or perform a malicious operation on your site without you or your users noticing it. You need mechanisms to detect and protect against attacks.
 
 Unfortunately, there is no single solution to make your application 100% secure. In practice, many security features and techniques are used in layers to prevent or further delay the attack (this is called **defense in depth**). If your application contains a form, you might check inputs in the browser, then on the server, and finally at the database; you would also use HTTPS to secure the data in transit.
 
-Wrap up <a href="#wrap-up" class="w-headline-link">#</a>
---------------------------------------------------------
+## Wrap up <a href="#wrap-up" class="w-headline-link">#</a>
 
 Since many attacks can happen without ever hitting your server, it is sometimes hard to detect if attacks are happening or not. The good news is that web browsers have powerful security features already built in. Follow the next topic "How browser mitigates against attacks" to learn more.
 
@@ -70,35 +59,35 @@ Since many attacks can happen without ever hitting your server, it is sometimes 
 
 <a href="/secure" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

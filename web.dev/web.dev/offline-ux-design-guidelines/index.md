@@ -1,37 +1,29 @@
+## <a href="#offline-ux-design-guidelines" class="w-toc__header--link">Offline UX design guidelines</a>
 
-
-
-
-
-
-<a href="#offline-ux-design-guidelines" class="w-toc__header--link">Offline UX design guidelines</a>
-----------------------------------------------------------------------------------------------------
-
--   [Decide what to show your users when they have a bad network connection](#decide-what-to-show-your-users-when-they-have-a-bad-network-connection)
--   [Inform users of their current state and change of state](#inform-users-of-their-current-state-and-change-of-state)
--   [Inform users when the network connection improves or is restored](#inform-users-when-the-network-connection-improves-or-is-restored)
--   [Update the UI to reflect the current contextual state](#update-the-ui-to-reflect-the-current-contextual-state)
--   [Educate the user so they understand what the offline model is](#educate-the-user-so-they-understand-what-the-offline-model-is)
--   [Provide an offline experience by default](#provide-an-offline-experience-by-default)
--   [Inform the user when the app is ready for offline consumption](#inform-the-user-when-the-app-is-ready-for-offline-consumption)
--   [Make 'save for offline' an obvious part of the interface for data-heavy apps](#make-'save-for-offline'-an-obvious-part-of-the-interface-for-data-heavy-apps)
--   [Clarify what is available offline](#clarify-what-is-available-offline)
--   [Show the actual cost of an action](#show-the-actual-cost-of-an-action)
--   [Help prevent hacked experiences](#help-prevent-hacked-experiences)
--   [Make experiences transferable from one device to another](#make-experiences-transferable-from-one-device-to-another)
--   [Create inclusive design experiences](#create-inclusive-design-experiences)
--   [Use simple, concise language](#use-simple-concise-language)
--   [Use multiple design devices to create accessible user experiences](#use-multiple-design-devices-to-create-accessible-user-experiences)
--   [Use icons that convey meaning](#use-icons-that-convey-meaning)
--   [Use skeleton layouts with other feedback mechanisms](#use-skeleton-layouts-with-other-feedback-mechanisms)
--   [Don't block content](#don't-block-content)
--   [Design for the next billion](#design-for-the-next-billion)
--   [Conclusion](#conclusion)
+- [Decide what to show your users when they have a bad network connection](#decide-what-to-show-your-users-when-they-have-a-bad-network-connection)
+- [Inform users of their current state and change of state](#inform-users-of-their-current-state-and-change-of-state)
+- [Inform users when the network connection improves or is restored](#inform-users-when-the-network-connection-improves-or-is-restored)
+- [Update the UI to reflect the current contextual state](#update-the-ui-to-reflect-the-current-contextual-state)
+- [Educate the user so they understand what the offline model is](#educate-the-user-so-they-understand-what-the-offline-model-is)
+- [Provide an offline experience by default](#provide-an-offline-experience-by-default)
+- [Inform the user when the app is ready for offline consumption](#inform-the-user-when-the-app-is-ready-for-offline-consumption)
+- [Make 'save for offline' an obvious part of the interface for data-heavy apps](#make-'save-for-offline'-an-obvious-part-of-the-interface-for-data-heavy-apps)
+- [Clarify what is available offline](#clarify-what-is-available-offline)
+- [Show the actual cost of an action](#show-the-actual-cost-of-an-action)
+- [Help prevent hacked experiences](#help-prevent-hacked-experiences)
+- [Make experiences transferable from one device to another](#make-experiences-transferable-from-one-device-to-another)
+- [Create inclusive design experiences](#create-inclusive-design-experiences)
+- [Use simple, concise language](#use-simple-concise-language)
+- [Use multiple design devices to create accessible user experiences](#use-multiple-design-devices-to-create-accessible-user-experiences)
+- [Use icons that convey meaning](#use-icons-that-convey-meaning)
+- [Use skeleton layouts with other feedback mechanisms](#use-skeleton-layouts-with-other-feedback-mechanisms)
+- [Don't block content](#don't-block-content)
+- [Design for the next billion](#design-for-the-next-billion)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Offline UX design guidelines
-============================
+# Offline UX design guidelines
 
 A guide to designing web experiences for slow networks and offline.
 
@@ -43,44 +35,43 @@ Nov 10, 2016 <span class="w-author__separator">•</span> Updated May 28, 2021
 
 <a href="/authors/mustafakurtuldu/" class="w-author__name-link">Mustafa Kurtuldu</a>
 
--   <a href="https://twitter.com/mustafa_x" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mustafa-x" class="w-author__link">GitHub</a>
--   <a href="https://www.designtoday.info/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mustafa_x" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mustafa-x" class="w-author__link">GitHub</a>
+- <a href="https://www.designtoday.info/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Thomas Steiner" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/thomassteiner/)
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 This article provides design guidelines on how to create a great experience on both slow networks and offline.
 
 The quality of a network connection can be affected by a number of factors such as:
 
--   Poor coverage of a provider.
--   Extreme weather conditions.
--   Power outages.
--   Entering into permanent "dead zones" such as buildings with walls that block network connections.
--   Entering into temporary "dead zones" like when traveling on a train and going through a tunnel.
--   Time-boxed internet connections such as those in airports or hotels.
--   Cultural practices that require limited or no internet access at specific times or days.
+- Poor coverage of a provider.
+- Extreme weather conditions.
+- Power outages.
+- Entering into permanent "dead zones" such as buildings with walls that block network connections.
+- Entering into temporary "dead zones" like when traveling on a train and going through a tunnel.
+- Time-boxed internet connections such as those in airports or hotels.
+- Cultural practices that require limited or no internet access at specific times or days.
 
 Your goal is to provide a good experience that lessens the impact of changes in connectivity.
 
-Decide what to show your users when they have a bad network connection <a href="#decide-what-to-show-your-users-when-they-have-a-bad-network-connection" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Decide what to show your users when they have a bad network connection <a href="#decide-what-to-show-your-users-when-they-have-a-bad-network-connection" class="w-headline-link">#</a>
 
 The first question that must be asked is what does success and failure of a network connection look like? A successful connection is your app's normal online experience. The failure of a connection, however, can be both the offline state of your app as well how the app behaves when there is a laggy network.
 
 When thinking about the success or failure of a network connection you need to ask yourself these important UX questions:
 
--   How long do you wait to determine the success or failure of a connection?
--   What can you do while success or failure is being determined?
--   What should you do in the event of failure?
--   How do you inform the user of the above?
+- How long do you wait to determine the success or failure of a connection?
+- What can you do while success or failure is being determined?
+- What should you do in the event of failure?
+- How do you inform the user of the above?
 
 ### Inform users of their current state and change of state <a href="#inform-users-of-their-current-state-and-change-of-state" class="w-headline-link">#</a>
 
@@ -110,8 +101,7 @@ Other forms of contextual states could include data. For example, the financial 
 
 Offline is a new mental model for everyone. You need to educate your users about what changes will occur when they don't have a connection. Inform them of where large data is saved and give them settings to change the default behavior. Make sure you use multiple UI design components such as informative language, icons, notifications, color, and imagery to convey these ideas collectively rather than relying on a single design choice, such as an icon on its own, to tell the whole story.
 
-Provide an offline experience by default <a href="#provide-an-offline-experience-by-default" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------
+## Provide an offline experience by default <a href="#provide-an-offline-experience-by-default" class="w-headline-link">#</a>
 
 If your app doesn't require much data, then cache that data by default. Users can become increasingly frustrated if they can only access their data with a network connection. Try to make the experience as stable as possible. An unstable connection will make your app feel untrustworthy, where an app that lessens the impact of a network failure will feel magical to the user.
 
@@ -119,8 +109,7 @@ News sites could benefit from auto-downloading and auto-saving the latest news s
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format" alt="If the device is offline, Tailpiece will notify the user with a status message…" sizes="(min-width: 360px) 360px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/M39yiHQYpXacVII6d7zX.png?auto=format&amp;w=720 720w" width="360" height="665" /><figcaption>If the device is offline, Tailpiece will notify the user with a status message…</figcaption></figure><figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format" alt="…letting them know that they can at least partially still use the app." sizes="(min-width: 360px) 360px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/KpkzjYNoCWquWKXTvM28.png?auto=format&amp;w=720 720w" width="360" height="665" /><figcaption>…letting them know that they can at least partially still use the app.</figcaption></figure>When it comes to communicating an app's status, saying "The network is down" sends the message that the app's network is experiencing problems, whereas "You are disconnected" makes it clearer to the user that the problem is on their end.
 
-Inform the user when the app is ready for offline consumption <a href="#inform-the-user-when-the-app-is-ready-for-offline-consumption" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Inform the user when the app is ready for offline consumption <a href="#inform-the-user-when-the-app-is-ready-for-offline-consumption" class="w-headline-link">#</a>
 
 When a web app first loads you need to indicate to the user if it is ready for offline use. Do this with a [widget that provides brief feedback](https://material.io/components/snackbars) about an operation through a message at the bottom of the screen such as, for example, when a section has been synced or a data file has downloaded.
 
@@ -146,15 +135,13 @@ Users on data plans may avoid downloading large files for fear of cost, so you m
 
 Often users hack an experience without realizing they are doing it. For example before cloud-based file sharing web apps, it was common for users to save large files and attach them to emails so they could carry on editing from a different device. It is important not to be pulled into their hacked experience but rather look at what they are trying to achieve. In other words instead of thinking of how you can make attaching a large file more user-friendly, solve the problem of sharing large files across multiple devices.
 
-Make experiences transferable from one device to another <a href="#make-experiences-transferable-from-one-device-to-another" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+## Make experiences transferable from one device to another <a href="#make-experiences-transferable-from-one-device-to-another" class="w-headline-link">#</a>
 
 When building for flaky networks, try to sync as soon as the connection improves so that the experience is transferable. For example, imagine a travel app losing a network connection mid-way through a booking. When the connection is reestablished, the app syncs with the user's account allowing them to continue their booking on their desktop device. Not being able to transfer experiences can be incredibly jarring to users.
 
 Inform the user of the current state of their data. For example, you could show whether the app has synced. Educate them where possible but try not to overburden them with messaging.
 
-Create inclusive design experiences <a href="#create-inclusive-design-experiences" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Create inclusive design experiences <a href="#create-inclusive-design-experiences" class="w-headline-link">#</a>
 
 When designing seek to be inclusive by providing meaningful design devices, simple language, standard iconography, and meaningful imagery that will guide the user to complete the action or task rather than hinder their progress.
 
@@ -166,7 +153,7 @@ Good UX is not just about a well designed interface. It includes the path a user
 
 ### Use multiple design devices to create accessible user experiences <a href="#use-multiple-design-devices-to-create-accessible-user-experiences" class="w-headline-link">#</a>
 
-Use language, color, and visual components to demonstrate a change of state or current status. Solely using color to demonstrate state may not be noticed by the user and may be inaccessible to users who suffer from visual disabilities. Also, the instinct for designers is to use grayed UI to represent offline, but this can have a loaded meaning on the web. Grayed UI such as input elements on a form also means that an element is disabled. This can cause confusion if you *only* use color to depict state.
+Use language, color, and visual components to demonstrate a change of state or current status. Solely using color to demonstrate state may not be noticed by the user and may be inaccessible to users who suffer from visual disabilities. Also, the instinct for designers is to use grayed UI to represent offline, but this can have a loaded meaning on the web. Grayed UI such as input elements on a form also means that an element is disabled. This can cause confusion if you _only_ use color to depict state.
 
 To prevent misunderstandings, express different states to the user in multiple ways, for example with color, labels, and UI components.
 
@@ -192,31 +179,29 @@ In some applications, a user might trigger an action such as creating a new docu
 
 Demonstrate the state of an action by providing your users with feedback. For example, if a user is editing a doc, consider changing the feedback design so it is visibly different from when they are online but still shows that their file was "saved" and will sync when they have a network connection. This will educate the user about the different states available and reassure them that their task or action has been stored. This has the added benefit of the user growing more confident using your application.
 
-Design for the next billion <a href="#design-for-the-next-billion" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## Design for the next billion <a href="#design-for-the-next-billion" class="w-headline-link">#</a>
 
 In many regions, low-end devices are commonplace, connectivity is unreliable and, for many users, data is unaffordable. You will need to earn user trust by being transparent and frugal with data. Think about ways to help users on poor connections and simplify the interface to help speed up tasks. Always try to ask users before downloading data-heavy content.
 
 Offer low bandwidth options for users on laggy connections. So if the network connection is slow, provide small assets. Offer an option to choose high or low quality assets.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Education is key to offline UX as users are unfamiliar with these concepts. Try to create associations with things that are familiar, e.g downloading for later use is the same as offlining data.
 
 When designing for unstable network connections, remember these guidelines:
 
--   Think how you design for the success, failure, and instability of a network connection.
--   Data may be expensive, so be considerate to the user.
--   For most users globally, the tech environment is almost exclusively mobile.
--   Low-end devices are commonplace, with limited storage, memory and processing power, and small displays and lower touchscreen quality. Make sure performance is a part of your design process.
--   Allow users to browse your application when they are offline.
--   Inform users of their current state and of changes in states.
--   Try to provide offline by default if your app doesn't require much data.
--   If the app is data-heavy, educate users about how they can download for offline use.
--   Make experiences transferable between devices.
--   Utilize language, icons, imagery, typography, and color to express ideas to the user collectively.
--   Provide reassurance and feedback to help the user.
+- Think how you design for the success, failure, and instability of a network connection.
+- Data may be expensive, so be considerate to the user.
+- For most users globally, the tech environment is almost exclusively mobile.
+- Low-end devices are commonplace, with limited storage, memory and processing power, and small displays and lower touchscreen quality. Make sure performance is a part of your design process.
+- Allow users to browse your application when they are offline.
+- Inform users of their current state and of changes in states.
+- Try to provide offline by default if your app doesn't require much data.
+- If the app is data-heavy, educate users about how they can download for offline use.
+- Make experiences transferable between devices.
+- Utilize language, icons, imagery, typography, and color to express ideas to the user collectively.
+- Provide reassurance and feedback to help the user.
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a> <a href="/tags/ux/" class="w-chip">UX</a> <a href="/tags/network/" class="w-chip">Network</a> <a href="/tags/offline/" class="w-chip">Offline</a>
 
@@ -224,35 +209,35 @@ When designing for unstable network connections, remember these guidelines:
 
 <a href="/progressive-web-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

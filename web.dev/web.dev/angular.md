@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Angular
 
 Build performant and progressive Angular applications.

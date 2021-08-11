@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Use cross-platform browser features to build a sign-in form
 
 Jun 29, 2020 <span class="w-author__separator">•</span> Updated Aug 5, 2020

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#adaptive-loading-with-service-workers" class="w-toc__header--link">Adaptive loading with service workers</a>
 
 - [Production case](#production-case)

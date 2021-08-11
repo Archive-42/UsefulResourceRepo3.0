@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#color-and-contrast-accessibility" class="w-toc__header--link">Color and contrast accessibility</a>
 
 - [Advanced Perceptual Contrast Algorithm (APCA)](<#advanced-perceptual-contrast-algorithm-(apca)>)

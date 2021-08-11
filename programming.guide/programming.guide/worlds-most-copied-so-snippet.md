@@ -1,9 +1,8 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Related
--------
+
+
+## Related
 
 [Java: Formatting byte size to human readable format](java/formatting-byte-size-to-human-readable-format.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
@@ -14,8 +13,7 @@ Related
 [Usage and Attribution of Stack Overflow Code Snippets in GitHub Projects](https://empirical-software.engineering/assets/pdf/emse18-snippets.pdf) (pdf)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Sebastian Baltes, Stephan Diehl</span>
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -25,10 +23,9 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -38,15 +35,13 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-The most copied StackOverflow snippet of all time is flawed!
-============================================================
+# The most copied StackOverflow snippet of all time is flawed!
 
 <span style="color: #999">by Andreas Lundblad, 2019-12-02</span>
 
-**In a recent study titled *Usage and Attribution of Stack Overflow Code Snippets in GitHub Projects*, an [answer](https://stackoverflow.com/a/3758880/276052) I wrote almost a decade ago was found to be the most copied snippet on Stack Overflow. Ironically it happens to be buggy.**
+**In a recent study titled _Usage and Attribution of Stack Overflow Code Snippets in GitHub Projects_, an [answer](https://stackoverflow.com/a/3758880/276052) I wrote almost a decade ago was found to be the most copied snippet on Stack Overflow. Ironically it happens to be buggy.**
 
-A Long Long Time Ago…
----------------------
+## A Long Long Time Ago…
 
 Back in 2010 I was sitting in my office and doing what I wasn’t supposed to be doing: code golfing and chasing reputation on Stack Overflow.
 
@@ -69,8 +64,7 @@ One answer had already been posted. The code in that answer was based on a loop.
 
 Usually when there’s a correct answer posted that already has a positive score, it’s hard to catch up with it. In Stack Overflow lingo it’s referred to as the [Fastest Gun in the West Problem](https://meta.stackexchange.com/q/9731/147319). In this case the existing answer had a few flaws, so I still saw an opportunity to top it. At the very least, the loop based code could be cleaned up significantly.
 
-This is Algebra, I know this!
------------------------------
+## This is Algebra, I know this!
 
 Then it hit me. The kB, MB, GB, … suffixes are nothing but powers of 1000 (or 1024 in [IEC standard](https://en.wikipedia.org/wiki/Binary_prefix)) which means it should be possible to compute the right suffix using logarithms instead of a loop.
 
@@ -86,22 +80,21 @@ Based on this idea, I posted the following:
 
 Granted it’s not very readable and <span class="no-wrap">log / pow</span> probably makes it less efficient than other solutions. But there were no loops and almost no branching which I thought was pretty neat.
 
-**The math behind this** is straight forward. The byte count is expressed as <span class="no-wrap">byteCount = 1000<sup>*s*</sup></span> where *s* represents the scale. (For binary notation, base 1024 is used.) Solving for *s* gives <span class="no-wrap">*s* = log<sub>1000</sub>(byteCount)</span>.
+**The math behind this** is straight forward. The byte count is expressed as <span class="no-wrap">byteCount = 1000<sup>_s_</sup></span> where _s_ represents the scale. (For binary notation, base 1024 is used.) Solving for _s_ gives <span class="no-wrap">*s* = log<sub>1000</sub>(byteCount)</span>.
 
-There’s no log<sub>1000</sub> readily available in the API, but we can express it in terms of the natural logarithm as follows <span class="no-wrap">*s* = log(byteCount) / log(1000)</span>. We then floor *s* (cast to int) since if we for example have more than one megabyte (but not a full gigabyte) we want to use MB as magnitude.
+There’s no log<sub>1000</sub> readily available in the API, but we can express it in terms of the natural logarithm as follows <span class="no-wrap">*s* = log(byteCount) / log(1000)</span>. We then floor _s_ (cast to int) since if we for example have more than one megabyte (but not a full gigabyte) we want to use MB as magnitude.
 
-At this point if <span class="no-wrap">*s* = 1</span> the scale is kilobytes, if <span class="no-wrap">*s* = 2</span> the scale is megabytes, and so on. We divide the byteCount with 1000<sup>*s*</sup> and slap on the corresponding letter prefix.
+At this point if <span class="no-wrap">*s* = 1</span> the scale is kilobytes, if <span class="no-wrap">*s* = 2</span> the scale is megabytes, and so on. We divide the byteCount with 1000<sup>_s_</sup> and slap on the corresponding letter prefix.
 
 All I could do now was to wait and see if the community would appreciate the answer. Little did I know that this would become the most copied snippet on Stack Overflow.
 
-A Study on Attribution
-----------------------
+## A Study on Attribution
 
-Fast forward to 2018. A PhD student by the name Sebastian Baltes publishes a paper in the journal of *Empirical Software Engineering*. The title is [*Usage and Attribution of Stack Overflow Code Snippets in GitHub Projects*](https://doi.org/10.1007/s10664-018-9650-5) and it basically tries to answer one question: Is Stack Overflow’s CC BY-SA 3.0 license respected? I.e. to what extent is proper attribution given, when copying code from Stack Overflow.
+Fast forward to 2018. A PhD student by the name Sebastian Baltes publishes a paper in the journal of _Empirical Software Engineering_. The title is [_Usage and Attribution of Stack Overflow Code Snippets in GitHub Projects_](https://doi.org/10.1007/s10664-018-9650-5) and it basically tries to answer one question: Is Stack Overflow’s CC BY-SA 3.0 license respected? I.e. to what extent is proper attribution given, when copying code from Stack Overflow.
 
 As part of their analysis they extracted code snippets from the [Stack Overflow data dump](https://archive.org/details/stackexchange) and matched them against code from public GitHub repos. Quoting the abstract:
 
-> *We present results of a large-scale empiricalstudy analyzing the usage and attribution of non-trivial Java code snippetsfrom SO answers in public GitHub (GH) projects.*
+> _We present results of a large-scale empiricalstudy analyzing the usage and attribution of non-trivial Java code snippetsfrom SO answers in public GitHub (GH) projects._
 
 (Spoiler alert: No, most people do not include proper attribution.)
 
@@ -131,10 +124,9 @@ why not ask the author of this SO post (aioobe) directly? He is an OpenJDK contr
 
 Oracle doesn’t take these things lightly. I happen to know that some people at Oracle took a sigh of relief when they read this reply, and saw it as a bit of a triumph after the “accusation”.
 
-Sebastian then reached out to me to straighten it out, which I did: I had *not* yet started at Oracle when that commit was merged, and I did *not* contribute that patch. Jokes on Oracle. Shortly after, an issue was [filed](https://bugs.openjdk.java.net/browse/JDK-8170860) and the code was [removed](http://hg.openjdk.java.net/jdk9/jdk9/hotspot/rev/b552b596203f).
+Sebastian then reached out to me to straighten it out, which I did: I had _not_ yet started at Oracle when that commit was merged, and I did _not_ contribute that patch. Jokes on Oracle. Shortly after, an issue was [filed](https://bugs.openjdk.java.net/browse/JDK-8170860) and the code was [removed](http://hg.openjdk.java.net/jdk9/jdk9/hotspot/rev/b552b596203f).
 
-The Bug
--------
+## The Bug
 
 I bet you’ve already given it some thought. What is that bug in the code snippet?
 
@@ -156,12 +148,11 @@ Can `exp` end up being 0 causing `charAt(exp-1)` to fail? Nope. The first if-sta
 
 Could there be some weird rounding error in the output? Now we’re getting there…
 
-Lots of 9’s
------------
+## Lots of 9’s
 
 The solution works all the way up until it approaches 1 MB. When given 999,999 bytes as input, the result (in SI mode) is `"1000.0 kB"`. While it is true that 999,999 is closer to <span class="no-wrap">1,000 × 1000<sup>1</sup></span> than it is to <span class="no-wrap">999.9 × 1000<sup>1</sup></span>, the 1,000 “significand” is out of range according to spec. The correct result is `"1.0 MB"`.
 
-FWIW, *all* 22 answers posted, including the ones using Apache Commons and Android libraries, had this bug (or a variation of it) at the time of writing this article.
+FWIW, _all_ 22 answers posted, including the ones using Apache Commons and Android libraries, had this bug (or a variation of it) at the time of writing this article.
 
 So how do we fix this? First of all, we note that the exponent (`exp`) should change from ‘k’ to ‘M’ as soon as the number of bytes is closer to <span class="no-wrap">1 × 1,000<sup>2</sup></span> (1 MB) than it is to <span class="no-wrap">999.9 × 1000<sup>1</sup></span> (999.9 k). This happens at 999,950. Similarly, we should switch from ‘M’ to ‘G’ when we pass 999,950,000 and so on.
 
@@ -172,8 +163,7 @@ To achieve this we calculate this threshold and bump `exp` if `bytes` is larger.
 
 With this change the code works well all the way up until the byte count approaches 1 EB.
 
-Even More 9’s
--------------
+## Even More 9’s
 
 Given the input 999,949,999,999,999,999 the result is now `1000.0 PB` while correct result is `999.9 PB`. Mathematically the code is accurate, so what’s going on here?
 
@@ -191,8 +181,8 @@ See [Bits of a Floating Point Value](bits-of-a-floating-point-value.html) for a 
 
 There are two problematic computations:
 
--   The division in the `String.format` argument, and
--   The threshold for bumping `exp`.
+- The division in the `String.format` argument, and
+- The threshold for bumping `exp`.
 
 We could switch to `BigDecimal`, but where’s the fun in that?! Besides, it gets messy anyway because there’s no `BigDecimal` log function in the standard API.
 
@@ -207,7 +197,7 @@ For the first issue we can scale down the `bytes` value to a range where the the
 
 ### Adjusting the least significant bits
 
-For the second issue, we *do* care about the least significant bits (999,949,99…9 and 999,950,00…0 should end up with different exponents) so this issue calls for a different solution.
+For the second issue, we _do_ care about the least significant bits (999,949,99…9 and 999,950,00…0 should end up with different exponents) so this issue calls for a different solution.
 
 First we note that there are 12 different possible values for the threshold (6 for each mode), and only one of them ends up faulty. The faulty result can be uniquely identified by the fact that it ends with D00<sub>16</sub>. If this is the case we simply adjust it to the correct value.
 
@@ -217,8 +207,7 @@ First we note that there are 12 different possible values for the threshold (6 f
 
 Since we rely on specific bit patterns in floating-point results, we slap on `strictfp` to ensure it works regardless of the hardware running the code.
 
-Negative input
---------------
+## Negative input
 
 It’s unclear under what circumstances a negative byte count could be relevant, but since Java doesn’t have unsigned `long`, we better deal with it. Right now an input such as −10,000 results in `-10000 B`.
 
@@ -228,8 +217,7 @@ Let’s introduce `absBytes`:
 
 The complicated expression is due to the fact that `-Long.MIN_VALUE == Long.MIN_VALUE`. Now we perform all computations related to `exp` using `absBytes` instead of `bytes`.
 
-Final Version
--------------
+## Final Version
 
 Here’s the final version of the code, golfed and compacted in the spirit of the original version:
 
@@ -253,19 +241,17 @@ Note that this started out as a challenge to avoid loops and excessive branching
 
 For **updated code that is of production quality** see separate article: [Formatting byte size to human readable format](java/formatting-byte-size-to-human-readable-format.html)
 
-Key Takeaways
--------------
+## Key Takeaways
 
--   Stack Overflow snippets can be buggy, even if they have thousands of upvotes.
+- Stack Overflow snippets can be buggy, even if they have thousands of upvotes.
 
--   Test all edge cases, *especially* for code copied from Stack Overflow.
+- Test all edge cases, _especially_ for code copied from Stack Overflow.
 
--   Floating-point arithmetic is hard.
+- Floating-point arithmetic is hard.
 
--   Do include proper attribution when copying code. Someone might just call you out on it.
+- Do include proper attribution when copying code. Someone might just call you out on it.
 
-Comments (11)
--------------
+## Comments (11)
 
 ![User avatar](https://www.gravatar.com/avatar/d4a2f69d78ee7a7cd0be47f92ad3a114?d=mp)
 

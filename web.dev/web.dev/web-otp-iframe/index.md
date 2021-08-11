@@ -1,31 +1,23 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format" alt="A man entering the credit card number on a computer." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/cjCJPMZpWEK9MgnH3MK1.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#fill-otp-forms-within-cross-origin-iframes-with-webotp-api" class="w-toc__header--link">Fill OTP forms within cross-origin iframes with WebOTP API</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#fill-otp-forms-within-cross-origin-iframes-with-webotp-api" class="w-toc__header--link">Fill OTP forms within cross-origin iframes with WebOTP API</a>
 
--   [How WebOTP API works](#how-webotp-api-works)
--   [Cross-origin iframes use cases](#cross-origin-iframes-use-cases)
--   [How to use WebOTP API from a cross-origin iframe](#how-to-use-webotp-api-from-a-cross-origin-iframe)
--   [Annotate bound-origins to the SMS text message](#annotate-bound-origins-to-the-sms-text-message)
--   [Configure Permissions Policy](#configure-permissions-policy)
--   [Caveats](#caveats)
--   [Interoperability](#interoperability)
--   [Feedback](#feedback)
--   [Resources](#resources)
+- [How WebOTP API works](#how-webotp-api-works)
+- [Cross-origin iframes use cases](#cross-origin-iframes-use-cases)
+- [How to use WebOTP API from a cross-origin iframe](#how-to-use-webotp-api-from-a-cross-origin-iframe)
+- [Annotate bound-origins to the SMS text message](#annotate-bound-origins-to-the-sms-text-message)
+- [Configure Permissions Policy](#configure-permissions-policy)
+- [Caveats](#caveats)
+- [Interoperability](#interoperability)
+- [Feedback](#feedback)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Fill OTP forms within cross-origin iframes with WebOTP API
-==========================================================
+# Fill OTP forms within cross-origin iframes with WebOTP API
 
 WebOTP API can now receive OTPs from within iframes.
 
@@ -35,16 +27,16 @@ Apr 21, 2021
 
 <a href="/authors/yigu/" class="w-author__name-link">Yi Gu</a>
 
--   <a href="https://twitter.com/yigsgu" class="w-author__link">Twitter</a>
--   <a href="https://github.com/yi-gu" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/yigsgu" class="w-author__link">Twitter</a>
+- <a href="https://github.com/yi-gu" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/Mh9DRmQhjlroJM9JDqsu.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Eiji Kitamura" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Mh9DRmQhjlroJM9JDqsu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/Mh9DRmQhjlroJM9JDqsu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/Mh9DRmQhjlroJM9JDqsu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/Mh9DRmQhjlroJM9JDqsu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/Mh9DRmQhjlroJM9JDqsu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/agektmr/)
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 SMS OTPs (one-time passwords) are commonly used to verify phone numbers, for example as a second step in authentication, or to verify payments on the web. However, switching between the browser and the SMS app, to copy-paste or manually enter the OTP makes it easy to make mistakes and adds friction to the user experience.
 
@@ -52,8 +44,7 @@ The [WebOTP API](/web-otp) gives websites the ability to programmatically obtain
 
 One use case that has yet to be supported in WebOTP was targeting an origin inside an iframe. This is typically used for payment confirmation, especially with [3D Secure](https://en.wikipedia.org/wiki/3-D_Secure). Having [the common format to support cross-origin iframes](https://wicg.github.io/sms-one-time-codes/), WebOTP API now delivers OTPs bound to nested origins starting in Chrome 91.
 
-How WebOTP API works <a href="#how-webotp-api-works" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## How WebOTP API works <a href="#how-webotp-api-works" class="w-headline-link">#</a>
 
 WebOTP API itself is simple enough:
 
@@ -75,24 +66,22 @@ When the text message arrives, an info bar pops up and prompts the user to verif
 
 Learn the basics of using WebOTP at [Verify phone numbers on the web with the WebOTP API](/web-otp/).
 
-Cross-origin iframes use cases <a href="#cross-origin-iframes-use-cases" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Cross-origin iframes use cases <a href="#cross-origin-iframes-use-cases" class="w-headline-link">#</a>
 
 Entering an OTP in a form within a cross-origin iframe is common in payment scenarios. Some credit card issuers require an additional verification step to check the payer's authenticity. This is called 3D Secure and the form is typically exposed within an iframe on the same page as if it's a part of the payment flow.
 
 For example:
 
--   A user visits `shop.example` to purchase a pair of shoes with a credit card.
--   After entering the credit card number, the integrated payment provider shows a form from `bank.example` within an iframe asking the user to verify their phone number for fast checkout.
--   `bank.example` sends an SMS that contains an OTP to the user so that they can enter it to verify their identity.
+- A user visits `shop.example` to purchase a pair of shoes with a credit card.
+- After entering the credit card number, the integrated payment provider shows a form from `bank.example` within an iframe asking the user to verify their phone number for fast checkout.
+- `bank.example` sends an SMS that contains an OTP to the user so that they can enter it to verify their identity.
 
-How to use WebOTP API from a cross-origin iframe <a href="#how-to-use-webotp-api-from-a-cross-origin-iframe" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------
+## How to use WebOTP API from a cross-origin iframe <a href="#how-to-use-webotp-api-from-a-cross-origin-iframe" class="w-headline-link">#</a>
 
 To use WebOTP API from within a cross-origin iframe, you need to do two things:
 
--   Annotate both the top-frame origin and the iframe origin in the SMS text message.
--   Configure permissions policy to allow the cross-origin iframe to receive OTP from the user directly.
+- Annotate both the top-frame origin and the iframe origin in the SMS text message.
+- Configure permissions policy to allow the cross-origin iframe to receive OTP from the user directly.
 
 WebOTP API within an iframe in action.
 
@@ -108,13 +97,13 @@ When WebOTP API is called from within an iframe, the SMS text message must inclu
 
 To use WebOTP in a cross-origin iframe, the embedder must grant access to this API via otp-credentials [permissions policy](https://www.w3.org/TR/permissions-policy-1) to avoid unintended behavior. In general there are two ways to achieve this goal:
 
--   via HTTP Header:
+- via HTTP Header:
 
 <!-- -->
 
     Permissions-Policy: otp-credentials=(self "https://bank.example")
 
--   via iframe `allow` attribute:
+- via iframe `allow` attribute:
 
 <!-- -->
 
@@ -128,36 +117,33 @@ See [more examples on how to specify a permission policy](https://github.com/w3c
 
 At the moment Chrome only supports WebOTP API calls from cross-origin iframes that have **no more than one** unique origin in its ancestor chain. In the following scenarios:
 
--   a.com -&gt; b.com
--   a.com -&gt; b.com -&gt; b.com
--   a.com -&gt; a.com -&gt; b.com
--   a.com -&gt; b.com -&gt; c.com
+- a.com -&gt; b.com
+- a.com -&gt; b.com -&gt; b.com
+- a.com -&gt; a.com -&gt; b.com
+- a.com -&gt; b.com -&gt; c.com
 
 using WebOTP in b.com is supported but using it in c.com is not.
 
 Note that the following scenario is also not supported because of lack of demand and UX complexities.
 
--   a.com -&gt; b.com -&gt; a.com (calls WebOTP API)
+- a.com -&gt; b.com -&gt; a.com (calls WebOTP API)
 
-Interoperability <a href="#interoperability" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Interoperability <a href="#interoperability" class="w-headline-link">#</a>
 
 While browser engines other than Chromium do not implement the WebOTP API, Safari shares the same [SMS format](https://wicg.github.io/sms-one-time-codes/) with its `input[autocomplete="one-time-code"]` support. In Safari, as soon as an SMS that contains an origin-bound one-time code format arrives with the matched origin, the keyboard suggests to enter the OTP to the input field.
 
 As of April 2021, Safari supports iframe with [a unique SMS format using `%`](https://github.com/WICG/sms-one-time-codes/issues/4#issuecomment-709557866). However, as the spec discussion concluded to go with `@` instead, we hope the implementation of supported SMS format will converge.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 Your feedback is invaluable in making WebOTP API better, so go on and try it out and [let us know](https://bugs.chromium.org/p/chromium/issues/detail?id=1136506) what you think.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Verify phone numbers on the web with the Web OTP API](https://web.dev/web-otp/)
--   [SMS OTP form best practices](https://web.dev/sms-otp-form/)
--   [WebOTP API](https://wicg.github.io/web-otp/)
--   [Origin-bound one-time codes delivered via SMS](https://wicg.github.io/sms-one-time-codes/)
+- [Verify phone numbers on the web with the Web OTP API](https://web.dev/web-otp/)
+- [SMS OTP form best practices](https://web.dev/sms-otp-form/)
+- [WebOTP API](https://wicg.github.io/web-otp/)
+- [Origin-bound one-time codes delivered via SMS](https://wicg.github.io/sms-one-time-codes/)
 
 Photo by [rupixen.com](https://unsplash.com/@rupixen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/online-payment?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
@@ -167,35 +153,35 @@ Photo by [rupixen.com](https://unsplash.com/@rupixen?utm_source=unsplash&utm_med
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

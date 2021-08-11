@@ -1,45 +1,37 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format" alt="Businessman using a payment card to make a payment on a laptop computer." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/dbYeeV2PCRZNY6RRvQd2.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#payment-and-address-form-best-practices" class="w-toc__header--link">Payment and address form best practices</a>
---------------------------------------------------------------------------------------------------------------------------
+## <a href="#payment-and-address-form-best-practices" class="w-toc__header--link">Payment and address form best practices</a>
 
--   [Checklist](#checklist)
--   [Use meaningful HTML](#meaningful-html)
--   [Use HTML elements as intended](#html-elements)
--   [Make the most of HTML attributes](#html-attributes)
--   [Simplify checkout](#checkout-forms)
--   [Mind the mobile commerce gap!](#m-commerce-gap)
--   [Make guest checkout the default](#guest-checkout)
--   [Show checkout progress](#checkout-progress)
--   [Remove distractions](#reduce-checkout-exits)
--   [Make it easy to enter name and address](#address-forms)
--   [Only ask for the data you need](#unneeded-data)
--   [Use a single name input](#single-name-input)
--   [Enable name autofill](#enable-name-autofill)
--   [Allow international names](#unicode-matching)
--   [Allow for a variety of address formats](#address-variety)
--   [Simplify payment forms](#general-guidelines)
--   [Help users avoid re-entering payment data](#payment-form-autocomplete)
--   [Avoid using custom elements for payment card dates](#avoid-using-custom-elements-for-payment-card-dates)
--   [Use a single input for payment card and phone numbers](#single-number-input)
--   [Validate carefully](#validate)
--   [Test on a range of devices, platforms, browsers and versions](#test-platforms)
--   [Implement analytics and RUM](#analytics-rum)
--   [Keep learning](#resources)
+- [Checklist](#checklist)
+- [Use meaningful HTML](#meaningful-html)
+- [Use HTML elements as intended](#html-elements)
+- [Make the most of HTML attributes](#html-attributes)
+- [Simplify checkout](#checkout-forms)
+- [Mind the mobile commerce gap!](#m-commerce-gap)
+- [Make guest checkout the default](#guest-checkout)
+- [Show checkout progress](#checkout-progress)
+- [Remove distractions](#reduce-checkout-exits)
+- [Make it easy to enter name and address](#address-forms)
+- [Only ask for the data you need](#unneeded-data)
+- [Use a single name input](#single-name-input)
+- [Enable name autofill](#enable-name-autofill)
+- [Allow international names](#unicode-matching)
+- [Allow for a variety of address formats](#address-variety)
+- [Simplify payment forms](#general-guidelines)
+- [Help users avoid re-entering payment data](#payment-form-autocomplete)
+- [Avoid using custom elements for payment card dates](#avoid-using-custom-elements-for-payment-card-dates)
+- [Use a single input for payment card and phone numbers](#single-number-input)
+- [Validate carefully](#validate)
+- [Test on a range of devices, platforms, browsers and versions](#test-platforms)
+- [Implement analytics and RUM](#analytics-rum)
+- [Keep learning](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Payment and address form best practices
-=======================================
+# Payment and address form best practices
 
 Maximize conversions by helping your users complete address and payment forms as quickly and easily as possible.
 
@@ -49,58 +41,56 @@ Dec 9, 2020 <span class="w-author__separator">•</span> Updated Jan 15, 2021
 
 <a href="/authors/samdutton/" class="w-author__name-link">Sam Dutton</a>
 
--   <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
--   <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
+- <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
 
 Well-designed forms help users and increase conversion rates. One small fix can make a big difference!
 
 **Try it**! If you prefer to learn these best practices with a hands-on tutorial, check out the two codelabs for this post:
 
--   [Payment form best practices codelab](/codelab-payment-form-best-practices)
--   [Address form best practices codelab](/codelab-address-form-best-practices)
+- [Payment form best practices codelab](/codelab-payment-form-best-practices)
+- [Address form best practices codelab](/codelab-address-form-best-practices)
 
 Here is an example of a simple payment form that demonstrates all of the best practices:
 
 Here is an example of a simple address form that demonstrates all of the best practices:
 
-Checklist <a href="#checklist" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Checklist <a href="#checklist" class="w-headline-link">#</a>
 
--   [Use meaningful HTML elements](#meaningful-html): `<form>`, `<input>`, `<label>`, and `<button>`.
--   [Label each form field with a `<label>`](#html-label).
--   Use HTML element attributes to [access built-in browser features](#html-attributes), in particular [`type`](#type-attribute) and [`autocomplete`](#autocomplete-attribute) with appropriate values.
--   Avoid using `type="number"` for numbers that aren't meant to be incremented, such as payment card numbers. Use `type="text"` and [`inputmode="numeric"`](#inputmode-attribute) instead.
--   If an [appropriate autocomplete value](#autocomplete-attribute) is available for an `input`, `select`, or `textarea`, you should use it.
--   To help browsers autofill forms, give input `name` and `id` attributes [stable values](#stable-name-id) that don't change between page loads or website deployments.
--   [Disable submit buttons](#disable-submit) once they've been tapped or clicked.
--   [Validate](#validate) data during entry—not just on form submission.
--   Make [guest checkout](#guest-checkout) the default and make account creation simple once checkout is complete.
--   Show [progress through the checkout process](#checkout-progress) in clear steps with clear calls to action.
--   [Limit potential checkout exit points](#reduce-checkout-exits) by removing clutter and distractions.
--   [Show full order details](#checkout-details) at checkout and make order adjustments easy.
--   [Don't ask for data you don't need](#unneeded-data).
--   [Ask for names with a single input](#single-name-input) unless you have a good reason not to.
--   [Don't enforce Latin-only characters](#unicode-matching) for names and usernames.
--   [Allow for a variety of address formats](#address-variety).
--   Consider using a [single `textarea` for address](#address-textarea).
--   Use [autocomplete for billing address](#billing-address).
--   [Internationalize and localize](#internationalization-localization) where necessary.
--   Consider avoiding [postal code address lookup](#postal-code-address-lookup).
--   Use [appropriate payment card autocomplete values](#payment-form-autocomplete).
--   Use a [single input for payment card numbers](#single-number-input).
--   [Avoid using custom elements](#avoid-custom-elements) if they break the autofill experience.
--   [Test in the field as well as the lab](#analytics-rum): page analytics, interaction analytics, and real-user performance measurement.
--   [Test on a range of browsers, devices, and platforms](#test-platforms).
+- [Use meaningful HTML elements](#meaningful-html): `<form>`, `<input>`, `<label>`, and `<button>`.
+- [Label each form field with a `<label>`](#html-label).
+- Use HTML element attributes to [access built-in browser features](#html-attributes), in particular [`type`](#type-attribute) and [`autocomplete`](#autocomplete-attribute) with appropriate values.
+- Avoid using `type="number"` for numbers that aren't meant to be incremented, such as payment card numbers. Use `type="text"` and [`inputmode="numeric"`](#inputmode-attribute) instead.
+- If an [appropriate autocomplete value](#autocomplete-attribute) is available for an `input`, `select`, or `textarea`, you should use it.
+- To help browsers autofill forms, give input `name` and `id` attributes [stable values](#stable-name-id) that don't change between page loads or website deployments.
+- [Disable submit buttons](#disable-submit) once they've been tapped or clicked.
+- [Validate](#validate) data during entry—not just on form submission.
+- Make [guest checkout](#guest-checkout) the default and make account creation simple once checkout is complete.
+- Show [progress through the checkout process](#checkout-progress) in clear steps with clear calls to action.
+- [Limit potential checkout exit points](#reduce-checkout-exits) by removing clutter and distractions.
+- [Show full order details](#checkout-details) at checkout and make order adjustments easy.
+- [Don't ask for data you don't need](#unneeded-data).
+- [Ask for names with a single input](#single-name-input) unless you have a good reason not to.
+- [Don't enforce Latin-only characters](#unicode-matching) for names and usernames.
+- [Allow for a variety of address formats](#address-variety).
+- Consider using a [single `textarea` for address](#address-textarea).
+- Use [autocomplete for billing address](#billing-address).
+- [Internationalize and localize](#internationalization-localization) where necessary.
+- Consider avoiding [postal code address lookup](#postal-code-address-lookup).
+- Use [appropriate payment card autocomplete values](#payment-form-autocomplete).
+- Use a [single input for payment card numbers](#single-number-input).
+- [Avoid using custom elements](#avoid-custom-elements) if they break the autofill experience.
+- [Test in the field as well as the lab](#analytics-rum): page analytics, interaction analytics, and real-user performance measurement.
+- [Test on a range of browsers, devices, and platforms](#test-platforms).
 
 This article is about frontend best practices for address and payment forms. It does not explain how to implement transactions on your site. To find out more about adding payment functionality to your website, see [Web Payments](/payments).
 
-Use meaningful HTML <a href="#meaningful-html" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Use meaningful HTML <a href="#meaningful-html" class="w-headline-link">#</a>
 
 Use the elements and attributes built for the job:
 
--   `<form>`, `<input>`, `<label>`, and `<button>`
--   `type`, `autocomplete`, and `inputmode`
+- `<form>`, `<input>`, `<label>`, and `<button>`
+- `type`, `autocomplete`, and `inputmode`
 
 These enable built-in browser functionality, improve accessibility, and add meaning to your markup.
 
@@ -125,7 +115,7 @@ Associate a label with an input by giving the label's `for` attribute the same v
     <label for="address-line1">Address line 1</label>
     <input id="address-line1" …>
 
-Use a single label for a single input: don't try to label multiple inputs with only one label. This works best for browsers, and best for screenreaders. A tap or click on a label moves focus to the input it's associated with, and screenreaders announce label text when the *label* or the label's *input* gets focus.
+Use a single label for a single input: don't try to label multiple inputs with only one label. This works best for browsers, and best for screenreaders. A tap or click on a label moves focus to the input it's associated with, and screenreaders announce label text when the _label_ or the label's _input_ gets focus.
 
 **Caution**: Don't use [placeholders](https://www.smashingmagazine.com/2018/06/placeholder-attribute/) on their own instead of labels. Once you start entering text in an input, the placeholder is hidden, so it can be easy to forget what the input is for. The same is true if you use the placeholder to show the correct format for values such as dates. This can be especially problematic for users on phones, particularly if they're distracted or feeling stressed!
 
@@ -205,14 +195,13 @@ When a form is submitted [modern browsers](https://caniuse.com/mdn-api_htmlinput
 
 Add an asterisk to the label for every required field, and add a note at the start of the form to explain what the asterisk means.
 
-Simplify checkout <a href="#checkout-forms" class="w-headline-link">#</a>
--------------------------------------------------------------------------
+## Simplify checkout <a href="#checkout-forms" class="w-headline-link">#</a>
 
 ### Mind the mobile commerce gap! <a href="#m-commerce-gap" class="w-headline-link">#</a>
 
-Imagine that your users have a *fatigue budget*. Use it up, and your users will leave.
+Imagine that your users have a _fatigue budget_. Use it up, and your users will leave.
 
-You need to reduce friction and maintain focus, especially on mobile. Many sites get more *traffic* on mobile but more *conversions* on desktop—a phenomenon known as the [mobile commerce gap](https://www.comscore.com/Insights/Presentations-and-Whitepapers/2017/Mobiles-Hierarchy-of-Needs). Customers may simply prefer to complete a purchase on desktop, but lower mobile conversion rates are also a result of poor user experience. Your job is to *minimize* lost conversions on mobile and *maximize* conversions on desktop. [Research has shown](https://www.comscore.com/Insights/Presentations-and-Whitepapers/2017/Mobiles-Hierarchy-of-Needs) that there's a huge opportunity to provide a better mobile form experience.
+You need to reduce friction and maintain focus, especially on mobile. Many sites get more _traffic_ on mobile but more _conversions_ on desktop—a phenomenon known as the [mobile commerce gap](https://www.comscore.com/Insights/Presentations-and-Whitepapers/2017/Mobiles-Hierarchy-of-Needs). Customers may simply prefer to complete a purchase on desktop, but lower mobile conversion rates are also a result of poor user experience. Your job is to _minimize_ lost conversions on mobile and _maximize_ conversions on desktop. [Research has shown](https://www.comscore.com/Insights/Presentations-and-Whitepapers/2017/Mobiles-Hierarchy-of-Needs) that there's a huge opportunity to provide a better mobile form experience.
 
 Most of all, users are more likely to abandon forms that look long, that are complex, and without a sense of direction. This is especially true when users are on smaller screens, distracted, or in a rush. Ask for as little data as possible.
 
@@ -250,8 +239,7 @@ Limit potential exit points by removing visual clutter and distractions such as 
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format" alt="Don&#39;t distract customers from completing their purchase." class="w-screenshot" sizes="(min-width: 350px) 350px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/lKJwd5e2smBfDjNxV22N.jpg?auto=format&amp;w=700 700w" width="350" height="735" /><figcaption>Don't distract customers from completing their purchase.</figcaption></figure>For returning users you can simplify the checkout flow even more, by hiding data they don't need to see. For example: display the delivery address in plain text (not in a form) and allow users to change it via a link.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format" alt="Hide data customers don&#39;t need to see." class="w-screenshot" sizes="(min-width: 450px) 450px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=900 900w" width="450" height="219" /><figcaption>Hide data customers don't need to see.</figcaption></figure>Make it easy to enter name and address <a href="#address-forms" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format" alt="Hide data customers don&#39;t need to see." class="w-screenshot" sizes="(min-width: 450px) 450px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xEAYOeEFYhOZLaB2aeCY.png?auto=format&amp;w=900 900w" width="450" height="219" /><figcaption>Hide data customers don't need to see.</figcaption></figure>Make it easy to enter name and address <a href="#address-forms" class="w-headline-link">#</a>
 
 ### Only ask for the data you need <a href="#unneeded-data" class="w-headline-link">#</a>
 
@@ -271,13 +259,13 @@ Use `name` for a full name:
 
 If you really do have a good reason to split out name parts, make sure to to use appropriate autocomplete values:
 
--   `honorific-prefix`
--   `given-name`
--   `nickname`
--   `additional-name-initial`
--   `additional-name`
--   `family-name`
--   `honorific-suffix`
+- `honorific-prefix`
+- `given-name`
+- `nickname`
+- `additional-name-initial`
+- `additional-name`
+- `family-name`
+- `honorific-suffix`
 
 ### Allow international names <a href="#unicode-matching" class="w-headline-link">#</a>
 
@@ -358,9 +346,9 @@ It can be irritating or puzzling to be presented with a form that doesn't fit yo
 
 Customizing address forms [for multiple locales](https://www.smashingmagazine.com/2020/11/internationalization-localization-static-sites#determining-user-s-language-and-region) may be necessary for your site, but using techniques to maximize form flexibility (as described above) may be adequate. If you don't localize your address forms, make sure to understand the key priorities to cope with a range of address formats:
 
--   Avoid being over-specific about address parts, such as insisting on a street name or house number.
--   Where possible avoid making fields `required`. For example, addresses in many countries don't have a postal code, and rural addresses may not have a street or road name.
--   Use inclusive naming: 'Country/region' not 'Country'; 'ZIP/postal code' not 'ZIP'.
+- Avoid being over-specific about address parts, such as insisting on a street name or house number.
+- Where possible avoid making fields `required`. For example, addresses in many countries don't have a postal code, and rural addresses may not have a street or road name.
+- Use inclusive naming: 'Country/region' not 'Country'; 'ZIP/postal code' not 'ZIP'.
 
 Keep it flexible! The [simple address form example above](#address-textarea) can be adapted to work 'well enough' for many locales.
 
@@ -376,8 +364,7 @@ It's difficult for users to select from a long list of addresses—especially on
 
 A single name input enables one-tap (one-click) address entry.
 
-Simplify payment forms <a href="#general-guidelines" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Simplify payment forms <a href="#general-guidelines" class="w-headline-link">#</a>
 
 Payment forms are the single most critical part of the checkout process. Poor payment form design is a [common cause of shopping cart abandonment](https://www.comscore.com/Insights/Presentations-and-Whitepapers/2017/Mobiles-Hierarchy-of-Needs). The [devil's in the details](https://en.wikipedia.org/wiki/The_devil_is_in_the_detail#cite_note-Titelman-1): small glitches can tip users towards abandoning a purchase, particularly on mobile. Your job is to design forms to make it as easy as possible for users to enter data.
 
@@ -385,10 +372,10 @@ Payment forms are the single most critical part of the checkout process. Poor pa
 
 Make sure to add appropriate `autocomplete` values in payment card forms, including the payment card number, name on the card, and the expiry month and year:
 
--   `cc-number`
--   `cc-name`
--   `cc-exp-month`
--   `cc-exp-year`
+- `cc-number`
+- `cc-name`
+- `cc-exp-month`
+- `cc-exp-year`
 
 This enables browsers to help users by securely storing payment card details and correctly entering form data. Without autocomplete, users may be more likely to keep a physical record of payment card details, or store payment card data insecurely on their device.
 
@@ -412,8 +399,7 @@ Allow users to include spaces when they're entering a new payment card number, s
 
 You may want to use a one-time passcode for identity or payment verification. However, asking users to manually enter a code or copy it from an email or an SMS text is error-prone and a source of friction. Learn about better ways to enable one-time passcodes in [SMS OTP form best practices](/sms-otp-form).
 
-Test on a range of devices, platforms, browsers and versions <a href="#test-platforms" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------
+## Test on a range of devices, platforms, browsers and versions <a href="#test-platforms" class="w-headline-link">#</a>
 
 It's particularly important to test address and payment forms on the platforms most common for your users, since form element functionality and appearance may vary, and differences in viewport size can lead to problematic positioning. BrowserStack enables [free testing for open source projects](https://www.browserstack.com/open-source) on a range of devices and browsers.
 
@@ -425,27 +411,26 @@ Testing usability and performance locally can be helpful, but you need real-worl
 
 For that you need analytics and Real User Monitoring—data for the experience of actual users, such as how long checkout pages take to load or how long payment takes to complete:
 
--   **Page analytics**: page views, bounce rates and exits for every page with a form.
--   **Interaction analytics**: [goal funnels](https://support.google.com/analytics/answer/6180923?hl=en) and [events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) indicate where users abandon your checkout flow and what actions do they take when interacting with your forms.
--   **Website performance**: [user-centric metrics](/user-centric-performance-metrics) can tell you if your checkout pages are slow to load and, if so—what's the cause.
+- **Page analytics**: page views, bounce rates and exits for every page with a form.
+- **Interaction analytics**: [goal funnels](https://support.google.com/analytics/answer/6180923?hl=en) and [events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) indicate where users abandon your checkout flow and what actions do they take when interacting with your forms.
+- **Website performance**: [user-centric metrics](/user-centric-performance-metrics) can tell you if your checkout pages are slow to load and, if so—what's the cause.
 
 Page analytics, interaction analytics, and real user performance measurement become especially valuable when combined with server logs, conversion data, and A/B testing, enabling you to answer questions such as whether discount codes increase revenue, or whether a change in form layout improves conversions.
 
 That, in turn, gives you a solid basis for prioritizing effort, making changes, and rewarding success.
 
-Keep learning <a href="#resources" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Keep learning <a href="#resources" class="w-headline-link">#</a>
 
--   [Sign-in form best practices](/sign-in-form-best-practices)
--   [Sign-up form best practices](/sign-up-form-best-practices)
--   [Verify phone numbers on the web with the WebOTP API](/web-otp)
--   [Create Amazing Forms](https://developers.google.com/web/fundamentals/design-and-ux/input/forms)
--   [Best Practices For Mobile Form Design](https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/)
--   [More capable form controls](/more-capable-form-controls)
--   [Creating Accessible Forms](https://webaim.org/techniques/forms/)
--   [Streamlining the Sign-up Flow Using Credential Management API](https://developers.google.com/web/updates/2016/04/credential-management-api)
--   [Frank's Compulsive Guide to Postal Addresses](http://www.columbia.edu/~fdc/postal/) provides useful links and extensive guidance for address formats in over 200 countries.
--   [Countries Lists](http://www.countries-list.info/Download-List) has a tool for downloading country codes and names in multiple languages, in multiple formats.
+- [Sign-in form best practices](/sign-in-form-best-practices)
+- [Sign-up form best practices](/sign-up-form-best-practices)
+- [Verify phone numbers on the web with the WebOTP API](/web-otp)
+- [Create Amazing Forms](https://developers.google.com/web/fundamentals/design-and-ux/input/forms)
+- [Best Practices For Mobile Form Design](https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/)
+- [More capable form controls](/more-capable-form-controls)
+- [Creating Accessible Forms](https://webaim.org/techniques/forms/)
+- [Streamlining the Sign-up Flow Using Credential Management API](https://developers.google.com/web/updates/2016/04/credential-management-api)
+- [Frank's Compulsive Guide to Postal Addresses](http://www.columbia.edu/~fdc/postal/) provides useful links and extensive guidance for address formats in over 200 countries.
+- [Countries Lists](http://www.countries-list.info/Download-List) has a tool for downloading country codes and names in multiple languages, in multiple formats.
 
 Photo by [@rupixen](https://unsplash.com/@rupixen) on [Unsplash](https://unsplash.com/photos/Q59HmzK38eQ).
 
@@ -453,47 +438,46 @@ Photo by [@rupixen](https://unsplash.com/@rupixen) on [Unsplash](https://unsplas
 
 <span class="w-mr--sm">Last updated: Jan 15, 2021 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/blog/payment-and-address-form-best-practices/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-payment-form-best-practices/" class="w-callout__link w-callout__link--codelab">Payment form best practices codelab</a>
--   <a href="/codelab-address-form-best-practices/" class="w-callout__link w-callout__link--codelab">Address form best practices codelab</a>
+- <a href="/codelab-payment-form-best-practices/" class="w-callout__link w-callout__link--codelab">Payment form best practices codelab</a>
+- <a href="/codelab-address-form-best-practices/" class="w-callout__link w-callout__link--codelab">Address form best practices codelab</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

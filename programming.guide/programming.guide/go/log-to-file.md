@@ -1,7 +1,3 @@
-<span class="underline"></span>
-
-<span class="underline"></span>
-
 ## Related
 
 [Disable logging](disable-logging-output.html)  
@@ -19,8 +15,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-<span class="underline"></span>
 
 ## Top Algorithm Articles
 

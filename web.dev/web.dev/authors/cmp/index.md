@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
 <img src="https://web-dev.imgix.net/image/admin/1v5F1SOBl46ZghbHQMle.svg" alt="Chase Phillips" class="w-author-page__image" width="192" height="192" />

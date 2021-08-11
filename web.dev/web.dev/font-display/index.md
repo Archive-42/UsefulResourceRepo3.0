@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#ensure-text-remains-visible-during-webfont-load" class="w-toc__header--link">Ensure text remains visible during webfont load</a>
 
 - [How the Lighthouse font-display audit fails](#how-the-lighthouse-font-display-audit-fails)

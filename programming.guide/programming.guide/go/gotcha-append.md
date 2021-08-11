@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Further Reading
 
@@ -39,7 +39,7 @@
 25. [Why is the JSON output empty?](gotcha-json-marshal-empty.html)
 26. [Why is nil not equal to nil?](gotcha-why-nil-error-not-equal-nil.html)
 
-<span class="underline"></span>
+
 
 ## Top Go Articles
 

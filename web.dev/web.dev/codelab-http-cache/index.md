@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Configuring HTTP caching behavior
 
 Nov 5, 2018

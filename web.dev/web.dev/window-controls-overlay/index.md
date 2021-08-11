@@ -1,48 +1,40 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format" alt="Kid drawing, crafting, and painting rocks." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KEHQXWqr6s7VnEfTqVOC.jpeg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#customize-the-window-controls-overlay-of-your-pwa&#39;s-title-bar" class="w-toc__header--link">Customize the window controls overlay of your PWA's title bar</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#customize-the-window-controls-overlay-of-your-pwa&#39;s-title-bar" class="w-toc__header--link">Customize the window controls overlay of your PWA's title bar</a>
 
--   [Window Controls Overlay components](#window-controls-overlay-components)
--   [What is Window Controls Overlay](#what-is-window-controls-overlay)
--   [Current status](#status)
--   [Enabling via about://flags](#enabling-via-about:flags)
--   [Enabling support during the origin trial phase](#enabling-support-during-the-origin-trial-phase)
--   [Register for the origin trial](#register-for-ot)
--   [How to use Window Controls Overlay](#how-to-use-window-controls-overlay)
--   [Adding window-controls-overlay to the web app manifest](#adding-window-controls-overlay-to-the-web-app-manifest)
--   [Moving content into the title bar](#moving-content-into-the-title-bar)
--   [Determining which parts of the title bar are draggable](#determining-which-parts-of-the-title-bar-are-draggable)
--   [Feature detection](#feature-detection)
--   [Querying the window controls region with windowControlsOverlay](#querying-the-window-controls-region-with-windowcontrolsoverlay)
--   [Determining if the window controls overlay is visible](#determining-if-the-window-controls-overlay-is-visible)
--   [Being notified of geometry changes](#being-notified-of-geometry-changes)
--   [Compatibility when running in a tab and on non-supporting browsers](#compatibility-when-running-in-a-tab-and-on-non-supporting-browsers)
--   [Demo](#demo)
--   [Security considerations](#security-considerations)
--   [Spoofing](#spoofing)
--   [Fingerprinting](#fingerprinting)
--   [Navigation](#navigation)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Report a problem with the implementation](#report-a-problem-with-the-implementation)
--   [Show support for the API](#show-support-for-the-api)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [Window Controls Overlay components](#window-controls-overlay-components)
+- [What is Window Controls Overlay](#what-is-window-controls-overlay)
+- [Current status](#status)
+- [Enabling via about://flags](#enabling-via-about:flags)
+- [Enabling support during the origin trial phase](#enabling-support-during-the-origin-trial-phase)
+- [Register for the origin trial](#register-for-ot)
+- [How to use Window Controls Overlay](#how-to-use-window-controls-overlay)
+- [Adding window-controls-overlay to the web app manifest](#adding-window-controls-overlay-to-the-web-app-manifest)
+- [Moving content into the title bar](#moving-content-into-the-title-bar)
+- [Determining which parts of the title bar are draggable](#determining-which-parts-of-the-title-bar-are-draggable)
+- [Feature detection](#feature-detection)
+- [Querying the window controls region with windowControlsOverlay](#querying-the-window-controls-region-with-windowcontrolsoverlay)
+- [Determining if the window controls overlay is visible](#determining-if-the-window-controls-overlay-is-visible)
+- [Being notified of geometry changes](#being-notified-of-geometry-changes)
+- [Compatibility when running in a tab and on non-supporting browsers](#compatibility-when-running-in-a-tab-and-on-non-supporting-browsers)
+- [Demo](#demo)
+- [Security considerations](#security-considerations)
+- [Spoofing](#spoofing)
+- [Fingerprinting](#fingerprinting)
+- [Navigation](#navigation)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Report a problem with the implementation](#report-a-problem-with-the-implementation)
+- [Show support for the API](#show-support-for-the-api)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Customize the window controls overlay of your PWA's title bar
-=============================================================
+# Customize the window controls overlay of your PWA's title bar
 
 Make use of the title bar area next to the window controls to make your PWA feel more like an app.
 
@@ -52,16 +44,16 @@ Apr 22, 2021 <span class="w-author__separator">•</span> Updated Aug 6, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Amanda Baker" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/amandabaker/)
 
 <a href="/authors/amandabaker/" class="w-author__name-link">Amanda Baker</a>
 
--   <a href="https://github.com/amandabaker" class="w-author__link">GitHub</a>
+- <a href="https://github.com/amandabaker" class="w-author__link">GitHub</a>
 
 If you remember my article [Make your PWA feel more like an app](/app-like-pwas/), you may recall how I mentioned [customizing the title bar of your app](/app-like-pwas/#customized-title-bar) as a strategy for creating a more app-like experience. Here is an example of how this can look like showing the macOS Podcasts app.
 
@@ -69,8 +61,7 @@ If you remember my article [Make your PWA feel more like an app](/app-like-pwas/
 
 Now you may be tempted to object by saying that Podcasts is a platform-specific macOS app that does not run in a browser and therefore can do what it wants without having to play by the browser's rules. True, but the good news is that the Window Controls Overlay feature, which is the topic of this very article, soon lets you create similar user interfaces for your PWA.
 
-Window Controls Overlay components <a href="#window-controls-overlay-components" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## Window Controls Overlay components <a href="#window-controls-overlay-components" class="w-headline-link">#</a>
 
 Window Controls Overlay consists of four sub-features:
 
@@ -79,13 +70,11 @@ Window Controls Overlay consists of four sub-features:
 3.  The standardization of the previously proprietary CSS property `-webkit-app-region` as the `app-region` property to define draggable regions in web content.
 4.  A mechanism to query for and work around the window controls region via the `windowControlsOverlay` member of `window.navigator`.
 
-What is Window Controls Overlay <a href="#what-is-window-controls-overlay" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------
+## What is Window Controls Overlay <a href="#what-is-window-controls-overlay" class="w-headline-link">#</a>
 
 The title bar area refers to the space to the left or right of the window controls (that is, the buttons to minimize, maximize, close, etc.) and often contains the title of the application. Window Controls Overlay lets progressive web applications (PWAs) provide a more app-like feel by swapping the existing full-width title bar for a small overlay containing the window controls. This allows developers to place custom content in what was previously the browser-controlled title bar area.
 
-Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td><a href="https://github.com/WICG/window-controls-overlay/blob/main/explainer.md">Complete</a></td></tr><tr class="even"><td>2. Create initial draft of specification</td><td>Not started</td></tr><tr class="odd"><td>3. Gather feedback &amp; iterate on design</td><td><a href="#feedback">In progress</a></td></tr><tr class="even"><td>4. <strong>Origin trial</strong></td><td><a href="https://developer.chrome.com/origintrials/#/view_trial/-9105152546636300287"><strong>In progress</strong></a></td></tr><tr class="odd"><td>5. Launch</td><td>Not started</td></tr></tbody></table>
 
@@ -103,13 +92,12 @@ Origin trials allow you to try new features and give feedback on their usability
 
 1.  [Request a token](https://developer.chrome.com/origintrials/#/view_trial/-9105152546636300287) for your origin.
 2.  Add the token to your pages. There are two ways to do that:
-    -   Add an `origin-trial` `<meta>` tag to the head of each page. For example, this may look something like:  
-        `<meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">`
-    -   If you can configure your server, you can also add the token using an `Origin-Trial` HTTP header. The resulting response header should look something like:  
-        `Origin-Trial: TOKEN_GOES_HERE`
+    - Add an `origin-trial` `<meta>` tag to the head of each page. For example, this may look something like:  
+      `<meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">`
+    - If you can configure your server, you can also add the token using an `Origin-Trial` HTTP header. The resulting response header should look something like:  
+      `Origin-Trial: TOKEN_GOES_HERE`
 
-How to use Window Controls Overlay <a href="#how-to-use-window-controls-overlay" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## How to use Window Controls Overlay <a href="#how-to-use-window-controls-overlay" class="w-headline-link">#</a>
 
 ### Adding `window-controls-overlay` to the web app manifest <a href="#adding-window-controls-overlay-to-the-web-app-manifest" class="w-headline-link">#</a>
 
@@ -121,7 +109,7 @@ A progressive web app can opt-in to the window controls overlay by adding `"wind
 
 The window controls overlay will be visible only when all of the following conditions are satisfied:
 
-1.  The app is *not* opened in the browser, but in a separate PWA window.
+1.  The app is _not_ opened in the browser, but in a separate PWA window.
 2.  The manifest includes `"display_override": ["window-controls-overlay"]`. (Other values are allowed thereafter.)
 3.  The PWA is running on a desktop operating system.
 4.  The current origin matches the origin for which the PWA was installed.
@@ -281,8 +269,8 @@ Rather than assigning a function to `ongeometrychange`, you can also add an even
 
 There are two possible cases to consider:
 
--   The case where an app is running in a browser that *does* support Window Controls Overlay, but where the app is used in a browser tab.
--   The case where an app is running in a browser that *does not* support Window Controls Overlay.
+- The case where an app is running in a browser that _does_ support Window Controls Overlay, but where the app is used in a browser tab.
+- The case where an app is running in a browser that _does not_ support Window Controls Overlay.
 
 In both cases, by default the HTML the developer has determined to be placed in the window controls overlay will display inline like regular HTML content and the `env()` variables' fallback values will kick in for the positioning. On supporting browsers, you can also decide to not display the HTML designated for the window controls overlay by checking the overlay's `visible` property, and if it reports `false`, then hiding that HTML content.
 
@@ -292,8 +280,7 @@ As a reminder, non-supporting browsers will either not consider the [`"display_o
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format" alt="PWA running in standalone mode with the window controls overlay displayed in the body." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/MMgzCRS0207kFpQnNwgb.png?auto=format&amp;w=1600 1600w" width="800" height="99" />
 
-Demo <a href="#demo" class="w-headline-link">#</a>
---------------------------------------------------
+## Demo <a href="#demo" class="w-headline-link">#</a>
 
 I have created a [demo](https://window-controls-overlay.glitch.me/) that you can play with in different supporting and non-supporting browsers and in the installed and non-installed state. For the actual Window Controls Overlay experience, you need to install the app and set the [flag](#enabling-via-chrome:flags). You can see two screenshots of what to expect below. The [source code](https://glitch.com/edit/#!/window-controls-overlay) of the app is available on Glitch.
 
@@ -303,8 +290,7 @@ The search feature in the window controls overlay is fully functional:
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format" alt="Chuck Norris jokes demo app with Window Controls Overlay and active search for the term &#39;canyon&#39; highlighting one of the jokes with the matched term." sizes="(min-width: 400px) 400px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/KpJcvlSpdiVw4wG9zPt3.png?auto=format&amp;w=800 800w" width="400" height="312" />
 
-Security considerations <a href="#security-considerations" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Security considerations <a href="#security-considerations" class="w-headline-link">#</a>
 
 The Chromium team has designed and implemented the Window Controls Overlay API using the core principles defined in [Controlling Access to Powerful Web Platform Features](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md), including user control, transparency, and ergonomics.
 
@@ -322,8 +308,7 @@ Navigating to a different origin within the PWA will cause it to fall back to th
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format" alt="Black URL bar for out-of-origin navigation." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/8Yn3rH0FirYKgiHKUCA7.png?auto=format&amp;w=1600 1600w" width="800" height="169" />
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 The Chromium team wants to hear about your experiences with the Window Controls Overlay API.
 
@@ -341,17 +326,15 @@ Are you planning to use the Window Controls Overlay API? Your public support hel
 
 Send a Tweet to [@ChromiumDev](https://twitter.com/ChromiumDev) with the [`#WindowControlsOverlay`](https://twitter.com/search?q=%23WindowControlsOverlay&src=recent_search_click&f=live) hashtag and let us know where and how you're using it.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [Explainer](https://github.com/WICG/window-controls-overlay/blob/main/explainer.md)
--   [Chromium bug](https://crbug.com/937121)
--   [Chrome Platform Status entry](https://chromestatus.com/feature/5741247866077184)
--   [TAG review](https://github.com/w3ctag/design-reviews/issues/481)
--   [Microsoft Edge's related docs](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/experimental-features/#window-controls-overlay-for-installed-desktop-web-apps)
+- [Explainer](https://github.com/WICG/window-controls-overlay/blob/main/explainer.md)
+- [Chromium bug](https://crbug.com/937121)
+- [Chrome Platform Status entry](https://chromestatus.com/feature/5741247866077184)
+- [TAG review](https://github.com/w3ctag/design-reviews/issues/481)
+- [Microsoft Edge's related docs](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/experimental-features/#window-controls-overlay-for-installed-desktop-web-apps)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Window Controls Overlay was implemented and specified by [Amanda Baker](https://www.linkedin.com/in/amanda-baker-20a2b962/) from the Microsoft Edge team. This article was reviewed by [Joe Medley](https://github.com/jpmedley) and [Kenneth Rohde Christiansen](https://github.com/kenchris). Hero image by [Sigmund](https://unsplash.com/@sigmund) on [Unsplash](https://unsplash.com/photos/OV44gxH71DU).
 
@@ -361,35 +344,35 @@ Window Controls Overlay was implemented and specified by [Amanda Baker](https://
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

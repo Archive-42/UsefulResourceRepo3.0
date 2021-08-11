@@ -1,29 +1,21 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format" alt="Adam&#39;s Creation by Michelangelo on Sistine Chapel ceiling" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/Dyccd1RLN0fzhjPXswmL.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#establish-network-connections-early-to-improve-perceived-page-speed" class="w-toc__header--link">Establish network connections early to improve perceived page speed</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#establish-network-connections-early-to-improve-perceived-page-speed" class="w-toc__header--link">Establish network connections early to improve perceived page speed</a>
 
--   [Establish early connections with rel=preconnect](#establish-early-connections-with-relpreconnect)
--   [Use-cases for rel=preconnect](#use-cases-for-relpreconnect)
--   [Knowing where from, but not what you're fetching](#knowing-where-from-but-not-what-you're-fetching)
--   [Streaming media](#streaming-media)
--   [How to implement rel=preconnect](#how-to-implement-relpreconnect)
--   [Resolve domain name early with rel=dns-prefetch](#resolve-domain-name-early-with-reldns-prefetch)
--   [Conclusion](#conclusion)
+- [Establish early connections with rel=preconnect](#establish-early-connections-with-relpreconnect)
+- [Use-cases for rel=preconnect](#use-cases-for-relpreconnect)
+- [Knowing where from, but not what you're fetching](#knowing-where-from-but-not-what-you're-fetching)
+- [Streaming media](#streaming-media)
+- [How to implement rel=preconnect](#how-to-implement-relpreconnect)
+- [Resolve domain name early with rel=dns-prefetch](#resolve-domain-name-early-with-reldns-prefetch)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Establish network connections early to improve perceived page speed
-===================================================================
+# Establish network connections early to improve perceived page speed
 
 Learn about rel=preconnect and rel=dns-prefetch resource hints and how to use them.
 
@@ -35,26 +27,25 @@ Jul 30, 2019
 
 <a href="/authors/mihajlija/" class="w-author__name-link">Milica Mihajlija</a>
 
--   <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
--   <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
+- <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
 
 Before the browser can request a resource from a server, it must establish a connection. Establishing a secure connection involves three steps:
 
--   Look up the domain name and resolve it to an IP address.
+- Look up the domain name and resolve it to an IP address.
 
--   Set up a connection to the server.
+- Set up a connection to the server.
 
--   Encrypt the connection for security.
+- Encrypt the connection for security.
 
-In each of these steps the browser sends a piece of data to a server, and the server sends back a response. That journey, from origin to destination and back, is called a [round trip](https://developer.mozilla.org/en-US/docs/Glossary/Round_Trip_Time_(RTT)).
+In each of these steps the browser sends a piece of data to a server, and the server sends back a response. That journey, from origin to destination and back, is called a [round trip](<https://developer.mozilla.org/en-US/docs/Glossary/Round_Trip_Time_(RTT)>).
 
 Depending on network conditions, a single round trip might take a significant amount of time. The connection setup process might involve up to three round trips—and more in unoptimized cases.
 
 Taking care of all that ahead of time makes applications feel much faster. This post explains how to achieve that with two resource hints: `<link rel=preconnect>` and `<link rel=dns-prefetch>`.
 
-Establish early connections with `rel=preconnect` <a href="#establish-early-connections-with-relpreconnect" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------------
+## Establish early connections with `rel=preconnect` <a href="#establish-early-connections-with-relpreconnect" class="w-headline-link">#</a>
 
 Modern browsers [try their best to anticipate](https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#tcp-pre-connect) what connections a page will need, but they cannot reliably predict them all. The good news is that you can give them a (resource 😉) hint.
 
@@ -72,10 +63,9 @@ You can speed up the load time by 100–500 ms by establishing early connections
 
 chrome.com [improved Time To Interactive](https://twitter.com/addyosmani/status/1090874825286000640) by almost 1 s by pre-connecting to important origins.
 
-Use-cases for `rel=preconnect` <a href="#use-cases-for-relpreconnect" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------
+## Use-cases for `rel=preconnect` <a href="#use-cases-for-relpreconnect" class="w-headline-link">#</a>
 
-### Knowing *where from*, but not *what* you're fetching <a href="#knowing-where-from-but-not-what-you&#39;re-fetching" class="w-headline-link">#</a>
+### Knowing _where from_, but not _what_ you're fetching <a href="#knowing-where-from-but-not-what-you&#39;re-fetching" class="w-headline-link">#</a>
 
 Due to versioned dependencies, you sometimes end up in a situation where you know you'll be requesting a resource from a particular CDN, but not the exact path for it.
 
@@ -89,8 +79,7 @@ Another example where you may want to save some time in the connection phase, bu
 
 Depending on how your page handles the streamed content, you may want to wait until your scripts have loaded and are ready to process the stream. Pre-connecting helps you cut the waiting time to a single round trip once you're ready to start fetching.
 
-How to implement `rel=preconnect` <a href="#how-to-implement-relpreconnect" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------
+## How to implement `rel=preconnect` <a href="#how-to-implement-relpreconnect" class="w-headline-link">#</a>
 
 One way of initiating a `preconnect` is adding a `<link>` tag to the `<head>` of the document.
 
@@ -114,8 +103,7 @@ Some types of resources, such as fonts, are loaded in [anonymous mode](https://w
 
 If you omit the `crossorigin` attribute, the browser only performs the DNS lookup.
 
-Resolve domain name early with `rel=dns-prefetch` <a href="#resolve-domain-name-early-with-reldns-prefetch" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------------
+## Resolve domain name early with `rel=dns-prefetch` <a href="#resolve-domain-name-early-with-reldns-prefetch" class="w-headline-link">#</a>
 
 You remember sites by their names, but servers remember them by IP addresses. This is why the domain name system (DNS) exists. The browser uses DNS to convert the site name to an IP address. This process—[domain name resolution](https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/)— is the first step in establishing a connection.
 
@@ -140,8 +128,7 @@ Don't
 
 Implementing `dns-prefetch` fallback in the same `<link>` tag causes a bug in Safari where `preconnect` gets cancelled.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 These two resource hints are helpful for improving page speed when you know you'll download something from a third-party domain soon, but you don't know the exact URL for the resource. Examples include CDNs that distribute JavaScript libraries, images or fonts. Be mindful of constraints, use `preconnect` only for the most important resources, rely on `dns-prefetch` for the rest, and always measure the impact in the real-world.
 
@@ -151,35 +138,35 @@ These two resource hints are helpful for improving page speed when you know you'
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

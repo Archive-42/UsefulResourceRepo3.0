@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#fixing-mixed-content" class="w-toc__header--link">Fixing mixed content</a>
 
 - [Finding mixed content by visiting your site](#finding-mixed-content-by-visiting-your-site)

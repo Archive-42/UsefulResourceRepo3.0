@@ -1,7 +1,3 @@
-<span class="underline"></span>
-
-<span class="underline"></span>
-
 ## Further Reading
 
 [Use a sync.Mutex or a channel?](https://github.com/golang/go/wiki/MutexOrChannel)  
@@ -21,8 +17,6 @@
 10. [Timer and Ticker explained](time-reset-wait-stop-timeout-cancel-interval.html)
 11. Mutual exclusion lock (mutex)
 12. [Efficient parallel computation](efficient-parallel-computation.html)
-
-<span class="underline"></span>
 
 ## Top Algorithm Articles
 

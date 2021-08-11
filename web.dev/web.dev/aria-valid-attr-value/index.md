@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreateraria-*lesscodegreater-attributes-do-not-have-valid-values" class="w-toc__header--link"><code>[aria-\*]</code> attributes do not have valid values</a>
 
 - [How Lighthouse determines an ARIA attribute's value is invalid](#how-lighthouse-determines-an-aria-attribute's-value-is-invalid)

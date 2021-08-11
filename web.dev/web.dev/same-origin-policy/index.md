@@ -1,21 +1,13 @@
+## <a href="#same-origin-policy" class="w-toc__header--link">Same-origin policy</a>
 
-
-
-
-
-
-<a href="#same-origin-policy" class="w-toc__header--link">Same-origin policy</a>
---------------------------------------------------------------------------------
-
--   [What's considered same-origin?](#what's-considered-same-origin)
--   [What is permitted and what is blocked?](#what-is-permitted-and-what-is-blocked)
--   [How to prevent Clickjacking](#how-to-prevent-clickjacking)
--   [Wrap up](#wrap-up)
+- [What's considered same-origin?](#what's-considered-same-origin)
+- [What is permitted and what is blocked?](#what-is-permitted-and-what-is-blocked)
+- [How to prevent Clickjacking](#how-to-prevent-clickjacking)
+- [Wrap up](#wrap-up)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Same-origin policy
-==================
+# Same-origin policy
 
 Nov 5, 2018
 
@@ -25,26 +17,24 @@ Nov 5, 2018
 
 <a href="/authors/kosamari/" class="w-author__name-link">Mariko Kosaka</a>
 
--   <a href="https://twitter.com/kosamari" class="w-author__link">Twitter</a>
--   <a href="https://github.com/kosamari" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@kosamari" class="w-author__link">Glitch</a>
--   <a href="https://kosamari.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/kosamari" class="w-author__link">Twitter</a>
+- <a href="https://github.com/kosamari" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@kosamari" class="w-author__link">Glitch</a>
+- <a href="https://kosamari.com/" class="w-author__link">Blog</a>
 
 The same-origin policy is a browser security feature that restricts how documents and scripts on one origin can interact with resources on another origin.
 
 A browser can load and display resources from multiple sites at once. You might have multiple tabs open at the same time, or a site could embed multiple iframes from different sites. If there is no restriction on interactions between these resources, and a script is compromised by an attacker, the script could expose everything in a user's browser.
 
-The same-origin policy prevents this from happening by blocking read access to resources loaded from a different origin. "But wait," you say, "I load images and scripts from other origins *all the time*." Browsers allow a few tags to embed resources from a different origin. This policy is mostly a historical artifact and can expose your site to vulnerabilities such as [clickjacking using iframes](#how-to-prevent-clickjacking). You can restrict cross-origin reading of these tags using a [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp/).
+The same-origin policy prevents this from happening by blocking read access to resources loaded from a different origin. "But wait," you say, "I load images and scripts from other origins _all the time_." Browsers allow a few tags to embed resources from a different origin. This policy is mostly a historical artifact and can expose your site to vulnerabilities such as [clickjacking using iframes](#how-to-prevent-clickjacking). You can restrict cross-origin reading of these tags using a [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp/).
 
-What's considered same-origin? <a href="#what&#39;s-considered-same-origin" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------
+## What's considered same-origin? <a href="#what&#39;s-considered-same-origin" class="w-headline-link">#</a>
 
 An origin is defined by the scheme (also known as the protocol, for example HTTP or HTTPS), port (if it is specified), and host. When all three are the same for two URLs, they are considered same-origin. For example, `http://www.example.com/foo` is the same origin as `http://www.example.com/bar` but not `https://www.example.com/bar` because the scheme is different.
 
 **Try it**! [See how the same-origin policy works when fetching resources](/codelab-same-origin-fetch).
 
-What is permitted and what is blocked? <a href="#what-is-permitted-and-what-is-blocked" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------------------
+## What is permitted and what is blocked? <a href="#what-is-permitted-and-what-is-blocked" class="w-headline-link">#</a>
 
 Generally, embedding a cross-origin resource is permitted, while reading a cross-origin resource is blocked.
 
@@ -112,8 +102,7 @@ To block other sites from embedding your site in an iframe, add a content securi
 
 Alternatively, you can add `X-Frame-Options` to the HTTP headers see [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) for list of options.
 
-Wrap up <a href="#wrap-up" class="w-headline-link">#</a>
---------------------------------------------------------
+## Wrap up <a href="#wrap-up" class="w-headline-link">#</a>
 
 Hopefully you feel a little relieved that browsers work hard to be a gatekeeper of security on the web. Even though browsers try to be safe by blocking access to resources, sometimes you want to access cross-origin resources in your applications. In the next guide, learn about Cross-Origin Resource Sharing (CORS) and how to tell the browser that loading of cross-origin resources is allowed from trusted sources.
 
@@ -121,47 +110,46 @@ Hopefully you feel a little relieved that browsers work hard to be a gatekeeper 
 
 <span class="w-mr--sm">Last updated: Nov 5, 2018 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/secure/same-origin-policy/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-same-origin-fetch/" class="w-callout__link w-callout__link--codelab">Same Origin Policy &amp; Fetch requests</a>
--   <a href="/codelab-same-origin-iframe/" class="w-callout__link w-callout__link--codelab">Same Origin Policy &amp; iframe</a>
+- <a href="/codelab-same-origin-fetch/" class="w-callout__link w-callout__link--codelab">Same Origin Policy &amp; Fetch requests</a>
+- <a href="/codelab-same-origin-iframe/" class="w-callout__link w-callout__link--codelab">Same Origin Policy &amp; iframe</a>
 
 <a href="/secure" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

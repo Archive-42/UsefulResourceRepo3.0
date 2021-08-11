@@ -1,26 +1,18 @@
+## <a href="#using-a-pwa-in-your-android-app" class="w-toc__header--link">Using a PWA in your Android app</a>
 
-
-
-
-
-
-<a href="#using-a-pwa-in-your-android-app" class="w-toc__header--link">Using a PWA in your Android app</a>
-----------------------------------------------------------------------------------------------------------
-
--   [Start a PWA in an Android app](#start-a-pwa-in-an-android-app)
--   [Existing solutions were limited](#existing-solutions-were-limited)
--   [Trusted Web Activity is a new container for Web apps on Android](#trusted-web-activity-is-a-new-container-for-web-apps-on-android)
--   [Quality Criteria](#quality-criteria)
--   [Tooling](#tooling)
--   [Bubblewrap](#bubblewrap)
--   [PWABuilder](#pwabuilder)
--   [Verifying ownership of the PWA in the Android app](#verifying-ownership-of-the-pwa-in-the-android-app)
--   [Where to go next](#where-to-go-next)
+- [Start a PWA in an Android app](#start-a-pwa-in-an-android-app)
+- [Existing solutions were limited](#existing-solutions-were-limited)
+- [Trusted Web Activity is a new container for Web apps on Android](#trusted-web-activity-is-a-new-container-for-web-apps-on-android)
+- [Quality Criteria](#quality-criteria)
+- [Tooling](#tooling)
+- [Bubblewrap](#bubblewrap)
+- [PWABuilder](#pwabuilder)
+- [Verifying ownership of the PWA in the Android app](#verifying-ownership-of-the-pwa-in-the-android-app)
+- [Where to go next](#where-to-go-next)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Using a PWA in your Android app
-===============================
+# Using a PWA in your Android app
 
 Mar 19, 2020 <span class="w-author__separator">•</span> Updated Apr 30, 2020
 
@@ -30,12 +22,11 @@ Mar 19, 2020 <span class="w-author__separator">•</span> Updated Apr 30, 2020
 
 <a href="/authors/andreban/" class="w-author__name-link">André Cipriani Bandarra</a>
 
--   <a href="https://twitter.com/andreban" class="w-author__link">Twitter</a>
--   <a href="https://github.com/andreban" class="w-author__link">GitHub</a>
--   <a href="https://bandarra.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/andreban" class="w-author__link">Twitter</a>
+- <a href="https://github.com/andreban" class="w-author__link">GitHub</a>
+- <a href="https://bandarra.me/" class="w-author__link">Blog</a>
 
-Start a PWA in an Android app <a href="#start-a-pwa-in-an-android-app" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Start a PWA in an Android app <a href="#start-a-pwa-in-an-android-app" class="w-headline-link">#</a>
 
 [Progressive Web Apps](/progressive-web-apps/) (PWA) are web applications that use app-like features to create high quality experiences that are fast, reliable and engaging.
 
@@ -73,9 +64,9 @@ Web content in a Trusted Web Activity must meet the PWA installability criteria.
 
 Additionally, to match the behavior users expect from Android applications, [Chrome 86 introduced a change](https://blog.chromium.org/2020/06/changes-to-quality-criteria-for-pwas.html) where failing to handle the following scenarios is considered a crash:
 
--   Failure to verify digital asset links at application launch.
--   Failure to return HTTP 200 for an offline network resource request.
--   A navigation request returning an HTTP 404 or 5xx error".
+- Failure to verify digital asset links at application launch.
+- Failure to return HTTP 200 for an offline network resource request.
+- A navigation request returning an HTTP 404 or 5xx error".
 
 When one of those scenarios happens in the Trusted Web Activity, it causes a user visible crash of the Android application. Check out the [guidance](https://developer.chrome.com/docs/android/trusted-web-activity/whats-new/#updates-to-the-quality-criteria) on handling those scenarios in your service worker.
 
@@ -83,8 +74,7 @@ The application must also meet additional Android-specific criteria such as [pol
 
 **Caution**: When your app is designed primarily for children under 13, additional [Play Family policies](https://play.google.com/about/families/) apply, which may be incompatible with using Trusted Web Activity.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format" alt="The PWA badge in Lighthouse shows if your PWA passes the installability criteria." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1600 1600w" width="800" height="141" /><figcaption>The PWA badge in Lighthouse shows if your PWA passes the installability criteria.</figcaption></figure>Tooling <a href="#tooling" class="w-headline-link">#</a>
---------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format" alt="The PWA badge in Lighthouse shows if your PWA passes the installability criteria." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/9Z70W3aCI8ropKpMXHcz.png?auto=format&amp;w=1600 1600w" width="800" height="141" /><figcaption>The PWA badge in Lighthouse shows if your PWA passes the installability criteria.</figcaption></figure>Tooling <a href="#tooling" class="w-headline-link">#</a>
 
 Web developers who want to take advantage of Trusted Web Activity don't need to learn new technologies or APIs to transform their PWA into an Android Application. Together, Bubblewrap and PWABuilder provide developer tooling in the form of a library, Command Line Interface (CLI) and Graphical User Interface (GUI).
 
@@ -106,8 +96,7 @@ After running this command, a file called `app-release-signed.apk` will be avail
 
 [PWABuilder](https://pwabuilder.com/) helps developers transform existing websites into Progressive Web Apps. It also integrates with Bubblewrap to provide a GUI interface to wrap those PWAs into an Android app. The PWABuilder team has put together a [great blog post](https://www.davrous.com/2020/02/07/publishing-your-pwa-in-the-play-store-in-a-couple-of-minutes-using-pwa-builder/) on how to generate an Android application using the tool.
 
-Verifying ownership of the PWA in the Android app <a href="#verifying-ownership-of-the-pwa-in-the-android-app" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------
+## Verifying ownership of the PWA in the Android app <a href="#verifying-ownership-of-the-pwa-in-the-android-app" class="w-headline-link">#</a>
 
 A developer building a great Progressive Web App wouldn't want another developer to build an Android app with it without their permission. To ensure this doesn't happen, the Android application must be paired with the Progressive Web App using a tool called [Digital Asset Links](https://developers.google.com/digital-asset-links/v1/getting-started).
 
@@ -119,8 +108,7 @@ The key can be generated in multiple ways, and the easiest way to find which key
 
 To avoid showing a broken application to users, deploy the application to a [closed test channel](https://support.google.com/googleplay/android-developer/answer/3131213?hl=en-GB), install it into a test device then use [Peter's Asset Link Tool](https://play.google.com/store/apps/details?id=dev.conn.assetlinkstool) to generate the correct `assetlinks.json` file for the app. Make the generated `assetlinks.json` file available at `/.well-known/assetlinks.json`, in the domain being validated.
 
-Where to go next <a href="#where-to-go-next" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Where to go next <a href="#where-to-go-next" class="w-headline-link">#</a>
 
 A Progressive Web App is a high quality web experience. Trusted Web Activity is a new way to open those high quality experiences from an Android app when they meet the minimum quality criteria.
 
@@ -136,35 +124,35 @@ Finally, move your application from the closed test channel to production!
 
 <a href="/progressive-web-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

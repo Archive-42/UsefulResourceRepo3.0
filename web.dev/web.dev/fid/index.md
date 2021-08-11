@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#first-input-delay-(fid)" class="w-toc__header--link">First Input Delay (FID)</a>
 
 - [What is FID?](#what-is-fid)

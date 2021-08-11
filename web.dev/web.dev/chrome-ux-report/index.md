@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#using-the-chrome-ux-report-to-look-at-performance-in-the-field" class="w-toc__header--link">Using the Chrome UX Report to look at performance in the field</a>
 
 - [How to use it](#how-to-use-it)

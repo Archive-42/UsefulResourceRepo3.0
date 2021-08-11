@@ -1,35 +1,27 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/P5LtV5IubshVuDac8uKO.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#the-new-responsive:-web-design-in-a-component-driven-world" class="w-toc__header--link">The new responsive: Web design in a component-driven world</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#the-new-responsive:-web-design-in-a-component-driven-world" class="w-toc__header--link">The new responsive: Web design in a component-driven world</a>
 
--   [Responsive Design Today](#responsive-design-today)
--   [Responsive to the user](#responsive-to-the-user)
--   [prefers-reduced-motion](#prefers-reduced-motion)
--   [prefers-color-scheme](#prefers-color-scheme)
--   [Designing for dark theme](#designing-for-dark-theme)
--   [Responsive to the container](#responsive-to-the-container)
--   [Container query cards](#container-query-cards)
--   [Mixing Container Queries with Media Queries](#mixing-container-queries-with-media-queries)
--   [Using container queries today](#using-container-queries-today)
--   [Scoped styles](#scoped-styles)
--   [Responsive to the form factor](#responsive-to-the-form-factor)
--   [Conclusion](#conclusion)
--   [web.dev/learnCSS](#web.devlearncss)
+- [Responsive Design Today](#responsive-design-today)
+- [Responsive to the user](#responsive-to-the-user)
+- [prefers-reduced-motion](#prefers-reduced-motion)
+- [prefers-color-scheme](#prefers-color-scheme)
+- [Designing for dark theme](#designing-for-dark-theme)
+- [Responsive to the container](#responsive-to-the-container)
+- [Container query cards](#container-query-cards)
+- [Mixing Container Queries with Media Queries](#mixing-container-queries-with-media-queries)
+- [Using container queries today](#using-container-queries-today)
+- [Scoped styles](#scoped-styles)
+- [Responsive to the form factor](#responsive-to-the-form-factor)
+- [Conclusion](#conclusion)
+- [web.dev/learnCSS](#web.devlearncss)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-The new responsive: Web design in a component-driven world
-==========================================================
+# The new responsive: Web design in a component-driven world
 
 Controlling macro and micro layout in a new era of responsive web design.
 
@@ -39,12 +31,11 @@ May 19, 2021 <span class="w-author__separator">•</span> Updated May 26, 2021
 
 <a href="/authors/una/" class="w-author__name-link">Una Kravets</a>
 
--   <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
--   <a href="https://github.com/una" class="w-author__link">GitHub</a>
--   <a href="https://una.im/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
+- <a href="https://github.com/una" class="w-author__link">GitHub</a>
+- <a href="https://una.im/" class="w-author__link">Blog</a>
 
-Responsive Design Today <a href="#responsive-design-today" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Responsive Design Today <a href="#responsive-design-today" class="w-headline-link">#</a>
 
 Today, when using the term: "responsive design", you are most likely thinking about using media queries to change layout when resizing a design from mobile size, to tablet size, through to desktop size.
 
@@ -66,19 +57,18 @@ These updates include user-preference based media features, container queries, a
 
 <img src="https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format" alt="Responsive to the user, container, and form factor" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/3yqBl9BQmGEVzDQU3Ivh.png?auto=format&amp;w=1600 1600w" width="800" height="248" />
 
-Responsive to the user <a href="#responsive-to-the-user" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Responsive to the user <a href="#responsive-to-the-user" class="w-headline-link">#</a>
 
 New user preference media features, give you the ability to style web experiences that align with the user's own specific preferences and needs. This means that preference media features allow you to adapt your user experiences to your user's experiences
 
 These user preference media features include:
 
--   `prefers-reduced-motion`
--   `prefers-contrast`
--   `prefers-reduced-transparency`
--   `prefers-color-scheme`
--   `inverted-colors`
--   And more
+- `prefers-reduced-motion`
+- `prefers-contrast`
+- `prefers-reduced-transparency`
+- `prefers-color-scheme`
+- `inverted-colors`
+- And more
 
 Preference features pick up on the preferences a user has set in their operating system, and help to build a more robust and personalized web experience, especially for those with accessibility needs.
 
@@ -120,8 +110,7 @@ A [2018 Android study](https://www.theverge.com/2018/11/8/18076502/google-dark-m
 
 You should always provide a dark theme experience for your users whenever possible
 
-Responsive to the container <a href="#responsive-to-the-container" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## Responsive to the container <a href="#responsive-to-the-container" class="w-headline-link">#</a>
 
 One of the most exciting emerging areas in CSS is container queries, also frequently called element queries. It's hard to understate what the shift from page-based responsive design to container-based responsive design will do to evolve the design ecosystem.
 
@@ -163,7 +152,7 @@ In this demo plant website, each of the product cards, including the one in the 
 
 [See demo on Codepen](https://codepen.io/una/pen/mdOgyVL) (behind a flag in Canary).
 
-There are *no* media queries used to create this entire layout, just container queries. This allows for each product card to shift to the proper layout to fill its space. The grid for example, uses a minmax column layout to let the elements flow into their space, and re-layout the grid when that space is too compressed (which means that it hit the minimum size).
+There are _no_ media queries used to create this entire layout, just container queries. This allows for each product card to shift to the proper layout to fill its space. The grid for example, uses a minmax column layout to let the elements flow into their space, and re-layout the grid when that space is too compressed (which means that it hit the minimum size).
 
     .product {
       contain: layout inline-size;
@@ -192,7 +181,7 @@ Container queries have so many use cases—one being a calendar component. You c
 
 This demo container queries to change the layout and style of the calendar's date and day of the week, as well as adjusting the margins and font size on the scheduled events to help them better fit the space.
 
-Then, use a media query to shift the entire layout for smaller screen sizes. This example shows how powerful it is to *combine* media queries (adjusting the global, or macro styles) with container queries (adjusting the container's children, and their micro styles).
+Then, use a media query to shift the entire layout for smaller screen sizes. This example shows how powerful it is to _combine_ media queries (adjusting the global, or macro styles) with container queries (adjusting the container's children, and their micro styles).
 
 So now we can think of Macro and Micro layouts within the same UI component to allow for some really nice nuanced design decisions.
 
@@ -217,8 +206,7 @@ Scoping would allow us to create "donut shaped" selectors, where we can specify 
 
 An example of this would be a tab panel, where we'd want the tabs to get the scoped style, and the panel within the tabs to get a parent style.
 
-Responsive to the form factor <a href="#responsive-to-the-form-factor" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Responsive to the form factor <a href="#responsive-to-the-form-factor" class="w-headline-link">#</a>
 
 The next topic in our conversation about the new era of responsive design is a shift in form factors, and the growing possibilities of what we'll need to be designing for as a web community (such as shape-shifting screen or virtual reality).
 
@@ -243,14 +231,13 @@ This enables a layout where the sidebar, the navigation in this case, fills the 
 
 You can test out foldable screens in the Chrome DevTools emulator to help debug and prototype screen spanning directly in the browser.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Exploring UI design beyond a flat screen is yet another reason why container queries and scoped styles are so important. They give you the opportunity to silo component styles from page layout and global styles, and user styles, enabling more resilient responsive design. This means you can now design macro layouts using page-based media queries, including screen-spanning nuances. At the same time using micro layouts with container queries on the components,and add user-preference based media queries to customize user experiences based on their unique preferences and need.
 
 <img src="https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format" alt="A circle of the new responsive" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/uAJDDUDLcAsLzBf0a27b.png?auto=format&amp;w=1600 1600w" width="800" height="442" />
 
-*This* is the new responsive.
+_This_ is the new responsive.
 
 It's combining macro layout with micro layout, and on top of all of that, it's taking user customization and form factor into account.
 
@@ -272,35 +259,35 @@ It opens up a huge opportunity to us as a UI community to embrace component-base
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

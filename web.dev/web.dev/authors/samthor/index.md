@@ -1,16 +1,10 @@
-
-
-
-
-
-
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
 <img src="https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format" alt="Sam Thorogood" class="w-author-page__image" sizes="(min-width: 481px) 192px, 128px" srcset="https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=128 128w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=146 146w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=166 166w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=190 190w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=216 216w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=246 246w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=281 281w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=320 320w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=365 365w, https://web-dev.imgix.net/image/admin/XQIDJD6narW2eA4d141g.jpg?auto=format&amp;w=384 384w" width="192" height="192" />
 
 # Sam Thorogood
 
-¯‍\\‍_‍(‍ ツ ‍)‍_‍/‍¯
+¯‍\\‍*‍(‍ ツ ‍)‍*‍/‍¯
 
 <a href="https://whistlr.info/" class="w-author-page__link"><img src="/images/icons/language.svg" alt="Homepage" class="w-author-page__icon" width="32" height="32" /></a> <a href="https://twitter.com/samthor" class="w-author-page__link"><img src="/images/icons/twitter.svg" alt="Twitter" class="w-author-page__icon" width="32" height="32" /></a> <a href="https://github.com/samthor" class="w-author-page__link"><img src="/images/icons/github.svg" alt="GitHub" class="w-author-page__icon" width="32" height="32" /></a> <a href="https://glitch.com/@samthor" class="w-author-page__link"><img src="/images/icons/glitch.svg" alt="Glitch" class="w-author-page__icon" width="32" height="32" /></a> <a href="/authors/samthor/feed.xml" class="w-author-page__link"><img src="/images/icons/rss.svg" alt="RSS Feed" class="w-author-page__icon" width="32" height="32" /></a>
 

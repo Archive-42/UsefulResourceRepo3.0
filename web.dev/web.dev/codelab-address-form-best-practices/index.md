@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Address form best practices codelab
 
 Dec 9, 2020 <span class="w-author__separator">•</span> Updated Dec 9, 2020

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#accessible-responsive-design" class="w-toc__header--link">Accessible responsive design</a>
 
 - [Use the viewport meta tag](#use-the-viewport-meta-tag)

@@ -1,7 +1,3 @@
-<span class="underline"></span>
-
-<span class="underline"></span>
-
 ## Related
 
 [Visit all files and folders in a directory tree](list-directory-recursive.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-<span class="underline"></span>
 
 ## Top Algorithm Articles
 

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#2021-scroll-survey-report" class="w-toc__header--link">2021 Scroll Survey Report</a>
 
 - [Noteworthy results](#noteworthy-results)

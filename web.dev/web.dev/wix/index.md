@@ -1,37 +1,29 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format" alt="A fast train (source: https://unsplash.com/photos/60VrGk-bfeA)" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/HNGPDotyTYOuPE0YxLQ9.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#how-wix-improved-website-performance-by-evolving-their-infrastructure" class="w-toc__header--link">How Wix improved website performance by evolving their infrastructure</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#how-wix-improved-website-performance-by-evolving-their-infrastructure" class="w-toc__header--link">How Wix improved website performance by evolving their infrastructure</a>
 
--   [Overview](#overview)
--   [Speaking in a common language](#speaking-in-a-common-language)
--   [Site complexity and performance scores](#site-complexity-and-performance-scores)
--   [The journey](#the-journey)
--   [In the beginning, there was HTML](#in-the-beginning-there-was-html)
--   [Introducing caching in multiple locations](#introducing-caching-in-multiple-locations)
--   [Browser caching (and preparations for CDNs)](#browser-caching-(and-preparations-for-cdns))
--   [DNS, SSL and HTTP/2](#dns-ssl-and-http2)
--   [Brotli compression (vs. gzip)](#brotli-compression-(vs.-gzip))
--   [Content delivery networks (CDNs)](#content-delivery-networks-(cdns))
--   [Dynamic CDN selection](#dynamic-cdn-selection)
--   [Coming soon… user domains served by CDNs](#coming-soon...-user-domains-served-by-cdns)
--   [A few words on performance monitoring](#a-few-words-on-performance-monitoring)
--   [Conclusion](#conclusion)
--   [So, how does your recent Wix site performance look like?](#so-how-does-your-recent-wix-site-performance-look-like)
+- [Overview](#overview)
+- [Speaking in a common language](#speaking-in-a-common-language)
+- [Site complexity and performance scores](#site-complexity-and-performance-scores)
+- [The journey](#the-journey)
+- [In the beginning, there was HTML](#in-the-beginning-there-was-html)
+- [Introducing caching in multiple locations](#introducing-caching-in-multiple-locations)
+- [Browser caching (and preparations for CDNs)](<#browser-caching-(and-preparations-for-cdns)>)
+- [DNS, SSL and HTTP/2](#dns-ssl-and-http2)
+- [Brotli compression (vs. gzip)](<#brotli-compression-(vs.-gzip)>)
+- [Content delivery networks (CDNs)](<#content-delivery-networks-(cdns)>)
+- [Dynamic CDN selection](#dynamic-cdn-selection)
+- [Coming soon… user domains served by CDNs](#coming-soon...-user-domains-served-by-cdns)
+- [A few words on performance monitoring](#a-few-words-on-performance-monitoring)
+- [Conclusion](#conclusion)
+- [So, how does your recent Wix site performance look like?](#so-how-does-your-recent-wix-site-performance-look-like)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-How Wix improved website performance by evolving their infrastructure
-=====================================================================
+# How Wix improved website performance by evolving their infrastructure
 
 A case study of some major changes introduced at Wix to improve website loading performance for millions of sites, clearing the path for them to receive good PageSpeed Insights and Core Web Vitals scores.
 
@@ -41,8 +33,8 @@ Mar 10, 2021
 
 <a href="/authors/alonko/" class="w-author__name-link">Alon Kochba</a>
 
--   <a href="https://twitter.com/alonkochba" class="w-author__link">Twitter</a>
--   <a href="https://github.com/alonkochba" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/alonkochba" class="w-author__link">Twitter</a>
+- <a href="https://github.com/alonkochba" class="w-author__link">GitHub</a>
 
 Alon leads the core backend team at [Wix](https://www.wix.com).
 
@@ -50,16 +42,15 @@ Thanks to leveraging industry standards, cloud providers, and CDN capabilities, 
 
 Wix adopted a performance-oriented culture, and further improvements will continue rolling out to users. As we focus on performance KPIs, we expect to see the number of sites passing CWV thresholds grow.
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 The world of performance is [beautifully complex](https://youtu.be/ctavZT87syI), with many variables and intricacies. Research shows that site [speed has a direct impact on conversion rates and revenues](/milliseconds-make-millions) for businesses. In recent years, the industry has put more emphasis on performance visibility and [making the web faster](/fast). Starting in May 2021, [page experience signals](https://developers.google.com/search/blog/2020/11/timing-for-page-experience) will be included in Google Search ranking.
 
-The unique challenge at Wix is supporting **millions** of sites, some of which were built *many years ago* and have not been updated since. We have various [tools and articles](https://support.wix.com/en/performance-and-technical-issues/site-performance) to assist our users on what they can do to analyze and improve the performance of their sites.
+The unique challenge at Wix is supporting **millions** of sites, some of which were built _many years ago_ and have not been updated since. We have various [tools and articles](https://support.wix.com/en/performance-and-technical-issues/site-performance) to assist our users on what they can do to analyze and improve the performance of their sites.
 
 Wix is a managed environment and not everything is in the hands of the user. Sharing common infrastructures presents many challenges for all these sites, but also opens opportunities for major enhancements across the board, i.e. leveraging the economies of scale.
 
-*In this post I will focus on enhancements done around serving the initial HTML, which initiates the page loading process.*
+_In this post I will focus on enhancements done around serving the initial HTML, which initiates the page loading process._
 
 ### Speaking in a common language <a href="#speaking-in-a-common-language" class="w-headline-link">#</a>
 
@@ -73,10 +64,9 @@ It's pretty easy to create a site that loads instantly so long as you [make it v
 
 <figure><img src="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/xMUN9CUVvgnHofImPcV5.jpg?auto=format&amp;w=1600 1600w" width="800" height="647" /></figure>However, the reality is that sites are getting more and more complex and sophisticated, operating more like applications rather than documents, and supporting functionalities such as blogs, e-commerce solutions, custom code, etc.
 
-Wix offers a very large [variety of templates](https://www.wix.com/website/templates), enabling its users to easily build a site with many business capabilities. Those additional features often come with *some* performance costs.
+Wix offers a very large [variety of templates](https://www.wix.com/website/templates), enabling its users to easily build a site with many business capabilities. Those additional features often come with _some_ performance costs.
 
-The journey <a href="#the-journey" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## The journey <a href="#the-journey" class="w-headline-link">#</a>
 
 ### In the beginning, there was HTML <a href="#in-the-beginning-there-was-html" class="w-headline-link">#</a>
 
@@ -152,8 +142,7 @@ We enabled Brotli support on our nginx proxies in the edges, for all clients tha
 
 Moving to use Brotli compression reduced our median file transfer sizes by **21% to 25%** resulting in a reduced bandwidth usage and improved loading times.
 
-<figure><img src="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format" alt="Median Response Sizes" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1600 1600w" width="800" height="173" /><figcaption>Median Response Sizes</figcaption></figure>Content delivery networks (CDNs) <a href="#content-delivery-networks-(cdns)" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format" alt="Median Response Sizes" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/392RWYamrwkdFozk91LC.jpg?auto=format&amp;w=1600 1600w" width="800" height="173" /><figcaption>Median Response Sizes</figcaption></figure>Content delivery networks (CDNs) <a href="#content-delivery-networks-(cdns)" class="w-headline-link">#</a>
 
 ### Dynamic CDN selection <a href="#dynamic-cdn-selection" class="w-headline-link">#</a>
 
@@ -171,7 +160,7 @@ We are currently integrating with various CDN providers to support serving the e
 
 Integrating with CDNs brings Wix websites closer than ever to the customer and comes with more improvements to the loading experience, including newer technologies such as HTTP/3 without added effort on our side.
 
-------------------------------------------------------------------------
+---
 
 ### A few words on performance monitoring <a href="#a-few-words-on-performance-monitoring" class="w-headline-link">#</a>
 
@@ -187,22 +176,20 @@ We are committed to continuously improve loading times and provide our users wit
 
 <figure><img src="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format" alt="LCP, Speed Index and FCP for a mobile site over time" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/AADz7d1yVOWZlq0iSb6P.jpg?auto=format&amp;w=1600 1600w" width="800" height="259" /><figcaption>LCP, Speed Index and FCP for a mobile site over time</figcaption></figure>DebugBear recently released a very interesting [Website Builder Performance Review](https://www.debugbear.com/blog/website-builder-performance-review), which touches on some of the areas I mentioned above and examines the performance of very simple sites built on each platform. This [site](https://matt05041.wixsite.com/bizsolutions) was built almost two years ago, and not modified since, but the platform is continually improving, and the site performance along with it, which can be witnessed by [viewing its data](https://www.debugbear.com/project/175/pageLoad/873/overview?dateRange=2019-03-31T21%3A00Z-to-2021-03-31T21%3A59Z) over the past year and a half.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 We hope our experience inspires you to adopt a performance-oriented culture at your organisation and that the details above are helpful and applicable to your platform or site.
 
 To sum up:
 
--   Pick a set of metrics that you can track consistently using tools endorsed by the industry. We recommend Core Web Vitals.
--   Leverage browser caching and CDNs.
--   Migrate to HTTP/2 (or HTTP/3 if possible).
--   Use Brotli compression.
+- Pick a set of metrics that you can track consistently using tools endorsed by the industry. We recommend Core Web Vitals.
+- Leverage browser caching and CDNs.
+- Migrate to HTTP/2 (or HTTP/3 if possible).
+- Use Brotli compression.
 
 Thanks for learning our story and we invite you to ask questions, share ideas on [Twitter](https://twitter.com/alonkochba) and [GitHub](https://github.com/alonkochba) and join the web performance conversation on your favorite channels.
 
-So, how does **your** recent Wix site performance look like? <a href="#so-how-does-your-recent-wix-site-performance-look-like" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+## So, how does **your** recent Wix site performance look like? <a href="#so-how-does-your-recent-wix-site-performance-look-like" class="w-headline-link">#</a>
 
 <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/web-vitals/" class="w-chip">Web Vitals</a> <a href="/tags/case-study/" class="w-chip">Case Study</a>
 
@@ -210,35 +197,35 @@ So, how does **your** recent Wix site performance look like? <a href="#so-how-do
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

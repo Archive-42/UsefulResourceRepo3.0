@@ -1,5 +1,3 @@
-
-
 <a href="/" class="header-default__logo-link gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="header-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="header-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="header-default__link gc-analytics-event">Blog</a> <a href="/about/" class="header-default__link gc-analytics-event">About</a>
@@ -12,30 +10,28 @@
 
 <img src="https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format" alt="The eBay Logo and a screenshot of the eBay site" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/admin/UMFt6kc3YZIaF2Qzqd0d.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#shopping-for-speed-on-lessa-href%22http:ebay.com%22greaterebay.comlessagreater" class="w-toc__header--link">Shopping for speed on</a> [eBay.com](http://eBay.com)
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#shopping-for-speed-on-lessa-href%22http:ebay.com%22greaterebay.comlessagreater" class="w-toc__header--link">Shopping for speed on</a> [eBay.com](http://eBay.com)
 
--   [Web Performance "cuts"](#web-performance-)
--   [Reduce payload across all text resources](#reduce-payload-across-all-text-resources)
--   [Critical path optimization for above-the-fold content](#critical-path-optimization-for-above-the-fold-content)
--   [Image optimizations](#image-optimizations)
--   [Predictive prefetch of static assets](#predictive-prefetch-of-static-assets)
--   [Prefetching top search results](#prefetching-top-search-results)
--   [Eager downloading of search images](#eager-downloading-of-search-images)
--   [Edge caching for autosuggestion data](#edge-caching-for-autosuggestion-data)
--   [Edge caching for unrecognized homepage users](#edge-caching-for-unrecognized-homepage-users)
--   [Optimizations for other platforms](#optimizations-for-other-platforms)
--   [iOS/Android app parsing improvements](#iosandroid-app-parsing-improvements)
--   [Android app startup time improvements](#android-app-startup-time-improvements)
--   [Conclusions](#conclusions)
+- [Web Performance "cuts"](#web-performance-)
+- [Reduce payload across all text resources](#reduce-payload-across-all-text-resources)
+- [Critical path optimization for above-the-fold content](#critical-path-optimization-for-above-the-fold-content)
+- [Image optimizations](#image-optimizations)
+- [Predictive prefetch of static assets](#predictive-prefetch-of-static-assets)
+- [Prefetching top search results](#prefetching-top-search-results)
+- [Eager downloading of search images](#eager-downloading-of-search-images)
+- [Edge caching for autosuggestion data](#edge-caching-for-autosuggestion-data)
+- [Edge caching for unrecognized homepage users](#edge-caching-for-unrecognized-homepage-users)
+- [Optimizations for other platforms](#optimizations-for-other-platforms)
+- [iOS/Android app parsing improvements](#iosandroid-app-parsing-improvements)
+- [Android app startup time improvements](#android-app-startup-time-improvements)
+- [Conclusions](#conclusions)
 
 Share <a href="/newsletter/" class="w-actions__fab w-actions__fab--subscribe gc-analytics-event"><span>subscribe</span></a>
 
--   <a href="/" class="w-breadcrumbs__link w-breadcrumbs__link--left-justify gc-analytics-event">Home</a>
--   <a href="/blog" class="w-breadcrumbs__link gc-analytics-event">All articles</a>
+- <a href="/" class="w-breadcrumbs__link w-breadcrumbs__link--left-justify gc-analytics-event">Home</a>
+- <a href="/blog" class="w-breadcrumbs__link gc-analytics-event">All articles</a>
 
-Shopping for speed on [eBay.com](http://eBay.com)
-=================================================
+# Shopping for speed on [eBay.com](http://eBay.com)
 
 Optimizing the performance of eBay's sites and apps for a faster user experience.
 
@@ -45,8 +41,8 @@ Jan 22, 2020
 
 <a href="/authors/addyosmani/" class="w-author__name-link">Addy Osmani</a>
 
--   <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
--   <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
+- <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
 
 Speed was a [company-wide initiative](https://tech.ebayinc.com/engineering/speed-by-a-thousand-cuts/) for eBay in 2019, with many teams determined to make the site and apps as fast as possible for users. In fact, **for every 100 milliseconds improvement in search page loading time, eBay saw a 0.5% increase in "Add to Cart" count.**
 
@@ -64,27 +60,23 @@ Through the adoption of [Performance Budgets](/performance-budgets-101/) (derive
 
 <figure><img src="https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format" alt="Chrome User Experience Report data for First Contentful Paint and First Input Delay for the eBay.com origin." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/admin/YeJPjxdDBrdbgLxcbl7E.png?auto=format&amp;w=1600 1600w" width="800" height="237" /><figcaption>Chrome User Experience Report data for <a href="/fcp/">First Contentful Paint</a> and <a href="/fid/">First Input Delay</a> for the eBay.com origin.</figcaption></figure>There's still more work ahead but here's eBay's learnings so far.
 
-Web Performance "cuts" <a href="#web-performance-%22cuts%22" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Web Performance "cuts" <a href="#web-performance-%22cuts%22" class="w-headline-link">#</a>
 
 The improvements eBay made were possible due to the reduction or "cuts" (in the size and time) of various entities that take part in a user's journey. This post covers topics that are relevant to the web developer community at large, rather than eBay-specific topics.
 
-Reduce payload across all text resources <a href="#reduce-payload-across-all-text-resources" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------
+## Reduce payload across all text resources <a href="#reduce-payload-across-all-text-resources" class="w-headline-link">#</a>
 
 One way to make sites fast is to simply load less code. eBay reduced their text payloads by trimming all the [unused and unnecessary bytes](/remove-unused-code/) of JavaScript, CSS, HTML, and JSON responses served to users. Previously, with every new feature, eBay kept increasing the payload of their responses, without cleaning up what was unused. This added up over time and became a performance bottleneck. Teams usually procrastinated on this cleanup activity, but you'd be surprised by how much eBay saved.
 
 The "cut" here is the wasted bytes in the response payload.
 
-Critical path optimization for above-the-fold content <a href="#critical-path-optimization-for-above-the-fold-content" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+## Critical path optimization for above-the-fold content <a href="#critical-path-optimization-for-above-the-fold-content" class="w-headline-link">#</a>
 
 Not every pixel on the screen is equally important. The content [above-the-fold](https://www.optimizely.com/optimization-glossary/above-the-fold/) is [more critical](/extract-critical-css/) than something below-the-fold. iOS/Android/desktop and web apps are aware of this, but what about services? eBay's service architecture has a layer called [Experience Services](https://tech.ebayinc.com/engineering/experience-services-ebays-solution-to-multi-screen-application-development/), which the frontends (platform-specific apps and web servers) talk to. This layer is specifically designed to be view- or device-based, rather than entity-based like item, user, or order. eBay then introduced the concept of the critical path for Experience Services. When a request comes to these services, they work on getting the data for above-the-fold content immediately, by calling other upstream services in parallel. Once data is ready, it is instantly flushed. The below-the-fold data is sent in a later chunk or lazy-loaded. The outcome: users get to see above-the-fold content quicker.
 
 The "cut" here is the time spent by services to display relevant content.
 
-Image optimizations <a href="#image-optimizations" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Image optimizations <a href="#image-optimizations" class="w-headline-link">#</a>
 
 Images are [one of the largest contributors to page bloat](https://almanac.httparchive.org/en/2019/media). Even small optimizations go a long way. eBay did two optimizations for images.
 
@@ -94,8 +86,7 @@ First, eBay standardized on the [WebP image format](/serve-images-webp/) for sea
 
 The "cut" here is the wasted image bytes sent to users.
 
-Predictive prefetch of static assets <a href="#predictive-prefetch-of-static-assets" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Predictive prefetch of static assets <a href="#predictive-prefetch-of-static-assets" class="w-headline-link">#</a>
 
 A user session on eBay is not just one page. It is a flow. For example, the flow can be a navigation from the homepage to a search page to an item page. So why don't pages in the flow help each other? That is the idea of [predictive prefetch](/predictive-prefetching/), where one page prefetches the static assets required for the next likely page.
 
@@ -103,8 +94,7 @@ With predictive prefetch, when a user navigates to the predicted page, the asset
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dcipECBEv200bO8CWkrs.png?auto=format&amp;w=1600 1600w" width="800" height="448" /></figure>The "cut" here is the network time for CSS and JavaScript static assets on the first navigation.
 
-Prefetching top search results <a href="#prefetching-top-search-results" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## Prefetching top search results <a href="#prefetching-top-search-results" class="w-headline-link">#</a>
 
 When a user searches eBay, eBay's analytics data suggests that it is highly likely that the user will navigate to an item in the top 10 of the search results. So eBay now prefetches the items from search and keeps them ready for when the user navigates. The prefetching happens at two levels.
 
@@ -114,15 +104,13 @@ The other level happens in the browser cache, which is available in Australia. I
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/6wW7yHAD7vMBDUDCzm2B.png?auto=format&amp;w=1600 1600w" width="800" height="451" /></figure>The "cut" here can either be server processing time or network time, depending on where the item is cached.
 
-Eager downloading of search images <a href="#eager-downloading-of-search-images" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## Eager downloading of search images <a href="#eager-downloading-of-search-images" class="w-headline-link">#</a>
 
 In the search results page, when a query is issued at a high level, two things happen. One is the recall/ranking step, where the most relevant items matching the query are returned. The second step is augmenting the recalled items with additional user-context related information such as shipping costs. eBay now immediately sends the first 10 item images to the browser in a chunk along with the header, so the downloads can start before the rest of the markup arrives. As a result, the images will now appear quicker. This change is rolled out globally for the web platform.
 
 The "cut" here is the download start time for search result images.
 
-Edge caching for autosuggestion data <a href="#edge-caching-for-autosuggestion-data" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Edge caching for autosuggestion data <a href="#edge-caching-for-autosuggestion-data" class="w-headline-link">#</a>
 
 When users type in letters in the search box, suggestions pop-up. These suggestions do not change for letter combinations for at least a day. They are ideal candidates to be cached and served from a [CDN](https://en.wikipedia.org/wiki/Content_delivery_network) (for a max of 24 hours), instead of requests going all the way to a data center. International markets especially benefit from CDN caching.
 
@@ -130,8 +118,7 @@ When users type in letters in the search box, suggestions pop-up. These suggesti
 
 The "cut" here is the network latency and server processing time for autosuggestions.
 
-Edge caching for unrecognized homepage users <a href="#edge-caching-for-unrecognized-homepage-users" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## Edge caching for unrecognized homepage users <a href="#edge-caching-for-unrecognized-homepage-users" class="w-headline-link">#</a>
 
 For the web platform, the homepage content for unrecognized users is the same for a particular region. These are users who are either using eBay for the first time or starting a fresh session, hence no personalization. Though the homepage creatives keep changing frequently there is still room for caching.
 
@@ -139,8 +126,7 @@ eBay decided to cache the unrecognized user content (HTML) on their edge network
 
 The "cut" here is again both network latency and server processing time for unrecognized users.
 
-Optimizations for other platforms <a href="#optimizations-for-other-platforms" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Optimizations for other platforms <a href="#optimizations-for-other-platforms" class="w-headline-link">#</a>
 
 ### iOS/Android app parsing improvements <a href="#iosandroid-app-parsing-improvements" class="w-headline-link">#</a>
 
@@ -154,8 +140,7 @@ This applies to [cold start](https://developer.android.com/topic/performance/vit
 
 More importantly, eBay observed that there was a blocking third-party analytics call that delayed the rendering on the screen. Removing the blocking call and making it async further helped cold start times. The "cut" here is the unnecessary startup time for Android apps.
 
-Conclusions <a href="#conclusions" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Conclusions <a href="#conclusions" class="w-headline-link">#</a>
 
 All the performance "cuts" eBay made collectively contributed towards moving the needle, and it happened over a period of time. The releases were phased in throughout the year, with each release shaving off tens of milliseconds, ultimately reaching the point where eBay is now:
 
@@ -169,35 +154,35 @@ Check out [Speed by a thousand cuts](https://tech.ebayinc.com/engineering/speed-
 
 <a href="/blog" class="w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single gc-analytics-event">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

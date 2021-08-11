@@ -1,30 +1,22 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format" alt="Modular, abstract architecture." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/FNkVSAX8UDTTQWQkKftSgGe9clO2/JobkNOB1V5C9bp7x4Jur.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#es-modules-in-service-workers" class="w-toc__header--link">ES modules in service workers</a>
-------------------------------------------------------------------------------------------------------
+## <a href="#es-modules-in-service-workers" class="w-toc__header--link">ES modules in service workers</a>
 
--   [Background](#background)
--   [Use cases](#use-cases)
--   [Current limitations](#current-limitations)
--   [Static imports only](#static-imports-only)
--   [No support for import maps](#no-support-for-import-maps)
--   [Browser support](#browser-support)
--   [Example code](#example-code)
--   [Backwards compatibility](#backwards-compatibility)
+- [Background](#background)
+- [Use cases](#use-cases)
+- [Current limitations](#current-limitations)
+- [Static imports only](#static-imports-only)
+- [No support for import maps](#no-support-for-import-maps)
+- [Browser support](#browser-support)
+- [Example code](#example-code)
+- [Backwards compatibility](#backwards-compatibility)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-ES modules in service workers
-=============================
+# ES modules in service workers
 
 A modern alternative to importScripts().
 
@@ -34,20 +26,18 @@ May 13, 2021
 
 <a href="/authors/jeffposnick/" class="w-author__name-link">Jeff Posnick</a>
 
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
--   <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jeffposnick" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@jeffposnick" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/jeffposnick" class="w-author__link">Blog</a>
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
-[ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) have been a developer favorite for a while now. In addition to a [number of other benefits](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), they offer the promise of a universal module format where shared code can be released once and run in browsers and in alternative runtimes like [Node.js](https://nodejs.org/en/). While [all modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#import) offer some ES module support, they don't all offer support *everywhere* that code can be run. Specifically, support for importing ES modules inside of a browser's [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) is just starting to become more widely available.
+[ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) have been a developer favorite for a while now. In addition to a [number of other benefits](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), they offer the promise of a universal module format where shared code can be released once and run in browsers and in alternative runtimes like [Node.js](https://nodejs.org/en/). While [all modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#import) offer some ES module support, they don't all offer support _everywhere_ that code can be run. Specifically, support for importing ES modules inside of a browser's [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) is just starting to become more widely available.
 
 This article details the current state of ES module support in service workers across common browsers, along with some gotchas to avoid, and best practices for shipping backwards-compatible service worker code.
 
-Use cases <a href="#use-cases" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Use cases <a href="#use-cases" class="w-headline-link">#</a>
 
 The ideal use case for ES modules inside of service workers is for loading a modern library or configuration code that's shared with other runtimes that support ES modules.
 
@@ -55,8 +45,7 @@ Attempting to share code in this way prior to ES modules entailed using older "u
 
 Scripts imported via ES modules can trigger the service worker [update](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#updates) flow if their contents change, matching the [behavior](https://developers.google.com/web/updates/2019/09/fresher-sw#checks_for_updates_to_imported_scripts) of `importScripts()`.
 
-Current limitations <a href="#current-limitations" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Current limitations <a href="#current-limitations" class="w-headline-link">#</a>
 
 ### Static imports only <a href="#static-imports-only" class="w-headline-link">#</a>
 
@@ -78,8 +67,7 @@ Chrome and Edge have supported ES modules in [shared workers](https://developer.
 
 While Chrome and Edge [version 89](https://www.chromestatus.com/feature/5315286962012160) and above support import maps, they currently [cannot be used](https://github.com/WICG/import-maps/issues/2) with service workers.
 
-Browser support <a href="#browser-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Browser support <a href="#browser-support" class="w-headline-link">#</a>
 
 ES modules in service workers are supported in Chrome and Edge starting with [version 91](https://chromestatus.com/feature/4609574738853888).
 
@@ -87,8 +75,7 @@ Safari added support in the [Technology Preview 122 Release](https://webkit.org/
 
 Firefox does not currently support this functionality, and updates on their position can be found in this [GitHub issue](https://github.com/mozilla/standards-positions/issues/499).
 
-Example code <a href="#example-code" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Example code <a href="#example-code" class="w-headline-link">#</a>
 
 This is a basic example of using a shared ES module in a web app's `window` context, while also registering a service worker that uses the same ES module:
 
@@ -123,7 +110,7 @@ To accommodate browsers that don't have built-in support, you can run your servi
 
 Once you have two versions of your service worker available—one that uses ES modules, and the other that doesn't—you'll need to detect what the current browser supports, and register the corresponding service worker script. The best practices for detecting support are currently in flux, but you can follow the discussion in this [GitHub issue](https://github.com/w3c/ServiceWorker/issues/1582) for recommendations.
 
-*Photo by [Vlado Paunovic](https://unsplash.com/@vlado?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/@vlado?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
+_Photo by [Vlado Paunovic](https://unsplash.com/@vlado?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/@vlado?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
 
 <a href="/tags/service-worker/" class="w-chip">Service Worker</a>
 
@@ -131,35 +118,35 @@ Once you have two versions of your service worker available—one that uses ES m
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

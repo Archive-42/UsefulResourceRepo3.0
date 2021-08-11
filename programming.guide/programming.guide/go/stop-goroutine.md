@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Further Reading
 
@@ -25,7 +25,7 @@
 11. [Mutual exclusion lock (mutex)](mutex-explained.html)
 12. [Efficient parallel computation](efficient-parallel-computation.html)
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

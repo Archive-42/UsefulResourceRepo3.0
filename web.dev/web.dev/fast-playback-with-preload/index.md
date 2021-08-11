@@ -1,27 +1,19 @@
+## <a href="#fast-playback-with-audio-and-video-preload" class="w-toc__header--link">Fast playback with audio and video preload</a>
 
-
-
-
-
-
-<a href="#fast-playback-with-audio-and-video-preload" class="w-toc__header--link">Fast playback with audio and video preload</a>
---------------------------------------------------------------------------------------------------------------------------------
-
--   [Video preload attribute](#video-preload-attribute)
--   [Tips](#tips)
--   [Link preload](#link-preload)
--   [Preload full video](#preload-full-video)
--   [Preload the first segment](#preload-the-first-segment)
--   [Support](#support)
--   [Manual buffering](#manual-buffering)
--   [Considerations](#considerations)
--   [Pre-cache multiple first segments](#pre-cache-multiple-first-segments)
--   [Create Range responses with a service worker](#create-range-responses-with-a-service-worker)
+- [Video preload attribute](#video-preload-attribute)
+- [Tips](#tips)
+- [Link preload](#link-preload)
+- [Preload full video](#preload-full-video)
+- [Preload the first segment](#preload-the-first-segment)
+- [Support](#support)
+- [Manual buffering](#manual-buffering)
+- [Considerations](#considerations)
+- [Pre-cache multiple first segments](#pre-cache-multiple-first-segments)
+- [Create Range responses with a service worker](#create-range-responses-with-a-service-worker)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Fast playback with audio and video preload
-==========================================
+# Fast playback with audio and video preload
 
 How to accelerate your media playback by actively preloading resources.
 
@@ -33,7 +25,7 @@ Aug 17, 2017 <span class="w-author__separator">•</span> Updated Nov 16, 2020
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 Faster playback start means more people watching your video or listening to your audio. [That's a known fact](https://www.digitaltrends.com/web/buffer-rage/). In this article I'll explore techniques you can use to accelerate your audio and video playback by actively preloading resources depending on your use case.
 
@@ -71,8 +63,7 @@ Full control
 
 Complex error handling is the website's responsibility.
 
-Video preload attribute <a href="#video-preload-attribute" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Video preload attribute <a href="#video-preload-attribute" class="w-headline-link">#</a>
 
 If the video source is a unique file hosted on a web server, you may want to use the video `preload` attribute to provide a hint to the browser as to [how much information or content to preload](/video-and-source-tags/#preload). This means [Media Source Extensions (MSE)](https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API) is not compatible with `preload`.
 
@@ -106,16 +97,15 @@ Setting the `preload` attribute to `auto` indicates that the browser may cache e
 
 There are some caveats though. As this is just a hint, the browser may completely ignore the `preload` attribute. At the time of writing, here are some rules applied in Chrome:
 
--   When [Data Saver](https://support.google.com/chrome/answer/2392284) is enabled, Chrome forces the `preload` value to `none`.
--   In Android 4.3, Chrome forces the `preload` value to `none` due to an [Android Bug](https://bugs.chromium.org/p/chromium/issues/detail?id=612909).
--   On a cellular connection (2G, 3G, and 4G), Chrome forces the `preload` value to `metadata`.
+- When [Data Saver](https://support.google.com/chrome/answer/2392284) is enabled, Chrome forces the `preload` value to `none`.
+- In Android 4.3, Chrome forces the `preload` value to `none` due to an [Android Bug](https://bugs.chromium.org/p/chromium/issues/detail?id=612909).
+- On a cellular connection (2G, 3G, and 4G), Chrome forces the `preload` value to `metadata`.
 
 ### Tips <a href="#tips" class="w-headline-link">#</a>
 
 If your website contains many video resources on the same domain, I would recommend you set the `preload` value to `metadata` or define the `poster` attribute and set `preload` to `none`. That way, you would avoid hitting the maximum number of HTTP connections to the same domain (6 according to the HTTP 1.1 spec) which can hang loading of resources. Note that this may also improve page speed if videos aren't part of your core user experience.
 
-Link preload <a href="#link-preload" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Link preload <a href="#link-preload" class="w-headline-link">#</a>
 
 As [covered](https://developers.google.com/web/updates/2016/03/link-rel-preload) in other [articles](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/), [link preload](https://w3c.github.io/preload/) is a declarative fetch that allows you to force the browser to make a request for a resource without blocking the `load` event and while the page is downloading. Resources loaded via `<link rel="preload">` are stored locally in the browser, and are effectively inert until they're explicitly referenced in the DOM, JavaScript, or CSS.
 
@@ -195,8 +185,7 @@ See MDN's [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/H
       return (link.as === 'fetch');
     }
 
-Manual buffering <a href="#manual-buffering" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Manual buffering <a href="#manual-buffering" class="w-headline-link">#</a>
 
 Before we dive into the [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) and service workers, let's see how to manually buffer a video with MSE. The example below assumes that your web server supports HTTP [`Range`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range) requests but this would be pretty similar with file segments. Note that some middleware libraries such as [Google's Shaka Player](https://github.com/google/shaka-player), [JW Player](https://developer.jwplayer.com/), and [Video.js](http://videojs.com/) are built to handle this for you.
 
@@ -423,35 +412,35 @@ Have a look at the official [Sample Media App](https://github.com/GoogleChrome/s
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

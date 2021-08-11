@@ -1,64 +1,56 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format" alt="A keylock in front of compressed code" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/E3BVnrBFNV6w2Uqxn3bQ.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#security-headers-quick-reference" class="w-toc__header--link">Security headers quick reference</a>
-------------------------------------------------------------------------------------------------------------
+## <a href="#security-headers-quick-reference" class="w-toc__header--link">Security headers quick reference</a>
 
--   [Protect your site from injection vulnerabilities](#protect-your-site-from-injection-vulnerabilities)
--   [Content Security Policy (CSP)](#csp)
--   [Isolate your site from other websites](#isolate-your-site-from-other-websites)
--   [Trusted Types](#tt)
--   [Build a powerful website securely](#build-a-powerful-website-securely)
--   [X-Content-Type-Options](#xcto)
--   [Encrypt traffic to your site](#encrypt-traffic-to-your-site)
--   [X-Frame-Options](#xfo)
--   [Recommended usages](#recommended-usages)
--   [Cross-Origin Resource Policy (CORP)](#corp)
--   [Supported browsers](#supported-browsers)
--   [Cross-Origin Opener Policy (COOP)](#coop)
--   [Other things to note about CSP](#other-things-to-note-about-csp)
--   [Cross-Origin Resource Sharing (CORS)](#cors)
--   [Learn more](#learn-more)
--   [Cross-Origin Embedder Policy (COEP)](#coep)
--   [Recommended usages](#recommended-usages-2)
--   [HTTP Strict Transport Security (HSTS)](#hsts)
--   [Supported browsers](#supported-browsers-2)
--   [Further reading](#further-reading)
--   [Learn more](#learn-more-2)
--   [Recommended usages](#recommended-usages-3)
--   [Supported browsers](#supported-browsers-3)
--   [Learn more](#learn-more-3)
--   [Recommended usages](#recommended-usages-4)
--   [Supported browsers](#supported-browsers-4)
--   [Learn more](#learn-more-4)
--   [Recommended usages](#recommended-usages-5)
--   [Supported browsers](#supported-browsers-5)
--   [Learn more](#learn-more-5)
--   [Recommended usages](#recommended-usages-6)
--   [Supported browsers](#supported-browsers-6)
--   [Learn more](#learn-more-6)
--   [Recommended usages](#recommended-usages-7)
--   [Supported browsers](#supported-browsers-7)
--   [Learn more](#learn-more-7)
--   [Example usages](#example-usages)
--   [Supported browsers](#supported-browsers-8)
--   [Learn more](#learn-more-8)
--   [Recommended usages](#recommended-usages-8)
--   [Supported browsers](#supported-browsers-9)
--   [Learn more](#learn-more-9)
+- [Protect your site from injection vulnerabilities](#protect-your-site-from-injection-vulnerabilities)
+- [Content Security Policy (CSP)](#csp)
+- [Isolate your site from other websites](#isolate-your-site-from-other-websites)
+- [Trusted Types](#tt)
+- [Build a powerful website securely](#build-a-powerful-website-securely)
+- [X-Content-Type-Options](#xcto)
+- [Encrypt traffic to your site](#encrypt-traffic-to-your-site)
+- [X-Frame-Options](#xfo)
+- [Recommended usages](#recommended-usages)
+- [Cross-Origin Resource Policy (CORP)](#corp)
+- [Supported browsers](#supported-browsers)
+- [Cross-Origin Opener Policy (COOP)](#coop)
+- [Other things to note about CSP](#other-things-to-note-about-csp)
+- [Cross-Origin Resource Sharing (CORS)](#cors)
+- [Learn more](#learn-more)
+- [Cross-Origin Embedder Policy (COEP)](#coep)
+- [Recommended usages](#recommended-usages-2)
+- [HTTP Strict Transport Security (HSTS)](#hsts)
+- [Supported browsers](#supported-browsers-2)
+- [Further reading](#further-reading)
+- [Learn more](#learn-more-2)
+- [Recommended usages](#recommended-usages-3)
+- [Supported browsers](#supported-browsers-3)
+- [Learn more](#learn-more-3)
+- [Recommended usages](#recommended-usages-4)
+- [Supported browsers](#supported-browsers-4)
+- [Learn more](#learn-more-4)
+- [Recommended usages](#recommended-usages-5)
+- [Supported browsers](#supported-browsers-5)
+- [Learn more](#learn-more-5)
+- [Recommended usages](#recommended-usages-6)
+- [Supported browsers](#supported-browsers-6)
+- [Learn more](#learn-more-6)
+- [Recommended usages](#recommended-usages-7)
+- [Supported browsers](#supported-browsers-7)
+- [Learn more](#learn-more-7)
+- [Example usages](#example-usages)
+- [Supported browsers](#supported-browsers-8)
+- [Learn more](#learn-more-8)
+- [Recommended usages](#recommended-usages-8)
+- [Supported browsers](#supported-browsers-9)
+- [Learn more](#learn-more-9)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Security headers quick reference
-================================
+# Security headers quick reference
 
 Learn more about headers that can keep your site safe and quickly look up the most important details.
 
@@ -70,23 +62,23 @@ May 18, 2021 <span class="w-author__separator">•</span> Updated Aug 5, 2021
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/F620GZorjY0JjKas3p3J.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Maud Nalpas" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/F620GZorjY0JjKas3p3J.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/F620GZorjY0JjKas3p3J.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/F620GZorjY0JjKas3p3J.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/F620GZorjY0JjKas3p3J.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/F620GZorjY0JjKas3p3J.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/maudn/)
 
 <a href="/authors/maudn/" class="w-author__name-link">Maud Nalpas</a>
 
--   <a href="https://twitter.com/maudnals" class="w-author__link">Twitter</a>
--   <a href="https://github.com/maudnals" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/maudnals" class="w-author__link">Twitter</a>
+- <a href="https://github.com/maudnals" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/hwvmzV4b6VQpTNrNF3wK.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Artur Janc" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/hwvmzV4b6VQpTNrNF3wK.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/hwvmzV4b6VQpTNrNF3wK.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/hwvmzV4b6VQpTNrNF3wK.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/hwvmzV4b6VQpTNrNF3wK.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/YLflGBAPWecgtKJLqCJHSzHqe2J2/hwvmzV4b6VQpTNrNF3wK.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/arturjanc/)
 
 <a href="/authors/arturjanc/" class="w-author__name-link">Artur Janc</a>
 
--   <a href="https://twitter.com/arturjanc" class="w-author__link">Twitter</a>
--   <a href="https://github.com/arturjanc" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/arturjanc" class="w-author__link">Twitter</a>
+- <a href="https://github.com/arturjanc" class="w-author__link">GitHub</a>
 
 This article lists the most important security headers you can use to protect your website. Use it to understand web-based security features, learn how to implement them on your website, and as a reference for when you need a reminder.
 
@@ -111,8 +103,7 @@ Security headers for websites with advanced capabilities:
 
 [Cross-Origin Embedder Policy (COEP)](#coep)
 
-Known threats on the web
-------------------------
+## Known threats on the web
 
 Before diving into security headers, learn about known threats on the web and why you'd want to use these security headers.
 
@@ -126,9 +117,9 @@ An XSS vulnerability can typically give an attacker complete access to user data
 
 Traditional defenses against injections include consistent use of autoescaping HTML template systems, avoiding the use of [dangerous JavaScript APIs](https://domgo.at/cxss/sinks), and properly processing user data by hosting file uploads in a separate domain and sanitizing user-controlled HTML.
 
--   Use [Content Security Policy (CSP)](#csp) to control which scripts can be executed by your application to mitigate the risk of injections.
--   Use [Trusted Types](#tt) to enforce sanitization of data passed into dangerous JavaScript APIs.
--   Use [X-Content-Type-Options](#xcto) to prevent the browser from misinterpreting the MIME types of your website's resources, which can lead to script execution.
+- Use [Content Security Policy (CSP)](#csp) to control which scripts can be executed by your application to mitigate the risk of injections.
+- Use [Trusted Types](#tt) to enforce sanitization of data passed into dangerous JavaScript APIs.
+- Use [X-Content-Type-Options](#xcto) to prevent the browser from misinterpreting the MIME types of your website's resources, which can lead to script execution.
 
 ### Isolate your site from other websites <a href="#isolate-your-site-from-other-websites" class="w-headline-link">#</a>
 
@@ -136,10 +127,10 @@ The openness of the web allows websites to interact with each other in ways that
 
 Common vulnerabilities that undermine web isolation include [clickjacking](https://portswigger.net/web-security/clickjacking), [cross-site request forgery](https://portswigger.net/web-security/csrf) (CSRF), [cross-site script inclusion](https://www.scip.ch/en/?labs.20160414) (XSSI), and various [cross-site leaks](https://xsleaks.dev).
 
--   Use [X-Frame-Options](#xfo) to prevent your documents from being embedded by a malicious website.
--   Use [Cross-Origin Resource Policy (CORP)](#corp) to prevent your website's resources from being included by a cross-origin website.
--   Use [Cross-Origin Opener Policy (COOP)](#coop) to protect your website's windows from interactions by malicious websites.
--   Use [Cross-Origin Resource Sharing (CORS)](#cors) to control access to your website's resources from cross-origin documents.
+- Use [X-Frame-Options](#xfo) to prevent your documents from being embedded by a malicious website.
+- Use [Cross-Origin Resource Policy (CORP)](#corp) to prevent your website's resources from being included by a cross-origin website.
+- Use [Cross-Origin Opener Policy (COOP)](#coop) to protect your website's windows from interactions by malicious websites.
+- Use [Cross-Origin Resource Sharing (CORS)](#cors) to control access to your website's resources from cross-origin documents.
 
 [Post-Spectre Web Development](https://www.w3.org/TR/post-spectre-webdev/) is a great read if you are interested in these headers.
 
@@ -147,7 +138,7 @@ Common vulnerabilities that undermine web isolation include [clickjacking](https
 
 [Spectre](https://ieeexplore.ieee.org/document/8835233) puts any data loaded into the same [browsing context group](/why-coop-coep/) potentially readable despite [same-origin policy](/same-origin-policy/). Browsers restrict features that may possibly exploit the vulnerability behind a special environment called "[cross-origin isolation](/coop-coep/)". With cross-origin isolation, you can use powerful features such as `SharedArrayBuffer`.
 
--   Use [Cross-Origin Embedder Policy (COEP)](#coep) along with [COOP](#coop) to enable cross-origin isolation.
+- Use [Cross-Origin Embedder Policy (COEP)](#coep) along with [COOP](#coop) to enable cross-origin isolation.
 
 ### Encrypt traffic to your site <a href="#encrypt-traffic-to-your-site" class="w-headline-link">#</a>
 
@@ -155,10 +146,9 @@ Encryption issues appear when an application does not fully encrypt data in tran
 
 Insufficient encryption can arise in the following cases: not using HTTPS, [mixed content](/what-is-mixed-content/), setting cookies without the [`Secure` attribute](https://developer.mozilla.org/docs/Web/HTTP/Cookies#restrict_access_to_cookies) (or [`__Secure` prefix](https://developer.mozilla.org/docs/Web/HTTP/Cookies#Cookie_prefixes)), or [lax CORS validation logic](https://blog.detectify.com/2018/04/26/cors-misconfigurations-explained/).
 
--   Use [HTTP Strict Transport Security (HSTS)](#hsts) to consisitently serve your contents through HTTPS.
+- Use [HTTP Strict Transport Security (HSTS)](#hsts) to consisitently serve your contents through HTTPS.
 
-Content Security Policy (CSP) <a href="#csp" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Content Security Policy (CSP) <a href="#csp" class="w-headline-link">#</a>
 
 [Cross-Site Scripting (XSS)](https://www.google.com/about/appsecurity/learning/xss/) is an attack where a vulnerability on a website allows a malicious script to be injected and executed.
 
@@ -166,8 +156,8 @@ Content Security Policy (CSP) <a href="#csp" class="w-headline-link">#</a>
 
 It's recommended that you enable strict CSP using one of the following approaches:
 
--   If you render your HTML pages on the server, use **a nonce-based strict CSP**.
--   If your HTML has to be served statically or cached, for example if it's a single-page application, use **a hash-based strict CSP**.
+- If you render your HTML pages on the server, use **a nonce-based strict CSP**.
+- If your HTML has to be served statically or cached, for example if it's a single-page application, use **a hash-based strict CSP**.
 
 Example usage: A nonce-based CSP
 
@@ -176,12 +166,11 @@ Example usage: A nonce-based CSP
       object-src 'none';
       base-uri 'none';
 
-How to use CSP
---------------
+## How to use CSP
 
 ### Recommended usages <a href="#recommended-usages" class="w-headline-link">#</a>
 
-A CSP can be an *extra* protection against XSS attacks; you should still make sure to escape (and sanitize) user input.
+A CSP can be an _extra_ protection against XSS attacks; you should still make sure to escape (and sanitize) user input.
 
 #### 1. Use a nonce-based strict CSP <a href="#nonce-based-csp" class="w-headline-link">#</a>
 
@@ -243,25 +232,24 @@ Chrome, Firefox, Edge, Safari
 
 **Gotchas!**
 
--   `https:` is a fallback for Safari and `unsafe-inline` is a fallback for very old browser versions. `https:` and `unsafe-inline` don't make your policy less safe because they will be ignored by browsers who support `strict-dynamic`. Read more in [Add fallbacks to support Safari and older browsers](/strict-csp/#step-4:-add-fallbacks-to-support-safari-and-older-browsers).
--   Safari does *not* support `strict-dynamic` yet. But a strict CSP like in the examples above is safer than an allowlist CSP (and much safer than no CSP at all) for all of your users. Even in Safari, a strict CSP protects your site from some types of XSS attacks, because the presence of the CSP disallows certain unsafe patterns.
+- `https:` is a fallback for Safari and `unsafe-inline` is a fallback for very old browser versions. `https:` and `unsafe-inline` don't make your policy less safe because they will be ignored by browsers who support `strict-dynamic`. Read more in [Add fallbacks to support Safari and older browsers](/strict-csp/#step-4:-add-fallbacks-to-support-safari-and-older-browsers).
+- Safari does _not_ support `strict-dynamic` yet. But a strict CSP like in the examples above is safer than an allowlist CSP (and much safer than no CSP at all) for all of your users. Even in Safari, a strict CSP protects your site from some types of XSS attacks, because the presence of the CSP disallows certain unsafe patterns.
 
 See [more compatibilities](https://developer.mozilla.org/docs/Web/HTTP/CSP#browser_compatibility).
 
 ### Other things to note about CSP <a href="#other-things-to-note-about-csp" class="w-headline-link">#</a>
 
--   [`frame-ancestors`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) directive protects your site from clickjacking—a risk that arises if you allow untrusted sites to embed yours. If you prefer simpler solution, you can use [`X-Frame-Options`](#xfo) to block being loaded, but `frame-ancestors` gives you an advanced configuration to only allow specific origins as embedders.
--   You may have used [a CSP to ensure that all of your site's resources are loaded over HTTPS](/fixing-mixed-content/#content-security-policy). This has become less relevant: nowadays, most browsers block [mixed-content](/what-is-mixed-content/).
--   You can also set a CSP in [report-only mode](/strict-csp/#step-2:-set-a-strict-csp-and-prepare-your-scripts).
--   If you can't set a CSP as a header server-side, you can also set it as a meta tag. Note that you can't use **report-only** mode for meta tags (though [this may change](https://github.com/w3c/webappsec-csp/issues/277)).
+- [`frame-ancestors`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) directive protects your site from clickjacking—a risk that arises if you allow untrusted sites to embed yours. If you prefer simpler solution, you can use [`X-Frame-Options`](#xfo) to block being loaded, but `frame-ancestors` gives you an advanced configuration to only allow specific origins as embedders.
+- You may have used [a CSP to ensure that all of your site's resources are loaded over HTTPS](/fixing-mixed-content/#content-security-policy). This has become less relevant: nowadays, most browsers block [mixed-content](/what-is-mixed-content/).
+- You can also set a CSP in [report-only mode](/strict-csp/#step-2:-set-a-strict-csp-and-prepare-your-scripts).
+- If you can't set a CSP as a header server-side, you can also set it as a meta tag. Note that you can't use **report-only** mode for meta tags (though [this may change](https://github.com/w3c/webappsec-csp/issues/277)).
 
 ### Learn more <a href="#learn-more" class="w-headline-link">#</a>
 
--   [Mitigate XSS with a Strict Content Security Policy (CSP)](/strict-csp)
--   [Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
+- [Mitigate XSS with a Strict Content Security Policy (CSP)](/strict-csp)
+- [Content Security Policy Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
 
-Trusted Types <a href="#tt" class="w-headline-link">#</a>
----------------------------------------------------------
+## Trusted Types <a href="#tt" class="w-headline-link">#</a>
 
 [DOM-based XSS](https://portswigger.net/web-security/cross-site-scripting/dom-based) is an attack where a malicious data is passed into a sink that supports dynamic code execution such as `eval()` or `.innerHTML`.
 
@@ -290,8 +278,7 @@ Example usages
     const escaped = policy.createHTML('<img src=x onerror=alert(1)>');
     el.innerHTML = escaped;  // '&amplt;img src=x onerror=alert(1)&ampgt;'
 
-How to use Trusted Types
-------------------------
+## How to use Trusted Types
 
 ### Recommended usages <a href="#recommended-usages-2" class="w-headline-link">#</a>
 
@@ -352,13 +339,12 @@ See [more compatibilities](https://caniuse.com/?search=trusted%20types).
 
 ### Learn more <a href="#learn-more-2" class="w-headline-link">#</a>
 
--   [Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types](/trusted-types/)
--   [CSP: require-trusted-types-for - HTTP | MDN](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for)
--   [CSP: trusted-types - HTTP | MDN](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types)
--   [Trusted Types demo](https://www.compass-demo.com/trusted-types/)—open DevTools Inspector and see what is happening
+- [Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types](/trusted-types/)
+- [CSP: require-trusted-types-for - HTTP | MDN](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for)
+- [CSP: trusted-types - HTTP | MDN](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types)
+- [Trusted Types demo](https://www.compass-demo.com/trusted-types/)—open DevTools Inspector and see what is happening
 
-X-Content-Type-Options <a href="#xcto" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## X-Content-Type-Options <a href="#xcto" class="w-headline-link">#</a>
 
 When a malicious HTML document is served from your domain (for example, if an image uploaded to a photo service contains valid HTML markup), some browsers will treat it as an active document and allow it to execute scripts in the context of the application, leading to a [cross-site scripting bug](https://www.google.com/about/appsecurity/learning/xss/).
 
@@ -368,8 +354,7 @@ Example usage
 
     X-Content-Type-Options: nosniff
 
-How to use X-Content-Type-Options
----------------------------------
+## How to use X-Content-Type-Options
 
 ### Recommended usages <a href="#recommended-usages-3" class="w-headline-link">#</a>
 
@@ -390,12 +375,11 @@ See [more compatibilities](https://caniuse.com/mdn-http_headers_x-content-type-o
 
 ### Learn more <a href="#learn-more-3" class="w-headline-link">#</a>
 
--   [X-Content-Type-Options - HTTP MDN](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Content-Type-Options)
+- [X-Content-Type-Options - HTTP MDN](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Content-Type-Options)
 
-X-Frame-Options <a href="#xfo" class="w-headline-link">#</a>
-------------------------------------------------------------
+## X-Frame-Options <a href="#xfo" class="w-headline-link">#</a>
 
-If a malicious website can embed your site as an iframe, this may allow attackers to invoke unintended actions by the user with [clickjacking](https://portswigger.net/web-security/clickjacking). Also, in some cases [Spectre-type attacks](https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)) give malicious websites a chance to learn about the contents of an embedded document.
+If a malicious website can embed your site as an iframe, this may allow attackers to invoke unintended actions by the user with [clickjacking](https://portswigger.net/web-security/clickjacking). Also, in some cases [Spectre-type attacks](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>) give malicious websites a chance to learn about the contents of an embedded document.
 
 `X-Frame-Options` indicates whether or not a browser should be allowed to render a page in a `<frame>`, `<iframe>`, `<embed>`, or `<object>`. **All documents** are recommended to send this header to indicate whether they allow being embedded by other documents.
 
@@ -405,8 +389,7 @@ Example usage
 
     X-Frame-Options: DENY
 
-How to use X-Frame-Options
---------------------------
+## How to use X-Frame-Options
 
 ### Recommended usages <a href="#recommended-usages-4" class="w-headline-link">#</a>
 
@@ -440,10 +423,9 @@ See [more compatibilities](https://developer.mozilla.org/docs/Web/HTTP/Headers/X
 
 ### Learn more <a href="#learn-more-4" class="w-headline-link">#</a>
 
--   [X-Frame-Options - HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options)
+- [X-Frame-Options - HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options)
 
-Cross-Origin Resource Policy (CORP) <a href="#corp" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## Cross-Origin Resource Policy (CORP) <a href="#corp" class="w-headline-link">#</a>
 
 An attacker can embed resources from another origin, for example from your site, to learn information about them by exploiting web-based [cross-site leaks](https://xsleaks.dev/).
 
@@ -453,8 +435,7 @@ Example usage
 
     Cross-Origin-Resource-Policy: same-origin
 
-How to use CORP
----------------
+## How to use CORP
 
 ### Recommended usages <a href="#recommended-usages-5" class="w-headline-link">#</a>
 
@@ -498,14 +479,13 @@ See [more compatibilities](https://caniuse.com/mdn-http_headers_cross-origin-res
 
 ### Learn more <a href="#learn-more-5" class="w-headline-link">#</a>
 
--   [Consider deploying cross-origin resource policy](https://resourcepolicy.fyi/)
--   [Making your website "cross-origin isolated" using COOP and COEP](/coop-coep/)
--   [Why you need "cross-origin isolated" for powerful features](/why-coop-coep/)
+- [Consider deploying cross-origin resource policy](https://resourcepolicy.fyi/)
+- [Making your website "cross-origin isolated" using COOP and COEP](/coop-coep/)
+- [Why you need "cross-origin isolated" for powerful features](/why-coop-coep/)
 
-Cross-Origin Opener Policy (COOP) <a href="#coop" class="w-headline-link">#</a>
--------------------------------------------------------------------------------
+## Cross-Origin Opener Policy (COOP) <a href="#coop" class="w-headline-link">#</a>
 
-An attacker's website can open another site in a popup window to learn information about it by exploiting web-based [cross-site leaks](https://xsleaks.dev/). In some cases, this may also allow the exploitation of side-channel attacks based on [Spectre](https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)).
+An attacker's website can open another site in a popup window to learn information about it by exploiting web-based [cross-site leaks](https://xsleaks.dev/). In some cases, this may also allow the exploitation of side-channel attacks based on [Spectre](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>).
 
 The `Cross-Origin-Opener-Policy` header provides a way for a document to isolate itself from cross-origin windows opened through `window.open()` or a link with `target="_blank"` without `rel="noopener"`. As a result, any cross-origin opener of the document will have no reference to it and will not be able to interact with it.
 
@@ -513,8 +493,7 @@ Example usage
 
     Cross-Origin-Opener-Policy: same-origin-allow-popups
 
-How to use COOP
----------------
+## How to use COOP
 
 ### Recommended usages <a href="#recommended-usages-6" class="w-headline-link">#</a>
 
@@ -570,10 +549,9 @@ See [more compatibilities](https://caniuse.com/mdn-http_headers_cross-origin-ope
 
 ### Learn more <a href="#learn-more-6" class="w-headline-link">#</a>
 
--   [Why you need "cross-origin isolated" for powerful features](/why-coop-coep/)
+- [Why you need "cross-origin isolated" for powerful features](/why-coop-coep/)
 
-Cross-Origin Resource Sharing (CORS) <a href="#cors" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Cross-Origin Resource Sharing (CORS) <a href="#cors" class="w-headline-link">#</a>
 
 Unlike other items in this article, Cross-Origin Resource Sharing (CORS) is not a header, but a browser mechanism that requests and permits access to cross-origin resources.
 
@@ -584,16 +562,15 @@ Example usage
     Access-Control-Allow-Origin: https://example.com
     Access-Control-Allow-Credentials: true
 
-How to use CORS
----------------
+## How to use CORS
 
 Before looking into how to configure CORS, it's helpful to understand the distinction between request types. Depending on request details, a request will be classified as a **simple request** or a **preflighted request**.
 
 Criteria for a simple request:
 
--   The method is `GET`, `HEAD`, or `POST`.
--   The custom headers only include `Accept`, `Accept-Language`, `Content-Language`, and `Content-Type`.
--   The `Content-Type` is `application/x-www-form-urlencoded`, `multipart/form-data`, or `text/plain`.
+- The method is `GET`, `HEAD`, or `POST`.
+- The custom headers only include `Accept`, `Accept-Language`, `Content-Language`, and `Content-Type`.
+- The `Content-Type` is `application/x-www-form-urlencoded`, `multipart/form-data`, or `text/plain`.
 
 Everything else is classified as a preflighted request. For more details, check out [Cross-Origin Resource Sharing (CORS) - HTTP | MDN](https://developer.mozilla.org/docs/Web/HTTP/CORS#simple_requests).
 
@@ -613,8 +590,8 @@ Example response header
     Access-Control-Allow-Origin: https://example.com
     Access-Control-Allow-Credentials: true
 
--   `Access-Control-Allow-Origin: https://example.com` indicates that the `https://example.com` can access the contents of the response. Resources meant to be readable by any site can set this header to `*`, in which case the browser will only require the request to be made [without credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials#value).
--   `Access-Control-Allow-Credentials: true` indicates that requests which carry credentials (cookies) are allowed to load the resource. Otherwise, authenticated requests will be rejected even if the requesting origin is present in the `Access-Control-Allow-Origin` header.
+- `Access-Control-Allow-Origin: https://example.com` indicates that the `https://example.com` can access the contents of the response. Resources meant to be readable by any site can set this header to `*`, in which case the browser will only require the request to be made [without credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials#value).
+- `Access-Control-Allow-Credentials: true` indicates that requests which carry credentials (cookies) are allowed to load the resource. Otherwise, authenticated requests will be rejected even if the requesting origin is present in the `Access-Control-Allow-Origin` header.
 
 You can try how the simple request affect loading resources under a [`Cross-Origin-Embedder-Policy: require-corp` environment](#coep) on [this demo](https://first-party-test.glitch.me/?coep=require-corp&). Click the **Cross-Origin Resource Sharing** checkbox and click the **Reload the image** button to see the effect.
 
@@ -629,8 +606,8 @@ Example request header
     Access-Control-Request-Method: POST
     Access-Control-Request-Headers: X-PINGOTHER, Content-Type
 
--   `Access-Control-Request-Method: POST` allows the following request to be made with the `POST` method.
--   `Access-Control-Request-Headers: X-PINGOTHER, Content-Type` allows the requester to set the `X-PINGOTHER` and `Content-Type` HTTP headers in the subsequent request.
+- `Access-Control-Request-Method: POST` allows the following request to be made with the `POST` method.
+- `Access-Control-Request-Headers: X-PINGOTHER, Content-Type` allows the requester to set the `X-PINGOTHER` and `Content-Type` HTTP headers in the subsequent request.
 
 Example response headers
 
@@ -640,9 +617,9 @@ Example response headers
     Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
     Access-Control-Max-Age: 86400
 
--   `Access-Control-Allow-Methods: POST, GET, OPTIONS` indicates that subsequent requests can be made with the `POST`, `GET` and `OPTIONS` methods.
--   `Access-Control-Allow-Headers: X-PINGOTHER, Content-Type` indicates subsequent requests can include the `X-PINGOTHER` and `Content-Type` headers.
--   `Access-Control-Max-Age: 86400` indicates that the result of the preflighted request can be cached for 86400 seconds.
+- `Access-Control-Allow-Methods: POST, GET, OPTIONS` indicates that subsequent requests can be made with the `POST`, `GET` and `OPTIONS` methods.
+- `Access-Control-Allow-Headers: X-PINGOTHER, Content-Type` indicates subsequent requests can include the `X-PINGOTHER` and `Content-Type` headers.
+- `Access-Control-Max-Age: 86400` indicates that the result of the preflighted request can be cached for 86400 seconds.
 
 ### Supported browsers <a href="#supported-browsers-7" class="w-headline-link">#</a>
 
@@ -652,13 +629,12 @@ See [more compatibilities](https://caniuse.com/mdn-http_headers_content-length_c
 
 ### Learn more <a href="#learn-more-7" class="w-headline-link">#</a>
 
--   [Cross-Origin Resource Sharing (CORS)](/cross-origin-resource-sharing/)
--   [Cross-Origin Resource Sharing (CORS) - HTTP | MDN](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+- [Cross-Origin Resource Sharing (CORS)](/cross-origin-resource-sharing/)
+- [Cross-Origin Resource Sharing (CORS) - HTTP | MDN](https://developer.mozilla.org/docs/Web/HTTP/CORS)
 
-Cross-Origin Embedder Policy (COEP) <a href="#coep" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## Cross-Origin Embedder Policy (COEP) <a href="#coep" class="w-headline-link">#</a>
 
-To reduce the ability of [Spectre-based attacks](https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)) to steal cross-origin resources, features such as `SharedArrayBuffer` or `performance.measureUserAgentSpecificMemory()` are disabled by default.
+To reduce the ability of [Spectre-based attacks](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>) to steal cross-origin resources, features such as `SharedArrayBuffer` or `performance.measureUserAgentSpecificMemory()` are disabled by default.
 
 `Cross-Origin-Embedder-Policy: require-corp` prevents documents and workers from loading cross-origin resources such as images, scripts, stylesheets, iframes and others unless these resources explicitly opt into being loaded via [CORS](#cors) or [CORP](#corp) headers. COEP can be combined with`Cross-Origin-Opener-Policy` to opt a document into [cross-origin isolation](/cross-origin-isolation-guide/).
 
@@ -668,8 +644,7 @@ Example usage
 
     Cross-Origin-Embedder-Policy: require-corp
 
-How to use COEP
----------------
+## How to use COEP
 
 ### Example usages <a href="#example-usages" class="w-headline-link">#</a>
 
@@ -704,12 +679,11 @@ See [more compatibilities](https://caniuse.com/mdn-http_headers_cross-origin-emb
 
 ### Learn more <a href="#learn-more-8" class="w-headline-link">#</a>
 
--   [Making your website "cross-origin isolated" using COOP and COEP](/coop-coep/)
--   [Why you need "cross-origin isolated" for powerful features](/why-coop-coep/)
--   [A guide to enable cross-origin isolation](/cross-origin-isolation-guide/)
+- [Making your website "cross-origin isolated" using COOP and COEP](/coop-coep/)
+- [Why you need "cross-origin isolated" for powerful features](/why-coop-coep/)
+- [A guide to enable cross-origin isolation](/cross-origin-isolation-guide/)
 
-HTTP Strict Transport Security (HSTS) <a href="#hsts" class="w-headline-link">#</a>
------------------------------------------------------------------------------------
+## HTTP Strict Transport Security (HSTS) <a href="#hsts" class="w-headline-link">#</a>
 
 Communication over a plain HTTP connection is not encrypted, making the transferred data accessible to network-level eavesdroppers.
 
@@ -719,8 +693,7 @@ Example usage
 
     Strict-Transport-Security: max-age=31536000
 
-How to use HSTS
----------------
+## How to use HSTS
 
 ### Recommended usages <a href="#recommended-usages-8" class="w-headline-link">#</a>
 
@@ -736,12 +709,11 @@ See [more compatibilities](https://caniuse.com/stricttransportsecurity).
 
 ### Learn more <a href="#learn-more-9" class="w-headline-link">#</a>
 
--   [Strict-Transport-Security - HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security)
+- [Strict-Transport-Security - HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security)
 
-Further reading <a href="#further-reading" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
--   [Post-Spectre Web Development](https://www.w3.org/TR/post-spectre-webdev/)
+- [Post-Spectre Web Development](https://www.w3.org/TR/post-spectre-webdev/)
 
 <a href="/tags/security/" class="w-chip">Security</a>
 
@@ -749,35 +721,35 @@ Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

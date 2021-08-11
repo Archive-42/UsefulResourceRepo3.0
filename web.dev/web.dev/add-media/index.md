@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#add-media-to-a-web-page" class="w-toc__header--link">Add media to a web page</a>
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>

@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#user-focus-is-not-accidentally-trapped-in-a-region" class="w-toc__header--link">User focus is not accidentally trapped in a region</a>
 
 - [How to manually test](#how-to-manually-test)

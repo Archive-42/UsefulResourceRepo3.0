@@ -1,15 +1,8 @@
-
-
-
-
-
-
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
 <img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/cBy8xMTOQzYOt6Ru4C0e.svg" alt="Scale on web" class="w-tags-page__image" width="192" height="192" />
 
-Scale on web
-============
+# Scale on web
 
 A collection of short case studies from India and Southeast Asia celebrating the success stories of Google partners across multiple aspects of modern web development. Learn how these partners achieved scale while building amazing web experiences and delighting their customers.
 
@@ -21,8 +14,7 @@ A collection of short case studies from India and Southeast Asia celebrating the
 
 <a href="/vodafone/" class="w-card-base__link"></a>
 
-Vodafone: A 31% improvement in LCP increased sales by 8%
---------------------------------------------------------
+## Vodafone: A 31% improvement in LCP increased sales by 8%
 
 Mar 17, 2021
 
@@ -38,8 +30,7 @@ By running an A/B test specifically focused on optimizing Web Vitals, Vodafone f
 
 <a href="/jdid/" class="w-card-base__link"></a>
 
-JD.ID improves their mobile conversion rate by 53% with caching strategies, installation, and push notifications
-----------------------------------------------------------------------------------------------------------------
+## JD.ID improves their mobile conversion rate by 53% with caching strategies, installation, and push notifications
 
 Nov 24, 2020
 
@@ -55,8 +46,7 @@ How JD.ID increased its overall mobile conversion rate (mCVR) by 53%, mCVR for i
 
 <a href="/rakuten-24/" class="w-card-base__link"></a>
 
-Rakuten 24’s investment in PWA increases user retention by 450%
----------------------------------------------------------------
+## Rakuten 24’s investment in PWA increases user retention by 450%
 
 Nov 17, 2020
 
@@ -72,8 +62,7 @@ Making their web app installable resulted in increased traffic, visitor retentio
 
 <a href="/ndtv/" class="w-card-base__link"></a>
 
-NDTV achieved a 55% improvement in LCP by optimizing for Core Web Vitals
-------------------------------------------------------------------------
+## NDTV achieved a 55% improvement in LCP by optimizing for Core Web Vitals
 
 Updated: Oct 28, 2020
 
@@ -89,8 +78,7 @@ NDTV enhanced user experience and thus retention by optimizing for Web Vitals.
 
 <a href="/tokopedia/" class="w-card-base__link"></a>
 
-How focusing on web performance improved Tokopedia's click-through rate by 35%
-------------------------------------------------------------------------------
+## How focusing on web performance improved Tokopedia's click-through rate by 35%
 
 Oct 13, 2020
 
@@ -106,8 +94,7 @@ Creating a web performance dashboard and optimizing JavaScript, resources, and t
 
 <a href="/goibibo/" class="w-card-base__link"></a>
 
-How Goibibo's PWA improved conversions by 60%
----------------------------------------------
+## How Goibibo's PWA improved conversions by 60%
 
 Sep 29, 2020
 
@@ -121,35 +108,35 @@ Bridging the gap between web and iOS/Android experiences to delight users.
 
 <a href="/tags" class="w-button">See more Tags</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

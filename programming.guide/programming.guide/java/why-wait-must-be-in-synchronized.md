@@ -1,18 +1,16 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+
+## Featured Stack Overflow Post
+
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java: Why wait must be called in a synchronized block
-=====================================================
+# Java: Why wait must be called in a synchronized block
 
 Let's look at an example of what issues we would run into if `wait()` could be called outside of a synchronized block.
 
@@ -42,12 +38,12 @@ A first attempt (without synchronization) could look something along the lines b
 
     class BlockingQueue {
         Queue<String> buffer = new LinkedList<String>();
-        
+
         public void give(String data) {
             buffer.add(data);
             notify();  // Since someone may be waiting in take
         }
-        
+
         public String take() throws InterruptedException {
             while (buffer.isEmpty())  // Avoid "if" due to spurious wakeups
                 wait();
@@ -61,7 +57,7 @@ This is what could potentially happen:
 
 2.  Before the consumer thread goes on to call `wait()`, a producer thread comes along and invokes a full `give()`, that is, `buffer.add(data); notify();`
 
-3.  The consumer thread will now call `wait()` (and *miss* the `notify()` that was just called).
+3.  The consumer thread will now call `wait()` (and _miss_ the `notify()` that was just called).
 
 4.  If unlucky, there will be no more calls to `give` and the consumer is stuck in `wait` indefinitely, even though there's data available to be consumed.
 
@@ -69,8 +65,7 @@ Once you understand the issue, the solution is obvious: Use `synchronized` to ma
 
 Without going into details: This synchronization issue is universal. Wait / notify always boils down to communicating something, and inter-thread communication without synchronization is almost always broken.
 
-Put Formally
-------------
+## Put Formally
 
 [Here](http://coding.derkeiler.com/Archive/Java/comp.lang.java.programmer/2006-01/msg01130.html) is a more formal description given by Chris Smith.
 
@@ -78,8 +73,7 @@ Put Formally
 >
 > The predicate that the producer and consumer need to agree upon is in the above example `buffer.isEmpty()`. And the agreement is resolved by ensuring that the wait and notify are performed in `synchronized` blocks.
 
-Comments (4)
-------------
+## Comments (4)
 
 ![User avatar](https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mp)
 
@@ -91,7 +85,7 @@ Hi, I have a question. If a consumer thread calls `take()` and go into synchroni
 
 Good question. The answer can be found in the [javadoc of the `Object.wait` method](https://docs.oracle.com/javase/9/docs/api/java/lang/Object.html#wait--):
 
-*"\[...\] The thread releases ownership of this monitor and waits until another thread notifies threads waiting on this object's monitor to wake up either through a call to the notify method or the notifyAll method. \[...\]"*
+_"\[...\] The thread releases ownership of this monitor and waits until another thread notifies threads waiting on this object's monitor to wake up either through a call to the notify method or the notifyAll method. \[...\]"_
 
 So the producer calling `give()` is allowed in, because while inside the `Object.wait` method, the monitor is temporarily released.
 
@@ -101,7 +95,7 @@ So the producer calling `give()` is allowed in, because while inside the `Object
 
 Point \#4 says -
 
-*"If unlucky, there will be no more calls to give and the consumer is stuck in wait indefinitely, even though there’s data available to be consumed."*
+_"If unlucky, there will be no more calls to give and the consumer is stuck in wait indefinitely, even though there’s data available to be consumed."_
 
 Any example for the unlucky situation??
 

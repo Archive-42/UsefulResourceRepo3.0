@@ -1,26 +1,18 @@
+## <a href="#orchestrating-payment-transactions-with-a-service-worker" class="w-toc__header--link">Orchestrating payment transactions with a service worker</a>
 
-
-
-
-
-
-<a href="#orchestrating-payment-transactions-with-a-service-worker" class="w-toc__header--link">Orchestrating payment transactions with a service worker</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
--   [Receive a payment request event from the merchant](#receive-payment-request-event)
--   [Open the payment handler window to display the web-based payment app frontend](#open-payment-handler-window)
--   [Exchange information with the frontend](#exchange-information)
--   [Receive the ready signal from the frontend](#receive-ready-signal)
--   [Pass the transaction details to the frontend](#pass-details)
--   [Return the customer's payment credentials](#return-credentials)
--   [Cancel the payment transaction](#cancel-transaction)
--   [Sample code](#sample-code)
--   [Next steps](#next-steps)
+- [Receive a payment request event from the merchant](#receive-payment-request-event)
+- [Open the payment handler window to display the web-based payment app frontend](#open-payment-handler-window)
+- [Exchange information with the frontend](#exchange-information)
+- [Receive the ready signal from the frontend](#receive-ready-signal)
+- [Pass the transaction details to the frontend](#pass-details)
+- [Return the customer's payment credentials](#return-credentials)
+- [Cancel the payment transaction](#cancel-transaction)
+- [Sample code](#sample-code)
+- [Next steps](#next-steps)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Orchestrating payment transactions with a service worker
-========================================================
+# Orchestrating payment transactions with a service worker
 
 How to adapt your web-based payment app to Web Payments and provide a better user experience for customers.
 
@@ -32,16 +24,15 @@ Aug 31, 2020
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 Once [the payment app is registered](/registering-a-web-based-payment-app/), you are ready to accept payment requests from merchants. This post explains how to orchestrate a payment transaction from a service worker during runtime (i.e. when a window is displayed and the user is interacting with it).
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format" alt="Orchestrating payment transactions with a service worker" class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/b0Pz24lmWMepSM6tboa1.png?auto=format&amp;w=1600 1600w" width="800" height="945" /><figcaption>Orchestrating payment transactions with a service worker</figcaption></figure>"Runtime payment parameter changes" refer to a set of events that allows the merchant and payment handler to exchange messages while the user is interacting with the payment handler. Learn more in [Handling optional payment information with a service worker](/handling-optional-payment-information).
 
-Receive a payment request event from the merchant <a href="#receive-payment-request-event" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------
+## Receive a payment request event from the merchant <a href="#receive-payment-request-event" class="w-headline-link">#</a>
 
 When a customer chooses to pay with your web-based payment app and [the merchant invokes `PaymentRequest.show()`](/life-of-a-payment-transaction/#), your service worker will receive a `paymentrequest` event. Add an event listener to the service worker to capture the event and prepare for the next action.
 
@@ -68,10 +59,9 @@ The preserved `PaymentRequestEvent` contains important information about this tr
 
 <table><thead><tr class="header"><th>Property name</th><th>Description</th></tr></thead><tbody><tr class="odd"><td><code>topOrigin</code></td><td>A string that indicates the origin of the top-level web page (usually the payee merchant). Use this to identify the merchant origin.</td></tr><tr class="even"><td><code>paymentRequestOrigin</code></td><td>A string that indicates the origin of the invoker. This can be the same as <code>topOrigin</code> when the merchant invokes the Payment Request API directly, but may be different if the API is invoked from within an iframe by a third party such as a payment gateway.</td></tr><tr class="odd"><td><code>paymentRequestId</code></td><td>The <code>id</code> property of the <code>PaymentDetailsInit</code> provided to the Payment Request API. If the merchant omits, the browser will provide an auto-generated ID.</td></tr><tr class="even"><td><code>methodData</code></td><td>The payment-method-specific data provided by the merchant as part of <code>PaymentMethodData</code>. Use this to determine the payment transaction details.</td></tr><tr class="odd"><td><code>total</code></td><td>The total amount provided by the merchant as part of <code>PaymentDetailsInit</code>. Use this to construct a UI to let the customer know the total amount to pay.</td></tr><tr class="even"><td><code>instrumentKey</code></td><td>The instrument key selected by the user. This reflects the <code>instrumentKey</code> you provided in advance. An empty string indicates that the user did not specify any instruments.</td></tr><tr class="odd"><td><code>paymentOptions</code></td><td>The <code>PaymentOptions</code> object provided to the Payment Request API by the merchant. Indicates whether the merchant is requesting shipping with <code>requestShipping</code>, the type of shipping with <code>shippingType</code>, billing address with <code>requestBillingAddress</code>, payer's email, name, phone respectively with <code>requestPayerEmail</code>, <code>requestPayerName</code>, <code>requestPayerPhone</code>. Use this to determine what information to include in the <code>PaymentHandlerResponse</code> on a payment authorization.</td></tr><tr class="even"><td><code>shippingOptions</code></td><td>The <code>shippingOptions</code> property of the <code>PaymentDetailsUpdate</code> provided to the Payment Request API. Use this to construct a UI to let the customer select a shipping option.</td></tr></tbody></table>
 
-Open the payment handler window to display the web-based payment app frontend <a href="#open-payment-handler-window" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------
+## Open the payment handler window to display the web-based payment app frontend <a href="#open-payment-handler-window" class="w-headline-link">#</a>
 
-When a `paymentrequest` event is received, the payment app can open a payment handler window by calling `PaymentRequestEvent.openWindow()`. The payment handler window will present the customers your payment app's interface where they can authenticate, choose shipping address and options, and authorize the payment. We'll cover how to write the frontend code in *Handling payments on the payment frontend* (coming soon).
+When a `paymentrequest` event is received, the payment app can open a payment handler window by calling `PaymentRequestEvent.openWindow()`. The payment handler window will present the customers your payment app's interface where they can authenticate, choose shipping address and options, and authorize the payment. We'll cover how to write the frontend code in _Handling payments on the payment frontend_ (coming soon).
 
 Checkout flow with a web-based payment app.
 
@@ -112,15 +102,14 @@ Use a convenient `PromiseResolver` polyfill to resolve a promise at arbitrary ti
           this.reject_ = reject;
         })
       }
-      get promise() { return this.promise_ } 
+      get promise() { return this.promise_ }
       get resolve() { return this.resolve_ }
       get reject() { return this.reject_ }
     }
 
 For security reasons, the frontend page opened in the payment handler window must have valid HTTPS certificates and no [mixed content](https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content); otherwise the payment request will be cancelled by Chrome. Learn more at [Debugging a web-based payment app](/registering-a-web-based-payment-app/#debugging-a-web-based-payment-app).
 
-Exchange information with the frontend <a href="#exchange-information" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Exchange information with the frontend <a href="#exchange-information" class="w-headline-link">#</a>
 
 The payment app's service worker can exchange messages with the payment app's frontend through `ServiceWorkerController.postMessage()`. To receive messages from the frontend, listen to `message` events.
 
@@ -183,8 +172,7 @@ Now send the payment details back. In this case you're only sending the total of
             break;
     …
 
-Return the customer's payment credentials <a href="#return-credentials" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------
+## Return the customer's payment credentials <a href="#return-credentials" class="w-headline-link">#</a>
 
 When the customer authorizes the payment, the frontend can send a post message to the service worker to proceed. You can resolve the promise passed to `PaymentRequestEvent.respondWith()` to send the result back to the merchant. Pass a [`PaymentHandlerResponse`](https://w3c.github.io/payment-handler/#dom-paymenthandlerresponse) object.
 
@@ -245,8 +233,7 @@ When the customer authorizes the payment, the frontend can send a post message t
             break;
           …
 
-Cancel the payment transaction <a href="#cancel-transaction" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Cancel the payment transaction <a href="#cancel-transaction" class="w-headline-link">#</a>
 
 To allow the customer to cancel the transaction, the frontend can send a post message to the service worker to do so. The service worker can then resolve the promise passed to `PaymentRequestEvent.respondWith()` with `null` to indicate to the merchant that the transaction has been cancelled.
 
@@ -272,8 +259,7 @@ To allow the customer to cancel the transaction, the frontend can send a post me
             break;
           …
 
-Sample code <a href="#sample-code" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Sample code <a href="#sample-code" class="w-headline-link">#</a>
 
 All sample codes you saw in this document were excerpts from the following working sample app:
 
@@ -291,12 +277,11 @@ To try it out:
 4.  Enter `https://paymenthandler-demo.glitch.me` to the **Payment Method Identifier** field.
 5.  Press **Pay** button next to the field.
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 In this article, we learned how to orchestrate a payment transaction from a service worker. The next step is to learn how to add some more advanced features to the service worker.
 
--   [Handling optional payment information with a service worker](/handling-optional-payment-information)
+- [Handling optional payment information with a service worker](/handling-optional-payment-information)
 
 <a href="/tags/payments/" class="w-chip">Payments</a> <a href="/tags/service-worker/" class="w-chip">Service Worker</a>
 
@@ -304,35 +289,35 @@ In this article, we learned how to orchestrate a payment transaction from a serv
 
 <a href="/payments" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,7 +1,3 @@
-<span class="underline"></span>
-
-<span class="underline"></span>
-
 ## Top Go Articles
 
 1.  [Go gotcha](go-gotcha.html)
@@ -9,8 +5,6 @@
 3.  [Maps explained](maps-explained.html)
 4.  [For loops explained](for-loop.html)
 5.  [Concurrent programming](go-concurrency-tutorial.html)
-
-<span class="underline"></span>
 
 ## Top Algorithm Articles
 

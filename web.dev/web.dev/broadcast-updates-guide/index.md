@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#broadcast-updates-to-pages-with-service-workers" class="w-toc__header--link">Broadcast updates to pages with service workers</a>
 
 - [Production cases](#production-cases)

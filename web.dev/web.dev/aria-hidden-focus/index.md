@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreateraria-hiddenandquottrueandquotlesscodegreater-elements-contain-focusable-descendants" class="w-toc__header--link"><code>[aria-hidden="true"]</code> elements contain focusable descendants</a>
 
 - [How Lighthouse identifies partially hidden focusable elements](#how-lighthouse-identifies-partially-hidden-focusable-elements)

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#document-does-not-have-a-valid-lesscodegreaterrelcanonicallesscodegreater" class="w-toc__header--link">Document does not have a valid <code>rel=canonical</code></a>
 
 - [How the Lighthouse canonical links audit fails](#how-the-lighthouse-canonical-links-audit-fails)

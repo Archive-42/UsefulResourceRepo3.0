@@ -1,28 +1,20 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format" alt="Chrome User Experience logo, PageSpeed Insights logo, Lighthouse logo, Search Console logo, Chrome DevTools logo, Web Vitals extension logo." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/wNtXgv1OE2OETdiSzi8l.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#tools-to-measure-core-web-vitals" class="w-toc__header--link">Tools to measure Core Web Vitals</a>
-------------------------------------------------------------------------------------------------------------
+## <a href="#tools-to-measure-core-web-vitals" class="w-toc__header--link">Tools to measure Core Web Vitals</a>
 
--   [Lighthouse](#lighthouse)
--   [PageSpeed Insights](#pagespeed-insights)
--   [CrUX](#crux)
--   [Chrome DevTools Performance panel](#chrome-devtools-performance-panel)
--   [Search Console](#search-console)
--   [Web Vitals extension](#web-vitals-extension)
+- [Lighthouse](#lighthouse)
+- [PageSpeed Insights](#pagespeed-insights)
+- [CrUX](#crux)
+- [Chrome DevTools Performance panel](#chrome-devtools-performance-panel)
+- [Search Console](#search-console)
+- [Web Vitals extension](#web-vitals-extension)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Tools to measure Core Web Vitals
-================================
+# Tools to measure Core Web Vitals
 
 Your favorite developer tools can now measure the Core Web Vitals.
 
@@ -34,15 +26,15 @@ May 28, 2020
 
 <a href="/authors/addyosmani/" class="w-author__name-link">Addy Osmani</a>
 
--   <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
--   <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
+- <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/IyB0bE6NGAvhRJkD6wRz.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Elizabeth Sweeny" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/IyB0bE6NGAvhRJkD6wRz.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/IyB0bE6NGAvhRJkD6wRz.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/IyB0bE6NGAvhRJkD6wRz.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/IyB0bE6NGAvhRJkD6wRz.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/IyB0bE6NGAvhRJkD6wRz.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/egsweeny/)
 
 <a href="/authors/egsweeny/" class="w-author__name-link">Elizabeth Sweeny</a>
 
--   <a href="https://twitter.com/egsweeny" class="w-author__link">Twitter</a>
--   <a href="https://github.com/egsweeny" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/egsweeny" class="w-author__link">Twitter</a>
+- <a href="https://github.com/egsweeny" class="w-author__link">GitHub</a>
 
 The recently announced [Web Vitals](/vitals/) initiative provides unified guidance about quality signals that are essential for all sites to deliver a great user experience on the web. We're happy to announce that **all of Google's popular tools for web developers now support measurement of Core Web Vitals**, helping you more easily diagnose and fix user experience issues. This includes [Lighthouse](https://github.com/GoogleChrome/lighthouse), [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/), [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools), [Search Console](https://search.google.com/search-console/about), [web.dev's measure tool](/measure/), the [Web Vitals Chrome extension](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma) and a new (!) [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report) API.
 
@@ -52,12 +44,12 @@ With Google Search now including Core Web Vitals as the foundation for evaluatin
 
 To begin your journey optimizing user-experience with Core Web Vitals, try the following workflow:
 
--   Use Search Console's new Core Web Vitals report to identify groups of pages that require attention (based on the field data).
--   Once you've identified pages that need work, use PageSpeed Insights (powered by Lighthouse and Chrome UX Report) to diagnose lab and field issues on a page. PageSpeed Insights (PSI) is available via Search Console or you can enter a URL on PSI directly.
--   Ready to optimize your site locally in the lab? Use Lighthouse and Chrome DevTools to measure Core Web Vitals and get actionable guidance on exactly what to fix. The Web Vitals Chrome extension can give you a real-time view of metrics on desktop.
--   Need a custom dashboard of Core Web Vitals? Use the updated CrUX Dashboard or new Chrome UX Report API for field data or PageSpeed Insights API for lab data.
--   Looking for guidance? web.dev/measure can measure your page and show you a prioritized set of guides and codelabs for optimization, using PSI data.
--   Finally, use Lighthouse CI on pull requests to ensure there are no regressions in Core Web Vitals before you deploy a change to production.
+- Use Search Console's new Core Web Vitals report to identify groups of pages that require attention (based on the field data).
+- Once you've identified pages that need work, use PageSpeed Insights (powered by Lighthouse and Chrome UX Report) to diagnose lab and field issues on a page. PageSpeed Insights (PSI) is available via Search Console or you can enter a URL on PSI directly.
+- Ready to optimize your site locally in the lab? Use Lighthouse and Chrome DevTools to measure Core Web Vitals and get actionable guidance on exactly what to fix. The Web Vitals Chrome extension can give you a real-time view of metrics on desktop.
+- Need a custom dashboard of Core Web Vitals? Use the updated CrUX Dashboard or new Chrome UX Report API for field data or PageSpeed Insights API for lab data.
+- Looking for guidance? web.dev/measure can measure your page and show you a prioritized set of guides and codelabs for optimization, using PSI data.
+- Finally, use Lighthouse CI on pull requests to ensure there are no regressions in Core Web Vitals before you deploy a change to production.
 
 With that introduction, let's dive into the specific updates for each tool!
 
@@ -91,10 +83,10 @@ The only way to truly know how your site performs for your users is to actually 
 
 Today we're happy to announce the [CrUX API](http://developers.google.com/web/tools/chrome-user-experience-report/api/reference/), a fast and free way to easily integrate your development workflows with origin and URL-level quality measurement for the following field metrics:
 
--   Largest Contentful Paint
--   Cumulative Layout Shift
--   First Input Delay
--   First Contentful Paint
+- Largest Contentful Paint
+- Cumulative Layout Shift
+- First Input Delay
+- First Contentful Paint
 
 Developers can query for an origin or URL and segment results by different form factors. The API updates daily and summarizes the previous 28 days worth of data (unlike the BigQuery dataset, which is aggregated monthly). The API also has the same relaxed public API quotas we place on our other API, the PageSpeed Insights API (25,000 requests per day).
 
@@ -152,12 +144,12 @@ The extension is now available to install from the [Chrome Web Store](https://ch
 
 That's a wrap! What can you do next:
 
--   Use **Lighthouse** in DevTools to optimize your user experience and ensure you are setting yourself up for success with Core Web Vitals in the field.
--   Use **PageSpeed Insights** to compare your lab and field Core Web Vitals performance.
--   Try out the new **Chrome User Experience Report API** to easily access how well your origin and URL have performed against Core Web Vitals over the last 28 days.
--   Use the **Experience** section and footer in DevTools **Performance** panel to dive deep and debug against specific Core Web Vitals.
--   Use **Search Console's Core Web Vitals report** for a summary of how your origins are performing in the field.
--   Use the **Web Vitals Extension** to track a page's performance against Core Web Vitals in real-time.
+- Use **Lighthouse** in DevTools to optimize your user experience and ensure you are setting yourself up for success with Core Web Vitals in the field.
+- Use **PageSpeed Insights** to compare your lab and field Core Web Vitals performance.
+- Try out the new **Chrome User Experience Report API** to easily access how well your origin and URL have performed against Core Web Vitals over the last 28 days.
+- Use the **Experience** section and footer in DevTools **Performance** panel to dive deep and debug against specific Core Web Vitals.
+- Use **Search Console's Core Web Vitals report** for a summary of how your origins are performing in the field.
+- Use the **Web Vitals Extension** to track a page's performance against Core Web Vitals in real-time.
 
 We will cover more about our Core Web Vitals tooling at [web.dev Live](/live/) in June. Sign up to get updates on the event!  
 by Elizabeth and Addy, WebPerf Janitors
@@ -168,35 +160,35 @@ by Elizabeth and Addy, WebPerf Janitors
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

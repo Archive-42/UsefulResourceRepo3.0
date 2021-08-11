@@ -1,35 +1,27 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format" alt="Web Vitals logo" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#measure-and-debug-performance-with-google-analytics-4-and-bigquery" class="w-toc__header--link">Measure and debug performance with Google Analytics 4 and BigQuery</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#measure-and-debug-performance-with-google-analytics-4-and-bigquery" class="w-toc__header--link">Measure and debug performance with Google Analytics 4 and BigQuery</a>
 
--   [Measure](#measure)
--   [Analyze](#analyze)
--   [Query Web Vitals data](#query-web-vitals-data)
--   [Example queries](#example-queries)
--   [Debug](#debug)
--   [Example queries](#example-queries-2)
--   [Visualize](#visualize)
--   [Visualize query results in Data Studio](#visualize-query-results-in-data-studio)
--   [Materialize Web Vitals data](#materialize-web-vitals-data)
--   [Using the Web Vitals Connector](#using-the-web-vitals-connector)
--   [Navigate the dashboard](#navigate-the-dashboard)
--   [Advanced usage](#advanced-usage)
--   [Summary](#summary)
+- [Measure](#measure)
+- [Analyze](#analyze)
+- [Query Web Vitals data](#query-web-vitals-data)
+- [Example queries](#example-queries)
+- [Debug](#debug)
+- [Example queries](#example-queries-2)
+- [Visualize](#visualize)
+- [Visualize query results in Data Studio](#visualize-query-results-in-data-studio)
+- [Materialize Web Vitals data](#materialize-web-vitals-data)
+- [Using the Web Vitals Connector](#using-the-web-vitals-connector)
+- [Navigate the dashboard](#navigate-the-dashboard)
+- [Advanced usage](#advanced-usage)
+- [Summary](#summary)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Measure and debug performance with Google Analytics 4 and BigQuery
-==================================================================
+# Measure and debug performance with Google Analytics 4 and BigQuery
 
 Learn how to send Web Vitals data to Google Analytics 4 properties and export the data for analysis in BigQuery and Data Studio.
 
@@ -39,16 +31,16 @@ May 18, 2021 <span class="w-author__separator">•</span> Updated May 18, 2021
 
 <a href="/authors/philipwalton/" class="w-author__name-link">Philip Walton</a>
 
--   <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
--   <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
--   <a href="https://philipwalton.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
+- <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
+- <a href="https://philipwalton.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/JIhb3g9F2oAg2t3PJ5Y2.jpeg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Minhaz Kazi" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/JIhb3g9F2oAg2t3PJ5Y2.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/JIhb3g9F2oAg2t3PJ5Y2.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/JIhb3g9F2oAg2t3PJ5Y2.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/JIhb3g9F2oAg2t3PJ5Y2.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/JIhb3g9F2oAg2t3PJ5Y2.jpeg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/mkazi/)
 
 <a href="/authors/mkazi/" class="w-author__name-link">Minhaz Kazi</a>
 
--   <a href="https://twitter.com/_mkazi_" class="w-author__link">Twitter</a>
--   <a href="https://github.com/minhaz" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/_mkazi_" class="w-author__link">Twitter</a>
+- <a href="https://github.com/minhaz" class="w-author__link">GitHub</a>
 
 Google provides a number of tools—[Search Console](https://support.google.com/webmasters/answer/9205520), [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) (PSI), and the [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) (CrUX)—that let developers see how their sites perform against the [Core Web Vitals](/vitals/#core-web-vitals) metrics for their real users [in the field](/user-centric-performance-metrics/#in-the-field).
 
@@ -56,9 +48,9 @@ These tools are great in that they give you a high-level view of your site's rea
 
 However, there are a few critical reasons why you don't want to rely on these tools alone to measure your site's performance:
 
--   CrUX-based tools report data by either monthly or previous 28-day periods. This means you'll have to wait a long time after making any changes before you can see the results.
--   CrUX-based tools can only be segment by a limited number of dimensions, such as country, connection type, and device category (desktop or mobile). You can't slice the data by dimensions specific to your business (for example: engaged users, users in a particular experiment group, etc.).
--   CrUX-based tools can tell you *what* your performance is, but they can't tell you *why*. With analytics tools you can send additional data to help you track down and debug issues.
+- CrUX-based tools report data by either monthly or previous 28-day periods. This means you'll have to wait a long time after making any changes before you can see the results.
+- CrUX-based tools can only be segment by a limited number of dimensions, such as country, connection type, and device category (desktop or mobile). You can't slice the data by dimensions specific to your business (for example: engaged users, users in a particular experiment group, etc.).
+- CrUX-based tools can tell you _what_ your performance is, but they can't tell you _why_. With analytics tools you can send additional data to help you track down and debug issues.
 
 For these reasons, we recommend all site owners monitor Core Web Vitals metrics using their existing analytics tool. This post explains how you can use free tools offered by Google to do just that.
 
@@ -68,13 +60,12 @@ Once you have everything set up, you'll be able to create dashboards like these:
 
 And If you want a visual overview of all the steps outlined here, check out [our talk from Google I/O '21](https://www.youtube.com/watch?v=xg47r3Y6K8I):
 
-Measure <a href="#measure" class="w-headline-link">#</a>
---------------------------------------------------------
+## Measure <a href="#measure" class="w-headline-link">#</a>
 
 Measuring performance has always been possible with Google Analytics using [custom metrics](https://support.google.com/analytics/answer/2709829), but there are a few new features in [Google Analytics 4](https://support.google.com/analytics/answer/10089681) (GA4) that developers in particular should be excited about.
 
--   Zero-config, [custom event](https://developers.google.com/analytics/devguides/collection/ga4/events#custom_events) parameters
--   Free [BigQuery export](https://support.google.com/analytics/answer/9358801), so you can query your data using SQL
+- Zero-config, [custom event](https://developers.google.com/analytics/devguides/collection/ga4/events#custom_events) parameters
+- Free [BigQuery export](https://support.google.com/analytics/answer/9358801), so you can query your data using SQL
 
 While the Google Analytics web interface does have powerful analysis tools, it's hard to beat the power and flexibility of raw event data access using a query language you likely already know.
 
@@ -84,8 +75,7 @@ To get started measuring Core Web Vitals using Google Analytics 4 and BigQuery, 
 2.  Enable [BigQuery export](https://support.google.com/analytics/answer/9358801) in your Google Analytics property config, so all data you receive will be automatically populated in your BigQuery project tables.
 3.  Add the [web-vitals](https://github.com/GoogleChrome/web-vitals) JavaScript library to your site, so you can measure the Core Web Vitals metrics and [send the data to Google Analytics 4](https://github.com/GoogleChrome/web-vitals#using-gtagjs-google-analytics-4).
 
-Analyze <a href="#analyze" class="w-headline-link">#</a>
---------------------------------------------------------
+## Analyze <a href="#analyze" class="w-headline-link">#</a>
 
 Once you're all set up, you should see event data populating in the BigQuery interface, and you should be able to query the data like this:
 
@@ -232,12 +222,11 @@ The next few sections show a few examples of common Web Vitals queries you might
     ORDER BY CLS DESC
     LIMIT 10
 
-Debug <a href="#debug" class="w-headline-link">#</a>
-----------------------------------------------------
+## Debug <a href="#debug" class="w-headline-link">#</a>
 
 The above queries show how to query the Web Vitals metric data, which is helpful for understanding your current performance and how it's trending over time. But what can you do if your performance is worse than expected but you're not sure why?
 
-Knowing *what* your scores are is not helpful if you're not able to take action and fix the problems.
+Knowing _what_ your scores are is not helpful if you're not able to take action and fix the problems.
 
 [Debug Web Vitals in the field](/debug-web-vitals-in-the-field/) explains how you can send additional debug information with your analytics data. If you follow the instructions detailed in that post, you should see that debug information appear in BigQuery as well.
 
@@ -299,8 +288,7 @@ The above query shows the results for the CLS metric, but the exact same techniq
 
 Again, you can refer to [Debug Web Vitals in the field](/debug-web-vitals-in-the-field/) for instructions on how to collect and send debug information for each of the Core Web Vitals metrics.
 
-Visualize <a href="#visualize" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Visualize <a href="#visualize" class="w-headline-link">#</a>
 
 It can be challenging to get insights just by looking at the query results alone. For example, the following query lists daily 75th percentile values for LCP in the dataset.
 
@@ -343,7 +331,7 @@ In such cases, visualizing the data can help you derive insights more quickly.
 
 ### Visualize query results in Data Studio <a href="#visualize-query-results-in-data-studio" class="w-headline-link">#</a>
 
-BigQuery provides a quick way to visualize any query results through Data Studio. [Data Studio](https://datastudio.google.com/) is a data visualization and dashboarding tool that is free to use. To visualize your query results, after running your query in the BigQuery UI, click the *Explore Data button* and select *Explore with Data Studio*.
+BigQuery provides a quick way to visualize any query results through Data Studio. [Data Studio](https://datastudio.google.com/) is a data visualization and dashboarding tool that is free to use. To visualize your query results, after running your query in the BigQuery UI, click the _Explore Data button_ and select _Explore with Data Studio_.
 
 <img src="https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format" alt="Explore with Data Studio option in BigQuery" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/CFQ8JK7UlZsxUbWZXCO0.png?auto=format&amp;w=1600 1600w" width="800" height="191" />
 
@@ -465,12 +453,12 @@ The following script will preprocess your BigQuery data (source table) and creat
 
 This materialized dataset has several advantages:
 
--   The data structure is flattened and easier to query.
--   It retains only the Web Vitals events from the original GA4 dataset.
--   Session ID, user type (new vs returning), and session engagement information is directly available in columns.
--   The table is [partitioned](https://cloud.google.com/bigquery/docs/partitioned-tables) by date and [clustered](https://cloud.google.com/bigquery/docs/clustered-tables) by metric name. This usually reduces the amount of data processed for each query.
--   Since you don't need to use wildcards to query this table, query results can get cached for upto 24 hours. This reduces costs from repeating the same query.
--   If you use the BigQuery BI engine, you can run [optimized SQL functions and operators](https://cloud.google.com/bi-engine/docs/optimized-sql) on this table.
+- The data structure is flattened and easier to query.
+- It retains only the Web Vitals events from the original GA4 dataset.
+- Session ID, user type (new vs returning), and session engagement information is directly available in columns.
+- The table is [partitioned](https://cloud.google.com/bigquery/docs/partitioned-tables) by date and [clustered](https://cloud.google.com/bigquery/docs/clustered-tables) by metric name. This usually reduces the amount of data processed for each query.
+- Since you don't need to use wildcards to query this table, query results can get cached for upto 24 hours. This reduces costs from repeating the same query.
+- If you use the BigQuery BI engine, you can run [optimized SQL functions and operators](https://cloud.google.com/bi-engine/docs/optimized-sql) on this table.
 
 You can directly query this materialized table from within BigQuery UI or use it in Data Studio using the BigQuery connector.
 
@@ -486,34 +474,33 @@ Provide the materialized BigQuery table ID (i.e. the target table) and your BigQ
 
 ### Navigate the dashboard <a href="#navigate-the-dashboard" class="w-headline-link">#</a>
 
-As you navigate the dashboard, you can see the daily trends of the Web Vitals metrics and some usage information for your website like users and sessions, in the *Summary* tab.
+As you navigate the dashboard, you can see the daily trends of the Web Vitals metrics and some usage information for your website like users and sessions, in the _Summary_ tab.
 
-In the *User Analysis* tab, you can select a metric and then get a breakdown of the metrics percentile as well as user count by different usage and business metrics.
+In the _User Analysis_ tab, you can select a metric and then get a breakdown of the metrics percentile as well as user count by different usage and business metrics.
 
-The *Page Path Analysis* tab will help you to identify problem areas on your website. Here, You can pick a metric to see the overview. But you also see the scatter-map of all the page paths with the percentile value on y axis and record count on x axis. The scatter map can help to identify pages which have lower than expected metric values. Once you select the pages either via the scatter chart of the *Page path* table, you can further drill down the problem area by viewing the *Debug Target* table.
+The _Page Path Analysis_ tab will help you to identify problem areas on your website. Here, You can pick a metric to see the overview. But you also see the scatter-map of all the page paths with the percentile value on y axis and record count on x axis. The scatter map can help to identify pages which have lower than expected metric values. Once you select the pages either via the scatter chart of the _Page path_ table, you can further drill down the problem area by viewing the _Debug Target_ table.
 
-The *Revenue Analysis* tab is an example of how you can monitor your business and performance metrics in the same place. This section plots all sessions where the user made a purchase. You can compare the revenue earned vs user experience during a specific session .
+The _Revenue Analysis_ tab is an example of how you can monitor your business and performance metrics in the same place. This section plots all sessions where the user made a purchase. You can compare the revenue earned vs user experience during a specific session .
 
 ### Advanced usage <a href="#advanced-usage" class="w-headline-link">#</a>
 
 As you become more familiar with the dataset, you can edit the dashboard and add your own charts for richer and targeted analysis. To make the dashboard more useful, you can take the following steps:
 
--   Setup scheduled query in BigQuery to get updated data. The materialization query we ran above only takes a snapshot of your data at that moment. If you want to keep your dashboard updated with new data, you can run a scheduled query that will run every day and append your materialized table with the new data.
--   Join first party data (e.g. CRM) for business insights. In the materialized table, you can add `user_id` as a separate column. This will let you join your first party data. If your first party data is not already in BigQuery, you can either [load the data](https://cloud.google.com/bigquery/docs/loading-data) or use a [federated data source](https://cloud.google.com/bigquery/external-data-sources).
--   Report your site or app version as a parameter in the data you send to Google Analytics and add it as a column in the materialized table. Then you can add that version data as a dimension in your charts to make it easier to see version changes affect performance.
--   If you are expecting significantly heavy usage of the dataset through direct query or the dashboard, you can try using the paid version of [BigQuery BI Engine](https://cloud.google.com/bi-engine/docs/introduction).
+- Setup scheduled query in BigQuery to get updated data. The materialization query we ran above only takes a snapshot of your data at that moment. If you want to keep your dashboard updated with new data, you can run a scheduled query that will run every day and append your materialized table with the new data.
+- Join first party data (e.g. CRM) for business insights. In the materialized table, you can add `user_id` as a separate column. This will let you join your first party data. If your first party data is not already in BigQuery, you can either [load the data](https://cloud.google.com/bigquery/docs/loading-data) or use a [federated data source](https://cloud.google.com/bigquery/external-data-sources).
+- Report your site or app version as a parameter in the data you send to Google Analytics and add it as a column in the materialized table. Then you can add that version data as a dimension in your charts to make it easier to see version changes affect performance.
+- If you are expecting significantly heavy usage of the dataset through direct query or the dashboard, you can try using the paid version of [BigQuery BI Engine](https://cloud.google.com/bi-engine/docs/introduction).
 
-Summary <a href="#summary" class="w-headline-link">#</a>
---------------------------------------------------------
+## Summary <a href="#summary" class="w-headline-link">#</a>
 
 This post covered the basics of how to use Google Analytics 4 and BigQuery to measure and debug performance with real-user data collected in the field. It also explained how to build automated reports and dashboards using Data Studio and the [Web Vitals Connector](https://goo.gle/web-vitals-connector) to make visualizing the data as easy as possible.
 
 Some key takeaways from this post:
 
--   Measuring performance with real user data is critical for understanding, debugging, and optimizing your site.
--   You can get deeper insights when your performance metrics and your business metrics are in the same system. Google Analytics and BigQuery make this possible.
--   BigQuery export of raw Google Analytics data gives you unlimited potential for in-depth, custom analysis using a query language you likely already know.
--   Google has a number of APIs and visualization tools like Data Studio that give you the freedom to build your reports exactly the way you want them to be built.
+- Measuring performance with real user data is critical for understanding, debugging, and optimizing your site.
+- You can get deeper insights when your performance metrics and your business metrics are in the same system. Google Analytics and BigQuery make this possible.
+- BigQuery export of raw Google Analytics data gives you unlimited potential for in-depth, custom analysis using a query language you likely already know.
+- Google has a number of APIs and visualization tools like Data Studio that give you the freedom to build your reports exactly the way you want them to be built.
 
 <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/web-vitals/" class="w-chip">Web Vitals</a>
 
@@ -521,35 +508,35 @@ Some key takeaways from this post:
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

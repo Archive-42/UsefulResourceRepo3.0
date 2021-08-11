@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#building-a-device-for-webusb" class="w-toc__header--link">Building a device for WebUSB</a>
 
 - [Background](#background)

@@ -1,26 +1,18 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format" alt="A large letter A from a type set sitting on a white table." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/wv5DLtYiAhHm4lNemN1E.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#prevent-layout-shifting-and-flashes-of-invisible-text-(foit)-by-preloading-optional-fonts" class="w-toc__header--link">Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts</a>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#prevent-layout-shifting-and-flashes-of-invisible-text-(foit)-by-preloading-optional-fonts" class="w-toc__header--link">Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts</a>
 
--   [Browser compatibility](#compatibility)
--   [Font rendering](#font-rendering)
--   [Optional fonts](#optional-fonts)
--   [Conclusion](#conclusion)
+- [Browser compatibility](#compatibility)
+- [Font rendering](#font-rendering)
+- [Optional fonts](#optional-fonts)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts
-=========================================================================================
+# Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts
 
 Starting in Chrome 83, link rel="preload" and font-display: optional can be combined to remove layout jank completely
 
@@ -30,43 +22,40 @@ Mar 18, 2020
 
 <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a>
 
--   <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
--   <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
--   <a href="https://houssein.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
+- <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
+- <a href="https://houssein.me/" class="w-author__link">Blog</a>
 
 In Chrome 83, new font loading improvements have been made to completely eliminate layout shifting and flash of invisible text (FOIT) when optional fonts are preloaded.
 
 By optimizing rendering cycles, Chrome 83 eliminates layout shifting when preloading optional fonts. Combining `<link rel="preload">` with `font-display: optional` is the most effective way to guarantee no layout jank when rendering custom fonts.
 
-Browser compatibility <a href="#compatibility" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Browser compatibility <a href="#compatibility" class="w-headline-link">#</a>
 
 Check out MDN's data for up-to-date cross-browser support information:
 
--   [`<link rel="preload">`](https://developer.mozilla.org/docs/Web/HTML/Preloading_content#Browser_compatibility)
--   [`font-display`](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display#Browser_compatibility)
+- [`<link rel="preload">`](https://developer.mozilla.org/docs/Web/HTML/Preloading_content#Browser_compatibility)
+- [`font-display`](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display#Browser_compatibility)
 
-Font rendering <a href="#font-rendering" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Font rendering <a href="#font-rendering" class="w-headline-link">#</a>
 
 Layout shifting, or re-layout, occurs when a resource on a web page changes dynamically, resulting in a "shift" of content. Fetching and rendering web fonts can directly cause layout shifts in one of two ways:
 
--   A fallback font is swapped with a new font ("flash of unstyled text")
--   "Invisible" text is shown until a new font is rendered into the page ("flash of invisible text")
+- A fallback font is swapped with a new font ("flash of unstyled text")
+- "Invisible" text is shown until a new font is rendered into the page ("flash of invisible text")
 
 The CSS [`font-display`](https://font-display.glitch.me/) property provides a way to modify rendering behavior of custom fonts through a range of different supported values (`auto`, `block`, `swap`, `fallback`, and `optional`). Choosing which value to use depends on the preferred behavior for asynchronously loaded fonts. However, every one of these supported values can trigger re-layout in one of the two ways listed above, until now!
 
 The [Cumulative Layout Shift](/cls/) metric makes it possible to measure the layout instability on a web page.
 
-Optional fonts <a href="#optional-fonts" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Optional fonts <a href="#optional-fonts" class="w-headline-link">#</a>
 
 The `font-display` property uses a timeline of three periods to handle fonts that need to be downloaded before they can be rendered:
 
--   **Block:** Render "invisible" text, but switch to the web font as soon as it finishes loading.
--   **Swap:** Render text using a fallback system font, but switch to the web font as soon as it finishes loading.
--   **Fail:** Render text using a fallback system font.
+- **Block:** Render "invisible" text, but switch to the web font as soon as it finishes loading.
+- **Swap:** Render text using a fallback system font, but switch to the web font as soon as it finishes loading.
+- **Fail:** Render text using a fallback system font.
 
 Previously, fonts designated with `font-display: optional` had a 100ms block period and no swap period. This means that "invisible" text is displayed very briefly before switching to a fallback font. If the font is not downloaded within 100ms, then the fallback font is used and no swapping occurs.
 
@@ -80,8 +69,7 @@ Previously, fonts designated with `font-display: optional` had a 100ms block per
 
 Although it is not necessary to preload an optional font, it greatly improves the chance for it to load before the first render cycle, especially if it is not yet stored in the browser's cache.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 The Chrome team is interested to hear your experiences preloading optional fonts with these new optimizations in place! File an [issue](https://bugs.chromium.org/p/chromium/issues/entry) if you experience any problems or would like to drop any feature suggestions.
 
@@ -91,35 +79,35 @@ The Chrome team is interested to hear your experiences preloading optional fonts
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

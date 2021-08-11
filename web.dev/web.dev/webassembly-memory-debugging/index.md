@@ -1,28 +1,20 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format" alt="A WebAssembly-branded hose leaking water onto the street." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/b6lB9C3Fz4es4D2rPAxC.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#debugging-memory-leaks-in-webassembly-using-emscripten" class="w-toc__header--link">Debugging memory leaks in WebAssembly using Emscripten</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#debugging-memory-leaks-in-webassembly-using-emscripten" class="w-toc__header--link">Debugging memory leaks in WebAssembly using Emscripten</a>
 
--   [Suspicious pattern](#suspicious-pattern)
--   [Looking for memory bugs](#looking-for-memory-bugs)
--   [Discovering more issues with sanitizers](#discovering-more-issues-with-sanitizers)
--   [Issues with shared state](#issues-with-shared-state)
--   [Building a safe wrapper](#building-a-safe-wrapper)
--   [Takeaways](#takeaways)
+- [Suspicious pattern](#suspicious-pattern)
+- [Looking for memory bugs](#looking-for-memory-bugs)
+- [Discovering more issues with sanitizers](#discovering-more-issues-with-sanitizers)
+- [Issues with shared state](#issues-with-shared-state)
+- [Building a safe wrapper](#building-a-safe-wrapper)
+- [Takeaways](#takeaways)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Debugging memory leaks in WebAssembly using Emscripten
-======================================================
+# Debugging memory leaks in WebAssembly using Emscripten
 
 While JavaScript is fairly forgiving in cleaning up after itself, static languages are definitely not…
 
@@ -32,9 +24,9 @@ Aug 13, 2020
 
 <a href="/authors/rreverser/" class="w-author__name-link">Ingvar Stepanyan</a>
 
--   <a href="https://twitter.com/RReverser" class="w-author__link">Twitter</a>
--   <a href="https://github.com/RReverser" class="w-author__link">GitHub</a>
--   <a href="https://rreverser.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/RReverser" class="w-author__link">Twitter</a>
+- <a href="https://github.com/RReverser" class="w-author__link">GitHub</a>
+- <a href="https://rreverser.com/" class="w-author__link">Blog</a>
 
 [Squoosh.app](https://squoosh.app/) is a PWA that illustrates just how much different image codecs and settings can improve image file size without significantly affecting quality. However, it's also a technical demo showcasing how you can take libraries written in C++ or Rust and bring them to the web.
 
@@ -42,8 +34,7 @@ Being able to port code from existing ecosystems is incredibly valuable, but the
 
 While JavaScript is fairly forgiving in cleaning up after itself, such static languages are definitely not. You need to explicitly ask for a new allocated memory and you really need to make sure you give it back afterwards, and never use it again. If that doesn't happen, you get leaks… and it actually happens fairly regularly. Let's take a look at how you can debug those memory leaks and, even better, how you can design your code to avoid them next time.
 
-Suspicious pattern <a href="#suspicious-pattern" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Suspicious pattern <a href="#suspicious-pattern" class="w-headline-link">#</a>
 
 Recently, while starting to work on Squoosh, I couldn't help but notice an interesting pattern in C++ codec wrappers. Let's take a look at an [ImageQuant](https://pngquant.org/lib/) wrapper as an example (reduced to show only object creation and deallocation parts):
 
@@ -107,7 +98,7 @@ JavaScript (well, TypeScript):
 
 Do you spot an issue? Hint: it's [use-after-free](https://owasp.org/www-community/vulnerabilities/Using_freed_memory), but in JavaScript!
 
-In Emscripten, `typed_memory_view` returns a JavaScript `Uint8Array` backed by the WebAssembly (Wasm) memory buffer, with `byteOffset` and `byteLength` set to the given pointer and length. The main point is that this is a TypedArray *view* into a WebAssembly memory buffer, rather than a JavaScript-owned copy of the data.
+In Emscripten, `typed_memory_view` returns a JavaScript `Uint8Array` backed by the WebAssembly (Wasm) memory buffer, with `byteOffset` and `byteLength` set to the given pointer and length. The main point is that this is a TypedArray _view_ into a WebAssembly memory buffer, rather than a JavaScript-owned copy of the data.
 
 When we call `free_result` from JavaScript, it, in turn, calls a standard C function `free` to mark this memory as available for any future allocations, which means the data that our `Uint8Array` view points to, can be overwritten with arbitrary data by any future call into Wasm.
 
@@ -143,8 +134,7 @@ Let me use the DevTools (or Node.js) console to demonstrate this behavior:
 
 Finally, even if we don't explicitly call into Wasm again between `free_result` and `new Uint8ClampedArray`, at some point we might add multithreading support to our codecs. In that case it could be a completely different thread that overwrites the data just before we manage to clone it.
 
-Looking for memory bugs <a href="#looking-for-memory-bugs" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Looking for memory bugs <a href="#looking-for-memory-bugs" class="w-headline-link">#</a>
 
 Just in case, I've decided to go further and check if this code exhibits any issues in practice. This seems like a perfect opportunity to try out the new(ish) [Emscripten sanitizers support](https://emscripten.org/docs/debugging/Sanitizers.html) that was added last year and presented in our WebAssembly talk at the Chrome Dev Summit:
 
@@ -288,8 +278,7 @@ However, we invoke it without initialising either of those variables, which mean
 
 Zero-initialising both variables before the invocation solves this issue, and now the code reaches a memory leak check instead. Luckily, the check passes successfully, indicating that we don't have any leaks in this codec.
 
-Issues with shared state <a href="#issues-with-shared-state" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Issues with shared state <a href="#issues-with-shared-state" class="w-headline-link">#</a>
 
 …Or do we?
 
@@ -324,8 +313,7 @@ I could keep hunting those memory bugs one by one, but I think by now it's clear
 
 Some of them can be caught by the sanitizer right away. Others require intricate tricks to be caught. Finally, there are issues like in the beginning of the post that, as we can see from the logs, aren't caught by the sanitizer at all. The reason is that the actual mis-use happens on the JavaScript side, into which the sanitizer has no visibility. Those issues will reveal themselves only in production or after seemingly unrelated changes to the code in the future.
 
-Building a safe wrapper <a href="#building-a-safe-wrapper" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## Building a safe wrapper <a href="#building-a-safe-wrapper" class="w-headline-link">#</a>
 
 Let's take a couple of steps back, and instead fix all of these problems by restructuring the code in a safer way. I'll use ImageQuant wrapper as an example again, but similar refactoring rules apply to all the codecs, as well as other similar codebases.
 
@@ -392,7 +380,7 @@ To do that, we refactor the C++ wrapper to make sure that each call to the funct
 
 But, since we're already using Embind in Emscripten to interact with JavaScript, we might as well make the API even safer by hiding C++ memory management details altogether!
 
-For that, let's move the `new Uint8ClampedArray(…)` part from JavaScript to the C++ side with Embind. Then, we can use it to clone the data into the JavaScript memory even *before* returning from the function:
+For that, let's move the `new Uint8ClampedArray(…)` part from JavaScript to the C++ side with Embind. Then, we can use it to clone the data into the JavaScript memory even _before_ returning from the function:
 
     class RawImage {
      public:
@@ -431,7 +419,7 @@ In this case we can return `Uint8ClampedArray`, because JavaScript already knows
       return ImageData.new_(js_result, image_width, image_height);
     }
 
-Note how, with a single change, we both ensure that the resulting byte array is owned by JavaScript and not backed by WebAssembly memory, ***and*** get rid of the previously leaked `RawImage` wrapper too.
+Note how, with a single change, we both ensure that the resulting byte array is owned by JavaScript and not backed by WebAssembly memory, **_and_** get rid of the previously leaked `RawImage` wrapper too.
 
 Now JavaScript doesn't have to worry about freeing data at all anymore, and can use the result like any other garbage-collected object:
 
@@ -475,16 +463,15 @@ All in all, our wrapper code became both cleaner and safer at the same time.
 
 After this I went through some further minor improvements to the code of the ImageQuant wrapper and replicated similar memory management fixes for other codecs. If you're interested in more details, you can see the resulting PR here: [Memory fixes for C++ codecs](https://github.com/GoogleChromeLabs/squoosh/pull/780).
 
-Takeaways <a href="#takeaways" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Takeaways <a href="#takeaways" class="w-headline-link">#</a>
 
 What lessons can we learn and share from this refactoring that could be applied to other codebases?
 
--   Don't use memory views backed by WebAssembly—no matter which language it's built from—beyond a single invocation. You can't rely on them surviving any longer than that, and you won't be able to catch these bugs by conventional means, so if you need to store the data for later, copy it to the JavaScript side and store it there.
--   If possible, use a safe memory management language or, at least, safe type wrappers, instead of operating on raw pointers directly. This won't save you from bugs on the JavaScript ↔ WebAssembly boundary, but at least it will reduce the surface for bugs self-contained by the static language code.
--   No matter which language you use, run code with sanitizers during development—they can help to catch not only problems in the static language code, but also some issues across the JavaScript ↔ WebAssembly boundary, such as forgetting to call `.delete()` or passing in invalid pointers from the JavaScript side.
--   If possible, avoid exposing unmanaged data and objects from WebAssembly to JavaScript altogether. JavaScript is a garbage-collected language, and manual memory management is not common in it. This can be considered an abstraction leak of the memory model of the language your WebAssembly was built from, and incorrect management is easy to overlook in a JavaScript codebase.
--   This might be obvious, but, like in any other codebase, avoid storing mutable state in global variables. You don't want to debug issues with its reuse across various invocations or even threads, so it's best to keep it as self-contained as possible.
+- Don't use memory views backed by WebAssembly—no matter which language it's built from—beyond a single invocation. You can't rely on them surviving any longer than that, and you won't be able to catch these bugs by conventional means, so if you need to store the data for later, copy it to the JavaScript side and store it there.
+- If possible, use a safe memory management language or, at least, safe type wrappers, instead of operating on raw pointers directly. This won't save you from bugs on the JavaScript ↔ WebAssembly boundary, but at least it will reduce the surface for bugs self-contained by the static language code.
+- No matter which language you use, run code with sanitizers during development—they can help to catch not only problems in the static language code, but also some issues across the JavaScript ↔ WebAssembly boundary, such as forgetting to call `.delete()` or passing in invalid pointers from the JavaScript side.
+- If possible, avoid exposing unmanaged data and objects from WebAssembly to JavaScript altogether. JavaScript is a garbage-collected language, and manual memory management is not common in it. This can be considered an abstraction leak of the memory model of the language your WebAssembly was built from, and incorrect management is easy to overlook in a JavaScript codebase.
+- This might be obvious, but, like in any other codebase, avoid storing mutable state in global variables. You don't want to debug issues with its reuse across various invocations or even threads, so it's best to keep it as self-contained as possible.
 
 <a href="/tags/webassembly/" class="w-chip">WebAssembly</a> <a href="/tags/memory/" class="w-chip">Memory</a> <a href="/tags/security/" class="w-chip">Security</a> <a href="/tags/devtools/" class="w-chip">DevTools</a>
 
@@ -492,35 +479,35 @@ What lessons can we learn and share from this refactoring that could be applied 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#choose-the-right-image-format" class="w-toc__header--link">Choose the right image format</a>
 
 - [Choose the right image format](#choose-the-right-image-format)

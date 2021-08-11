@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#using-the-chrome-ux-report-on-pagespeed-insights" class="w-toc__header--link">Using the Chrome UX Report on PageSpeed Insights</a>
 
 - [Reading the data](#reading-the-data)

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#how-to-create-high-performance-css-animations" class="w-toc__header--link">How to create high-performance CSS animations</a>
 
 - [Browser compatibility](#browser-compatibility)

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Same Origin Policy & iframe
 
 Nov 5, 2018

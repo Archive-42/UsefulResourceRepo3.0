@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Codelab: Building a Stories component
 
 Nov 25, 2020

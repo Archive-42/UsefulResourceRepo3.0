@@ -1,30 +1,22 @@
+## <a href="#registering-a-web-based-payment-app" class="w-toc__header--link">Registering a web-based payment app</a>
 
-
-
-
-
-
-<a href="#registering-a-web-based-payment-app" class="w-toc__header--link">Registering a web-based payment app</a>
-------------------------------------------------------------------------------------------------------------------
-
--   [Browser support](#browser-support)
--   [Configuring a payment app with a web app manifest](#configuring-a-payment-app-with-a-web-app-manifest)
--   [Registering a service worker just-in-time (JIT)](#registering-a-service-worker-just-in-time-(jit))
--   [Configure a payment app with JavaScript](#configure-a-payment-app-with-javascript)
--   [Manually register a service worker](#manually-register-a-service-worker)
--   [Set a payment instrument](#set-a-payment-instrument)
--   [Enable delegations](#enable-delegations)
--   [Debugging a web-based payment app](#debugging-a-web-based-payment-app)
--   [Developing on a local server](#developing-on-a-local-server)
--   [Port forwarding a local server](#port-forwarding-a-local-server)
--   [Remote debugging a website on Android Chrome from desktop DevTools](#remote-debugging-a-website-on-android-chrome-from-desktop-devtools)
--   [Payment Handler event logging](#payment-handler-event-logging)
--   [Next steps](#next-steps)
+- [Browser support](#browser-support)
+- [Configuring a payment app with a web app manifest](#configuring-a-payment-app-with-a-web-app-manifest)
+- [Registering a service worker just-in-time (JIT)](<#registering-a-service-worker-just-in-time-(jit)>)
+- [Configure a payment app with JavaScript](#configure-a-payment-app-with-javascript)
+- [Manually register a service worker](#manually-register-a-service-worker)
+- [Set a payment instrument](#set-a-payment-instrument)
+- [Enable delegations](#enable-delegations)
+- [Debugging a web-based payment app](#debugging-a-web-based-payment-app)
+- [Developing on a local server](#developing-on-a-local-server)
+- [Port forwarding a local server](#port-forwarding-a-local-server)
+- [Remote debugging a website on Android Chrome from desktop DevTools](#remote-debugging-a-website-on-android-chrome-from-desktop-devtools)
+- [Payment Handler event logging](#payment-handler-event-logging)
+- [Next steps](#next-steps)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Registering a web-based payment app
-===================================
+# Registering a web-based payment app
 
 Learn how to configure a web-based payment app during registration.
 
@@ -36,16 +28,15 @@ Jul 17, 2020 <span class="w-author__separator">•</span> Updated Jul 20, 2020
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 Web-based payment apps are [Progressive Web Apps (PWA)](/progressive-web-apps/) and run on top of [service workers](https://developer.mozilla.org/docs/Web/API/Service_Worker_API). The service worker in a payment app plays an important role as it captures payment requests from a merchant, launches the payment app, and mediates the communication with the merchant.
 
 To configure a web-based payment app, you need to register available payment methods, delegation options, and a service worker. You can configure your web-based payment app declaratively with a web app manifest or imperatively with JavaScript.
 
-Browser support <a href="#browser-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Browser support <a href="#browser-support" class="w-headline-link">#</a>
 
 Web Payments consists of a few different pieces of technologies and the support status depends on the browser.
 
@@ -55,34 +46,32 @@ Web Payments consists of a few different pieces of technologies and the support 
 
 \*\*Safari supports Apple Pay but no third party payment apps.
 
-Configuring a payment app with a web app manifest <a href="#configuring-a-payment-app-with-a-web-app-manifest" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------
+## Configuring a payment app with a web app manifest <a href="#configuring-a-payment-app-with-a-web-app-manifest" class="w-headline-link">#</a>
 
 To configure your web-based payment app declaratively, [serve a web app manifest](/setting-up-a-payment-method/#step-3:-serve-a-web-app-manifest).
 
 The following properties in the web app manifest are relevant for web-based payment apps:
 
--   `name`
--   `icons`
--   `serviceworker`
-    -   `src`
-    -   `scope`
-    -   `use_cache`
--   `payment`
-    -   `supported_delegations`
+- `name`
+- `icons`
+- `serviceworker`
+  - `src`
+  - `scope`
+  - `use_cache`
+- `payment`
+  - `supported_delegations`
 
 Check out [Setting up a payment method](/setting-up-a-payment-method/#step-3:-serve-a-web-app-manifest) to make sure your payment method manifest points to your web app manifest properly.
 
 ### Registering a service worker just-in-time (JIT) <a href="#registering-a-service-worker-just-in-time-(jit)" class="w-headline-link">#</a>
 
-**Key Term**: Service workers are usually registered using JavaScript, but they can also be automatically registered by the browser when the user chooses to pay with a web-based payment app on a merchant website. This is called *just-in-time (JIT) registration*.
+**Key Term**: Service workers are usually registered using JavaScript, but they can also be automatically registered by the browser when the user chooses to pay with a web-based payment app on a merchant website. This is called _just-in-time (JIT) registration_.
 
 The JIT registration requires only serving [the web app manifest](/setting-up-a-payment-method/#step-3:-serve-a-web-app-manifest) and no additional coding. If you've already configured your web app manifest and are serving it properly, you should be all set. The browser will handle the rest.
 
 **Caution**: While a single payment method identifier can support multiple payment apps, JIT registration happens only when the payment method manifest points to a single payment app.
 
-Configure a payment app with JavaScript <a href="#configure-a-payment-app-with-javascript" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------
+## Configure a payment app with JavaScript <a href="#configure-a-payment-app-with-javascript" class="w-headline-link">#</a>
 
 Configuring a web-based payment app using JavaScript allows you to register multiple payment methods and manually unregister service workers.
 
@@ -171,11 +160,11 @@ Entering shipping address and contact information through a web form can be a cu
 
 That's why the Payment Request API supports a feature to request shipping address and contact information. This provides multiple benefits:
 
--   Users can pick the right address with just a few taps.
--   The address is always returned in [the standardized format](https://w3c.github.io/payment-request/#paymentaddress-interface).
--   Submitting an incorrect address is less likely.
+- Users can pick the right address with just a few taps.
+- The address is always returned in [the standardized format](https://w3c.github.io/payment-request/#paymentaddress-interface).
+- Submitting an incorrect address is less likely.
 
-Payment apps can integrate this functionality to offer a more unified payment experience. This is called *delegation*.
+Payment apps can integrate this functionality to offer a more unified payment experience. This is called _delegation_.
 
 Checkout flow with a web-based payment app.
 
@@ -193,13 +182,12 @@ To let the browser know that the payment app accepts a delegation, use [`Payment
 
 You can declare supported delegation options as an array of strings:
 
--   `shippingAddress`: The payment handler can provide a shipping address.
--   `payerName`: The payment handler can provide the payer's name.
--   `payerPhone`: The payment handler can provide the payer's phone number.
--   `payerEmail`: The payment handler can provide the payer's address.
+- `shippingAddress`: The payment handler can provide a shipping address.
+- `payerName`: The payment handler can provide the payer's name.
+- `payerPhone`: The payment handler can provide the payer's phone number.
+- `payerEmail`: The payment handler can provide the payer's address.
 
-Debugging a web-based payment app <a href="#debugging-a-web-based-payment-app" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Debugging a web-based payment app <a href="#debugging-a-web-based-payment-app" class="w-headline-link">#</a>
 
 When developing a web-based payment app frontend, you'll probably jump between merchant context and payment app context. The following debugging tips will help your developing experience on Chrome.
 
@@ -209,8 +197,8 @@ Which server do you use for development? Many developers tend to use localhost o
 
 The good news is some browsers, including Chrome, exempt certificates for `http://localhost` by default. Also in Chrome, you can exempt the certificate requirement by launching a Chrome instance. For example, to exempt the requirement from `http://*.corp.company.com`, use the following flags:
 
--   [`--ignore-certificate-errors`](https://chromiumdash.appspot.com/commit/988b56b519836f3d3d94f145ba3554a0c0a7d0a8)
--   [`--unsafely-treat-insecure-origin-as-secure=http://*.corp.company.com`](https://chromiumdash.appspot.com/commit/77a7e1a65d14072149ec4420a0ab523586011d8a)
+- [`--ignore-certificate-errors`](https://chromiumdash.appspot.com/commit/988b56b519836f3d3d94f145ba3554a0c0a7d0a8)
+- [`--unsafely-treat-insecure-origin-as-secure=http://*.corp.company.com`](https://chromiumdash.appspot.com/commit/77a7e1a65d14072149ec4420a0ab523586011d8a)
 
 **macOS**
 
@@ -234,12 +222,11 @@ You can also debug Android Chrome on desktop DevTools. To learn how to do it, ch
 
 [DevTools can display Payment Handler API events](https://developers.google.com/web/updates/2019/09/devtools#payments) for easier local development. Open DevTools on the merchant context and go to the "Payment Handler" section under the **Application** pane. Check "Show events from other domains" and click the "Record" button to start capturing events sent to the service worker that handles payments.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format" alt="Payment Handler event logging." class="w-screenshot w-screenshot--filled" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1600 1600w" width="800" height="585" /><figcaption>Payment Handler event logging.</figcaption></figure>Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format" alt="Payment Handler event logging." class="w-screenshot w-screenshot--filled" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/FixX1Ld3y0Vgb4ZcSBGc.png?auto=format&amp;w=1600 1600w" width="800" height="585" /><figcaption>Payment Handler event logging.</figcaption></figure>Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 You learned how to register a service worker, set payment instruments, and define delegation availability for a web-based payment app. The next step is to learn how the service worker can orchestrate a payment transaction at runtime.
 
--   [Orchestrating payment transactions with a service worker](/orchestrating-payment-transactions)
+- [Orchestrating payment transactions with a service worker](/orchestrating-payment-transactions)
 
 <a href="/tags/payments/" class="w-chip">Payments</a>
 
@@ -247,35 +234,35 @@ You learned how to register a service worker, set payment instruments, and defin
 
 <a href="/payments" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

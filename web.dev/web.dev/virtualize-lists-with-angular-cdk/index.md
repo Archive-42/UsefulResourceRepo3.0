@@ -1,24 +1,16 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format" alt="Stacks of vinyl records." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/bGHUmFg8d3zHg6dJ29YT.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#virtualize-large-lists-with-the-angular-cdk" class="w-toc__header--link">Virtualize large lists with the Angular CDK</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## <a href="#virtualize-large-lists-with-the-angular-cdk" class="w-toc__header--link">Virtualize large lists with the Angular CDK</a>
 
--   [Virtual scrolling in Angular with the Component Dev Kit](#virtual-scrolling-in-angular-with-the-component-dev-kit)
--   [Setting up virtual scrolling](#setting-up-virtual-scrolling)
--   [Add ScrollingModule to your app](#add-scrollingmodule-to-your-app)
--   [Create a viewport](#create-a-viewport)
--   [Going further](#going-further)
+- [Virtual scrolling in Angular with the Component Dev Kit](#virtual-scrolling-in-angular-with-the-component-dev-kit)
+- [Setting up virtual scrolling](#setting-up-virtual-scrolling)
+- [Add ScrollingModule to your app](#add-scrollingmodule-to-your-app)
+- [Create a viewport](#create-a-viewport)
+- [Going further](#going-further)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Virtualize large lists with the Angular CDK
-===========================================
+# Virtualize large lists with the Angular CDK
 
 Make large lists more responsive by implementing virtual scrolling.
 
@@ -30,8 +22,8 @@ Jul 12, 2019
 
 <a href="/authors/sfluin/" class="w-author__name-link">Stephen Fluin</a>
 
--   <a href="https://twitter.com/stephenfluin" class="w-author__link">Twitter</a>
--   <a href="https://github.com/stephenfluin" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/stephenfluin" class="w-author__link">Twitter</a>
+- <a href="https://github.com/stephenfluin" class="w-author__link">GitHub</a>
 
 The scrolling list is one of the most common UI patterns today, whether it's browsing an infinitely scrolling feed on your favorite social media site, or navigating an enterprise dashboard. When scrolling lists become very long (hundreds, thousands, or hundreds of thousands of items), application performance can suffer.
 
@@ -39,8 +31,7 @@ Large lists can be slow to load because the application must load and render all
 
 Users can experience problems when they load or scroll the page, leading to frustration and page abandonment.
 
-Virtual scrolling in Angular with the Component Dev Kit <a href="#virtual-scrolling-in-angular-with-the-component-dev-kit" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------
+## Virtual scrolling in Angular with the Component Dev Kit <a href="#virtual-scrolling-in-angular-with-the-component-dev-kit" class="w-headline-link">#</a>
 
 Virtual scrolling is the primary technique used to address these scale problems. Virtual scrolling gives the impression of a very large list—by providing an appropriately sized scroll bar—and the ability to navigate the list without requiring the application to hold the entire list in memory or render it on the page.
 
@@ -50,8 +41,7 @@ Instead of rendering the entire list at a time, only a subset of the items that 
 
 The rest of this post walks through how to set up basic virtual scrolling. You can see a full working example in this sample app:
 
-Setting up virtual scrolling <a href="#setting-up-virtual-scrolling" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## Setting up virtual scrolling <a href="#setting-up-virtual-scrolling" class="w-headline-link">#</a>
 
 First make sure you've installed `@angular/cdk` using your favorite package manager. To install it using npm run this command in the terminal:
 
@@ -120,12 +110,11 @@ Instead of iterating through the entire list, the viewport will dynamically iden
 
 The CDK rendering subsets of a list as the user scrolls.
 
-Going further <a href="#going-further" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Going further <a href="#going-further" class="w-headline-link">#</a>
 
 The CDK's virtual scroll abilities go much further than this basic example. In the [sample app](https://stackblitz.com/edit/scroll-list?file=src/app/app.component.ts), the entire list was in memory, but the list could be fetched on demand for more complex applications. You can learn more about the other capabilities of `ScrollingModule` and the `cdkVirtualOf` directive by reading about `Scrolling` in the [CDK documentation](https://material.angular.io/cdk/scrolling/overview).
 
-*Hero image by Mr Cup / Fabien Barral on [Unsplash](https://unsplash.com/photos/o6GEPQXnqMY).*
+_Hero image by Mr Cup / Fabien Barral on [Unsplash](https://unsplash.com/photos/o6GEPQXnqMY)._
 
 <a href="/tags/performance/" class="w-chip">Performance</a>
 
@@ -133,35 +122,35 @@ The CDK's virtual scroll abilities go much further than this basic example. In t
 
 <a href="/angular" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

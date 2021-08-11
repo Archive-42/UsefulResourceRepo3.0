@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#code-splitting-with-dynamic-imports-in-next.js" class="w-toc__header--link">Code splitting with dynamic imports in Next.js</a>
 
 - [What will you learn?](#what-will-you-learn)

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format" alt="A black screen shows development work.." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/H6F7W8nUez3vaOv8hD8i.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
 ## <a href="#smarter-custom-properties-with-houdini&#39;s-new-api" class="w-toc__header--link">Smarter custom properties with Houdini’s new API</a>
@@ -143,7 +137,7 @@ This will animate our custom property that's part of the `linear-gradient`, thus
 
 Houdini [is on its way](http://ishoudinireadyyet.com/) to browsers, and with it, entirely new ways of working with and extending CSS. With the [Paint API](https://developers.google.com/web/updates/2018/01/paintapi) already shipped and now Custom Props and Vals, our creative toolbox is expanding, allowing us to define typed CSS properties and use them to create and animate new and exciting designs. There's more on the way, too, in the [Houdini issue queue](https://github.com/w3c/css-houdini-drafts/issues) where you can give feedback and see what's next for Houdini. Houdini exists to develop features that explain the "magic" of styling and layout on the web, so get out there and put those magical features to good use.
 
-_Photo by [Maik Jonietz](https://unsplash.com/@der_maik_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/code?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
+_Photo by [Maik Jonietz](https://unsplash.com/@der_maik_?utm*source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/code?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 
 <a href="/tags/houdini/" class="w-chip">Houdini</a> <a href="/tags/css/" class="w-chip">CSS</a>
 

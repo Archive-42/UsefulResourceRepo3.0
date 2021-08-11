@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#android-payment-app-developers-guide" class="w-toc__header--link">Android payment app developers guide</a>
 
 - [Step 1: Let merchants discover your payment app](#step-1:-let-merchants-discover-your-payment-app)

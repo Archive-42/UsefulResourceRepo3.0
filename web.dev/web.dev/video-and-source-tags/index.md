@@ -1,25 +1,17 @@
+## <a href="#the-andltvideoandgt-and-andltsourceandgt-tags" class="w-toc__header--link">The &lt;video&gt; and &lt;source&gt; tags</a>
 
-
-
-
-
-
-<a href="#the-andltvideoandgt-and-andltsourceandgt-tags" class="w-toc__header--link">The &lt;video&gt; and &lt;source&gt; tags</a>
-----------------------------------------------------------------------------------------------------------------------------------
-
--   [Specify a single file](#specify-a-single-file)
--   [Specify multiple file formats](#specify-multiple-file-formats)
--   [Specify start and end times](#specify-start-and-end-times)
--   [Include a poster image](#include-a-poster-image)
--   [Ensure videos don't overflow containers](#ensure-videos-don't-overflow-containers)
--   [Device orientation](#device-orientation)
--   [Autoplay](#autoplay)
--   [Preload](#preload)
+- [Specify a single file](#specify-a-single-file)
+- [Specify multiple file formats](#specify-multiple-file-formats)
+- [Specify start and end times](#specify-start-and-end-times)
+- [Include a poster image](#include-a-poster-image)
+- [Ensure videos don't overflow containers](#ensure-videos-don't-overflow-containers)
+- [Device orientation](#device-orientation)
+- [Autoplay](#autoplay)
+- [Preload](#preload)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-The &lt;video&gt; and &lt;source&gt; tags
-=========================================
+# The &lt;video&gt; and &lt;source&gt; tags
 
 Feb 15, 2015 <span class="w-author__separator">•</span> Updated Aug 27, 2020
 
@@ -29,15 +21,15 @@ Feb 15, 2015 <span class="w-author__separator">•</span> Updated Aug 27, 2020
 
 <a href="/authors/samdutton/" class="w-author__name-link">Sam Dutton</a>
 
--   <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
--   <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
+- <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Joe Medley" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/ynJFmvKEbD9diZZsTdkD.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/joemedley/)
 
 <a href="/authors/joemedley/" class="w-author__name-link">Joe Medley</a>
 
--   <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
--   <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/medleyjp" class="w-author__link">Twitter</a>
+- <a href="https://github.com/jpmedley" class="w-author__link">GitHub</a>
 
 You've properly [prepared a video file](/prepare-media/) for the web. You've given it correct dimensions and the correct resolution. You've even created separate WebM and MP4 files for different browsers.
 
@@ -45,8 +37,7 @@ For anyone to see it, you still need to add it to a web page. Doing so properly 
 
 You always have the option of uploading your file to [YouTube](https://www.youtube.com/) or [Vimeo](https://vimeo.com/). In many cases, this is preferable to the procedure described here. Those services handle formatting and filetype conversion for you, as well as provide the means to embed a video in your web page. If you need to manage this yourself, read on.
 
-Specify a single file <a href="#specify-a-single-file" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Specify a single file <a href="#specify-a-single-file" class="w-headline-link">#</a>
 
 Although it's not recommended, you can use the video element by itself. Always use the `type` attribute as shown below. The browser uses this to determine if it can play the provided video file. If it can't, the enclosed text displays.
 
@@ -72,10 +63,10 @@ You should always add a `type` attribute to the `<source>` tags event though it 
 
 This approach has several advantages over serving different HTML or server-side scripting, especially on mobile:
 
--   You can list formats in order of preference.
--   Client-side switching reduces latency; only one request is made to get content.
--   Letting the browser choose a format is simpler, quicker, and potentially more reliable than using a server-side support database with user-agent detection.
--   Specifying each file source's type improves network performance; the browser can select a video source without having to download part of the video to "sniff" the format.
+- You can list formats in order of preference.
+- Client-side switching reduces latency; only one request is made to get content.
+- Letting the browser choose a format is simpler, quicker, and potentially more reliable than using a server-side support database with user-agent detection.
+- Specifying each file source's type improves network performance; the browser can select a video source without having to download part of the video to "sniff" the format.
 
 These issues are especially important in mobile contexts, where bandwidth and latency are at a premium and the user's patience is likely limited. Omitting the `type` attribute can affect performance when there are multiple sources with unsupported types.
 
@@ -177,17 +168,17 @@ Device orientation on an iPad and Chrome on Android can be problematic. For exam
 
 The `autoplay` attribute controls whether the browser downloads and plays a video immediately. The precise way it works depends on the platform and browser.
 
--   Chrome: Depends on multiple factors including but not limited to whether the viewing is on desktop and whether the a mobile user has added your site or app to their homescreen. For details, see [Autoplay Policy Changes](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes).
+- Chrome: Depends on multiple factors including but not limited to whether the viewing is on desktop and whether the a mobile user has added your site or app to their homescreen. For details, see [Autoplay Policy Changes](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes).
 
--   Firefox: Blocks all video and sound, but gives user the ability to relax these restrictions for either all sites or particular sites. For details, see [Allow or block media autoplay in Firefox]()
+- Firefox: Blocks all video and sound, but gives user the ability to relax these restrictions for either all sites or particular sites. For details, see [Allow or block media autoplay in Firefox]()
 
--   Safari: Has historically required a user gesture, but has been relaxing that requirement in recent versions. For details, see [New &lt;video&gt; Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/).
+- Safari: Has historically required a user gesture, but has been relaxing that requirement in recent versions. For details, see [New &lt;video&gt; Policies for iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/).
 
 Even on platforms where autoplay is possible, you need to consider whether it's a good idea to enable it:
 
--   Data usage can be expensive.
--   Playing media before the user wants it can hog bandwidth and CPU, and thereby delay page rendering.
--   Users may be in a context where playing video or audio is intrusive.
+- Data usage can be expensive.
+- Playing media before the user wants it can hog bandwidth and CPU, and thereby delay page rendering.
+- Users may be in a context where playing video or audio is intrusive.
 
 ### Preload <a href="#preload" class="w-headline-link">#</a>
 
@@ -203,35 +194,35 @@ The `preload` attribute has different effects on different platforms. For exampl
 
 <a href="/media" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

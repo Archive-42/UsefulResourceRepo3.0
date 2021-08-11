@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Related Articles
 
@@ -13,7 +13,7 @@
 2.  [Normal vs Subnormal Floats](../normal-vs-subnormal-floats.html)
 3.  [Why is it called Floating Point? And what is Fixed Point?](../why-is-it-called-floating-point-and-what-is-fixed-point.html)
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

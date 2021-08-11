@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#providing-shipping-and-contact-information-from-an-android-payment-app" class="w-toc__header--link">Providing shipping and contact information from an Android payment app</a>
 
 - [Declare supported delegations](#declare-supported-delegations)

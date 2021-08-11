@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Related
 
@@ -20,7 +20,7 @@
 
 [**See all algorithm articles**](algorithms.html)
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

@@ -1,23 +1,15 @@
+## <a href="#use-imagemin-to-compress-images" class="w-toc__header--link">Use Imagemin to compress images</a>
 
-
-
-
-
-
-<a href="#use-imagemin-to-compress-images" class="w-toc__header--link">Use Imagemin to compress images</a>
-----------------------------------------------------------------------------------------------------------
-
--   [Why should you care?](#why-should-you-care)
--   [Measure](#measure)
--   [Imagemin](#imagemin)
--   [Plugins](#plugins)
--   [Imagemin CLI](#imagemin-cli)
--   [Imagemin npm module](#imagemin-npm-module)
+- [Why should you care?](#why-should-you-care)
+- [Measure](#measure)
+- [Imagemin](#imagemin)
+- [Plugins](#plugins)
+- [Imagemin CLI](#imagemin-cli)
+- [Imagemin npm module](#imagemin-npm-module)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Use Imagemin to compress images
-===============================
+# Use Imagemin to compress images
 
 Nov 5, 2018 <span class="w-author__separator">•</span> Updated Apr 6, 2020
 
@@ -27,20 +19,18 @@ Nov 5, 2018 <span class="w-author__separator">•</span> Updated Apr 6, 2020
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
-Why should you care? <a href="#why-should-you-care" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## Why should you care? <a href="#why-should-you-care" class="w-headline-link">#</a>
 
 Uncompressed images bloat your pages with unnecessary bytes. The photo on the right is 40% smaller than the one on the left, yet would probably look identical to the average user.
 
 <table><colgroup><col style="width: 50%" /><col style="width: 50%" /></colgroup><thead><tr class="header"><th><p><img src="https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format" sizes="(min-width: 376px) 376px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/LRE2JJAuShXTjQF5ZSaR.jpg?auto=format&amp;w=752 752w" width="376" height="250" /></p>20 KB</th><th><p><img src="https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format" sizes="(min-width: 376px) 376px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/u9hncwN4TsT7zw2ObU10.jpg?auto=format&amp;w=752 752w" width="376" height="250" /></p>12 KB</th></tr></thead><tbody></tbody></table>
 
-Measure <a href="#measure" class="w-headline-link">#</a>
---------------------------------------------------------
+## Measure <a href="#measure" class="w-headline-link">#</a>
 
 Run Lighthouse to check for opportunities to improve page load by compressing images. These opportunities are listed under "Efficiently encode images":
 
@@ -48,8 +38,7 @@ Run Lighthouse to check for opportunities to improve page load by compressing im
 
 Lighthouse currently reports on opportunities to compress images in JPEG format only.
 
-Imagemin <a href="#imagemin" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Imagemin <a href="#imagemin" class="w-headline-link">#</a>
 
 Imagemin is an excellent choice for image compression because it supports a wide variety of image formats and is easily integrated with build scripts and build tools. Imagemin is available as both a [CLI](https://github.com/imagemin/imagemin-cli) and an [npm module](https://www.npmjs.com/package/imagemin). Generally, the npm module is the best choice because it offers more configuration options, but the CLI can be a decent alternative if you want to try Imagemin without touching any code.
 
@@ -95,48 +84,47 @@ You can also use Imagemin by itself as a Node script. This code uses the "imagem
 
 <span class="w-mr--sm">Last updated: Apr 6, 2020 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/fast/use-imagemin-to-compress-images/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-imagemin-webpack/" class="w-callout__link w-callout__link--codelab">Using Imagemin with webpack</a>
--   <a href="/codelab-imagemin-gulp/" class="w-callout__link w-callout__link--codelab">Using Imagemin with Gulp</a>
--   <a href="/codelab-imagemin-grunt/" class="w-callout__link w-callout__link--codelab">Using Imagemin with Grunt</a>
+- <a href="/codelab-imagemin-webpack/" class="w-callout__link w-callout__link--codelab">Using Imagemin with webpack</a>
+- <a href="/codelab-imagemin-gulp/" class="w-callout__link w-callout__link--codelab">Using Imagemin with Gulp</a>
+- <a href="/codelab-imagemin-grunt/" class="w-callout__link w-callout__link--codelab">Using Imagemin with Grunt</a>
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

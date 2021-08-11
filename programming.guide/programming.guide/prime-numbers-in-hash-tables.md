@@ -1,9 +1,8 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Hash Tables
------------
+
+
+## Hash Tables
 
 1.  [Hash Tables](hash-tables.html)
 2.  [Complexity](hash-tables-complexity.html)
@@ -20,10 +19,9 @@ Hash Tables
 13. [Linked Hash Table](linked-hash-table.html)
 14. Why large prime numbers are used in hash tables
 
-<span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -33,8 +31,7 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-Why large prime numbers are used in hash tables
-===============================================
+# Why large prime numbers are used in hash tables
 
 Hash tables store objects in buckets. Which bucket an object ends up in depends on the hash value for the object.
 
@@ -42,22 +39,19 @@ To transform a hash value to a valid bucket index you typically just compute mod
 
 Hash tables perform best when objects are **spread evenly** among the buckets. A hash function should therefore strive for this goal.
 
-Large hash values
------------------
+## Large hash values
 
 A hash function that only returns small values, say between 0 and 10, does not achieve a good spread if `numBuckets` becomes greater than 10.
 
 To maintain a good spread when there's a large number of buckets, hash functions typically scale up the values by multiplying with a large prime number.
 
-Why prime numbers?
-------------------
+## Why prime numbers?
 
 If we scaled up the values by a composite number (non-prime), say 1000, there would be many values for `numBuckets` where the scale would be "cancelled out" in the mod operation. 1000 % `numBuckets` = 0 for `numBuckets` = 2, 4, 5, 8, 10, … In other words, similar objects would get similar bucket indexes. This reduces the spread and makes for a poor hash function.
 
 By choosing a large prime number, we avoid this problem, since a prime number is not divisible by `numBuckets` unless `numBuckets` happens to be a multiple of that particular prime number.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

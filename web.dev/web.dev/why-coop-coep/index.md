@@ -1,30 +1,22 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/h8g1TQjkfkJSpWJrPakB.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#why-you-need-andquotcross-origin-isolatedandquot-for-powerful-features" class="w-toc__header--link">Why you need "cross-origin isolated" for powerful features</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#why-you-need-andquotcross-origin-isolatedandquot-for-powerful-features" class="w-toc__header--link">Why you need "cross-origin isolated" for powerful features</a>
 
--   [Introduction](#introduction)
--   [Background](#background)
--   [Cross Origin Embedder Policy](#coep)
--   [Cross Origin Resource Sharing](#cors)
--   [Cross Origin Resource Policy](#corp)
--   [Cross Origin Opener Policy](#coop)
--   [Summary](#summary)
--   [Resources](#resources)
+- [Introduction](#introduction)
+- [Background](#background)
+- [Cross Origin Embedder Policy](#coep)
+- [Cross Origin Resource Sharing](#cors)
+- [Cross Origin Resource Policy](#corp)
+- [Cross Origin Opener Policy](#coop)
+- [Summary](#summary)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Why you need "cross-origin isolated" for powerful features
-==========================================================
+# Why you need "cross-origin isolated" for powerful features
 
 Learn why cross-origin isolation is needed to use powerful features such as `SharedArrayBuffer`, `performance.measureUserAgentSpecificMemory()` and high resolution timer with better precision.
 
@@ -36,40 +28,38 @@ May 4, 2020 <span class="w-author__separator">•</span> Updated Aug 5, 2021
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/HXHbHrl9qxcxCQK90yIc.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Domenic Denicola" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/HXHbHrl9qxcxCQK90yIc.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/HXHbHrl9qxcxCQK90yIc.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/HXHbHrl9qxcxCQK90yIc.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/HXHbHrl9qxcxCQK90yIc.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/HXHbHrl9qxcxCQK90yIc.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/domenic/)
 
 <a href="/authors/domenic/" class="w-author__name-link">Domenic Denicola</a>
 
--   <a href="https://twitter.com/domenic" class="w-author__link">Twitter</a>
--   <a href="https://github.com/domenic" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/domenic" class="w-author__link">Twitter</a>
+- <a href="https://github.com/domenic" class="w-author__link">GitHub</a>
 
-Introduction <a href="#introduction" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Introduction <a href="#introduction" class="w-headline-link">#</a>
 
 In [Making your website "cross-origin isolated" using COOP and COEP](/coop-coep/) we explained how to adopt to "cross-origin isolated" state using COOP and COEP. This is a companion article that explains why cross-origin isolation is required to enable powerful features on the browser.
 
 **Key Term**: This article uses many similar-sounding terminologies. To make things clearer, let's define them:
 
--   [COEP: Cross Origin Embedder Policy](https://wicg.github.io/cross-origin-embedder-policy/)
--   [COOP: Cross Origin Opener Policy](https://github.com/whatwg/html/pull/5334/files)
--   [CORP: Cross Origin Resource Policy](https://developer.mozilla.org/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP))
--   [CORS: Cross Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS)
--   [CORB: Cross Origin Read Blocking](https://www.chromium.org/Home/chromium-security/corb-for-developers)
+- [COEP: Cross Origin Embedder Policy](https://wicg.github.io/cross-origin-embedder-policy/)
+- [COOP: Cross Origin Opener Policy](https://github.com/whatwg/html/pull/5334/files)
+- [CORP: Cross Origin Resource Policy](<https://developer.mozilla.org/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)>)
+- [CORS: Cross Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+- [CORB: Cross Origin Read Blocking](https://www.chromium.org/Home/chromium-security/corb-for-developers)
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 The web is built on the [same-origin policy](/same-origin-policy/): a security feature that restricts how documents and scripts can interact with resources from another origin. This principle restricts the ways websites can access cross-origin resources. For example, a document from `https://a.example` is prevented from accessing data hosted at `https://b.example`.
 
 However, the same-origin policy has had some historical exceptions. Any website can:
 
--   Embed cross-origin iframes
--   Include cross-origin resources such as images or scripts
--   Open cross-origin popup windows with a DOM reference
+- Embed cross-origin iframes
+- Include cross-origin resources such as images or scripts
+- Open cross-origin popup windows with a DOM reference
 
 If the web could be designed from scratch, these exceptions wouldn't exist. Unfortunately, by the time the web community realized the key benefits of a strict same-origin policy, the web was already relying on these exceptions.
 
@@ -81,7 +71,7 @@ All these policy decisions are happening within a browsing context group.
 
 For a long time, the combination of CORS and opaque resources was enough to make browsers safe. Sometimes edge cases (such as [JSON vulnerabilities](https://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.aspx/)) were discovered, and needed to be patched, but overall the principle of not allowing direct read access to the raw bytes of cross-origin resources was successful.
 
-This all changed with [Spectre](https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)), which makes any data that is loaded to the same browsing context group as your code potentially readable. By measuring the time certain operations take, attackers can guess the contents of the CPU caches, and through that, the contents of the process' memory. Such timing attacks are possible with low-granularity timers that exist in the platform, but can be sped up with high-granularity timers, both explicit (like `performance.now()`) and implicit (like `SharedArrayBuffer`s). If `evil.com` embeds a cross-origin image, they can use a Spectre attack to read its pixel data, which makes protections relying on "opaqueness" ineffective.
+This all changed with [Spectre](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>), which makes any data that is loaded to the same browsing context group as your code potentially readable. By measuring the time certain operations take, attackers can guess the contents of the CPU caches, and through that, the contents of the process' memory. Such timing attacks are possible with low-granularity timers that exist in the platform, but can be sped up with high-granularity timers, both explicit (like `performance.now()`) and implicit (like `SharedArrayBuffer`s). If `evil.com` embeds a cross-origin image, they can use a Spectre attack to read its pixel data, which makes protections relying on "opaqueness" ineffective.
 
 <img src="https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format" alt="Spectr" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/wN636enwMtBrrOfhzEoq.png?auto=format&amp;w=1600 1600w" width="800" height="500" />
 
@@ -161,18 +151,16 @@ The [`noopener`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#Wi
 
 While `noopener` can be replaced by COOP, it's still useful for when you want to protect your website in browsers that don't support COOP.
 
-Summary <a href="#summary" class="w-headline-link">#</a>
---------------------------------------------------------
+## Summary <a href="#summary" class="w-headline-link">#</a>
 
 If you want guaranteed access to powerful features like `SharedArrayBuffer`, `performance.measureUserAgentSpecificMemory()` or [high resolution timers](https://www.w3.org/TR/hr-time/) with better precision, just remember that your document needs to use both COEP with the value of `require-corp` and COOP with the value of `same-origin`. In the absence of either, the browser will not guarantee sufficient isolation to safely enable those powerful features. You can determine your page's situation by checking if [`self.crossOriginIsolated`](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/crossOriginIsolated) returns `true`.
 
 Learn the steps to implement this at [Making your website "cross-origin isolated" using COOP and COEP](/coop-coep/).
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [COOP and COEP explained](https://docs.google.com/document/d/1zDlfvfTJ_9e8Jdc8ehuV4zMEu9ySMCiTGMS9y0GU92k/edit)
--   [Planned changes to shared memory - JavaScript | MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/Planned_changes)
+- [COOP and COEP explained](https://docs.google.com/document/d/1zDlfvfTJ_9e8Jdc8ehuV4zMEu9ySMCiTGMS9y0GU92k/edit)
+- [Planned changes to shared memory - JavaScript | MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer/Planned_changes)
 
 <a href="/tags/security/" class="w-chip">Security</a>
 
@@ -180,35 +168,35 @@ Resources <a href="#resources" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

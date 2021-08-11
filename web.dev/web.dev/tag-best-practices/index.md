@@ -1,49 +1,41 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/j2RDdG43oidUy6AL6LovThjeX9c2/aIZgX5qHUBalZz0dUNqN.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#best-practices-for-tags-and-tag-managers" class="w-toc__header--link">Best practices for tags and tag managers</a>
-----------------------------------------------------------------------------------------------------------------------------
+## <a href="#best-practices-for-tags-and-tag-managers" class="w-toc__header--link">Best practices for tags and tag managers</a>
 
--   [Tag types](#tag-types)
--   [Not all scripts should be loaded using a tag manager](#not-all-scripts-should-be-loaded-using-a-tag-manager)
--   [Be careful with Custom HTML tags](#be-careful-with-custom-html-tags)
--   [Consider using Custom Templates](#consider-using-custom-templates)
--   [Inject scripts correctly](#inject-scripts-correctly)
--   [Use pixels](#use-pixels)
--   [Get clarification](#get-clarification)
--   [Triggers](#triggers)
--   [Choose an appropriate trigger event](#choose-an-appropriate-trigger-event)
--   [Use custom events](#use-custom-events)
--   [Use specific trigger conditions](#use-specific-trigger-conditions)
--   [Load your tag manager at an appropriate time](#load-your-tag-manager-at-an-appropriate-time)
--   [Tag Management](#tag-management)
--   [Use the data layer](#use-the-data-layer)
--   [Remove duplicate and unused tags](#remove-duplicate-and-unused-tags)
--   [Use allow and deny lists](#use-allow-and-deny-lists)
--   [Consider using server-side tagging](#consider-using-server-side-tagging)
--   [Containers](#containers)
--   [Use only one container per page](#use-only-one-container-per-page)
--   [Use separate containers if needed](#use-separate-containers-if-needed)
--   [Keep an eye on container size](#keep-an-eye-on-container-size)
--   [Name your container versions](#name-your-container-versions)
--   [Tagging workflows](#tagging-workflows)
--   [Test tags before deploying](#test-tags-before-deploying)
--   [Monitor tag performance](#monitor-tag-performance)
--   [Require approval for container changes](#require-approval-for-container-changes)
--   [Periodically audit tag usage](#periodically-audit-tag-usage)
+- [Tag types](#tag-types)
+- [Not all scripts should be loaded using a tag manager](#not-all-scripts-should-be-loaded-using-a-tag-manager)
+- [Be careful with Custom HTML tags](#be-careful-with-custom-html-tags)
+- [Consider using Custom Templates](#consider-using-custom-templates)
+- [Inject scripts correctly](#inject-scripts-correctly)
+- [Use pixels](#use-pixels)
+- [Get clarification](#get-clarification)
+- [Triggers](#triggers)
+- [Choose an appropriate trigger event](#choose-an-appropriate-trigger-event)
+- [Use custom events](#use-custom-events)
+- [Use specific trigger conditions](#use-specific-trigger-conditions)
+- [Load your tag manager at an appropriate time](#load-your-tag-manager-at-an-appropriate-time)
+- [Tag Management](#tag-management)
+- [Use the data layer](#use-the-data-layer)
+- [Remove duplicate and unused tags](#remove-duplicate-and-unused-tags)
+- [Use allow and deny lists](#use-allow-and-deny-lists)
+- [Consider using server-side tagging](#consider-using-server-side-tagging)
+- [Containers](#containers)
+- [Use only one container per page](#use-only-one-container-per-page)
+- [Use separate containers if needed](#use-separate-containers-if-needed)
+- [Keep an eye on container size](#keep-an-eye-on-container-size)
+- [Name your container versions](#name-your-container-versions)
+- [Tagging workflows](#tagging-workflows)
+- [Test tags before deploying](#test-tags-before-deploying)
+- [Monitor tag performance](#monitor-tag-performance)
+- [Require approval for container changes](#require-approval-for-container-changes)
+- [Periodically audit tag usage](#periodically-audit-tag-usage)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Best practices for tags and tag managers
-========================================
+# Best practices for tags and tag managers
 
 Optimize tags and tag managers for Core Web Vitals.
 
@@ -55,10 +47,10 @@ Jul 29, 2021
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 [Tags](https://support.google.com/tagmanager/answer/3281060?hl=en) are snippets of third-party code that are inserted into a site, typically via a tag manager. Tags are most commonly used for marketing and analytics.
 
@@ -68,8 +60,7 @@ The performance impact of tags and tag managers varies wildly from site to site.
 
 This article discusses techniques for optimizing tags and tag managers for performance and Web Vitals. Although this article references Google Tag Manager, many of the ideas discussed are also applicable to other tag managers.
 
-Tag types <a href="#tag-types" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Tag types <a href="#tag-types" class="w-headline-link">#</a>
 
 The impact of tags on performance varies by tag type. Generally speaking, image tags ("pixels") are the most performant, followed by custom templates, and lastly, custom HTML tags.
 
@@ -91,8 +82,8 @@ Resources requested via tag manager will typically load later than resources req
 
 Custom HTML tags work by inserting an element into the surrounding page. The act of inserting elements into the page can be a source of performance issues, and in some cases, also cause layout shifts.
 
--   In most situations, if an element is inserted into the page, the browser must recalculate the size and position of each item on the page—this process is known as [layout](https://developers.google.com/web/updates/2018/09/inside-browser-part3#layout). The performance impact of a single layout is minimal, but when it occurs excessively it can become a source of performance issues. The impact of this phenomenon is larger on lower-end devices and pages with a high number of DOM elements.
--   If a visible page element is inserted into the DOM after the surrounding area has already been rendered, it can cause a layout shift. This phenomenon is not unique to tag managers—however, because tags typically load later than other parts of the page, it's common for them to be inserted into the DOM after the surrounding page has already been rendered.
+- In most situations, if an element is inserted into the page, the browser must recalculate the size and position of each item on the page—this process is known as [layout](https://developers.google.com/web/updates/2018/09/inside-browser-part3#layout). The performance impact of a single layout is minimal, but when it occurs excessively it can become a source of performance issues. The impact of this phenomenon is larger on lower-end devices and pages with a high number of DOM elements.
+- If a visible page element is inserted into the DOM after the surrounding area has already been rendered, it can cause a layout shift. This phenomenon is not unique to tag managers—however, because tags typically load later than other parts of the page, it's common for them to be inserted into the DOM after the surrounding page has already been rendered.
 
 If you're adding or changing visible content on a page, keep in mind that search engines will need to be able to fetch and process the JavaScript used. For Google, you can [verify rendering of a page](https://developers.google.com/search/docs/advanced/javascript/dynamic-rendering#verify) for Search; other search engines may have similar testing tools available.
 
@@ -110,8 +101,8 @@ For information on using the injectScript API to convert an existing Custom HTML
 
 If you must you use a Custom HTML tag, here are some things to keep in mind:
 
--   Libraries and large third-party scripts should be loaded via a script tag that downloads an external file (for example, `<script src="external-scripts.js">`), rather than directly copy-pasting the script's contents into the tag. Although forgoing use of the `<script>` tag eliminates a separate round-trip to download the script's contents, this practice increases container size and prevents the script from being cached separately by the browser.
--   Many vendors recommend placing their `<script>` tag at the top of the `<head>`. However, for scripts loaded via tag manager, this recommendation is usually unnecessary: in most situations, the browser has already finished parsing the `<head>` by the time that the tag manager executes.
+- Libraries and large third-party scripts should be loaded via a script tag that downloads an external file (for example, `<script src="external-scripts.js">`), rather than directly copy-pasting the script's contents into the tag. Although forgoing use of the `<script>` tag eliminates a separate round-trip to download the script's contents, this practice increases container size and prevents the script from being cached separately by the browser.
+- Many vendors recommend placing their `<script>` tag at the top of the `<head>`. However, for scripts loaded via tag manager, this recommendation is usually unnecessary: in most situations, the browser has already finished parsing the `<head>` by the time that the tag manager executes.
 
 ### Use pixels <a href="#use-pixels" class="w-headline-link">#</a>
 
@@ -167,8 +158,7 @@ When choosing between `fetch() keepalive` and `sendBeacon()`, it's important to 
 
 Tags are often created by following guidance provided by a third-party vendor. If it is unclear what a vendor's code does—consider asking someone who knows. Getting a second opinion can help identify if a tag has the potential to create performance or security issues.
 
-Triggers <a href="#triggers" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Triggers <a href="#triggers" class="w-headline-link">#</a>
 
 At a high-level, optimizing [tag triggers](https://support.google.com/tagmanager/topic/7679108?hl=en&ref_topic=7679384) generally consists of making sure to not trigger tags more than necessary and choosing a trigger that balances business needs with performance costs.
 
@@ -207,8 +197,7 @@ Using specific trigger conditions helps avoid firing a tag unnecessarily. Althou
 
 Adjusting when you tag manager loads can have a significant impact on performance. Triggers, regardless of how they are configured, can't fire until after a tag manager loads. Although it is important to choose good triggers for individual tags (as explained above), experimenting with when you load your tag manager can often have an equal or greater impact given that this single decision will impact all tags on a page.
 
-Tag Management <a href="#tag-management" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Tag Management <a href="#tag-management" class="w-headline-link">#</a>
 
 ### Use the data layer <a href="#use-the-data-layer" class="w-headline-link">#</a>
 
@@ -257,8 +246,7 @@ Keep in mind that server-side tagging only works with some tags; tag compatibili
 
 For more information, see [An introduction to server-side tagging](https://developers.google.com/tag-manager/serverside/intro).
 
-Containers <a href="#containers" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Containers <a href="#containers" class="w-headline-link">#</a>
 
 ### Use only one container per page <a href="#use-only-one-container-per-page" class="w-headline-link">#</a>
 
@@ -286,8 +274,7 @@ To determine the size of your container, look at the size of the response return
 
 A [container version](https://developers.google.com/tag-manager/api/v1/reference/accounts/containers/versions) is a snapshot of a container's content at a particular point in time. Using a meaningful name and along with including a short description of meaningful changes within can go a long way in making it easier to debug future performance issues.
 
-Tagging workflows <a href="#tagging-workflows" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Tagging workflows <a href="#tagging-workflows" class="w-headline-link">#</a>
 
 ### Test tags before deploying <a href="#test-tags-before-deploying" class="w-headline-link">#</a>
 
@@ -295,10 +282,10 @@ Testing your tags before deployment can help catch issues (performance and other
 
 Things to consider when testing a tag include:
 
--   Is the tag working correctly?
--   Does the tag cause any layout shifts?
--   Does the tag load any resources? How large are these resources?
--   Does the tag trigger a long-running script?
+- Is the tag working correctly?
+- Does the tag cause any layout shifts?
+- Does the tag load any resources? How large are these resources?
+- Does the tag trigger a long-running script?
 
 #### Preview mode <a href="#preview-mode" class="w-headline-link">#</a>
 
@@ -332,35 +319,35 @@ For more information, see [Keeping third-party scripts under control](/controlli
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

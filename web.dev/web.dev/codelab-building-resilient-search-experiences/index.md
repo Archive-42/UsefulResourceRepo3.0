@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Building resilient search experiences with Workbox
 
 Jun 23, 2020

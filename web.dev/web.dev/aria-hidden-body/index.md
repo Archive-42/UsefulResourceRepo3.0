@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreateraria-hiddenandquottrueandquotlesscodegreater-is-present-on-the-document-lesscodegreaterandltbodyandgtlesscodegreater" class="w-toc__header--link"><code>[aria-hidden="true"]</code> is present on the document <code>&lt;body&gt;</code></a>
 
 - [How Lighthouse identifies hidden body elements](#how-lighthouse-identifies-hidden-body-elements)

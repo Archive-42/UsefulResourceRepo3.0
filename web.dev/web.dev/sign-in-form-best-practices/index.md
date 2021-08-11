@@ -1,53 +1,45 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format" alt="A person holding a phone." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/pErOjllBUXhnj68qOhfr.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#sign-in-form-best-practices" class="w-toc__header--link">Sign-in form best practices</a>
---------------------------------------------------------------------------------------------------
+## <a href="#sign-in-form-best-practices" class="w-toc__header--link">Sign-in form best practices</a>
 
--   [Checklist](#checklist)
--   [Use meaningful HTML](#meaningful-html)
--   [Use &lt;form&gt;](#form)
--   [Use &lt;label&gt;](#label)
--   [Use &lt;button&gt;](#button)
--   [Ensure successful form submission](#submission)
--   [Don't double up inputs](#no-double-inputs)
--   [Make the most of element attributes](#element-attributes)
--   [Help users start faster](#autofocus)
--   [Keep passwords private—but enable users to see them if they want](#show-password)
--   [Give mobile users the right keyboard](#mobile-keyboards)
--   [Prevent mobile keyboard from obstructing the Sign in button](#keyboard-obstruction)
--   [Help users to avoid re-entering data](#autofill)
--   [Use autocomplete="new-password" and id="new-password" for a new password](#new-password)
--   [Use autocomplete="current-password" and id="current-password" for an existing password](#current-password)
--   [Support password managers](#password-managers)
--   [Enable the browser to suggest a strong password](#password-suggestions)
--   [Help save users from accidentally missing inputs](#required-fields)
--   [Design for fingers and thumbs](#mobile-design)
--   [Make sure inputs and buttons are large enough](#tap-targets)
--   [Make text big enough](#size-text-correctly)
--   [Provide enough space between inputs](#size-margins-correctly)
--   [Make sure your inputs are clearly visible](#visible-inputs)
--   [Use built-in browser features to warn of invalid input values](#built-in-validation)
--   [Use JavaScript where necessary](#javascript)
--   [Toggle password display](#password-display)
--   [Make password inputs accessible](#accessible-password-inputs)
--   [Validate in realtime and before submission](#validation)
--   [Analytics and RUM](#analytics)
--   [General guidelines](#general-guidelines)
--   [Keep learning](#resources)
+- [Checklist](#checklist)
+- [Use meaningful HTML](#meaningful-html)
+- [Use &lt;form&gt;](#form)
+- [Use &lt;label&gt;](#label)
+- [Use &lt;button&gt;](#button)
+- [Ensure successful form submission](#submission)
+- [Don't double up inputs](#no-double-inputs)
+- [Make the most of element attributes](#element-attributes)
+- [Help users start faster](#autofocus)
+- [Keep passwords private—but enable users to see them if they want](#show-password)
+- [Give mobile users the right keyboard](#mobile-keyboards)
+- [Prevent mobile keyboard from obstructing the Sign in button](#keyboard-obstruction)
+- [Help users to avoid re-entering data](#autofill)
+- [Use autocomplete="new-password" and id="new-password" for a new password](#new-password)
+- [Use autocomplete="current-password" and id="current-password" for an existing password](#current-password)
+- [Support password managers](#password-managers)
+- [Enable the browser to suggest a strong password](#password-suggestions)
+- [Help save users from accidentally missing inputs](#required-fields)
+- [Design for fingers and thumbs](#mobile-design)
+- [Make sure inputs and buttons are large enough](#tap-targets)
+- [Make text big enough](#size-text-correctly)
+- [Provide enough space between inputs](#size-margins-correctly)
+- [Make sure your inputs are clearly visible](#visible-inputs)
+- [Use built-in browser features to warn of invalid input values](#built-in-validation)
+- [Use JavaScript where necessary](#javascript)
+- [Toggle password display](#password-display)
+- [Make password inputs accessible](#accessible-password-inputs)
+- [Validate in realtime and before submission](#validation)
+- [Analytics and RUM](#analytics)
+- [General guidelines](#general-guidelines)
+- [Keep learning](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Sign-in form best practices
-===========================
+# Sign-in form best practices
 
 Use cross-platform browser features to build sign-in forms that are secure, accessible and easy to use.
 
@@ -57,8 +49,8 @@ Jun 29, 2020 <span class="w-author__separator">•</span> Updated Feb 26, 2021
 
 <a href="/authors/samdutton/" class="w-author__name-link">Sam Dutton</a>
 
--   <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
--   <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/sw12" class="w-author__link">Twitter</a>
+- <a href="https://github.com/samdutton" class="w-author__link">GitHub</a>
 
 If users ever need to log in to your site, then good sign-in form design is critical. This is especially true for people on poor connections, on mobile, in a hurry, or under stress. Poorly designed sign-in forms get high bounce rates. Each bounce could mean a lost and disgruntled user—not just a missed sign-in opportunity.
 
@@ -66,35 +58,33 @@ If users ever need to log in to your site, then good sign-in form design is crit
 
 Here is an example of a simple sign-in form that demonstrates all of the best practices:
 
-Checklist <a href="#checklist" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Checklist <a href="#checklist" class="w-headline-link">#</a>
 
--   [Use meaningful HTML elements](#meaningful-html): `<form>`, `<input>`, `<label>`, and `<button>`.
--   [Label each input with a `<label>`](#label).
--   Use element attributes to [access built-in browser features](#element-attributes): `type`, `name`, `autocomplete`, `required`, `autofocus`.
--   Give input `name` and `id` attributes stable values that don't change between page loads or website deployments.
--   Put sign-in [in its own &lt;form&gt; element](#single-form).
--   [Ensure successful form submission](#submission).
--   Use [`autocomplete="new-password"`](#new-password) and [`id="new-password"`](#new-password) for the password input in a sign-up form, and for the new password in a reset-password form.
--   Use [`autocomplete="current-password"`](#current-password) and [`id="current-password"`](#current-password) for a sign-in password input.
--   Provide [Show password](#show-password) functionality.
--   [Use `aria-label` and `aria-describedby`](#accessible-password-inputs) for password inputs.
--   [Don't double-up inputs](#no-double-inputs).
--   Design forms so the [mobile keyboard doesn't obscure inputs or buttons](#keyboard-obstruction).
--   Ensure forms are usable on mobile: use [legible text](#size-text-correctly), and make sure inputs and buttons are [large enough to work as touch targets](#tap-targets).
--   [Maintain branding and style](#general-guidelines) on your sign-up and sign-in pages.
--   [Test in the field as well as the lab](#analytics): build page analytics, interaction analytics, and user-centric performance measurement into your sign-up and sign-in flow.
--   [Test across browsers and devices](#devices): form behaviour varies significantly across platforms.
+- [Use meaningful HTML elements](#meaningful-html): `<form>`, `<input>`, `<label>`, and `<button>`.
+- [Label each input with a `<label>`](#label).
+- Use element attributes to [access built-in browser features](#element-attributes): `type`, `name`, `autocomplete`, `required`, `autofocus`.
+- Give input `name` and `id` attributes stable values that don't change between page loads or website deployments.
+- Put sign-in [in its own &lt;form&gt; element](#single-form).
+- [Ensure successful form submission](#submission).
+- Use [`autocomplete="new-password"`](#new-password) and [`id="new-password"`](#new-password) for the password input in a sign-up form, and for the new password in a reset-password form.
+- Use [`autocomplete="current-password"`](#current-password) and [`id="current-password"`](#current-password) for a sign-in password input.
+- Provide [Show password](#show-password) functionality.
+- [Use `aria-label` and `aria-describedby`](#accessible-password-inputs) for password inputs.
+- [Don't double-up inputs](#no-double-inputs).
+- Design forms so the [mobile keyboard doesn't obscure inputs or buttons](#keyboard-obstruction).
+- Ensure forms are usable on mobile: use [legible text](#size-text-correctly), and make sure inputs and buttons are [large enough to work as touch targets](#tap-targets).
+- [Maintain branding and style](#general-guidelines) on your sign-up and sign-in pages.
+- [Test in the field as well as the lab](#analytics): build page analytics, interaction analytics, and user-centric performance measurement into your sign-up and sign-in flow.
+- [Test across browsers and devices](#devices): form behaviour varies significantly across platforms.
 
 This article is about frontend best practices. It does not explain how to build backend services to authenticate users, store their credentials, or manage their accounts. [12 best practices for user account, authorization and password management](https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account) outlines core principles for running your own backend. If you have users in different parts of the world, you need to consider localizing your site's use of third-party identity services as well as its content.
 
 There are also two relatively new APIs not covered in this article which can help you build a better sign-in experience:
 
--   [**WebOTP**](/web-otp/): to deliver one-time passcodes or PIN numbers via SMS to mobile phones. This can allow users to select a phone number as an identifier (no need to enter an email address!) and also enables two-step verification for sign-in and one-time codes for payment confirmation.
--   [**Credential Management**](https://developers.google.com/web/updates/2016/04/credential-management-api): to enable developers to store and retrieve password credentials and federated credentials programmatically.
+- [**WebOTP**](/web-otp/): to deliver one-time passcodes or PIN numbers via SMS to mobile phones. This can allow users to select a phone number as an identifier (no need to enter an email address!) and also enables two-step verification for sign-in and one-time codes for payment confirmation.
+- [**Credential Management**](https://developers.google.com/web/updates/2016/04/credential-management-api): to enable developers to store and retrieve password credentials and federated credentials programmatically.
 
-Use meaningful HTML <a href="#meaningful-html" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Use meaningful HTML <a href="#meaningful-html" class="w-headline-link">#</a>
 
 Use elements built for the job: `<form>`, `<label>` and `<button>`. These enable built-in browser functionality, improve accessibility, and add meaning to your markup.
 
@@ -115,8 +105,8 @@ To label an input, use a [`<label>`](https://developer.mozilla.org/en-US/docs/We
 
 Two reasons:
 
--   A tap or click on a label moves focus to its input. Associate a label with an input by using the label's `for` attribute with the input's `name` or `id`.
--   Screenreaders announce label text when the label or the label's input gets focus.
+- A tap or click on a label moves focus to its input. Associate a label with an input by using the label's `for` attribute with the input's `name` or `id`.
+- Screenreaders announce label text when the label or the label's input gets focus.
 
 Don't use placeholders as input labels. People are liable to forget what the input was for once they've started entering text, especially if they get distracted ("Was I entering an email address, a phone number, or an account ID?"). There are lots of other potential problems with placeholders: see [Don't Use The Placeholder Attribute](https://www.smashingmagazine.com/2018/06/placeholder-attribute/) and [Placeholders in Form Fields Are Harmful](https://www.nngroup.com/articles/form-design-placeholders/) if you're unconvinced.
 
@@ -134,8 +124,8 @@ Ensure that the submit button says what it does. Examples include **Create accou
 
 Help password managers understand that a form has been submitted. There are two ways to do that:
 
--   Navigate to a different page.
--   Emulate navigation with `History.pushState()` or `History.replaceState()`, and remove the password form.
+- Navigate to a different page.
+- Emulate navigation with `History.pushState()` or `History.replaceState()`, and remove the password form.
 
 With an `XMLHttpRequest` or `fetch` request, make sure that sign-in success is reported in the response and handled by taking the form out of the DOM as well as indicating success to the user.
 
@@ -147,10 +137,9 @@ Conversely, don't disable form submission awaiting user input. For example, don'
 
 ### Don't double up inputs <a href="#no-double-inputs" class="w-headline-link">#</a>
 
-Some sites force users to enter emails or passwords twice. That might reduce errors for a few users, but causes extra work for *all* users, and [increases abandonment rates](https://uxmovement.com/forms/why-the-confirm-password-field-must-die/). Asking twice also makes no sense where browsers autofill email addresses or suggest strong passwords. It's better to enable users to confirm their email address (you'll need to do that anyway) and make it easy for them to reset their password if necessary.
+Some sites force users to enter emails or passwords twice. That might reduce errors for a few users, but causes extra work for _all_ users, and [increases abandonment rates](https://uxmovement.com/forms/why-the-confirm-password-field-must-die/). Asking twice also makes no sense where browsers autofill email addresses or suggest strong passwords. It's better to enable users to confirm their email address (you'll need to do that anyway) and make it easy for them to reset their password if necessary.
 
-Make the most of element attributes <a href="#element-attributes" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------
+## Make the most of element attributes <a href="#element-attributes" class="w-headline-link">#</a>
 
 This is where the magic really happens! Browsers have multiple helpful built-in features that use input element attributes.
 
@@ -158,15 +147,13 @@ This is where the magic really happens! Browsers have multiple helpful built-in 
 
 Add an `autofocus` attribute to the first input in your sign-in form. That makes it clear where to start and, on desktop at least, means users don't have to select the input to start typing.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format" alt="Autofocus provides clear visual focus on desktop." class="w-screenshot" sizes="(min-width: 500px) 500px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=1000 1000w" width="500" height="451" /><figcaption>Autofocus provides clear visual focus on desktop.</figcaption></figure>Keep passwords private—but enable users to see them if they want <a href="#show-password" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format" alt="Autofocus provides clear visual focus on desktop." class="w-screenshot" sizes="(min-width: 500px) 500px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/27x2icJSXCMdfWOjVAdR.png?auto=format&amp;w=1000 1000w" width="500" height="451" /><figcaption>Autofocus provides clear visual focus on desktop.</figcaption></figure>Keep passwords private—but enable users to see them if they want <a href="#show-password" class="w-headline-link">#</a>
 
 Passwords inputs should have `type="password"` to hide password text and help the browser understand that the input is for passwords. (Note that browsers use [a variety of techniques](#autofill) to understand input roles and decide whether or not to offer to save passwords.)
 
 You should add a **Show password** icon or button to enable users to check the text they've entered—and don't forget to add a **Forgot password** link. See [Enable password display](#password-display).
 
-<figure><img src="https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format" alt="Password input from the Google sign-in form: with Show password icon and Forgot password link." class="w-screenshot" sizes="(min-width: 300px) 300px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=600 600w" width="300" height="107" /><figcaption>Password input from the Google sign-in form: with <strong>Show password</strong> icon and <strong>Forgot password</strong> link.</figcaption></figure>Give mobile users the right keyboard <a href="#mobile-keyboards" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format" alt="Password input from the Google sign-in form: with Show password icon and Forgot password link." class="w-screenshot" sizes="(min-width: 300px) 300px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/58suVe0HnSLaJvNjKY53.png?auto=format&amp;w=600 600w" width="300" height="107" /><figcaption>Password input from the Google sign-in form: with <strong>Show password</strong> icon and <strong>Forgot password</strong> link.</figcaption></figure>Give mobile users the right keyboard <a href="#mobile-keyboards" class="w-headline-link">#</a>
 
 Use `<input type="email">` to give mobile users an appropriate keyboard and enable basic built-in email address validation by the browser… no JavaScript required!
 
@@ -206,11 +193,11 @@ For password inputs, use the appropriate `autocomplete` and `id` values to help 
 
 ### Use `autocomplete="new-password"` and `id="new-password"` for a new password <a href="#new-password" class="w-headline-link">#</a>
 
--   Use `autocomplete="new-password"` and `id="new-password"` for the password input in a sign-up form, or the new password in a change-password form.
+- Use `autocomplete="new-password"` and `id="new-password"` for the password input in a sign-up form, or the new password in a change-password form.
 
 ### Use `autocomplete="current-password"` and `id="current-password"` for an existing password <a href="#current-password" class="w-headline-link">#</a>
 
--   Use `autocomplete="current-password"` and `id="current-password"` for the password input in a sign-in form, or the input for the user's old password in a change-password form. This tells the browser that you want it to use the current password that it has stored for the site.
+- Use `autocomplete="current-password"` and `id="current-password"` for the password input in a sign-in form, or the input for the user's old password in a change-password form. This tells the browser that you want it to use the current password that it has stored for the site.
 
 For a sign-up form:
 
@@ -252,8 +239,7 @@ The downside with this approach is that there's no way to share passwords across
 
 Add the `required` attribute to both email and password fields. Modern browsers automatically prompt and set focus for missing data. No JavaScript required!
 
-<figure><img src="https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format" alt="Prompt and focus for missing data on Firefox for desktop (version 76) and Chrome for Android (version 83)." class="w-screenshot" sizes="(min-width: 600px) 600px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=1200 1200w" width="600" height="392" /><figcaption>Prompt and focus for missing data on Firefox for desktop (version 76) and Chrome for Android (version 83).</figcaption></figure>Design for fingers and thumbs <a href="#mobile-design" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format" alt="Prompt and focus for missing data on Firefox for desktop (version 76) and Chrome for Android (version 83)." class="w-screenshot" sizes="(min-width: 600px) 600px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/n5Nr290upVmQGvlc263U.png?auto=format&amp;w=1200 1200w" width="600" height="392" /><figcaption>Prompt and focus for missing data on Firefox for desktop (version 76) and Chrome for Android (version 83).</figcaption></figure>Design for fingers and thumbs <a href="#mobile-design" class="w-headline-link">#</a>
 
 The default browser size for just about everything relating to input elements and buttons is too small, especially on mobile. This may seem obvious, but it's a common problem with sign-in forms on many sites.
 
@@ -302,8 +288,7 @@ Browsers have built-in features to do basic form validation for inputs with a `t
 
 Try out different ways of highlighting inputs with invalid values.
 
-Use JavaScript where necessary <a href="#javascript" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Use JavaScript where necessary <a href="#javascript" class="w-headline-link">#</a>
 
 ### Toggle password display <a href="#password-display" class="w-headline-link">#</a>
 
@@ -394,35 +379,33 @@ Find out more: [Use JavaScript for more complex real-time validation](https://de
 
 [Discount usability testing](https://www.nngroup.com/articles/discount-usability-20-years/) can be helpful for trying out changes, but you'll need real-world data to really understand how your users experience your sign-up and sign-in forms:
 
--   **Page analytics**: sign-up and sign-in page views, bounce rates, and exits.
--   **Interaction analytics**: [goal funnels](https://support.google.com/analytics/answer/6180923?hl=en) (where do users abandon your sign-in or sign-in flow?) and [events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) (what actions do users take when interacting with your forms?)
--   **Website performance**: [user-centric metrics](/user-centric-performance-metrics) (are your sign-up and sign-in forms slow for some reason and, if so, what is the cause?).
+- **Page analytics**: sign-up and sign-in page views, bounce rates, and exits.
+- **Interaction analytics**: [goal funnels](https://support.google.com/analytics/answer/6180923?hl=en) (where do users abandon your sign-in or sign-in flow?) and [events](https://developers.google.com/analytics/devguides/collection/gtagjs/events) (what actions do users take when interacting with your forms?)
+- **Website performance**: [user-centric metrics](/user-centric-performance-metrics) (are your sign-up and sign-in forms slow for some reason and, if so, what is the cause?).
 
 You may also want to consider implementing A/B testing in order to try out different approaches to sign-up and sign-in, and staged rollouts to validate the changes on a subset of users before releasing changes to all users.
 
-General guidelines <a href="#general-guidelines" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## General guidelines <a href="#general-guidelines" class="w-headline-link">#</a>
 
 Well designed UI and UX can reduce sign-in form abandonment:
 
--   Don't make users hunt for sign-in! Put a link to the sign-in form at the top of the page, using well-understood wording such as **Sign In**, **Create Account** or **Register**.
--   Keep it focused! Sign-up forms are not the place to distract people with offers and other site features.
--   Minimize sign-up complexity. Collect other user data (such as addresses or credit card details) only when users see a clear benefit from providing that data.
--   Before users start on your sign-up form, make it clear what the value proposition is. How do they benefit from signing in? Give users concrete incentives to complete sign-up.
--   If possible allow users to identify themselves with a mobile phone number instead of an email address, since some users may not use email.
--   Make it easy for users to reset their password, and make the **Forgot your password?** link obvious.
--   Link to your terms of service and privacy policy documents: make it clear to users from the start how you safeguard their data.
--   Include the logo and name of your company or organization on your signup and sign-in pages, and make sure that language, fonts and styles match the rest of your site. Some forms don't feel like they belong to the same site as other content, especially if they have a significantly different URL.
+- Don't make users hunt for sign-in! Put a link to the sign-in form at the top of the page, using well-understood wording such as **Sign In**, **Create Account** or **Register**.
+- Keep it focused! Sign-up forms are not the place to distract people with offers and other site features.
+- Minimize sign-up complexity. Collect other user data (such as addresses or credit card details) only when users see a clear benefit from providing that data.
+- Before users start on your sign-up form, make it clear what the value proposition is. How do they benefit from signing in? Give users concrete incentives to complete sign-up.
+- If possible allow users to identify themselves with a mobile phone number instead of an email address, since some users may not use email.
+- Make it easy for users to reset their password, and make the **Forgot your password?** link obvious.
+- Link to your terms of service and privacy policy documents: make it clear to users from the start how you safeguard their data.
+- Include the logo and name of your company or organization on your signup and sign-in pages, and make sure that language, fonts and styles match the rest of your site. Some forms don't feel like they belong to the same site as other content, especially if they have a significantly different URL.
 
-Keep learning <a href="#resources" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Keep learning <a href="#resources" class="w-headline-link">#</a>
 
--   [Create Amazing Forms](https://developers.google.com/web/fundamentals/design-and-ux/input/forms)
--   [Best Practices For Mobile Form Design](https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/)
--   [More capable form controls](/more-capable-form-controls)
--   [Creating Accessible Forms](https://webaim.org/techniques/forms/)
--   [Streamlining the Sign-in Flow Using Credential Management API](https://developers.google.com/web/updates/2016/04/credential-management-api)
--   [Verify phone numbers on the web with the WebOTP API](/web-otp/)
+- [Create Amazing Forms](https://developers.google.com/web/fundamentals/design-and-ux/input/forms)
+- [Best Practices For Mobile Form Design](https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/)
+- [More capable form controls](/more-capable-form-controls)
+- [Creating Accessible Forms](https://webaim.org/techniques/forms/)
+- [Streamlining the Sign-in Flow Using Credential Management API](https://developers.google.com/web/updates/2016/04/credential-management-api)
+- [Verify phone numbers on the web with the WebOTP API](/web-otp/)
 
 Photo by [Meghan Schiereck](https://unsplash.com/photos/_XFObcM_7KU) on [Unsplash](https://unsplash.com).
 
@@ -430,46 +413,45 @@ Photo by [Meghan Schiereck](https://unsplash.com/photos/_XFObcM_7KU) on [Unsplas
 
 <span class="w-mr--sm">Last updated: Feb 26, 2021 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/blog/sign-in-form-best-practices/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-sign-in-form-best-practices/" class="w-callout__link w-callout__link--codelab">Use cross-platform browser features to build a sign-in form</a>
+- <a href="/codelab-sign-in-form-best-practices/" class="w-callout__link w-callout__link--codelab">Use cross-platform browser features to build a sign-in form</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

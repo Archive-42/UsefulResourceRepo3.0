@@ -1,11 +1,4 @@
-
-
-
-
-
-
-Codelab: Build a push notification client
-=========================================
+# Codelab: Build a push notification client
 
 Nov 11, 2020 <span class="w-author__separator">•</span> Updated Dec 6, 2020
 
@@ -13,10 +6,10 @@ Nov 11, 2020 <span class="w-author__separator">•</span> Updated Dec 6, 2020
 
 <a href="/authors/kaycebasques/" class="w-author__name-link">Kayce Basques</a>
 
--   <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
--   <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
--   <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
+- <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
+- <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Kate Jeffreys" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/katejeffreys/)
 
@@ -24,9 +17,9 @@ Nov 11, 2020 <span class="w-author__separator">•</span> Updated Dec 6, 2020
 
 This codelab shows you, step-by-step, how to build a push notification client. By the end of the codelab you'll have a client that:
 
--   Subscribes the user to push notifications.
--   Receives push messages and displays them as notifications.
--   Unsubscribes the user from push notifications.
+- Subscribes the user to push notifications.
+- Receives push messages and displays them as notifications.
+- Unsubscribes the user from push notifications.
 
 This codelab is focused on helping you learn by doing and doesn't talk about concepts much. Check out [How do push notifications work?](/push-notifications-overview/#how) to learn about push notification concepts.
 
@@ -34,22 +27,20 @@ The server code of this codelab is already complete. You'll only be implementing
 
 Check out [push-notifications-client-codelab-complete](https://push-notifications-client-codelab-complete.glitch.me/) ([source](https://glitch.com/edit/#!/push-notifications-client-codelab-complete)) to see the complete code.
 
-Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
 
 This codelab is known to work with the following operating system and browser combinations:
 
--   Windows: Chrome, Edge
--   macOS: Chrome, Firefox
--   Android: Chrome, Firefox
+- Windows: Chrome, Edge
+- macOS: Chrome, Firefox
+- Android: Chrome, Firefox
 
 This codelab is known to **not** work with the following operating systems (or operating system and browser combinations):
 
--   macOS: Brave, Edge, Safari
--   iOS
+- macOS: Brave, Edge, Safari
+- iOS
 
-Setup <a href="#setup" class="w-headline-link">#</a>
-----------------------------------------------------
+## Setup <a href="#setup" class="w-headline-link">#</a>
 
 ### Get an editable copy of the code <a href="#remix" class="w-headline-link">#</a>
 
@@ -84,8 +75,7 @@ Environment variable values (the stuff in `.env`) are unique to a single Glitch 
 1.  Open `public/index.js`.
 2.  Replace `VAPID_PUBLIC_KEY_VALUE_HERE` with the value of your public key.
 
-Register a service worker <a href="#register-a-service-worker" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Register a service worker <a href="#register-a-service-worker" class="w-headline-link">#</a>
 
 Your client will eventually need a service worker to receive and display notifications. It's best to register the service worker as early as possible. See [Receive and display the pushed messages as notifications](/push-notifications-overview/#notification) for more context.
 
@@ -119,8 +109,7 @@ Your client will eventually need a service worker to receive and display notific
 
 The previous instruction assumes that you're using Google Chrome and Chrome DevTools.
 
-Request push notification permission <a href="#request-push-notification-permission" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Request push notification permission <a href="#request-push-notification-permission" class="w-headline-link">#</a>
 
 You should never request permission to send push notifications on page load. Instead, your UI should ask the user if they want to receive push notifications. Once they explicitly confirm (with a button click, for example) then you can start the formal process for getting push notification permission from the browser.
 
@@ -147,8 +136,7 @@ You should never request permission to send push notifications on page load. Ins
 
 If you're in an incognito or guest window, your browser may deny the request automatically. Keep an eye out for any browser UI indicating that the request was blocked automatically.
 
-Subscribe to push notifications <a href="#subscribe-to-push-notifications" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------
+## Subscribe to push notifications <a href="#subscribe-to-push-notifications" class="w-headline-link">#</a>
 
 The subscription process involves interacting with a web service controlled by the browser vendor that's called a **push service**. Once you get the push notification subscription information you need to send it to a server and have the server store it in a database long-term. See [Subscribe the client to push notifications](/push-notifications-overview/#subscription) for more context about the subscription process.
 
@@ -190,8 +178,7 @@ The `userVisibleOnly` option must be `true`. It may one day be possible to push 
 
 The `applicationServerKey` value relies on a utility function that converts a base64 string to a Uint8Array. This value is used for authentication between your server and the push service.
 
-Unsubscribe from push notifications <a href="#unsubscribe-from-push-notifications" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Unsubscribe from push notifications <a href="#unsubscribe-from-push-notifications" class="w-headline-link">#</a>
 
 After a user has subscribed to push notifications, your UI needs to provide a way to unsubscribe in case the user changes their mind and no longer wants to receive push notifications.
 
@@ -217,8 +204,7 @@ After a user has subscribed to push notifications, your UI needs to provide a wa
       notifyMeButton.disabled = true;
     }
 
-Receive a push message and display it as a notification <a href="#receive-a-push-message-and-display-it-as-a-notification" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------
+## Receive a push message and display it as a notification <a href="#receive-a-push-message-and-display-it-as-a-notification" class="w-headline-link">#</a>
 
 As mentioned before, you need a service worker to handle the receiving and displaying of messages that were pushed to the client from your server. See [Receive and display the pushed messages as notifications](/push-notifications-overview/#notification) for more detail.
 
@@ -234,7 +220,7 @@ As mentioned before, you need a service worker to handle the receiving and displ
       icon: image
     }
     self.registration.showNotification(
-      data.title, 
+      data.title,
       options
     );
 
@@ -248,8 +234,7 @@ You can customize the notification in lots of ways. See the parameters of [`Serv
 
 The call to [`self.skipWaiting()`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting) in your service worker's `install` listener is important to understand. See [Skip the waiting phase](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase) for an explanation. Without it, the code changes that you make to your service worker wouldn't take effect immediately. You may or may not want to use this feature on your own website depending on your needs, but either way it's important to understand its effect.
 
-Open a URL when a user clicks a notification <a href="#open-a-url-when-a-user-clicks-a-notification" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## Open a URL when a user clicks a notification <a href="#open-a-url-when-a-user-clicks-a-notification" class="w-headline-link">#</a>
 
 In the real-world, you'll probably use the notification as a way to re-engage your user and prompt them to visit your site. To do that, you need to configure your service worker a bit more.
 
@@ -263,45 +248,44 @@ In the real-world, you'll probably use the notification as a way to re-engage yo
 
 1.  Go back to the app tab, send yourself another notification, and then click the notification. Your browser should open a new tab and load `https://web.dev`.
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
--   Look at [`ServiceWorkerRegistration.showNotification()`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification) to discover all of the different ways you can customize notifications.
--   Read [Push notifications overview](/push-notifications-overview) for a deeper conceptual understanding of how push notifications work.
--   Check out [Codelab: Build a push notification server](/push-notifications-server-codelab/) to learn how to build a server that manages subscriptions and sends web push protocol requests.
--   Try out [Notification Generator](https://tests.peter.sh/notification-generator/) to test out all the ways you can customize notifications.
+- Look at [`ServiceWorkerRegistration.showNotification()`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification) to discover all of the different ways you can customize notifications.
+- Read [Push notifications overview](/push-notifications-overview) for a deeper conceptual understanding of how push notifications work.
+- Check out [Codelab: Build a push notification server](/push-notifications-server-codelab/) to learn how to build a server that manages subscriptions and sends web push protocol requests.
+- Try out [Notification Generator](https://tests.peter.sh/notification-generator/) to test out all the ways you can customize notifications.
 
 <a href="/push-notifications-overview" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to article</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

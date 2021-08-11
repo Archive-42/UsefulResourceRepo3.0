@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#bitrate" class="w-toc__header--link">Bitrate</a>
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>

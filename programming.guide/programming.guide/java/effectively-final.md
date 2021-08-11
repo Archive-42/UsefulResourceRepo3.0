@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## References
 
@@ -10,7 +10,7 @@
 [4.12.4. final Variables](https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.12.4)  
 <span style="color: grey; font-style: italic; font-size: smaller">JLS</span>
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

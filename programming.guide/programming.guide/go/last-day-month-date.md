@@ -1,7 +1,3 @@
-<span class="underline"></span>
-
-<span class="underline"></span>
-
 ## Further Reading
 
 [Format a time or date](format-parse-string-time-date-example.html)  
@@ -25,8 +21,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-<span class="underline"></span>
 
 ## Top Algorithm Articles
 

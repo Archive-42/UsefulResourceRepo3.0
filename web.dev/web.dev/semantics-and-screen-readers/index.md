@@ -1,22 +1,14 @@
+## <a href="#semantics-and-screen-readers" class="w-toc__header--link">Semantics and screen readers</a>
 
-
-
-
-
-
-<a href="#semantics-and-screen-readers" class="w-toc__header--link">Semantics and screen readers</a>
-----------------------------------------------------------------------------------------------------
-
--   [Affordances and semantics](#affordances-and-semantics)
--   [Use semantic HTML](#use-semantic-html)
--   [Semantic properties and the accessibility tree](#semantic-properties-and-the-accessibility-tree)
--   [The accessibility tree](#the-accessibility-tree)
--   [Next steps](#next-steps)
+- [Affordances and semantics](#affordances-and-semantics)
+- [Use semantic HTML](#use-semantic-html)
+- [Semantic properties and the accessibility tree](#semantic-properties-and-the-accessibility-tree)
+- [The accessibility tree](#the-accessibility-tree)
+- [Next steps](#next-steps)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Semantics and screen readers
-============================
+# Semantics and screen readers
 
 Nov 18, 2018
 
@@ -26,15 +18,14 @@ Nov 18, 2018
 
 <a href="/authors/robdodson/" class="w-author__name-link">Rob Dodson</a>
 
--   <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
--   <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
--   <a href="https://robdodson.me" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rob_dodson" class="w-author__link">Twitter</a>
+- <a href="https://github.com/robdodson" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@robdodson" class="w-author__link">Glitch</a>
+- <a href="https://robdodson.me" class="w-author__link">Blog</a>
 
-Have you ever stopped to wonder *how* assistive technology, such as a screen reader, knows what to announce to users? The answer is that these technologies rely on developers marking up their pages with **semantic** HTML. But what are semantics, and how do screen readers use them?
+Have you ever stopped to wonder _how_ assistive technology, such as a screen reader, knows what to announce to users? The answer is that these technologies rely on developers marking up their pages with **semantic** HTML. But what are semantics, and how do screen readers use them?
 
-Affordances and semantics <a href="#affordances-and-semantics" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Affordances and semantics <a href="#affordances-and-semantics" class="w-headline-link">#</a>
 
 Before diving into semantics, it's helpful to understand another term: **affordances**. An affordance is any object that offers, or affords, its user the opportunity to perform an action. A classic example is the teapot:
 
@@ -44,8 +35,7 @@ When we build graphical user interfaces, we use things like CSS to add **visual 
 
 But if a user is unable to see the screen, then these visual affordances will not be conveyed to them. Therefore, you need to make sure that your UI is constructed in a way that can convey these same affordances to assistive technology. This non-visual exposure of a UI element's affordances is called its **semantics**.
 
-Use semantic HTML <a href="#use-semantic-html" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Use semantic HTML <a href="#use-semantic-html" class="w-headline-link">#</a>
 
 The easiest way of conveying proper semantics is to use semantically rich HTML elements.
 
@@ -53,23 +43,22 @@ Using CSS, it's possible to style the `<div>` and `<button>` elements so they co
 
 The simplest and often best solution to this problem is to avoid custom interactive controls altogether. For example, replace a `<div>` that's acting like a button with an actual `<button>`.
 
-Semantic properties and the accessibility tree <a href="#semantic-properties-and-the-accessibility-tree" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------
+## Semantic properties and the accessibility tree <a href="#semantic-properties-and-the-accessibility-tree" class="w-headline-link">#</a>
 
 Generally speaking, every HTML element will have some of the following semantic properties:
 
--   A **role** or type
--   A **name**
--   A **value** (optional)
--   A **state** (optional)
+- A **role** or type
+- A **name**
+- A **value** (optional)
+- A **state** (optional)
 
 An element's **role** describes its type, i.e. "button," "input," or even just "group" for things like `div`'s and `span`'s.
 
 An element's **name** is its computed label. Screen readers typically announce an element's name followed by its role, e.g. "Sign Up, button." The algorithm that determines an element's name factors in things like if there is any text content inside the element, whether or not it has attributes such as `title` or `placeholder`, whether or not the element is associated with an actual `<label>` element, and if the element has any ARIA attributes such as `aria-label` and `aria-labelledby`.
 
-Some elements *may* have a **value**. For instance, `<input type="text">` may have a value that reflects whatever the user has typed into the text field.
+Some elements _may_ have a **value**. For instance, `<input type="text">` may have a value that reflects whatever the user has typed into the text field.
 
-Some elements *may* also have a **state**, which conveys their current status. For instance, a `<select>` element can be in either an *expanded* or a *collapsed* state, depending on if it's open or closed.
+Some elements _may_ also have a **state**, which conveys their current status. For instance, a `<select>` element can be in either an _expanded_ or a _collapsed_ state, depending on if it's open or closed.
 
 ### The accessibility tree <a href="#the-accessibility-tree" class="w-headline-link">#</a>
 
@@ -79,8 +68,7 @@ Browsers will often remove semantically uninteresting nodes like `div` and `span
 
 Using Chrome's DevTools you can [inspect an element's semantic properties](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane) and explore its position in the accessibility tree.
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
 Once you know a bit about semantics and how they aid screen reader navigation, you can't help but look at the pages you build differently. In the next section, we'll take a step back and consider how the entire outline of a page can be conveyed using effective [headings and landmarks](/headings-and-landmarks/).
 
@@ -88,35 +76,35 @@ Once you know a bit about semantics and how they aid screen reader navigation, y
 
 <a href="/accessible" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

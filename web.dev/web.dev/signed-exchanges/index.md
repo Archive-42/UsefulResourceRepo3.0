@@ -1,42 +1,34 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format" alt="A pile of envelopes." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/6ll3P8MYWxvtb1ZjXIzb.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#signed-exchanges-(sxgs)" class="w-toc__header--link">Signed Exchanges (SXGs)</a>
-------------------------------------------------------------------------------------------
+## <a href="#signed-exchanges-(sxgs)" class="w-toc__header--link">Signed Exchanges (SXGs)</a>
 
--   [Browser compatibility](#browser-compatibility)
--   [Overview](#overview)
--   [The SXG format](#the-sxg-format)
--   [Web Packaging](#web-packaging)
--   [Loading SXGs](#loading-sxgs)
--   [Serving SXGs](#serving-sxgs)
--   [Content negotiation](#content-negotiation)
--   [Best practices](#best-practices)
--   [Debugging SXGs with Chrome DevTools](#debugging)
--   [Use cases](#use-cases)
--   [Google Search](#google-search)
--   [AMP](#amp)
--   [Tooling](#tooling)
--   [Certificates](#certificates)
--   [Web Packager](#web-packager)
--   [Web Packager CLI](#web-packager-cli)
--   [Web Packager Server](#web-packager-server)
--   [Other tooling](#other-tooling)
--   [Conclusion](#conclusion)
--   [Further reading](#further-reading)
+- [Browser compatibility](#browser-compatibility)
+- [Overview](#overview)
+- [The SXG format](#the-sxg-format)
+- [Web Packaging](#web-packaging)
+- [Loading SXGs](#loading-sxgs)
+- [Serving SXGs](#serving-sxgs)
+- [Content negotiation](#content-negotiation)
+- [Best practices](#best-practices)
+- [Debugging SXGs with Chrome DevTools](#debugging)
+- [Use cases](#use-cases)
+- [Google Search](#google-search)
+- [AMP](#amp)
+- [Tooling](#tooling)
+- [Certificates](#certificates)
+- [Web Packager](#web-packager)
+- [Web Packager CLI](#web-packager-cli)
+- [Web Packager Server](#web-packager-server)
+- [Other tooling](#other-tooling)
+- [Conclusion](#conclusion)
+- [Further reading](#further-reading)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Signed Exchanges (SXGs)
-=======================
+# Signed Exchanges (SXGs)
 
 An SXG is a delivery mechanism that makes it possible to authenticate the  
 origin of a resource independently of how it was delivered.
@@ -47,22 +39,20 @@ Oct 14, 2020 <span class="w-author__separator">•</span> Updated Apr 21, 2021
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 A signed exchange (SXG) is a delivery mechanism that makes it possible to authenticate the origin of a resource independently of how it was delivered. This decoupling advances a variety of use cases such as privacy-preserving prefetching, offline internet experiences, and serving from third-party caches. Additionally, implementing SXGs can improve Largest Contentful Paint (LCP) for some sites.
 
 This article provides a comprehensive overview of SXGs: how they work, use cases, and tooling.
 
-Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
 
 SXGs are [supported](https://caniuse.com/#feat=sxg) by Chromium-based browsers (starting with versions: Chrome 73, Edge 79, and Opera 64).
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 Signed Exchanges (SXGs) allow a site to cryptographically sign a request/response pair (an "HTTP exchange") in a way that makes it possible for the browser to verify the origin and integrity of the content independently of how the content was distributed. As a result, the browser can display the URL of the origin site in the address bar, rather than the URL of the server that delivered the content.
 
@@ -131,8 +121,7 @@ The relationship between SXGs and Web Bundles is a common point of confusion. SX
 
 SXGs are the first part of the Web Packaging spec that Chromium-based browsers will implement.
 
-Loading SXGs <a href="#loading-sxgs" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Loading SXGs <a href="#loading-sxgs" class="w-headline-link">#</a>
 
 Initially, the primary use case of SXGs will likely be as a delivery mechanism for a page's main document. For this use case, a SXG could be referenced using the `<link>` or `<a>` tags, as well as the [`Link` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link). Like other resources, a SXG can be loaded by entering its URL in the browser's address bar.
 
@@ -142,8 +131,7 @@ Initially, the primary use case of SXGs will likely be as a delivery mechanism f
 
 SXGs can also be used to deliver subresources. For more information, refer to [Signed Exchange subresource substitution](https://github.com/WICG/webpackage/blob/main/explainers/signed-exchange-subresource-substitution.md).
 
-Serving SXGs <a href="#serving-sxgs" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Serving SXGs <a href="#serving-sxgs" class="w-headline-link">#</a>
 
 ### Content negotiation <a href="#content-negotiation" class="w-headline-link">#</a>
 
@@ -177,8 +165,7 @@ The following regular expression can be used to match the `Accept` header of req
 
 Note that the subexpression `(,|$)` matches headers where the `q-value` for SXG has been omitted; this omission implies a `q-value` of `1` for SXG. Although an `Accept` header could theoretically contain the substring `q=1`, [in practice](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values) browsers don't explicitly list a format's `q-value` when it has the default value of `1`.
 
-Debugging SXGs with Chrome DevTools <a href="#debugging" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Debugging SXGs with Chrome DevTools <a href="#debugging" class="w-headline-link">#</a>
 
 Signed Exchanges can be identified by looking for `signed-exchange` in the **Type** column of the **Network** panel in Chrome DevTools.
 
@@ -186,8 +173,7 @@ Signed Exchanges can be identified by looking for `signed-exchange` in the **Typ
 
 <figure><img src="https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format" alt="The Preview tab in DevTools" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/E0rBwuxk4BxFmLJ3gXhP.png?auto=format&amp;w=1600 1600w" width="800" height="561" /><figcaption>The <strong>Preview</strong> tab in DevTools</figcaption></figure>To see a SXG firsthand, visit this [demo](https://signed-exchange-testing.dev/) in [one of the browsers that supports SXG](#browser-compatibility)
 
-Use cases <a href="#use-cases" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Use cases <a href="#use-cases" class="w-headline-link">#</a>
 
 SXGs can be used to deliver content directly from an origin server to a user—but this would largely defeat the purpose of SXGs. Rather, the intended use and benefits of SXGs are primarily achieved when the SXGs generated by an origin server are cached and served to users by an intermediary.
 
@@ -223,8 +209,7 @@ All of the concepts described in this document still apply to the AMP use case, 
 
 Learn how to serve AMP using signed exchanges on [amp.dev](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/signed-exchange/).
 
-Tooling <a href="#tooling" class="w-headline-link">#</a>
---------------------------------------------------------
+## Tooling <a href="#tooling" class="w-headline-link">#</a>
 
 This section discusses the tooling options and technical requirements of SXGs.
 
@@ -263,37 +248,35 @@ In production, `webpkgserver` should not use a public endpoint. Instead, the fro
 
 This section lists tooling alternatives to Web Packager. In addition to these options, you can also choose to build your own SXG generator.
 
--   `sxg-rs`
+- `sxg-rs`
 
-    [`sxg-rs`](https://github.com/google/sxg-rs) is a collection of tools for generating SXGs using various serverless platforms. Cloudflare Workers and Fastly Compute@Edge, and a Rust library that could be adapted to other serverless platforms.
+  [`sxg-rs`](https://github.com/google/sxg-rs) is a collection of tools for generating SXGs using various serverless platforms. Cloudflare Workers and Fastly Compute@Edge, and a Rust library that could be adapted to other serverless platforms.
 
--   NGINX SXG Module
+- NGINX SXG Module
 
-    The [NGINX SXG module](https://github.com/google/nginx-sxg-module) generates and serves SXGs. Sites that already use NGINX should consider using this module over Web Packager Server.
+  The [NGINX SXG module](https://github.com/google/nginx-sxg-module) generates and serves SXGs. Sites that already use NGINX should consider using this module over Web Packager Server.
 
-    The NGINX SXG module only works with `CanSignHttpExchanges` certificates. Setup instructions can be found [here](/how-to-set-up-signed-http-exchanges/).
+  The NGINX SXG module only works with `CanSignHttpExchanges` certificates. Setup instructions can be found [here](/how-to-set-up-signed-http-exchanges/).
 
--   `libsxg`
+- `libsxg`
 
-    [`libsxg`](https://github.com/google/libsxg) is a minimal, C-based library for generating SXGs. `libsxg` can be used to build an SXG generator that integrates into other pluggable servers. The NGINX SXG module is built on top of `libsxg`.
+  [`libsxg`](https://github.com/google/libsxg) is a minimal, C-based library for generating SXGs. `libsxg` can be used to build an SXG generator that integrates into other pluggable servers. The NGINX SXG module is built on top of `libsxg`.
 
--   `gen-signedexchange`
+- `gen-signedexchange`
 
-    [`gen-signedexchange`](https://github.com/WICG/webpackage/tree/main/go/signedexchange) is a tool provided by the webpackage specification as a [reference implementation](https://en.wikipedia.org/wiki/Reference_implementation) of generating SXGs. Due to its limited feature set, `gen-signedexchange` is useful for trying out SXGs, but impractical for larger-scale and production use.
+  [`gen-signedexchange`](https://github.com/WICG/webpackage/tree/main/go/signedexchange) is a tool provided by the webpackage specification as a [reference implementation](https://en.wikipedia.org/wiki/Reference_implementation) of generating SXGs. Due to its limited feature set, `gen-signedexchange` is useful for trying out SXGs, but impractical for larger-scale and production use.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Signed Exchanges are a delivery mechanism that make it possible to verify the origin and validity of a resource independently of how the resource was delivered. As a result, SXGs can be distributed by third-parties while maintaining full publisher attribution.
 
-Further reading <a href="#further-reading" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
--   [Draft spec for Signed HTTP Exchanges](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html)
--   [Web Packaging explainers](https://github.com/WICG/webpackage/tree/main/explainers)
--   [Get started with signed exchanges on Google Search](https://developers.google.com/search/docs/advanced/experience/signed-exchange)
--   [How to set up Signed Exchanges using Web Packager](https://web.dev/signed-exchanges-webpackager)
--   [Demo of Signed Exchanges](https://signed-exchange-testing.dev/)
+- [Draft spec for Signed HTTP Exchanges](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html)
+- [Web Packaging explainers](https://github.com/WICG/webpackage/tree/main/explainers)
+- [Get started with signed exchanges on Google Search](https://developers.google.com/search/docs/advanced/experience/signed-exchange)
+- [How to set up Signed Exchanges using Web Packager](https://web.dev/signed-exchanges-webpackager)
+- [Demo of Signed Exchanges](https://signed-exchange-testing.dev/)
 
 <a href="/tags/performance/" class="w-chip">Performance</a>
 
@@ -301,35 +284,35 @@ Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

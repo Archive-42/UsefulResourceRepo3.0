@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## References
 
@@ -10,7 +10,7 @@
 [Arrays of Wisdom of the Ancients](https://shipilev.net/blog/2016/arrays-wisdom-ancients/)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Aleksey Shipilёv</span>
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

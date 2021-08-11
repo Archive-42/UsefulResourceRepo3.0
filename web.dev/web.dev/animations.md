@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Animations
 
 Techniques for developing high-performance animations.

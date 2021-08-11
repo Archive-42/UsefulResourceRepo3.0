@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreaterrolelesscodegreaters-are-not-contained-by-their-required-parent-element" class="w-toc__header--link"><code>[role]</code>s are not contained by their required parent element</a>
 
 - [How Lighthouse identifies missing parent roles](#how-lighthouse-identifies-missing-parent-roles)

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format" alt="Phone outline with loading image and assets" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/F6VE4QkpCsomiJilTFNG.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
 ## <a href="#browser-level-image-lazy-loading-for-the-web" class="w-toc__header--link">Browser-level image lazy-loading for the web</a>

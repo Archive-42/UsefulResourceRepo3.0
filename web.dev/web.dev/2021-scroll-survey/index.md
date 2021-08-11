@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#take-the-2021-scroll-survey-to-help-improve-scrolling-on-the-web" class="w-toc__header--link">Take the 2021 scroll survey to help improve scrolling on the web</a>
 
 - [2021 Scroll Survey](#2021-scroll-survey)

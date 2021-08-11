@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Codelab: Building a Sidenav component
 
 Jan 21, 2021

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#the-cache-api:-a-quick-guide" class="w-toc__header--link">The Cache API: A quick guide</a>
 
 - [Where is it available?](#where-is-it-available)

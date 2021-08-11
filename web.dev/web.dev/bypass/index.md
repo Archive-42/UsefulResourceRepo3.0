@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#the-page-does-not-contain-a-heading-skip-link-or-landmark-region" class="w-toc__header--link">The page does not contain a heading, skip link, or landmark region</a>
 
 - [How this Lighthouse audit fails](#how-this-lighthouse-audit-fails)

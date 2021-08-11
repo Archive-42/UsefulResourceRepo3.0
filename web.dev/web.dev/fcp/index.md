@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#first-contentful-paint-(fcp)" class="w-toc__header--link">First Contentful Paint (FCP)</a>
 
 - [What is FCP?](#what-is-fcp)

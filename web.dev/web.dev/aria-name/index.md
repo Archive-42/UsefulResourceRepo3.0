@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#aria-items-do-not-have-accessible-names" class="w-toc__header--link">ARIA items do not have accessible names</a>
 
 - [How Lighthouse identifies ARIA items without accessible names](#how-lighthouse-identifies-aria-items-without-accessible-names)

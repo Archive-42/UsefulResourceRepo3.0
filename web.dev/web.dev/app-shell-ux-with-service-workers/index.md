@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#app-shell-ux-with-service-workers-and-streams" class="w-toc__header--link">App shell UX with service workers and streams</a>
 
 - [Production case](#production-case)

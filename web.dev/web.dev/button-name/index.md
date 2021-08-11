@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#buttons-do-not-have-an-accessible-name" class="w-toc__header--link">Buttons do not have an accessible name</a>
 
 - [How the Lighthouse button name audit fails](#how-the-lighthouse-button-name-audit-fails)

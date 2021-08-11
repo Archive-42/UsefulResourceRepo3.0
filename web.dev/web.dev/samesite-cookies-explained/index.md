@@ -1,5 +1,3 @@
-
-
 <a href="/" class="header-default__logo-link gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="header-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="header-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="header-default__link gc-analytics-event">Blog</a> <a href="/about/" class="header-default__link gc-analytics-event">About</a>
@@ -12,23 +10,21 @@
 
 <img src="https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/admin/UTOC41rgCccAqVNbJlyK.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#samesite-cookies-explained" class="w-toc__header--link">SameSite cookies explained</a>
-------------------------------------------------------------------------------------------------
+## <a href="#samesite-cookies-explained" class="w-toc__header--link">SameSite cookies explained</a>
 
--   [What are first-party and third-party cookies?](#what-are-first-party-and-third-party-cookies)
--   [Explicitly state cookie usage with the SameSite attribute](#explicitly-state-cookie-usage-with-the-samesite-attribute)
--   [Changes to the default behavior without SameSite](#changes-to-the-default-behavior-without-samesite)
--   [SameSite=Lax by default](#samesitelax-by-default)
--   [SameSite=None must be secure](#samesitenone-must-be-secure)
--   [SameSite cookie recipes](#samesite-cookie-recipes)
+- [What are first-party and third-party cookies?](#what-are-first-party-and-third-party-cookies)
+- [Explicitly state cookie usage with the SameSite attribute](#explicitly-state-cookie-usage-with-the-samesite-attribute)
+- [Changes to the default behavior without SameSite](#changes-to-the-default-behavior-without-samesite)
+- [SameSite=Lax by default](#samesitelax-by-default)
+- [SameSite=None must be secure](#samesitenone-must-be-secure)
+- [SameSite cookie recipes](#samesite-cookie-recipes)
 
 Share <a href="/newsletter/" class="w-actions__fab w-actions__fab--subscribe gc-analytics-event"><span>subscribe</span></a>
 
--   <a href="/" class="w-breadcrumbs__link w-breadcrumbs__link--left-justify gc-analytics-event">Home</a>
--   <a href="/blog" class="w-breadcrumbs__link gc-analytics-event">All articles</a>
+- <a href="/" class="w-breadcrumbs__link w-breadcrumbs__link--left-justify gc-analytics-event">Home</a>
+- <a href="/blog" class="w-breadcrumbs__link gc-analytics-event">All articles</a>
 
-SameSite cookies explained
-==========================
+# SameSite cookies explained
 
 Secure your site by learning how to explicitly mark your cross-site cookies.
 
@@ -40,15 +36,15 @@ May 7, 2019 <span class="w-author__separator">•</span> Updated May 28, 2020
 
 <a href="/authors/rowan_m/" class="w-author__name-link">Rowan Merewood</a>
 
--   <a href="https://twitter.com/rowan_m" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rowan-m" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@rowan-m" class="w-author__link">Glitch</a>
+- <a href="https://twitter.com/rowan_m" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rowan-m" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@rowan-m" class="w-author__link">Glitch</a>
 
 This article is part of a series on the `SameSite` cookie attribute changes:
 
--   [SameSite cookies explained](/samesite-cookies-explained/)
--   [SameSite cookies recipes](/samesite-cookie-recipes/)
--   [Schemeful Same-Site](/schemeful-samesite)
+- [SameSite cookies explained](/samesite-cookies-explained/)
+- [SameSite cookies recipes](/samesite-cookie-recipes/)
+- [Schemeful Same-Site](/schemeful-samesite)
 
 Cookies are one of the methods available for adding persistent state to web sites. Over the years their capabilities have grown and evolved, but left the platform with some problematic legacy issues. To address this, browsers (including Chrome, Firefox, and Edge) are changing their behavior to enforce more privacy-preserving defaults.
 
@@ -74,8 +70,7 @@ Reading `document.cookie` will output all the cookies accessible in the current 
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format" alt="JavaScript can access cookies using document.cookie." sizes="(min-width: 600px) 600px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mbV00Gy5VAPTUls0i7cM.png?auto=format&amp;w=1200 1200w" width="600" height="382" /><figcaption>JavaScript can access cookies using <code>document.cookie</code>.</figcaption></figure>If you try this on a selection of popular sites you will notice that most of them set significantly more than just three cookies. In most cases, those cookies are sent on every single request to that domain, which has a number of implications. Upload bandwidth is often more restricted than download for your users, so that overhead on all outbound requests is adding a delay on your time to first byte. Be conservative in the number and size of cookies you set. Make use of the `Max-Age` attribute to help ensure that cookies don't hang around longer than needed.
 
-What are first-party and third-party cookies? <a href="#what-are-first-party-and-third-party-cookies" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------------------------
+## What are first-party and third-party cookies? <a href="#what-are-first-party-and-third-party-cookies" class="w-headline-link">#</a>
 
 If you go back to that same selection of sites you were looking at before, you probably noticed that there were cookies present for a variety of domains, not just the one you were currently visiting. Cookies that match the domain of the current site, i.e. what's displayed in the browser's address bar, are referred to as **first-party** cookies. Similarly, cookies from domains other than the current site are referred to as **third-party** cookies. This isn't an absolute label but is relative to the user's context; the same cookie can be either first-party or third-party depending on which site the user is on at the time.
 
@@ -87,8 +82,7 @@ If that's an unintended effect, why would you want to do this? It's this mechani
 
 Users are also becoming more aware of how cookies can be used to track their activity across multiple sites. However until now there hasn't been a way to explicitly state your intent with the cookie. Your `promo_shown` cookie should only be sent in a first-party context, whereas a session cookie for a widget meant to be embedded on other sites is intentionally there for providing the signed-in state in a third-party context.
 
-Explicitly state cookie usage with the `SameSite` attribute <a href="#explicitly-state-cookie-usage-with-the-samesite-attribute" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Explicitly state cookie usage with the `SameSite` attribute <a href="#explicitly-state-cookie-usage-with-the-samesite-attribute" class="w-headline-link">#</a>
 
 The introduction of the `SameSite` attribute (defined in [RFC6265bis](https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00)) allows you to declare if your cookie should be restricted to a first-party or same-site context. It's helpful to understand exactly what 'site' means here. The site is the combination of the domain suffix and the part of the domain just before it. For example, the `www.web.dev` domain is part of the `web.dev` site.
 
@@ -130,13 +124,12 @@ Finally there is the option of not specifying the value which has previously bee
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format" alt="Explicitly mark the context of a cookie as None, Lax, or Strict." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/1MhNdg9exp0rKnHpwCWT.png?auto=format&amp;w=1600 1600w" width="800" height="456" /><figcaption>Explicitly mark the context of a cookie as <code>None</code>, <code>Lax</code>, or <code>Strict</code>.</figcaption></figure>If you provide a service that other sites consume such as widgets, embedded content, affiliate programs, advertising, or sign-in across multiple sites then you should use `None` to ensure your intent is clear.
 
-Changes to the default behavior without SameSite <a href="#changes-to-the-default-behavior-without-samesite" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------------------------
+## Changes to the default behavior without SameSite <a href="#changes-to-the-default-behavior-without-samesite" class="w-headline-link">#</a>
 
 While the `SameSite` attribute is widely supported, it has unfortunately not been widely adopted by developers. The open default of sending cookies everywhere means all use cases work but leaves the user vulnerable to CSRF and unintentional information leakage. To encourage developers to state their intent and provide users with a safer experience, the IETF proposal, [Incrementally Better Cookies](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) lays out two key changes:
 
--   Cookies without a `SameSite` attribute will be treated as `SameSite=Lax`.
--   Cookies with `SameSite=None` must also specify `Secure`, meaning they require a secure context.
+- Cookies without a `SameSite` attribute will be treated as `SameSite=Lax`.
+- Cookies with `SameSite=None` must also specify `Secure`, meaning they require a secure context.
 
 Chrome implements this default behavior as of version 84. [Firefox](https://groups.google.com/d/msg/mozilla.dev.platform/nx2uP0CzA9k/BNVPWDHsAQAJ) has them available to test as of Firefox 69 and will make them default behaviors in the future. To test these behaviors in Firefox, open [`about:config`](http://kb.mozillazine.org/About:config) and set `network.cookie.sameSite.laxByDefault`. [Edge](https://groups.google.com/a/chromium.org/d/msg/blink-dev/AknSSyQTGYs/8lMmI5DwEAAJ) also plans to change its default behaviors.
 
@@ -188,14 +181,13 @@ Both of these changes are backwards-compatible with browsers that have correctly
 
 A number of older versions of browsers including Chrome, Safari, and UC browser are incompatible with the new `None` attribute and may ignore or restrict the cookie. This behavior is fixed in current versions, but you should check your traffic to determine what proportion of your users are affected. You can see the [list of known incompatible clients on the Chromium site](https://www.chromium.org/updates/same-site/incompatible-clients).
 
-`SameSite` cookie recipes <a href="#samesite-cookie-recipes" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## `SameSite` cookie recipes <a href="#samesite-cookie-recipes" class="w-headline-link">#</a>
 
 For further detail on exactly how to update your cookies to successfully handle these changes to `SameSite=None` and the difference in browser behavior, head to the follow up article, [SameSite cookie recipes](/samesite-cookie-recipes).
 
-*Kind thanks for contributions and feedback from Lily Chen, Malte Ubl, Mike West, Rob Dodson, Tom Steiner, and Vivek Sekhar*
+_Kind thanks for contributions and feedback from Lily Chen, Malte Ubl, Mike West, Rob Dodson, Tom Steiner, and Vivek Sekhar_
 
-*Cookie hero image by [Pille-Riin Priske](https://unsplash.com/photos/UiP3uF5JRWM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
+_Cookie hero image by [Pille-Riin Priske](https://unsplash.com/photos/UiP3uF5JRWM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)_
 
 <a href="/tags/security/" class="w-chip">Security</a> <a href="/tags/cookies/" class="w-chip">Cookies</a>
 
@@ -203,35 +195,35 @@ For further detail on exactly how to update your cookies to successfully handle 
 
 <a href="/blog" class="w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single gc-analytics-event">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

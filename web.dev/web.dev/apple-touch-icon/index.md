@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#does-not-provide-a-valid-apple-touch-icon" class="w-toc__header--link">Does not provide a valid apple-touch-icon</a>
 
 - [How the Lighthouse Apple touch icon audit fails](#how-the-lighthouse-apple-touch-icon-audit-fails)

@@ -1,30 +1,22 @@
+## <a href="#using-lighthouse-bot-to-set-a-performance-budget" class="w-toc__header--link">Using Lighthouse Bot to set a performance budget</a>
 
-
-
-
-
-
-<a href="#using-lighthouse-bot-to-set-a-performance-budget" class="w-toc__header--link">Using Lighthouse Bot to set a performance budget</a>
---------------------------------------------------------------------------------------------------------------------------------------------
-
--   [1. Setup](#1.-setup)
--   [2. Deploy to Firebase](#2.-deploy-to-firebase)
--   [Deploying to Firebase](#deploying-to-firebase)
--   [3. Setting up Travis](#3.-setting-up-travis)
--   [Once you have an account](#once-you-have-an-account)
--   [4. Automate Firebase deployment with Travis](#4.-automate-firebase-deployment-with-travis)
--   [Authorize Firebase](#authorize-firebase)
--   [Add deployment to your Travis setup](#add-deployment-to-your-travis-setup)
--   [5. Setting up Lighthouse Bot](#5.-setting-up-lighthouse-bot)
--   [Add Lighthouse Bot to your project](#add-lighthouse-bot-to-your-project)
--   [Add Lighthouse Bot to your Travis configuration](#add-lighthouse-bot-to-your-travis-configuration)
--   [Make a pull request to trigger Lighthouse Bot test on Travis](#make-a-pull-request-to-trigger-lighthouse-bot-test-on-travis)
--   [More Lighthouse options](#more-lighthouse-options)
+- [1. Setup](#1.-setup)
+- [2. Deploy to Firebase](#2.-deploy-to-firebase)
+- [Deploying to Firebase](#deploying-to-firebase)
+- [3. Setting up Travis](#3.-setting-up-travis)
+- [Once you have an account](#once-you-have-an-account)
+- [4. Automate Firebase deployment with Travis](#4.-automate-firebase-deployment-with-travis)
+- [Authorize Firebase](#authorize-firebase)
+- [Add deployment to your Travis setup](#add-deployment-to-your-travis-setup)
+- [5. Setting up Lighthouse Bot](#5.-setting-up-lighthouse-bot)
+- [Add Lighthouse Bot to your project](#add-lighthouse-bot-to-your-project)
+- [Add Lighthouse Bot to your Travis configuration](#add-lighthouse-bot-to-your-travis-configuration)
+- [Make a pull request to trigger Lighthouse Bot test on Travis](#make-a-pull-request-to-trigger-lighthouse-bot-test-on-travis)
+- [More Lighthouse options](#more-lighthouse-options)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Using Lighthouse Bot to set a performance budget
-================================================
+# Using Lighthouse Bot to set a performance budget
 
 Jan 28, 2019
 
@@ -34,9 +26,9 @@ Jan 28, 2019
 
 <a href="/authors/mihajlija/" class="w-author__name-link">Milica Mihajlija</a>
 
--   <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
--   <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
+- <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
 
 You've done hard work to get fast, now make sure you stay fast by automating performance testing with [Lighthouse Bot](https://github.com/ebidel/lighthousebot).
 
@@ -49,14 +41,16 @@ Lighthouse Bot integrates with Travis CI, and its performance budget feature ens
 Although you can test performance on localhost, your site will often perform differently on live servers. To get a more realistic picture, it's best to deploy your site to a staging server. You can use any hosting service; this guide will take [Firebase hosting](https://firebase.google.com/docs/hosting/) for a spin.
 
 1. Setup <a href="#1.-setup" class="w-headline-link">#</a>
-----------------------------------------------------------
+
+---
 
 This simple app helps you sort three numbers.
 
 [Clone the example from GitHub](https://github.com/GoogleChromeLabs/lighthouse-bot-starter), and make sure to add it as a repository on your GitHub account.
 
 2. Deploy to Firebase <a href="#2.-deploy-to-firebase" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+
+---
 
 To get started, you'll need a Firebase account. Once you've taken care of that, [create a new project in the Firebase console](https://console.firebase.google.com/) by clicking "Add project":
 
@@ -78,10 +72,10 @@ Now initialize the project:
 
 The console will ask you a series of questions during setup:
 
--   When prompted to select features, choose "Hosting."
--   For the default Firebase project, select the project that you've created in the Firebase console.
--   Type in "public" as your public directory.
--   Type "N" (no) to configuring as a single-page app.
+- When prompted to select features, choose "Hosting."
+- For the default Firebase project, select the project that you've created in the Firebase console.
+- Type in "public" as your public directory.
+- Type "N" (no) to configuring as a single-page app.
 
 This process creates a `firebase.json` configuration file in the root of your project directory.
 
@@ -92,7 +86,8 @@ Congrats, you're ready to deploy! Run:
 In a split second, you'll have a live app.
 
 3. Setting up Travis <a href="#3.-setting-up-travis" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+
+---
 
 You'll need to [register an account](https://travis-ci.com) on Travis and then activate GitHub Apps integration under the Settings section of your profile.
 
@@ -128,7 +123,8 @@ The YAML file tells Travis to install all the dependencies and build your app. N
 Click on your repo under Settings in Travis to see your project's Travis dashboard. If everything is cool, you'll see your build go from yellow to green in a couple of minutes. 🎉
 
 4. Automate Firebase deployment with Travis <a href="#4.-automate-firebase-deployment-with-travis" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------
+
+---
 
 In Step 2, you logged into your Firebase account and deployed the app from the command line with `firebase deploy`. In order for Travis to deploy your app to Firebase, you have to authorize it. How do you do that? With a Firebase token. 🗝️🔥
 
@@ -158,7 +154,8 @@ Push this change to GitHub and wait for your first automated deployment. If you 
 Now whenever you make changes to your app, they will be automatically deployed to Firebase.
 
 5. Setting up Lighthouse Bot <a href="#5.-setting-up-lighthouse-bot" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+
+---
 
 Friendly Lighthouse Bot updates you on your app's Lighthouse scores. It just needs an invitation to your repo.
 
@@ -190,7 +187,7 @@ And add this bit to the `package.json`:
 
 For the final trick, test the performance of the app after every pull request!
 
-In `.travis.yml` add another step in after\_success:
+In `.travis.yml` add another step in after_success:
 
     after_success:
       - firebase deploy --token $FIREBASE_TOKEN --non-interactive
@@ -242,35 +239,35 @@ You can also choose not to get Lighthouse Bot's comments with the `--no-comment`
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

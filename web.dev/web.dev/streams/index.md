@@ -1,52 +1,44 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format" alt="A forest stream with colored fallen leaves." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/TuciUuOQOd3u7uMgDZBi.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#streamsthe-definitive-guide" class="w-toc__header--link">Streams—The definitive guide</a>
----------------------------------------------------------------------------------------------------
+## <a href="#streamsthe-definitive-guide" class="w-toc__header--link">Streams—The definitive guide</a>
 
--   [Core concepts](#core-concepts)
--   [Chunks](#chunks)
--   [Readable streams](#readable-streams)
--   [Writable streams](#writable-streams)
--   [Transform streams](#transform-streams)
--   [Pipe chains](#pipe-chains)
--   [Backpressure](#backpressure)
--   [Teeing](#teeing)
--   [The mechanics of a readable stream](#the-mechanics-of-a-readable-stream)
--   [Creating a readable stream](#creating-a-readable-stream)
--   [Readable stream code samples](#readable-stream-code-samples)
--   [Asynchronous iteration](#asynchronous-iteration)
--   [Teeing a readable stream](#teeing-a-readable-stream)
--   [Readable byte streams](#readable-byte-streams)
--   [Creating a readable byte stream](#creating-a-readable-byte-stream)
--   [The queuingStrategy](#the-queuingstrategy-2)
--   [The mechanics of a writable stream](#the-mechanics-of-a-writable-stream)
--   [Creating a writable stream](#creating-a-writable-stream)
--   [Writable stream code sample](#writable-stream-code-sample)
--   [Piping a readable stream to a writable stream](#piping-a-readable-stream-to-a-writable-stream)
--   [Creating a transform stream](#creating-a-transform-stream)
--   [The transformer](#the-transformer)
--   [The writableStrategy and readableStrategy queueing strategies](#the-writablestrategy-and-readablestrategy-queueing-strategies)
--   [Transform stream code sample](#transform-stream-code-sample)
--   [Piping a readable stream through a transform stream](#piping-a-readable-stream-through-a-transform-stream)
--   [Browser support and polyfill](#browser-support-and-polyfill)
--   [Demo](#demo)
--   [Useful streams available in the browser](#useful-streams-available-in-the-browser)
--   [Useful resources](#useful-resources)
--   [Acknowledgements](#acknowledgements)
+- [Core concepts](#core-concepts)
+- [Chunks](#chunks)
+- [Readable streams](#readable-streams)
+- [Writable streams](#writable-streams)
+- [Transform streams](#transform-streams)
+- [Pipe chains](#pipe-chains)
+- [Backpressure](#backpressure)
+- [Teeing](#teeing)
+- [The mechanics of a readable stream](#the-mechanics-of-a-readable-stream)
+- [Creating a readable stream](#creating-a-readable-stream)
+- [Readable stream code samples](#readable-stream-code-samples)
+- [Asynchronous iteration](#asynchronous-iteration)
+- [Teeing a readable stream](#teeing-a-readable-stream)
+- [Readable byte streams](#readable-byte-streams)
+- [Creating a readable byte stream](#creating-a-readable-byte-stream)
+- [The queuingStrategy](#the-queuingstrategy-2)
+- [The mechanics of a writable stream](#the-mechanics-of-a-writable-stream)
+- [Creating a writable stream](#creating-a-writable-stream)
+- [Writable stream code sample](#writable-stream-code-sample)
+- [Piping a readable stream to a writable stream](#piping-a-readable-stream-to-a-writable-stream)
+- [Creating a transform stream](#creating-a-transform-stream)
+- [The transformer](#the-transformer)
+- [The writableStrategy and readableStrategy queueing strategies](#the-writablestrategy-and-readablestrategy-queueing-strategies)
+- [Transform stream code sample](#transform-stream-code-sample)
+- [Piping a readable stream through a transform stream](#piping-a-readable-stream-through-a-transform-stream)
+- [Browser support and polyfill](#browser-support-and-polyfill)
+- [Demo](#demo)
+- [Useful streams available in the browser](#useful-streams-available-in-the-browser)
+- [Useful resources](#useful-resources)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Streams—The definitive guide
-============================
+# Streams—The definitive guide
 
 Learn how to use readable, writable, and transform streams with the Streams API.
 
@@ -56,10 +48,10 @@ Feb 19, 2021 <span class="w-author__separator">•</span> Updated Feb 25, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 The Streams API allows you to programmatically access streams of data received over the network or created by whatever means locally and process them with JavaScript. Streaming involves breaking down a resource that you want to receive, send, or transform into small chunks, and then processing these chunks bit by bit. While streaming is something browsers do anyway when receiving assets like HTML or videos to be shown on webpages, this capability has never been available to JavaScript before `fetch` with streams was introduced in 2015.
 
@@ -67,12 +59,11 @@ Streaming was technically possible with `XMLHttpRequest`, but it [really was not
 
 Previously, if you wanted to process a resource of some kind (be it a video, or a text file, etc.), you would have to download the entire file, wait for it to be deserialized into a suitable format, and then process it. With streams being available to JavaScript, this all changes. You can now process raw data with JavaScript progressively as soon as it is available on the client, without needing to generate a buffer, string, or blob. This unlocks a number of use cases, some of which I list below:
 
--   **Video effects:** piping a readable video stream through a transform stream that applies effects in real time.
--   **Data (de)compression:** piping a file stream through a transform stream that selectively (de)compresses it.
--   **Image decoding:** piping an HTTP response stream through a transform stream that decodes bytes into bitmap data, and then through another transform stream that translates bitmaps into PNGs. If installed inside the `fetch` handler of a service worker, this allows you to transparently polyfill new image formats like AVIF.
+- **Video effects:** piping a readable video stream through a transform stream that applies effects in real time.
+- **Data (de)compression:** piping a file stream through a transform stream that selectively (de)compresses it.
+- **Image decoding:** piping an HTTP response stream through a transform stream that decodes bytes into bitmap data, and then through another transform stream that translates bitmaps into PNGs. If installed inside the `fetch` handler of a service worker, this allows you to transparently polyfill new image formats like AVIF.
 
-Core concepts <a href="#core-concepts" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Core concepts <a href="#core-concepts" class="w-headline-link">#</a>
 
 Before I go into details on the various types of streams, let me introduce some core concepts.
 
@@ -104,13 +95,12 @@ Once a pipe chain is constructed, it will propagate signals regarding how fast c
 
 A readable stream can be teed (named after the shape of an uppercase 'T') using its `tee()` method. This will **lock** the stream, that is, make it no longer directly usable; however, it will create **two new streams**, called branches, which can be consumed independently. Teeing also is important because streams cannot be rewound or restarted, more about this later.
 
-<figure><img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/M70SLIvXhMkYfxDm5b98.svg" alt="A pipe chain." width="800" height="430" /><figcaption>A pipe chain.</figcaption></figure>The mechanics of a readable stream <a href="#the-mechanics-of-a-readable-stream" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/M70SLIvXhMkYfxDm5b98.svg" alt="A pipe chain." width="800" height="430" /><figcaption>A pipe chain.</figcaption></figure>The mechanics of a readable stream <a href="#the-mechanics-of-a-readable-stream" class="w-headline-link">#</a>
 
 A readable stream is a data source represented in JavaScript by a [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) object that flows from an underlying source. The [`ReadableStream()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/ReadableStream) constructor creates and returns a readable stream object from the given handlers. There are two types of underlying source:
 
--   **Push sources** constantly push data at you when you have accessed them, and it is up to you to start, pause, or cancel access to the stream. Examples include live video streams, server-sent events, or WebSockets.
--   **Pull sources** require you to explicitly request data from them once connected to. Examples include HTTP operations via `fetch()` or `XMLHttpRequest` calls.
+- **Push sources** constantly push data at you when you have accessed them, and it is up to you to start, pause, or cancel access to the stream. Examples include live video streams, server-sent events, or WebSockets.
+- **Pull sources** require you to explicitly request data from them once connected to. Examples include HTTP operations via `fetch()` or `XMLHttpRequest` calls.
 
 Stream data is read sequentially in small pieces called **chunks**. The chunks placed in a stream are said to be **enqueued**. This means they are waiting in a queue ready to be read. An **internal queue** keeps track of the chunks that have not yet been read.
 
@@ -130,9 +120,9 @@ You create a readable stream by calling its constructor [`ReadableStream()`](htt
 
 This can use the following optional, developer-defined methods:
 
--   `start(controller)`: Called immediately when the object is constructed. The method can access the stream source, and do anything else required to set up the stream functionality. If this process is to be done asynchronously, the method can return a promise to signal success or failure. The `controller` parameter passed to this method is a [`ReadableStreamDefaultController`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController).
--   `pull(controller)`: Can be used to control the stream as more chunks are fetched. It is called repeatedly as long as the stream's internal queue of chunks is not full, up until the queue reaches its high water mark. If the result of calling `pull()` is a promise, `pull()` will not be called again until said promise fulfills. If the promise rejects, the stream will become errored.
--   `cancel(reason)`: Called when the stream consumer cancels the stream.
+- `start(controller)`: Called immediately when the object is constructed. The method can access the stream source, and do anything else required to set up the stream functionality. If this process is to be done asynchronously, the method can return a promise to signal success or failure. The `controller` parameter passed to this method is a [`ReadableStreamDefaultController`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController).
+- `pull(controller)`: Can be used to control the stream as more chunks are fetched. It is called repeatedly as long as the stream's internal queue of chunks is not full, up until the queue reaches its high water mark. If the result of calling `pull()` is a promise, `pull()` will not be called again until said promise fulfills. If the promise rejects, the stream will become errored.
+- `cancel(reason)`: Called when the stream consumer cancels the stream.
 
 <!-- -->
 
@@ -152,9 +142,9 @@ This can use the following optional, developer-defined methods:
 
 The `ReadableStreamDefaultController` supports the following methods:
 
--   [`ReadableStreamDefaultController.close()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController/close) closes the associated stream.
--   [`ReadableStreamDefaultController.enqueue()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController/enqueue) enqueues a given chunk in the associated stream.
--   [`ReadableStreamDefaultController.error()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController/error) causes any future interactions with the associated stream to error.
+- [`ReadableStreamDefaultController.close()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController/close) closes the associated stream.
+- [`ReadableStreamDefaultController.enqueue()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController/enqueue) enqueues a given chunk in the associated stream.
+- [`ReadableStreamDefaultController.error()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultController/error) causes any future interactions with the associated stream to error.
 
 <!-- -->
 
@@ -168,8 +158,8 @@ The `ReadableStreamDefaultController` supports the following methods:
 
 The second, likewise optional, argument of the `ReadableStream()` constructor is `queuingStrategy`. It is an object that optionally defines a queuing strategy for the stream, which takes two parameters:
 
--   `highWaterMark`: A non-negative number indicating the high water mark of the stream using this queuing strategy.
--   `size(chunk)`: A function that computes and returns the finite non-negative size of the given chunk value. The result is used to determine backpressure, manifesting via the appropriate `ReadableStreamDefaultController.desiredSize` property. It also governs when the underlying source's `pull()` method is called.
+- `highWaterMark`: A non-negative number indicating the high water mark of the stream using this queuing strategy.
+- `size(chunk)`: A function that computes and returns the finite non-negative size of the given chunk value. The result is used to determine backpressure, manifesting via the appropriate `ReadableStreamDefaultController.desiredSize` property. It also governs when the underlying source's `pull()` method is called.
 
 <!-- -->
 
@@ -192,11 +182,11 @@ To read from a readable stream, you need a reader, which will be a [`ReadableStr
 
 The [`read()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultReader/read) method of the `ReadableStreamDefaultReader` interface returns a promise providing access to the next chunk in the stream's internal queue. It fulfills or rejects with a result depending on the state of the stream. The different possibilities are as follows:
 
--   If a chunk is available, the promise will be fulfilled with an object of the form  
-    `{ value: chunk, done: false }`.
--   If the stream becomes closed, the promise will be fulfilled with an object of the form  
-    `{ value: undefined, done: true }`.
--   If the stream becomes errored, the promise will be rejected with the relevant error.
+- If a chunk is available, the promise will be fulfilled with an object of the form  
+  `{ value: chunk, done: false }`.
+- If the stream becomes closed, the promise will be fulfilled with an object of the form  
+  `{ value: undefined, done: true }`.
+- If the stream becomes errored, the promise will be rejected with the relevant error.
 
 <!-- -->
 
@@ -352,8 +342,7 @@ The [`tee()`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream/te
       console.log('[B]', result);
     }
 
-Readable byte streams <a href="#readable-byte-streams" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Readable byte streams <a href="#readable-byte-streams" class="w-headline-link">#</a>
 
 For streams representing bytes, an extended version of the readable stream is provided to handle bytes efficiently, in particular by minimizing copies. Byte streams allow for bring-your-own-buffer (BYOB) readers to be acquired. The default implementation can give a range of different outputs such as strings or array buffers in the case of WebSockets, whereas byte streams guarantee byte output. In addition, BYOB readers have stability benefits. This is because if a buffer detaches, it can guarantee that one does not write into the same buffer twice, hence avoiding race conditions. BYOB readers can reduce the number of times the browser needs to run garbage collection, because it can reuse buffers.
 
@@ -371,7 +360,7 @@ The underlying source of a readable byte stream is given a `ReadableByteStreamCo
 
 The second, likewise optional, argument of the `ReadableStream()` constructor is `queuingStrategy`. It is an object that optionally defines a queuing strategy for the stream, which takes one parameter:
 
--   `highWaterMark`: A non-negative number of bytes indicating the high water mark of the stream using this queuing strategy. This is used to determine backpressure, manifesting via the appropriate `ReadableByteStreamController.desiredSize` property. It also governs when the underlying source's `pull()` method is called.
+- `highWaterMark`: A non-negative number of bytes indicating the high water mark of the stream using this queuing strategy. This is used to determine backpressure, manifesting via the appropriate `ReadableByteStreamController.desiredSize` property. It also governs when the underlying source's `pull()` method is called.
 
 Unlike queuing strategies for other stream types, a queuing strategy for a readable byte stream does not have a `size(chunk)` function. The size of each chunk is always determined by its `byteLength` property.
 
@@ -426,8 +415,7 @@ The following function returns readable byte streams that allow for efficient ze
       });
     }
 
-The mechanics of a writable stream <a href="#the-mechanics-of-a-writable-stream" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------
+## The mechanics of a writable stream <a href="#the-mechanics-of-a-writable-stream" class="w-headline-link">#</a>
 
 A writable stream is a destination into which you can write data, represented in JavaScript by a [`WritableStream`](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream) object. This serves as an abstraction over the top of an **underlying sink**—a lower-level I/O sink into which raw data is written.
 
@@ -449,10 +437,10 @@ The [`WritableStream`](https://developer.mozilla.org/en-US/docs/Web/API/Writable
 
 The `underlyingSink` can include the following optional, developer-defined methods. The `controller` parameter passed to some of the methods is a [`WritableStreamDefaultController`](https://developer.mozilla.org/en-US/docs/Web/API/WritableStreamDefaultController).
 
--   `start(controller)`: This method is called immediately when the object is constructed. The contents of this method should aim to get access to the underlying sink. If this process is to be done asynchronously, it can return a promise to signal success or failure.
--   `write(chunk, controller)`: This method will be called when a new chunk of data (specified in the `chunk` parameter) is ready to be written to the underlying sink. It can return a promise to signal success or failure of the write operation. This method will be called only after previous writes have succeeded, and never after the stream is closed or aborted.
--   `close(controller)`: This method will be called if the app signals that it has finished writing chunks to the stream. The contents should do whatever is necessary to finalize writes to the underlying sink, and release access to it. If this process is asynchronous, it can return a promise to signal success or failure. This method will be called only after all queued-up writes have succeeded.
--   `abort(reason)`: This method will be called if the app signals that it wishes to abruptly close the stream and put it in an errored state. It can clean up any held resources, much like `close()`, but `abort()` will be called even if writes are queued up. Those chunks will be thrown away. If this process is asynchronous, it can return a promise to signal success or failure. The `reason` parameter contains a `DOMString` describing why the stream was aborted.
+- `start(controller)`: This method is called immediately when the object is constructed. The contents of this method should aim to get access to the underlying sink. If this process is to be done asynchronously, it can return a promise to signal success or failure.
+- `write(chunk, controller)`: This method will be called when a new chunk of data (specified in the `chunk` parameter) is ready to be written to the underlying sink. It can return a promise to signal success or failure of the write operation. This method will be called only after previous writes have succeeded, and never after the stream is closed or aborted.
+- `close(controller)`: This method will be called if the app signals that it has finished writing chunks to the stream. The contents should do whatever is necessary to finalize writes to the underlying sink, and release access to it. If this process is asynchronous, it can return a promise to signal success or failure. This method will be called only after all queued-up writes have succeeded.
+- `abort(reason)`: This method will be called if the app signals that it wishes to abruptly close the stream and put it in an errored state. It can clean up any held resources, much like `close()`, but `abort()` will be called even if writes are queued up. Those chunks will be thrown away. If this process is asynchronous, it can return a promise to signal success or failure. The `reason` parameter contains a `DOMString` describing why the stream was aborted.
 
 <!-- -->
 
@@ -490,8 +478,8 @@ The [`WritableStreamDefaultController`](https://developer.mozilla.org/en-US/docs
 
 The second, likewise optional, argument of the `WritableStream()` constructor is `queuingStrategy`. It is an object that optionally defines a queuing strategy for the stream, which takes two parameters:
 
--   `highWaterMark`: A non-negative number indicating the high water mark of the stream using this queuing strategy.
--   `size(chunk)`: A function that computes and returns the finite non-negative size of the given chunk value. The result is used to determine backpressure, manifesting via the appropriate `WritableStreamDefaultWriter.desiredSize` property.
+- `highWaterMark`: A non-negative number indicating the high water mark of the stream using this queuing strategy.
+- `size(chunk)`: A function that computes and returns the finite non-negative size of the given chunk value. The result is used to determine backpressure, manifesting via the appropriate `WritableStreamDefaultWriter.desiredSize` property.
 
 You could define your own custom `queuingStrategy`, or use an instance of [`ByteLengthQueuingStrategy`](https://developer.mozilla.org/en-US/docs/Web/API/ByteLengthQueuingStrategy) or [`CountQueuingStrategy`](https://developer.mozilla.org/en-US/docs/Web/API/CountQueuingStrategy) for this object value. If no `queuingStrategy` is supplied, the default used is the same as a `CountQueuingStrategy` with a `highWaterMark` of `1`.
 
@@ -595,16 +583,15 @@ A readable stream can be piped to a writable stream through the readable stream'
     await readableStream.pipeTo(writableStream);
     console.log('[finished]');
 
-Creating a transform stream <a href="#creating-a-transform-stream" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## Creating a transform stream <a href="#creating-a-transform-stream" class="w-headline-link">#</a>
 
 The `TransformStream` interface of the Streams API represents a set of transformable data. You create a transform stream by calling its constructor `TransformStream()`, which creates and returns a transform stream object from the given handlers. The `TransformStream()` constructor accepts as its first argument an optional JavaScript object representing the `transformer`. Such objects can contain any of the following methods:
 
 ### The `transformer` <a href="#the-transformer" class="w-headline-link">#</a>
 
--   `start(controller)`: This method is called immediately when the object is constructed. Typically this is used to enqueue prefix chunks, using `controller.enqueue()`. Those chunks will be read from the readable side but do not depend on any writes to the writable side. If this initial process is asynchronous, for example because it takes some effort to acquire the prefix chunks, the function can return a promise to signal success or failure; a rejected promise will error the stream. Any thrown exceptions will be re-thrown by the `TransformStream()` constructor.
--   `transform(chunk, controller)`: This method is called when a new chunk originally written to the writable side is ready to be transformed. The stream implementation guarantees that this function will be called only after previous transforms have succeeded, and never before `start()` has completed or after `flush()` has been called. This function performs the actual transformation work of the transform stream. It can enqueue the results using `controller.enqueue()`. This permits a single chunk written to the writable side to result in zero or multiple chunks on the readable side, depending on how many times `controller.enqueue()` is called. If the process of transforming is asynchronous, this function can return a promise to signal success or failure of the transformation. A rejected promise will error both the readable and writable sides of the transform stream. If no `transform()` method is supplied, the identity transform is used, which enqueues chunks unchanged from the writable side to the readable side.
--   `flush(controller)`: This method is called after all chunks written to the writable side have been transformed by successfully passing through `transform()`, and the writable side is about to be closed. Typically this is used to enqueue suffix chunks to the readable side, before that too becomes closed. If the flushing process is asynchronous, the function can return a promise to signal success or failure; the result will be communicated to the caller of `stream.writable.write()`. Additionally, a rejected promise will error both the readable and writable sides of the stream. Throwing an exception is treated the same as returning a rejected promise.
+- `start(controller)`: This method is called immediately when the object is constructed. Typically this is used to enqueue prefix chunks, using `controller.enqueue()`. Those chunks will be read from the readable side but do not depend on any writes to the writable side. If this initial process is asynchronous, for example because it takes some effort to acquire the prefix chunks, the function can return a promise to signal success or failure; a rejected promise will error the stream. Any thrown exceptions will be re-thrown by the `TransformStream()` constructor.
+- `transform(chunk, controller)`: This method is called when a new chunk originally written to the writable side is ready to be transformed. The stream implementation guarantees that this function will be called only after previous transforms have succeeded, and never before `start()` has completed or after `flush()` has been called. This function performs the actual transformation work of the transform stream. It can enqueue the results using `controller.enqueue()`. This permits a single chunk written to the writable side to result in zero or multiple chunks on the readable side, depending on how many times `controller.enqueue()` is called. If the process of transforming is asynchronous, this function can return a promise to signal success or failure of the transformation. A rejected promise will error both the readable and writable sides of the transform stream. If no `transform()` method is supplied, the identity transform is used, which enqueues chunks unchanged from the writable side to the readable side.
+- `flush(controller)`: This method is called after all chunks written to the writable side have been transformed by successfully passing through `transform()`, and the writable side is about to be closed. Typically this is used to enqueue suffix chunks to the readable side, before that too becomes closed. If the flushing process is asynchronous, the function can return a promise to signal success or failure; the result will be communicated to the caller of `stream.writable.write()`. Additionally, a rejected promise will error both the readable and writable sides of the stream. Throwing an exception is treated the same as returning a rejected promise.
 
 <!-- -->
 
@@ -726,8 +713,7 @@ The next code sample (a bit contrived) shows how you could implement a "shouting
         .pipeTo(appendToDOMStream(document.body))
     );
 
-Browser support and polyfill <a href="#browser-support-and-polyfill" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## Browser support and polyfill <a href="#browser-support-and-polyfill" class="w-headline-link">#</a>
 
 Support for the Streams API in browsers varies. Be sure to check [Can I use](https://caniuse.com/streams) for detailed compatibility data. Note that some browsers only have partial implementations of certain features, so be sure to check the data thoroughly.
 
@@ -737,13 +723,11 @@ The good news is that there is a [reference implementation](https://github.com/w
 
 If possible, load the polyfill conditionally and only if the built-in feature is not available.
 
-Demo <a href="#demo" class="w-headline-link">#</a>
---------------------------------------------------
+## Demo <a href="#demo" class="w-headline-link">#</a>
 
 The demo below shows readable, writable, and transform streams in action. It also includes examples of `pipeThrough()` and `pipeTo()` pipe chains, and also demonstrates `tee()`. You can optionally run the [demo](https://streams-demo.glitch.me/) in its own window or view the [source code](https://glitch.com/edit/#!/streams-demo?path=script.js).
 
-Useful streams available in the browser <a href="#useful-streams-available-in-the-browser" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------------
+## Useful streams available in the browser <a href="#useful-streams-available-in-the-browser" class="w-headline-link">#</a>
 
 There are a number of useful streams built right into the browser. You can easily create a `ReadableStream` from a blob. The [`Blob`](https://developer.mozilla.org/en-US/docs/Web/API/Blob) interface's [stream()](https://developer.mozilla.org/en-US/docs/Web/API/Blob/stream) method returns a `ReadableStream` which upon reading returns the data contained within the blob. Also recall that a [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) object is a specific kind of a `Blob`, and can be used in any context that a blob can.
 
@@ -809,18 +793,16 @@ Finally, the [`WebSocketStream`](/websocketstream/) API integrates streams with 
       await writer.write(result);
     }
 
-Useful resources <a href="#useful-resources" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Useful resources <a href="#useful-resources" class="w-headline-link">#</a>
 
--   [Streams specification](https://streams.spec.whatwg.org/)
--   [Accompanying demos](https://streams.spec.whatwg.org/demos/)
--   [Streams polyfill](https://github.com/MattiasBuelens/web-streams-polyfill)
--   [2016—the year of web streams](https://jakearchibald.com/2016/streams-ftw/)
--   [Async iterators and generators](https://jakearchibald.com/2017/async-iterators-and-generators/)
--   [Stream Visualizer](https://surma.dev/lab/whatwg-stream-visualizer/lab.html)
+- [Streams specification](https://streams.spec.whatwg.org/)
+- [Accompanying demos](https://streams.spec.whatwg.org/demos/)
+- [Streams polyfill](https://github.com/MattiasBuelens/web-streams-polyfill)
+- [2016—the year of web streams](https://jakearchibald.com/2016/streams-ftw/)
+- [Async iterators and generators](https://jakearchibald.com/2017/async-iterators-and-generators/)
+- [Stream Visualizer](https://surma.dev/lab/whatwg-stream-visualizer/lab.html)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 This article was reviewed by [Jake Archibald](https://jakearchibald.com/), [François Beaufort](https://github.com/beaufortfrancois), [Sam Dutton](https://samdutton.com/), [Mattias Buelens](https://github.com/MattiasBuelens), [Surma](https://surma.dev/), [Joe Medley](https://github.com/jpmedley), and [Adam Rice](https://github.com/ricea). [Jake Archibald](https://jakearchibald.com/)'s blog posts have helped me a lot in understanding streams. Some of the code samples are inspired by GitHub user [@bellbind](https://gist.github.com/bellbind/f6a7ba88e9f1a9d749fec4c9289163ac)'s explorations and parts of the prose build heavily on the [MDN Web Docs on Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). The [Streams Standard](https://streams.spec.whatwg.org/)'s [authors](https://github.com/whatwg/streams/graphs/contributors) have done a tremendous job on writing this spec. Hero image by [Ryan Lara](https://unsplash.com/@ryanlara) on [Unsplash](https://unsplash.com/).
 
@@ -830,35 +812,35 @@ This article was reviewed by [Jake Archibald](https://jakearchibald.com/), [Fran
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

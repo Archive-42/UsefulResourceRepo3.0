@@ -1,40 +1,32 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format" alt="Cat sleeping. Photo by Kate Stone Matheson on Unsplash." class="w-hero w-hero--center w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/zMncl9cgWdAc8W24yav3.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#stay-awake-with-the-screen-wake-lock-api" class="w-toc__header--link">Stay awake with the Screen Wake Lock API</a>
-----------------------------------------------------------------------------------------------------------------------------
+## <a href="#stay-awake-with-the-screen-wake-lock-api" class="w-toc__header--link">Stay awake with the Screen Wake Lock API</a>
 
--   [What is the Screen Wake Lock API?](#what)
--   [Suggested use cases for the Screen Wake Lock API](#use-cases)
--   [Current status](#status)
--   [Using the Screen Wake Lock API](#use)
--   [Wake lock types](#wake-lock-types)
--   [Feature detection](#feature-detection)
--   [Getting a screen wake lock](#get-wake-lock)
--   [Releasing a screen wake lock](#release-wake-lock)
--   [The screen wake lock lifecycle](#wake-lock-lifecycle)
--   [Minimize your impact on system resources](#best-practices)
--   [Demo](#demo)
--   [Screen Wake Locks in the OS task manager](#screen-wake-locks-in-the-os-task-manager)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Report a problem with the implementation](#report-a-problem-with-the-implementation)
--   [Show support for the API](#show-support-for-the-api)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [What is the Screen Wake Lock API?](#what)
+- [Suggested use cases for the Screen Wake Lock API](#use-cases)
+- [Current status](#status)
+- [Using the Screen Wake Lock API](#use)
+- [Wake lock types](#wake-lock-types)
+- [Feature detection](#feature-detection)
+- [Getting a screen wake lock](#get-wake-lock)
+- [Releasing a screen wake lock](#release-wake-lock)
+- [The screen wake lock lifecycle](#wake-lock-lifecycle)
+- [Minimize your impact on system resources](#best-practices)
+- [Demo](#demo)
+- [Screen Wake Locks in the OS task manager](#screen-wake-locks-in-the-os-task-manager)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Report a problem with the implementation](#report-a-problem-with-the-implementation)
+- [Show support for the API](#show-support-for-the-api)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Stay awake with the Screen Wake Lock API
-========================================
+# Stay awake with the Screen Wake Lock API
 
 The Screen Wake Lock API provides a way to prevent devices from dimming or locking the screen when an application needs to keep running.
 
@@ -44,24 +36,23 @@ Dec 18, 2018 <span class="w-author__separator">•</span> Updated Feb 23, 2021
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Thomas Steiner" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/thomassteiner/)
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 **Success**: The Screen Wake Lock API, part of Google's [capabilities project](https://developers.google.com/web/updates/capabilities), launched in Chrome 84.
 
-What is the Screen Wake Lock API? <a href="#what" class="w-headline-link">#</a>
--------------------------------------------------------------------------------
+## What is the Screen Wake Lock API? <a href="#what" class="w-headline-link">#</a>
 
 To avoid draining the battery, most devices quickly go to sleep when left idle. While this is fine most of the time, some applications need to keep the screen awake to complete their work. Examples include cooking apps that show the steps of a recipe or a game like [Ball Puzzle](https://ball-puzzle.appspot.com/), which uses the device motion APIs for input.
 
@@ -69,29 +60,26 @@ The [Screen Wake Lock API](https://w3c.github.io/wake-lock/) provides a way to p
 
 The Screen Wake Lock API reduces the need for hacky and potentially power-hungry workarounds. It addresses the shortcomings of an older API that was limited to simply keeping the screen on and had a number of security and privacy issues.
 
-Suggested use cases for the Screen Wake Lock API <a href="#use-cases" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------
+## Suggested use cases for the Screen Wake Lock API <a href="#use-cases" class="w-headline-link">#</a>
 
 [RioRun](https://www.theguardian.com/sport/2016/aug/06/rio-running-app-marathon-course-riorun), a web app developed by [The Guardian](https://www.theguardian.com/), was a perfect use case (though it's no longer available). The app takes you on a virtual audio tour of Rio, following the route of the 2016 Olympic marathon. Without wake locks, users' screens would turn off frequently while the tour played, making it hard to use.
 
 Of course, there are plenty of other use cases:
 
--   A recipe app that keeps the screen on while you bake a cake or cook dinner
--   A boarding pass or ticket app that keeps the screen on until the barcode has been scanned
--   A kiosk-style app that keeps the screen on continuously
--   A web-based presentation app that keeps the screen on during a presentation
+- A recipe app that keeps the screen on while you bake a cake or cook dinner
+- A boarding pass or ticket app that keeps the screen on until the barcode has been scanned
+- A kiosk-style app that keeps the screen on continuously
+- A web-based presentation app that keeps the screen on during a presentation
 
-**Success**: After implementing the Screen Wake Lock API, *Betty Crocker*, a major cooking site in the US, saw a 300% increase in purchase intent indicators for their users. Read more in the 🍰 [Betty Crocker case study](/betty-crocker/).
+**Success**: After implementing the Screen Wake Lock API, _Betty Crocker_, a major cooking site in the US, saw a 300% increase in purchase intent indicators for their users. Read more in the 🍰 [Betty Crocker case study](/betty-crocker/).
 
-Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td>N/A</td></tr><tr class="even"><td>2. Create initial draft of specification</td><td><a href="https://w3c.github.io/wake-lock/">Complete</a></td></tr><tr class="odd"><td>3. Gather feedback and iterate design</td><td><a href="#feedback">Complete</a></td></tr><tr class="even"><td>4. Origin trial</td><td>Complete</td></tr><tr class="odd"><td><strong>5. Launch</strong></td><td><strong>Complete</strong></td></tr></tbody></table>
 
 Big thanks to the folks at Intel, specifically Mrunal Kapade, for implementing this API. Chrome depends on a community of committers working together to move the Chromium project forward. Not every Chromium committer is a Googler, and these contributors deserve special recognition!
 
-Using the Screen Wake Lock API <a href="#use" class="w-headline-link">#</a>
----------------------------------------------------------------------------
+## Using the Screen Wake Lock API <a href="#use" class="w-headline-link">#</a>
 
 ### Wake lock types <a href="#wake-lock-types" class="w-headline-link">#</a>
 
@@ -113,7 +101,7 @@ Browser support for the Screen Wake Lock API can be tested as follows:
 
 ### Getting a screen wake lock <a href="#get-wake-lock" class="w-headline-link">#</a>
 
-To request a screen wake lock, you need to call the `navigator.wakeLock.request()` method that returns a `WakeLockSentinel` object. You pass this method the desired wake lock type as a parameter, which *currently* is limited to just `'screen'` and therefore is *optional*. The browser can refuse the request for various reasons (for example, because the battery charge level is too low), so it's a good practice to wrap the call in a `try…catch` statement. The exception's message will contain more details in case of failure.
+To request a screen wake lock, you need to call the `navigator.wakeLock.request()` method that returns a `WakeLockSentinel` object. You pass this method the desired wake lock type as a parameter, which _currently_ is limited to just `'screen'` and therefore is _optional_. The browser can refuse the request for various reasons (for example, because the battery charge level is too low), so it's a good practice to wrap the call in a `try…catch` statement. The exception's message will contain more details in case of failure.
 
 ### Releasing a screen wake lock <a href="#release-wake-lock" class="w-headline-link">#</a>
 
@@ -161,15 +149,14 @@ To reacquire the screen wake lock, listen for the [`visibilitychange`](https://d
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-Minimize your impact on system resources <a href="#best-practices" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## Minimize your impact on system resources <a href="#best-practices" class="w-headline-link">#</a>
 
 Should you use a screen wake lock in your app? The approach you take depends on the needs of your app. Regardless, you should use the most lightweight approach possible for your app to minimize its impact on system resources.
 
 Before adding a screen wake lock to your app, consider whether your use cases could be solved with one of the following alternative solutions:
 
--   If your app is performing long-running downloads, consider using [background fetch](https://developers.google.com/web/updates/2018/12/background-fetch).
--   If your app is synchronizing data from an external server, consider using [background sync](https://developers.google.com/web/updates/2015/12/background-sync).
+- If your app is performing long-running downloads, consider using [background fetch](https://developers.google.com/web/updates/2018/12/background-fetch).
+- If your app is synchronizing data from an external server, consider using [background sync](https://developers.google.com/web/updates/2015/12/background-sync).
 
 Like most other powerful web APIs, the Screen Wake Lock API is only available when served over **HTTPS**.
 
@@ -181,8 +168,7 @@ Check out the [Screen Wake Lock demo](https://wake-lock-demo.glitch.me/) and [de
 
 You can use your operating system's task manager to see if an application is preventing your computer from sleeping. The video below shows the macOS [Activity Monitor](https://support.apple.com/guide/activity-monitor/welcome/mac) indicating that Chrome has an active screen wake lock that keeps the system awake.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 The [Web Platform Incubator Community Group (WICG)](https://www.w3.org/community/wicg/) and the Chrome team want to hear about your thoughts and experiences with the Screen Wake Lock API.
 
@@ -190,33 +176,31 @@ The [Web Platform Incubator Community Group (WICG)](https://www.w3.org/community
 
 Is there something about the API that doesn't work as expected? Or are there missing methods or properties that you need to implement your idea?
 
--   File a spec issue on the [Screen Wake Lock API GitHub repo](https://github.com/w3c/wake-lock/issues) or add your thoughts to an existing issue.
+- File a spec issue on the [Screen Wake Lock API GitHub repo](https://github.com/w3c/wake-lock/issues) or add your thoughts to an existing issue.
 
 ### Report a problem with the implementation <a href="#report-a-problem-with-the-implementation" class="w-headline-link">#</a>
 
 Did you find a bug with Chrome's implementation? Or is the implementation different from the spec?
 
--   File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3EWakeLock). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and set *Components* to `Blink>WakeLock`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
+- File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3EWakeLock). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and set _Components_ to `Blink>WakeLock`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
 
 ### Show support for the API <a href="#show-support-for-the-api" class="w-headline-link">#</a>
 
 Are you planning to use the Screen Wake Lock API? Your public support helps the Chrome team prioritize features and shows other browser vendors how critical it is to support them.
 
--   Share how you plan to use the API on the [WICG Discourse thread](https://discourse.wicg.io/t/wake-lock-api-suppressing-power-management-screensavers/769).
--   Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#WakeLock`](https://twitter.com/search?q=%23WakeLock&src=typed_query&f=live) and let us know where and how you're using it.
+- Share how you plan to use the API on the [WICG Discourse thread](https://discourse.wicg.io/t/wake-lock-api-suppressing-power-management-screensavers/769).
+- Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#WakeLock`](https://twitter.com/search?q=%23WakeLock&src=typed_query&f=live) and let us know where and how you're using it.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   Specification [Candidate Recommendation](https://www.w3.org/TR/wake-lock/) | [Editor's Draft](https://w3c.github.io/wake-lock/)
--   [Screen Wake Lock Demo](https://wake-lock-demo.glitch.me/) | [Screen Wake Lock Demo source](https://glitch.com/edit/#!/wake-lock-demo?path=script.js:1:0)
--   [Tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=257511)
--   [ChromeStatus.com entry](https://www.chromestatus.com/feature/4636879949398016)
--   [Experimenting with the Wake Lock API](https://medium.com/dev-channel/experimenting-with-the-wake-lock-api-b6f42e0a089f)
--   Blink Component: [`Blink>WakeLock`](https://chromestatus.com/features#component%3ABlink%3EWakeLock)
+- Specification [Candidate Recommendation](https://www.w3.org/TR/wake-lock/) | [Editor's Draft](https://w3c.github.io/wake-lock/)
+- [Screen Wake Lock Demo](https://wake-lock-demo.glitch.me/) | [Screen Wake Lock Demo source](https://glitch.com/edit/#!/wake-lock-demo?path=script.js:1:0)
+- [Tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=257511)
+- [ChromeStatus.com entry](https://www.chromestatus.com/feature/4636879949398016)
+- [Experimenting with the Wake Lock API](https://medium.com/dev-channel/experimenting-with-the-wake-lock-api-b6f42e0a089f)
+- Blink Component: [`Blink>WakeLock`](https://chromestatus.com/features#component%3ABlink%3EWakeLock)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 [Hero image](https://unsplash.com/photos/uy5t-CJuIK4) by [Kate Stone Matheson](https://unsplash.com/@kstonematheson) on Unsplash. Task manager video courtesy of [Henry Lim](https://twitter.com/henrylim96/status/1359914993399959559).
 
@@ -226,35 +210,35 @@ Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

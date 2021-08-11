@@ -1,27 +1,19 @@
+## <a href="#using-bundlesize-with-travis-ci" class="w-toc__header--link">Using bundlesize with Travis CI</a>
 
-
-
-
-
-
-<a href="#using-bundlesize-with-travis-ci" class="w-toc__header--link">Using bundlesize with Travis CI</a>
-----------------------------------------------------------------------------------------------------------
-
--   [Set the performance budget](#set-the-performance-budget)
--   [Create a test script](#create-a-test-script)
--   [Set up continuous integration](#set-up-continuous-integration)
--   [Integrate GitHub and Travis CI](#integrate-github-and-travis-ci)
--   [Authorize bundlesize to post on pull requests](#authorize-bundlesize-to-post-on-pull-requests)
--   [Try it out](#try-it-out)
--   [Trigger your first bundlesize test](#trigger-your-first-bundlesize-test)
--   [Optimize](#optimize)
--   [Re-run test](#re-run-test)
--   [Monitor](#monitor)
+- [Set the performance budget](#set-the-performance-budget)
+- [Create a test script](#create-a-test-script)
+- [Set up continuous integration](#set-up-continuous-integration)
+- [Integrate GitHub and Travis CI](#integrate-github-and-travis-ci)
+- [Authorize bundlesize to post on pull requests](#authorize-bundlesize-to-post-on-pull-requests)
+- [Try it out](#try-it-out)
+- [Trigger your first bundlesize test](#trigger-your-first-bundlesize-test)
+- [Optimize](#optimize)
+- [Re-run test](#re-run-test)
+- [Monitor](#monitor)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Using bundlesize with Travis CI
-===============================
+# Using bundlesize with Travis CI
 
 Feb 1, 2019
 
@@ -31,9 +23,9 @@ Feb 1, 2019
 
 <a href="/authors/mihajlija/" class="w-author__name-link">Milica Mihajlija</a>
 
--   <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
--   <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/bibydigital" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mihajlija" class="w-author__link">GitHub</a>
+- <a href="https://mihajlija.github.io/" class="w-author__link">Blog</a>
 
 Using [bundlesize](https://github.com/siddharthkp/bundlesize) with [Travis CI](https://travis-ci.com/) lets you define performance budgets with minimal setup and enforce them as part of your development workflow. Travis CI is a service that runs tests for your app in the cloud every time you push code to GitHub. You can [configure your repository](https://help.github.com/articles/about-required-status-checks/) so that it won't allow merging pull-requests unless the bundlesize tests have passed.
 
@@ -47,12 +39,11 @@ To see it in action, here's an app bundled with [webpack](https://webpack.js.org
 
 [<img src="https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format" alt="Cat voting app" class="w-screenshot w-screenshot--filled" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/DGSSFfpAMIaFqX8MwWss.png?auto=format&amp;w=1600 1600w" width="800" height="567" />](https://glitch.com/edit/#!/scarce-pixie)
 
-Set the performance budget <a href="#set-the-performance-budget" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Set the performance budget <a href="#set-the-performance-budget" class="w-headline-link">#</a>
 
 [This Glitch](https://glitch.com/edit/#!/scarce-pixie) already contains bundlesize.
 
--   Click **Remix to Edit** to make the project editable.
+- Click **Remix to Edit** to make the project editable.
 
 The main bundle of this app is in the public folder. To test its size, add the following section to the `package.json` file:
 
@@ -80,8 +71,7 @@ Since Travis needs a test to run, add a test script to `package.json`:
       "test": "bundlesize"
     }
 
-Set up continuous integration <a href="#set-up-continuous-integration" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Set up continuous integration <a href="#set-up-continuous-integration" class="w-headline-link">#</a>
 
 ### Integrate GitHub and Travis CI <a href="#integrate-github-and-travis-ci" class="w-headline-link">#</a>
 
@@ -105,14 +95,13 @@ In your project's Travis dashboard, go to **More options** &gt; **Settings** &gt
 
 <img src="https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format" alt="Adding environment variables on Travis CI" sizes="(min-width: 789px) 789px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/gol14FsIsYPyPWwIeYfI.png?auto=format&amp;w=1578 1578w" width="789" height="233" />
 
-Add a new environment variable with the token as the value field and BUNDLESIZE\_GITHUB\_TOKEN as the name.
+Add a new environment variable with the token as the value field and BUNDLESIZE_GITHUB_TOKEN as the name.
 
 The last thing you need to kick-off continuous integration is a `.travis.yml` file, which tells Travis CI what to do. To speed things up, it is already included in the project and it specifies that the app is using NodeJS.
 
 With this step, you're all set up and bundlesize will warn you if your JavaScript ever goes over the budget. Even when you start off great, over time, as you add new features, kilobytes can pile up. With automated performance budget monitoring, you can rest easy knowing that it won't go unnoticed.
 
-Try it out <a href="#try-it-out" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Try it out <a href="#try-it-out" class="w-headline-link">#</a>
 
 ### Trigger your first bundlesize test <a href="#trigger-your-first-bundlesize-test" class="w-headline-link">#</a>
 
@@ -179,35 +168,35 @@ The app is now under the budget and all is well. Travis CI and bundlesize will k
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

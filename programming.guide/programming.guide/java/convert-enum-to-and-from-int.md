@@ -1,13 +1,13 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Related
 
 [Convert enum to and from string](convert-enum-to-and-from-string.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

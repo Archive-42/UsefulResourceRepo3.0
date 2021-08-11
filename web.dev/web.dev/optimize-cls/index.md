@@ -1,32 +1,24 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format" alt="Layout shifts can suddenly push the content you are reading or are about to click further down the page, leading to a poor user-experience. Reserving space for dynamic content causing layout shifts leads to a more delightful user experience." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/74TRx6aETydsBGa2IZ7R.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#optimize-cumulative-layout-shift" class="w-toc__header--link">Optimize Cumulative Layout Shift</a>
-------------------------------------------------------------------------------------------------------------
+## <a href="#optimize-cumulative-layout-shift" class="w-toc__header--link">Optimize Cumulative Layout Shift</a>
 
--   [Images without dimensions 🌆](#images-without-dimensions)
--   [History](#history)
--   [Modern best practice](#modern-best-practice)
--   [Ads, embeds and iframes without dimensions 📢😱](#ads-embeds-and-iframes-without-dimensions)
--   [Advertisements](#advertisements)
--   [Embeds and iframes](#embeds-and-iframes)
--   [Dynamic content 📐](#dynamic-content)
--   [Web fonts causing FOUT/FOIT 📝](#web-fonts-causing-foutfoit)
--   [Animations 🏃‍♀️](#animations)
--   [Developer Tools 🔧](#developer-tools)
+- [Images without dimensions 🌆](#images-without-dimensions)
+- [History](#history)
+- [Modern best practice](#modern-best-practice)
+- [Ads, embeds and iframes without dimensions 📢😱](#ads-embeds-and-iframes-without-dimensions)
+- [Advertisements](#advertisements)
+- [Embeds and iframes](#embeds-and-iframes)
+- [Dynamic content 📐](#dynamic-content)
+- [Web fonts causing FOUT/FOIT 📝](#web-fonts-causing-foutfoit)
+- [Animations 🏃‍♀️](#animations)
+- [Developer Tools 🔧](#developer-tools)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Optimize Cumulative Layout Shift
-================================
+# Optimize Cumulative Layout Shift
 
 Learn how to avoid sudden layout shifts to improve user-experience
 
@@ -38,8 +30,8 @@ May 5, 2020 <span class="w-author__separator">•</span> Updated Aug 20, 2020
 
 <a href="/authors/addyosmani/" class="w-author__name-link">Addy Osmani</a>
 
--   <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
--   <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
+- <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
 
 "I was about to click that! Why did it move? 😭"
 
@@ -53,14 +45,13 @@ In this guide, we'll cover optimizing common causes of layout shifts.
 
 The most common causes of a poor CLS are:
 
--   Images without dimensions
--   Ads, embeds, and iframes without dimensions
--   Dynamically injected content
--   Web Fonts causing FOIT/FOUT
--   Actions waiting for a network response before updating DOM
+- Images without dimensions
+- Ads, embeds, and iframes without dimensions
+- Dynamically injected content
+- Web Fonts causing FOIT/FOUT
+- Actions waiting for a network response before updating DOM
 
-Images without dimensions 🌆 <a href="#images-without-dimensions" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Images without dimensions 🌆 <a href="#images-without-dimensions" class="w-headline-link">#</a>
 
 **Summary:** Always include `width` and `height` size attributes on your images and video elements. Alternatively, reserve the required space with [CSS aspect ratio boxes](https://css-tricks.com/aspect-ratio-boxes/). This approach ensures that the browser can allocate the correct amount of space in the document while the image is loading.
 
@@ -89,8 +80,8 @@ This is where aspect ratio comes in. The aspect ratio of an image is the ratio o
 
 This means if we know one of the dimensions, the other can be determined. For a 16:9 aspect ratio:
 
--   If puppy.jpg has a 360px height, width is 360 x (16 / 9) = 640px
--   If puppy.jpg has a 640px width, height is 640 x (9 / 16) = 360px
+- If puppy.jpg has a 360px height, width is 360 x (16 / 9) = 640px
+- If puppy.jpg has a 640px width, height is 640 x (9 / 16) = 360px
 
 Knowing the aspect ratio allows the browser to calculate and reserve sufficient space for the height and associated area.
 
@@ -146,8 +137,7 @@ Pages may wish to include a cropped shot of an image on narrow viewports with th
 
 It's very possible these images could have different aspect ratios and browsers are still evaluating what the most efficient solution here should be, including if dimensions should be specified on all sources. Until a solution is decided on, relayout is still possible here.
 
-Ads, embeds and iframes without dimensions 📢😱 <a href="#ads-embeds-and-iframes-without-dimensions" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------
+## Ads, embeds and iframes without dimensions 📢😱 <a href="#ads-embeds-and-iframes-without-dimensions" class="w-headline-link">#</a>
 
 ### Advertisements <a href="#advertisements" class="w-headline-link">#</a>
 
@@ -155,22 +145,22 @@ Ads are one of the largest contributors to layout shifts on the web. Ad networks
 
 During the ad lifecycle, many points can introduce layout shift:
 
--   When a site inserts the ad container in the DOM
--   When a site resizes the ad container with first-party code
--   When the ad tag library loads (and resizes the ad container)
--   When the ad fills a container (and resizes if the final ad has a different size)
+- When a site inserts the ad container in the DOM
+- When a site resizes the ad container with first-party code
+- When the ad tag library loads (and resizes the ad container)
+- When the ad fills a container (and resizes if the final ad has a different size)
 
 The good news is that it's possible for sites to follow best practices to reduce ad shift. Sites can mitigate these layout shifts by:
 
--   Statically reserve space for the ad slot.
-    -   In other words, style the element before the ad tag library loads.
-    -   If placing ads in the content flow, ensure shifts are eliminated by reserving the slot size. These ads *shouldn't* cause layout shifts if loaded off-screen.
--   Take care when placing non-sticky ads near the top of the viewport.
-    -   In the below example, it's recommended to move the ad to below the "world vision" logo and make sure to reserve enough space for the slot.
--   Avoid collapsing the reserved space if there is no ad returned when the ad slot is visible by showing a placeholder.
--   Eliminate shifts by reserving the largest possible size for the ad slot.
-    -   This works, but it risks having a blank space if a smaller ad creative fills the slot.
--   Choose the most likely size for the ad slot based on historical data.
+- Statically reserve space for the ad slot.
+  - In other words, style the element before the ad tag library loads.
+  - If placing ads in the content flow, ensure shifts are eliminated by reserving the slot size. These ads _shouldn't_ cause layout shifts if loaded off-screen.
+- Take care when placing non-sticky ads near the top of the viewport.
+  - In the below example, it's recommended to move the ad to below the "world vision" logo and make sure to reserve enough space for the slot.
+- Avoid collapsing the reserved space if there is no ad returned when the ad slot is visible by showing a placeholder.
+- Eliminate shifts by reserving the largest possible size for the ad slot.
+  - This works, but it risks having a blank space if a smaller ad creative fills the slot.
+- Choose the most likely size for the ad slot based on historical data.
 
 Some sites may find collapsing the slot initially can reduce layout shifts if the ad slot is unlikely to fill. There isn't an easy way to choose the exact size each time, unless you control the ad serving yourself.
 
@@ -192,9 +182,9 @@ Ads near the top of the viewport may cause a greater layout shift than those at 
 
 Embeddable widgets allow you to embed portable web content in your page (for example, videos from YouTube, maps from Google Maps, social media posts, and so on). These embeds can take a number of forms:
 
--   HTML fallback and a JavaScript tag transforming the fallback into a fancy embed
--   Inline HTML snippet
--   iframe embed
+- HTML fallback and a JavaScript tag transforming the fallback into a fancy embed
+- Inline HTML snippet
+- iframe embed
 
 These embeds often aren't aware in advance just how large an embed will be (for example, in the case of a social media post - does it have an embedded image? video? multiple rows of text?). As a result, platforms offering embeds do not always reserve enough space for their embeds and can cause layout shifts when they finally load.
 
@@ -204,8 +194,8 @@ Embed with space reserved.
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format" alt="Lighthouse 6.0 impact of reserving space for this embed on CLS" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/2XaMbZBmUit1Vz8UBshH.png?auto=format&amp;w=1600 1600w" width="800" height="148" /><figcaption>Lighthouse 6.0 impact of reserving space for this embed on CLS</figcaption></figure>To work around this, you can minimize CLS by precomputing sufficient space for embeds with a placeholder or fallback. One workflow you can use for embeds:
 
--   Obtain the height of your final embed by inspecting it with your browser developer tools
--   Once the embed loads, the contained iframe will resize to fit so that its contents will fit.
+- Obtain the height of your final embed by inspecting it with your browser developer tools
+- Once the embed loads, the contained iframe will resize to fit so that its contents will fit.
 
 Take note of the dimensions and style a placeholder for the embed accordingly. You may need to account for subtle differences in ad/placeholder sizes between different form factors using media queries.
 
@@ -215,17 +205,17 @@ Take note of the dimensions and style a placeholder for the embed accordingly. Y
 
 You've probably experienced layout shifts due to UI that pops-in at the top or bottom of the viewport when you're trying to load a site. Similar to ads, this often this happens with banners and forms that shift the rest of the page's content:
 
--   "Sign-up to our newsletter!" (whoa, slow down! we just met!)
+- "Sign-up to our newsletter!" (whoa, slow down! we just met!)
 
--   "Related content"
+- "Related content"
 
--   "Install our \[iOS/Android\] app"
+- "Install our \[iOS/Android\] app"
 
--   "We're still taking orders"
+- "We're still taking orders"
 
--   "GDPR notice"
+- "GDPR notice"
 
-    Dynamic content without space reserved.
+  Dynamic content without space reserved.
 
 If you need to display these types of UI affordances, reserve sufficient space in the viewport for it in advance (for example, using a placeholder or skeleton UI) so that when it loads, it does not cause content in the page to surprisingly shift around.
 
@@ -233,18 +223,18 @@ If you need to display these types of UI affordances, reserve sufficient space i
 
 Downloading and rendering web fonts can cause layout shifts in two ways:
 
--   The fallback font is swapped with a new font (FOUT - flash of unstyled text)
--   "Invisible" text is displayed until a new font is rendered (FOIT - flash of invisible text)
+- The fallback font is swapped with a new font (FOUT - flash of unstyled text)
+- "Invisible" text is displayed until a new font is rendered (FOIT - flash of invisible text)
 
 The following tools can help you minimize this:
 
--   `font-display` allows you to modify the rendering behavior of custom fonts with values such as `auto`, `swap`, `block`, `fallback` and `optional`. Unfortunately, all of these values (except [optional](http://crrev.com/749080)) can cause a re-layout in one of the above ways.
--   The [Font Loading API](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization#the_font_loading_api) can reduce the time it takes to get necessary fonts.
+- `font-display` allows you to modify the rendering behavior of custom fonts with values such as `auto`, `swap`, `block`, `fallback` and `optional`. Unfortunately, all of these values (except [optional](http://crrev.com/749080)) can cause a re-layout in one of the above ways.
+- The [Font Loading API](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization#the_font_loading_api) can reduce the time it takes to get necessary fonts.
 
 As of Chrome 83, I can recommend the following too:
 
--   Using `<link rel=preload>` on the key web fonts: a preloaded font will have a higher chance to meet the first paint, in which case there's no layout shifting.
--   Combining `<link rel=preload>` and `font-display: optional`
+- Using `<link rel=preload>` on the key web fonts: a preloaded font will have a higher chance to meet the first paint, in which case there's no layout shifting.
+- Combining `<link rel=preload>` and `font-display: optional`
 
 Read [Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts](/preload-optional-fonts/) for more details.
 
@@ -270,7 +260,7 @@ The [Performance panel](https://developers.google.com/web/tools/chrome-devtools/
 
 That's it for this guide. I hope it helps keep your pages just a little less shifty :)
 
-*With thanks to Philip Walton, Kenji Baheux, Warren Maresca, Annie Sullivan, Steve Kobes and Gilberto Cocchi for their helpful reviews.*
+_With thanks to Philip Walton, Kenji Baheux, Warren Maresca, Annie Sullivan, Steve Kobes and Gilberto Cocchi for their helpful reviews._
 
 <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/web-vitals/" class="w-chip">Web Vitals</a>
 
@@ -278,35 +268,35 @@ That's it for this guide. I hope it helps keep your pages just a little less shi
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

@@ -1,25 +1,17 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/BHaoqqR73jDWe6FL2kfw.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#web-vitals" class="w-toc__header--link">Web Vitals</a>
-----------------------------------------------------------------
+## <a href="#web-vitals" class="w-toc__header--link">Web Vitals</a>
 
--   [Overview](#overview)
--   [Core Web Vitals](#core-web-vitals)
--   [Tools to measure and report Core Web Vitals](#tools-to-measure-and-report-core-web-vitals)
--   [Recommendations for improving your scores](#recommendations-for-improving-your-scores)
--   [Other Web Vitals](#other-web-vitals)
--   [Evolving Web Vitals](#evolving-web-vitals)
+- [Overview](#overview)
+- [Core Web Vitals](#core-web-vitals)
+- [Tools to measure and report Core Web Vitals](#tools-to-measure-and-report-core-web-vitals)
+- [Recommendations for improving your scores](#recommendations-for-improving-your-scores)
+- [Other Web Vitals](#other-web-vitals)
+- [Evolving Web Vitals](#evolving-web-vitals)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Web Vitals
-==========
+# Web Vitals
 
 Apr 30, 2020 <span class="w-author__separator">•</span> Updated Jul 21, 2020
 
@@ -29,14 +21,13 @@ Apr 30, 2020 <span class="w-author__separator">•</span> Updated Jul 21, 2020
 
 <a href="/authors/philipwalton/" class="w-author__name-link">Philip Walton</a>
 
--   <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
--   <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
--   <a href="https://philipwalton.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
+- <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
+- <a href="https://philipwalton.com" class="w-author__link">Blog</a>
 
 Optimizing for quality of user experience is key to the long-term success of any site on the web. Whether you're a business owner, marketer, or developer, Web Vitals can help you quantify the experience of your site and identify opportunities to improve.
 
-Overview <a href="#overview" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Overview <a href="#overview" class="w-headline-link">#</a>
 
 Web Vitals is an initiative by Google to provide unified guidance for quality signals that are essential to delivering a great user experience on the web.
 
@@ -44,18 +35,17 @@ Google has provided a number of tools over the years to measure and report on pe
 
 Site owners should not have to be performance gurus in order to understand the quality of experience they are delivering to their users. The Web Vitals initiative aims to simplify the landscape, and help sites focus on the metrics that matter most, the **Core Web Vitals**.
 
-Core Web Vitals <a href="#core-web-vitals" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Core Web Vitals <a href="#core-web-vitals" class="w-headline-link">#</a>
 
 Core Web Vitals are the subset of Web Vitals that apply to all web pages, should be measured by all site owners, and will be surfaced across all Google tools. Each of the Core Web Vitals represents a distinct facet of the user experience, is measurable [in the field](/user-centric-performance-metrics/#how-metrics-are-measured), and reflects the real-world experience of a critical [user-centric](/user-centric-performance-metrics/#how-metrics-are-measured) outcome.
 
-The metrics that make up Core Web Vitals will [evolve](#evolving-web-vitals) over time. The current set for 2020 focuses on three aspects of the user experience—*loading*, *interactivity*, and *visual stability*—and includes the following metrics (and their respective thresholds):
+The metrics that make up Core Web Vitals will [evolve](#evolving-web-vitals) over time. The current set for 2020 focuses on three aspects of the user experience—_loading_, _interactivity_, and _visual stability_—and includes the following metrics (and their respective thresholds):
 
 <img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/ZZU8Z7TMKXmzZT2mCjJU.svg" alt="Largest Contentful Paint threshold recommendations" width="400" height="350" /> <img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/iHYrrXKe4QRcb2uu8eV8.svg" alt="First Input Delay threshold recommendations" width="400" height="350" /> <img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/dgpDFckbHwwOKdIGDa3N.svg" alt="Cumulative Layout Shift threshold recommendations" width="400" height="350" />
 
--   **[Largest Contentful Paint (LCP)](/lcp/)**: measures *loading* performance. To provide a good user experience, LCP should occur within **2.5 seconds** of when the page first starts loading.
--   **[First Input Delay (FID)](/fid/)**: measures *interactivity*. To provide a good user experience, pages should have a FID of **100 milliseconds** or less.
--   **[Cumulative Layout Shift (CLS)](/cls/)**: measures *visual stability*. To provide a good user experience, pages should maintain a CLS of **0.1.** or less.
+- **[Largest Contentful Paint (LCP)](/lcp/)**: measures _loading_ performance. To provide a good user experience, LCP should occur within **2.5 seconds** of when the page first starts loading.
+- **[First Input Delay (FID)](/fid/)**: measures _interactivity_. To provide a good user experience, pages should have a FID of **100 milliseconds** or less.
+- **[Cumulative Layout Shift (CLS)](/cls/)**: measures _visual stability_. To provide a good user experience, pages should maintain a CLS of **0.1.** or less.
 
 For each of the above metrics, to ensure you're hitting the recommended target for most of your users, a good threshold to measure is the **75th percentile** of page loads, segmented across mobile and desktop devices.
 
@@ -112,9 +102,9 @@ This extension can be helpful in understanding the performance of your own sites
 
 Alternatively, developers who prefer to measure these metrics directly via the underlying web APIs can refer to these metric guides for implementation details:
 
--   [Measure LCP in JavaScript](/lcp/#measure-lcp-in-javascript)
--   [Measure FID in JavaScript](/fid/#measure-fid-in-javascript)
--   [Measure CLS in JavaScript](/cls/#measure-cls-in-javascript)
+- [Measure LCP in JavaScript](/lcp/#measure-lcp-in-javascript)
+- [Measure FID in JavaScript](/fid/#measure-fid-in-javascript)
+- [Measure CLS in JavaScript](/cls/#measure-cls-in-javascript)
 
 For additional guidance on how to measure these metrics using popular analytics services (or your own in-house analytics tools), see: [Best practices for measuring Web Vitals in the field](/vitals-field-measurement-best-practices/)
 
@@ -138,23 +128,21 @@ The performance of a site can vary dramatically based on a user's device capabil
 
 Once you've measured the Core Web Vitals and identified areas for improvement, the next step is to optimize. The following guides offer specific recommendations for how to optimize your pages for each of the Core Web Vitals:
 
--   [Optimize LCP](/optimize-lcp/)
--   [Optimize FID](/optimize-fid/)
--   [Optimize CLS](/optimize-cls/)
+- [Optimize LCP](/optimize-lcp/)
+- [Optimize FID](/optimize-fid/)
+- [Optimize CLS](/optimize-cls/)
 
-Other Web Vitals <a href="#other-web-vitals" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Other Web Vitals <a href="#other-web-vitals" class="w-headline-link">#</a>
 
 While the Core Web Vitals are the critical metrics for understanding and delivering a great user experience, there are other vital metrics as well.
 
 These other Web Vitals often serve as proxy or supplemental metrics for the Core Web Vitals, to help capture a larger part of the experience or to aid in diagnosing a specific issue.
 
-For example, the metrics [Time to First Byte (TTFB)](/time-to-first-byte/) and [First Contentful Paint (FCP)](/fcp/) are both vital aspects of the *loading* experience, and are both useful in diagnosing issues with LCP (slow [server response times](/overloaded-server/) or [render-blocking resources](/render-blocking-resources/), respectively).
+For example, the metrics [Time to First Byte (TTFB)](/time-to-first-byte/) and [First Contentful Paint (FCP)](/fcp/) are both vital aspects of the _loading_ experience, and are both useful in diagnosing issues with LCP (slow [server response times](/overloaded-server/) or [render-blocking resources](/render-blocking-resources/), respectively).
 
-Similarly, metrics like [Total Blocking Time (TBT)](/tbt/) and [Time to Interactive (TTI)](/tti/) are lab metrics that are vital in catching and diagnosing potential *interactivity* issues that will impact FID. However, they are not part of the Core Web Vitals set because they are not field-measurable, nor do they reflect a [user-centric](/user-centric-performance-metrics/#how-metrics-are-measured) outcome.
+Similarly, metrics like [Total Blocking Time (TBT)](/tbt/) and [Time to Interactive (TTI)](/tti/) are lab metrics that are vital in catching and diagnosing potential _interactivity_ issues that will impact FID. However, they are not part of the Core Web Vitals set because they are not field-measurable, nor do they reflect a [user-centric](/user-centric-performance-metrics/#how-metrics-are-measured) outcome.
 
-Evolving Web Vitals <a href="#evolving-web-vitals" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Evolving Web Vitals <a href="#evolving-web-vitals" class="w-headline-link">#</a>
 
 Web Vitals and Core Web Vitals represent the best available signals developers have today to measure quality of experience across the web, but these signals are not perfect and future improvements or additions should be expected.
 
@@ -170,35 +158,35 @@ For all Web Vitals, changes will be clearly documented in this public [CHANGELOG
 
 <a href="/learn-web-vitals" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

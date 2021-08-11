@@ -1,5 +1,3 @@
-
-
 <a href="/" class="header-default__logo-link gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="header-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="header-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="header-default__link gc-analytics-event">Blog</a> <a href="/about/" class="header-default__link gc-analytics-event">About</a>
@@ -10,20 +8,18 @@
 
 <a href="/learn/" class="drawer-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="drawer-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="drawer-default__link gc-analytics-event">Blog</a> <a href="/about/" class="drawer-default__link gc-analytics-event">About</a>
 
-<a href="#understanding-andquotsame-siteandquot-and-andquotsame-originandquot" class="w-toc__header--link">Understanding "same-site" and "same-origin"</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#understanding-andquotsame-siteandquot-and-andquotsame-originandquot" class="w-toc__header--link">Understanding "same-site" and "same-origin"</a>
 
--   [Origin](#origin)
--   ["same-origin" and "cross-origin"](#same-origin-and-cross-origin)
--   [Site](#site)
--   ["same-site" and "cross-site"](#same-site-cross-site)
--   ["schemeful same-site"](#)
--   [How to check if a request is "same-site", "same-origin", or "cross-site"](#how-to-check-if-a-request-is-)
+- [Origin](#origin)
+- ["same-origin" and "cross-origin"](#same-origin-and-cross-origin)
+- [Site](#site)
+- ["same-site" and "cross-site"](#same-site-cross-site)
+- ["schemeful same-site"](#)
+- [How to check if a request is "same-site", "same-origin", or "cross-site"](#how-to-check-if-a-request-is-)
 
 Share <a href="/newsletter/" class="w-actions__fab w-actions__fab--subscribe gc-analytics-event"><span>subscribe</span></a>
 
-Understanding "same-site" and "same-origin"
-===========================================
+# Understanding "same-site" and "same-origin"
 
 Apr 15, 2020 <span class="w-author__separator">•</span> Updated Jun 10, 2020
 
@@ -33,14 +29,13 @@ Apr 15, 2020 <span class="w-author__separator">•</span> Updated Jun 10, 2020
 
 <a href="/authors/agektmr/" class="w-author__name-link">Eiji Kitamura</a>
 
--   <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
--   <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
--   <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/agektmr" class="w-author__link">Twitter</a>
+- <a href="https://github.com/agektmr" class="w-author__link">GitHub</a>
+- <a href="https://blog.agektmr.com" class="w-author__link">Blog</a>
 
 "same-site" and "same-origin" are frequently cited but often misunderstood terms. For example, they are mentioned in the context of page transitions, `fetch()` requests, cookies, opening popups, embedded resources, and iframes.
 
-Origin <a href="#origin" class="w-headline-link">#</a>
-------------------------------------------------------
+## Origin <a href="#origin" class="w-headline-link">#</a>
 
 <img src="https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format" alt="Origin" sizes="(min-width: 680px) 680px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/admin/PX5HrIMPlgcbzYac3FHV.png?auto=format&amp;w=1360 1360w" width="680" height="100" />
 
@@ -86,8 +81,7 @@ cross-origin: different ports
 
 **same-origin: implicit port number (443) matches**
 
-Site <a href="#site" class="w-headline-link">#</a>
---------------------------------------------------
+## Site <a href="#site" class="w-headline-link">#</a>
 
 <img src="https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format" alt="Site" sizes="(min-width: 680px) 680px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/admin/oSRJzCJIr4OjGzUhcNDP.png?auto=format&amp;w=1360 1360w" width="680" height="142" />
 
@@ -173,15 +167,14 @@ https://www.example.com:**80**
 
 **schemeful same-site: ports don't matter**
 
-How to check if a request is "same-site", "same-origin", or "cross-site" <a href="#how-to-check-if-a-request-is-%22same-site%22-%22same-origin%22-or-%22cross-site%22" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## How to check if a request is "same-site", "same-origin", or "cross-site" <a href="#how-to-check-if-a-request-is-%22same-site%22-%22same-origin%22-or-%22cross-site%22" class="w-headline-link">#</a>
 
 Chrome sends requests along with a `Sec-Fetch-Site` HTTP header. No other browsers support `Sec-Fetch-Site` as of April 2020. This is part of a larger [Fetch Metadata Request Headers](https://www.w3.org/TR/fetch-metadata/) proposal. The header will have one of the following values:
 
--   `cross-site`
--   `same-site`
--   `same-origin`
--   `none`
+- `cross-site`
+- `same-site`
+- `same-origin`
+- `none`
 
 By examining the value of `Sec-Fetch-Site`, you can determine if the request is "same-site", "same-origin", or "cross-site" ("schemeful-same-site" is not captured in `Sec-Fetch-Site`).
 
@@ -191,35 +184,35 @@ By examining the value of `Sec-Fetch-Site`, you can determine if the request is 
 
 <a href="/secure" class="w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single gc-analytics-event">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

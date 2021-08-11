@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
 <img src="https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format" alt="Oriol Brufau" class="w-author-page__image" sizes="(min-width: 481px) 192px, 128px" srcset="https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=128 128w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=146 146w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=166 166w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=190 190w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=216 216w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=246 246w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=281 281w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=320 320w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=365 365w, https://web-dev.imgix.net/image/admin/uedrGuXN8MZ0tg11zsmK.jpg?auto=format&amp;w=384 384w" width="192" height="192" />

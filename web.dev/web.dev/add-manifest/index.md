@@ -1,11 +1,4 @@
-
-
-
-
-
 <span class="w-tooltip">Close</span>
-
-
 
 <a href="/learn/" class="gc-analytics-event drawer-default__link">Learn</a> <a href="/measure/" class="gc-analytics-event drawer-default__link">Measure</a> <a href="/blog/" class="gc-analytics-event drawer-default__link">Blog</a> <a href="/about/" class="gc-analytics-event drawer-default__link">About</a>
 
@@ -237,8 +230,6 @@ Chrome automatically creates the splash screen from the manifest properties, spe
 The `background_color` should be the same color as the load page, to provide a smooth transition from the splash screen to your app.
 
 Chrome will choose the icon that closely matches the device resolution for the device. Providing 192px and 512px icons is sufficient for most cases, but you can provide additional icons for pixel perfection.
-
-
 
 ## Further reading <a href="#further-reading" class="w-headline-link">#</a>
 

@@ -1,9 +1,8 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Types in Java
--------------
+
+
+## Types in Java
 
 1.  [Java Basics: Types](types.html)
 2.  [Primitive Types](primitive-types.html)
@@ -22,17 +21,15 @@ Types in Java
 15. [Character vs char](character-vs-char.html)
 16. [Boolean (class) vs boolean (primitive)](boolean-vs-boolean.html)
 
-Featured Stack Overflow Post
-----------------------------
+## Featured Stack Overflow Post
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -42,8 +39,7 @@ Top Java Articles
 
 [**See all Java articles**](index.html)
 
-Java: Wrapper Types
-===================
+# Java: Wrapper Types
 
 Each primitive type (`int`, `byte`, `double`, …) has a corresponding **wrapper type** (`Integer`, `Byte`, `Double`, …).
 
@@ -66,15 +62,13 @@ The fundamental difference is that an `Integer` is a **reference type**, while a
 
 An object of wrapper type is often called a **boxed value**, and converting to and from wrapper types is called **boxing** and **unboxing**.
 
-All Wrapper Types
------------------
+## All Wrapper Types
 
 There are 8 primitive types, and therefore 8 wrapper types.
 
 <table><thead><tr class="header"><th>Primitive</th><th>Wrapper</th></tr></thead><tbody><tr class="odd"><td><code>byte</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html"><code>java.lang.Byte</code></a></td></tr><tr class="even"><td><code>short</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html"><code>java.lang.Short</code></a></td></tr><tr class="odd"><td><code>int</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html"><code>java.lang.Integer</code></a></td></tr><tr class="even"><td><code>long</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html"><code>java.lang.Long</code></a></td></tr><tr class="odd"><td><code>float</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html"><code>java.lang.Float</code></a></td></tr><tr class="even"><td><code>double</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html"><code>java.lang.Double</code></a></td></tr><tr class="odd"><td><code>char</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html"><code>java.lang.Character</code></a></td></tr><tr class="even"><td><code>boolean</code></td><td><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html"><code>java.lang.Boolean</code></a></td></tr></tbody></table>
 
-Why boxed values?
------------------
+## Why boxed values?
 
 Primitives are more efficient and have a smaller memory footprint. Why would you want to work with wrapper types?
 
@@ -92,11 +86,11 @@ You can't use a primitive as type argument for a generic class or method.
     // Works fine
     List<Integer> list2 = new ArrayList<>();
 
-(Support for primitives with generics is under way. It *might* become a reality in something like Java 11. See [JEP 218: Generics over Primitive Types](http://openjdk.java.net/jeps/218).)
+(Support for primitives with generics is under way. It _might_ become a reality in something like Java 11. See [JEP 218: Generics over Primitive Types](http://openjdk.java.net/jeps/218).)
 
 ### 2. A way to represent "undefined" (nullability)
 
-As opposed to primitive types, a reference can be `null`. This means that using a wrapper type allows you to express things like *"The value is undefined"*, or, *"The value has not yet been loaded"* without having to reserve a dummy value such as −1.
+As opposed to primitive types, a reference can be `null`. This means that using a wrapper type allows you to express things like _"The value is undefined"_, or, _"The value has not yet been loaded"_ without having to reserve a dummy value such as −1.
 
 ### 3. APIs requiring reference types
 
@@ -132,8 +126,7 @@ This allows you to, for instance, have heterogeneous collections of mixed number
 
 Another use case is parsing where you don't know the appropriate numeric type in compile time. See for example [`NumberFormat.parse`](https://docs.oracle.com/javase/8/docs/api/java/text/NumberFormat.html#parse-java.lang.String-).
 
-Autoboxing and unboxing
------------------------
+## Autoboxing and unboxing
 
 If a primitive value is provided where a boxed value is expected, the compiler can automatically convert it. This is called **autoboxing**. Same applies if a boxed value is provided where a primitive is expected. This is called **unboxing**.
 
@@ -146,8 +139,7 @@ Continue reading here:
 
 <span class="pointer">[Java: Autoboxing and unboxing](autoboxing.html)</span>
 
-Boxed values and equality
--------------------------
+## Boxed values and equality
 
 When comparing wrapper types such as `Integer`s, `Long`s or `Boolean`s using `==` or `!=`, you're **comparing them as references**, not as values.
 
@@ -180,8 +172,7 @@ To complicate matters further, autoboxing may **cache values**, which causes ref
 
 <span class="pointer">[Java: Boxed values and equality](boxed-values-equality.html)</span>
 
-Boxed values are immutable
---------------------------
+## Boxed values are immutable
 
 A boxed value can't be changed. (As seen at the top of this article, the `value` field in the `Integer` class is `final`!) If you want to change an `Integer` variable, you'll have to assign a new reference to it, which points at different boxed value.
 
@@ -196,10 +187,9 @@ You can in fact do things like `i++` and `i = i + 1`. This however, involves aut
 
 The immutability aspect is important, as it makes boxed values safe to use as keys in hash tables.
 
-If you're after the advantages that wrapper types provide, but need **mutability**, then [`AtomicBoolean`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html), [`AtomicInteger`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html) or [`AtomicLong`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLong.html) *might* be viable options. Note however that these classes aren't general purpose replacements for the corresponding wrapper classes. They don't, for example, override `equals`. See separate article: [AtomicInteger and equals / Comparable](atomicinteger-equals.html).
+If you're after the advantages that wrapper types provide, but need **mutability**, then [`AtomicBoolean`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html), [`AtomicInteger`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html) or [`AtomicLong`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLong.html) _might_ be viable options. Note however that these classes aren't general purpose replacements for the corresponding wrapper classes. They don't, for example, override `equals`. See separate article: [AtomicInteger and equals / Comparable](atomicinteger-equals.html).
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

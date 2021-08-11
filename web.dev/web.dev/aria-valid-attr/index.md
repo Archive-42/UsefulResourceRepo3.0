@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreateraria-*lesscodegreater-attributes-are-not-valid-or-misspelled" class="w-toc__header--link"><code>[aria-\*]</code> attributes are not valid or misspelled</a>
 
 - [How Lighthouse checks for invalid ARIA attributes](#how-lighthouse-checks-for-invalid-aria-attributes)

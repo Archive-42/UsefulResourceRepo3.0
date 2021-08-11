@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Resources
 
@@ -20,7 +20,7 @@
 
 [**See all algorithm articles**](algorithms.html)
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 
@@ -82,10 +82,6 @@ In practice there's always a memory constraint, and how large counters to alloca
 Small counters
 
 Large counters
-
-
-
-
 
 More counters which means fewer collisions and fewer false positives.
 

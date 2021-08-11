@@ -1,13 +1,13 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Recommended Reading
 
 [Generics gotchas](https://www.ibm.com/developerworks/java/library/j-jtp01255/index.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Brian Goetz</span>
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## External Resources
 
@@ -10,7 +10,7 @@
 [Unchecked Exceptions — The Controversy](http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">The Java Tutorials</span>
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

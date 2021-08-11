@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#using-the-chrome-ux-report-on-bigquery" class="w-toc__header--link">Using the Chrome UX Report on BigQuery</a>
 
 - [Data organization](#data-organization)

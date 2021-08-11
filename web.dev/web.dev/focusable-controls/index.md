@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#interactive-controls-are-keyboard-focusable" class="w-toc__header--link">Interactive controls are keyboard focusable</a>
 
 - [How to manually test](#how-to-manually-test)

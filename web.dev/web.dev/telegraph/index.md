@@ -1,33 +1,25 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format" alt="The telegraph logo" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/wqtXsd9ZcxILt6oaA7rk.jpeg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#improving-cumulative-layout-shift-at-telegraph-media-group" class="w-toc__header--link">Improving Cumulative Layout Shift at Telegraph Media Group</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#improving-cumulative-layout-shift-at-telegraph-media-group" class="w-toc__header--link">Improving Cumulative Layout Shift at Telegraph Media Group</a>
 
--   [The visual stability challenge](#the-visual-stability-challenge)
--   [Where we started](#where-we-started)
--   [How we measured the layout shifts](#how-we-measured-the-layout-shifts)
--   [Reducing layout shifts](#reducing-layout-shifts)
--   [Adverts](#adverts)
--   [Images](#images)
--   [Header](#header)
--   [Embeds](#embeds)
--   [Measuring the impact](#measuring-the-impact)
--   [Avoiding CLS regressions](#avoiding-cls-regressions)
--   [Conclusion](#conclusion)
+- [The visual stability challenge](#the-visual-stability-challenge)
+- [Where we started](#where-we-started)
+- [How we measured the layout shifts](#how-we-measured-the-layout-shifts)
+- [Reducing layout shifts](#reducing-layout-shifts)
+- [Adverts](#adverts)
+- [Images](#images)
+- [Header](#header)
+- [Embeds](#embeds)
+- [Measuring the impact](#measuring-the-impact)
+- [Avoiding CLS regressions](#avoiding-cls-regressions)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Improving Cumulative Layout Shift at Telegraph Media Group
-==========================================================
+# Improving Cumulative Layout Shift at Telegraph Media Group
 
 Within a couple of months the leading UK news website managed to improve their  
 75th percentile CLS by 250% from 0.25 to 0.1.
@@ -38,13 +30,12 @@ Jun 14, 2021
 
 <a href="/authors/chrisboakes/" class="w-author__name-link">Chris Boakes</a>
 
--   <a href="https://twitter.com/cboakes" class="w-author__link">Twitter</a>
--   <a href="https://github.com/chrisboakes" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/cboakes" class="w-author__link">Twitter</a>
+- <a href="https://github.com/chrisboakes" class="w-author__link">GitHub</a>
 
 Chris is a principal software engineer at [The Telegraph](https://www.telegraph.co.uk/).
 
-The visual stability challenge <a href="#the-visual-stability-challenge" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------
+## The visual stability challenge <a href="#the-visual-stability-challenge" class="w-headline-link">#</a>
 
 Layout shifts can be very disruptive. At Telegraph Media Group (TMG) visual stability is particularly important because readers predominantly use our applications to consume the news. If the layout shifts while reading an article, the reader will likely lose their place. This can be a frustrating and distracting experience.
 
@@ -52,10 +43,10 @@ From an engineering perspective, ensuring the pages don't shift and interrupt th
 
 At TMG, we have multiple teams contributing code client-side:
 
--   **Core engineering.** Implementing third-party solutions to power areas such as content recommendations and commenting.
--   **Marketing.** Running A/B tests to assess how our readers interact with new features or changes.
--   **Advertising.** Managing advert requests and advert pre-bidding.
--   **Editorial.** Embedding code within articles such as tweets or videos, as well as custom widgets (for example, Coronavirus case tracker).
+- **Core engineering.** Implementing third-party solutions to power areas such as content recommendations and commenting.
+- **Marketing.** Running A/B tests to assess how our readers interact with new features or changes.
+- **Advertising.** Managing advert requests and advert pre-bidding.
+- **Editorial.** Embedding code within articles such as tweets or videos, as well as custom widgets (for example, Coronavirus case tracker).
 
 Ensuring each of these teams do not cause the layout of the page to jolt can be difficult. Using the [Cumulative Layout Shift](/cls/) metric to measure how often it's occurring for our readers, the teams got more insight into the real user experience and a clear goal to strive to. This resulted in our 75th percentile CLS improving from 0.25 to 0.1 and our passing bucket growing from 57% to 72%.
 
@@ -67,15 +58,13 @@ Ensuring each of these teams do not cause the layout of the page to jolt can be 
 
 More users with good CLS score
 
-Where we started <a href="#where-we-started" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Where we started <a href="#where-we-started" class="w-headline-link">#</a>
 
 Using [CrUX dashboards](/chrome-ux-report-data-studio-dashboard/) we were able to establish that our pages were shifting more than we'd like.
 
 <figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format" alt="Our Cumulative Layout Shift scores between June 2020 and February 2021." class="w-screenshot" sizes="(min-width: 780px) 780px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/JvZwGUWfJ0bxKBQmD11P.png?auto=format&amp;w=1560 1560w" width="780" height="472" /><figcaption>Our Cumulative Layout Shift scores between June 2020 and February 2021.</figcaption></figure>We ideally wanted at least 75% of our readers to have a "good" experience so we started identifying the causes of the layout instability.
 
-How we measured the layout shifts <a href="#how-we-measured-the-layout-shifts" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## How we measured the layout shifts <a href="#how-we-measured-the-layout-shifts" class="w-headline-link">#</a>
 
 We used a combination of [Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [WebPageTest](https://www.webpagetest.org/) to help recognize what was causing the layout to shift. In DevTools, we used the [Experience section](https://developer.chrome.com/blog/new-in-devtools-84/#cls) of the [Performance](https://developer.chrome.com/docs/devtools/evaluate-performance/) tab to highlight individual instances of shifting layout and how they contributed to the overall score.
 
@@ -83,15 +72,14 @@ We used a combination of [Chrome DevTools](https://developer.chrome.com/docs/dev
 
 <figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format" alt="WebPageTest highlighting where the layout shifted." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/qaa60OEaFLoKVzWtntVw.png?auto=format&amp;w=1600 1600w" width="800" height="369" /><figcaption>WebPageTest highlighting where the layout shifted.</figcaption></figure>After reviewing each shift across our most visited templates we came up with a list of ideas as to how we could improve.
 
-Reducing layout shifts <a href="#reducing-layout-shifts" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Reducing layout shifts <a href="#reducing-layout-shifts" class="w-headline-link">#</a>
 
 We focused on four areas where we could reduce layout shifts:
 
--   adverts
--   images
--   headers
--   embeds
+- adverts
+- images
+- headers
+- embeds
 
 ### Adverts <a href="#adverts" class="w-headline-link">#</a>
 
@@ -121,8 +109,7 @@ The header was below the content in the markup and was positioned at the top usi
 
 Some of the frequently used embeds have a defined aspect ratio. For example, YouTube videos. While the player is loading, we pull the thumbnail from YouTube and use it as a placeholder while the video loads.
 
-<figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format" alt="The video player slot loading a low resolution thumbnail while the video player loads." class="w-screenshot" sizes="(min-width: 360px) 360px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=720 720w" width="360" height="612" /><figcaption>The video player slot loading a low resolution thumbnail while the video player loads.</figcaption></figure>Measuring the impact <a href="#measuring-the-impact" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format" alt="The video player slot loading a low resolution thumbnail while the video player loads." class="w-screenshot" sizes="(min-width: 360px) 360px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/BKPbdBJROUIUqoT8coFW.gif?auto=format&amp;w=720 720w" width="360" height="612" /><figcaption>The video player slot loading a low resolution thumbnail while the video player loads.</figcaption></figure>Measuring the impact <a href="#measuring-the-impact" class="w-headline-link">#</a>
 
 We were able to measure the impact at a feature level quite easily using the tooling mentioned towards the start of the article. However we wanted to measure CLS both at a template level and at a site level. Synthetically, we used [SpeedCurve](https://speedcurve.com/) to validate changes both in pre-production and production.
 
@@ -134,8 +121,7 @@ The final numbers we looked at are for the RUM data Google collects. This is esp
 
 <figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format" alt="Results from the Crux Dashboard." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/vmmokEtVcn7FJzmOIJB8.png?auto=format&amp;w=1600 1600w" width="800" height="449" /><figcaption>Results from the Crux Dashboard.</figcaption></figure><figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format" alt="BigQuery run displaying the p75 values of 2021 to date." sizes="(min-width: 488px) 488px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/8d8UOEi5GPcIitsTcQMA.png?auto=format&amp;w=976 976w" width="488" height="517" /><figcaption>BigQuery run displaying the p75 values of 2021 to date.</figcaption></figure>In addition, we were able to make use of the [Chrome UX Report API](https://developers.google.com/web/tools/chrome-user-experience-report/api/reference) and create some internal dashboards split into templates.
 
-<figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format" alt="Internal dashboards making use of the Chrome UX Report API highlighting our average score and the worst performing pages using that template." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1600 1600w" width="800" height="402" /><figcaption>Internal dashboards making use of the Chrome UX Report API highlighting our average score and the worst performing pages using that template.</figcaption></figure>Avoiding CLS regressions <a href="#avoiding-cls-regressions" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format" alt="Internal dashboards making use of the Chrome UX Report API highlighting our average score and the worst performing pages using that template." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/vgdbNJBYHma2o62ZqYmcnkq3j0o1/aYW2QPaFucKThXxZfFAD.png?auto=format&amp;w=1600 1600w" width="800" height="402" /><figcaption>Internal dashboards making use of the Chrome UX Report API highlighting our average score and the worst performing pages using that template.</figcaption></figure>Avoiding CLS regressions <a href="#avoiding-cls-regressions" class="w-headline-link">#</a>
 
 An important aspect of making performance improvements is avoiding regressions. We've set up some basic [performance budgets](/performance-budgets-101/) for our key metrics and included CLS in those.
 
@@ -145,8 +131,7 @@ We're also planning to expand our budgets to use RUM data as well as synthetic d
 
 It's important for us to approach new features with CLS in mind. A lot of the changes I've mentioned are those we've had to fix after they've been released to our readers. Layout stability will be a consideration for the solution design of any new feature going forward so that we can avoid any unexpected layout shifts from the start.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 The improvements we've made so far were quite easy to implement and have had a significant impact. A lot of changes I've outlined in this article didn't take much time to deliver and they were applied to all of the most commonly used templates which means they've had a widespread positive impact for our readers.
 
@@ -158,35 +143,35 @@ There are still areas of the site we need to improve. We're exploring ways we mi
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

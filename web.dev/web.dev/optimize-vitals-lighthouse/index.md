@@ -1,34 +1,26 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format" alt="A Lighthouse illuminating the sea" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/6GPqQDYxZnVq8qF6DJ02.jpeg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#optimizing-web-vitals-using-lighthouse" class="w-toc__header--link">Optimizing Web Vitals using Lighthouse</a>
-------------------------------------------------------------------------------------------------------------------------
+## <a href="#optimizing-web-vitals-using-lighthouse" class="w-toc__header--link">Optimizing Web Vitals using Lighthouse</a>
 
--   [Measure Core Web Vitals](#measure-core-web-vitals)
--   [Identify where you can improve on Web Vitals](#identify-where-you-can-improve-on-web-vitals)
--   [Identify the Largest Contentful Paint element](#identify-the-largest-contentful-paint-element)
--   [Preload late-discovered images to improve LCP](#preload-late-discovered-images-to-improve-lcp)
--   [Identify CLS contributions](#identify-cls-contributions)
--   [Identifying CLS from images without dimensions](#identifying-cls-from-images-without-dimensions)
--   [Identifying CLS from advertisements](#identifying-cls-from-advertisements)
--   [Avoid non-composited animations](#avoid-non-composited-animations)
--   [Debug First Input Delay / Total Blocking Time / Long Tasks](#debug-first-input-delay-total-blocking-time-long-tasks)
--   [Block network requests to see the before/after impact in Lighthouse](#block-network-requests-to-see-the-beforeafter-impact-in-lighthouse)
--   [Replace costly third-party embeds with a facade](#replace-costly-third-party-embeds-with-a-facade)
--   [Beyond Core Web Vitals](#beyond-core-web-vitals)
+- [Measure Core Web Vitals](#measure-core-web-vitals)
+- [Identify where you can improve on Web Vitals](#identify-where-you-can-improve-on-web-vitals)
+- [Identify the Largest Contentful Paint element](#identify-the-largest-contentful-paint-element)
+- [Preload late-discovered images to improve LCP](#preload-late-discovered-images-to-improve-lcp)
+- [Identify CLS contributions](#identify-cls-contributions)
+- [Identifying CLS from images without dimensions](#identifying-cls-from-images-without-dimensions)
+- [Identifying CLS from advertisements](#identifying-cls-from-advertisements)
+- [Avoid non-composited animations](#avoid-non-composited-animations)
+- [Debug First Input Delay / Total Blocking Time / Long Tasks](#debug-first-input-delay-total-blocking-time-long-tasks)
+- [Block network requests to see the before/after impact in Lighthouse](#block-network-requests-to-see-the-beforeafter-impact-in-lighthouse)
+- [Replace costly third-party embeds with a facade](#replace-costly-third-party-embeds-with-a-facade)
+- [Beyond Core Web Vitals](#beyond-core-web-vitals)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Optimizing Web Vitals using Lighthouse
-======================================
+# Optimizing Web Vitals using Lighthouse
 
 Finding opportunities to improve user-experience with Chrome's web tooling.
 
@@ -38,8 +30,8 @@ May 11, 2021
 
 <a href="/authors/addyosmani/" class="w-author__name-link">Addy Osmani</a>
 
--   <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
--   <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/addyosmani" class="w-author__link">Twitter</a>
+- <a href="https://github.com/addyosmani" class="w-author__link">GitHub</a>
 
 Today, we'll cover new tooling features in Lighthouse, PageSpeed and DevTools to help identify how your site can improve on the [Web Vitals](/vitals).
 
@@ -49,8 +41,7 @@ Lighthouse 7.x includes new features like element screenshots, for easier visual
 
 We've also shipped support for element screenshots on PageSpeed Insights, enabling a way to more easily spot issues for one-off performance runs of pages.
 
-<figure><img src="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1600 1600w" width="800" height="483" /></figure>Measure Core Web Vitals <a href="#measure-core-web-vitals" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/mfkWFzyfO9XlJLYS80DE.png?auto=format&amp;w=1600 1600w" width="800" height="483" /></figure>Measure Core Web Vitals <a href="#measure-core-web-vitals" class="w-headline-link">#</a>
 
 Lighthouse can [synthetically](/vitals-measurement-getting-started/#measuring-web-vitals-using-lab-data) measure the [Core Web Vitals metrics](/vitals/) including [Largest Contentful Paint](/lcp/), [Cumulative Layout Shift](/cls/) and [Total Blocking Time](/tbt/) (a lab proxy for [First Input Delay](/fid/)). These metrics reflect loading, layout stability, and interaction readiness. Other metrics such as [First Contentful Paint](/first-contentful-paint/) highlighted in the [future of Core Web Vitals (CWV)](https://developer.chrome.com/devsummit/sessions/future-of-core-web-vitals/) are there too.
 
@@ -60,8 +51,7 @@ The "Metrics" section of the Lighthouse report includes lab versions of these me
 
 <figure><img src="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format" alt="The new Web Vitals option in the DevTools Performance panel displays a track which highlights metric moments, such as Layout Shift (LS) shown above." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/PLMoiQpi12jT7BJUvlOJ.png?auto=format&amp;w=1600 1600w" width="800" height="476" /><figcaption>The new Web Vitals option in the DevTools Performance panel displays a track which highlights metric moments, such as Layout Shift (LS) shown above.</figcaption></figure>[Field metrics](/vitals-field-measurement-best-practices/), such as those found in the [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report) or [RUM](https://developer.mozilla.org/en-US/docs/Web/Performance/Rum-vs-Synthetic), do not have this limitation and are a valuable complement to lab data as they reflect the experience real users have. Field data can't offer the kinds of diagnostic information you get in the lab, so the two go hand in hand.
 
-Identify where you can improve on Web Vitals <a href="#identify-where-you-can-improve-on-web-vitals" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------
+## Identify where you can improve on Web Vitals <a href="#identify-where-you-can-improve-on-web-vitals" class="w-headline-link">#</a>
 
 ### Identify the Largest Contentful Paint element <a href="#identify-the-largest-contentful-paint-element" class="w-headline-link">#</a>
 
@@ -85,19 +75,19 @@ There are a few common questions we are asked about preloading LCP images that m
 
 Can you preload responsive images? [Yes](/preload-responsive-images/#imagesrcset-and-imagesizes). Let's say we have a responsive hero image as specified using `srcset` and `sizes` below:
 
-    <img src="lighthouse.jpg"   
-              srcset="lighthouse_400px.jpg 400w,   
-                      lighthouse_800px.jpg 800w,   
+    <img src="lighthouse.jpg"
+              srcset="lighthouse_400px.jpg 400w,
+                      lighthouse_800px.jpg 800w,
                       lighthouse_1600px.jpg 1600w" sizes="50vw" alt="A helpful
-    Lighthouse">  
+    Lighthouse">
 
 Thanks to the `imagesrcset` and `imagesizes` attributes added to the `link` attribute, we can preload a responsive image using the same image selection logic used by `srcset` and `sizes`:
 
-    <link rel="preload" as="image" href="lighthouse.jpg"   
-               imagesrcset="lighthouse_400px.jpg 400w,   
-                            lighthouse_800px.jpg 800w,   
+    <link rel="preload" as="image" href="lighthouse.jpg"
+               imagesrcset="lighthouse_400px.jpg 400w,
+                            lighthouse_800px.jpg 800w,
                             lighthouse_1600px.jpg 1600w"
-    imagesizes="50vw">  
+    imagesizes="50vw">
 
 Will the audit also highlight preload opportunities if the LCP image is defined via a CSS background? Yes.
 
@@ -129,8 +119,8 @@ To [limit](/optimize-cls/#images-without-dimensions) Cumulative Layout Shift bei
 
 <figure><img src="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/1L2RBhCLSnXjCnSlevaDjy3vba73/kR3jgctso6Hg0OxD8xwi.png?auto=format&amp;w=1600 1600w" width="800" height="527" /></figure>Remember that ads are one of the [largest](/optimize-cls/#ads-embeds-and-iframes-without-dimensions) contributors to layout shifts on the web. It's important to:
 
--   Take care when placing non-sticky ads near the top of the viewport
--   Eliminate shifts by reserving the largest possible size for the ad slot
+- Take care when placing non-sticky ads near the top of the viewport
+- Eliminate shifts by reserving the largest possible size for the ad slot
 
 ### Avoid non-composited animations <a href="#avoid-non-composited-animations" class="w-headline-link">#</a>
 
@@ -182,35 +172,35 @@ For more information on Core Web Vitals tooling, keep an eye on the [Lighthouse 
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

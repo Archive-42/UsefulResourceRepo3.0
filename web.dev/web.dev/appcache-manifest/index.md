@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#uses-application-cache" class="w-toc__header--link">Uses Application Cache</a>
 
 - [How the Lighthouse Application Cache audit fails](#how-the-lighthouse-application-cache-audit-fails)

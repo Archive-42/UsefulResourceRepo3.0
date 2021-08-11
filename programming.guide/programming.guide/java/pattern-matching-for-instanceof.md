@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Featured Stack Overflow Post
 
@@ -16,7 +16,7 @@
 [JEP 305: Pattern Matching for instanceof (Preview)](https://openjdk.java.net/jeps/305)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Brian Goetz</span>
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

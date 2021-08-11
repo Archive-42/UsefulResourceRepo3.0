@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#content-is-not-sized-correctly-for-the-viewport" class="w-toc__header--link">Content is not sized correctly for the viewport</a>
 
 - [How the Lighthouse content width audit fails](#how-the-lighthouse-content-width-audit-fails)

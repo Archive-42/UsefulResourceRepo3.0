@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreaterrolelesscodegreater-values-are-not-valid" class="w-toc__header--link"><code>[role]</code> values are not valid</a>
 
 - [How Lighthouse determines an ARIA role has an invalid value](#how-lighthouse-determines-an-aria-role-has-an-invalid-value)

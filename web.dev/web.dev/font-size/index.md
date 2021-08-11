@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#document-doesn&#39;t-use-legible-font-sizes" class="w-toc__header--link">Document doesn't use legible font sizes</a>
 
 - [How the Lighthouse font size audit fails](#how-the-lighthouse-font-size-audit-fails)

@@ -1,24 +1,16 @@
+## <a href="#optimize-webfont-loading-and-rendering" class="w-toc__header--link">Optimize WebFont loading and rendering</a>
 
-
-
-
-
-
-<a href="#optimize-webfont-loading-and-rendering" class="w-toc__header--link">Optimize WebFont loading and rendering</a>
-------------------------------------------------------------------------------------------------------------------------
-
--   [The default behavior](#the-default-behavior)
--   [WebFont loading checklist](#webfont-loading-checklist)
--   [Preload your WebFont resources](#preload-your-webfont-resources)
--   [Automated testing for WebFont loading behavior with Lighthouse](#automated-testing-for-webfont-loading-behavior-with-lighthouse)
--   [Customize the text rendering delay](#customize-the-text-rendering-delay)
--   [The Font Loading API](#the-font-loading-api)
--   [Proper caching is a must](#proper-caching-is-a-must)
+- [The default behavior](#the-default-behavior)
+- [WebFont loading checklist](#webfont-loading-checklist)
+- [Preload your WebFont resources](#preload-your-webfont-resources)
+- [Automated testing for WebFont loading behavior with Lighthouse](#automated-testing-for-webfont-loading-behavior-with-lighthouse)
+- [Customize the text rendering delay](#customize-the-text-rendering-delay)
+- [The Font Loading API](#the-font-loading-api)
+- [Proper caching is a must](#proper-caching-is-a-must)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Optimize WebFont loading and rendering
-======================================
+# Optimize WebFont loading and rendering
 
 Aug 16, 2019 <span class="w-author__separator">•</span> Updated Jul 3, 2020
 
@@ -28,8 +20,8 @@ Aug 16, 2019 <span class="w-author__separator">•</span> Updated Jul 3, 2020
 
 <a href="/authors/ilyagrigorik/" class="w-author__name-link">Ilya Grigorik</a>
 
--   <a href="https://twitter.com/igrigorik" class="w-author__link">Twitter</a>
--   <a href="https://github.com/igrigorik" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/igrigorik" class="w-author__link">Twitter</a>
+- <a href="https://github.com/igrigorik" class="w-author__link">GitHub</a>
 
 A "full" WebFont that includes all stylistic variants, which you may not need, plus all the glyphs, which may go unused, can easily result in a multi-megabyte download. In this post you will find out how to optimize loading of WebFonts so visitors only download what they will use.
 
@@ -47,10 +39,10 @@ Lazy loading of fonts carries an important hidden implication that may delay tex
 2.  The browser begins parsing the HTML response and constructing the DOM.
 3.  The browser discovers CSS, JS, and other resources and dispatches requests.
 4.  The browser constructs the CSSOM after all of the CSS content is received and combines it with the DOM tree to construct the render tree.
-    -   Font requests are dispatched after the render tree indicates which font variants are needed to render the specified text on the page.
+    - Font requests are dispatched after the render tree indicates which font variants are needed to render the specified text on the page.
 5.  The browser performs layout and paints content to the screen.
-    -   If the font is not yet available, the browser may not render any text pixels.
-    -   After the font is available, the browser paints the text pixels.
+    - If the font is not yet available, the browser may not render any text pixels.
+    - After the font is available, the browser paints the text pixels.
 
 The "race" between the first paint of page content, which can be done shortly after the render tree is built, and the request for the font resource is what creates the "blank text problem" where the browser might render page layout but omits any text.
 
@@ -91,17 +83,17 @@ To work with the `font-display` property, add it to your `@font-face` rules:
 
 `font-display` currently supports the following range of values:
 
--   `auto`
--   `block`
--   `swap`
--   `fallback`
--   `optional`
+- `auto`
+- `block`
+- `swap`
+- `fallback`
+- `optional`
 
 For more information on preloading fonts, and the `font-display` property, see the following posts:
 
--   [Avoid invisible text during font loading](/avoid-invisible-text/)
--   [Controlling font performance using font-display](https://developers.google.com/web/updates/2016/02/font-display)
--   [Prevent layout shifting and flashes of invisibile text (FOIT) by preloading optional fonts](/preload-optional-fonts/)
+- [Avoid invisible text during font loading](/avoid-invisible-text/)
+- [Controlling font performance using font-display](https://developers.google.com/web/updates/2016/02/font-display)
+- [Prevent layout shifting and flashes of invisibile text (FOIT) by preloading optional fonts](/preload-optional-fonts/)
 
 ### The Font Loading API <a href="#the-font-loading-api" class="w-headline-link">#</a>
 
@@ -130,9 +122,9 @@ The [Font Loading API](https://www.w3.org/TR/css-font-loading/) provides a scrip
 
 Further, because you can check the font status (via the [`check()`](https://www.w3.org/TR/css-font-loading/#font-face-set-check)) method and track its download progress, you can also define a custom strategy for rendering text on your pages:
 
--   You can hold all text rendering until the font is available.
--   You can implement a custom timeout for each font.
--   You can use the fallback font to unblock rendering and inject a new style that uses the desired font after the font is available.
+- You can hold all text rendering until the font is available.
+- You can implement a custom timeout for each font.
+- You can use the fallback font to unblock rendering and inject a new style that uses the desired font after the font is available.
 
 Best of all, you can also mix and match the above strategies for different content on the page. For example, you can delay text rendering on some sections until the font is available, use a fallback font, and then re-render after the font download has finished.
 
@@ -146,22 +138,20 @@ If your web application uses a [service worker](https://developers.google.com/we
 
 You should not store fonts using [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) or [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API); each of those has its own set of performance issues. The browser's HTTP cache provides the best and most robust mechanism to deliver font resources to the browser.
 
-WebFont loading checklist <a href="#webfont-loading-checklist" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## WebFont loading checklist <a href="#webfont-loading-checklist" class="w-headline-link">#</a>
 
--   **Customize font loading and rendering using `<link rel="preload">`, `font-display`, or the Font Loading API:** default lazyloading behavior may result in delayed text rendering. These web platform features allow you to override this behavior for particular fonts, and to specify custom rendering and timeout strategies for different content on the page.
--   **Specify revalidation and optimal caching policies:** fonts are static resources that are infrequently updated. Make sure that your servers provide a long-lived max-age timestamp and a revalidation token to allow for efficient font reuse between different pages. If using a service worker, a cache-first strategy is appropriate.
+- **Customize font loading and rendering using `<link rel="preload">`, `font-display`, or the Font Loading API:** default lazyloading behavior may result in delayed text rendering. These web platform features allow you to override this behavior for particular fonts, and to specify custom rendering and timeout strategies for different content on the page.
+- **Specify revalidation and optimal caching policies:** fonts are static resources that are infrequently updated. Make sure that your servers provide a long-lived max-age timestamp and a revalidation token to allow for efficient font reuse between different pages. If using a service worker, a cache-first strategy is appropriate.
 
-Automated testing for WebFont loading behavior with Lighthouse <a href="#automated-testing-for-webfont-loading-behavior-with-lighthouse" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Automated testing for WebFont loading behavior with Lighthouse <a href="#automated-testing-for-webfont-loading-behavior-with-lighthouse" class="w-headline-link">#</a>
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse) can help automate the process of making sure that you're following web font optimization best practices.
 
 The following audits can help you make sure that your pages are continuing to follow web font optimization best practices over time:
 
--   [Preload key requests](/uses-rel-preload/)
--   [Uses inefficient cache policy on static assets](/uses-long-cache-ttl/)
--   [All text remains visible during WebFont loads](/font-display/)
+- [Preload key requests](/uses-rel-preload/)
+- [Uses inefficient cache policy on static assets](/uses-long-cache-ttl/)
+- [All text remains visible during WebFont loads](/font-display/)
 
 <a href="/tags/performance/" class="w-chip">Performance</a> <a href="/tags/fonts/" class="w-chip">Fonts</a>
 
@@ -169,35 +159,35 @@ The following audits can help you make sure that your pages are continuing to fo
 
 <a href="/fast" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

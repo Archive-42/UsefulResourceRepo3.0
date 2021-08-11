@@ -1,9 +1,8 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+
+
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -13,10 +12,9 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -26,16 +24,13 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Statements vs Expressions
-=========================
+# Statements vs Expressions
 
-Statements
-----------
+## Statements
 
 A statement performs some **action**
 
-Expressions
------------
+## Expressions
 
 An expression evaluates to some **value**
 
@@ -76,12 +71,11 @@ In typed languages…
 
 …statements typically don't have a type. If they do, the type is typically something like `Unit` or `void`.
 
-…all expressions have types. `"Hello World"` is a string, `5 + 7` is an integer and so on.
+…all expressions have types. `"Hello World"` is a string, `5 + 7` is an integer and so on.
 
-Details
--------
+## Details
 
-Some expressions such as `i++` (unary increment in C-like languages) have side-effects and could be viewed as statements embedded in expressions: `while (i++ < 15) …`
+Some expressions such as `i++` (unary increment in C-like languages) have side-effects and could be viewed as statements embedded in expressions: `while (i++ < 15) …`
 
 Some things can be used both as expressions and statements. A call to a function returning a value for example. In C-like languages they need to be terminated by a `;` to form a complete statement.
 
@@ -97,8 +91,7 @@ or in PHP where the following is a common pattern
 
     fopen($site, "r") or die("Unable to connect");
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

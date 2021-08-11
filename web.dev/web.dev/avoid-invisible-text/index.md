@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#avoid-invisible-text-during-font-loading" class="w-toc__header--link">Avoid invisible text during font loading</a>
 
 - [Why should you care?](#why-should-you-care)

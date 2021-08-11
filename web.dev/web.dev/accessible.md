@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Accessible to all
 
 Build a site that works for all of your users.

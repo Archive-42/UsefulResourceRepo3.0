@@ -1,16 +1,14 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Floating Point Values
----------------------
+
+
+## Floating Point Values
 
 1.  [Bits of a Floating Point Value](bits-of-a-floating-point-value.html)
 2.  Normal vs Subnormal Floats
 3.  [Why is it called Floating Point? And what is Fixed Point?](why-is-it-called-floating-point-and-what-is-fixed-point.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -20,10 +18,9 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -33,14 +30,12 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Normal vs Subnormal Floats
-==========================
+# Normal vs Subnormal Floats
 
--   A **normal** value has a 1 before the binary point: <span style="white-space: nowrap">1.<span style="font-style: italic">significand bits</span> × 2<sup>exp</sup></span>
--   A **subnormal** value has a 0 before the binary point: <span style="white-space: nowrap">0.<span style="font-style: italic">significand bits</span> × 2<sup>exp</sup></span>
+- A **normal** value has a 1 before the binary point: <span style="white-space: nowrap">1.<span style="font-style: italic">significand bits</span> × 2<sup>exp</sup></span>
+- A **subnormal** value has a 0 before the binary point: <span style="white-space: nowrap">0.<span style="font-style: italic">significand bits</span> × 2<sup>exp</sup></span>
 
-What does this mean?
---------------------
+## What does this mean?
 
 Computers store floating point values similar to how we write numbers in **scientific notation**:
 
@@ -54,13 +49,11 @@ See [Bits of a Floating Point Value](bits-of-a-floating-point-value.html) for de
 
 The exponent (2 and 110 in the decimal and binary examples above) are not chosen arbitrarily. They are chosen so that there is **precisely one non-zero digit** in front of the decimal (or binary) point. This is called the **normal form**.
 
-Leading bit is implicit
------------------------
+## Leading bit is implicit
 
 Since 1 is the only non-zero digit in binary, values will normally (pun intended) start with 1 followed by a binary point. This is taken advantage of in the IEEE 754 format: The leading bit is implicit, i.e. only the bits after the binary point are stored explicitly.
 
-Smallest normal value
----------------------
+## Smallest normal value
 
 While keeping the initial bit implicit saves one bit, it means that the **smallest normal value** is
 
@@ -71,7 +64,7 @@ While keeping the initial bit implicit saves one bit, it means that the **smalle
 explicitly stored  
 significand bits
 
- × 2
+× 2
 
 <sup>−126</sup>
 
@@ -79,8 +72,7 @@ smallest exponent
 
 This is for single precision (`float`) values where the exponent is 8 bits. For double precision (`double`) values the exponent has 11 bits.
 
-Smallest subnormal value
-------------------------
+## Smallest subnormal value
 
 To allow for even smaller values, IEEE 754 specifies that if all exponent bits are zero, the implicit leading bit is 0. This means that the **smallest subnormal non-zero value** is
 
@@ -91,19 +83,17 @@ To allow for even smaller values, IEEE 754 specifies that if all exponent bits a
 explicitly stored  
 significand bits
 
- × 2
+× 2
 
 <sup>−126</sup>
 
 smallest exponent
 
-Precision
----------
+## Precision
 
 Subnormal numbers give up significant digits in order to push the first non-zero digit away from the decimal point. Normal values always have 24 bits of significant digits (53 for doubles), while in the (extreme) example above, there's only 1 significant digit. In other words, beware of the loss of precision when dealing with subnormal values.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## In a Nutshell
 
@@ -23,7 +23,7 @@
 13. [Linked Hash Table](linked-hash-table.html)
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

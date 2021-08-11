@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Same Origin Policy & Fetch requests
 
 Nov 5, 2018

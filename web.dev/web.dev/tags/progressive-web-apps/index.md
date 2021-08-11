@@ -1,13 +1,6 @@
-
-
-
-
-
-
 <a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Progressive Web Apps
-====================
+# Progressive Web Apps
 
 Our latest news, updates, and stories about Progressive Web Apps.
 
@@ -19,8 +12,7 @@ Our latest news, updates, and stories about Progressive Web Apps.
 
 <a href="/pwa-url-handler/" class="w-card-base__link"></a>
 
-PWAs as URL Handlers
---------------------
+## PWAs as URL Handlers
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -40,8 +32,7 @@ Let installed PWAs handle URLs for a more integrated experience.
 
 <a href="/building-multiple-pwas-on-the-same-domain/" class="w-card-base__link"></a>
 
-Building multiple Progressive Web Apps on the same domain
----------------------------------------------------------
+## Building multiple Progressive Web Apps on the same domain
 
 <span class="w-author__name"><a href="/authors/demianrenzulli/" class="w-author__name-link">Demian Renzulli</a>, <a href="/authors/mgiuca/" class="w-author__name-link">Matt Giuca</a>, <a href="/authors/cmp/" class="w-author__name-link">Chase Phillips</a></span>
 
@@ -55,8 +46,7 @@ How to build multiple PWAs, taking advantage of the same domain name, to make th
 
 <a href="/new-pwa-training/" class="w-card-base__link"></a>
 
-New Progressive Web App training now available
-----------------------------------------------
+## New Progressive Web App training now available
 
 [<img src="https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Sam Richard" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/5kuER6QRWs54zbYIJ4zS.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/samrichard/)
 
@@ -76,8 +66,7 @@ Get started with Progressive Web Apps with our new six-part training, complete w
 
 <a href="/declarative-link-capturing/" class="w-card-base__link"></a>
 
-Choose how in-scope links open your PWA with Declarative Link Capturing
------------------------------------------------------------------------
+## Choose how in-scope links open your PWA with Declarative Link Capturing
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -87,7 +76,7 @@ Updated: Jun 18, 2021
 
 <a href="/declarative-link-capturing/" class="w-card-base__link"></a>
 
-Declarative Link Capturing is a proposal for a web app manifest property called \`"capture\_links"\` that lets developers determine declaratively what should happen when the browser navigates to a URL that is within the application's navigation scope, from a context outside of the navigation scope.
+Declarative Link Capturing is a proposal for a web app manifest property called \`"capture_links"\` that lets developers determine declaratively what should happen when the browser navigates to a URL that is within the application's navigation scope, from a context outside of the navigation scope.
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a> <a href="/tags/web-app-manifest/" class="w-chip">Web App Manifest</a> <a href="/tags/capabilities/" class="w-chip">Capabilities</a>
 
@@ -97,8 +86,7 @@ Declarative Link Capturing is a proposal for a web app manifest property called 
 
 <a href="/orange/" class="w-card-base__link"></a>
 
-Orange: New PWA converts 52% better on mobile
----------------------------------------------
+## Orange: New PWA converts 52% better on mobile
 
 <span class="w-author__name"><a href="/authors/adamskret/" class="w-author__name-link">Adam Skręt</a>, <a href="/authors/rafałfilipek/" class="w-author__name-link">Rafał Filipek</a>, <a href="/authors/marcinsierakowski/" class="w-author__name-link">Marcin Sierakowski</a></span>
 
@@ -116,8 +104,7 @@ The new PWA also has an average loading time 30% faster than the old site and ha
 
 <a href="/window-controls-overlay/" class="w-card-base__link"></a>
 
-Customize the window controls overlay of your PWA's title bar
--------------------------------------------------------------
+## Customize the window controls overlay of your PWA's title bar
 
 [<img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Amanda Baker" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/nr8opTnZn8ZFfrXzfGkV.png?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/amandabaker/)
 
@@ -139,8 +126,7 @@ Make use of the title bar area next to the window controls to make your PWA feel
 
 <a href="/datatransfer/" class="w-card-base__link"></a>
 
-Breaking down barriers using the DataTransfer API
--------------------------------------------------
+## Breaking down barriers using the DataTransfer API
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -162,8 +148,7 @@ Enable the user to share data beyond the browser window.
 
 <a href="/mainline-mensware/" class="w-card-base__link"></a>
 
-Mainline Menswear implements PWA and sees a 55% conversion rate uplift
-----------------------------------------------------------------------
+## Mainline Menswear implements PWA and sees a 55% conversion rate uplift
 
 <span class="w-author__name"><a href="/authors/charistheodoulou/" class="w-author__name-link">Charis Theodoulou</a>, <a href="/authors/natashakosoglov/" class="w-author__name-link">Natasha Kosoglov</a>, <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a></span>
 
@@ -177,8 +162,7 @@ Updated: May 19, 2021
 
 <a href="/tabbed-application-mode/" class="w-card-base__link"></a>
 
-Tabbed application mode for PWAs
---------------------------------
+## Tabbed application mode for PWAs
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -198,8 +182,7 @@ Work on more than one document at a time with tabs in your Progressive Web App
 
 <a href="/display-override/" class="w-card-base__link"></a>
 
-Preparing for the display modes of tomorrow
--------------------------------------------
+## Preparing for the display modes of tomorrow
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -209,7 +192,7 @@ Updated: May 28, 2021
 
 <a href="/display-override/" class="w-card-base__link"></a>
 
-PWAs can use the "display\_override" property to deal with special display modes.
+PWAs can use the "display_override" property to deal with special display modes.
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a> <a href="/tags/capabilities/" class="w-chip">Capabilities</a> <a href="/tags/web-app-manifest/" class="w-chip">Web App Manifest</a>
 
@@ -219,8 +202,7 @@ PWAs can use the "display\_override" property to deal with special display modes
 
 <a href="/extending-workbox/" class="w-card-base__link"></a>
 
-Extending Workbox
------------------
+## Extending Workbox
 
 [<img src="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Jeff Posnick" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/uskKSRCW1HyOTCjtdMdo.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/jeffposnick/)
 
@@ -240,8 +222,7 @@ Write your own reusable, shareable strategies and plugins.
 
 <a href="/clipchamp/" class="w-card-base__link"></a>
 
-Clipchamp's video editor PWA installs see a 97% monthly growth
---------------------------------------------------------------
+## Clipchamp's video editor PWA installs see a 97% monthly growth
 
 [<img src="https://web-dev.imgix.net/image/admin/H0Zvzmn5QMsTdTySkkpx.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Sören Balko" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/H0Zvzmn5QMsTdTySkkpx.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/H0Zvzmn5QMsTdTySkkpx.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/H0Zvzmn5QMsTdTySkkpx.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/H0Zvzmn5QMsTdTySkkpx.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/H0Zvzmn5QMsTdTySkkpx.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/sorenbalko/)
 
@@ -261,8 +242,7 @@ How PWAs, WebAssembly, and Chrome OS are helping a web-based video editor delive
 
 <a href="/gravit-designer/" class="w-card-base__link"></a>
 
-PWA users are 2.5x more likely to purchase Gravit Designer PRO
---------------------------------------------------------------
+## PWA users are 2.5x more likely to purchase Gravit Designer PRO
 
 [<img src="https://web-dev.imgix.net/image/admin/eXpk44oNMpOnNPLrMOMm.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Reza Kazemi" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/eXpk44oNMpOnNPLrMOMm.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/eXpk44oNMpOnNPLrMOMm.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/eXpk44oNMpOnNPLrMOMm.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/eXpk44oNMpOnNPLrMOMm.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/eXpk44oNMpOnNPLrMOMm.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/rezakazemi/)
 
@@ -282,8 +262,7 @@ PWA users are also 24% more active than all other install types, become repeats 
 
 <a href="/jdid/" class="w-card-base__link"></a>
 
-JD.ID improves their mobile conversion rate by 53% with caching strategies, installation, and push notifications
-----------------------------------------------------------------------------------------------------------------
+## JD.ID improves their mobile conversion rate by 53% with caching strategies, installation, and push notifications
 
 Nov 24, 2020
 
@@ -299,8 +278,7 @@ How JD.ID increased its overall mobile conversion rate (mCVR) by 53%, mCVR for i
 
 <a href="/rakuten-24/" class="w-card-base__link"></a>
 
-Rakuten 24’s investment in PWA increases user retention by 450%
----------------------------------------------------------------
+## Rakuten 24’s investment in PWA increases user retention by 450%
 
 Nov 17, 2020
 
@@ -312,8 +290,7 @@ Making their web app installable resulted in increased traffic, visitor retentio
 
 <a href="/push-notifications-client-codelab/" class="w-card-base__link"></a>
 
-Codelab: Build a push notification client
------------------------------------------
+## Codelab: Build a push notification client
 
 [<img src="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Kate Jeffreys" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/katejeffreys/)
 
@@ -327,8 +304,7 @@ Updated: Dec 6, 2020
 
 <a href="/push-notifications-server-codelab/" class="w-card-base__link"></a>
 
-Codelab: Build a push notification server
------------------------------------------
+## Codelab: Build a push notification server
 
 [<img src="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Kate Jeffreys" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/katejeffreys/)
 
@@ -342,8 +318,7 @@ Updated: Dec 6, 2020
 
 <a href="/push-notifications-overview/" class="w-card-base__link"></a>
 
-Push notifications overview
----------------------------
+## Push notifications overview
 
 [<img src="https://web-dev.imgix.net/image/admin/yGv3dhfUhHvSpDA3bNYW.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Matt Gaunt" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/yGv3dhfUhHvSpDA3bNYW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/yGv3dhfUhHvSpDA3bNYW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/yGv3dhfUhHvSpDA3bNYW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/yGv3dhfUhHvSpDA3bNYW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/yGv3dhfUhHvSpDA3bNYW.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/mattgaunt/)
 
@@ -361,8 +336,7 @@ An overview of what push notifications are, why you might use them, and how they
 
 <a href="/manifest-updates/" class="w-card-base__link"></a>
 
-How Chrome handles updates to the web app manifest
---------------------------------------------------
+## How Chrome handles updates to the web app manifest
 
 [<img src="https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Adriana Jara" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/SeARmcA1EicLXagFnVOe0ou9cqK2/4KNPR11Y1YYxUi6ASIE1.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/ajara/)
 
@@ -384,8 +358,7 @@ What it takes to change icons, shortcuts, colors, and other metadata for your PW
 
 <a href="/zdf/" class="w-card-base__link"></a>
 
-How ZDF created a video PWA with offline and dark mode
-------------------------------------------------------
+## How ZDF created a video PWA with offline and dark mode
 
 [<img src="https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Martin Schierle" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/DheRfImH6FxRNajMslIk.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/martinschierle/)
 
@@ -407,8 +380,7 @@ Learn how ZDF created a progressive web app (PWA) with modern features like offl
 
 <a href="/goibibo/" class="w-card-base__link"></a>
 
-How Goibibo's PWA improved conversions by 60%
----------------------------------------------
+## How Goibibo's PWA improved conversions by 60%
 
 Sep 29, 2020
 
@@ -420,8 +392,7 @@ Bridging the gap between web and iOS/Android experiences to delight users.
 
 <a href="/offline-fallback-page/" class="w-card-base__link"></a>
 
-Create an offline fallback page
--------------------------------
+## Create an offline fallback page
 
 [<img src="https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Pete LePage" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/petelepage/)
 
@@ -439,8 +410,7 @@ Updated: May 19, 2021
 
 <a href="/building-a-pwa-at-google-part-1/" class="w-card-base__link"></a>
 
-Building a PWA at Google, part 1
---------------------------------
+## Building a PWA at Google, part 1
 
 <span class="w-author__name"><a href="/authors/joelriley/" class="w-author__name-link">Joel Riley</a>, <a href="/authors/douglasparker/" class="w-author__name-link">Douglas Parker</a>, <a href="/authors/msdikla/" class="w-author__name-link">Dikla Cohen</a></span>
 
@@ -458,8 +428,7 @@ What the Bulletin team learned about service workers while developing a PWA.
 
 <a href="/browser-fs-access/" class="w-card-base__link"></a>
 
-Reading and writing files and directories with the browser-fs-access library
-----------------------------------------------------------------------------
+## Reading and writing files and directories with the browser-fs-access library
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=40&amp;w=40" alt="Thomas Steiner" class="w-author__image w-author__image--small" sizes="(min-width: 40px) 40px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=40&amp;w=40&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="40" height="40" />](/authors/thomassteiner/)
 
@@ -473,35 +442,35 @@ Updated: Jan 27, 2021
 
 <a href="/tags" class="w-button">See more Tags</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

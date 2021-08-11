@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Prefetching in create-react-app with Quicklink
 
 Jun 8, 2020

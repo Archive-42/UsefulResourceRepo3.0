@@ -1,46 +1,38 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format" alt="Old modems, routers, network equipment. Serial, phone, audio, ethernet connectors." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/PMOws2Au6GPLq9sXSSqw.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#read-from-and-write-to-a-serial-port" class="w-toc__header--link">Read from and write to a serial port</a>
---------------------------------------------------------------------------------------------------------------------
+## <a href="#read-from-and-write-to-a-serial-port" class="w-toc__header--link">Read from and write to a serial port</a>
 
--   [What is the Web Serial API?](#what)
--   [Suggested use cases](#use-cases)
--   [Current status](#status)
--   [Using the Web Serial API](#use)
--   [Feature detection](#feature-detection)
--   [Open a serial port](#open-port)
--   [Read from a serial port](#read-port)
--   [Write to a serial port](#write-port)
--   [Close a serial port](#close-port)
--   [Listen to connection and disconnection](#connection-disconnection)
--   [Handle signals](#signals)
--   [Transforming streams](#transforming-streams)
--   [Dev Tips](#dev-tips)
--   [Codelab](#codelab)
--   [Browser support](#browser-support)
--   [Polyfill](#polyfill)
--   [Security and privacy](#security-privacy)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Report a problem with the implementation](#report-a-problem-with-the-implementation)
--   [Show support](#show-support)
--   [Helpful links](#helpful)
--   [Demos](#demos)
--   [Acknowledgements](#acknowledgements)
+- [What is the Web Serial API?](#what)
+- [Suggested use cases](#use-cases)
+- [Current status](#status)
+- [Using the Web Serial API](#use)
+- [Feature detection](#feature-detection)
+- [Open a serial port](#open-port)
+- [Read from a serial port](#read-port)
+- [Write to a serial port](#write-port)
+- [Close a serial port](#close-port)
+- [Listen to connection and disconnection](#connection-disconnection)
+- [Handle signals](#signals)
+- [Transforming streams](#transforming-streams)
+- [Dev Tips](#dev-tips)
+- [Codelab](#codelab)
+- [Browser support](#browser-support)
+- [Polyfill](#polyfill)
+- [Security and privacy](#security-privacy)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Report a problem with the implementation](#report-a-problem-with-the-implementation)
+- [Show support](#show-support)
+- [Helpful links](#helpful)
+- [Demos](#demos)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Read from and write to a serial port
-====================================
+# Read from and write to a serial port
 
 The Web Serial API allows websites to communicate with serial devices.
 
@@ -52,12 +44,11 @@ Aug 12, 2020 <span class="w-author__separator">•</span> Updated Mar 3, 2021
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 **Success**: The Web Serial API, part of the [capabilities project](/fugu-status/), launched in Chrome 89.
 
-What is the Web Serial API? <a href="#what" class="w-headline-link">#</a>
--------------------------------------------------------------------------
+## What is the Web Serial API? <a href="#what" class="w-headline-link">#</a>
 
 A serial port is a bidirectional communication interface that allows sending and receiving data byte by byte.
 
@@ -67,27 +58,24 @@ In other words, the Web Serial API bridges the web and the physical world by all
 
 This API is also a great companion to [WebUSB](https://developers.google.com/web/updates/2016/03/access-usb-devices-on-the-web) as operating systems require applications to communicate with some serial ports using their higher-level serial API rather than the low-level USB API.
 
-Suggested use cases <a href="#use-cases" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## Suggested use cases <a href="#use-cases" class="w-headline-link">#</a>
 
 In the educational, hobbyist, and industrial sectors, users connect peripheral devices to their computers. These devices are often controlled by microcontrollers via a serial connection used by custom software. Some custom software to control these devices is built with web technology:
 
--   [Arduino Create](https://create.arduino.cc/)
--   [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator)
--   [Espruino Web IDE](http://espruino.com/ide)
--   [Microsoft MakeCode](https://www.microsoft.com/en-us/makecode)
+- [Arduino Create](https://create.arduino.cc/)
+- [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator)
+- [Espruino Web IDE](http://espruino.com/ide)
+- [Microsoft MakeCode](https://www.microsoft.com/en-us/makecode)
 
 In some cases, websites communicate with the device through an agent application that users installed manually. In others, the application is delivered in a packaged application through a framework such as Electron. And in others, the user is required to perform an additional step such as copying a compiled application to the device via a USB flash drive.
 
 In all these cases, the user experience will be improved by providing direct communication between the website and the device that it is controlling.
 
-Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td><a href="https://github.com/reillyeon/serial/blob/gh-pages/EXPLAINER.md">Complete</a></td></tr><tr class="even"><td>2. Create initial draft of specification</td><td><a href="https://reillyeon.github.io/serial/">Complete</a></td></tr><tr class="odd"><td>3. Gather feedback &amp; iterate on design</td><td><a href="#feedback">Complete</a></td></tr><tr class="even"><td>4. Origin trial</td><td><a href="https://developers.chrome.com/origintrials/#/view_trial/2992641952387694593">Complete</a></td></tr><tr class="odd"><td><strong>5. Launch</strong></td><td><strong>Complete</strong></td></tr></tbody></table>
 
-Using the Web Serial API <a href="#use" class="w-headline-link">#</a>
----------------------------------------------------------------------
+## Using the Web Serial API <a href="#use" class="w-headline-link">#</a>
 
 ### Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
 
@@ -132,11 +120,11 @@ The `navigator.serial.requestPort()` function takes an optional object literal t
 
 You can also specify any of the options below when opening a serial port. These options are optional and have convenient [default values](https://reillyeon.github.io/serial/#dom-serialoptions).
 
--   `dataBits`: The number of data bits per frame (either 7 or 8).
--   `stopBits`: The number of stop bits at the end of a frame (either 1 or 2).
--   `parity`: The parity mode (either `"none"`, `"even"` or `"odd"`).
--   `bufferSize`: The size of the read and write buffers that should be created (must be less than 16MB).
--   `flowControl`: The flow control mode (either `"none"` or `"hardware"`).
+- `dataBits`: The number of data bits per frame (either 7 or 8).
+- `stopBits`: The number of stop bits at the end of a frame (either 1 or 2).
+- `parity`: The parity mode (either `"none"`, `"even"` or `"odd"`).
+- `bufferSize`: The size of the read and write buffers that should be created (must be less than 16MB).
+- `flowControl`: The flow control mode (either `"none"` or `"hardware"`).
 
 ### Read from a serial port <a href="#read-port" class="w-headline-link">#</a>
 
@@ -382,35 +370,29 @@ For debugging serial device communication issues, use the `tee()` method of `por
     // You may want to update UI with incoming data from appReadable
     // and log incoming data in JS console for inspection from devReadable.
 
-Dev Tips <a href="#dev-tips" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Dev Tips <a href="#dev-tips" class="w-headline-link">#</a>
 
 Debugging the Web Serial API in Chrome is easy with the internal page, `about://device-log` where you can see all serial device related events in one single place.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format" alt="Internal page in Chrome for debugging the Web Serial API." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1600 1600w" width="800" height="547" /><figcaption>Internal page in Chrome for debugging the Web Serial API.</figcaption></figure>Codelab <a href="#codelab" class="w-headline-link">#</a>
---------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format" alt="Internal page in Chrome for debugging the Web Serial API." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/p2T9gxxLsDWsS1GaqoXj.jpg?auto=format&amp;w=1600 1600w" width="800" height="547" /><figcaption>Internal page in Chrome for debugging the Web Serial API.</figcaption></figure>Codelab <a href="#codelab" class="w-headline-link">#</a>
 
 In the [Google Developer codelab](https://codelabs.developers.google.com/codelabs/web-serial), you'll use the Web Serial API to interact with a [BBC micro:bit](https://microbit.org/) board to show images on its 5x5 LED matrix.
 
-Browser support <a href="#browser-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Browser support <a href="#browser-support" class="w-headline-link">#</a>
 
 The Web Serial API is available on all desktop platforms (Chrome OS, Linux, macOS, and Windows) in Chrome 89.
 
-Polyfill <a href="#polyfill" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Polyfill <a href="#polyfill" class="w-headline-link">#</a>
 
 On Android, support for USB-based serial ports is possible using the WebUSB API and the [Serial API polyfill](https://github.com/google/web-serial-polyfill). This polyfill is limited to hardware and platforms where the device is accessible via the WebUSB API because it has not been claimed by a built-in device driver.
 
-Security and privacy <a href="#security-privacy" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Security and privacy <a href="#security-privacy" class="w-headline-link">#</a>
 
 The spec authors have designed and implemented the Web Serial API using the core principles defined in [Controlling Access to Powerful Web Platform Features](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md), including user control, transparency, and ergonomics. The ability to use this API is primarily gated by a permission model that grants access to only a single serial device at a time. In response to a user prompt, the user must take active steps to select a particular serial device.
 
 To understand the security tradeoffs, check out the [security](https://github.com/reillyeon/serial/blob/gh-pages/EXPLAINER.md#security-considerations) and [privacy](https://github.com/reillyeon/serial/blob/gh-pages/EXPLAINER.md#privacy-considerations) sections of the Web Serial API Explainer.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 The Chrome team would love to hear about your thoughts and experiences with the Web Serial API.
 
@@ -424,7 +406,7 @@ File a spec issue on the [Web Serial API GitHub repo](https://github.com/wicg/se
 
 Did you find a bug with Chrome's implementation? Or is the implementation different from the spec?
 
-File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3ESerial). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and have *Components* set to `Blink>Serial`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
+File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3ESerial). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and have _Components_ set to `Blink>Serial`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
 
 ### Show support <a href="#show-support" class="w-headline-link">#</a>
 
@@ -432,22 +414,19 @@ Are you planning to use the Web Serial API? Your public support helps the Chrome
 
 Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#SerialAPI`](https://twitter.com/search?q=%23SerialAPI&src=typed_query&f=live) and let us know where and how you're using it.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [Specification](https://reillyeon.github.io/serial/)
--   [Tracking bug](https://crbug.com/884928)
--   [ChromeStatus.com entry](https://chromestatus.com/feature/6577673212002304)
--   Blink Component: [`Blink>Serial`](https://chromestatus.com/features#component%3ABlink%3ESerial)
+- [Specification](https://reillyeon.github.io/serial/)
+- [Tracking bug](https://crbug.com/884928)
+- [ChromeStatus.com entry](https://chromestatus.com/feature/6577673212002304)
+- Blink Component: [`Blink>Serial`](https://chromestatus.com/features#component%3ABlink%3ESerial)
 
-Demos <a href="#demos" class="w-headline-link">#</a>
-----------------------------------------------------
+## Demos <a href="#demos" class="w-headline-link">#</a>
 
--   [Serial Terminal](https://googlechromelabs.github.io/serial-terminal/)
--   [Espruino Web IDE](https://www.espruino.com/ide/)
+- [Serial Terminal](https://googlechromelabs.github.io/serial-terminal/)
+- [Espruino Web IDE](https://www.espruino.com/ide/)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Thanks to [Reilly Grant](https://twitter.com/reillyeon) and [Joe Medley](https://github.com/jpmedley) for their reviews of this article. Aeroplane factory photo by [Birmingham Museums Trust](https://unsplash.com/@birminghammuseumstrust) on [Unsplash](https://unsplash.com/photos/E1PSU-7aWcY).
 
@@ -457,35 +436,35 @@ Thanks to [Reilly Grant](https://twitter.com/reillyeon) and [Joe Medley](https:/
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

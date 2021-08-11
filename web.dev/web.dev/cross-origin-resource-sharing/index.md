@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#cross-origin-resource-sharing-(cors)" class="w-toc__header--link">Cross-Origin Resource Sharing (CORS)</a>
 
 - [How does a resource request work on the web?](#how-does-a-resource-request-work-on-the-web)

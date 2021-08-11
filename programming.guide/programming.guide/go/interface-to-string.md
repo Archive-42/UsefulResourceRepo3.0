@@ -1,7 +1,3 @@
-<span class="underline"></span>
-
-<span class="underline"></span>
-
 ## Related
 
 [String handling cheat sheet](string-functions-reference-cheat-sheet.html)  
@@ -16,8 +12,6 @@
 5.  [Concurrent programming](go-concurrency-tutorial.html)
 
 [**See all 197 Go articles**](index.html)
-
-<span class="underline"></span>
 
 ## Top Algorithm Articles
 

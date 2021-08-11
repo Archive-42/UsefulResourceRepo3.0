@@ -1,9 +1,8 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+
+
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -13,10 +12,9 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -26,13 +24,11 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-What makes a good loop invariant?
-=================================
+# What makes a good loop invariant?
 
 Let's break down the question a bit...
 
-What makes a *valid* loop invariant?
-------------------------------------
+## What makes a _valid_ loop invariant?
 
 A loop invariant should hold
 
@@ -41,10 +37,9 @@ A loop invariant should hold
 3.  At the bottom of the loop body
 4.  After the loop
 
-It's indeed the case that `true` is a *valid* loop invariant, but it's rarely *useful*...
+It's indeed the case that `true` is a _valid_ loop invariant, but it's rarely _useful_...
 
-What makes a *useful* loop invariant?
--------------------------------------
+## What makes a _useful_ loop invariant?
 
 When annotating code with Hoare logic assertions, the invariant `φ` appears as follows:
 
@@ -55,31 +50,29 @@ When annotating code with Hoare logic assertions, the invariant `φ` appears as 
         {φ}
     {φ ∧ ¬c}
 
-These code annotations give rise to so called *proof obligations*: If two assertions end up next to each other
+These code annotations give rise to so called _proof obligations_: If two assertions end up next to each other
 
     ...
     {α}
     {β}
     ...
 
-then you're obliged to show that `α → β`. So, in the example above, you'll presumably know what's true before the loop and what needs to be true after the loop. For the loop invariant `φ` to be *useful* you thus need to make sure the following implications hold:
+then you're obliged to show that `α → β`. So, in the example above, you'll presumably know what's true before the loop and what needs to be true after the loop. For the loop invariant `φ` to be _useful_ you thus need to make sure the following implications hold:
 
--   `<whatever comes before the loop> → φ`, and
--   `φ → <whatever comes after the loop>`.
+- `<whatever comes before the loop> → φ`, and
+- `φ → <whatever comes after the loop>`.
 
 The second implication disqualifies `true` as a useful loop invariant, as `true → something` only holds if `something` holds by itself. (Put differently, if we choose `true` as our loop invariant, we have no "help" from it when reasoning about the code below the loop.)
 
-Finally: What makes a *good* loop invariant?
---------------------------------------------
+## Finally: What makes a _good_ loop invariant?
 
 Apart from being valid and useful, it's nice if it's
 
--   As simple as possible
--   As intuitive as possible (Does it reflect the actual algorithm, or does it work by "chance"?)
--   Cause the proof obligations to be as simple as possible
+- As simple as possible
+- As intuitive as possible (Does it reflect the actual algorithm, or does it work by "chance"?)
+- Cause the proof obligations to be as simple as possible
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

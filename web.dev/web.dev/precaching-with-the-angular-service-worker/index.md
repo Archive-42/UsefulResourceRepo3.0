@@ -1,22 +1,14 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format" alt="Sparks flying off a metal grinder." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/r1NlrtasqQuMo11wlSva.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#precaching-with-the-angular-service-worker" class="w-toc__header--link">Precaching with the Angular service worker</a>
---------------------------------------------------------------------------------------------------------------------------------
+## <a href="#precaching-with-the-angular-service-worker" class="w-toc__header--link">Precaching with the Angular service worker</a>
 
--   [Dealing with limited connectivity](#dealing-with-limited-connectivity)
--   [Introducing the Angular service worker](#introducing-the-angular-service-worker)
--   [Conclusion](#conclusion)
+- [Dealing with limited connectivity](#dealing-with-limited-connectivity)
+- [Introducing the Angular service worker](#introducing-the-angular-service-worker)
+- [Conclusion](#conclusion)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Precaching with the Angular service worker
-==========================================
+# Precaching with the Angular service worker
 
 Use the Angular service worker to make your app faster and more reliable on networks with poor connectivity.
 
@@ -28,22 +20,20 @@ Jul 2, 2019
 
 <a href="/authors/mgechev/" class="w-author__name-link">Minko Gechev</a>
 
--   <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
--   <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mgechev" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mgechev" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@mgechev" class="w-author__link">Glitch</a>
+- <a href="https://blog.mgechev.com/" class="w-author__link">Blog</a>
 
-Dealing with limited connectivity <a href="#dealing-with-limited-connectivity" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## Dealing with limited connectivity <a href="#dealing-with-limited-connectivity" class="w-headline-link">#</a>
 
 When users have limited network access—or none at all—web app functionality can significantly degrade and often fails. Using a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers/) to provide precaching lets you intercept network requests and deliver responses directly from a local cache instead of retrieving them from the network. Once your app's assets have been cached, this approach can really speed up an app and make it work when the user is offline.
 
 This post walks through how to set up precaching in an Angular app. It assumes you're already familiar with precaching and service workers in general. If you need a refresher, check out the [Service workers and the Cache Storage API](/service-workers-cache-storage/) post.
 
-*You can find the code for the current example [on GitHub](https://github.com/mgechev/service-worker-web-dev).*
+_You can find the code for the current example [on GitHub](https://github.com/mgechev/service-worker-web-dev)._
 
-Introducing the Angular service worker <a href="#introducing-the-angular-service-worker" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------
+## Introducing the Angular service worker <a href="#introducing-the-angular-service-worker" class="w-headline-link">#</a>
 
 The Angular team offers a service worker module with precaching functionality that's well integrated with the framework and the [Angular command line interface (CLI)](https://cli.angular.io/).
 
@@ -98,8 +88,7 @@ This change adds all PNG images in the `/assets` folder to the `app` resource as
 
 Specifying other assets to be precached is just as straightforward: update the patterns in the `app` resource asset group.
 
-Conclusion <a href="#conclusion" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Conclusion <a href="#conclusion" class="w-headline-link">#</a>
 
 Using a service worker for precaching can improve the performance of your apps by saving assets to a local cache, which makes them more reliable on poor networks. To use precaching with Angular and the Angular CLI:
 
@@ -112,35 +101,35 @@ Using a service worker for precaching can improve the performance of your apps b
 
 <a href="/angular" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

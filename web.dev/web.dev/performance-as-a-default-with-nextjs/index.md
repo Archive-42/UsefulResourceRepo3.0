@@ -1,21 +1,13 @@
+## <a href="#performance-as-a-default-with-next.js" class="w-toc__header--link">Performance as a default with Next.js</a>
 
-
-
-
-
-
-<a href="#performance-as-a-default-with-next.js" class="w-toc__header--link">Performance as a default with Next.js</a>
-----------------------------------------------------------------------------------------------------------------------
-
--   [What will you learn?](#what-will-you-learn)
--   [How is Next.js different from React?](#how-is-next.js-different-from-react)
--   [Setting up](#setting-up)
--   [What's next?](#what's-next)
+- [What will you learn?](#what-will-you-learn)
+- [How is Next.js different from React?](#how-is-next.js-different-from-react)
+- [Setting up](#setting-up)
+- [What's next?](#what's-next)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Performance as a default with Next.js
-=====================================
+# Performance as a default with Next.js
 
 Next.js takes care of many optimizations in your React app so you don’t have to
 
@@ -27,10 +19,10 @@ Nov 8, 2019
 
 <a href="/authors/houssein/" class="w-author__name-link">Houssein Djirdeh</a>
 
--   <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
--   <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
--   <a href="https://houssein.me/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/hdjirdeh" class="w-author__link">Twitter</a>
+- <a href="https://github.com/housseindjirdeh" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@housseindjirdeh" class="w-author__link">Glitch</a>
+- <a href="https://houssein.me/" class="w-author__link">Blog</a>
 
 [Next.js](https://nextjs.org/) is an opinionated [React](https://reactjs.org/) framework with a number of performance optimizations baked in. The main idea behind the framework is to ensure applications start and remain as performant as possible by having these capabilities included by default.
 
@@ -38,8 +30,7 @@ This introduction will briefly cover many features provided by the framework at 
 
 Chrome is collaborating with Next.js to improve the framework for any developer looking to build a fast, server-rendered React application. A number of newer optimizations were recently added such as [module/nomodule support](https://github.com/zeit/next.js/issues/7563) and an [improved granular chunking strategy](https://github.com/zeit/next.js/issues/7631).
 
-What will you learn? <a href="#what-will-you-learn" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## What will you learn? <a href="#what-will-you-learn" class="w-headline-link">#</a>
 
 Although Next.js provides a number of performance optimizations by default, these guides aim to explain them in more detail and show you how you can use them to build a fast and performant experience.
 
@@ -47,8 +38,7 @@ This collection assumes that you have a basic knowledge of React. If not, check 
 
 There are many optimizations that can be added to React sites in general that would also work for applications built with Next.js. These will not be covered since the focus is on what Next.js specifically provides. To learn more about general React optimizations, check out our [React collection](/react).
 
-How is Next.js different from React? <a href="#how-is-next.js-different-from-react" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------------------------
+## How is Next.js different from React? <a href="#how-is-next.js-different-from-react" class="w-headline-link">#</a>
 
 React is a library that makes it easier to build user interfaces using a component-based approach. Although powerful, React is specifically a UI library. Many developers include additional tooling such as a module bundler ([webpack](https://webpack.js.org/) for example) and a transpiler ([Babel](https://babeljs.io/) for example) to have a complete build toolchain.
 
@@ -58,14 +48,13 @@ Although there are a few default optimizations baked into CRA, the tool aims to 
 
 Next.js, which can also be used to create a new React application, takes a different approach. It immediately provides a number of common optimizations that many developers would like to have but find difficult to set up, such as:
 
--   Server-side rendering
--   Automatic code-splitting
--   Route prefetching
--   File-system routing
--   CSS-in-JS styling ([`styled-jsx`](https://github.com/zeit/styled-jsx))
+- Server-side rendering
+- Automatic code-splitting
+- Route prefetching
+- File-system routing
+- CSS-in-JS styling ([`styled-jsx`](https://github.com/zeit/styled-jsx))
 
-Setting up <a href="#setting-up" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Setting up <a href="#setting-up" class="w-headline-link">#</a>
 
 To create a new Next.js application, run the following command:
 
@@ -82,8 +71,8 @@ You can also add Next.js to an existing React application. Check out [Manual Set
 
 The following embed shows the directory structure of a new Next.js app.
 
--   Click **Remix to Edit** to make the project editable.
--   To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
+- Click **Remix to Edit** to make the project editable.
+- To preview the site, press **View App**. Then press **Fullscreen** ![fullscreen](/images/glitch/fullscreen.svg).
 
 Notice that a `pages/` directory is created with a single file: `index.jsx`. Next.js follows a file-system routing approach, where every page within this directory is served as a separate route. Creating a new file in this directory, such as `about.js`, will automatically create a new route (`/about`).
 
@@ -95,50 +84,49 @@ Moreover, every initial page load in Next.js is **server-side rendered**. If you
 
 These are only a few of the many features provided by Next.js automatically. Many are customizable and can be modified for different use cases.
 
-What's next? <a href="#what&#39;s-next" class="w-headline-link">#</a>
----------------------------------------------------------------------
+## What's next? <a href="#what&#39;s-next" class="w-headline-link">#</a>
 
 Pun intended 😛
 
 Every other guide in this collection will explore a specific Next.js feature in detail:
 
--   [Route prefetching](/route-prefetching-in-nextjs/) to speed up page navigations
--   [Serving hybrid and AMP-only pages](/how-amp-can-guarantee-fastness-in-your-nextjs-app) for faster loading from search engines
--   [Code-splitting components with dynamic imports](/code-splitting-with-dynamic-imports-in-nextjs/) to reduce JavaScript footprints
+- [Route prefetching](/route-prefetching-in-nextjs/) to speed up page navigations
+- [Serving hybrid and AMP-only pages](/how-amp-can-guarantee-fastness-in-your-nextjs-app) for faster loading from search engines
+- [Code-splitting components with dynamic imports](/code-splitting-with-dynamic-imports-in-nextjs/) to reduce JavaScript footprints
 
 <span class="w-mr--sm">Last updated: Nov 8, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/react/performance-as-a-default-with-nextjs/index.md)
 
 <a href="/react" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

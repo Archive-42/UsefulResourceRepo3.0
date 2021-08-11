@@ -1,9 +1,8 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+
+
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -13,10 +12,9 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](java/do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](java/executing-code-in-comments.html)
@@ -26,8 +24,7 @@ Top Java Articles
 
 [**See all Java articles**](java/index.html)
 
-Sliding Window Algorithm with Example
-=====================================
+# Sliding Window Algorithm with Example
 
 A sliding window is a sublist that runs over an underlying collection. I.e., if you have an array like
 
@@ -44,9 +41,6 @@ a sliding window of size 3 would run over it like
 
 This is useful if you for instance want to create a set of all adjacent pairs, or generate N-grams etc.
 
-Comments
---------
+## Comments
 
-Be the first to comment!
 
-© 2016–2021 Programming.Guide, [Terms and Conditions](terms-and-conditions.html)

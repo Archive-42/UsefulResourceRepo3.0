@@ -1,43 +1,35 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format" alt="Hero Image" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/SHy7jOlEVPU1lsyfgvlG.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#introduction-to-variable-fonts-on-the-web" class="w-toc__header--link">Introduction to variable fonts on the web</a>
-------------------------------------------------------------------------------------------------------------------------------
+## <a href="#introduction-to-variable-fonts-on-the-web" class="w-toc__header--link">Introduction to variable fonts on the web</a>
 
--   [Browser compatibility](#browser-compatibility)
--   [Introduction](#introduction)
--   [Challenges for the designer and developer](#challenges-for-the-designer-and-developer)
--   [Anatomy of a variable font](#anatomy-of-a-variable-font)
--   [Italics](#italics)
--   [Axes definitions](#axes-definitions)
--   [Use cases and benefits](#use-cases-and-benefits)
--   [Exciting expression](#exciting-expression)
--   [Animation](#animation)
--   [Finesse](#finesse)
--   [Variable fonts in CSS](#variable-fonts-in-css)
--   [Loading variable font files](#loading-variable-font-files)
--   [Using weights and widths](#using-weights-and-widths)
--   [Using italics and obliques](#using-italics-and-obliques)
--   [Using optical sizes](#using-optical-sizes)
--   [Using custom axes](#using-custom-axes)
--   [Variable fonts on Google Fonts](#variable-fonts-on-google-fonts)
--   [Font-variation-settings inheritance](#font-variation-settings-inheritance)
--   [Performance gains](#performance-gains)
--   [Fallbacks and browser support](#fallbacks)
--   [Thanks](#thanks)
+- [Browser compatibility](#browser-compatibility)
+- [Introduction](#introduction)
+- [Challenges for the designer and developer](#challenges-for-the-designer-and-developer)
+- [Anatomy of a variable font](#anatomy-of-a-variable-font)
+- [Italics](#italics)
+- [Axes definitions](#axes-definitions)
+- [Use cases and benefits](#use-cases-and-benefits)
+- [Exciting expression](#exciting-expression)
+- [Animation](#animation)
+- [Finesse](#finesse)
+- [Variable fonts in CSS](#variable-fonts-in-css)
+- [Loading variable font files](#loading-variable-font-files)
+- [Using weights and widths](#using-weights-and-widths)
+- [Using italics and obliques](#using-italics-and-obliques)
+- [Using optical sizes](#using-optical-sizes)
+- [Using custom axes](#using-custom-axes)
+- [Variable fonts on Google Fonts](#variable-fonts-on-google-fonts)
+- [Font-variation-settings inheritance](#font-variation-settings-inheritance)
+- [Performance gains](#performance-gains)
+- [Fallbacks and browser support](#fallbacks)
+- [Thanks](#thanks)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Introduction to variable fonts on the web
-=========================================
+# Introduction to variable fonts on the web
 
 A new font specification that can significantly reduce font file sizes
 
@@ -47,52 +39,49 @@ Feb 19, 2018 <span class="w-author__separator">•</span> Updated Aug 17, 2020
 
 <a href="/authors/mustafakurtuldu/" class="w-author__name-link">Mustafa Kurtuldu</a>
 
--   <a href="https://twitter.com/mustafa_x" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mustafa-x" class="w-author__link">GitHub</a>
--   <a href="https://www.designtoday.info/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mustafa_x" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mustafa-x" class="w-author__link">GitHub</a>
+- <a href="https://www.designtoday.info/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Thomas Steiner" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/thomassteiner/)
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/Yw6cuEYfVm8eOqiRFtml.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Dave Crossland" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/Yw6cuEYfVm8eOqiRFtml.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/Yw6cuEYfVm8eOqiRFtml.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/Yw6cuEYfVm8eOqiRFtml.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/Yw6cuEYfVm8eOqiRFtml.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/Yw6cuEYfVm8eOqiRFtml.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/dcrossland/)
 
 <a href="/authors/dcrossland/" class="w-author__name-link">Dave Crossland</a>
 
--   <a href="https://twitter.com/davelab6" class="w-author__link">Twitter</a>
--   <a href="https://github.com/davelab6" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/davelab6" class="w-author__link">Twitter</a>
+- <a href="https://github.com/davelab6" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/sJXQNtqZbfnddKBtKZo1.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Roel Nieskens" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/sJXQNtqZbfnddKBtKZo1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/sJXQNtqZbfnddKBtKZo1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/sJXQNtqZbfnddKBtKZo1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/sJXQNtqZbfnddKBtKZo1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/sJXQNtqZbfnddKBtKZo1.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/roeln/)
 
 <a href="/authors/roeln/" class="w-author__name-link">Roel Nieskens</a>
 
--   <a href="https://twitter.com/pixelambacht" class="w-author__link">Twitter</a>
--   <a href="https://github.com/roeln" class="w-author__link">GitHub</a>
--   <a href="https://pixelambacht.nl/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/pixelambacht" class="w-author__link">Twitter</a>
+- <a href="https://github.com/roeln" class="w-author__link">GitHub</a>
+- <a href="https://pixelambacht.nl/" class="w-author__link">Blog</a>
 
 In this article, we will look at what variable fonts are, the benefits they offer, and how we can use them in our work. First, let's review how typography works on the web, and what innovations variable fonts bring.
 
-Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
 
 As of May 2020 variable fonts are supported in most browsers. See [Can I use variable fonts?](https://caniuse.com/#feat=variable-fonts) and [Fallbacks](#fallbacks).
 
-Introduction <a href="#introduction" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Introduction <a href="#introduction" class="w-headline-link">#</a>
 
-The terms font and typeface are often used interchangeably by developers. However there is a difference: A typeface is the underlying visual design that can exist in many different typesetting technologies, and a font is one of these implementations, in a digital file format. In other words, a typeface is what you *see*, and the font is what you *use*.
+The terms font and typeface are often used interchangeably by developers. However there is a difference: A typeface is the underlying visual design that can exist in many different typesetting technologies, and a font is one of these implementations, in a digital file format. In other words, a typeface is what you _see_, and the font is what you _use_.
 
 Another concept that is often overlooked is the distinction between a style, and a family. A style is a single and specific typeface, such as Bold Italic, and a family is the complete set of styles.
 
 Before variable fonts, each style was implemented as a separate font file. With variable fonts, all styles can be contained in a single file.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format" alt="Left: a specimen of the Roboto typeface family. Right: named styles within the family." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1600 1600w" width="800" height="600" /><figcaption>Left: a specimen of the Roboto typeface family. Right: named styles within the family.</figcaption></figure>Challenges for the designer and developer <a href="#challenges-for-the-designer-and-developer" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format" alt="Left: a specimen of the Roboto typeface family. Right: named styles within the family." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/RbhgXwS81Y9PVRJnTjPX.png?auto=format&amp;w=1600 1600w" width="800" height="600" /><figcaption>Left: a specimen of the Roboto typeface family. Right: named styles within the family.</figcaption></figure>Challenges for the designer and developer <a href="#challenges-for-the-designer-and-developer" class="w-headline-link">#</a>
 
 When a designer creates a print project they face some constraints, such as the physical size of the page layout, the number of colors they can use (which is determined by the kind of printing press that will be used), and so on. But they can use as many typeface styles as they like. This means that the typography of print media is often rich and sophisticated, so that the reading experience is truly delightful. Think of the last time you enjoyed browsing an excellent magazine.
 
@@ -100,8 +89,7 @@ Web designers and developers have different constraints than print designers, an
 
 Many font families offer a much wider range of styles, from Thin to Black weights, narrow and wide widths, a variety of stylistic details, and even size-specific designs (optimized for large or small text sizes.) Since you'd have to load a new font file for every style (or combinations of styles), many web developers choose not to use these capabilities, reducing the reading experience of their users.
 
-Anatomy of a variable font <a href="#anatomy-of-a-variable-font" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Anatomy of a variable font <a href="#anatomy-of-a-variable-font" class="w-headline-link">#</a>
 
 Variable fonts address these challenges, by packing styles into a single file.
 
@@ -127,8 +115,7 @@ A glyph substitution capability can also be seen for individual glyphs, and used
 
 In summary, where the contours allow for it, type designers can create fonts that interpolate between various styles in a multi-dimensional design space. This gives you granular control over your typography, and a great deal of power.
 
-Axes definitions <a href="#axes-definitions" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Axes definitions <a href="#axes-definitions" class="w-headline-link">#</a>
 
 There are five [registered axes](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxisreg#registered-axis-tags), which control known, predictable features of the font: weight, width, optical size, slant and italics. Besides those, a font can contain custom axes. These can control any design aspect of the font the type designer wishes: the size of serifs, the length of swashes, the height of ascenders or the size of the dot on the i.
 
@@ -160,8 +147,7 @@ Italics
 
 Since the font developer defines which axes are available in a variable font, and which values they can have, it is essential to find out what each font offers. The font's documentation should provide this, or you can inspect the font using a tool like [Wakamai Fondue](https://wakamaifondue.com).
 
-Use cases and benefits <a href="#use-cases-and-benefits" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Use cases and benefits <a href="#use-cases-and-benefits" class="w-headline-link">#</a>
 
 Setting the axes values comes down to personal taste and applying typographic best practices. The danger with any new technology is possible misuse, and settings that are overly artistic or exploratory could also decrease legibility of the actual text. For titles, exploring different axes to create great artistic designs are exciting, but for body copy this risks making the text illegible.
 
@@ -189,8 +175,7 @@ Amstelvar using little bits of XTRA in opposite directions so the words' widths 
 
 The XTRA axis in Amstelvar allows you to adjust the "white" per mille value, as shown above. Using little bits of XTRA in opposite directions, the words' widths are evened out.
 
-Variable fonts in CSS <a href="#variable-fonts-in-css" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Variable fonts in CSS <a href="#variable-fonts-in-css" class="w-headline-link">#</a>
 
 ### Loading variable font files <a href="#loading-variable-font-files" class="w-headline-link">#</a>
 
@@ -242,7 +227,7 @@ Roboto Flex' Width axis being changed from its minimum to its maximum.
 
 The `ital` axis is intended for fonts that contain both a regular style, and an italic style. The axis is meant to be an on/off switch: value `0` is off and will show the regular style, value `1` will show the italics. Unlike other axes, there's no transition. A value of `0.5` won't give you "half italics".
 
-The `slnt` axis is different from italics in that it's not a new *style*, but just slants the regular style. By default its value is `0`, which means the default upright letter shapes. Roboto Flex has a maximum slant of -10 degrees, meaning the letters will lean to the right when going from 0 to -10.
+The `slnt` axis is different from italics in that it's not a new _style_, but just slants the regular style. By default its value is `0`, which means the default upright letter shapes. Roboto Flex has a maximum slant of -10 degrees, meaning the letters will lean to the right when going from 0 to -10.
 
 It would be intuitive to set these axis through the `font-style` property, but as of April 2020, how to exactly do this is [still being worked out](https://github.com/w3c/csswg-drafts/issues/3125). So for now, you should treat these as custom axes, and set them through `font-variation-settings`:
 
@@ -301,12 +286,11 @@ To use all the available axes, or ranges of values, you will have to [manually c
 
 The [Google Variable Fonts Links](https://github.com/RoelN/google-variable-fonts-links) tool can also give you the latest URLs for the full variable fonts.
 
-Font-variation-settings inheritance <a href="#font-variation-settings-inheritance" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------
+## Font-variation-settings inheritance <a href="#font-variation-settings-inheritance" class="w-headline-link">#</a>
 
 While all registered axes will soon be supported through existing CSS properties, for the time being you might need to rely on `font-variation-settings` as a fallback. And if your font has custom axes, you'll need `font-variation-settings` too.
 
-However, here's a little gotcha with `font-variation-settings`. Every property you *don't explicitly set* will automatically be reset to its default. Previously set values aren't inherited! This means the following will not work as expected:
+However, here's a little gotcha with `font-variation-settings`. Every property you _don't explicitly set_ will automatically be reset to its default. Previously set values aren't inherited! This means the following will not work as expected:
 
     <span class="slanted grade-light">
        I should be slanted and have a light grade
@@ -358,10 +342,9 @@ Note that animating CSS variables doesn't work (by design), so something like th
 
 These animations will have to happen directly on `font-variation-settings`.
 
-Performance gains <a href="#performance-gains" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## Performance gains <a href="#performance-gains" class="w-headline-link">#</a>
 
-OpenType variable fonts allow us to store multiple variations of a type family into a single font file. [Monotype](https://medium.com/@monotype/part-2-from-truetype-gx-to-variable-fonts-4c28b16997c3) ran an experiment by combining 12 input fonts to generate eight weights, across three widths, across both the Italic and Roman styles. Storing 48 individual fonts in a single variable font file meant a *88% reduction in file size*.
+OpenType variable fonts allow us to store multiple variations of a type family into a single font file. [Monotype](https://medium.com/@monotype/part-2-from-truetype-gx-to-variable-fonts-4c28b16997c3) ran an experiment by combining 12 input fonts to generate eight weights, across three widths, across both the Italic and Roman styles. Storing 48 individual fonts in a single variable font file meant a _88% reduction in file size_.
 
 However, if you are using a single font such as Roboto Regular and nothing else, you might not see a net gain in font size if you were to switch to a variable font with many axes. As always, it depends on your use-case.
 
@@ -388,8 +371,7 @@ This tip works for other CDNs as well: the sooner you let the browser set up a n
 
 Find more performance tips for loading Google Fonts in [The Fastest Google Fonts](https://csswizardry.com/2020/05/the-fastest-google-fonts/).
 
-Fallbacks and browser support <a href="#fallbacks" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Fallbacks and browser support <a href="#fallbacks" class="w-headline-link">#</a>
 
 All modern browsers [support variable fonts](https://caniuse.com/#feat=variable-fonts). In case you need to support older browsers, you can choose to build your site with static fonts, and use variable fonts as progressive enhancement:
 
@@ -437,17 +419,16 @@ If you are using the Google Fonts API, it will take care of loading the proper f
 
 Modern browsers that can handle variable fonts will get the variable font, and will have every weight between 200 and 700 available. Older browsers will get served individual static fonts for every weight. In this case, this means they'll download 6 font files: one for weight 200, one for weight 300, and so on.
 
-Thanks <a href="#thanks" class="w-headline-link">#</a>
-------------------------------------------------------
+## Thanks <a href="#thanks" class="w-headline-link">#</a>
 
 This article would have only been made possible with the help of the following people:
 
--   [Mustafa Kurtuldu](https://twitter.com/mustafa_x), UX designer and design advocate at Google
--   [Roel Nieskens](https://twitter.com/PixelAmbacht), UX designer/developer and typography expert at [Kabisa](https://kabisa.nl)
--   [Dave Crossland](https://twitter.com/davelab6), Program Manager, Google Fonts
--   [David Berlow](https://twitter.com/dberlow), type designer and typographer at [Font Bureau](https://fontbureau.typenetwork.com/)
--   [Laurence Penney](https://twitter.com/lorp), developer of [axis-praxis.org](https://axis-praxis.org)
--   [Mandy Michael](https://twitter.com/Mandy_Kerr), developer of [variablefonts.dev](https://variablefonts.dev)
+- [Mustafa Kurtuldu](https://twitter.com/mustafa_x), UX designer and design advocate at Google
+- [Roel Nieskens](https://twitter.com/PixelAmbacht), UX designer/developer and typography expert at [Kabisa](https://kabisa.nl)
+- [Dave Crossland](https://twitter.com/davelab6), Program Manager, Google Fonts
+- [David Berlow](https://twitter.com/dberlow), type designer and typographer at [Font Bureau](https://fontbureau.typenetwork.com/)
+- [Laurence Penney](https://twitter.com/lorp), developer of [axis-praxis.org](https://axis-praxis.org)
+- [Mandy Michael](https://twitter.com/Mandy_Kerr), developer of [variablefonts.dev](https://variablefonts.dev)
 
 Hero image by [Bruno Martins](https://unsplash.com/@brunus) on [Unsplash](https://unsplash.com/photos/OhJmwB4XWLE).
 
@@ -457,35 +438,35 @@ Hero image by [Bruno Martins](https://unsplash.com/@brunus) on [Unsplash](https:
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

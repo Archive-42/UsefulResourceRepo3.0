@@ -1,31 +1,23 @@
+## <a href="#patterns-for-promoting-pwa-installation" class="w-toc__header--link">Patterns for promoting PWA installation</a>
 
-
-
-
-
-
-<a href="#patterns-for-promoting-pwa-installation" class="w-toc__header--link">Patterns for promoting PWA installation</a>
---------------------------------------------------------------------------------------------------------------------------
-
--   [PWA install promotion best practices](#best-practices)
--   [Automatic browser promotion](#browser-promotion)
--   [Application UI promotional patterns](#app-ui-patterns)
--   [Simple install button](#simple-button)
--   [Fixed header](#header)
--   [Navigation menu](#nav)
--   [Landing page](#landing)
--   [Install banner](#banner)
--   [Temporary UI](#temporary-ui)
--   [After conversion](#after-conversion)
--   [Booking or checkout journey](#journey)
--   [Sign up, sign in, or sign out flow](#sign-up)
--   [Inline promotional patterns](#inline-promotional-patterns)
--   [In-feed](#in-feed)
+- [PWA install promotion best practices](#best-practices)
+- [Automatic browser promotion](#browser-promotion)
+- [Application UI promotional patterns](#app-ui-patterns)
+- [Simple install button](#simple-button)
+- [Fixed header](#header)
+- [Navigation menu](#nav)
+- [Landing page](#landing)
+- [Install banner](#banner)
+- [Temporary UI](#temporary-ui)
+- [After conversion](#after-conversion)
+- [Booking or checkout journey](#journey)
+- [Sign up, sign in, or sign out flow](#sign-up)
+- [Inline promotional patterns](#inline-promotional-patterns)
+- [In-feed](#in-feed)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-Patterns for promoting PWA installation
-=======================================
+# Patterns for promoting PWA installation
 
 Jun 4, 2019 <span class="w-author__separator">•</span> Updated Jun 17, 2020
 
@@ -35,52 +27,49 @@ Jun 4, 2019 <span class="w-author__separator">•</span> Updated Jun 17, 2020
 
 <a href="/authors/pjmclachlan/" class="w-author__name-link">Penny McLachlan</a>
 
--   <a href="https://twitter.com/b1tr0t" class="w-author__link">Twitter</a>
--   <a href="https://github.com/b1tr0t" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/b1tr0t" class="w-author__link">Twitter</a>
+- <a href="https://github.com/b1tr0t" class="w-author__link">GitHub</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/0MyqDvMQmaxVodxo5kr9.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Mustafa Kurtuldu" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/0MyqDvMQmaxVodxo5kr9.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/0MyqDvMQmaxVodxo5kr9.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/0MyqDvMQmaxVodxo5kr9.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/0MyqDvMQmaxVodxo5kr9.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/0MyqDvMQmaxVodxo5kr9.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/mustafakurtuldu/)
 
 <a href="/authors/mustafakurtuldu/" class="w-author__name-link">Mustafa Kurtuldu</a>
 
--   <a href="https://twitter.com/mustafa_x" class="w-author__link">Twitter</a>
--   <a href="https://github.com/mustafa-x" class="w-author__link">GitHub</a>
--   <a href="https://www.designtoday.info/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/mustafa_x" class="w-author__link">Twitter</a>
+- <a href="https://github.com/mustafa-x" class="w-author__link">GitHub</a>
+- <a href="https://www.designtoday.info/" class="w-author__link">Blog</a>
 
 Installing your Progressive Web App (PWA) can make it easier for users to find and use. Even with browser promotion, some users don't realize that they can install a PWA, so it can be helpful to provide an in-app experience that you can use to promote and enable installation of your PWA.
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format" alt="A simple install button provided within your PWA." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/PtJp54jasjOYyh9Soqzu.png?auto=format&amp;w=1600 1600w" width="800" height="368" /><figcaption>A simple install button provided within your PWA.</figcaption></figure>This list is by no means exhaustive, but offers a starting point for different ways to promote the installation of your PWA. Regardless of which pattern, *or patterns* you use, they all lead to the same code that triggers the install flow, documented in [How to provide your own in-app install experience](/customize-install/).
 
- 
 
-PWA install promotion best practices <a href="#best-practices" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+
+## PWA install promotion best practices <a href="#best-practices" class="w-headline-link">#</a>
 
 There are some best practices that apply no matter what promotional patterns you're using on your site.
 
--   Keep promotions outside of the flow of your user journeys. For example, in a PWA login page, put the call to action below the login form and submit button. Disruptive use of promotional patterns reduces the usability of your PWA and negatively impacts your engagement metrics.
--   Include the ability to dismiss or decline the promotion. Remember the user's preference if they do this and only re-prompt if there's a change in the user's relationship with your content such as if they signed in or completed a purchase.
--   Combine more than one of these techniques in different parts of your PWA, but be careful not to overwhelm or annoy your user with install promotion.
--   Only show the promotion **after** the [`beforeinstallprompt` event](/customize-install/#beforeinstallprompt) has been fired.
+- Keep promotions outside of the flow of your user journeys. For example, in a PWA login page, put the call to action below the login form and submit button. Disruptive use of promotional patterns reduces the usability of your PWA and negatively impacts your engagement metrics.
+- Include the ability to dismiss or decline the promotion. Remember the user's preference if they do this and only re-prompt if there's a change in the user's relationship with your content such as if they signed in or completed a purchase.
+- Combine more than one of these techniques in different parts of your PWA, but be careful not to overwhelm or annoy your user with install promotion.
+- Only show the promotion **after** the [`beforeinstallprompt` event](/customize-install/#beforeinstallprompt) has been fired.
 
-Automatic browser promotion <a href="#browser-promotion" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Automatic browser promotion <a href="#browser-promotion" class="w-headline-link">#</a>
 
 When [certain criteria](/install-criteria/) are met, most browsers will automatically indicate to the user that your Progressive Web App is installable. For example, desktop Chrome shows an install button in the omnibox.
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format" alt="Browser provided install promotion (desktop)" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/zIfRss5zOrZ49c4VdJ52.png?auto=format&amp;w=1600 1600w" width="800" height="307" /><figcaption>Browser provided install promotion (desktop)</figcaption></figure><figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format" alt="Browser provided install promotion (mobile)" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/kRjcsxlHDZa9Nqg2Fpei.png?auto=format&amp;w=1600 1600w" width="800" height="307" /><figcaption>Browser provided install promotion (mobile)</figcaption></figure>
 
- 
+
 
 Chrome for Android will show a mini-infobar to the user, though this can be prevented by calling `preventDefault()` on the `beforeinstallprompt` event. If you do not call `preventDefault()`, the banner will be shown the first time a user visits your site and it meets the installability criteria on Android, and then again after approximately 90 days.
 
-Application UI promotional patterns <a href="#app-ui-patterns" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------
+## Application UI promotional patterns <a href="#app-ui-patterns" class="w-headline-link">#</a>
 
 Application UI promotional patterns can be used for almost any kind of PWA and appear in the application UI, such as site navigation and banners. As with any other type of promotional pattern, it's important to be aware of the user's context to minimize disruption of the user's journey.
 
 Sites which are thoughtful about when they trigger promotion UI achieve a larger number of installs and avoid interfering with the journeys of users who aren't interested in installation.
 
- 
+
 
 ### Simple install button <a href="#simple-button" class="w-headline-link">#</a>
 
@@ -96,11 +85,11 @@ This is an install button that is part of the header of your site. Other header 
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format" alt="Custom install button in header" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/L01AoSoy7LNk1ttMMax0.png?auto=format&amp;w=1600 1600w" width="800" height="430" /><figcaption>Custom install button in header</figcaption></figure>Make sure you:
 
--   Do not show the install button unless the `beforeinstallprompt` has been fired.
--   Evaluate the value of your installed use case for your users. Consider selective targeting to only present your promotion for users that are likely to benefit from it.
--   Use precious header space efficiently. Consider what else would be helpful to offer your user in the header, and weigh the priority of the install promotion relative to other options.
+- Do not show the install button unless the `beforeinstallprompt` has been fired.
+- Evaluate the value of your installed use case for your users. Consider selective targeting to only present your promotion for users that are likely to benefit from it.
+- Use precious header space efficiently. Consider what else would be helpful to offer your user in the header, and weigh the priority of the install promotion relative to other options.
 
- 
+
 
 ### Navigation menu <a href="#nav" class="w-headline-link">#</a>
 
@@ -108,10 +97,10 @@ This is an install button that is part of the header of your site. Other header 
 
 Make sure you:
 
--   Avoid disrupting important navigational content. Put the PWA install promotion below other menu items.
--   Offer a short, relevant pitch for why the user would benefit from installing your PWA.
+- Avoid disrupting important navigational content. Put the PWA install promotion below other menu items.
+- Offer a short, relevant pitch for why the user would benefit from installing your PWA.
 
- 
+
 
 ### Landing page <a href="#landing" class="w-headline-link">#</a>
 
@@ -121,11 +110,11 @@ The purpose of a landing page is to promote your products and services, so this 
 
 Make sure you:
 
--   Appeal to features that matter most to your visitors and emphasize keywords that might have brought them to your landing page.
--   Make your install promotion and call to action eye catching, but only after you've made your value proposition clear. This is your landing page, after all.
--   Consider adding an install promotion in the part of your app where users spend most of their time.
+- Appeal to features that matter most to your visitors and emphasize keywords that might have brought them to your landing page.
+- Make your install promotion and call to action eye catching, but only after you've made your value proposition clear. This is your landing page, after all.
+- Consider adding an install promotion in the part of your app where users spend most of their time.
 
- 
+
 
 ### Install banner <a href="#banner" class="w-headline-link">#</a>
 
@@ -133,10 +122,10 @@ Make sure you:
 
 Make sure you:
 
--   Wait until the user has demonstrated interest in your site before showing a banner. If the user dismisses your banner, don't show it again unless the user triggers a conversion event that indicates a higher level of engagement with your content such as a purchase on an e-commerce site or signing up for an account.
--   Provide a brief explanation of the value of installing your PWA in the banner. For example, you can differentiate the install of a PWA from an iOS/Android app by mentioning that it uses almost no storage on the user's device or that it will install instantly without a store redirect.
+- Wait until the user has demonstrated interest in your site before showing a banner. If the user dismisses your banner, don't show it again unless the user triggers a conversion event that indicates a higher level of engagement with your content such as a purchase on an e-commerce site or signing up for an account.
+- Provide a brief explanation of the value of installing your PWA in the banner. For example, you can differentiate the install of a PWA from an iOS/Android app by mentioning that it uses almost no storage on the user's device or that it will install instantly without a store redirect.
 
- 
+
 
 ### Temporary UI <a href="#temporary-ui" class="w-headline-link">#</a>
 
@@ -146,14 +135,13 @@ Temporary UI, such as the [Snackbar](https://material.io/components/snackbars/) 
 
 <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format" alt="A dismissible snackbar indicating the PWA is installable." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/d8dwdIe1rYSgd0JdCGtt.png?auto=format&amp;w=1600 1600w" width="800" height="424" /><figcaption>A dismissible snackbar indicating the PWA is installable.</figcaption></figure>Make sure you:
 
--   Show the snackbar for between 4 and 7 seconds to give users enough time to see and react to it, and without getting in the way.
--   Avoid showing it over other temporary UI such as banners, etc.
--   Wait until you have strong interest signals from the user before using this pattern, for example, repeat visits, a user sign in, or similar conversion event.
+- Show the snackbar for between 4 and 7 seconds to give users enough time to see and react to it, and without getting in the way.
+- Avoid showing it over other temporary UI such as banners, etc.
+- Wait until you have strong interest signals from the user before using this pattern, for example, repeat visits, a user sign in, or similar conversion event.
 
- 
 
-After conversion <a href="#after-conversion" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+
+## After conversion <a href="#after-conversion" class="w-headline-link">#</a>
 
 Immediately after a user conversion event, for example after a purchase on an e-commerce site, is an excellent opportunity to promote the installation of your PWA. The user is clearly engaged with your content, and a conversion often signals that the user will engage with your services again.
 
@@ -163,11 +151,11 @@ Immediately after a user conversion event, for example after a purchase on an e-
 
 Make sure you:
 
--   Include a relevant call to action. Which users will benefit from installing your app and why? How is it relevant to the journey they are currently undertaking?
--   If your brand has unique offers for installed app users, be sure to mention them here.
--   Keep the promotion out of the way of next steps in your journey or you can negatively affect your journey completion rates. In the e-commerce example above, notice how the key call to action to checkout is above the app install promotion.
+- Include a relevant call to action. Which users will benefit from installing your app and why? How is it relevant to the journey they are currently undertaking?
+- If your brand has unique offers for installed app users, be sure to mention them here.
+- Keep the promotion out of the way of next steps in your journey or you can negatively affect your journey completion rates. In the e-commerce example above, notice how the key call to action to checkout is above the app install promotion.
 
- 
+
 
 ### Sign up, sign in, or sign out flow <a href="#sign-up" class="w-headline-link">#</a>
 
@@ -177,14 +165,13 @@ This promotion is a special case of the [journey](#journey) promotional pattern 
 
 Make sure you:
 
--   Avoid disrupting the user's journey inside the sign up form. If it's a multi-step process, you might want to wait until the user has completed the journey.
--   Promote features most relevant to a signed-up user.
--   Consider adding an additional install promotion within the signed-in areas of your app.
+- Avoid disrupting the user's journey inside the sign up form. If it's a multi-step process, you might want to wait until the user has completed the journey.
+- Promote features most relevant to a signed-up user.
+- Consider adding an additional install promotion within the signed-in areas of your app.
 
- 
 
-Inline promotional patterns <a href="#inline-promotional-patterns" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+
+## Inline promotional patterns <a href="#inline-promotional-patterns" class="w-headline-link">#</a>
 
 Inline promotional techniques interweave promotions with site content. This is often more subtle than promotion in application UI, which has tradeoffs. You want your promotion to stand out enough that interested users will notice it, but not so much that it detracts from the quality of your user experience.
 
@@ -196,9 +183,9 @@ An in-feed install promotion appears between news articles or other lists of inf
 
 Make sure you:
 
--   Limit the frequency of the promotions to avoid annoying users.
--   Give your users the ability to dismiss the promotions.
--   Remember your user's choice to dismiss.
+- Limit the frequency of the promotions to avoid annoying users.
+- Give your users the ability to dismiss the promotions.
+- Remember your user's choice to dismiss.
 
 <a href="/tags/progressive-web-apps/" class="w-chip">Progressive Web Apps</a>
 
@@ -206,35 +193,35 @@ Make sure you:
 
 <a href="/progressive-web-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

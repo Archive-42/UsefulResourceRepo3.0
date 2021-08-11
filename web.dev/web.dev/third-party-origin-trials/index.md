@@ -20,8 +20,7 @@ Blog
 
 <img src="https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format" alt="Person wearing medical gloves pouring purple liquid from glass beaker into flask. Bristol Robotics Laboratory, UK." class="object-fit-cover hero-image" sizes="(min-width: 960px) 960px, 100vw" srcset="https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=200 200w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=228 228w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=260 260w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=296 296w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=338 338w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=385 385w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=439 439w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=500 500w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=571 571w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=650 650w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=741 741w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=845 845w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=964 964w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=1098 1098w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=1252 1252w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=1428 1428w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/gPlFs9TIUayaQ1MvxRlP.jpg?auto=format&amp;w=1600 1600w" width="960" height="480" />
 
-What are third-party origin trials?
-===================================
+# What are third-party origin trials?
 
 Origin trials are a way to test a new or experimental web platform feature. A third-party origin trial makes it possible for providers of embedded content to try out a new feature across multiple sites.
 
@@ -49,8 +48,7 @@ Supporting third-party origin trials allows for broader participation, but also 
 
 Check [Chrome Platform Status](https://www.chromestatus.com/features/5691464711405568) for updates on progress with third-party origin trials.
 
-<a href="#how-to-register-for-a-third-party-origin-trial" class="heading-link">#</a> How to register for a third-party origin trial
------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#how-to-register-for-a-third-party-origin-trial" class="heading-link">#</a> How to register for a third-party origin trial
 
 1.  Select a trial from the [list of active trials](https://developers.chrome.com/origintrials/#/trials/active).
 
@@ -69,17 +67,15 @@ Check [Chrome Platform Status](https://www.chromestatus.com/features/56914647114
 
     <figure><img src="https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format" alt="Registration page for the Conversion Measurement trial." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=200 200w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=228 228w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=260 260w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=296 296w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=338 338w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=385 385w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=439 439w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=500 500w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=571 571w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=650 650w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=741 741w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=845 845w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=964 964w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=1098 1098w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=1252 1252w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=1428 1428w, https://developer-chrome-com.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/r07Zb0QoHnlgiItETR6q.png?auto=format&amp;w=1600 1600w" width="800" height="618" /><figcaption>Registration page for the Conversion Measurement trial.</figcaption></figure>
 
-<a href="#how-to-provide-feedback" class="heading-link">#</a> How to provide feedback
--------------------------------------------------------------------------------------
+## <a href="#how-to-provide-feedback" class="heading-link">#</a> How to provide feedback
 
 If you're registering for a third-party origin trial and have feedback to share on the process or ideas on how we can improve it, [create an issue](https://github.com/GoogleChrome/OriginTrials/issues/new) on the Origin Trials GitHub code repo.
 
-<a href="#find-out-more" class="heading-link">#</a> Find out more
------------------------------------------------------------------
+## <a href="#find-out-more" class="heading-link">#</a> Find out more
 
--   [Getting started with Chrome's origin trials](/blog/origin-trials/)
--   [Origin Trials Guide for Web Developers](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md)
--   [Chrome Platform Status](https://www.chromestatus.com/features/5691464711405568)
+- [Getting started with Chrome's origin trials](/blog/origin-trials/)
+- [Origin Trials Guide for Web Developers](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md)
+- [Chrome Platform Status](https://www.chromestatus.com/features/5691464711405568)
 
 Photo by [Louis Reed](https://unsplash.com/@_louisreed) on [Unsplash](https://unsplash.com/photos/JeInkKlI2Po).
 
@@ -89,22 +85,22 @@ Follow us
 
 Contribute
 
--   <a href="https://github.com/GoogleChrome/developer.chrome.com/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="footer__link">File a bug</a>
--   <a href="https://github.com/GoogleChrome/developer.chrome.com/" class="footer__link">View source</a>
+- <a href="https://github.com/GoogleChrome/developer.chrome.com/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="footer__link">File a bug</a>
+- <a href="https://github.com/GoogleChrome/developer.chrome.com/" class="footer__link">View source</a>
 
 Related content
 
--   <a href="https://web.dev/" class="footer__link">web.dev</a>
--   <a href="https://developers.google.com/web/" class="footer__link">Web Fundamentals</a>
--   <a href="https://web.dev/tags/case-study/" class="footer__link">Case studies</a>
--   <a href="https://devwebfeed.appspot.com/" class="footer__link">DevWeb Content Firehose</a>
--   <a href="https://web.dev/podcasts/" class="footer__link">Podcasts</a>
+- <a href="https://web.dev/" class="footer__link">web.dev</a>
+- <a href="https://developers.google.com/web/" class="footer__link">Web Fundamentals</a>
+- <a href="https://web.dev/tags/case-study/" class="footer__link">Case studies</a>
+- <a href="https://devwebfeed.appspot.com/" class="footer__link">DevWeb Content Firehose</a>
+- <a href="https://web.dev/podcasts/" class="footer__link">Podcasts</a>
 
 Connect
 
--   <a href="https://twitter.com/chromiumdev/" class="footer__link">Twitter</a>
--   <a href="https://www.youtube.com/user/ChromeDevelopers" class="footer__link">YouTube</a>
--   <a href="https://github.com/googlechrome" class="footer__link">GitHub</a>
+- <a href="https://twitter.com/chromiumdev/" class="footer__link">Twitter</a>
+- <a href="https://www.youtube.com/user/ChromeDevelopers" class="footer__link">YouTube</a>
+- <a href="https://github.com/googlechrome" class="footer__link">GitHub</a>
 
 <a href="https://www.google.com/chrome/" class="footer__link">Chrome</a> <a href="https://firebase.google.com" class="footer__link">Firebase</a> <a href="https://developers.google.com/products" class="footer__link">All products</a> <a href="https://policies.google.com/privacy" class="footer__link">Privacy</a> <a href="https://policies.google.com/terms" class="footer__link">Terms</a>
 

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Codelab: Preload critical assets to improve loading speed
 
 Apr 24, 2019

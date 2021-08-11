@@ -1,9 +1,8 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Hash Tables
------------
+
+
+## Hash Tables
 
 1.  [Hash Tables](hash-tables.html)
 2.  [Complexity](hash-tables-complexity.html)
@@ -20,10 +19,9 @@ Hash Tables
 13. Linked Hash Table
 14. [Why large prime numbers are used in hash tables](prime-numbers-in-hash-tables.html)
 
-<span class="underline"></span>
 
-Top Algorithm Articles
-----------------------
+
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](big-o-notation-explained.html)
@@ -33,22 +31,19 @@ Top Algorithm Articles
 
 [**See all algorithm articles**](algorithms.html)
 
-Linked Hash Table
-=================
+# Linked Hash Table
 
 A linked hash table is a **combination of a hash table and a linked list**. Nodes are arranged in buckets but also have a doubly linked list running through them.
 
 One can use the hash table structure for fast hash based lookups, and the linked list for effirient traversal.
 
-Hash Table Traversal
---------------------
+## Hash Table Traversal
 
-There's no way to know which buckets are empty, and which ones are not, so all buckets must be traversed. This means traversal is <span class="no-wrap">Θ(*n* + *m*)</span>.
+There's no way to know which buckets are empty, and which ones are not, so all buckets must be traversed. This means traversal is <span class="no-wrap">Θ(_n_ + _m_)</span>.
 
-In practice this is only relevant if the hash table is initialized with a very large capacity. After the first rehashing the number of buckets can be considered linearly proportional to the number of items, and traversal is *Θ*(*n*).
+In practice this is only relevant if the hash table is initialized with a very large capacity. After the first rehashing the number of buckets can be considered linearly proportional to the number of items, and traversal is _Θ_(_n_).
 
-Adding a linked list
---------------------
+## Adding a linked list
 
 If one wants to avoid the overhead due to empty buckets one can let a linked list run through all nodes. Whenever a node is added to the hash table, it's appended to this list.
 
@@ -60,8 +55,7 @@ Since the overlay list structure is doubly linked, append and remove are constan
 
 The [`LinkedHashMap`](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html) in the Java API is an example of this technique.
 
-Comments
---------
+## Comments
 
 Be the first to comment!
 

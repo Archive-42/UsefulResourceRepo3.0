@@ -1,18 +1,16 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
 
-Featured Stack Overflow Post
-----------------------------
 
-[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)  
-  
+
+## Featured Stack Overflow Post
+
+[In Java, difference between default, public, protected, and private](https://stackoverflow.com/a/33627846/276052)
+
 [<img src="../images/so-featured-33627846.png" alt="StackOverflow screenshot thumbnail" class="screenshot" />](https://stackoverflow.com/a/33627846/276052)
 
-<span class="underline"></span>
 
-Top Java Articles
------------------
+
+## Top Java Articles
 
 1.  [Do interfaces inherit from Object?](do-interfaces-inherit-from-object.html)
 2.  [Executing code in comments?!](executing-code-in-comments.html)
@@ -22,8 +20,7 @@ Top Java Articles
 
 [**See all 190 Java articles**](index.html)
 
-Top Algorithm Articles
-----------------------
+## Top Algorithm Articles
 
 1.  [Dynamic programming vs memoization vs tabulation](../dynamic-programming-vs-memoization-vs-tabulation.html)
 2.  [Big O notation explained](../big-o-notation-explained.html)
@@ -31,8 +28,7 @@ Top Algorithm Articles
 4.  [What makes a good loop invariant?](../what-makes-a-good-loop-invariant.html)
 5.  [Generating a random point within a circle (uniformly)](../random-point-within-circle.html)
 
-Java Oddity: How an upcast can save the day
-===========================================
+# Java Oddity: How an upcast can save the day
 
 You almost never see an **upcast** in Java code. That is, you rarely see something like this:
 
@@ -43,37 +39,34 @@ Why would you need to? The fact that a `Dog` is an `Animal` should be evident to
 Here is however a program that **fails to compile** without an upcast:
 
 `class Player {`  
-`    private             boolean isAlive =             true;`  
-  
-`    void             kill(Opponent opponent) {`  
+` private boolean isAlive = true;`
 
-        // Compiles
+` void kill(Opponent opponent) {`
 
-        // Error: 'isAlive' has private access in 'Player'
+// Compiles
 
-       
+// Error: 'isAlive' has private access in 'Player'
 
- ((Player)
 
- opponent
+
+((Player)
+
+opponent
 
 )
 
 .<span id="isAlive">isAlive</span> = <span class="keyword">false</span>;
 
-  
+// opponent.opponentSpecificMethod();
 
-        // opponent.opponentSpecificMethod();
+` }`  
+`}`
 
-`    }`  
-`}`  
-  
-`class Opponent             extends Player {                 // ...             }`
+`class Opponent extends Player { // ... }`
 
 **Note:** The snippet above is written to illustrate a language oddity and should not be seen as an example of good design. In fact, the need for an upcast is a telltale of a bad design. In particular a base class should not be coupled to one of its subclasses the way `Player` is coupled to `Opponent`.
 
-Comments (2)
-------------
+## Comments (2)
 
 ![User avatar](https://www.gravatar.com/avatar/e5c1d6ea2af32dbecfb13454db124189?d=mp)
 

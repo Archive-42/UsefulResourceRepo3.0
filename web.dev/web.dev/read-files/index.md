@@ -1,29 +1,21 @@
+## <a href="#read-files-in-javascript" class="w-toc__header--link">Read files in JavaScript</a>
 
-
-
-
-
-
-<a href="#read-files-in-javascript" class="w-toc__header--link">Read files in JavaScript</a>
---------------------------------------------------------------------------------------------
-
--   [The modern File System Access API](#the-modern-file-system-access-api)
--   [Working with files, the classic way](#working-with-files-the-classic-way)
--   [Select files](#select)
--   [HTML input element](#select-input)
--   [Custom drag-and-drop](#select-dnd)
--   [What about directories?](#directories)
--   [Read file metadata](#read-metadata)
--   [Read a file's content](#read-content)
--   [Monitor the progress of a file read](#monitor-progress)
+- [The modern File System Access API](#the-modern-file-system-access-api)
+- [Working with files, the classic way](#working-with-files-the-classic-way)
+- [Select files](#select)
+- [HTML input element](#select-input)
+- [Custom drag-and-drop](#select-dnd)
+- [What about directories?](#directories)
+- [Read file metadata](#read-metadata)
+- [Read a file's content](#read-content)
+- [Monitor the progress of a file read](#monitor-progress)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Read files in JavaScript
-========================
+# Read files in JavaScript
 
 How to select files, read file metadata and content, and monitor read progress.
 
@@ -33,51 +25,48 @@ Jun 18, 2010 <span class="w-author__separator">•</span> Updated Mar 29, 2021
 
 <a href="/authors/kaycebasques/" class="w-author__name-link">Kayce Basques</a>
 
--   <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
--   <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
--   <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
+- <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
+- <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Pete LePage" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/petelepage/)
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Thomas Steiner" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/8PLpVmFef6mj72MVWeiN.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/thomassteiner/)
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 Being able to select and interact with files on the user's local device is one of the most commonly used features of the web. It allows users to select files and upload them to a server, for example, uploading photos, or submitting tax documents, etc. But, it also allows sites to read and manipulate them without ever having to transfer the data across the network.
 
-The modern File System Access API <a href="#the-modern-file-system-access-api" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------
+## The modern File System Access API <a href="#the-modern-file-system-access-api" class="w-headline-link">#</a>
 
 The File System Access API provides an easy way to both read and write to files and directories on the user's local system. It's currently available in most Chromium-derived browsers like Chrome or Edge. To learn more about it, see the [File System Access API](/file-system-access/) article.
 
 Since the File System Access API is not compatible with all browsers yet, check out [browser-fs-access](https://github.com/GoogleChromeLabs/browser-fs-access), a helper library that uses the new API wherever it is available, but falls back to legacy approaches when it is not.
 
-Working with files, the classic way <a href="#working-with-files-the-classic-way" class="w-headline-link">#</a>
----------------------------------------------------------------------------------------------------------------
+## Working with files, the classic way <a href="#working-with-files-the-classic-way" class="w-headline-link">#</a>
 
 This guide shows you how to:
 
--   Select files
-    -   [Using the HTML input element](#select-input)
-    -   [Using a drag-and-drop zone](#select-dnd)
--   [Read file metadata](#read-metadata)
--   [Read a file's content](#read-content)
+- Select files
+  - [Using the HTML input element](#select-input)
+  - [Using a drag-and-drop zone](#select-dnd)
+- [Read file metadata](#read-metadata)
+- [Read a file's content](#read-content)
 
-Select files <a href="#select" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Select files <a href="#select" class="w-headline-link">#</a>
 
 ### HTML input element <a href="#select-input" class="w-headline-link">#</a>
 
@@ -149,8 +138,7 @@ Check if the [`window.showDirectoryPicker()`](/file-system-access/#opening-a-dir
 
 If drag-and-drop is enabled, a user may try to drag a directory into the drop zone. When the drop event is fired, it will include a `File` object for the directory, but will be unable to access any of the files within the directory.
 
-Read file metadata <a href="#read-metadata" class="w-headline-link">#</a>
--------------------------------------------------------------------------
+## Read file metadata <a href="#read-metadata" class="w-headline-link">#</a>
 
 The [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) object contains a number of metadata properties about the file. Most browsers provide the file name, the size of the file, and the MIME type, though depending on the platform, different browsers may provide different, or additional information.
 
@@ -168,8 +156,7 @@ The [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) object conta
 
 You can see this in action in the [`input-type-file`](https://input-type-file.glitch.me/) Glitch demo.
 
-Read a file's content <a href="#read-content" class="w-headline-link">#</a>
----------------------------------------------------------------------------
+## Read a file's content <a href="#read-content" class="w-headline-link">#</a>
 
 To read a file, use [`FileReader`](https://developer.mozilla.org/en-US/docs/Web/API/FileReader), which enables you to read the content of a `File` object into memory. You can instruct `FileReader` to read a file as an [array buffer](https://developer.mozilla.org/docs/Web/API/FileReader/readAsArrayBuffer), a [data URL](https://developer.mozilla.org/docs/Web/API/FileReader/readAsDataURL), or [text](https://developer.mozilla.org/docs/Web/API/FileReader/readAsText).
 
@@ -217,35 +204,35 @@ Hero image by Vincent Botta from [Unsplash](https://unsplash.com/photos/bv_rJXpN
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

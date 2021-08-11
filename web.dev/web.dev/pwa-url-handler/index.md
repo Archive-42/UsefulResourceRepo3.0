@@ -1,5 +1,3 @@
-
-
 <a href="/" class="header-default__logo-link gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="header-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="header-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="header-default__link gc-analytics-event">Blog</a> <a href="/about/" class="header-default__link gc-analytics-event">About</a>
@@ -12,35 +10,33 @@
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format" alt="Interconnected chains, symbolizing the handling of URLs." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/tCdgaIMviiwzyggA2dBt.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#pwas-as-url-handlers" class="w-toc__header--link">PWAs as URL Handlers</a>
-------------------------------------------------------------------------------------
+## <a href="#pwas-as-url-handlers" class="w-toc__header--link">PWAs as URL Handlers</a>
 
--   [What is PWAs as URL Handlers?](#what)
--   [Suggested use cases for PWAs as URL Handlers](#use-cases)
--   [Current status](#status)
--   [How to use PWAs as URL Handlers](#use)
--   [Enabling via about://flags](#enabling-via-about:flags)
--   [The "url\_handlers" web app manifest member](#the-)
--   [The web-app-origin-association file](#the-web-app-origin-association-file)
--   [Demo](#demo)
--   [Security and permissions](#security-and-permissions)
--   [User control](#user-control)
--   [Transparency](#transparency)
--   [Permission persistence](#permission-persistence)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Report a problem with the implementation](#report-a-problem-with-the-implementation)
--   [Show support for the API](#show-support-for-the-api)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [What is PWAs as URL Handlers?](#what)
+- [Suggested use cases for PWAs as URL Handlers](#use-cases)
+- [Current status](#status)
+- [How to use PWAs as URL Handlers](#use)
+- [Enabling via about://flags](#enabling-via-about:flags)
+- [The "url_handlers" web app manifest member](#the-)
+- [The web-app-origin-association file](#the-web-app-origin-association-file)
+- [Demo](#demo)
+- [Security and permissions](#security-and-permissions)
+- [User control](#user-control)
+- [Transparency](#transparency)
+- [Permission persistence](#permission-persistence)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Report a problem with the implementation](#report-a-problem-with-the-implementation)
+- [Show support for the API](#show-support-for-the-api)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share <a href="/newsletter/" class="w-actions__fab w-actions__fab--subscribe gc-analytics-event"><span>subscribe</span></a>
 
--   <a href="/" class="w-breadcrumbs__link w-breadcrumbs__link--left-justify gc-analytics-event">Home</a>
--   <a href="/blog" class="w-breadcrumbs__link gc-analytics-event">All articles</a>
+- <a href="/" class="w-breadcrumbs__link w-breadcrumbs__link--left-justify gc-analytics-event">Home</a>
+- <a href="/blog" class="w-breadcrumbs__link gc-analytics-event">All articles</a>
 
-PWAs as URL Handlers
-====================
+# PWAs as URL Handlers
 
 Let installed PWAs handle URLs for a more integrated experience.
 
@@ -50,15 +46,14 @@ Jun 3, 2021 <span class="w-author__separator">•</span> Updated Aug 5, 2021
 
 <a href="/authors/thomassteiner/" class="w-author__name-link">Thomas Steiner</a>
 
--   <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
--   <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
--   <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/tomayac" class="w-author__link">Twitter</a>
+- <a href="https://github.com/tomayac" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@tomayac" class="w-author__link">Glitch</a>
+- <a href="https://blog.tomayac.com/" class="w-author__link">Blog</a>
 
 PWAs as URL Handlers is part of the [capabilities project](https://web.dev/fugu-status/) and is currently in development. This post will be updated as the implementation progresses.
 
-What is PWAs as URL Handlers? <a href="#what" class="w-headline-link">#</a>
----------------------------------------------------------------------------
+## What is PWAs as URL Handlers? <a href="#what" class="w-headline-link">#</a>
 
 Imagine you are chatting with a friend using an instant messenger application like Messages on macOS and you are talking about music. Further imagine you both have the `music.example.com` PWA installed on your devices. If you want to share your favorite track for your friend to enjoy, you can send them a deep link like `https://music.example.com/rick-astley/never-gonna-give-you-up`. Since this link is pretty long, the developers of `music.example.com` may have decided to add an additional short link to each track, like, for example, `https://🎵.example.com/r-a/n-g-g-y-u`.
 
@@ -73,16 +68,14 @@ PWA as URL Handlers consists of two additions:
 
 Examples of sites that may use this API include:
 
--   Music or video streaming sites so track links or playlist links open in the player experience of the app.
--   News or RSS readers so followed or subscribed-to sites open in the app's reader mode.
+- Music or video streaming sites so track links or playlist links open in the player experience of the app.
+- News or RSS readers so followed or subscribed-to sites open in the app's reader mode.
 
-Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td><a href="https://github.com/WICG/pwa-url-handler/blob/main/explainer.md">Complete</a></td></tr><tr class="even"><td>2. Create initial draft of specification</td><td>Not started</td></tr><tr class="odd"><td>3. Gather feedback &amp; iterate on design</td><td><a href="#feedback">In progress</a></td></tr><tr class="even"><td>4. Origin trial</td><td>Not started</td></tr><tr class="odd"><td>5. Launch</td><td>Not started</td></tr></tbody></table>
 
-How to use PWAs as URL Handlers <a href="#use" class="w-headline-link">#</a>
-----------------------------------------------------------------------------
+## How to use PWAs as URL Handlers <a href="#use" class="w-headline-link">#</a>
 
 ### Enabling via about://flags <a href="#enabling-via-about:flags" class="w-headline-link">#</a>
 
@@ -116,7 +109,7 @@ While in an online scenario, short links from `https://🎵.example.com` would t
 
 Since the PWA lives on a different origin (`music.example.com`) than some of the URLs it needs to handle (e.g., `https://🎵.example.com`), the app needs to verify ownership of these other origins. This happens in a `web-app-origin-association` file hosted on the other origins.
 
-Apps that want to handle URLs that live on the *same* origin as the PWA likewise need to specify the handling rules in a `web-app-origin-association` file hosted on said origin.
+Apps that want to handle URLs that live on the _same_ origin as the PWA likewise need to specify the handling rules in a `web-app-origin-association` file hosted on said origin.
 
 This file must contain valid JSON. The top-level structure is an object, with a member named `"web_apps"`. This member is an array of objects and each object represents an entry for a unique web app. Each object contains:
 
@@ -146,15 +139,14 @@ The `web-app-origin-association` file is similar to [Apple's associated domain f
 
 A PWA matches a URL for handling if both of the following conditions are fulfilled:
 
--   The URL matches one of the origin strings in `"url_handlers"`.
--   The browser is able to validate via the respective `web-app-origin-association` file that each origin agrees to let this app handle such a URL.
+- The URL matches one of the origin strings in `"url_handlers"`.
+- The browser is able to validate via the respective `web-app-origin-association` file that each origin agrees to let this app handle such a URL.
 
 #### Regarding `web-app-origin-association` file discovery <a href="#regarding-web-app-origin-association-file-discovery" class="w-headline-link">#</a>
 
 For the browser to discover the `web-app-origin-association` file, developers need to place the `web-app-origin-association` file in the [`/.well-known/`](https://datatracker.ietf.org/doc/html/rfc8615) folder at the root of the app. For this to work, the file name must exactly be `web-app-origin-association`.
 
-Demo <a href="#demo" class="w-headline-link">#</a>
---------------------------------------------------
+## Demo <a href="#demo" class="w-headline-link">#</a>
 
 To test PWAs as URL Handlers, be sure to [set the browser flag](#enabling-via-about:flags) as outlined above and then install the PWA at <https://mandymsft.github.io/pwa/>. By looking at its [web app manifest](https://github.com/mandymsft/pwa/blob/main/manifest.json), you can see that it handles URLs with the following URL patterns: `https://mandymsft.github.io` and `https://luhuangmsft.github.io`. Since the latter is on a different origin (`luhuangmsft.github.io`) than the PWA, the PWA on `mandymsft.github.io` needs to prove ownership, which happens via the `web-app-origin-association` file hosted at <https://luhuangmsft.github.io/.well-known/web-app-origin-association>.
 
@@ -162,8 +154,7 @@ To test that it is indeed working, send yourself a test message using an instant
 
 <img src="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format" alt="The Windows Skype instant messenger app next to the installed demo PWA, which is opened in standalone mode after clicking a link handled by it in a Skype chat message." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=200 200w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=228 228w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=260 260w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=296 296w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=338 338w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=385 385w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=439 439w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=500 500w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=571 571w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=650 650w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=741 741w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=845 845w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=964 964w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=1098 1098w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=1252 1252w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=1428 1428w,     https://web-dev.imgix.net/image/8WbTDNrhLsU0El80frMBGE4eMCD3/EjFQNwv2IfINKykzsxxs.png?auto=format&amp;w=1600 1600w" width="800" height="498" />
 
-Security and permissions <a href="#security-and-permissions" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## Security and permissions <a href="#security-and-permissions" class="w-headline-link">#</a>
 
 The Chromium team has designed and implemented PWAs as URL Handlers using the core principles defined in [Controlling Access to Powerful Web Platform Features](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md), including user control, transparency, and ergonomics.
 
@@ -181,8 +172,7 @@ Platform-specific applications can already use operating system APIs to enumerat
 
 An origin could modify its associations with PWAs at any time. Browsers will regularly attempt to revalidate the associations of installed web apps. If a URL handler registration fails to revalidate because the association data has changed or is no longer available, the browser will remove registrations.
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 The Chromium team wants to hear about your experiences with the PWAs as URL Handlers.
 
@@ -200,19 +190,17 @@ Are you planning to use PWAs as URL Handlers? Your public support helps the Chro
 
 Send a tweet to [@ChromiumDev](https://twitter.com/ChromiumDev) using the hashtag [`#URLHandlers`](https://twitter.com/search?q=%23URLHandlers&src=recent_search_click&f=live) and let us know where and how you're using it.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [Public explainer](https://github.com/WICG/pwa-url-handler/blob/main/explainer.md)
--   [Demo](https://mandymsft.github.io/pwa/) | [Demo source](https://github.com/mandymsft/pwa/)
--   [Chromium tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1072058)
--   [ChromeStatus.com entry](https://chromestatus.com/feature/5739732661174272)
--   Blink Component: [`UI>Browser>WebAppInstalls`](https://bugs.chromium.org/p/chromium/issues/list?q=component:UI%3EBrowser%3EWebAppInstalls)
--   [TAG Review](https://github.com/w3ctag/design-reviews/issues/552)
--   [Microsoft documentation](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/experimental-features/#url-link-handling)
+- [Public explainer](https://github.com/WICG/pwa-url-handler/blob/main/explainer.md)
+- [Demo](https://mandymsft.github.io/pwa/) | [Demo source](https://github.com/mandymsft/pwa/)
+- [Chromium tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1072058)
+- [ChromeStatus.com entry](https://chromestatus.com/feature/5739732661174272)
+- Blink Component: [`UI>Browser>WebAppInstalls`](https://bugs.chromium.org/p/chromium/issues/list?q=component:UI%3EBrowser%3EWebAppInstalls)
+- [TAG Review](https://github.com/w3ctag/design-reviews/issues/552)
+- [Microsoft documentation](https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/experimental-features/#url-link-handling)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 PWAs as URL Handlers was specified and implemented by [Lu Huang](https://github.com/LuHuangMSFT) and [Mandy Chen](https://github.com/mandymsft) from the Microsoft Edge team. This article was reviewed by [Joe Medley](https://github.com/jpmedley). Hero image by [Bryson Hammer](https://unsplash.com/@trhammerhead) on [Unsplash](https://unsplash.com/photos/JZ8AHFr2aEg).
 
@@ -222,35 +210,35 @@ PWAs as URL Handlers was specified and implemented by [Lu Huang](https://github.
 
 <a href="/blog" class="w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single gc-analytics-event">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

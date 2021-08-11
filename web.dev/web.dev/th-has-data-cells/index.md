@@ -1,20 +1,12 @@
+## <a href="#lesscodegreaterandltthandgtlesscodegreater-elements-and-elements-with-lesscodegreaterroleandquotcolumnheaderandquotandquotrowheaderandquotlesscodegreater-do-not-have-data-cells-they-describe" class="w-toc__header--link"><code>&lt;th&gt;</code> elements and elements with <code>[role="columnheader"/"rowheader"]</code> do not have data cells they describe</a>
 
-
-
-
-
-
-<a href="#lesscodegreaterandltthandgtlesscodegreater-elements-and-elements-with-lesscodegreaterroleandquotcolumnheaderandquotandquotrowheaderandquotlesscodegreater-do-not-have-data-cells-they-describe" class="w-toc__header--link"><code>&lt;th&gt;</code> elements and elements with <code>[role="columnheader"/"rowheader"]</code> do not have data cells they describe</a>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
--   [How this Lighthouse audit fails](#how-this-lighthouse-audit-fails)
--   [How to fix table headers that have no associated data cells](#how-to-fix-table-headers-that-have-no-associated-data-cells)
--   [Resources](#resources)
+- [How this Lighthouse audit fails](#how-this-lighthouse-audit-fails)
+- [How to fix table headers that have no associated data cells](#how-to-fix-table-headers-that-have-no-associated-data-cells)
+- [Resources](#resources)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-`<th>` elements and elements with `[role="columnheader"/"rowheader"]` do not have data cells they describe
-==========================================================================================================
+# `<th>` elements and elements with `[role="columnheader"/"rowheader"]` do not have data cells they describe
 
 May 2, 2019 <span class="w-author__separator">•</span> Updated Sep 19, 2019
 
@@ -22,15 +14,13 @@ May 2, 2019 <span class="w-author__separator">•</span> Updated Sep 19, 2019
 
 Screen readers and other assistive technologies have features to make navigating tables easier. Table headers must refer to some set of cells so that assistive technologies can help users navigate tables easily.
 
-How this Lighthouse audit fails <a href="#how-this-lighthouse-audit-fails" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------
+## How this Lighthouse audit fails <a href="#how-this-lighthouse-audit-fails" class="w-headline-link">#</a>
 
 Lighthouse flags `<th>` elements and elements with `[role="columnheader"/"rowheader"]` that don't have the data cells they describe:
 
 The Lighthouse Accessibility score is a weighted average of all the accessibility audits. See the [Lighthouse accessibility scoring](/accessibility-scoring) post for more information.
 
-How to fix table headers that have no associated data cells <a href="#how-to-fix-table-headers-that-have-no-associated-data-cells" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## How to fix table headers that have no associated data cells <a href="#how-to-fix-table-headers-that-have-no-associated-data-cells" class="w-headline-link">#</a>
 
 The following table isn't structured correctly; there's a table header column, "Marathon pace", without table data cells:
 
@@ -88,45 +78,44 @@ To fix this table, add the missing table data cells for the table header column,
 
 Assistive technologies announce the table headers when they come to each table data cell. If the headers and data cells don't match up, it's very confusing.
 
-Resources <a href="#resources" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Resources <a href="#resources" class="w-headline-link">#</a>
 
--   [Source code for **`<th>` elements and elements with `[role="columnheader"/"rowheader"]` do not have data cells they describe** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/th-has-data-cells.js)
--   [All `<th>` elements and elements with `role="columnheader"` or `role="rowheader"` must have data cells they describe (Deque University)](https://dequeuniversity.com/rules/axe/3.3/th-has-data-cells)
+- [Source code for **`<th>` elements and elements with `[role="columnheader"/"rowheader"]` do not have data cells they describe** audit](https://github.com/GoogleChrome/lighthouse/blob/master/lighthouse-core/audits/accessibility/th-has-data-cells.js)
+- [All `<th>` elements and elements with `role="columnheader"` or `role="rowheader"` must have data cells they describe (Deque University)](https://dequeuniversity.com/rules/axe/3.3/th-has-data-cells)
 
 <span class="w-mr--sm">Last updated: Sep 19, 2019 </span>[Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/lighthouse-accessibility/th-has-data-cells/index.md)
 
 <a href="/lighthouse-accessibility" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

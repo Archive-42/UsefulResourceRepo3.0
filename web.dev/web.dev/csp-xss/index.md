@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#ensure-csp-is-effective-against-xss-attacks" class="w-toc__header--link">Ensure CSP is effective against XSS attacks</a>
 
 - [Required practices for a non-bypassable CSP](#required-practices-for-a-non-bypassable-csp)

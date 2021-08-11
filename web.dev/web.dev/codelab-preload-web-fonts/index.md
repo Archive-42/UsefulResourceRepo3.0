@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Preload web fonts to improve loading speed
 
 Apr 23, 2018

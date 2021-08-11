@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#why-are-some-animations-slow" class="w-toc__header--link">Why are some animations slow?</a>
 
 - [Animation performance and frame rate](#fps)

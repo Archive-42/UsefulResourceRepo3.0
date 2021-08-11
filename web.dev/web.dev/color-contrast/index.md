@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#background-and-foreground-colors-do-not-have-a-sufficient-contrast-ratio" class="w-toc__header--link">Background and foreground colors do not have a sufficient contrast ratio</a>
 
 - [How the Lighthouse color contrast audit fails](#how-the-lighthouse-color-contrast-audit-fails)

@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreateraccesskeylesscodegreater-values-are-not-unique" class="w-toc__header--link"><code>[accesskey]</code> values are not unique</a>
 
 - [How the Lighthouse access key audit fails](#how-the-lighthouse-access-key-audit-fails)

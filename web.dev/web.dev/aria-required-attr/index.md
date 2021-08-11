@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreaterrolelesscodegreaters-do-not-have-all-required-lesscodegreateraria-*lesscodegreater-attributes" class="w-toc__header--link"><code>[role]</code>s do not have all required <code>[aria-\*]</code> attributes</a>
 
 - [How Lighthouse identifies missing required states and properties](#how-lighthouse-identifies-missing-required-states-and-properties)

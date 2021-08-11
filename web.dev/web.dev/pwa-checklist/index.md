@@ -1,19 +1,11 @@
+## <a href="#what-makes-a-good-progressive-web-app" class="w-toc__header--link">What makes a good Progressive Web App?</a>
 
-
-
-
-
-
-<a href="#what-makes-a-good-progressive-web-app" class="w-toc__header--link">What makes a good Progressive Web App?</a>
------------------------------------------------------------------------------------------------------------------------
-
--   [Core Progressive Web App checklist](#core)
--   [Optimal Progressive Web App checklist](#optimal)
+- [Core Progressive Web App checklist](#core)
+- [Optimal Progressive Web App checklist](#optimal)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
-What makes a good Progressive Web App?
-======================================
+# What makes a good Progressive Web App?
 
 Jan 6, 2020 <span class="w-author__separator">•</span> Updated Feb 24, 2020
 
@@ -23,24 +15,23 @@ Jan 6, 2020 <span class="w-author__separator">•</span> Updated Feb 24, 2020
 
 <a href="/authors/samrichard/" class="w-author__name-link">Sam Richard</a>
 
--   <a href="https://twitter.com/snugug" class="w-author__link">Twitter</a>
--   <a href="https://github.com/snugug" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@snugug" class="w-author__link">Glitch</a>
--   <a href="https://snugug.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/snugug" class="w-author__link">Twitter</a>
+- <a href="https://github.com/snugug" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@snugug" class="w-author__link">Glitch</a>
+- <a href="https://snugug.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Pete LePage" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/0g2WvpbGRGdVs0aAPc6ObG7gkud2/3rFbsLsMMk1VveHfBRSu.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/petelepage/)
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
-Progressive Web Apps (PWA) are built and enhanced with modern APIs to deliver enhanced capabilities, reliability, and installability while reaching *anyone, anywhere, on any device* with a single codebase. To help you create the best possible experience, use the [core](#core) and [optimal](#optimal) checklists and recommendations to guide you.
+Progressive Web Apps (PWA) are built and enhanced with modern APIs to deliver enhanced capabilities, reliability, and installability while reaching _anyone, anywhere, on any device_ with a single codebase. To help you create the best possible experience, use the [core](#core) and [optimal](#optimal) checklists and recommendations to guide you.
 
-Core Progressive Web App checklist <a href="#core" class="w-headline-link">#</a>
---------------------------------------------------------------------------------
+## Core Progressive Web App checklist <a href="#core" class="w-headline-link">#</a>
 
 The Progressive Web App Checklist describes what makes an app installable and usable by all users, regardless of size or input type.
 
@@ -52,7 +43,7 @@ Performance plays a significant role in the success of any online experience, be
 
 #### Why <a href="#why" class="w-headline-link">#</a>
 
-Speed is critical for getting users to *use* your app. In fact, as page load times go from one second to ten seconds, the probability of a user bouncing increases by 123%. Performance doesn't stop with the `load` event. Users should never wonder whether their interaction—for example, clicking a button—was registered or not. Scrolling and animation should feel smooth. Performance affects your entire experience, from how users perceive your application to how it actually performs.
+Speed is critical for getting users to _use_ your app. In fact, as page load times go from one second to ten seconds, the probability of a user bouncing increases by 123%. Performance doesn't stop with the `load` event. Users should never wonder whether their interaction—for example, clicking a button—was registered or not. Scrolling and animation should feel smooth. Performance affects your entire experience, from how users perceive your application to how it actually performs.
 
 While all applications have different needs, the performance audits in Lighthouse are based on the [RAIL user-centric performance model](https://developers.google.com/web/fundamentals/performance/rail), and scoring high on those audits will make it more likely that your users have an enjoyable experience. You can also use [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) or the [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report/) to get real-world performance data for your web app.
 
@@ -82,9 +73,9 @@ Jeremy Keith's [Resilient Web Design](https://resilientwebdesign.com/) is an exc
 
 #### Additional reading <a href="#additional-reading" class="w-headline-link">#</a>
 
--   A List Apart's [Understanding Progressive Enhancement](https://alistapart.com/article/understandingprogressiveenhancement/) is a good introduction to the topic.
--   Smashing Magazine's [Progressive Enhancement: What It Is, And How To Use It?](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) gives a practical introduction and links to more advanced topics.
--   MDN has an article titled [Implementing feature detection](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection) that talks about how to detect a feature by directly querying it.
+- A List Apart's [Understanding Progressive Enhancement](https://alistapart.com/article/understandingprogressiveenhancement/) is a good introduction to the topic.
+- Smashing Magazine's [Progressive Enhancement: What It Is, And How To Use It?](https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/) gives a practical introduction and links to more advanced topics.
+- MDN has an article titled [Implementing feature detection](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection) that talks about how to detect a feature by directly querying it.
 
 ### Responsive to any screen size
 
@@ -134,8 +125,7 @@ Why would you want a user to install your PWA? The same reason you'd want a user
 
 You can follow our [installable guide](/customize-install/) to learn how to make your PWA installable, how to test to see that it's installable, and try doing it yourself.
 
-Optimal Progressive Web App checklist <a href="#optimal" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------
+## Optimal Progressive Web App checklist <a href="#optimal" class="w-headline-link">#</a>
 
 To create a truly great Progressive Web App, one that feels like a best-in-class app, you need more than just the core checklist. The optimal Progressive Web App checklist is about making your PWA feel like it's part of the device it's running on while taking advantage of what makes the web powerful.
 
@@ -229,35 +219,35 @@ There are a number of high-priority checks to ensure a healthy codebase: avoidin
 
 <a href="/progressive-web-apps" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

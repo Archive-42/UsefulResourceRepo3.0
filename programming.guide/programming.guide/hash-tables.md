@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Hash Tables
 
@@ -30,7 +30,7 @@
 [Big O notation explained](big-o-notation-explained.html)  
 <span style="color: grey; font-style: italic; font-size: smaller">Programming.Guide</span>
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

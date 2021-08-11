@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#elements-with-an-aria-lesscodegreaterrolelesscodegreater-that-require-children-to-contain-a-specific-lesscodegreaterrolelesscodegreater-are-missing-some-or-all-of-those-required-children" class="w-toc__header--link">Elements with an ARIA <code>[role]</code> that require children to contain a specific <code>[role]</code> are missing some or all of those required children</a>
 
 - [How Lighthouse identifies missing child roles](#how-lighthouse-identifies-missing-child-roles)

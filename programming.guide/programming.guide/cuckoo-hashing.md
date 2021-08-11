@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Hash Tables
 
@@ -36,7 +36,7 @@
 [Cuckoo Hashing](https://en.wikipedia.org/wiki/Cuckoo_hashing)  
 <span style="color: grey; font-style: italic; font-size: smaller">Wikipedia</span>
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

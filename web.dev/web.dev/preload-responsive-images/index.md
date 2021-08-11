@@ -1,32 +1,24 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format" alt="A wall with a bunch of image frames in different sizes." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/QDCTiiyXE11bYSZMP3Yt.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#preloading-responsive-images" class="w-toc__header--link">Preloading responsive images</a>
-----------------------------------------------------------------------------------------------------
+## <a href="#preloading-responsive-images" class="w-toc__header--link">Preloading responsive images</a>
 
--   [Responsive images overview](#responsive-images-overview)
--   [Preload overview](#preload-overview)
--   [Responsive images + preload = faster image loads](#responsive-images-+-preload-faster-image-loads)
--   [imagesrcset and imagesizes](#imagesrcset-and-imagesizes)
--   [Use cases](#use-cases)
--   [Preloading dynamically-injected responsive images](#preloading-dynamically-injected-responsive-images)
--   [Preloading background images using image-set](#preloading-background-images-using-image-set)
--   [Preloading responsive images in action](#preloading-responsive-images-in-action)
--   [Preload and &lt;picture&gt;?](#preload-and-lesspicturegreater)
--   [Summary](#summary)
+- [Responsive images overview](#responsive-images-overview)
+- [Preload overview](#preload-overview)
+- [Responsive images + preload = faster image loads](#responsive-images-+-preload-faster-image-loads)
+- [imagesrcset and imagesizes](#imagesrcset-and-imagesizes)
+- [Use cases](#use-cases)
+- [Preloading dynamically-injected responsive images](#preloading-dynamically-injected-responsive-images)
+- [Preloading background images using image-set](#preloading-background-images-using-image-set)
+- [Preloading responsive images in action](#preloading-responsive-images-in-action)
+- [Preload and &lt;picture&gt;?](#preload-and-lesspicturegreater)
+- [Summary](#summary)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Preloading responsive images
-============================
+# Preloading responsive images
 
 Starting in Chrome 73, link rel="preload" and responsive images can be combined in order to load images faster.
 
@@ -36,27 +28,24 @@ Sep 30, 2019
 
 <a href="/authors/yoavweiss/" class="w-author__name-link">Yoav Weiss</a>
 
--   <a href="https://twitter.com/yoavweiss" class="w-author__link">Twitter</a>
--   <a href="https://github.com/yoavweiss" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/yoavweiss" class="w-author__link">Twitter</a>
+- <a href="https://github.com/yoavweiss" class="w-author__link">GitHub</a>
 
-This article gives me an opportunity to discuss two of my favorite things: responsive images *and* preload. As someone who was heavily involved in developing both of those features, I'm super excited to see them working together!
+This article gives me an opportunity to discuss two of my favorite things: responsive images _and_ preload. As someone who was heavily involved in developing both of those features, I'm super excited to see them working together!
 
-Responsive images overview <a href="#responsive-images-overview" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------
+## Responsive images overview <a href="#responsive-images-overview" class="w-headline-link">#</a>
 
-Suppose you're browsing the web on a screen that's 300 pixels wide, and the page just requested an image that's 1500 pixels wide. That page just wasted a lot of your cellular data because your screen can't do anything with all of that extra resolution. Ideally, the browser should fetch a version of the image that's just a *little* wider than your screen size, say 325 pixels. This ensures a high-resolution image without wasting data. And, even better, the image will load faster. [Responsive images](/serve-responsive-images/#serve-multiple-image-versions) enable browsers to fetch different image resources to different devices. If you don't use an [image CDN](/image-cdns/) you need to save multiple dimensions for each image and specify them in the `srcset` attribute. The `w` value tells the browser the width of each version. Depending on the device, the browser can choose the appropriate one:
+Suppose you're browsing the web on a screen that's 300 pixels wide, and the page just requested an image that's 1500 pixels wide. That page just wasted a lot of your cellular data because your screen can't do anything with all of that extra resolution. Ideally, the browser should fetch a version of the image that's just a _little_ wider than your screen size, say 325 pixels. This ensures a high-resolution image without wasting data. And, even better, the image will load faster. [Responsive images](/serve-responsive-images/#serve-multiple-image-versions) enable browsers to fetch different image resources to different devices. If you don't use an [image CDN](/image-cdns/) you need to save multiple dimensions for each image and specify them in the `srcset` attribute. The `w` value tells the browser the width of each version. Depending on the device, the browser can choose the appropriate one:
 
     <img src="small.jpg" srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 1500w" alt="…">
 
-Preload overview <a href="#preload-overview" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Preload overview <a href="#preload-overview" class="w-headline-link">#</a>
 
 [Preload](/preload-critical-assets) lets you tell the browser about critical resources that you want to load as soon as possible, before they are discovered in HTML. This is especially useful for resources that are not easily discoverable, such as fonts included in stylesheets, background images, or resources loaded from a script.
 
     <link rel="preload" as="image" href="important.png">
 
-Responsive images + preload = faster image loads <a href="#responsive-images-+-preload-faster-image-loads" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------
+## Responsive images + preload = faster image loads <a href="#responsive-images-+-preload-faster-image-loads" class="w-headline-link">#</a>
 
 Responsive images and preload have been available for the last few years, but at the same time something was missing: there was no way to preload responsive images. [Starting in Chrome 73](https://developers.google.com/web/updates/2019/03/nic73#more), the browser can preload the right variant of responsive images specified in `srcset` before it discovers the `img` tag!
 
@@ -64,8 +53,7 @@ Depending on your site's structure, that could mean significantly faster image d
 
 Responsive images are [supported in all modern browsers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Browser_compatibility) while preloading them is [supported only in Chromium-based browsers](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Browser_compatibility).
 
-`imagesrcset` and `imagesizes` <a href="#imagesrcset-and-imagesizes" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## `imagesrcset` and `imagesizes` <a href="#imagesrcset-and-imagesizes" class="w-headline-link">#</a>
 
 To preload responsive images, new attributes were recently added to the `<link>` element: `imagesrcset` and `imagesizes`. They are used with `<link rel="preload">` and match the `srcset` and `sizes` syntax used in `<img>` element.
 
@@ -79,8 +67,7 @@ You can do that by adding the following to your HTML's `<head>`:
 
 This kicks off a request using the same resource selection logic that `srcset` and `sizes` will apply.
 
-Use cases <a href="#use-cases" class="w-headline-link">#</a>
-------------------------------------------------------------
+## Use cases <a href="#use-cases" class="w-headline-link">#</a>
 
 ### Preloading dynamically-injected responsive images <a href="#preloading-dynamically-injected-responsive-images" class="w-headline-link">#</a>
 
@@ -124,8 +111,7 @@ You can inspect this issue on an example website with [responsive background ima
 
 You can inspect how the previous example behaves with [preloaded responsive background image](https://responsive-preload.glitch.me/background_preload.html).
 
-<figure><img src="https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format" alt="Here the image and CSS start downloading at the same time, avoiding delays and resulting in a faster loading image." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1600 1600w" width="800" height="439" /><figcaption>Here the image and CSS start downloading at the same time, avoiding delays and resulting in a faster loading image.</figcaption></figure>Preloading responsive images in action <a href="#preloading-responsive-images-in-action" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format" alt="Here the image and CSS start downloading at the same time, avoiding delays and resulting in a faster loading image." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/dOI6EmChfahBujnZOke7.png?auto=format&amp;w=1600 1600w" width="800" height="439" /><figcaption>Here the image and CSS start downloading at the same time, avoiding delays and resulting in a faster loading image.</figcaption></figure>Preloading responsive images in action <a href="#preloading-responsive-images-in-action" class="w-headline-link">#</a>
 
 Preloading your responsive images can speed them up in theory, but what does it do in practice?
 
@@ -135,8 +121,7 @@ That gave me the following results for [no preload](https://www.webpagetest.org/
 
 Of course, nothing captures the visual difference quite like a filmstrip comparison:
 
-<figure><img src="https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format" alt="The filmstrip shows that images arrive significantly faster when preloaded, resulting in a hugely-improved user experience." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1600 1600w" width="800" height="328" /><figcaption>The filmstrip shows that images arrive significantly faster when preloaded, resulting in a hugely-improved user experience.</figcaption></figure>Preload and `<picture>`? <a href="#preload-and-lesspicturegreater" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format" alt="The filmstrip shows that images arrive significantly faster when preloaded, resulting in a hugely-improved user experience." sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/sXyZOvsNoAY0K2NRqT4U.png?auto=format&amp;w=1600 1600w" width="800" height="328" /><figcaption>The filmstrip shows that images arrive significantly faster when preloaded, resulting in a hugely-improved user experience.</figcaption></figure>Preload and `<picture>`? <a href="#preload-and-lesspicturegreater" class="w-headline-link">#</a>
 
 If you're familiar with responsive images, you may be wondering "What about [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)?".
 
@@ -166,8 +151,7 @@ Because responsive preload has no notion of "order" or "first match", the breakp
     <link rel="preload" href="medium_cat.jpg" as="image" media="(min-width: 400.1px) and (max-width: 800px)">
     <link rel="preload" href="large_cat.jpg" as="image" media="(min-width: 800.1px)">
 
-Summary <a href="#summary" class="w-headline-link">#</a>
---------------------------------------------------------
+## Summary <a href="#summary" class="w-headline-link">#</a>
 
 Responsive image preload gives us new and exciting possibilities to preload responsive images in ways that were previously only possible using hacks. It's an important new addition to the speed-conscious developer's toolbox and enables us to make sure the important images we want to get in front of our users as soon as possible will be there when we need them.
 
@@ -177,35 +161,35 @@ Responsive image preload gives us new and exciting possibilities to preload resp
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

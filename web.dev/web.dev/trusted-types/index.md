@@ -1,32 +1,24 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format" alt="Code snippets demonstrating cross-site scripting vulnerabilities." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/3Mgu37qU0P4fVdI4NTxM.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#prevent-dom-based-cross-site-scripting-vulnerabilities-with-trusted-types" class="w-toc__header--link">Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#prevent-dom-based-cross-site-scripting-vulnerabilities-with-trusted-types" class="w-toc__header--link">Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types</a>
 
--   [Why should you care?](#why-should-you-care)
--   [Background](#background)
--   [API introduction](#api-introduction)
--   [How to use Trusted Types](#how-to-use-trusted-types)
--   [Prepare for Content Security Policy violation reports](#prepare-for-content-security-policy-violation-reports)
--   [Add a report-only CSP header](#add-a-report-only-csp-header)
--   [Identify Trusted Types violations](#identify-trusted-types-violations)
--   [Fix the violations](#fix-the-violations)
--   [Switch to enforcing Content Security Policy](#switch-to-enforcing-content-security-policy)
--   [Further reading](#further-reading)
+- [Why should you care?](#why-should-you-care)
+- [Background](#background)
+- [API introduction](#api-introduction)
+- [How to use Trusted Types](#how-to-use-trusted-types)
+- [Prepare for Content Security Policy violation reports](#prepare-for-content-security-policy-violation-reports)
+- [Add a report-only CSP header](#add-a-report-only-csp-header)
+- [Identify Trusted Types violations](#identify-trusted-types-violations)
+- [Fix the violations](#fix-the-violations)
+- [Switch to enforcing Content Security Policy](#switch-to-enforcing-content-security-policy)
+- [Further reading](#further-reading)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types
-=========================================================================
+# Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types
 
 Reduce the DOM XSS attack surface of your application.
 
@@ -38,18 +30,16 @@ Mar 25, 2020
 
 <a href="/authors/koto/" class="w-author__name-link">Krzysztof Kotowicz</a>
 
--   <a href="https://twitter.com/kkotowicz" class="w-author__link">Twitter</a>
--   <a href="https://github.com/koto" class="w-author__link">GitHub</a>
+- <a href="https://twitter.com/kkotowicz" class="w-author__link">Twitter</a>
+- <a href="https://github.com/koto" class="w-author__link">GitHub</a>
 
-Why should you care? <a href="#why-should-you-care" class="w-headline-link">#</a>
----------------------------------------------------------------------------------
+## Why should you care? <a href="#why-should-you-care" class="w-headline-link">#</a>
 
 DOM-based cross-site scripting (DOM XSS) is one of the most common web security vulnerabilities, and it's very easy to introduce it in your application. [Trusted Types](https://github.com/w3c/webappsec-trusted-types) give you the tools to write, security review, and maintain applications free of DOM XSS vulnerabilities by making the dangerous web API functions secure by default. Trusted Types are supported in Chrome 83, and a [polyfill](https://github.com/w3c/webappsec-trusted-types#polyfill) is available for other browsers. See [Browser compatibility](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types#browser_compatibility) for up-to-date cross-browser support information.
 
-**Key Term**: DOM-based cross-site scripting happens when data from a user controlled *source* (like user name, or redirect URL taken from the URL fragment) reaches a *sink*, which is a function like `eval()` or a property setter like `.innerHTML`, that can execute arbitrary JavaScript code.
+**Key Term**: DOM-based cross-site scripting happens when data from a user controlled _source_ (like user name, or redirect URL taken from the URL fragment) reaches a _sink_, which is a function like `eval()` or a property setter like `.innerHTML`, that can execute arbitrary JavaScript code.
 
-Background <a href="#background" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Background <a href="#background" class="w-headline-link">#</a>
 
 For many years [DOM XSS](https://owasp.org/www-community/attacks/xss/) has been one of the most prevalent—and dangerous—web security vulnerabilities.
 
@@ -59,23 +49,22 @@ To [prevent server-side XSS](https://cheatsheetseries.owasp.org/cheatsheets/Cros
 
 Now a browser can also help prevent the client-side (also known as DOM-based) XSSes with [Trusted Types](https://bit.ly/trusted-types).
 
-API introduction <a href="#api-introduction" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## API introduction <a href="#api-introduction" class="w-headline-link">#</a>
 
 Trusted Types work by locking down the following risky sink functions. You might already recognize some of them, as browsers vendors and [web frameworks](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) already steer you away from using these features for security reasons.
 
--   **Script manipulation**:  
-    [`<script src>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-src) and setting text content of [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script) elements.
+- **Script manipulation**:  
+  [`<script src>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-src) and setting text content of [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script) elements.
 
--   **Generating HTML from a string**:  
+- **Generating HTML from a string**:
 
-    [`innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML), [`outerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML),[`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML), [`<iframe> srcdoc`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-srcdoc), [`document.write`](https://developer.mozilla.org/en-US/docs/Web/API/Document/write), [`document.writeln`](https://developer.mozilla.org/en-US/docs/Web/API/Document/writeln), and [`DOMParser.parseFromString`](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser#DOMParser.parseFromString)
+  [`innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML), [`outerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML),[`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML), [`<iframe> srcdoc`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-srcdoc), [`document.write`](https://developer.mozilla.org/en-US/docs/Web/API/Document/write), [`document.writeln`](https://developer.mozilla.org/en-US/docs/Web/API/Document/writeln), and [`DOMParser.parseFromString`](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser#DOMParser.parseFromString)
 
--   **Executing plugin content**:  
-    [`<embed src>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed#attr-src), [`<object data>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-data) and [`<object codebase>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-codebase)
+- **Executing plugin content**:  
+  [`<embed src>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed#attr-src), [`<object data>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-data) and [`<object codebase>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object#attr-codebase)
 
--   **Runtime JavaScript code compilation**:  
-    `eval`, `setTimeout`, `setInterval`, `new Function()`
+- **Runtime JavaScript code compilation**:  
+  `eval`, `setTimeout`, `setInterval`, `new Function()`
 
 Trusted Types require you to process the data before passing it to the above sink functions. Just using a string will fail, as the browser doesn't know if the data is trustworthy:
 
@@ -83,7 +72,7 @@ Don't
 
     anElement.innerHTML  = location.href;
 
-With Trusted Types enabled, the browser throws a *TypeError* and prevents use of a DOM XSS sink with a string.
+With Trusted Types enabled, the browser throws a _TypeError_ and prevents use of a DOM XSS sink with a string.
 
 To signify that the data was securely processed, create a special object - a Trusted Type.
 
@@ -95,8 +84,7 @@ With Trusted Types enabled, the browser accepts a `TrustedHTML` object for sinks
 
 Trusted Types heavily reduce the DOM XSS [attack surface](https://en.wikipedia.org/wiki/Attack_surface) of your application. It simplifies security reviews, and allows you to enforce the type-based security checks done when compiling, linting, or bundling your code at runtime, in the browser.
 
-How to use Trusted Types <a href="#how-to-use-trusted-types" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------
+## How to use Trusted Types <a href="#how-to-use-trusted-types" class="w-headline-link">#</a>
 
 ### Prepare for Content Security Policy violation reports <a href="#prepare-for-content-security-policy-violation-reports" class="w-headline-link">#</a>
 
@@ -167,7 +155,7 @@ Some libraries already generate Trusted Types that you can pass to the sink func
 
 DOMPurify [supports Trusted Types](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) and will return sanitized HTML wrapped in a `TrustedHTML` object such that the browser does not generate a violation.
 
-**Caution**: If the sanitization logic in DOMPurify is buggy, your application might still have a DOM XSS vulnerability. Trusted Types force you to process a value *somehow*, but don't yet define what the exact processing rules are, and whether they are safe.
+**Caution**: If the sanitization logic in DOMPurify is buggy, your application might still have a DOM XSS vulnerability. Trusted Types force you to process a value _somehow_, but don't yet define what the exact processing rules are, and whether they are safe.
 
 #### Create a Trusted Type policy <a href="#create-a-trusted-type-policy" class="w-headline-link">#</a>
 
@@ -215,13 +203,12 @@ When your application no longer produces violations, you can start enforcing Tru
 
 Voila! Now, no matter how complex your web application is, the only thing that can introduce a DOM XSS vulnerability, is the code in one of your policies - and you can lock that down even more by [limiting policy creation](https://w3c.github.io/webappsec-trusted-types/dist/spec/#trusted-types-csp-directive).
 
-Further reading <a href="#further-reading" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
--   [Trusted Types GitHub](https://github.com/w3c/webappsec-trusted-types)
--   [W3C specification draft](https://w3c.github.io/webappsec-trusted-types/dist/spec/)
--   [FAQ](https://github.com/w3c/webappsec-trusted-types/wiki/FAQ)
--   [Integrations](https://github.com/w3c/webappsec-trusted-types/wiki/Integrations)
+- [Trusted Types GitHub](https://github.com/w3c/webappsec-trusted-types)
+- [W3C specification draft](https://w3c.github.io/webappsec-trusted-types/dist/spec/)
+- [FAQ](https://github.com/w3c/webappsec-trusted-types/wiki/FAQ)
+- [Integrations](https://github.com/w3c/webappsec-trusted-types/wiki/Integrations)
 
 <a href="/tags/security/" class="w-chip">Security</a>
 
@@ -229,35 +216,35 @@ Further reading <a href="#further-reading" class="w-headline-link">#</a>
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

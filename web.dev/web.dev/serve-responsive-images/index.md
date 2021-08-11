@@ -1,5 +1,3 @@
-
-
 <a href="/" class="header-default__logo-link gc-analytics-event"><img src="/images/lockup.svg" alt="web.dev" class="header-default__logo" width="125" height="30" /></a>
 
 <a href="/learn/" class="header-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="header-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="header-default__link gc-analytics-event">Blog</a> <a href="/about/" class="header-default__link gc-analytics-event">About</a>
@@ -10,25 +8,23 @@
 
 <a href="/learn/" class="drawer-default__link gc-analytics-event">Learn</a> <a href="/measure/" class="drawer-default__link gc-analytics-event">Measure</a> <a href="/blog/" class="drawer-default__link gc-analytics-event">Blog</a> <a href="/about/" class="drawer-default__link gc-analytics-event">About</a>
 
-<a href="#serve-responsive-images" class="w-toc__header--link">Serve responsive images</a>
-------------------------------------------------------------------------------------------
+## <a href="#serve-responsive-images" class="w-toc__header--link">Serve responsive images</a>
 
--   [Resize images](#resize-images)
--   [sharp](#sharp)
--   [ImageMagick](#imagemagick)
--   [How many image versions should you create?](#how-many-image-versions-should-you-create)
--   [Other options](#other-options)
--   [Serve multiple image versions](#serve-multiple-image-versions)
--   [The "src" attribute](#the-)
--   [The "srcset" attribute](#the-)
--   [The "sizes" attribute](#the-)
--   [(Even more) Extra Credit](#(even-more)-extra-credit)
--   [Verify](#verify)
+- [Resize images](#resize-images)
+- [sharp](#sharp)
+- [ImageMagick](#imagemagick)
+- [How many image versions should you create?](#how-many-image-versions-should-you-create)
+- [Other options](#other-options)
+- [Serve multiple image versions](#serve-multiple-image-versions)
+- [The "src" attribute](#the-)
+- [The "srcset" attribute](#the-)
+- [The "sizes" attribute](#the-)
+- [(Even more) Extra Credit](<#(even-more)-extra-credit>)
+- [Verify](#verify)
 
 Share <a href="/newsletter/" class="w-actions__fab w-actions__fab--subscribe gc-analytics-event"><span>subscribe</span></a>
 
-Serve responsive images
-=======================
+# Serve responsive images
 
 Nov 5, 2018 <span class="w-author__separator">•</span> Updated Jun 4, 2021
 
@@ -38,15 +34,14 @@ Nov 5, 2018 <span class="w-author__separator">•</span> Updated Jun 4, 2021
 
 <a href="/authors/katiehempenius/" class="w-author__name-link">Katie Hempenius</a>
 
--   <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
--   <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
--   <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/katiehempenius" class="w-author__link">Twitter</a>
+- <a href="https://github.com/khempenius" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@khempenius" class="w-author__link">Glitch</a>
+- <a href="https://katiehempenius.com/" class="w-author__link">Blog</a>
 
 Serving desktop-sized images to mobile devices can use 2–4x more data than needed. Instead of a "one-size-fits-all" approach to images, serve different image sizes to different devices.
 
-Resize images <a href="#resize-images" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Resize images <a href="#resize-images" class="w-headline-link">#</a>
 
 Two of the most popular image resizing tools are the [sharp npm package](https://www.npmjs.com/package/sharp) and the [ImageMagick CLI tool](https://www.imagemagick.org/script/index.php).
 
@@ -88,8 +83,7 @@ There is no single "correct" answer to this question. However, it's common to se
 
 Image services like [Thumbor](https://github.com/thumbor/thumbor) (open-source) and [Cloudinary](https://cloudinary.com/) are also worth checking out. Image services provide responsive images (and image manipulation) on-demand. Thumbor is setup by installing it on a server; Cloudinary takes care of these details for you and requires no server setup. Both are easy ways to create responsive images.
 
-Serve multiple image versions <a href="#serve-multiple-image-versions" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Serve multiple image versions <a href="#serve-multiple-image-versions" class="w-headline-link">#</a>
 
 Specify multiple image versions and the browser will choose the best one to use:
 
@@ -131,14 +125,14 @@ If a browser does not recognize the "`sizes`" attribute, it will fallback to loa
 
 Slot width can be specified using a variety of units. The following are all valid sizes:
 
--   `100px`
--   `33vw`
--   `20em`
--   `calc(50vw-10px)`
+- `100px`
+- `33vw`
+- `20em`
+- `calc(50vw-10px)`
 
 The following is not a valid size:
 
--   `25%` (percentages cannot be used with the sizes attribute)
+- `25%` (percentages cannot be used with the sizes attribute)
 
 **Extra Credit:** If you want to be fancy, you can also use the sizes attribute to specify multiple slot sizes. This accommodates websites that use different layouts for different viewport sizes. Check out this [multiple slot code sample](/codelab-specifying-multiple-slot-widths) to learn how to do this.
 
@@ -146,8 +140,7 @@ The following is not a valid size:
 
 In addition to all the extra credit already listed (images are complex!), you can also use these same concepts for [art direction](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Art_direction). Art direction is the practice of serving completely different looking images (rather than different versions of the same image) to different viewports. You can learn more in the [Art Direction code lab](/codelab-art-direction).
 
-Verify <a href="#verify" class="w-headline-link">#</a>
-------------------------------------------------------
+## Verify <a href="#verify" class="w-headline-link">#</a>
 
 Once you've implemented responsive images, you can use Lighthouse to make sure that you didn't miss any images. Run the Lighthouse Performance Audit (**Lighthouse &gt; Options &gt; Performance**) and look for the results of the **Properly size images** audit. These results will list the images that need to be resized.
 
@@ -155,48 +148,47 @@ Once you've implemented responsive images, you can use Lighthouse to make sure t
 
 <span class="w-mr--sm"> Last updated: Jun 4, 2021 </span> [Improve article](https://github.com/GoogleChrome/web.dev/blob/master/src/site/content/en/fast/serve-responsive-images/index.md)
 
-Codelabs
---------
+## Codelabs
 
 See it in action
 
 Learn more and put this guide into action.
 
--   <a href="/codelab-specifying-multiple-slot-widths/" class="w-callout__link w-callout__link--codelab">Specifying multiple slot widths</a>
--   <a href="/codelab-art-direction/" class="w-callout__link w-callout__link--codelab">Art direction</a>
--   <a href="/codelab-density-descriptors/" class="w-callout__link w-callout__link--codelab">Use density descriptors</a>
+- <a href="/codelab-specifying-multiple-slot-widths/" class="w-callout__link w-callout__link--codelab">Specifying multiple slot widths</a>
+- <a href="/codelab-art-direction/" class="w-callout__link w-callout__link--codelab">Art direction</a>
+- <a href="/codelab-density-descriptors/" class="w-callout__link w-callout__link--codelab">Use density descriptors</a>
 
 <a href="/fast" class="w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single gc-analytics-event">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

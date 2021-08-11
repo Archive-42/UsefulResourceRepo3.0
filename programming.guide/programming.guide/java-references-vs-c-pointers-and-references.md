@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Top Algorithm Articles
 
@@ -12,7 +12,7 @@
 
 [**See all articles**](index.html)
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

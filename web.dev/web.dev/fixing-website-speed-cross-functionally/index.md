@@ -1,7 +1,3 @@
-
-
-
-
 ## <a href="#fixing-website-speed-cross-functionally" class="w-toc__header--link">Fixing website speed cross-functionally</a>
 
 - [Fix speed with the help of your business stakeholders](#stakeholders)

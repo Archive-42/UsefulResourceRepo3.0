@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#choose-the-correct-level-of-compression" class="w-toc__header--link">Choose the correct level of compression</a>
 
 - [Optimizing vector images](#optimizing-vector-images)

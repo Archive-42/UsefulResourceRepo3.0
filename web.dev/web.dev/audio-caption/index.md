@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#lesscodegreaterandltaudioandgtlesscodegreater-elements-are-missing-a-lesscodegreaterandlttrackandgtlesscodegreater-element-with-lesscodegreaterkindandquotcaptionsandquotlesscodegreater" class="w-toc__header--link"><code>&lt;audio&gt;</code> elements are missing a <code>&lt;track&gt;</code> element with <code>[kind="captions"]</code></a>
 
 - [How the Lighthouse audio track audit fails](#how-the-lighthouse-audio-track-audit-fails)

@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Resources
 
@@ -22,7 +22,7 @@
 [Effective Java, Item 13: Override clone judiciously](https://books.google.se/books?id=BIpDDwAAQBAJ)  
 <span style="color: grey; font-style: italic; font-size: smaller">by Joshua Bloch</span>
 
-<span class="underline"></span>
+
 
 ## Top Java Articles
 

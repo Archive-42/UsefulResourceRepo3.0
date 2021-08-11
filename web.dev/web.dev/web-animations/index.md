@@ -1,30 +1,22 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format" alt="Option screen with illustrated characters and a moving blue target." class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/FHGNLoi8kcbaHlFTYb4H.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#web-animations-api-improvements-in-chromium-84" class="w-toc__header--link">Web Animations API improvements in Chromium 84</a>
-----------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#web-animations-api-improvements-in-chromium-84" class="w-toc__header--link">Web Animations API improvements in Chromium 84</a>
 
--   [Getting started](#getting-started)
--   [Beyond element.animate()](#beyond-element.animate())
--   [Orchestrating animations with promises](#orchestrating-animations-with-promises)
--   [Example: Play, pause, and reverse](#example:-play-pause-and-reverse)
--   [Example: Dynamic interactions with partial keyframes](#example:-dynamic-interactions-with-partial-keyframes)
--   [Performance improvements with replaceable animations](#performance-improvements-with-replaceable-animations)
--   [Smoother animations with composite modes](#smoother-animations-with-composite-modes)
--   [What's next for the Web Animations API](#what's-next-for-the-web-animations-api)
+- [Getting started](#getting-started)
+- [Beyond element.animate()](<#beyond-element.animate()>)
+- [Orchestrating animations with promises](#orchestrating-animations-with-promises)
+- [Example: Play, pause, and reverse](#example:-play-pause-and-reverse)
+- [Example: Dynamic interactions with partial keyframes](#example:-dynamic-interactions-with-partial-keyframes)
+- [Performance improvements with replaceable animations](#performance-improvements-with-replaceable-animations)
+- [Smoother animations with composite modes](#smoother-animations-with-composite-modes)
+- [What's next for the Web Animations API](#what's-next-for-the-web-animations-api)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Web Animations API improvements in Chromium 84
-==============================================
+# Web Animations API improvements in Chromium 84
 
 Orchestrating animations with promises, performance improvements with replaceable animations, smoother animations with composite modes, and more.
 
@@ -36,9 +28,9 @@ May 27, 2020
 
 <a href="/authors/una/" class="w-author__name-link">Una Kravets</a>
 
--   <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
--   <a href="https://github.com/una" class="w-author__link">GitHub</a>
--   <a href="https://una.im/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/una" class="w-author__link">Twitter</a>
+- <a href="https://github.com/una" class="w-author__link">GitHub</a>
+- <a href="https://una.im/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Kevin Ellis" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/IQ4fOKz2TfwgCfiF4AZv.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/kevinellis/)
 
@@ -50,8 +42,7 @@ The [Web Animations API](https://www.w3.org/TR/web-animations-1/) is a tool that
 
 While [Firefox](https://platform-status.mozilla.org/#web-animations) and [Safari](https://webkit.org/status/#specification-web-animations) have already implemented the full set of spec [features](https://caniuse.com/#feat=web-animation), Chromium 84 brings a slew of previously unsupported features to [Chrome and Edge](https://developer.microsoft.com/en-us/microsoft-edge/status/webanimationsjavascriptapi/) enabling cross-browser interoperability.
 
-<figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format" alt="The long history of the Web Animations API in Chromium." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1600 1600w" width="800" height="374" /><figcaption>The long history of the Web Animations API in Chromium.</figcaption></figure>Getting started <a href="#getting-started" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format" alt="The long history of the Web Animations API in Chromium." class="w-screenshot" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/mdsjLgrX6rngEnBZo5Nu.png?auto=format&amp;w=1600 1600w" width="800" height="374" /><figcaption>The long history of the Web Animations API in Chromium.</figcaption></figure>Getting started <a href="#getting-started" class="w-headline-link">#</a>
 
 Creating an animation via the Web Animations API should feel very familiar if you've used `@keyframe` rules. First you'll need to create a Keyframe Object. What might look like [this](https://codepen.io/una/pen/RwWMvPw) in CSS:
 
@@ -99,13 +90,12 @@ However, with the update, the Web Animations API is no longer restricted to anim
 
 You first `"get"` the keyframes for the transition to determine where we are transitioning from. Then, you create two new opacity animations, enabling the cross fade effect. Once the cross-fade completes, you delete the copy.
 
-Orchestrating animations with promises <a href="#orchestrating-animations-with-promises" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------
+## Orchestrating animations with promises <a href="#orchestrating-animations-with-promises" class="w-headline-link">#</a>
 
 In Chromium 84, you now have two methods that can be used with promises: `animation.ready` and `animation.finished`.
 
--   `animation.ready` enables you to wait for pending changes to take effect (i.e. switching between playback control methods such as play and pause).
--   `animation.finished` provides a means of executing custom JavaScript code when an animation is complete.
+- `animation.ready` enables you to wait for pending changes to take effect (i.e. switching between playback control methods such as play and pause).
+- `animation.finished` provides a means of executing custom JavaScript code when an animation is complete.
 
 Let's continue with our example, and create an orchestrated animation chain with `animation.finished`. Here, you have a vertical transformation (`scaleY`), followed by a horizontal transformation (`scaleX`), followed by an opacity change on a child element:
 
@@ -139,8 +129,7 @@ In this example, there is only one keyframe, and no specified start position. Th
 
 New transitions can be triggered while existing ones are still running. This means that the current transition is interrupted, and a new one is created.
 
-Performance improvements with replaceable animations <a href="#performance-improvements-with-replaceable-animations" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------------------------------
+## Performance improvements with replaceable animations <a href="#performance-improvements-with-replaceable-animations" class="w-headline-link">#</a>
 
 When creating animations based on events, such as on `'mousemove'`, a new animation is created each time, which can quickly consume memory and degrade performance. To address this problem, replaceable animations were introduced in Chromium 83, enabling automated cleanup, where finished animations are flagged as replaceable and automatically removed if replaced by another finished animation. Consider the following example:
 
@@ -163,14 +152,13 @@ You can see exactly how many animations are being replaced by tallying up a coun
 
 There are a few additional methods to take your animation control even further:
 
--   `animation.replaceState()` provides a means of tracking whether an animation is active, persisted, or removed.
--   `animation.commitStyles()` updates the style of an element based on the underlying style along with all animations on the element in the composite order.
--   `animation.persist()` marks an animation as non-replaceable.
+- `animation.replaceState()` provides a means of tracking whether an animation is active, persisted, or removed.
+- `animation.commitStyles()` updates the style of an element based on the underlying style along with all animations on the element in the composite order.
+- `animation.persist()` marks an animation as non-replaceable.
 
 `animation.commitStyles()` and `animation.persist()` are commonly used with compositing modes, such as "add". Check out the composite modes demo below to see them in action.
 
-Smoother animations with composite modes <a href="#smoother-animations-with-composite-modes" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------------------------------
+## Smoother animations with composite modes <a href="#smoother-animations-with-composite-modes" class="w-headline-link">#</a>
 
 With the Web Animations API, you can now set the composite mode of your animations, meaning they can be additive or accumulative, in addition to the default mode of "replace". [Composite modes](https://css-tricks.com/additive-animation-web-animations-api/) allow developers to write distinct animations and have control over how effects are combined. Three composite modes are now supported: `'replace'` (the default mode), `'add'`, and `'accumulate'`.
 
@@ -205,9 +193,9 @@ Here, two `top` animations are composited. The first is a macro-animation, which
 
 These are all exciting additions to animations capabilities in today's browsers, and even more additions are coming down the pipeline. Check out these future specifications for some further reading on what's coming next:
 
--   [Scroll-linked animations with the Houdini API](https://www.w3.org/TR/css-animation-worklet-1/#scroll-timeline)
--   [Mutable timelines](https://drafts.csswg.org/web-animations-2/#setting-the-timeline)
--   [Group Effect and Synchronization](https://drafts.csswg.org/web-animations-2/#grouping-and-synchronization)
+- [Scroll-linked animations with the Houdini API](https://www.w3.org/TR/css-animation-worklet-1/#scroll-timeline)
+- [Mutable timelines](https://drafts.csswg.org/web-animations-2/#setting-the-timeline)
+- [Group Effect and Synchronization](https://drafts.csswg.org/web-animations-2/#grouping-and-synchronization)
 
 <a href="/tags/animations/" class="w-chip">Animations</a> <a href="/tags/javascript/" class="w-chip">JavaScript</a>
 
@@ -215,35 +203,35 @@ These are all exciting additions to animations capabilities in today's browsers,
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

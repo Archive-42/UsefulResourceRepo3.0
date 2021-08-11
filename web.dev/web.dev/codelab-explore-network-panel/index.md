@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Explore DevTools Network panel
 
 Nov 5, 2018

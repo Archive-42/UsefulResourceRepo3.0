@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#examples-of-high-performance-css-animations" class="w-toc__header--link">Examples of high-performance CSS animations</a>
 
 - [Wizard loading animation](#wizard-loading-animation)

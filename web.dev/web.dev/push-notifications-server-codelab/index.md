@@ -1,11 +1,4 @@
-
-
-
-
-
-
-Codelab: Build a push notification server
-=========================================
+# Codelab: Build a push notification server
 
 Nov 11, 2020 <span class="w-author__separator">•</span> Updated Dec 6, 2020
 
@@ -13,10 +6,10 @@ Nov 11, 2020 <span class="w-author__separator">•</span> Updated Dec 6, 2020
 
 <a href="/authors/kaycebasques/" class="w-author__name-link">Kayce Basques</a>
 
--   <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
--   <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
--   <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/kaycebasques" class="w-author__link">Twitter</a>
+- <a href="https://github.com/kaycebasques" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@kaycebasques" class="w-author__link">Glitch</a>
+- <a href="https://kayce.basqu.es/" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Kate Jeffreys" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/InS6CReujIoGmjKuOTaA.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/katejeffreys/)
 
@@ -24,9 +17,9 @@ Nov 11, 2020 <span class="w-author__separator">•</span> Updated Dec 6, 2020
 
 This codelab shows you, step-by-step, how to build a push notification server. By the end of the codelab you'll have a server that:
 
--   Keeps track of push notification subscriptions (i.e. the server creates a new database record when a client opts in to push notifications, and it deletes an existing database record when a client opts out)
--   Sends a push notification to a single client
--   Sends a push notification to all subscribed clients
+- Keeps track of push notification subscriptions (i.e. the server creates a new database record when a client opts in to push notifications, and it deletes an existing database record when a client opts out)
+- Sends a push notification to a single client
+- Sends a push notification to all subscribed clients
 
 This codelab is focused on helping you learn by doing and doesn't talk about concepts much. Check out [How do push notifications work?](/push-notifications-overview/#how) to learn about push notification concepts.
 
@@ -34,31 +27,28 @@ The client code of this codelab is already complete. You'll only be implementing
 
 Check out [push-notifications-server-codelab-complete](https://push-notifications-server-codelab-complete.glitch.me/) ([source](https://glitch.com/edit/#!/push-notifications-server-codelab-complete)) to see the complete code.
 
-Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------
+## Browser compatibility <a href="#browser-compatibility" class="w-headline-link">#</a>
 
 This codelab is known to work with the following operating system and browser combinations:
 
--   Windows: Chrome, Edge
--   macOS: Chrome, Firefox
--   Android: Chrome, Firefox
+- Windows: Chrome, Edge
+- macOS: Chrome, Firefox
+- Android: Chrome, Firefox
 
 This codelab is known to **not** work with the following operating systems (or operating system and browser combinations):
 
--   macOS: Brave, Edge, Safari
--   iOS
+- macOS: Brave, Edge, Safari
+- iOS
 
-Application stack <a href="#stack" class="w-headline-link">#</a>
-----------------------------------------------------------------
+## Application stack <a href="#stack" class="w-headline-link">#</a>
 
--   The server is built on top of [Express.js](https://expressjs.com/).
--   The [web-push](https://www.npmjs.com/package/web-push) Node.js library handles all of the push notification logic.
--   Subscription data is written to a JSON file using [lowdb](https://www.npmjs.com/package/lowdb).
+- The server is built on top of [Express.js](https://expressjs.com/).
+- The [web-push](https://www.npmjs.com/package/web-push) Node.js library handles all of the push notification logic.
+- Subscription data is written to a JSON file using [lowdb](https://www.npmjs.com/package/lowdb).
 
 You don't have to use any of these technologies to implement push notifications. We chose these technologies because they provide a reliable codelab experience.
 
-Setup <a href="#setup" class="w-headline-link">#</a>
-----------------------------------------------------
+## Setup <a href="#setup" class="w-headline-link">#</a>
 
 ### Get an editable copy of the code <a href="#remix" class="w-headline-link">#</a>
 
@@ -89,8 +79,7 @@ Environment variable values (the stuff in `.env`) are unique to a single Glitch 
 1.  Open `public/index.js`.
 2.  Replace `VAPID_PUBLIC_KEY_VALUE_HERE` with the value of your public key.
 
-Manage subscriptions <a href="#manage" class="w-headline-link">#</a>
---------------------------------------------------------------------
+## Manage subscriptions <a href="#manage" class="w-headline-link">#</a>
 
 Your client handles most of the subscription process. The main things your server needs to do are save new push notification subscriptions and delete old subscriptions. These subscriptions are what enable you to push messages to clients in the future. See [Subscribe the client to push notifications](/push-notifications-overview/#subscription) for more context about the subscription process.
 
@@ -152,8 +141,7 @@ The database writes to `.data/db.json`. To inspect this file in Glitch, click **
       response.sendStatus(200);
     });
 
-Send notifications <a href="#send-notifications" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## Send notifications <a href="#send-notifications" class="w-headline-link">#</a>
 
 As explained in [Send a push message](/push-notifications-overview/#send), your server doesn't actually send the push messages directly to clients. Rather, it relies on a push service to do that. Your server basically just kicks off the process of pushing messages to clients by making web service requests (web push protocol requests) to a web service (the push service) owned by the browser vendor that your user uses.
 
@@ -165,7 +153,7 @@ As explained in [Send a push message](/push-notifications-overview/#send), your 
       console.log('/notify-me');
       console.log(request.body);
       console.log(`Notifying ${request.body.endpoint}`);
-      const subscription = 
+      const subscription =
           db.get('subscriptions').find({endpoint: request.body.endpoint}).value();
       sendNotifications([subscription]);
       response.sendStatus(200);
@@ -229,43 +217,42 @@ As explained in [Send a push message](/push-notifications-overview/#send), your 
 3.  Click **Notify me**. You should receive a push notification. The title should be `Hello, Notifications!` and the body should be `ID: <ID>` where `<ID>` is a random number.
 4.  Open your app on other browsers or devices and try subscribing them to push notifications and then clicking the **Notify all** button. You should receive the same notification on all of your subscribed devices (i.e. the ID in the body of the push notification should be the same).
 
-Next steps <a href="#next-steps" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Next steps <a href="#next-steps" class="w-headline-link">#</a>
 
--   Read [Push notifications overview](/push-notifications-overview) for a deeper conceptual understanding of how push notifications work.
--   Check out [Codelab: Build a push notification client](/push-notifications-client-codelab/) to learn how to build a client that requests notification permission, subscribes the device to receive push notifications, and uses a service worker to receive push messages and display the messages as notifications.
+- Read [Push notifications overview](/push-notifications-overview) for a deeper conceptual understanding of how push notifications work.
+- Check out [Codelab: Build a push notification client](/push-notifications-client-codelab/) to learn how to build a client that requests notification permission, subscribes the device to receive push notifications, and uses a service worker to receive push messages and display the messages as notifications.
 
 <a href="/push-notifications-overview" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to article</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

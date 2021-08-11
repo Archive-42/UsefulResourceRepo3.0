@@ -1,6 +1,6 @@
-<span class="underline"></span>
 
-<span class="underline"></span>
+
+
 
 ## Top Java Articles
 
@@ -18,7 +18,7 @@
 4.  [For loops explained](go/for-loop.html)
 5.  [Concurrent programming](go/go-concurrency-tutorial.html)
 
-<span class="underline"></span>
+
 
 ## Top Algorithm Articles
 

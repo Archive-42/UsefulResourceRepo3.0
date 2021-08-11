@@ -1,33 +1,25 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format" alt="How to measure Web Vitals with your current analytics tool" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/WNrgCVjmp8Gyc8EbZ9Jv.png?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#best-practices-for-measuring-web-vitals-in-the-field" class="w-toc__header--link">Best practices for measuring Web Vitals in the field</a>
-----------------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#best-practices-for-measuring-web-vitals-in-the-field" class="w-toc__header--link">Best practices for measuring Web Vitals in the field</a>
 
--   [Use custom metrics or events](#use-custom-metrics-or-events)
--   [Ensure you can report a distribution](#ensure-you-can-report-a-distribution)
--   [Send your data at the right time](#send-your-data-at-the-right-time)
--   [Monitor performance over time](#monitor-performance-over-time)
--   [Version your changes](#version-your-changes)
--   [Run experiments](#run-experiments)
--   [Ensure measurement doesn't affect performance](#ensure-measurement-doesn't-affect-performance)
--   [Defer your analytics](#defer-your-analytics)
--   [Do not create long tasks](#do-not-create-long-tasks)
--   [Use non-blocking APIs](#use-non-blocking-apis)
--   [Don't track more than what you need](#don't-track-more-than-what-you-need)
+- [Use custom metrics or events](#use-custom-metrics-or-events)
+- [Ensure you can report a distribution](#ensure-you-can-report-a-distribution)
+- [Send your data at the right time](#send-your-data-at-the-right-time)
+- [Monitor performance over time](#monitor-performance-over-time)
+- [Version your changes](#version-your-changes)
+- [Run experiments](#run-experiments)
+- [Ensure measurement doesn't affect performance](#ensure-measurement-doesn't-affect-performance)
+- [Defer your analytics](#defer-your-analytics)
+- [Do not create long tasks](#do-not-create-long-tasks)
+- [Use non-blocking APIs](#use-non-blocking-apis)
+- [Don't track more than what you need](#don't-track-more-than-what-you-need)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Best practices for measuring Web Vitals in the field
-====================================================
+# Best practices for measuring Web Vitals in the field
 
 How to measure Web Vitals with your current analytics tool.
 
@@ -39,9 +31,9 @@ May 27, 2020 <span class="w-author__separator">•</span> Updated Jul 21, 2020
 
 <a href="/authors/philipwalton/" class="w-author__name-link">Philip Walton</a>
 
--   <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
--   <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
--   <a href="https://philipwalton.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/philwalton" class="w-author__link">Twitter</a>
+- <a href="https://github.com/philipwalton" class="w-author__link">GitHub</a>
+- <a href="https://philipwalton.com" class="w-author__link">Blog</a>
 
 Having the ability to measure and report on the real-world performance of your pages is critical for diagnosing and improving performance over time. Without [field data](/user-centric-performance-metrics/#in-the-field), it's impossible to know for sure whether the changes you're making to your site are actually achieving their desired results.
 
@@ -51,16 +43,15 @@ While we do recommend using an analytics tool that supports the Core Web Vitals 
 
 This guide discusses best practices for measuring Core Web Vitals metrics (or any custom metrics) with a third-party or in-house analytics tool. It can also serve as a guide for analytics vendors wishing to add Core Web Vitals support to their service.
 
-Use custom metrics or events <a href="#use-custom-metrics-or-events" class="w-headline-link">#</a>
---------------------------------------------------------------------------------------------------
+## Use custom metrics or events <a href="#use-custom-metrics-or-events" class="w-headline-link">#</a>
 
 As mentioned above, most analytics tools let you measure custom data. If your analytics tool supports this, you should be able to measure each of the Core Web Vitals metrics using this mechanism.
 
 Measuring custom metrics or events in an analytics tool is generally a three-step process:
 
-1.  [Define or register](https://support.google.com/analytics/answer/2709829?hl=en&ref_topic=2709827) the custom metric in your tool's admin (if required). *(Note: not all analytics providers require custom metrics to be defined ahead of time.)*
+1.  [Define or register](https://support.google.com/analytics/answer/2709829?hl=en&ref_topic=2709827) the custom metric in your tool's admin (if required). _(Note: not all analytics providers require custom metrics to be defined ahead of time.)_
 2.  Compute the value of the metric in your frontend JavaScript code.
-3.  Send the metric value to your analytics backend, ensuring the name or ID matches what was defined in step 1 *(again, if required)*.
+3.  Send the metric value to your analytics backend, ensuring the name or ID matches what was defined in step 1 _(again, if required)_.
 
 For steps 1 and 3, you can refer to your analytics tool's documentation for instructions. For step 2 you can use the [web-vitals](https://github.com/GoogleChrome/web-vitals) JavaScript library to compute the value of each of the Core Web Vitals metrics.
 
@@ -79,8 +70,7 @@ The following code sample shows how easy it can be to track these metrics in cod
     getFID(sendToAnalytics);
     getLCP(sendToAnalytics);
 
-Ensure you can report a distribution <a href="#ensure-you-can-report-a-distribution" class="w-headline-link">#</a>
-------------------------------------------------------------------------------------------------------------------
+## Ensure you can report a distribution <a href="#ensure-you-can-report-a-distribution" class="w-headline-link">#</a>
 
 Once you've computed the values for each of the Core Web Vitals metrics and sent them to your analytics service using a custom metric or event, the next step is to build a report or dashboard displaying the values that have been collected.
 
@@ -96,8 +86,7 @@ The [Web Vitals Report](https://github.com/GoogleChromeLabs/web-vitals-report) i
 
 Tip: The [`web-vitals`](https://github.com/GoogleChrome/web-vitals) JavaScript library provides an ID for each metric instance reported making it possible to build distributions in most analytics tools. See the [`Metric`](https://github.com/GoogleChrome/web-vitals#metric) interface documentation for more details.
 
-Send your data at the right time <a href="#send-your-data-at-the-right-time" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------
+## Send your data at the right time <a href="#send-your-data-at-the-right-time" class="w-headline-link">#</a>
 
 Some performance metrics can be calculated once the page has finished loading, while others (like CLS) consider the entire lifespan of the page—and are only final once the page has started unloading.
 
@@ -111,8 +100,7 @@ Note that mobile operating systems do generally fire the `visibilitychange` even
 
 Due to [some browser bugs](https://github.com/w3c/page-visibility/issues/59#issue-554880545), there are a few cases where the `visibilitychange` event does not fire. If you're building your own analytics library, it's important to be aware of these bugs. Note that the [web-vitals](https://github.com/GoogleChrome/web-vitals) JavaScript library does account for all of these bugs.
 
-Monitor performance over time <a href="#monitor-performance-over-time" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------
+## Monitor performance over time <a href="#monitor-performance-over-time" class="w-headline-link">#</a>
 
 Once you've updated your analytics implementation to both track and report on the Core Web Vitals metrics, the next step is to track how changes to your site affect performance over time.
 
@@ -132,8 +120,7 @@ With experimentation in place in your analytics, you can roll out an experimenta
 
 Experiment groups should always be set on the server. Avoid using any experimentation or A/B testing tool that runs on the client. These tools will typically block rendering until a user's experiment group is determined, which can be detrimental to your LCP times.
 
-Ensure measurement doesn't affect performance <a href="#ensure-measurement-doesn&#39;t-affect-performance" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------------------------------------------------------------
+## Ensure measurement doesn't affect performance <a href="#ensure-measurement-doesn&#39;t-affect-performance" class="w-headline-link">#</a>
 
 When measuring performance on real users, it's absolutely critical that any performance measurement code you're running does not negatively impact the performance of your page. If it does, then any conclusions you attempt to draw on how your performance affects your business will be unreliable, as you'll never know if the presence of the analytics code itself is having the largest negative impact.
 
@@ -145,7 +132,7 @@ Analytics code should always be loaded in an asynchronous, non-blocking way, and
 
 All of the APIs used to measure the Core Web Vitals metrics were specifically designed to support asynchronous and deferred script loading (via the [`buffered`](https://www.chromestatus.com/feature/5118272741572608) flag), so there's no need to rush to get your scripts loaded early.
 
-In the event that you're measuring a metric that cannot be computed later in the page load timeline, you should inline *only* the code that needs to run early into the `<head>` of your document (so it's not a [render-blocking request](/render-blocking-resources/)) and defer the rest. Do not load all your analytics early just because a single metric requires it.
+In the event that you're measuring a metric that cannot be computed later in the page load timeline, you should inline _only_ the code that needs to run early into the `<head>` of your document (so it's not a [render-blocking request](/render-blocking-resources/)) and defer the rest. Do not load all your analytics early just because a single metric requires it.
 
 ### Do not create long tasks <a href="#do-not-create-long-tasks" class="w-headline-link">#</a>
 
@@ -175,35 +162,35 @@ In short, don't just track data because it's there, ensure the data will be used
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

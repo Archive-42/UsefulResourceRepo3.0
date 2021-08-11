@@ -1,50 +1,42 @@
-
-
-
-
-
-
 <img src="https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format" alt="A photo of NFC tags" class="w-hero w-hero--cover" sizes="100vw" srcset="https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/TqG3qb5MiLGNTnAgKtqO.jpg?auto=format&amp;w=1600 1600w" width="1600" height="480" />
 
-<a href="#interact-with-nfc-devices-on-chrome-for-android" class="w-toc__header--link">Interact with NFC devices on Chrome for Android</a>
-------------------------------------------------------------------------------------------------------------------------------------------
+## <a href="#interact-with-nfc-devices-on-chrome-for-android" class="w-toc__header--link">Interact with NFC devices on Chrome for Android</a>
 
--   [What is Web NFC?](#what)
--   [Suggested use cases](#use-cases)
--   [Current status](#status)
--   [Using Web NFC](#use)
--   [Feature detection](#feature-detection)
--   [Terminology](#terminology)
--   [Scan NFC tags](#scan)
--   [Write NFC tags](#write)
--   [Security and permissions](#security-and-permissions)
--   [Cookbook](#cookbook)
--   [Check for permission](#check-for-permission)
--   [Abort NFC operations](#abort-nfc-operations)
--   [Read and write a text record](#read-and-write-a-text-record)
--   [Read and write a URL record](#read-and-write-a-url-record)
--   [Read and write a MIME type record](#read-and-write-a-mime-type-record)
--   [Read and write an absolute-URL record](#read-and-write-an-absolute-url-record)
--   [Read and write a smart poster record](#read-and-write-a-smart-poster-record)
--   [Read and write an external type record](#read-and-write-an-external-type-record)
--   [Read and write an empty record](#read-and-write-an-empty-record)
--   [Browser support](#browser-support)
--   [Dev Tips](#dev-tips)
--   [Demos](#demos)
--   [Feedback](#feedback)
--   [Tell us about the API design](#tell-us-about-the-api-design)
--   [Report a problem with the implementation](#report-a-problem-with-the-implementation)
--   [Show support](#show-support)
--   [Helpful links](#helpful)
--   [Acknowledgements](#acknowledgements)
+- [What is Web NFC?](#what)
+- [Suggested use cases](#use-cases)
+- [Current status](#status)
+- [Using Web NFC](#use)
+- [Feature detection](#feature-detection)
+- [Terminology](#terminology)
+- [Scan NFC tags](#scan)
+- [Write NFC tags](#write)
+- [Security and permissions](#security-and-permissions)
+- [Cookbook](#cookbook)
+- [Check for permission](#check-for-permission)
+- [Abort NFC operations](#abort-nfc-operations)
+- [Read and write a text record](#read-and-write-a-text-record)
+- [Read and write a URL record](#read-and-write-a-url-record)
+- [Read and write a MIME type record](#read-and-write-a-mime-type-record)
+- [Read and write an absolute-URL record](#read-and-write-an-absolute-url-record)
+- [Read and write a smart poster record](#read-and-write-a-smart-poster-record)
+- [Read and write an external type record](#read-and-write-an-external-type-record)
+- [Read and write an empty record](#read-and-write-an-empty-record)
+- [Browser support](#browser-support)
+- [Dev Tips](#dev-tips)
+- [Demos](#demos)
+- [Feedback](#feedback)
+- [Tell us about the API design](#tell-us-about-the-api-design)
+- [Report a problem with the implementation](#report-a-problem-with-the-implementation)
+- [Show support](#show-support)
+- [Helpful links](#helpful)
+- [Acknowledgements](#acknowledgements)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Interact with NFC devices on Chrome for Android
-===============================================
+# Interact with NFC devices on Chrome for Android
 
 Reading and writing to NFC tags is now possible.
 
@@ -56,36 +48,32 @@ Feb 12, 2020 <span class="w-author__separator">•</span> Updated Feb 23, 2021
 
 <a href="/authors/beaufortfrancois/" class="w-author__name-link">François Beaufort</a>
 
--   <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
+- <a href="https://github.com/beaufortfrancois" class="w-author__link">GitHub</a>
 
 **Success**: Web NFC, part of the [capabilities project](/fugu-status/), launched in Chrome 89 for Android.
 
-What is Web NFC? <a href="#what" class="w-headline-link">#</a>
---------------------------------------------------------------
+## What is Web NFC? <a href="#what" class="w-headline-link">#</a>
 
 NFC stands for Near Field Communications, a short-range wireless technology operating at 13.56 MHz that enables communication between devices at a distance less than 10 cm and a transmission rate of up to 424 kbit/s.
 
 Web NFC provides sites the ability to read and write to NFC tags when they are in close proximity to the user's device (usually 5-10 cm, 2-4 inches). The current scope is limited to NFC Data Exchange Format (NDEF), a lightweight binary message format that works across different tag formats.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format" alt="Diagram of an NFC operation" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1600 1600w" width="800" height="489" /><figcaption>Diagram of an NFC operation</figcaption></figure>Suggested use cases <a href="#use-cases" class="w-headline-link">#</a>
-----------------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format" alt="Diagram of an NFC operation" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/jWmCabXZCB6zNwQIR90I.png?auto=format&amp;w=1600 1600w" width="800" height="489" /><figcaption>Diagram of an NFC operation</figcaption></figure>Suggested use cases <a href="#use-cases" class="w-headline-link">#</a>
 
 Web NFC is limited to NDEF because the security properties of reading and writing NDEF data are more easily quantifiable. Low-level I/O operations (e.g. ISO-DEP, NFC-A/B, NFC-F), Peer-to-Peer communication mode and Host-based Card Emulation (HCE) are not supported.
 
 Examples of sites that may use Web NFC include:
 
--   Museums and art galleries can display additional information about a display when the user touches their device to an NFC card near the exhibit.
--   Inventory management sites can read or write data to the NFC tag on a container to update information on its contents.
--   Conference sites can use it to scan NFC badges during the event.
--   Sites can use it for sharing initial secrets needed for device or service provisioning scenarios and also to deploy configuration data in operational mode.
+- Museums and art galleries can display additional information about a display when the user touches their device to an NFC card near the exhibit.
+- Inventory management sites can read or write data to the NFC tag on a container to update information on its contents.
+- Conference sites can use it to scan NFC badges during the event.
+- Sites can use it for sharing initial secrets needed for device or service provisioning scenarios and also to deploy configuration data in operational mode.
 
-<figure><img src="https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format" alt="NFC inventory management illustrated" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1600 1600w" width="800" height="383" /><figcaption>NFC inventory management illustrated</figcaption></figure>Current status <a href="#status" class="w-headline-link">#</a>
---------------------------------------------------------------
+## <figure><img src="https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format" alt="NFC inventory management illustrated" sizes="(min-width: 800px) 800px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=200 200w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=228 228w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=260 260w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=296 296w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=338 338w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=385 385w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=439 439w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=500 500w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=571 571w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=650 650w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=741 741w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=845 845w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=964 964w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1098 1098w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1252 1252w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1428 1428w, https://web-dev.imgix.net/image/admin/zTEXhIx9nDWtbKrIPN0x.png?auto=format&amp;w=1600 1600w" width="800" height="383" /><figcaption>NFC inventory management illustrated</figcaption></figure>Current status <a href="#status" class="w-headline-link">#</a>
 
 <table><thead><tr class="header"><th>Step</th><th>Status</th></tr></thead><tbody><tr class="odd"><td>1. Create explainer</td><td><a href="https://github.com/w3c/web-nfc/blob/gh-pages/EXPLAINER.md#web-nfc-explained">Complete</a></td></tr><tr class="even"><td>2. Create initial draft of specification</td><td><a href="https://w3c.github.io/web-nfc/">Complete</a></td></tr><tr class="odd"><td>3. Gather feedback &amp; iterate on design</td><td><a href="#feedback">Complete</a></td></tr><tr class="even"><td>4. Origin trial</td><td><a href="https://developers.chrome.com/origintrials/#/view_trial/236438980436951041">Complete</a></td></tr><tr class="odd"><td><strong>5. Launch</strong></td><td><strong>Complete</strong></td></tr></tbody></table>
 
-Using Web NFC <a href="#use" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Using Web NFC <a href="#use" class="w-headline-link">#</a>
 
 ### Feature detection <a href="#feature-detection" class="w-headline-link">#</a>
 
@@ -107,9 +95,9 @@ An NFC tag that supports NDEF is like a post-it note. Anyone can read it, and un
 
 To scan NFC tags, first instantiate a new `NDEFReader` object. Calling `scan()` returns a promise. The [user may be prompted](#security-and-permissions) if access was not previously granted. The promise will resolve if the following conditions are all met:
 
--   User has allowed the website to interact with NFC devices when they tap their phone.
--   The user's phone supports NFC.
--   The user has enabled NFC on their phone.
+- User has allowed the website to interact with NFC devices when they tap their phone.
+- The user's phone supports NFC.
+- The user has enabled NFC on their phone.
 
 Once the promise is resolved, incoming NDEF messages are available by subscribing to `reading` events via an event listener. You should also subscribe to `readingerror` events to be notified when incompatible NFC tags are in proximity.
 
@@ -128,8 +116,8 @@ Once the promise is resolved, incoming NDEF messages are available by subscribin
 
 When an NFC tag is in proximity, a `NDEFReadingEvent` event is fired. It contains two properties unique to it:
 
--   `serialNumber` represents the serial number of the device (.e.g 00-11-22-33-44-55-66), or an empty string if none is available.
--   `message` represents the NDEF message stored in the NFC tag.
+- `serialNumber` represents the serial number of the device (.e.g 00-11-22-33-44-55-66), or an empty string if none is available.
+- `message` represents the NDEF message stored in the NFC tag.
 
 To read the content of the NDEF message, loop through `message.records` and process their `data` members [appropriately](https://w3c.github.io/web-nfc/#data-mapping) based on their `recordType`. The `data` member is exposed as a `DataView` as it allows handling cases where data is encoded in UTF-16.
 
@@ -158,10 +146,10 @@ The [cookbook](#cookbook) contains many examples of how to read NDEF records bas
 
 To write NFC tags, first instantiate a new `NDEFReader` object. Calling `write()` returns a promise. The [user may be prompted](#security-and-permissions) if access was not previously granted. At this point, an NDEF message is "prepared" and promise will resolve if the following conditions are all met:
 
--   User has allowed the website to interact with NFC devices when they tap their phone.
--   The user's phone supports NFC.
--   The user has enabled NFC on their phone.
--   User has tapped an NFC tag and an NDEF message has been successfully written.
+- User has allowed the website to interact with NFC devices when they tap their phone.
+- The user's phone supports NFC.
+- The user has enabled NFC on their phone.
+- User has tapped an NFC tag and an NDEF message has been successfully written.
 
 To write text to an NFC tag, pass a string to the `write()` method.
 
@@ -240,8 +228,7 @@ Thanks to the [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web
       }
     };
 
-Cookbook <a href="#cookbook" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Cookbook <a href="#cookbook" class="w-headline-link">#</a>
 
 Here's some code samples to get you started.
 
@@ -546,21 +533,19 @@ To write an empty record, pass an NDEF message dictionary to the NDEFReader `wri
     const ndef = new NDEFReader();
     await ndef.write({ records: [emptyRecord] });
 
-Browser support <a href="#browser-support" class="w-headline-link">#</a>
-------------------------------------------------------------------------
+## Browser support <a href="#browser-support" class="w-headline-link">#</a>
 
 Web NFC is available on Android in Chrome 89.
 
-Dev Tips <a href="#dev-tips" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Dev Tips <a href="#dev-tips" class="w-headline-link">#</a>
 
 Here's a list of things I wish I had known when I started playing with Web NFC:
 
--   Android handles NFC tags at the OS-level before Web NFC is operational.
--   You can find an NFC icon on [material.io](https://material.io/resources/icons/?icon=nfc&style=baseline).
--   Use NDEF record `id` to easily identifying a record when needed.
--   An unformatted NFC tag that supports NDEF contains a single record of the empty type.
--   Writing an [android application record](https://developer.android.com/guide/topics/connectivity/nfc/nfc#aar) is easy, as shown below.
+- Android handles NFC tags at the OS-level before Web NFC is operational.
+- You can find an NFC icon on [material.io](https://material.io/resources/icons/?icon=nfc&style=baseline).
+- Use NDEF record `id` to easily identifying a record when needed.
+- An unformatted NFC tag that supports NDEF contains a single record of the empty type.
+- Writing an [android application record](https://developer.android.com/guide/topics/connectivity/nfc/nfc#aar) is easy, as shown below.
 
 <!-- -->
 
@@ -573,20 +558,18 @@ Here's a list of things I wish I had known when I started playing with Web NFC:
     const ndef = new NDEFReader();
     await ndef.write({ records: [aarRecord] });
 
-Demos <a href="#demos" class="w-headline-link">#</a>
-----------------------------------------------------
+## Demos <a href="#demos" class="w-headline-link">#</a>
 
 Try out the [official sample](https://googlechrome.github.io/samples/web-nfc/) and check out some cool Web NFC demos:
 
--   [Cards demo](https://web-nfc-demo.glitch.me)
--   [Grocery Demo](https://kenchris.github.io/webnfc-groceries)
--   [Intel RSP Sensor NFC](https://kenchris.github.io/webnfc-rsp/)
--   [Media MEMO](https://webnfc-media-memo.netlify.com/)
+- [Cards demo](https://web-nfc-demo.glitch.me)
+- [Grocery Demo](https://kenchris.github.io/webnfc-groceries)
+- [Intel RSP Sensor NFC](https://kenchris.github.io/webnfc-rsp/)
+- [Media MEMO](https://webnfc-media-memo.netlify.com/)
 
 Web NFC cards demo at Chrome Dev Summit 2019
 
-Feedback <a href="#feedback" class="w-headline-link">#</a>
-----------------------------------------------------------
+## Feedback <a href="#feedback" class="w-headline-link">#</a>
 
 The [Web NFC Community Group](https://www.w3.org/community/web-nfc/) and the Chrome team would love to hear about your thoughts and experiences with Web NFC.
 
@@ -600,7 +583,7 @@ File a spec issue on the [Web NFC GitHub repo](https://github.com/w3c/web-nfc/is
 
 Did you find a bug with Chrome's implementation? Or is the implementation different from the spec?
 
-File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3ENFC). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and have *Components* set to `Blink>NFC`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
+File a bug at [https://new.crbug.com](https://bugs.chromium.org/p/chromium/issues/entry?components=Blink%3ENFC). Be sure to include as much detail as you can, provide simple instructions for reproducing the bug, and have _Components_ set to `Blink>NFC`. [Glitch](https://glitch.com) works great for sharing quick and easy repros.
 
 ### Show support <a href="#show-support" class="w-headline-link">#</a>
 
@@ -608,17 +591,15 @@ Are you planning to use Web NFC? Your public support helps the Chrome team prior
 
 Send a tweet to [@ChromiumDev](https://twitter.com/chromiumdev) using the hashtag [`#WebNFC`](https://twitter.com/search?q=%23WebNFC&src=typed_query&f=live) and let us know where and how you're using it.
 
-Helpful links <a href="#helpful" class="w-headline-link">#</a>
---------------------------------------------------------------
+## Helpful links <a href="#helpful" class="w-headline-link">#</a>
 
--   [Specification](https://w3c.github.io/web-nfc/)
--   [Web NFC Demo](https://web-nfc-demo.glitch.me/) | [Web NFC Demo source](https://glitch.com/edit/#!/web-nfc-demo?path=script.js:1:0)
--   [Tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=520391)
--   [ChromeStatus.com entry](https://www.chromestatus.com/feature/6261030015467520)
--   Blink Component: [`Blink>NFC`](https://chromestatus.com/features#component%3ABlink%3ENFC)
+- [Specification](https://w3c.github.io/web-nfc/)
+- [Web NFC Demo](https://web-nfc-demo.glitch.me/) | [Web NFC Demo source](https://glitch.com/edit/#!/web-nfc-demo?path=script.js:1:0)
+- [Tracking bug](https://bugs.chromium.org/p/chromium/issues/detail?id=520391)
+- [ChromeStatus.com entry](https://www.chromestatus.com/feature/6261030015467520)
+- Blink Component: [`Blink>NFC`](https://chromestatus.com/features#component%3ABlink%3ENFC)
 
-Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
---------------------------------------------------------------------------
+## Acknowledgements <a href="#acknowledgements" class="w-headline-link">#</a>
 
 Big thanks to the [folks at Intel](https://github.com/w3c/web-nfc/graphs/contributors) for implementing Web NFC. Google Chrome depends on a community of committers working together to move the Chromium project forward. Not every Chromium committer is a Googler, and these contributors deserve special recognition!
 
@@ -630,35 +611,35 @@ Have a question about using this feature? You can get help by [asking a question
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

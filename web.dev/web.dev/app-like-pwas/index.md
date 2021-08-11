@@ -1,9 +1,3 @@
-
-
-
-
-
-
 ## <a href="#make-your-pwa-feel-more-like-an-app" class="w-toc__header--link">Make your PWA feel more like an app</a>
 
 - [Capable of running offline](#capable-of-running-offline)

@@ -1,33 +1,25 @@
+## <a href="#responsive-web-design-basics" class="w-toc__header--link">Responsive web design basics</a>
 
-
-
-
-
-
-<a href="#responsive-web-design-basics" class="w-toc__header--link">Responsive web design basics</a>
-----------------------------------------------------------------------------------------------------
-
--   [Set the viewport](#viewport)
--   [Ensure an accessible viewport](#accessible-viewport)
--   [Size content to the viewport](#size-content)
--   [Images](#images)
--   [Layout](#layout)
--   [Use CSS media queries for responsiveness](#media-queries)
--   [Media queries based on viewport size](#viewport-media-queries)
--   [Media queries based on device capability](#capability-media-queries)
--   [How to choose breakpoints](#breakpoints)
--   [Pick major breakpoints by starting small, then working up](#major-breakpoints)
--   [Optimize text for reading](#optimize-text-for-reading)
--   [Avoid simply hiding content](#avoid-simply-hiding-content)
--   [View media query breakpoints in Chrome DevTools](#devtools)
+- [Set the viewport](#viewport)
+- [Ensure an accessible viewport](#accessible-viewport)
+- [Size content to the viewport](#size-content)
+- [Images](#images)
+- [Layout](#layout)
+- [Use CSS media queries for responsiveness](#media-queries)
+- [Media queries based on viewport size](#viewport-media-queries)
+- [Media queries based on device capability](#capability-media-queries)
+- [How to choose breakpoints](#breakpoints)
+- [Pick major breakpoints by starting small, then working up](#major-breakpoints)
+- [Optimize text for reading](#optimize-text-for-reading)
+- [Avoid simply hiding content](#avoid-simply-hiding-content)
+- [View media query breakpoints in Chrome DevTools](#devtools)
 
 Share<a href="/newsletter/" class="gc-analytics-event w-actions__fab w-actions__fab--subscribe"><span>subscribe</span></a>
 
--   <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
--   <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
+- <a href="/" class="gc-analytics-event w-breadcrumbs__link w-breadcrumbs__link--left-justify">Home</a>
+- <a href="/blog" class="gc-analytics-event w-breadcrumbs__link">All articles</a>
 
-Responsive web design basics
-============================
+# Responsive web design basics
 
 How to create sites which respond to the needs and capabilities of the device they are viewed on.
 
@@ -37,25 +29,25 @@ Feb 12, 2019 <span class="w-author__separator">•</span> Updated May 14, 2020
 
 <a href="/authors/petelepage/" class="w-author__name-link">Pete LePage</a>
 
--   <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
--   <a href="https://github.com/petele" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
--   <a href="https://petelepage.com" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/petele" class="w-author__link">Twitter</a>
+- <a href="https://github.com/petele" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@petele" class="w-author__link">Glitch</a>
+- <a href="https://petelepage.com" class="w-author__link">Blog</a>
 
 [<img src="https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?auto=format&amp;fit=crop&amp;h=64&amp;w=64" alt="Rachel Andrew" class="w-author__image" sizes="(min-width: 64px) 64px, calc(100vw - 48px)" srcset="https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=1&amp;q=75, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=2&amp;q=50 2x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=3&amp;q=35 3x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=4&amp;q=23 4x, https://web-dev.imgix.net/image/admin/dUAN2DEXHRT6G6iPrIby.jpg?fit=crop&amp;h=64&amp;w=64&amp;auto=format&amp;dpr=5&amp;q=20 5x" width="64" height="64" />](/authors/rachelandrew/)
 
 <a href="/authors/rachelandrew/" class="w-author__name-link">Rachel Andrew</a>
 
--   <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
--   <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
--   <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
--   <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
+- <a href="https://twitter.com/rachelandrew" class="w-author__link">Twitter</a>
+- <a href="https://github.com/rachelandrew" class="w-author__link">GitHub</a>
+- <a href="https://glitch.com/@rachelandrew" class="w-author__link">Glitch</a>
+- <a href="https://rachelandrew.co.uk/" class="w-author__link">Blog</a>
 
--   [Set the viewport](#viewport)
--   [Size content to the viewport](#size-content)
--   [Use CSS media queries for responsiveness](#media-queries)
--   [How to choose breakpoints](#breakpoints)
--   [View media query breakpoints in Chrome DevTools](#devtools)
+- [Set the viewport](#viewport)
+- [Size content to the viewport](#size-content)
+- [Use CSS media queries for responsiveness](#media-queries)
+- [How to choose breakpoints](#breakpoints)
+- [View media query breakpoints in Chrome DevTools](#devtools)
 
 The use of mobile devices to surf the web continues to grow at an astronomical pace, and these devices are often constrained by display size and require a different approach to how content is laid out on the screen.
 
@@ -63,8 +55,7 @@ Responsive web design, originally defined by [Ethan Marcotte in A List Apart](ht
 
 A multitude of different screen sizes exist across phones, "phablets," tablets, desktops, game consoles, TVs, and even wearables. Screen sizes are always changing, so it's important that your site can adapt to any screen size, today or in the future. In addition, devices have different features with which we interact with them. For example some of your visitors will be using a touchscreen. Modern responsive design considers all of these things to optimize the experience for everyone.
 
-Set the viewport <a href="#viewport" class="w-headline-link">#</a>
-------------------------------------------------------------------
+## Set the viewport <a href="#viewport" class="w-headline-link">#</a>
 
 Pages optimized for a variety of devices must include a meta viewport tag in the head of the document. A meta viewport tag gives the browser instructions on how to control the page's dimensions and scaling.
 
@@ -91,14 +82,13 @@ The [Does not have a `<meta name="viewport">` tag with `width` or `initial-scale
 
 In addition to setting an `initial-scale`, you can also set the following attributes on the viewport:
 
--   `minimum-scale`
--   `maximum-scale`
--   `user-scalable`
+- `minimum-scale`
+- `maximum-scale`
+- `user-scalable`
 
 When set, these can disable the user's ability to zoom the viewport, potentially causing accessibility issues. Therefore we would not recommend using these attributes.
 
-Size content to the viewport <a href="#size-content" class="w-headline-link">#</a>
-----------------------------------------------------------------------------------
+## Size content to the viewport <a href="#size-content" class="w-headline-link">#</a>
 
 On both desktop and mobile devices, users are used to scrolling websites vertically but not horizontally; forcing the user to scroll horizontally or to zoom out in order to see the whole page results in a poor user experience.
 
@@ -161,14 +151,13 @@ For some types of layout you can use Multiple-column Layout (Multicol), which ca
 
 [Read more about Multicol](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
 
-Use CSS media queries for responsiveness <a href="#media-queries" class="w-headline-link">#</a>
------------------------------------------------------------------------------------------------
+## Use CSS media queries for responsiveness <a href="#media-queries" class="w-headline-link">#</a>
 
 Sometimes you will need to make more extensive changes to your layout to support a certain screen size than the techniques shown above will allow. This is where media queries become useful.
 
 Media queries are simple filters that can be applied to CSS styles. They make it easy to change styles based on the types of device rendering the content, or the features of that device, for example width, height, orientation, ability to hover, and whether the device is being used as a touchscreen.
 
-To provide different styles for printing, you need to target a *type* of output so you could include a stylesheet with print styles as follows:
+To provide different styles for printing, you need to target a _type_ of output so you could include a stylesheet with print styles as follows:
 
     <!DOCTYPE html>
     <html lang="en">
@@ -187,16 +176,16 @@ Alternatively, you could include print styles within your main stylesheet using 
 
 It is also possible to include separate stylesheets in your main CSS file using the `@import` syntax, `@import url(print.css) print;`, however this use is not recommended for performance reasons. See [Avoid CSS imports](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations#avoid_css_imports) for more details.
 
-For responsive web design, we are typically querying the *features* of the device in order to provide a different layout for smaller screens, or when we detect that our visitor is using a touchscreen.
+For responsive web design, we are typically querying the _features_ of the device in order to provide a different layout for smaller screens, or when we detect that our visitor is using a touchscreen.
 
 ### Media queries based on viewport size <a href="#viewport-media-queries" class="w-headline-link">#</a>
 
 Media queries enable us to create a responsive experience where specific styles are applied to small screens, large screens, and anywhere in between. The feature we are detecting here is therefore screen size, and we can test for the following things.
 
--   `width` (`min-width`, `max-width`)
--   `height` (`min-height`, `max-height`)
--   `orientation`
--   `aspect-ratio`
+- `width` (`min-width`, `max-width`)
+- `height` (`min-height`, `max-height`)
+- `orientation`
+- `aspect-ratio`
 
 All of these features have excellent browser support, for more details including browser support information see [width](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/width), [height](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/height), [orientation](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation), and [aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio) on MDN.
 
@@ -206,10 +195,10 @@ The specification did include tests for `device-width` and `device-height`. Thes
 
 Given the range of devices available, we cannot make the assumption that every large device is a regular desktop or laptop computer, or that people are only using a touchscreen on a small device. With some newer additions to the media queries specification we can test for features such as the type of pointer used to interact with the device and whether the user can hover over elements.
 
--   `hover`
--   `pointer`
--   `any-hover`
--   `any-pointer`
+- `hover`
+- `pointer`
+- `any-hover`
+- `any-pointer`
 
 Try viewing this demo on different devices, such as a regular desktop computer and a phone or tablet.
 
@@ -219,8 +208,7 @@ These newer features have good support in all modern browsers. Find out more on 
 
 The features `any-hover` and `any-pointer` test if the user has the capability to hover, or use that type of pointer even if it is not the primary way they are interacting with their device. Be very careful when using these. Forcing a user to switch to a mouse when they are using their touchscreen is not very friendly! However, `any-hover` and `any-pointer` may be useful if it is important to work out what kind of device a user has. For example, a laptop with a touchscreen and trackpad should match coarse and fine pointers, in addition to the ability to hover.
 
-How to choose breakpoints <a href="#breakpoints" class="w-headline-link">#</a>
-------------------------------------------------------------------------------
+## How to choose breakpoints <a href="#breakpoints" class="w-headline-link">#</a>
 
 Don't define breakpoints based on device classes. Defining breakpoints based on specific devices, products, brand names, or operating systems that are in use today can result in a maintenance nightmare. Instead, the content itself should determine how the layout adjusts to its container.
 
@@ -299,8 +287,7 @@ Classic readability theory suggests that an ideal column should contain 70 to 80
 
 Be careful when choosing what content to hide or show depending on screen size. Don't simply hide content just because you can't fit it on the screen. Screen size is not a definitive indication of what a user may want. For example, eliminating the pollen count from the weather forecast could be a serious issue for spring-time allergy sufferers who need the information to determine if they can go outside or not.
 
-View media query breakpoints in Chrome DevTools <a href="#devtools" class="w-headline-link">#</a>
--------------------------------------------------------------------------------------------------
+## View media query breakpoints in Chrome DevTools <a href="#devtools" class="w-headline-link">#</a>
 
 Once you've got your media query breakpoints set up, you'll want to see how your site looks with them. You could resize your browser window to trigger the breakpoints, but Chrome DevTools has a built-in feature that makes it easy to see how a page looks under different breakpoints.
 
@@ -318,35 +305,35 @@ Click on one of the bars to view your page while that media query is active. Rig
 
 <a href="/blog" class="gc-analytics-event w-article-navigation__link w-article-navigation__link--back w-article-navigation__link--single">Return to all articles</a>
 
--   ### Contribute
+- ### Contribute
 
-    -   <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
-    -   <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
+  - <a href="https://github.com/GoogleChrome/web.dev/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=" class="w-footer__linkbox-link">File a bug</a>
+  - <a href="https://github.com/googlechrome/web.dev" class="w-footer__linkbox-link">View source</a>
 
--   ### Related content
+- ### Related content
 
-    -   <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
-    -   <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
-    -   <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
-    -   <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
-    -   <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
-    -   <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
+  - <a href="https://blog.chromium.org/" class="w-footer__linkbox-link">Chrome updates</a>
+  - <a href="https://developers.google.com/web/" class="w-footer__linkbox-link">Web Fundamentals</a>
+  - <a href="https://developers.google.com/web/showcase/" class="w-footer__linkbox-link">Case studies</a>
+  - <a href="https://devwebfeed.appspot.com/" class="w-footer__linkbox-link">DevWeb Content Firehose</a>
+  - <a href="/podcasts/" class="w-footer__linkbox-link">Podcasts</a>
+  - <a href="/shows/" class="w-footer__linkbox-link">Shows</a>
 
--   ### Connect
+- ### Connect
 
-    -   <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
-    -   <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
+  - <a href="https://www.twitter.com/ChromiumDev" class="w-footer__linkbox-link">Twitter</a>
+  - <a href="https://www.youtube.com/user/ChromeDevelopers" class="w-footer__linkbox-link">YouTube</a>
 
 <a href="https://developers.google.com/" class="w-footer__utility-logo-link"><img src="/images/lockup-color.png" alt="Google Developers" class="w-footer__utility-logo" width="185" height="33" /></a>
 
--   <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
--   <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
--   <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
--   <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
+- <a href="https://developer.chrome.com/" class="w-footer__utility-link">Chrome</a>
+- <a href="https://firebase.google.com/" class="w-footer__utility-link">Firebase</a>
+- <a href="https://cloud.google.com/" class="w-footer__utility-link">Google Cloud Platform</a>
+- <a href="https://developers.google.com/products" class="w-footer__utility-link">All products</a>
 
 <!-- -->
 
--   <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
--   <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
+- <a href="https://policies.google.com/" class="w-footer__utility-link">Terms &amp; Privacy</a>
+- <a href="/community-guidelines/" class="w-footer__utility-link">Community Guidelines</a>
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/terms/site-policies).

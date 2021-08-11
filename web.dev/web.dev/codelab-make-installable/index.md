@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Make it installable
 
 Nov 5, 2018 <span class="w-author__separator">•</span> Updated Feb 12, 2021
